@@ -1,0 +1,449 @@
+                                                                                                                                                         The 16th International Conference on
+                                                                                                                                                         Computer Science & Education (ICCSE 2021)
+                                                                                                                                                         August 18-20, 2021. Online                                                                                                                                  ThP2.3
+
+                                                                                                                                                                 Interactive Interface Design for Telemedicine and
+                                                                                                                                                                          the Emotional Needs of Patients
+                                                                                                                                                                        Chengjun Zhou                                           Zhijiao Wang                                            Zhaoyang Jiang
+                                                                                                                                                                   School of Art and Design                                School of Art and Design                                School of Art and Design
+
+
+
+
+2021 16th International Conference on Computer Science & Education (ICCSE) | 978-1-6654-1468-5/21/$31.00 ©2021 IEEE | DOI: 10.1109/ICCSE51940.2021.9569545
+                                                                                                                                                                 Hubei University of Technology                          Hubei University of Technology                          Hubei University of Technology
+                                                                                                                                                                        Wuhan, China                                            Wuhan, China                                            Wuhan, China
+                                                                                                                                                                    19861057@hbut.edu.cn                                   102011110@hbut.edu.cn                                   102001086@hbut.edu.cn
+
+
+
+
+                                                                                                                                                                  Abstract—This paper, with the mobile terminal APP                           provided with a theoretical basis for satisfying their emotional
+                                                                                                                                                              interface for telemedicine as the carrier, is about interactive                 needs and improving user experience.
+                                                                                                                                                              interface design according to the emotional needs of patients.
+                                                                                                                                                              Guided by Tri-Stratification in Emotional Design, with the help                      II.     EMOTIONAL DESIGN THEORY OF TELEMEDICINE
+                                                                                                                                                              of a questionnaire, the author obtains five evaluation indicators                              INTERACTIVE INTERFACE DESIGN
+                                                                                                                                                              of patients’ emotional needs in telemedicine platform:
+                                                                                                                                                                                                                                                    Emotion is an indispensable life element for human
+                                                                                                                                                              safety/privacy, confidence enhancement/anxiety reduction,
+                                                                                                                                                              care/help      receiving,     information       sharing/interactive             beings. As far as the senses are concerned, human beings
+                                                                                                                                                              communication, specialty, and uses superiority chart to analyze                 receive stimuli from different products and experience
+                                                                                                                                                              the importance of these five indicators. On this basis, an                      different emotions. They can have three different levels of
+                                                                                                                                                              experiment is made, with the adoption of the fuzzy                              emotion facing the same product [3]. In his book Design
+                                                                                                                                                              comprehensive evaluation method, to comprehensively evaluate                    Psychology 3: Emotional Design, Donald Norman analyzes
+                                                                                                                                                              the experimental projects of color group, graphics group, and                   these three levels from the perspective of emotional design:
+                                                                                                                                                              navigation layout group, so as to create an emotionally                         Instinct Level Design, Behavioral Level Design, and
+                                                                                                                                                              satisfactory interactive interface for patients, and to bring about             Reflection Level Design [4].
+                                                                                                                                                              better user experience on the basis of providing effective                            The emotional design of telemedicine service interactive
+                                                                                                                                                              telemedicine for patients.                                                      interface is analyzed by three levels of design. Instinct level
+                                                                                                                                                                                                                                              design is based on instinct and aims to give people a pleasant
+                                                                                                                                                                Keywords—Interactive,          Interface     design,    Telemedicine,         sensory experience [5]. In the design of the interface, the
+                                                                                                                                                              Emotional care                                                                  visual elements such as text, color, graph, and interface layout
+                                                                                                                                                                                                                                              give people the first impression. The behavioral level design
+                                                                                                                                                                                       I.    INTRODUCTION                                     is related to the users’ application of product and experience.
+                                                                                                                                                                    The medical and health services of China have been                        A good telemedicine service interface design includes perfect
+                                                                                                                                                              facing the problems of a large population and uneven                            functions, good feelings, ease of use, and ease of
+                                                                                                                                                              distribution of medical resources. The arrival of the post-                     understanding. Reflected in the specific interface, the text,
+                                                                                                                                                              Covid-19 pandemic era has brought unprecedented challenges                      color, and graphics are reasonably arranged, and the service
+                                                                                                                                                              to this [1]. In this context, telemedicine with unique                          process and the logical order of operation are easy for patients
+                                                                                                                                                              advantages is increasingly valued. Telemedicine service is                      to understand, learn and use [6]. The reflective level design is
+                                                                                                                                                              different from the traditional medical service mode. It                         people’s impression and memory of the product and the
+                                                                                                                                                              overcomes such disadvantages as no sharing of information                       meaning of the product after using the product. Therefore, the
+                                                                                                                                                              among hospitals, blocked information transmission, uneven                       reflective level of interactive interface design should pay
+                                                                                                                                                              resource allocation, and difficulty in optimizing service                       attention to the patient’s pleasure and resonance, in the use
+                                                                                                                                                              quality. Besides, it boasts the characteristics of cross-regional               process, maintain a stable and continuous sense of control,
+                                                                                                                                                              connectivity and cross-space-and-time interactivity [2]. It can                 reduce the operation error and confusion, improve the
+                                                                                                                                                              be seen that in the post epidemic era, telemedicine systems can                 feedback mechanism of interface design [7]. The above three
+                                                                                                                                                              become an important means of epidemic prevention and                            levels of emotional design should be fully considered and
+                                                                                                                                                              control, public health protection as well as the improvement                    balanced to better meet the needs of patients and improve their
+                                                                                                                                                              of public health service quality.                                               user experience.
+                                                                                                                                                                    At the same time, the rapid development of computer and
+                                                                                                                                                              network communication technology provides a great                                     III.    FACTORS IN EMOTION-BASED TELEMEDICINE
+                                                                                                                                                              development space for telemedicine service and provides the                                     INTERACTIVE INTERFACE DESIGN
+                                                                                                                                                              possibility for medical workers to communicate with patients                        Through the analysis of Donald’s Emotional Design
+                                                                                                                                                              through mobile terminal APPs. Therefore, how to                                 theory, it is concluded that functional application, vision
+                                                                                                                                                              scientifically analyze the emotional needs of patients and                      (including text, color, graphics, layout), operation process,
+                                                                                                                                                              explore the interactive interface design to satisfy the                         and so on are the important factors that affect the emotional
+                                                                                                                                                              emotional needs of patients is particularly important. This                     experience of patients in the telemedicine service interactive
+                                                                                                                                                              paper takes the interactive interface of telemedicine service                   interface design. The following analyzes the above factors
+                                                                                                                                                              used by the mobile terminal APP as the carrier to study the                     with specific examples in telemedicine interactive interface
+                                                                                                                                                              emotional design theory in interactive interface and                            design [8].
+                                                                                                                                                              investigate the emotional needs of patients. Through
+                                                                                                                                                              experiments and data analysis, the form of interactive
+                                                                                                                                                              interface design that meets the emotional needs of patients is
+
+
+                                                                                                                                                             978-1-6654-1468-5/21/$31.00 ©2021 IEEE                                     554
+                                                                                                                                                                    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                                       ThP2.3
+
+
+
+A. Functional Application in Telemedicine Interactive                           is dominated by a warm blue tone, which is usually associated
+    Interface Design                                                            with peace and tranquility, making the application appear
+    For patients, the interface design of telemedicine service                  confidential and reliable, and it is easy for patients to relieve
+should first meet their functional requirements. Telemedicine                   the anxiety. The icon of the above interface design adopts a
+services should include three basic functional application                      flat style, and the size and position are within a reasonable
+sections: remote consultation, remote diagnosis, and remote                     range, which can assist the communication of information and
+communication [9]. Remote consultation includes the                             improve the convenience of information transmission. The
+appointment application for offline consultation (image,                        layout adopts the form of palace format and list type. On the
+ultrasound, ECG, pathology, etc.), online image interactive,                    one hand, the palace layout makes the interface clearly show
+long-distance audio interactive, and remote video interactive                   the entrance of each function. On the other hand, the list layout
+between patients and medical staff [10]. Remote diagnosis                       makes the content level display clearly, and patients can view
+includes booking and registering the basic information of                       the relevant medical information vertically without limitation.
+patients, reading the image information (imaging, ultrasonic,                   In contrast, the three interface designs in the right side of
+ECG, pathology, etc.) of patients, and obtaining the diagnosis                  Figure 2 transmits information through a large number of texts
+report. Remote communication includes real-time                                 arranged by list and uses fewer icons as auxiliary means. The
+consultation, medical and popular science information push,                     information level is not obvious, and the darker gray-blue is
+remote real-time communication consultation, providing                          the main color. The whole interface lacks some sensation,
+online consultation services for patients, helping patients with                which makes the patient feel cold and uneasy.
+disease self-management, daily health management, and                           C. Operation process of Telemedicine Interactive Interface
+psychological counseling; Medical and popular science
+                                                                                     The design of the interactive interface should consider the
+information push realizes the real-time sharing of medical
+                                                                                feeling and experience of patients in the process of operation
+information and the popularization of relevant medical
+                                                                                process, adapt to the logic of patients’ daily behavior. A good
+knowledge and helps patients to recognize diseases more
+                                                                                interactive process can not only quickly and accurately convey
+scientifically;    Remote      communication        builds     a
+                                                                                information for users but also locate users’ psychology,
+communication bridge between patients and medical staff,
+                                                                                correctly guide users and obtain users’ continuous attention.
+obtains care and help from others, and realizes the sharing of
+                                                                                Miao Y [11] analyzed more than 1300 mobile medical
+information and experience (see Figure 1).
+                                                                                applications in the Apple Market and the Google Market,
+                                                                                summarized, and extracted three service processes. The first
+                                                                                is that patients go through many tedious steps to consult after
+                                                                                they have a deep understanding of the hospitals and doctors;
+                                                                                The second is that patients choose two kinds of operation
+                                                                                paths of hospital or doctor according to their diseases to
+                                                                                conduct online consultation; The third is that the system
+                                                                                automatically matches the appropriate doctor for the patient.
+                                                                                After a questionnaire survey, it is concluded that the second
+                                                                                service process can best meet the emotional needs of users in
+                                                                                a balanced manner [7].
+             Fig. 1. Basic functions of telemedicine service
+                                                                                        IV.    RESEARCH IN THE ANALYSIS OF PATIENTS’
+                                                                                                     EMOTIONAL NEEDS
+                                                                                A. Qualitative research
+                                                                                     Based on the three-level design of Donald and the
+                                                                                research results of relevant scholars, the interview method is
+                                                                                the main method to investigate the emotional needs of
+                                                                                patients. Fifty patients from a large general hospital in Wuhan
+                                                                                City, Hubei Province were randomly selected and interviewed
+                                                                                to learn about the actual feelings. According to the interview
+Fig. 2. The clinical mobile APP （ From https://ugem.de sign/blog/ui-            records, in addition to the most basic functional availability,
+design-tips-for-healthcare-apps）and The West China Remote Hospital APP          patients’ needs for service platforms in the healthcare sector
+                                                                                are more focused on emotional care, which can be
+B. Visual factors in Telemedicine Interactive Interface                         summarized into 5 keywords: safety/privacy, confidence
+    Design                                                                      enhancement/reduction of anxiety, care/help receiving,
+    Vision is the users’ most direct sensory experience of the                  information sharing/interactive         communication,      and
+interactive interface. The following two interface design                       professionalism as the evaluation indicators for the emotional
+examples are compared to analyze the impact of the text,                        design of the telemedicine interactive interface.
+graphics, color, and layout on the user's emotional experience                  B. Quantitative research
+(see Figure 2).
+                                                                                    1）Respondents：
+    In the three interface designs in the left side of Figure 2,
+the text is in sans-serif, the text information is left-aligned, and                A total of 120 patients were selected from large general
+the text is used to explain below the icon. The whole interface                 hospitals in Wuhan City, Hubei Province (including internal
+information is intuitive and has strong integrity, making it                    medicine, surgery, gynecology, pediatrics, laboratory,
+easier for patients to read, understand and operate. The color                  rehabilitation, 20 patients in each department), including 52
+                                                                                male patients and 68 female patients, aged between 20 and 60,
+
+                                                                          555
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                                       ThP2.3
+
+
+
+                                          Table Ⅰ. Weight calculation table of precedence chart
+ Average      Indicators                           Security /     Confidence                 Care / help      Information                  Specialty
+ value                                             privacy        enhancement /              receiving        sharing/interactive
+                                                                  anxiety reduction                           communication
+ 3.200        Security / privacy                   0.5            0                          0                1                            0
+
+ 3.353        Confidence enhancement / anxiety     1              0.5                        1                1                            0
+              reduction
+ 3.400        Care / help receiving                1              0                          0.5              1                            0
+ 3.167        information sharing / interactive    0              0                          0                0.5                          0
+              communication
+ 3.800        Specialty                            1              1                          1                1                            0.5
+36 from rural areas and 64 from urban areas. To establish a                     the number 0.5 means that it is equally important. In the above
+screening mechanism for the survey participants: have a good                    table, the importance of professionalism with the highest
+                                                                                average value is 1 when compared with the importance of
+ability of understanding; be able to use smartphones                            safety/privacy, confidence enhancement/reduction of anxiety,
+independently; have the conditions to use the Internet.                         care/help    receiving,     information      sharing/interactive
+   2） Research Methods ：                                                        communication.
+                                                                                    Table Ⅱ is the result table of the weight calculation of the
+    Based on Donald’s emotional design theory, a                                precedence chart of the five emotion evaluation indicators.
+questionnaire survey is designed on the basis of five                           The TTL value is obtained by summing the data of each row
+emotional evaluation indicators. Moreover, the weight of                        , and the weight value is obtained by normalizing the TTL
+emotional evaluation indicators was identified with using the
+                                                                                value. By analyzing the data in the table, it can be concluded
+precedence chart[12].
+      Establishing a five-level scoring system: 1 point for                     that the weight value, TTL value, and average value are
+very unnecessary, 2 points for unnecessary, 3 points for                        consistent. The weight of specialty is the highest, accounting
+general, 4 points for necessary, and 5 points for very                          for 36.000%, and its importance is the highest. The weight
+necessary. Collecting the score of 120 patients on the                          and importance of confidence enhancement/reduction of
+importance of the five emotional evaluation indicators,                         anxiety, care/help receiving, and safety/privacy decreases in
+calculating the average score of the importance of the five                     turn. The weight and the importance of information
+indicators (that is, the average value), combining the                          sharing/interactive communication are the lowest, accounting
+indicators in pairs, and comparing the results. The weight                      for 4.000%.
+calculation table of the precedence chart is obtained by
+comparing the average value (see Table Ⅰ).                                              V.    RESEARCH ON EMOTIONAL EVALUATION OF
+      Based on the weight calculation table of precedence                                    TELEMEDICINE INTERACTIVE INTERFACE
+chart, the emotional evaluation indicators of each row table                    A. Research Objectives
+are calculated to get the TTL value. After normalizing the
+TTL value, the weighted values of five emotion evaluation                           The purpose of this experiment is to evaluate the
+indicators are calculated through the formula, and the weight                   influence of different interface design factors on the degree
+calculation result table of a precedence chart is obtained (see                 of emotional care of patients through five emotional
+Table Ⅱ).                                                                       indicators and to seek a more emotional interface design to
+                                                                                meet the patient's emotion, which provides a certain reference
+     3） Results and Analysis：
+                                                                                value for the later telemedicine service interface design.
+     Table Ⅰ is the weight calculation table of precedence                      B. Participants
+chart of five emotion evaluation indicators. The larger the
+average value is, the higher the importance is. Through                             A total of 100 patients from large general hospitals in
+numerical comparison, it can be concluded that the                              Wuhan City, Hubei Province were selected as experimental
+importance of professionalism is the highest, the importance                    participants, including 55 male patients and 45 female
+of safety/privacy, confidence enhancement/reduction of                          patients, aged between 20 and 60, 25 from rural areas and 75
+anxiety, care/help receiving is decreasing, and the importance                  from urban areas. Experimental participants need to meet the
+of information sharing/interactive communication is the                         basic conditions of good consciousness, independent use of
+lowest. Using the average value to compare the indicators in                    smartphones, and the Internet for mobile phone operation.
+pairs. The number 0 means that it is relatively unimportant,                    C. Research Method and Process
+the number 1 means that it is relatively more important, and
+                                                                                    This study consists of two procedures, one is the
+  Table Ⅱ. Weight calculation results of superiority chart                      experimental . The experiment is divided into three groups:
+ Indicators                Average        TTL(Index         Weight              color group, graphics group, and navigation layout group.
+                           value          score)            value               The color group tested the effect of the main color of the
+ Security / privacy        3.200          1.500             12.000%             interface on the patients’ emotions. The color is used as the
+ Confidence                3.533          3.500             28.000%             variable, and the interface with red, yellow, blue, green, and
+ enhancement / anxiety                                                          white as the main color are tested separately (see Figure 3).
+ reduction
+                           3.400          2.500             20.000%
+                                                                                The graphic group takes the graphic elements in the interface
+ Care / help receiving
+ Information sharing /     3.167          0.500             4.000%              design as variables and takes the circle and square as test
+ Interactive                                                                    items (see Figure 4). The navigation layout group changes the
+ communication                                                                  specific layout of the navigation in the interface design, with
+ Specialty                 3.800          4.500             36.000%             top navigation, drop-down list layout, palace layout, card
+
+
+                                                                          556
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                                         ThP2.3
+
+
+
+layout, label layout, and drawer layout as test items (see                                        TableⅢ. Weight vector-matrix A
+Figure 5). The interface design model was made for the above
+                                                                                               Indicators                            Index item weight
+three experimental groups so that the experimental
+                                                                                           security/privacy                                 0.12
+participants can intuitively feel and accurately judge.
+                                                                                   confidence enhancement/anxiety                           0.28
+                                                                                              reduction
+                                                                                         care/help receiving                                 0.2
+                                                                                    information sharing/interactive                         0.04
+                                                                                           communication
+                                                                                                Specialty                                   0.36
+
+
+                                                                                D. Results and Analysis
+                                                                                     TableⅣ. Weight calculation results of Color group
+                                                                                 Color                         Very         Satisfied    General     Unsati-
+                                                                                 group                       satisfied                                sfied
+                          Fig. 3. Color group                                    Red                          0.112          0.222          0.362     0.304
+                                                                                                              0.112          0.222          0.362     0.304
+                                                                                 Yellow                       0.195          0.190          0.339     0.276
+                                                                                              Membership
+                                                                                                degree        0.195          0.190          0.339     0.276
+                                                                                 Blue         Membership      0.408          0.306          0.146     0.140
+                                                                                             normalization
+                                                                                               (weight)       0.408          0.306          0.146     0.140
+                                                                                 White                        0.398          0.222          0.244     0.136
+                                                                                                              0.398          0.222          0.244     0.136
+                                                                                 Black                        0.288          0.342          0.230     0.140
+                                                                                                              0.288          0.342          0.230     0.140
+
+
+
+
+                       Fig. 4. The graphics group
+
+
+
+
+                                                                                                        Fig. 6. Line chart of Color group
+
+                                                                                  TableⅤ. Comprehensive score calculation of color group
+                                                                                  Color      Comprehensive         Very       Satisfie   Gener      Unsatisfi
+                                                                                  group         score              satisf        d        al          ed
+                                                                                                                    ied
+                    Fig. 5. Navigation layout group                                Red              2.142            4           3           2           1
+                                                                                  Yellow            2.304            4           3           2           1
+    Another one uses a fuzzy comprehensive evaluation                              Blue             2.982            4           3           2           1
+method. First four evaluation grades are divided into four                        White             2.882            4           3           2           1
+comments, which are very satisfied, satisfied, general, and                       Black             2.778            4           3           2           1
+dissatisfied. Then 100 patients are told to evaluate with 5                          Table Ⅳ and Table Ⅴ are statistical tables of weight
+indicators and 4 comments for each experimental group, and                      calculation results and comprehensive score calculation
+the proportion of 5 evaluation indicators of each experimental                  results of the color group respectively. Table Ⅳ and Figure 6
+item is obtained, and the weight judgment matrix R is made.                     show the comprehensive evaluation of each main color in the
+Combined with the weight proportion of the importance of
+the five emotional evaluation indicators obtained by the prior                  color group. Table Ⅳ includes the membership indicators and
+use of the precedence chart method, the weight vector-matrix                    weight. According to the maximum membership rule, it can
+A is made (see Table Ⅲ).                                                        be inferred that the patients are very satisfied with the
+      Using the information of weight judgment matrix R and                     comprehensive evaluation of blue and white, and 40.8% of
+weight vector-matrix A, the weighted average type: M (. , +)                    the patients are very satisfied with the choice of blue, which
+fuzzy operator is used to calculate the weight of fuzzy                         is higher than that of the white group; The comprehensive
+comprehensive evaluation, and the weight calculation results                    evaluation of green was satisfactory; the comprehensive
+of color group (see Table Ⅳ), graphics group (see Table Ⅵ)                      evaluation of red and yellow was general, and 36.2% of
+and navigation layout group (see Table Ⅷ ) are taken.                           patients evaluated red as general. Table Ⅴ can be seen that
+According to the importance of the four comments, the score                     the comprehensive score of blue is the highest, which is
+is set as 4 points for very satisfied, 3 points for satisfied, 2                2.982. The comprehensive scores of white, green and yellow
+points generally, and 1 point for dissatisfied. The                             are decreasing in turn, and the red is the lowest, which is
+comprehensive score calculation results of the color group                      2.142.
+(see Table Ⅴ), graphics group (see Table Ⅶ), navigation                             By analyzing the reasons for the significant differences in
+layout group (see table Ⅸ) are obtained.                                        the comprehensive evaluation of the experimental items in
+                                                                                the color group, we can draw the following conclusions: Blue
+
+                                                                          557
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                                       ThP2.3
+
+
+
+has the highest satisfaction because the blue can bring the                      powerful, which can easily bring pressure to patients and can
+patient a sense of calm and stability, white usually conveys                     not stimulate positive emotions of patients.
+the feeling of purity and peace, green is a healthy color, which                  Table Ⅷ. Weight calculation results of navigation layout group
+can eliminate the pressure and anxiety of the patients, and the
+                                                                                  Navigatio                    Very        Satisfie   Gener    Unsatisfi
+above three colors can arouse the patients’ positive emotions                     n layout                     satisfie    d          al       ed
+of patients; Yellow usually has the function of warning. Red                        group                      d
+can make the patients associate with blood easily, both of                            Top                      0.338       0.312      0.212    0.138
+them can arouse the negative psychology of the patients, so                       navigatio                    0.338       0.312      0.212    0.138
+                                                                                   n layout
+the comprehensive evaluation of the two is not high.
+                                                                                  Dropdow                      0.315       0.444      0.108    0.133
+    TableⅥ. Weight calculation results of graphics group                             n list                    0.315       0.444      0.108    0.133
+                                                                                    layout     Membership
+ Graphic                     Very        Satisfie    Genera   Unsatisfie                          degree
+ s group                    satisfie        d          l         d                  Palace     Membership
+                                                                                                               0.467       0.195      0.215    0.123
+                               d                                                    format     normalization   0.467       0.195      0.215    0.123
+    Flat                     0.476        0.144      0.229      0.151               layout       (weight)
+ rounded     Membership      0.476        0.144      0.229      0.151                Card                      0.260       0.370      0.150    0.220
+                degree
+  shape      Membership
+                                                                                    layout                     0.260       0.370      0.150    0.220
+    Flat     normalizatio    0.252        0.356      0.258      0.134                Label                     0.568       0.124      0.126    0.182
+  square      n (weight)     0.252        0.356      0.258      0.134               layout                     0.568       0.124      0.126    0.182
+   angle                                                                           Drawer                      0.280       0.204      0.378    0.138
+                                                                                    layout                     0.280       0.204      0.378    0.138
+
+
+
+
+                     Fig. 7. Line chart of graph group
+
+  Table Ⅶ. Comprehensive score calculation of graphics group
+ Graphi     Comprehensi        Very       Satisfie    Gener    Unsatisfi
+     cs       ve score        satisfie       d         al        ed
+  group                          d                                                             Fig. 8. Line chart of navigation layout group
+    Flat        2.945            4            3          2         1              Table Ⅸ. Comprehensive score calculation of navigation layout group
+ rounded
+  shape                                                                           Navigati     Comprehens        Very       Satisfi   Gener     Unsatisfi
+    Flat        2.726            4            3          2         1              on layout     ive score       satisfie      ed       al         ed
+  square                                                                           group                           d
+   angle                                                                             Top          2.850            4           3         2             1
+                                                                                  navigatio
+                                                                                  n layout
+                                                                                  Dropdow         2.941            4           3         2             1
+      Table Ⅵ and Table Ⅶ are statistical tables of weight                          n list
+calculation results and comprehensive score calculation                            layout
+results of the graph group. Table Ⅵ and Figure 7 show the                          Palace         3.006            4           3         2             1
+                                                                                   format
+comprehensive evaluation in the graphics group. Table Ⅵ                            layout
+can be inferred that the patients are very satisfied with the                       Card          2.670            4           3         2             1
+comprehensive evaluation of the fillet shape, and 47.6% of                         layout
+the patients are very satisfied; the comprehensive evaluation                       Label         3.078            4           3         2             1
+                                                                                   layout
+of the square angle shape is satisfied, and 35.6% of the                           Drawer         2.626            4           3         2             1
+patients are satisfied. Table Ⅶ can be seen that the score of a                    layout
+round corner is 2.945 points higher than that of a square                             Table Ⅷ and Table Ⅸ are the results of the weight
+corner, and the comprehensive score of a square corner is                        calculation and comprehensive score calculation of the
+2.726 points.                                                                    navigation layout group. Table Ⅷ and Figure 8 show the
+    Analysis of patients’ higher evaluation of round corner                      comprehensive evaluation of each layout style in the
+shape is as follows: round corner shape can express tender                       navigation layout group. Table Ⅷ can be inferred that patients
+and caring emotion, while square corner shape is more                            are very satisfied with the comprehensive evaluation of top
+                                                                                 navigation style, palace style, and label style. 56.8% of
+
+                                                                           558
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                                       ThP2.3
+
+
+
+patients are very satisfied with the choice of label style, which                                        ACKNOWLEDGMENT
+is the maximum among the three; The comprehensive                                    This work is funded by Research on the core symbol
+evaluation of drop-down list type and card type is satisfied,                   system of Hubei in the context of regional culture and
+and 37.8% of the patients’ comprehensive evaluation of
+                                                                                contemporary brand construction project (14D025)， Theory
+drawer type is general. Table Ⅸ can be seen that the tag type
+                                                                                and Practice of Synergistic Innovation between Art and
+has the highest comprehensive score of 3.078. The palace
+                                                                                Design Education and Hubei Cultural Industry project of
+type, drop-down list type, top navigation type, and card type
+                                                                                Hubei Province (2014B064).
+have the descending comprehensive score, while the drawer
+type has the lowest score of 2.626, which is between general                                                  REFERENCES
+and satisfied.
+      By analyzing the results of the emotional evaluation of                   [1]  X. Tian, Z. Liao, H. Tang, and M. You, “Research on the construction
+patients in the navigation layout group of interface design, we                      of telemedicine systems based on the theory of change,” Health
+can know that the tag layout, palace layout, and top                                 Economics Research, 2021, vol. 38. no. 02, pp.41-43.
+navigation layout can display the core functions of the                         [2] H. Gu, Z. Z. Feng, D. Wu, and N. Yang, “Research status and trends of
+                                                                                     telemedicine in China —— quantitative analysis based on cite space,”
+telemedicine service APP and give patients more intuitive                            Journal of Information Resources Management, 2020, vol. 10. no. 04,
+feelings; The pull-down list type uses the form of sliding up                        pp.119-129.
+and down, and the drawer type uses the form of sliding left                     [3] P. W. Jordan, “Designing pleasurable products,” The Contemporary
+and right to slide out the hidden navigation interface, which                        Trends Institute, London, UK, 2000.
+reduces the readability of interface operation; The card type                   [4] D. An, Design Psychology3: Emotional Design. Beijing: China Citic
+is mainly based on pictures, which can attract the attention of                      Press, 2012.
+patients, but it is also easy to damage the integrity of the                    [5] J. Liu, and Q. Duan, “Source: communications in computer and
+interface and bring chaotic visual experience.                                       information science,” HCI International 2019 - Posters - 21st
+                                                                                     International Conference, HCII 2019, Proceedings, 2019, vol. 1032,
+                         VI.    CONCLUSION                                           pp. 49-55.
+                                                                                [6] R. Nascimento, C. D. Limeira, A. L. S. Pinho, and J. G. S. Rosa,
+      At present, the theoretical research of telemedicine in                        “Emotion, affectivity and usability in interface design,” International
+China is still in the exploratory stage, and the basic functional                    Conference of Design, User Experience, and Usability. Springer
+framework has barely been formed in the design level of                              International Publishing, 2014.
+mobile terminal application program design. Although the                        [7] X. Wang, Y. Zhang, and D. Zheng, “Emotional design of human-
+number of healthcare APPs in the application market                                  computer interaction interface in medical monitoring equipment,”
+                                                                                     Packaging Engineering, 2018, vol. 39. no. 02, pp. 113-118.
+accounts for a large proportion, the number of telemedicine
+APPs that mainly focus on patients and their emotional needs                    [8] G. Chao, Q. Yue, and B. Zhao, “Establishment of design strategies and
+                                                                                     design models of human-computer interactive interface based on user
+is very small. As an important part of APP interactive design,                       experience,” Springer, Cham, 2018.
+the interactive interface has a great impact on the mood,                       [9] N. Liu, “On the construction and application of telemedicine
+psychology, and emotion of patients. On the basis of                                 interactive platform based on the health alliance of women and
+theoretical analysis and practical research, this paper first                        children,” Chinese Hospital Management, 2020, vol. 40. no. 02, pp. 72-
+offers some analyses of the emotional needs of patients and,                         73.
+by designing different interface models, tests the emotional                    [10] E. R. Dorsey, and E. J. Topol, “Telemedicine 2020 and the next
+experience of patients on the interface under the influence of                       decade,” The Lancet, 2020, vol. 395. no. 10227, pp. 859.
+different factors, so as to explore the interface design form                   [11] Y. Miao, C. Tong, and B. Jiang, Research on service process design of
+                                                                                     mobile medical platform based on patient's emotional demand.
+that can meet the emotional needs of patients, which provides                        Springer, Cham, 2018.
+guidance and reference for the exploration of the emotional                     [12] The SPSSAU project (2020). SPSSAU. (Version 20.0) [Online
+design of future telemedicine interactive interface. It can be                       Application Software]. Retrieved from https://www.spssau.com.
+predicted that the future interactive interface design must be
+a breakthrough in functionality and usability, more
+humanized and personalized design.
+
+
+
+
+                                                                          559
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:44:26 UTC from IEEE Xplore. Restrictions apply.
+

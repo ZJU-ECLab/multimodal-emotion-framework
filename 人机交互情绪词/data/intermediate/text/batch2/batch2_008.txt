@@ -1,0 +1,1387 @@
+Multimedia Tools and Applications (2021) 80:5225–5253
+https://doi.org/10.1007/s11042-020-10006-4
+
+
+
+
+Affective interaction: Using emotions as a user
+interface in games
+                                                      1                     1
+Yoones A. Sekhavat 1           & Milad Jafari Sisi         & Samad Roohi
+
+
+Received: 9 January 2020 / Revised: 24 August 2020 / Accepted: 29 September 2020 /
+Published online: 6 October 2020
+# Springer Science+Business Media, LLC, part of Springer Nature 2020
+
+
+
+Abstract
+Affective computing, as a novel paradigm, adds a new feature into the human-computer
+interactions era that brings emotions into the process of design and evaluation. Such condition
+influences digital games’ not only structural dimension but also content and evaluation areas.
+This study aims to evaluate the effect of using emotions in the form of facial expressions as a
+User Interface (UI) and the input of a system in virtual scenarios. After studying the findings
+and methods of previous researches, a conceptual framework for Affective User Interface
+Design and Evaluation (AFFUIDE) has been proposed. Then, a game in the genre of shoot
+‘em up (called Facial Battle) in four interaction modes has been developed. The evaluation of
+this study has been performed in terms of the players’ performance and experience. For this
+purpose, 18 male students of the Multimedia Faculty of Tabriz Islamic Art University took part
+in the experiments, who were asked to play all four modes of the game. Then, after analyzing
+the normalization of collected data, one-way ANOVA and U Mann Whitney tests were used
+for the statistical analysis. The findings indicate that the Traditional UI is the most usable and
+the Full Affective UI has the best sense of fun and user experience among other methods.
+However, the hybrid mode (affective shooting), is not only usable as traditional mode, but it
+also works better in terms of user experience compared to other modes.
+
+Keywords Affective Computing . Affective User Interface . Virtual Scenario . User Experience .
+Facial Expressions
+
+
+
+This paper is an excerpt from the master’s thesis of Milad Jafari Sisi.
+
+* Yoones A. Sekhavat
+  sekhavat@tabriziau.ac.ir
+
+    Milad Jafari Sisi
+    m.jafarisisi@tabriziau.ac.ir
+
+    Samad Roohi
+    s.roohi@tabriziau.ac.ir
+
+
+1
+    Faculty of Multimedia, Tabriz Islamic Art University, Tabriz, Iran
+5226                                              Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+1 Introduction
+
+The debate surrounding human interactions is inherently and predominantly coupled with
+emotions. Humans communicate with each other not only through speech but also by using
+facial expressions, body postures and expressing emotions [60]. One of the challenges of
+human-computer interaction (HCI) is to bridge the gaps between the various fields of design
+and implementation of human-centered computing systems [36, 76]; which is a redefinition of
+the classical theory of HCI, that declares recognizing people (with their interests and activities)
+should be the first priority in technology design [3]. Hence, in order to design a more natural
+user interface, it is important to consider emotions in the process of human interactions with
+computers and virtual scenarios [8, 28, 80].
+    Previously, the primary modes of HCI only took place using traditional user interfaces such
+as keyboards, mouse, sound, GUIs, and the like [56]. Although these traditional tools provide
+high accuracy in the process of interactions, they are very different from the natural origins of
+interpersonal interactions. With the advent of intelligent technologies in the field of image and
+sound processing and recent advancement of various types of sensors, it has been possible to
+create more natural and emotional interactions between humans and computers [25]. Electro-
+encephalography (EEG), Electrocardiography (ECG), Galvanic Skin Response (GSR), Respi-
+ration Rate Analysis (RR), Skin Temperature Measurements (SKT), Electromyogram (EMG),
+Electrooculography (EOG), Facial Expressions (FE), Body Posture (BP), and Gesture Anal-
+ysis (GA) are the main emotion recognition approaches that have been evolved in sensor
+technology and methods in recent years for affective HCI [22]. Hybrid approaches [77],
+multimodal features and even the text that is typed in by users during a game or social media
+communication can serve as a possible starting point for the affect detection process and
+sentiment analysis in digital environments [13]. Purpose, cost, intrusion, accuracy, user
+tolerance, and the computing processing power are the important elements involved in
+selecting and utilizing the sensing tools in each project [29]. Among these approaches, facial
+expression analysis as a non-invasive and contactless method is applicable for mass and
+individual emotion recognition [22] and game industry [58], which can be used easily through
+a simple webcam and a trained algorithm [2].
+    However, in addition to the significant advances in machine learning and data mining
+continuation in improving the accuracy and efficiency of data analysis and emotion recogni-
+tion algorithms [73, 26, 53, 65], more attention should be paid to crucial elements of user
+experience (UX) in interaction design [4]. Designing natural and especially affective interfaces
+in the field of computer games, in addition to having a positive impact on emotional and
+psychological communication, improves user-product interaction [54]. This study aims to
+investigate the effect of using emotions in the form of facial expressions as a user interface
+and input of a computer game system.
+    In spite of various studies mentioned above, there has not been a deep investigation in the
+usability and user experience of utilizing emotions in the form of facial expressions - like
+anger, fear, surprise, disgust, joy and sadness - as a User Interface and input of a computer
+game system. This paper aims to answer these questions whether using emotions in the form of
+facial expressions can be used as a user interface and input of a computer game system, and be
+replaced with each other or not. Also, it tries to find out what effect can such a natural UI have
+on players’ performance and experience. For this regard, after performing a systematic
+literature review, a conceptual framework for Affective User Interface Design and Evaluation
+(AFFUIDE) is proposed in this study. Then, based on this framework, a shoot ‘em up game,
+Multimedia Tools and Applications (2021) 80:5225–5253                                      5227
+
+
+called Facial Battle, in four modes of user interface is developed. The evaluation of this study
+has been carried out in two quantitative and subjective ways that include users’ performance,
+which is logged during play, and their experience, which is obtained through questionnaires.
+For the second part, three questionnaires of GAMEFULLQUEST [31], SUS [9], and
+AttrakDiff [30] was used to assess immersion, system usability scale, and detailed user
+experience and user acceptance, respectively. For this purpose, 18 male students of the
+Multimedia Faculty of Tabriz Islamic Art University took part in the experiments, who were
+asked to play all four modes of the game and fill in the related questionnaires. Then, after
+analyzing the normalization of collected data through Smirnov Kolmogorov test, one-way
+ANOVA and Mann Whitney U tests were used for the statistical analysis. The overall
+contributions of this research are:
+& Proposing a conceptual framework for affective user interface design and evaluation
+    (AFFUIDE).
+& Design and development of an innovative form of interaction in a casual game using the
+    facial expression as an entry mode.
+& Conducting a user study to evaluate the proposed framework in terms of players’ perfor-
+    mance and experience.
+
+
+2 Related work
+
+Picard describes Affective Computing as the ability of a computing device to recognize,
+interpret, and simulate human affective states [60]. This affective state is an emotion which
+is an inseparable part of human intelligence [28]. Despite a large number of various definitions
+of emotion, many agree that emotion is a reaction to events that are deemed relevant to the
+needs and goals of an individual [39]. Also, many psychological models of affect have been
+provided. The most commonly agreed-upon list of basic emotions consists of anger, disgust,
+fear, joy, sadness and surprise, which is also known as Ekman’s discrete model of emotions
+[23]. Also, emotion can be represented by two values for valence and arousal, like Lang’s
+dimensional model of emotion [43]; or, it can be presented by more than two values like
+Plutchick’s multidimensional [61] or Russell’s circumplex model [68]. All of these models can
+be utilized for different fields of affective computer interactions.
+    Although a variety of studies and extensive surveys have been done in the field of affective
+computing in digital games, this study aims to have not only an overall review of them but also
+a detailed investigation in the UI area of this domain.
+
+2.1 Affective computing in digital games
+
+The most prominent goal of affective computing in digital games is to create systems with
+natural user interfaces in order to bridge the gap between technology and human activities
+by processing and responding to users’ affective needs [16]. In order to build a relationship
+between the user’s affective states and structures of the games, different types of interac-
+tions come into consideration. An individual’s emotional state and his body’s physiological
+responses are often connected to each other. Some of these responses from the skin, the
+brain, or the heart are more automatic than be controllable by a user; however, on the other
+hand, facial expressions or body movements can be controlled on one’s own free will.
+Recognizing a person’s affect-related data for affective interaction can be through sensing
+5228                                                      Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+physiological data, observing the body, analyzing voice, or analyzing text as illustrated in
+Fig. 1. [28]. The methods of this purpose are in two groups of invasive and non-invasive
+ways and sensors. Although invasive methods can provide more accurate and reliable data
+during an interaction, non-invasive ones are less disrupting [42]. Many elements such as
+purpose, cost, intrusion, accuracy, user tolerance, and the computing processing power are
+involved in selecting and utilizing the sensing tools in each project [29]. After selecting the
+technical type of interaction, methodologies from affective computing can be used by
+digital game designers and developers for user experience evaluation [20, 48], game
+adaption [5], game advance tool [44], research [67], player’s emotion manipulation [18],
+and attention modification [51] through the structure and elements of a game, which are
+divided into three sections: “dynamics”, “mechanics,” and “components” [82]. Given this
+issue and research in this field, the presence of affective computing in digital games can be
+categorized into four areas of narrative, interface, the player’s avatar, and non-player
+characters (NPCs) [16].
+    Within this field, affect is used in the creation of believable characters [7, 12], dynamic
+difficulty adjustment of game level [46, 27], flow improvement [38], enjoyment enhance-
+ment [85], affective behavior design for virtual characters [83, 14], learning motivation
+increase [66, 69], and competition provoke [32]. The use of affect in digital games has led
+to the development of more convincing and richer narratives [35]. Such utilization as a
+decision input tool in determining the type of narrative can positively affect players’
+emotional engagement, sense of empathy, and consequently their enjoyment [79] and
+increase the playability of games [78]. Also, affect-based interaction between players and
+NPCs results in the more immersion of him/her in the game [34]. In the following, the focus
+of research is to investigate main relative previous works and highlight their contribution
+based on the classification proposed in Fig. 1.
+    In [57], Partala evaluated the use of affective information in HCI. One of the goals of his
+research was to use facial affective states to estimate the amount of user arousal and valence,
+and then, use it as a source of affective information to simulate a virtual human-like conver-
+sational character in computer output. In this regard, he investigated this issue by measuring
+the activity of the facial muscles of zygomaticus major (the muscle that draws the lip corners
+
+
+
+
+Fig. 1 The classification of affective interaction in digital games
+Multimedia Tools and Applications (2021) 80:5225–5253                                        5229
+
+
+up producing a smile) and corrugator supercilii (the muscle that knits and lowers the brows
+producing a frown), which are strongly related with an emotional experience. The result of his
+study indicates that facial expressions, as a standard way of an individual’s affective arousal
+and valence amount estimation, can be used to establish emotional relationships with the
+computer. Through Partala’s study, it is inferable that by recognizing players’ affective state
+and manipulating NPCs’ emotional feedbacks based on these recognized emotions, their felt
+affective interaction and proximity with the content of a virtual scenario or narrative could be
+highly influenced - the more simulated level of emotions of NPCs based on the players’
+emotion, the more affective interaction results.
+    In [44], Lankes et al. proposed a game by the name of “EmoFlowers” to investigate the
+utilization of facial expressions as game input with different emotional feedback conditions.
+Their study conducted in a shopping center, where the players must stand in front of a monitor
+and adopt a specific facial expression to advance the game. In the scenario of the game, by
+means of specific emotions, players could change the weather state and influence the growth of
+a virtual flower. Two basic emotions of joy and sadness employed in their gameplay, which
+were used to cause sunshine and rain respectively. Their finding of players’ UX assessment
+declares that interaction with a game via facial expression not only provides a positive
+experience but also impact on their emotional disposition effectively. This study provides
+good views on the methodology and game design of affective games and indicates that using
+facial expressions as a user interface and game input with different emotional feedback
+conditions via adaption in scenario and narrative can improve the emotional state of players.
+    In [40], Korn et al. investigated numerous ways of procedural algorithms incorporation in
+computer games to evaluate the effect of procedural content generation on UX versus
+manually designed one. They found that procedural content generation can create an experi-
+ence that users perceive as both significantly more realistic and significantly more aesthetically
+pleasing. Such procedural content generation can be utilized for affective based procedural
+content generation in games, too; such as [71] for attention training, or like [33] for
+emotionally-adaptive virtual reality mental health applications.
+    In [72], Sekhavat et al. conducted a study on emotion awareness for player experience by
+investigating the role of the affect of others to one’s gameplay performance in a car racing
+multiplayer game. They evaluated the impact of the expression of manifested affects of an
+opponent on the emotions, and consequently the gameplay behavior of players. They showed
+that the emotional state of the opponent expressed by an emoji can not only attract the attention
+of players, but also affect the game behavior of players in terms of speeding up, reducing
+speed, collisions, and gameplay duration. Furthermore, they showed that the expression of
+manifested emotions of an opponent can affect the emotions of players in terms of increasing
+the rate of their emotional state changes. They concluded that affective interaction not only can
+influence player’s emotion and lead to an increase in the perceived competitiveness and
+enjoyment of the game, but also can be utilized as an experience evaluation tool during play.
+    In [55], Obaid et al. developed a game by the name of “Feed the Fish” to investigate the
+dynamic difficulty adjustment based on the emotional feedback of a player in the form of facial
+expressions. In this game, the player in the role of a fish must catch and eat smaller fish and
+escape the bigger predatory ones. The sadder the player is, the easier the game will be and
+reciprocally, the happier the player is, harder and more challengeable the game will be. Among
+22 subjects, the quantitative results of the analysis of variance of players’ performance did not
+show a significant difference between the two game modes. On the other hand, the results of
+subjective analysis of the players’ experience through 4 questions on the level of ease,
+5230                                             Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+enjoyment, attractiveness and performance of the players indicate that there is a significant
+difference in the enjoyment and attractiveness and no significant difference in its performance
+and ease. So, based on their findings, using emotions for adaption via dynamic difficulty
+adjustment of games influence player’s emotion and improves the fun level of the game rather
+than players’ performance. Generalizing this study into the affective user interface era suggests
+that the harder the game, the less usability can result in UI.
+    In [34], Ilves et al. evaluated the possibility of using a combination of head movement and
+emotions as a game input. The proposed game aimed to guide a drunkard to his home without
+falling down or hitting available obstacles on his way. By moving the head to left or right, the
+game character tilts to the same side. Emotions were also utilized to interact with NPCs in the
+game. It used to smile to make moving NPCs stand in their place, and frown to make
+mesmerizing ones scare and run away. Also, another version of the game used traditional
+keyboard and gamepad input for this interaction. The result of their study indicates positive
+feedback in the entertainment dimension of the game with the first mode. They have
+acknowledged that using emotions to interact with NPCs leads to more natural interaction
+and also increases immersion in the game, but the traditional user interface (keyboard and
+gamepad) is better reported than using emotions as input by users. But, as one of their main
+limitations of study, which calls into question the results of their research, was their weak
+emotion recognition system. We think the ability of an emotion recognition system can affect
+the felt usability of such UI.
+    In [1], Andersson explored the possibility of using head movement and facial features (lip
+corners and eyebrows) to advance a platform-style game. In this game, by tilting the lip corner
+to the left or right, the character moves to the same side subsequently and jumps by raising
+eyebrows. By evaluating the number of jumps, turns, and the average time the user needs to
+complete a level between four modes of using the facial feature, head movement, a combina-
+tion of them and just traditional keyboard mode. They reported better performance with the
+traditional interface than the other ones. However, there was no statistically significant
+difference in the combination mode of facial feature and head movement input with traditional
+one, the level of entertainment and enjoyment of using the facial feature and head movement
+was higher. Finally, they found it inappropriate to replace the full use of proposed facial
+features and head movements with traditional interfaces. In this study, In spite of detailed
+exploration among the four mentioned modes, there has not been any study in the hybrid use
+of facial features with traditional input devices.
+    In [52], Muller et al. implemented a Jump’n’Run game using the facial expression as
+control input for entertaining children during car journeys. Emotional facial expressions
+of joy, surprise and disgust were used for three mechanisms of jumping, bending and
+running in their game by the name of “Arch’n’Smile.” The game was played on a
+monitor behind the front seats for children, and they conducted their study with children
+and their parents in some real driving situations. This study not only lacks statistical
+analysis and evaluation of the user experience of the designed game but also the
+designed game does not provide any meaningful feedback to the players. But in the
+absence of such evaluations, oral interviews of the researchers with children and their
+parents indicated that such game’ inputs are more fun and less dizzy-making during car
+journeys than previous ones.
+    An overall summary of the highlights of the articles discussed above and some other
+research in this field are presented in Table 1 based on their categorizations of Methodology
+and Game Design. Then, Affective User Interface is described in the next section.
+Table 1 Summary of cited papers focusing on affective computing in digital games
+
+Affective Computing in Digital Games
+
+                                                                                              Methodology                         Game Design
+
+                                                                                              Evaluation Adaption                 Dynamics Mechanics Components
+
+Points                                                                                        Adaption Evaluating   Influencing   NPCs Narrative Player User      Reference
+                                                                                                       Player       Player                       Avatar Interface
+                                                                                                       Experience   Emotion
+
+The use of emotion in digital games leads to the development of more convincing and                                 •                   •                         [35]
+  richer narratives.
+Capturing and reflecting the affective state of the player through the game elements can                •                               •                         [10]
+  improve the aesthetic dimension of the game.
+Using acousmêtre sounds in the game creates a sense of suspense in the player, that its                 •           •                   •                •        [49]
+                                                                                                                                                                              Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+
+  continuity creates a significant correlation with the affective state of the players and
+  their engagement.
+Emotional facial expressions can be used to dynamic difficulty adjustment of game             •                                                                   [6]
+  levels, which is welcomed by players.
+Using emotions as a decision input tool in determining the type of a narrative can                      •                               •         •      •        [79]
+  positively affect players’ emotional engagement, sense of empathy, and consequently
+  their enjoyment.
+Music and sound reinforce the narrative in interactive media and virtual scenarios, which               •                                                •        [15]
+  enhances player’s engagement.
+Sound plays a critical role in transmitting emotions.                                                   •                         •                      •        [75]
+Among the emotional stimulus mechanisms, the most dominant report has been for                                                    •     •         •      •        [16]
+  “sound” after “aesthetic” ones.
+Altering the game ambient light can change the stress level of the players.                   •         •           •                                             [17]
+Using facial expressions as a game input with different emotional feedback conditions         •                     •                   •                •        [44]
+  can improve the emotional state of players.
+Since facial expressions are directly related to the individuals’ valence and arousal, they                                             •         •      •        [57]
+  can be used to establish emotional relationships with the computer.
+Using emotions instead of traditional UIs are more entertaining for children.                           •                                                •        [52]
+Using emotions in games leads to increased playability and player involvement in the          •         •           •                                             [78]
+  game.                                                                                                                                                                       5231
+Table 1 (continued)                                                                                                                                                      5232
+Affective Computing in Digital Games
+
+                                                                                         Methodology                         Game Design
+
+                                                                                         Evaluation Adaption                 Dynamics Mechanics Components
+
+Points                                                                                   Adaption Evaluating   Influencing   NPCs Narrative Player User      Reference
+                                                                                                  Player       Player                       Avatar Interface
+                                                                                                  Experience   Emotion
+
+Unlike central avatars where players have a high level of emotional proximity to the               •                                         •               [41]
+   character and perceive themselves differently, central avatars require structured syntax
+   to communicate with the player.
+The games in which the players are known with their ideal-self avatars have a great effect         •                                         •               [64]
+   on evoking their emotions.
+Dynamic and procedural content generation based on user emotions can enrich the UX. •                                                                        [84]
+Using emotions for dynamic difficulty adjustment of games improves the fun level of the •                      •                                             [55]
+   game rather than players’ performance.
+Using emotions to interact with NPCs will make the interaction more natural and also                                         •                      •        [34]
+   increase the player’s immersion in the game.
+By providing an affective interaction, the emotional awareness of the opponent can lead            •           •                                             [72]
+   to an increase in the perceived competitiveness and enjoyment of the game
+Facial feature and head tracking as an input for the genre of platform games enhance the                                                            •        [1]
+   fun and enjoyment of the game.
+In the field of shoot ‘em up game input, Traditional UI is the most usable and the                 •           •                             •      •        This
+   Affective UI has the best sense of fun and UX among other methods, but their hybrid                                                                         Paper
+   mode (Affective Shooting), not only is as usable as traditional UIs, but it also works
+   better in terms of UX compared to other modes.
+
+
+                                                                                                                                                                         Multimedia Tools and Applications (2021) 80:5225–5253
+Multimedia Tools and Applications (2021) 80:5225–5253                                      5233
+
+
+   2.2 Affective user interface
+
+In order to bridge the gaps between the various fields of human-centered computing systems
+design, it is important to consider emotions in the process of human interactions with
+computers and virtual scenarios, and provide a more natural user interface, or in other words
+an Affective User Interface. There has not yet been provided an independent definition for the
+Affective User Interface; however, it can be defined as Picard’s definition of affective
+computing [59] and the overall definition of a user interface [62]:
+
+
+   The occurrence space of interactions between humans and machines, which is ‘related
+   to,‘ ‘arises from’ or ‘influences’ emotions.
+To create an Affective User Interface, a cycle among different aspects of digital games should
+be created. Game players’ affective states play a major role in immersive virtual environments.
+Capturing and reflecting the player’s emotional state in a game, through adaptive elements
+such as music, images, and stories can improve the aesthetic dimensions of it [10]. For this
+purpose, the designing manner of the elements of a game UI, which plays an effective role in
+motivating the users and engaging them with the game, has a direct relationship with the
+degree of enjoyment of the game [47, 81], which should be considered for better both aesthetic
+and UX dimensions. In affective user interface, the data collection for affective state recogni-
+tion play a vital role to create an integrated cycle of affective interaction, which should be
+selected for this field in a suitable manner and preferably a non-invasive method. On the other
+hand, if a true behavior analysis be used during this cycle, Affective User Interface can be
+utilized in every states of a virtual scenario system based on the user proficiency and dynamic
+input adjustment. Furtherly, providing meaningful affective responses to the players can result
+in better affective interaction. However, previous studies in spite of providing valuable
+research in this field, have not presented any practical framework to cover these aspects of
+Affective User Interface development what we have proposed in the next section.
+
+
+3 Proposed framework
+
+After investigating previous researches and their methods, this study presents a conceptual
+framework (Fig. 2) for Affective User Interface Design and Evaluation (AFFUIDE). Basically,
+this conceptual framework consists of six main sections including User Condition, Affective
+State Recognition as Input, Virtual Scenario System, Data Collection, Input Condition, and
+Output. The detailed definition of each one is described in the following.
+
+User condition In a system associated with Affective User Interface, the user’s emotional and
+affective conditions (S1) are a part of the interaction cycle. After the cycle starts, these
+conditions are used to Analyze User Proficiency & Behavior [37], Dynamic Input Adjustment
+[21], and Input Mode Determination [63] via another system (S2) which is, in general, an
+algorithm to produce a minimum data for game advance. S2 can be decided by the developer
+to be adjustable by the user before the game starts, or to evoke during the play automatically.
+In this framework, the classification of user’s condition is on the base of Ekman’s discrete
+model of emotions, which not only logs, but also play a control role during the game.
+5234                                                  Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+
+
+Fig. 2 The conceptual framework of Affective User Interface Design and Evaluation (AFFUIDE)
+
+
+Data collection for affective state recognition as input This section shows the detection
+and interpretation of the user’s emotions in order to be used in the system. User’s
+emotion detection is possible through many ways. Sensing physiological data, observing
+the body, analyzing voice and text are the primary methods used to convey the affective
+data of users in virtual scenarios such as serious or entertainment games [28, 22].
+Purpose, cost, intrusion, accuracy, user tolerance, and the computing processing power
+are the important elements involved in selecting and utilizing the sensing tools in each
+project [29]. This study uses Ekman’s discrete classification of emotions, which clas-
+sifies human emotions into the 6 basic emotions of joy, sadness, fear, disgust, anger and
+surprise [23]. Supposing particular facial expressions to these emotions among human
+beings strengthens the desire to use this model instead of other ones such as Lang
+dimensional [43] or Plutchik multidimensional [61] emotion classifications [79]. For this
+reason, the proposed system uses a simple webcam for emotion detection via facial
+expressions of the user, which is considered as an affordable and non-invasive method
+[11]. Affectiva SDK has been used for this purpose in this project. By analyzing facial
+action units, this SDK can correctly identify 9 emotional states and 15 facial expressions
+with an average accuracy of over 90% and does not need powerful processing resources
+[50]. Figure 3 shows an overview of how this SDK works.
+
+
+
+
+Fig. 3 The analysis system of emotion recognition in Affectiva SDK [50]
+Multimedia Tools and Applications (2021) 80:5225–5253                                       5235
+
+
+Virtual scenario system Any interactive simulated virtual environment such as VR, AR,
+digital game and the like do have a simple or complex virtual scenario. The sequence of
+interconnected scenarios creates a system of states in the virtual environment that we call it a
+virtual scenario system. A game system, in this case, consists of Dynamics, Mechanics, and
+Components [82] that the combination of these three elements forms the states of this virtual
+scenario. Emotions can be used as various user interfaces in these states. In an abstract manner,
+these occurrence space of interactions can be modeled as inputs from the user and outputs from
+the system. The overall types of these inputs can be classified into State-based Input (SI) and
+Impact based Input (II) which have been proposed by [63].
+
+Data log This section logs the required data in the time series for qualitative and quantitative
+analysis of the system. The collected data indicates the user proficiency and behavior, which
+are also used for dynamic input adjustment [85, 70] and as input information for S2. Logging
+the user’s facial behavior and analyzing intentional or unintentional emotional variations
+during a virtual scenario provides more possibilities for UX evaluations and following
+affective interaction improvement.
+
+Input condition A virtual scenario’s input is a piece of information such as data, commands,
+etc., which is passed to the system at run time from an external source, which is used in some
+way to modify internal data [63, 74]. The availability of choice and personalization elements
+can have a positive effect on user experience [37]. The determination of input type, in terms of
+scenario, can be Required (IC1), Optional (IC2), or Selection (IC3) [63]. This section
+determines the use of the affective user interface directly (Active), indirectly (Passive), or in
+a combination of these two modes. In Active mode, the user must try to adopt or control the
+emotion in order to advance the game. In passive mode, some of the game’s elements are
+changed by the player’s real-time emotion, implicitly. The Input Condition (IC) is affected by
+the Input Mode (IM) phase which is determined based on the game level, the player’s skill and
+his behavioral performance.
+
+Output All information and responses provided by the system in a variety of ways such as
+audio, video, and the like are included in the output [63]. In affective user interface, it is
+predictable that a responsive and reciprocal emotional interaction in front of the users’
+expressed emotions, results in better user experience than unilateral and mechanical feedback.
+Such emotional feedback can be provided through sound [19], environment [46], NPCs [45],
+or player’s graphical avatar as used in Facial Battle.
+
+3.1 Game design
+
+Based on the AFFUIDE, an affective user interface can be designed and established in a
+variety of ways in the occurrence space of interactions between human and the system of
+digital games. Investigating all possible scenarios requires multiple studies and is beyond
+the scope of one research. However, the present study, in order to evaluate and test its
+hypotheses, has developed a game in the genre of Shoot’ em up by the name of “Facial
+Battle”. Since the presented UI is innovative in its kind, such a genre of game is utilized due
+to its explicit mechanism to prevent the influence of interference variables on the user
+experience like unclear goals, rules or skill. In this game, an aircraft on the left side of the
+screen can be moving up or down and fire at the monsters entering as the “enemy” from the
+5236                                                  Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+right side. The user, in the role of the pilot of the aircraft, must shoot at the enemy. Each
+mode of the game is 2 minutes and 5 “Lives” are intended for the player during this time,
+which ends if he/she be hit 5 times by the enemy. Also, 5 “Spells” are intended to aid the
+player in necessary times he/she wants, in which each time eight bombs fall vertically on
+enemies.
+   In order to compare the affective UI with the traditional one, Facial Battle is designed in 4
+modes. In these modes, the use of “Affective UI” and “Traditional UI” influences on the
+mechanisms of the aircraft, which are described in the following.
+
+Traditional user interface mode (Full traditional) Aircraft’s moving up and down is done
+with and buttons on the keyboard. Also, the shooting action is done by the left mouse button
+and the spells are activated by the shift key on the keyboard.
+
+Affective user interface mode (Full affective) Aircraft’s moving up and down is done by
+producing of “Surprise” and “Anger” facial expressions. Also, the shooting action is done by
+producing “Joy” and the spells are activated by producing “Fear” facial expressions.
+
+Hybrid user interface mode I (Affective shooting) Aircraft’s moving up and down is done
+with and buttons on the keyboard. The shooting action is done by producing “Joy” and the
+spells are activated by producing “Fear” facial expressions.
+
+Hybrid user interface mode II (Affective movement) Aircraft’s moving up and down is done
+by producing of “Surprise” and “Anger” facial expressions. The shooting action is done by the
+left mouse button and the spells are activated by the shift key on the keyboard. Selecting
+corresponding facial expressions for mentioned actions were based on relevant facial action
+coding system (FACS) [24], however, are interchangeable. Also, the player could see a guide
+for input mechanism in the game by hovering his mouse cursor on each mode before starting
+the game. For example, the guidance image of Affective Shooting is illustrated in Fig. 4.
+
+
+
+
+Fig. 4 The guidance image of affective shooting for input mechanism
+Multimedia Tools and Applications (2021) 80:5225–5253                                                   5237
+
+
+
+
+Fig. 5 A screenshot of the developed game (left) and the user while playing (right) in Full Affective Mode
+
+
+
+    Facial Battle is implemented in Unity 3d 2017 game engine and C# programming language.
+Figure 5 is a screenshot of the game while a user is shooting by producing happiness facial
+expression.
+    Absorbing and reflecting the affective state of the player through the elements of the game
+can improve the aesthetic dimension of the game [10]. In this game, the feedback of the
+produced emotions were reflected through the facial states of the pilot on the aircraft. This
+feature was enabled just in modes in which the input was through facial commands. Figure 6
+illustrates used feedbacks of surprise (a), anger (b), joy (c), and fear (d).
+
+
+
+
+4 Study
+
+This research is a descriptive-experimental study with an applied approach. The subjective and
+quantitative evaluations of this study have been on the base of users’ performance and their
+experience investigation. Eighteen participants invited to take part in the experiments, who
+were recruited from the students of the Faculty of Multimedia at Tabriz Islamic Art University.
+Their ages ranged from 21 to 37 years old, with a mean of 26.75 years. Upon their attendance,
+after a succinct description of the tests, we asked them to read a consent form and sign it, if
+they agreed to participate in our tests. Participants completed a brief demographic question-
+naire regarding their age, gender, video game skill level, left or right-handed, vision status,
+
+Fig. 6 Affective feedbacks to the
+player’s produced emotions during
+the game
+5238                                              Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+time spent regularly playing, and either they have active autism or not. Being infected with
+active autism, and not having video game experience, nor good vision status were the probable
+core elements of exclusion, that we did not encounter. The result of the pre-study questionnaire
+indicated that most of the players were professional or semiprofessional ones who play video
+games at least once a week.
+   All tests conducted within-subjects and in a controlled environment took place in Cognitive
+Augmented Reality Laboratory (CARLab). As mentioned before, the game’s selection menu
+was designed in such a way that by moving the mouse cursor over the title of each mode, the
+corresponding guide appeared. Players played all modes randomly, until finishing the 2
+minutes of the game or burning all of their 5 lives.
+   A computer with Intel Core i7-7700K processor and NVIDIA GeForce GTX 1050 Ti
+graphics card was used for the tests. A 19.5-inch monitor and a simple webcam were also set
+within 50 centimeters of the players’ center of vision.
+
+4.1 Results
+
+In the following, the results of experiments in terms of performance and experience of
+participants are presented.
+
+4.1.1 Behavior analysis based on quantitative data
+
+Upon the completion of the game in each mode, the data related to the game mode and user
+performance was logged in a CSV file. Descriptive indices of in-game variables in all four tests
+are illustrated in Table 2, which shows the mean (SD) and standard deviation (SD - σ) of
+players’ performance during the games. Time Resistance, Score, player Health, Enemy
+Intrusion, Fired Bullet, and Used Spells in each mode are the elements which are used for
+the quantitative evaluation of the designed system and user performance.
+    Kolmogorov-Smirnov test was used to check the normality of quantitative variables data.
+The results can be seen in Table 3.
+    As can be seen in Table 3, the Kolmogorov-Smirnov test was statistically significant
+for the variables of “Time of Resistance”, “Score”, “Health”, “Enemy Intrusion”, and
+“Used Spell” (P < 0.05). Therefore, these variables do not have a normal distribution and
+nonparametric analyzes should be used for them. So, we used the Mann-Whitney U test
+to investigate the statistical comparisons of the mentioned variables, which results are
+illustrated in Table 4.
+    The Mann-Whitney U test for the variable of “Time of Resistance” in “Full Affective vs.
+Full Traditional”, “Full Affective vs. Affective Shooting “ and “Full Affective vs. Affective
+Movement” UIs, respectively, were statistically significant (P < 0.05). Hence, the null hypoth-
+esis (H0) that “there is no difference in the duration of users’ resistance inside these three
+groups can be rejected. By examining the mean of this variable, as illustrated in Fig. 7, it can
+be seen that the duration of the players’ resistance in “Full Traditional”, “Affective Shooting”,
+and “Affective Movement” is longer than “Full Affective”.
+    Also, the Mann-Whitney U test for the variable of “Time of Resistance” in other three
+groups as reported in Table 4, respectively, were not statistically significant (P > 0.05). Hence,
+the null hypothesis (H0) that “there is no difference in the duration of users’ resistance in those
+three groups” cannot be rejected. By examining the mean of this variable, as illustrated in
+Fig. 7, it can be seen that the duration of the players’ resistance in “Full Traditional”,
+Multimedia Tools and Applications (2021) 80:5225–5253                                                     5239
+
+Table 2 Descriptive indices of in-game variables in all 4 modes of tests
+
+Number of Participants = 18 Affective Movement         Affective Shooting    Full Affective    Full Traditional
+                            UI                         UI                    UI                UI
+
+                              (SD)σ       Mean         (SD)σ     Mean        (SD)σ    Mean     (SD)σ    Mean
+
+Time of Resistance            17.96       112.67        0.00     120.00      34.70    74.00    0.00      120.00
+Score/100                     23.63       110.33        15.46    118.00      38.90    68.33    5.41      116.16
+Health                        1.67        3.00          1.97     3.50        1.96     1.00     1.60      3.83
+Enemy Intrusion               3.89        3.00          13.96    5.00        7.31     6.67     4.11      3.17
+Fired bullet                  121.04      314.00        92.54    333.50      156.75   199.33   49.77     250.33
+Used Spell                    1.26        1.00          1.67     4.00        2.06     4.17     0.81      0.33
+
+
+“Affective Shooting”, and “Affective Movement” does not have much difference with each
+other.
+    These results shows that all of the players finished the dedicated 2 minutes of the game in
+Full Traditional and Affective Shooting UI modes completely. On the other hand, these results
+suggest that although players had 5 health hearts in the game, using facial expressions as the
+entry of all 4 inputs makes it hard to resist for 120 seconds. Based on our observations during
+tests, memorizing all 4 expressions as inputs causes more cognitive load and a bit difficulty to
+handle.
+    The Mann-Whitney U test for the variable of “Score” in “Full Affective vs. Full Tradi-
+tional”, “Full Affective vs. Affective Shooting “ and “Full Affective vs. Affective Movement”,
+respectively, were statistically significant (P < 0.05). Hence, the null hypothesis (H0) that
+“there is no difference inside these three groups” can be rejected. By examining the mean of
+this variable, as illustrated in Fig. 8, it can be seen that the players’ score in “Full Traditional”,
+“Affective Shooting”, and “Affective Movement” is more than “Full Affective”.
+    Also, the Mann-Whitney U test for the variable of “Score” in other three groups as reported
+in Table 4, respectively, were not statistically significant (P > 0.05). Hence, the null hypothesis
+(H0) that “there is no difference in those three groups” cannot be rejected. By examining the
+mean of this variable, as illustrated in Fig. 8, it can be seen that the players’ score in “Full
+Traditional”, “Affective Shooting”, and “Affective Movement” does not have much difference
+with each other.
+    In Facial Battle, the player was given 100 points for each successful shot. For this purpose,
+the plane should be placed in a right place, in front of a coming enemy, and shoot at it. The
+results suggest that although the players had good performance in the hybrid modes of
+Affective Shooting and Affective Movement, but they did not do well in Full Affective mode;
+however, in hybrid modes they did as well as Full Traditional UI.
+
+
+Table 3 Kolmogorov-Smirnov test results to verify the normality of in-game quantitative variables data
+
+                              Is Normal            P                Z                 (SD)σ              Mean
+
+Time of Resistance            -                    0.000             0.449            25.55              106.67
+Score/100                     -                    0.000             0.315            29.97              103.20
+Health                        -                    0.000             0.258            2.03               2.83
+Enemy Intrusion               -                    0.016             0.198            4.99               4.46
+Fired bullet                  Yes                  0.200             0.125            116.00             274.17
+Used Spell                    -                    0.003             0.223            2.14               2.38
+                                                                                                                                                                                     5240
+
+
+
+
+Table 4 The results of the Mann-Whitney U test for in-game variables with normal data; which shows statistically significant (P < 0.05) differences in gray rectangles
+
+                   Number of                   Full             Full Traditional      Full Traditional        Full Affective         Full Affective          Affective Shooting UI
+                   Participants = 18           Traditional      UI                    UI                      UI                     UI
+                                               UI
+                                               Full Affective   Affective Shooting    Affective Movement      Affective Shooting     Affective Movement      Affective Movement
+                                               UI               UI                    UI                      UI                     UI                      UI
+
+Time of            P Value                     0.01             1.00                  0.69                    0.01                   0.02                    0.69
+  Resistance       Mann-Whitney U              3.00             18.00                 15.00                   3.00                   4.50                    15.00
+Score              P Value                     0.04             0.39                  0.69                    0.02                   0.04                    0.69
+                   Mann-Whitney U              5.50             12.00                 15.50                   4.00                   5.50                    15.00
+Health             P Value                     0.04             0.93                  0.31                    0.04                   0.18                    0.39
+                   Mann-Whitney U              5.00             17.00                 11.00                   5.50                   9.00                    12.00
+EnemyIntrusion     P Value                     0.24             0.69                  0.93                    0.58                   0.24                    0.81
+                   Mann-Whitney U              10.50            15.00                 17.50                   14.00                  10.50                   16.00
+Used Spell         P Value                     0.002            0.004                 0.39                    0.93                   0.009                   0.01
+                   Mann-Whitney U              0.50             1.00                  12.00                   17.50                  2.00                    3.00
+
+
+
+
+                                                                                                                                                                                     Multimedia Tools and Applications (2021) 80:5225–5253
+Multimedia Tools and Applications (2021) 80:5225–5253                                                                  5241
+
+
+                                  130.00           120.00                             120.00
+                                                                                                           112.00
+                                  110.00
+
+
+
+
+             Time Of Resistance
+                                   90.00
+                                                                     74.00
+                                   70.00
+                                   50.00
+                                   30.00
+                                   10.00
+                                  -10.00   Full Traditional   Full Affective   Affective Shooting Affective Movement
+                                             (SD=0.00)        (SD=34.70)           (SD=0.00)          (SD=17.96)
+
+
+Fig. 7 The mean of Time of Resistance during all 4 modes
+
+
+    The Mann-Whitney U test for the variable of “Health” in “Full Affective vs. Full Tradi-
+tional” and “Full Affective vs. Affective Shooting”, respectively, were statistically significant
+(P < 0.05). Hence, the null hypothesis (H0) that “there is no difference in the players’ left health
+inside these two groups” can be rejected. By examining the mean of this variable, as illustrated
+in Fig. 9, it can be seen that the players’ left health in “Full Traditional” and “Affective
+Shooting” is more than “Full Affective” and “Affective Movement”.
+    Also, the Mann-Whitney U test for the variable of “Health” in other four groups as reported
+in Table 4, respectively, were not statistically significant (P > 0.05). Hence, the null hypothesis
+(H0) that “there is no difference in players’ left health in those four groups” cannot be rejected.
+By examining the mean of this variable, as illustrated in Fig. 9, it can be seen that the players’
+left health in “Full Traditional”, “Affective Shooting”, and “Affective Movement” does not
+have much difference with each other.
+    "The better performance, the more left health”, it was one our hypothesis when we decided
+to log this variable during the game. The results suggest that using Full Affective UI can
+influence the performance of not hitting enemies and result in less left health. But on the other
+hand using facial expressions for half of interactions produce same performance like Full
+Traditional UI.
+    The Mann-Whitney U test for the variable of “Enemy Intrusion”, in comparing all modes
+with each other, was not statistically significant (P > 0.05). Hence, the null hypothesis (H0) that
+“there is a difference in the enemy intrusion in comparing all modes with each other” cannot
+be rejected. By examining the mean of this variable, as illustrated in Fig. 10, it can be seen that
+although the amount of enemy intrusion is close to each other in all 4 modes, the highest
+belongs to Full Affective and the lowest belongs to Affective Movement.
+
+
+
+                                  140.00
+                                  120.00            116.16                               118.00
+                                                                                                           110.00
+                                  100.00
+
+
+             Score/100
+                                   80.00                              68.33
+                                   60.00
+                                   40.00
+                                   20.00
+                                    0.00
+                                           Full Traditional   Full Affective   Affective Shooting Affective Movement
+                                             (SD=5.41)        (SD=38.90)          (SD=15.46)             (23.63)
+
+Fig. 8 The mean of players’ Score in all 4 modes
+5242                                                                        Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+                               5.00
+
+                               4.00            3.83
+                                                                                           3.50
+                                                                                                                3.00
+
+
+             Left Health
+                               3.00
+
+                               2.00
+                                                                   1.00
+                               1.00
+
+                               0.00
+                                       Full Traditional    Full Affective       Affective Shooting    Affective Movement
+                                         (SD=1.60)          (SD=1.96)               (SD=1.97)              (SD=1.67)
+
+Fig. 9 The mean of players’ left Health in all 4 modes
+
+
+
+    The Mann-Whitney U test for the variable of “Used Spells” in “Full Affective vs. Full
+Traditional”, “Full Affective vs. Affective Movement”, “Full Traditional vs. Affective Shoot-
+ing”, and “Affective Shooting vs. Affective Movement”, respectively, were statistically
+significant (P < 0.05). Hence, the null hypothesis (H0) that “there is no difference inside these
+four groups” can be rejected. By examining the mean of this variable, as illustrated in Fig. 11,
+it can be seen that the players’ used spells in “Full Affective” and “Affective Shooting” is more
+than “Full Traditional” and “Affective Movement”.
+    Also, the Mann-Whitney U test for the variable of “Used Spells” in other two groups as
+reported in Table 4, respectively, were not statistically significant (P > 0.05). Hence, the null
+hypothesis (H0) that “there is no difference in players’ used spells in those two groups” cannot
+be rejected. By examining the mean of this variable, as illustrated in Fig. 11, it can be seen that
+the players’ used spells in both “Full Affective” and “Affective Shooting” are more than in
+both “Full Traditional” and “Affective Movement”.
+    From the game designer’s point of view, we had decided to use spell for situations that the
+enemies were close to hit the aircraft as an auxiliary way of destroying enemies. As a
+noticeable result for us, participants could establish good relations with such state-based input
+and were so content that without any question, some of them (10 of 18) self-reported they had
+better experience in Affective Shooting and Full Affective’s Spell input mode.
+    As can be seen in Table 3, the Kolmogorov-Smirnov test was not statistically significant for
+the variable of “Fired Bullet” (P > 0.05). Therefore, this variable has a normal distribution and
+parametric analyzes should be used for it. Therefore, we used One Way Analysis of Variance
+(One-Way ANOVA) test to investigate the statistical comparisons of mentioned variable. The
+results of this test are illustrated in Table 5.
+
+
+
+                               15.00
+
+
+
+
+             Enemy Intrusion
+                               10.00
+                                                                   6.67
+                                                                                          5.00
+                                5.00            3.17                                                           3.00
+
+                                0.00
+                                        Full Traditional   Full Affective        Affective Shooting   Affective Movement
+                                          (SD=4.11)         (SD=7.31)               (SD=13.96)             (SD=3.89)
+
+
+Fig. 10 The mean of Enemy Intrusion in all 4 modes
+Multimedia Tools and Applications (2021) 80:5225–5253                                                                      5243
+
+
+                            6.00
+                            5.00
+                                                                    4.17               4.00
+
+
+              Used Spells
+                            4.00
+                            3.00
+                            2.00
+                                                                                                           1.00
+                            1.00
+                                               0.33
+                            0.00
+                                      Full Traditional      Full Affective   Affective Shooting   Affective Movement
+                                        (SD=0.81)            (SD=2.06)           (SD=1.67)             (SD=1.26)
+
+Fig. 11 The mean of players’ Used Spells in all 4 modes
+
+
+
+    The One-Way ANOVA test for the variable of “Fired Bullet”, in comparing all modes with
+each other, was not statistically significant (P > 0.05). Hence, the null hypothesis (H0) that
+“there is a difference in fired bullets in comparing all modes with each other” cannot be
+rejected. By examining the mean of this variable, as illustrated in Fig. 12, it can be seen that
+although the amount of fired bullets is close to each other in all four modes, the highest
+belongs to Affective Shooting and the lowest belongs to Full Affective.
+
+
+4.1.2 Subjective evaluations & results
+
+Kolmogorov-Smirnov test was used to check the normality of data obtained from subjective
+evaluations. The results can be seen in Table 6.
+   In order to evaluate the immersion of each mode of game, the immersion section of the
+GameFullQuest questionnaire [31] was used, consisting of 10 questions in which answers
+were based on the 5-point Likert scale. Figure 13 illustrates the immersion data of players in
+these modes.
+   As can be seen in Table 6, the Kolmogorov-Smirnov test was not statistically significant for
+the variable of “Immersion” (P > 0.05). Therefore, this variable have a normal distribution and
+parametric analyzes should be used for it. So, we used the One Way Analysis of Variance
+(One-Way ANOVA) test to investigate the statistical comparisons of the mentioned variable.
+The results of this test are illustrated in Table 7.
+   The One-Way ANOVA test for the variable of “Immersion”, in “Full Affective vs. Full
+Traditional” and “Full Traditional vs. Affective Shooting” was statistically significant
+(P < 0.05). Hence, the null hypothesis (H0) that “there is no difference inside these two groups”
+
+
+Table 5 The results of One-Way ANOVA test for the variable of Fired Bullets; which shows no statistically
+significant difference in any mode
+
+Number of                     Full            Full             Full            Full               Full Affective   Affective
+Participants = 18             Traditional     Traditional      Traditional     Affective          UI               Shooting UI
+                              UI              UI               UI              UI
+                              Full            Affective        Affective       Affective          Affective   Affective
+                              Affective       Shooting UI      Movement UI     Shooting UI        Movement UI Movement UI
+                              UI
+
+P Value                       0.885           0.640            0.804           0.248              0.381            0.992
+5244                                                                      Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+                            400
+                            350                                                        333.5
+                                                                                                            313.5
+                            300
+                                          250.33
+
+
+             Fired Bullet
+                            250
+                                                                199.33
+                            200
+                            150
+                            100
+                             50
+                              0
+                                  Full Traditional       Full Affective       Affective Shooting   Affective Movement
+                                   (SD=49.77)            (SD=156.75)             (SD=92.54)            (SD=121.04)
+
+
+Fig. 12 The mean of players’ Fired Bullets in all 4 modes
+
+
+can be rejected. By examining the mean of this variable, as illustrated in Fig. 13, it can be seen
+that the players’ immersion in “Full Affective” and “Affective Shooting” is more than “Full
+Traditional” and “Affective Movement”.
+    Also, the One-Way ANOVA test for the variable of “Immersion”, in other four groups as
+reported in Table 7, were not statistically significant (P > 0.05). Hence, the null hypothesis
+(H0) that “there is no difference in players’ immersion in those two groups” cannot be rejected.
+    To obtain a global perspective of subjective assessments of usability, we used SUS
+questionnaire [9] (system usability scale) which included 10 questions which answers were
+based on the 5-point Likert scale. Figure 14 shows the system usability scale data in all 4 game
+modes. This questionnaire shows the system’s usability on a scale from 0 to 100.
+    As can be seen in Table 6, the Kolmogorov-Smirnov test was not statistically significant for
+the variable of “Usability” (P > 0.05). Therefore, this variable has a normal distribution and
+parametric analyzes should be used for it. So, we used the One Way Analysis of Variance
+(One-Way ANOVA) test to investigate the statistical comparisons of the mentioned variable.
+The results of this test are illustrated in Table 8.
+    The One-Way ANOVA test for the variable of “Usability”, in “Full Affective vs. Full
+Traditional” and “Full Affective vs. Affective Shooting” was statistically significant
+(P < 0.05). Hence, the null hypothesis (H0) that “there is no difference in the systems’ usability
+inside these two groups” can be rejected. By examining the systems’ usability scale, as
+illustrated in Fig. 14, it can be seen that the systems’ usability in “Full Traditional” and
+“Affective Shooting” is more than “Full Affective” and “Affective Movement”.
+    Also, the One-Way ANOVA test for the variable of “Usability”, in other four groups as
+reported in Table 8, were not statistically significant (P > 0.05). Hence, the null hypothesis
+(H0) that “there is no difference in systems’ usability in those two groups” cannot be rejected.
+By examining the systems’ usability scale, as illustrated in Fig. 14, it can be seen that the
+systems’ usability in Full Traditional and Affective Shooting are near to each other.
+    Then, the AttrakDiff questionnaire was used to evaluate the user experience and user
+acceptance with the usability approach. It consists of 28 features of a user interface based on
+the 7-point Likert scale. The result of these features leads to the 4 qualities of “Pragmatic
+
+Table 6 Kolmogorov-Smirnov test results to verify the normality of data obtained from subjective evaluations
+
+Variable                          P                  Z                        (SD)σ                 Mean                Is Normal
+
+Immersion                         0.19               0.147                    1.28                  3.33                Yes
+Usability                         0.20               0.097                    14.42                 75.00               Yes
+Multimedia Tools and Applications (2021) 80:5225–5253                                                5245
+
+
+
+
+Fig. 13 The immersion data of players obtained through GameFullQuest questionnaire
+
+
+Quality”, “Hedonic Quality – Stimulation”, “Hedonic Quality – Identity”, and “Attractive-
+ness”. The results of this questionnaire can be seen in Figs. 15 and 16.
+    Also, the diagram of average values for each quality is illustrated in Fig. 15.
+    Based on the analysis of Figs. 15 and 16, AttrakDiff reports some main statements as
+following.
+& Full Affective has the most hedonic quality and the least pragmatic quality among other
+    ones.
+& Full Traditional has the most pragmatic quality and the least hedonic quality among other
+     ones.
+& The smaller confidence rectangle observed for Full Traditional implies that users were
+     largely at one.
+& Affective Shooting performed better in both hedonic and pragmatic quality than others and
+     is the closest one to the ideal desired area.
+& Affective Shooting is the most attractive among other ones.
+& Affective Movement, with some improvements in both dimensions, would close to the ideal
+     desired area.
+& Full Traditional is the most task-oriented UI among other ones.
+& Full Affective is the most self-oriented UI among other ones.
+& Full Traditional has the least attraction among other ones.
+
++After users completed all tests, they were asked one question: “Which of the following input
+types would you prefer to have with emotion? Why? “, which had eight options. As illustrated
+in Fig. 17, most of the players preferred to have 1 or 2 inputs via emotions.
+
+
+Table 7 The results of One-Way ANOVA test for the variable of Immersion
+
+Number of           Full          Full          Full          Full          Full Affective   Affective
+Participants = 18   Traditional   Traditional   Traditional   Affective     UI               Shooting UI
+                    UI            UI            UI            UI
+                    Full          Affective     Affective     Affective     Affective   Affective
+                    Affective     Shooting UI   Movement UI   Shooting UI   Movement UI Movement UI
+                    UI
+
+P Value             0.024         0.036         0.551         0.997         0.308            0.404
+5246                                                    Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+
+
+Fig. 14 Systems’ usability scale data obtained through SUS-questionnaire (black lines inside the box plots show
+the mean of this scale)
+
+
+   Also, in the intimate conversation we had with the participants after the fulfillment of
+questionnaires, they said it had a good emotional impact to control a game object via facial
+expressions. They indicated that using facial expressions as an impact based input is preferable
+than other types for better interaction. Furthermore, they wanted to play a bit more to obtain
+good emotional mood. Some of them said that if they play with full affective UI for 2–3 days,
+they will soon be able to get used to it like a gamepad.
+
+
+5 Discussion
+
+Intrinsic emotional communication between humans necessitates the study of affective human-
+computer interaction methods and techniques in the digital games’ era. This study, beyond the
+one-way perspective of previous researches, provided a framework for Affective User Inter-
+face Design and Evaluation (AFFUIDE) and developed the “Facial Battle” game to evaluate
+the using of emotions in the form of facial expressions as a user interface in games.
+
+5.1 A discussion around subjective evaluations & results
+
+The results of the evaluations of immersion, usability and user experience with usability
+approach in 4 test groups are as follows:
+
+1. The evaluation of players’ immersion in all 4 game’s UI modes showed that there was a
+   statistically significant difference between “Full Affective and Affective Shooting”
+
+
+Table 8 The results of One-Way ANOVA test for the variable of Usability
+
+Number of           Full          Full          Full            Full           Full Affective   Affective
+Participants = 18   Traditional   Traditional   Traditional     Affective      UI               Shooting UI
+                    UI            UI            UI              UI
+                    Full          Affective     Affective       Affective      Affective   Affective
+                    Affective     Shooting UI   Movement UI     Shooting UI    Movement UI Movement UI
+                    UI
+
+P Value             0.000         0.841         0.137           0.003          0.072            0.492
+Multimedia Tools and Applications (2021) 80:5225–5253                                     5247
+
+Fig. 15 The results of AttrakDiff
+questionnaire for hedonic and
+pragmatic qualities of all 4 game’s
+UI modes. The area of pale
+rectangles reflects the dispersion of
+user responses and potential
+improvement or regression area
+
+
+
+
+   respectively vs. “Full Traditional and Affective Movement”; that by comparing their
+   averages, it was found that the players’ immersion in “Full Affective and Affective
+   Shooting” is more than “Full Traditional and Affective Movement”. It means that using
+   emotions as a user interface in virtual scenarios can increase immersion.
+2. The evaluation of systems’ usability in all 4 game’s UI modes showed that there was a
+   statistically significant difference between “Full Traditional vs. Full Affective” and “Full
+   Affective vs. Affective Shooting”. By comparing systems’ usability scales, it was found
+   that the usability of “Full Affective” mode is less than the other ones. Also, this
+   assessment revealed that the usability of “Affective Shooting” is equivalent to “Full
+   Traditional” and more than “Full Affective” and “Affective Movement”. It means that
+   using emotions in combination with a Full Traditional can have equivalent usability as
+   the traditional one.
+
+
+
+
+Fig. 16 The diagram of average values for each quality in all 4 game UI modes
+5248                                                      Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+
+                         No any emotion for any input                   2
+
+                                1 mode, Fear for Spell                                                 6
+
+                                  1 mode, Joy for Fire                          3
+
+                 2 modes, Joy for Fire & Fear for Spell                                4
+
+            2 modes, Surprise & Anger for Up & Down       0
+
+ 3 modes, Fear, Surprise & Anger as used in the game                    2
+
+   3 modes, Joy, Surprise & anger as used in the game     0
+
+                           Using just emotion as input           1
+
+
+
+Fig. 17 Players’ preference of using emotions as game input, obtained through the last heuristic single question
+
+
+
+3. The evaluation of user experience in all 4 game’s UI modes showed that the use of “Full
+   Affective” enhances the system’s hedonic quality and attraction, while the use of “Full
+   Traditional” results in pragmatic quality. Finally, the data and graphs analysis showed that
+   “Affective Shooting” is closer to the desired point of the user experience than any other
+   one. It means that using emotions in combination with Full Traditional can increase the
+   quality of user experience.
+
+
+5.2 A discussion around the results of quantitative evaluations
+
+The log of Time of Resistance, Score, Health, Enemy Intrusion, and Used Spells utilized for
+quantitative evaluations of player and system.
+
+1. The results of the statistical analysis of “players’ Score”, “left health”, and “Enemy
+   Intrusion” indicated not only a semi- equivalent performance of “Full Traditional”,
+   “Affective Shooting”, and “Affective Movement”, but also a better performance than
+   “Full Affective”. Thus, it can be concluded that the mere use of emotion as input leads to
+   low performance of users, but on the other hand, a combination of traditional and Full
+   Affective yields not only a semi-equivalent result in performance but also better user
+   experience. So, based on such results and mentioned subjective evaluations, it can be
+   concluded that using facial expressions and combining them with traditional interaction
+   techniques to advance virtual scenarios as input can be feasible, and given its impact on
+   user experience, it can have synergistic influence and play a significant role in HCI.
+2. The results of the statistical analysis of “Fired Bullets” in comparing all modes with each
+   other, was not statistically significant and the average of Fired Bullets are the same in all 4
+   modes. It means that the use of Joy instead of Left Mouse Button has a similar perfor-
+   mance. Also, as they have a semi-equivalent pragmatic quality with each other, more
+   hedonic quality of using Joy as input can play an important role in interactions with the
+   game system.
+3. The results of the statistical analysis of “Used Spells” in “Full Affective vs. Full Tradi-
+   tional”, “Full Affective vs. Affective Movement”, “Full Traditional vs. Affective
+Multimedia Tools and Applications (2021) 80:5225–5253                                       5249
+
+
+   Shooting”, and “Affective Shooting vs. Affective Movement”, respectively, were statis-
+   tically significant. By examining the mean of this variable, it can be seen that the players
+   have used more spells via facial expression than the keyboard. It means that in spite of
+   probable different strategies of players, they could establish good relations with such
+   state-based input.
+4. The results of the last single question and according to quantitative results, it can be found
+   that using of a particular keyboard button in Full Traditional for some state-based inputs,
+   like spell in this case, is a bit difficult for players, but by assigning this task to facial
+   expression, a better result can be achieved.
+
+
+5.3 A discussion around the limitations of the study
+
+Although this study has tried to have a comprehensive evaluation on the UX elements, any
+change in the dynamic, mechanic, or the component of the presented game can have a
+significant impact on user experience. As Obaid et al. mentioned in [55], the difficulty of
+the game could have a significant impact on the usability of the different modalities, which
+means the harder the game, the less usability can result in UI. In such conditions, the perceived
+usability vary in each scenario and makes it necessary to pay enough attention in the balance of
+Traditional and Affective UI’s as game inputs. We aim to address this issue in the future work
+by taking into account different difficulty levels in the game.
+   One limitation of our study was using only male participants in the study. According to the
+results of the pre-study questionnaire, most of the players were professional or semiprofes-
+sional who play video games at least once a week. As most of gamers are male in our society,
+we preferred to evaluate our hypothesis on males. However, for the results to be generalizable
+to the whole society, a new insight could emerge analyzing the interaction with female
+participants in our future work.
+
+
+6 Conclusions and future work
+
+This paper wanted to answer these questions whether using emotions in the form of facial
+expressions can be used as a user interface and input of a computer game system, and be
+replaced with each other or not. We also aimed to find what effect such a natural UI can have
+on players’ performance and experience. For this regard, this paper proposed a conceptual
+framework for affective user interface design and evaluation (AFFUIDE) based on the findings
+of previous studies via a systematic review on the classification of affective interaction in
+digital games. We developed and evaluated a game called Facial Battle in four user interface
+modes. In this game, the player in the role of the pilot of the aircraft moving up or down in the
+left side should fire at the monsters entering as the enemy from the right side. The four modes
+of this game’s user interfaces consisted of traditional user interface which was through
+keyboard and mouse, affective user interface which was through facial expressions of joy,
+anger, surprise, and fear, and two hybrid modes of these two input methods. The evaluation of
+this study was performed in two quantitative and subjective ways that include users’ perfor-
+mance and their experience. Time resistance, score, player health, enemy intrusion, fired
+bullet, and used spells in each mode were the elements which were used for the quantitative
+evaluation of the designed system and user performance. On the other hand, for subjective
+5250                                                   Multimedia Tools and Applications (2021) 80:5225–5253
+
+
+evaluations, to evaluate the immersion of each mode of game, the immersion section of the
+GameFullQuest questionnaire was used, consisting of 10 questions in which answers were
+based on the 5-point Likert scale. Furthermore, the AttrakDiff questionnaire was used to
+evaluate the user experience and user acceptance with the usability approach, and System
+usability scale (SUS) questionnaire to obtain a global perspective of subjective assessments of
+usability. The results indicate that the Traditional UI is the most usable and the Affective UI
+has the best sense of fun and user experience among other methods, but their hybrid mode
+(Affective Shooting), not only is as usable as traditional UIs, but it also works better in terms of
+user experience compared to other modes. Also, the findings show that using emotions based
+on facial expressions as the control input is an interesting concept in the field of digital games.
+However, introducing the proposed AFFUIDE is at the beginning of the road and needs more
+investigations on different aspects.
+   In the future work, to investigate the concept in more detail, we will extend the game with
+additional features and more affective interaction types. Affective UI seems to be a useful
+intervention to aid the emotional development of children with Autism Spectrum Disorder
+(ASDs). It is predictable that using such UI in multiplayer local games can produce a joyful
+atmosphere in the environment between players, which can not only have positive impact in
+entertainment, but also in the serious game domain. Also, from a technical point of view, we
+will try to evaluate different states of a virtual environments, different levels of difficulties,
+various types of feedbacks, affective based procedural content generation and many other
+elements that may come into play in this field, in our future studies. Finally, as an innovative
+interaction type, affective user interface is expected to be welcomed by people who are unable
+to use their hands. This application of affective user interface can be generalized in many
+multimedia tools to provide more possibilities for players with disabilities to enjoy playing
+games and interact with virtual worlds.
+
+
+References
+
+ 1. Andersson AT (2016) Facial feature tracking and head pose tracking as input for platform games
+ 2. Bahreini K, van der Vegt W, Westera W (2019) A fuzzy logic approach to reliable real-time recognition of
+    facial emotions. Multimed Tools Appl 78:18943–18966
+ 3. Bannon L (2011) Reimagining HCI: toward a more human-centered perspective. Interactions 18:50–57
+ 4. Benyon D (2019) Designing User Experience: a guide to HCI, UX and interaction design. Pearson, London
+ 5. Bernays R, Mone J, Yau P et al (2012) Lost in the dark: emotion adaption. In: Adjunct proceedings of the
+    25th annual ACM symposium on User interface software and technology. ACM, New York, pp&nbsp;79–
+    80
+ 6. Blom PM, Bakkes S, Tan CT et al (2014) Towards personalised gaming via facial expression recognition.
+    In: Tenth Artificial Intelligence and Interactive Digital Entertainment Conference
+ 7. Bogdanovych A, Trescak T, Simoff S (2016) What makes virtual agents believable? Conn Sci 28:83–108
+ 8. Bowman ND, Pietschmann D, Liebold B (2017) The golden (hands) rule: Exploring user experiences with
+    gamepad and natural-user interfaces in popular video games. J Gaming Virtual Worlds 9:71–85
+ 9. Brooke J (1996) SUS-A quick and dirty usability scale. Usability Eval Ind 189:4–7
+10. Browne C, Yannakakis GN, Colton S (2012) Guest editorial: Special issue on computational aesthetics in
+    games. IEEE Trans Comput Intell AI Games 4:149–151
+11. Burns A, Tulip J (2017) Detecting flow in games using facial expressions. In: 2017 IEEE Conference on
+    Computational Intelligence, Games (CIG). IEEE, Piscataway, pp&nbsp;45–52
+12. Cai L, Liu B, Yu J, Zhang J (2017) Human behaviors modeling in multi-agent virtual environment.
+    Multimed Tools Appl 76:5851–5871
+13. Caschera MC, Ferri F, Grifoni P (2016) Sentiment analysis from textual to multimodal features in digital
+    environments. In: Proceedings of the 8th International Conference on Management of Digital EcoSystems.
+    pp&nbsp;137–144
+Multimedia Tools and Applications (2021) 80:5225–5253                                                     5251
+
+14. Čereković A, Pandžić IS (2011) Multimodal behavior realization for embodied conversational agents.
+    Multimed Tools Appl 54:143–164
+15. Collins K, Kapralos B, Kanev K (2014) Smart table computer interaction interfaces with integrated sound
+16. De Byl P (2015) A conceptual affective design framework for the use of emotions in computer game design.
+    Cyberpsychology J Psychosoc Res Cybersp 9
+17. de Peuter A (2014) Development of an adaptive game by runtime adjustment of game parameters to EEG
+    measurements
+18. Dekker A, Champion E (2007) Please Biofeed the Zombies: Enhancing the Gameplay and Display of a
+    Horror Game Using Biofeedback. In: DiGRA Conference. pp 43–52
+19. Dewitt A, Bresin R (2007) Sound design for affective interaction. In: International Conference on Affective
+    Computing and Intelligent Interaction. Springer, Berlin, pp 523–533
+20. Drachen A, Nacke LE, Yannakakis G, Pedersen AL (2010) Correlation between heart rate, electrodermal
+    activity and player experience in first-person shooter games. In: Proceedings of the 5th ACM SIGGRAPH
+    Symposium on Video Games. ACM, New York, pp&nbsp;49–54
+21. Dudley JJ, Kristensson PO (2018) A review of user interface design for interactive machine learning. ACM
+    Trans Interact Intell Syst 8:8
+22. Dzedzickis A, Kaklauskas A, Bucinskas V (2020) Human emotion recognition: Review of sensors and
+    methods. Sensors 20:592
+23. Ekman P (1999) Basic emotions. Handb Cogn Emot :45–60
+24. Ekman P, Friesen WV (1977) Facial action coding system
+25. Fu LP, Landay J, Nebeling M et al (2018) Redefining natural user interface. In: Extended Abstracts of the
+    2018 CHI Conference on Human Factors in Computing Systems. ACM, New York, p SIG19
+26. Ghosh M, Kundu T, Ghosh D, Sarkar R (2019) Feature selection for facial emotion recognition using late
+    hill-climbing based memetic algorithm. Multimed Tools Appl :1–27
+27. Gilleade K, Dix A, Allanson J (2005) Affective videogames and modes of affective gaming: assist me,
+    challenge me, emote me. DiGRA 2005 Chang Views–Worlds Play
+28. Guthier B, Dörner R, Martinez HP (2016) Affective computing in games. In: Entertainment Computing and
+    Serious Games. Springer, Berlin pp 402–441
+29. Hamdy S, King D (2018) Affective games: a multimodal classification system. In: 19th annual European
+    GAME-ON Conference (GAME-ON’2018) on Simulation and AI in Computer Games. EUROSIS, Ghent
+30. Hassenzahl M, Burmester M, Koller F (2003) AttrakDiff: Ein Fragebogen zur Messung wahrgenommener
+    hedonischer und pragmatischer Qualität. In: Mensch & computer 2003. Springer, Berlin, pp 187–196
+31. Högberg J, Hamari J, Wästlund E (2019) Gameful Experience Questionnaire (GAMEFULQUEST): an
+    instrument for measuring the perceived gamefulness of system use. User Model User-adapt Interact 1–42
+32. Hubbard JA (2001) Emotion expression processes in children’s peer interaction: The role of peer rejection,
+    aggression, and gender. Child Dev 72:1426–1438
+33. i Badia SB, Quintero LV, Cameirão MS et al (2018) Toward emotionally adaptive virtual reality for mental
+    health applications. IEEE J Biomed Health Inform 23:1877–1887
+34. Ilves M, Gizatdinova Y, Surakka V, Vankka E (2014) Head movement and facial expressions as game
+    input. Entertain Comput 5:147–156
+35. Ip B (2011) Narrative structures in computer and video games: Part 1: Context, definitions, and initial
+    findings. Games Cult 6:103–134
+36. Jaimes A, Sebe N (2007) Multimodal human–computer interaction: A survey. Comput Vis Image Underst
+    108:116–134
+37. Ji H, Yun Y, Lee S et al (2018) An adaptable UI/UX considering user’s cognitive and behavior information
+    in distributed environment. Cluster Comput 21:1045–1058
+38. Johnson D, Wiles J (2003) Effective affective user interface design in games. Ergonomics 46:1332–1345
+39. Kleinginna PR, Kleinginna AM (1981) A categorized list of emotion definitions, with suggestions for a
+    consensual definition. Motiv Emot 5:345–379
+40. Korn O, Blatz M, Rees A et al (2017) Procedural content generation for game props? a study on the effects
+    on user experience. Comput Entertain 15:1–15
+41. Kromand D (2007) Avatar Categorization. In: DiGRA Conference
+42. Landowska A, Miler J (2016) Limitations of emotion recognition in software user experience evaluation
+    context. In: 2016 Federated Conference on Computer Science and Systems I (FedCSIS). IEEE, Piscataway,
+    pp 1631–1640
+43. Lang PJ (1995) The emotion probe: studies of motivation and attention. Am Psychol 50:372
+44. Lankes M, Riegler S, Weiss A et al (2008) Facial expressions as game input with different emotional
+    feedback conditions. In: Proceedings of the 2008 International Conference on Advances in Computer
+    Entertainment Technology. ACM, New York, pp 253–256
+5252                                                    Multimedia Tools and Applications (2021) 80:5225–5253
+
+45. Lim MY, Dias J, Aylett R, Paiva A (2012) Creating adaptive affective autonomous NPCs. Auton Agent
+    Multi Agent Syst 24:287–311
+46. Liu C, Agrawal P, Sarkar N, Chen S (2009) Dynamic difficulty adjustment in computer games through real-
+    time anxiety-based affective feedback. Int J Hum Comput Interact 25:506–529
+47. Mandel T (1997) The elements of user interface design. Wiley, Hoboken
+48. Mandryk RL, Inkpen KM, Calvert TW (2006) Using psychophysiological techniques to measure user
+    experience with entertainment technologies. Behav Inf Technol 25:141–158
+49. Mansilla WA (2006) Interactive dramaturgy by generating acousmêtre in a virtual environment. In:
+    International Conference on Entertainment Computing. Springer, Berlin, pp 90–95
+50. McDuff D, Mahmoud A, Mavadati M et al (2016) AFFDEX SDK: a cross-platform real-time multi-face
+    expression recognition toolkit. In: Proceedings of the 2016 CHI conference extended abstracts on human
+    factors in computing systems. ACM, New York, pp 3723–3726
+51. Mohammadi HS, Pirbabaei E, Sisi MJ, Sekhavat YA (2018) ExerBrain: A Comparison of Positive and
+    Negative Reinforcement in Attention Training Using BCI based Computer Games. In: 2018 2nd National
+    and 1st International Digital Games Research Conference: Trends, Technologies, and Applications
+    (DGRC). IEEE, Piscataway, pp 167–171
+52. Müller N, Eska B, Schäffer R et al (2018) Arch’n’Smile: A Jump’n’Run Game Using Facial Expression
+    Recognition Control For Entertaining Children During Car Journeys. In: Proceedings of the 17th
+    International Conference on Mobile and Ubiquitous Multimedia. ACM, New York, pp 335–339
+53. Mungra D, Agrawal A, Sharma P et al (2019) PRATIT: a CNN-based emotion recognition system using
+    histogram equalization and data augmentation. Multimed Tools Appl :1–23
+54. Ng YY, Khong CW (2014) A review of affective user-centered design for video games. In: 2014 3rd
+    International Conference on User Science and Engineering (i-USEr). IEEE, Piscataway, pp 79–84
+55. Obaid M, Han C, Billinghurst M (2008) Feed the Fish: an affect-aware game. In: Proceedings of the 5th
+    Australasian Conference on Interactive Entertainment. ACM, New York, p 6
+56. Pan S, Brdiczka O, Carenini G et al (2016) What’s Hot in Intelligent User Interfaces. In: Thirtieth AAAI
+    Conference on Artificial Intelligence
+57. Partala T (2005) Affective information in human-computer interaction. Tampere University Press, Tampere
+58. Pawar S, Tam F, Plass JL (2020) 14 Emerging Design Factors in Game-Based Learning: Emotional Design,
+    Musical Score, and Game Mechanics Design. Handb Game-Based Learn 347
+59. Picard RW (1995) Affective Computing-MIT Media Laboratory Perceptual Computing Section Technical
+    Report No. 321. Cambridge, MA 2139
+60. Picard RW (2000) Affective computing. MIT Press, Cambridge
+61. Plutchik RE, Conte HR (1997) Circumplex models of personality and emotions. American Psychological
+    Association, Washington, D.C.
+62. Preece J, Rogers Y, Sharp H et al (1994) Interface metaphors and conceptual models. Human-Computer
+    Interation 9
+63. Prema P, Ramadoss B (2008) A Classification Scheme for Game Input and Output. World Acad Sci Eng
+    Technol Int J Comput Electr Autom Control Inf Eng 2:1870–1876
+64. Przybylski AK, Weinstein N, Murayama K et al (2012) The ideal self at play: The appeal of video games
+    that let you be all you can be. Psychol Sci 23:69–76
+65. Raheel A, Anwar SM, Majid M (2019) Emotion recognition in response to traditional and tactile enhanced
+    multimedia using electroencephalography. Multimed Tools Appl 78:13971–13985
+66. Robison J, McQuiggan S, Lester J (2009) Evaluating the consequences of affective feedback in intelligent
+    tutoring systems. In: 2009 3rd international conference on affective computing and intelligent interaction
+    and workshops. IEEE, Piscataway, pp 1–6
+67. Ruan S, Chen L, Sun J, Chen G (2009) Study on the change of physiological signals during playing body-
+    controlled games. In: Proceedings of the International Conference on Advances in Computer
+    Enterntainment Technology. ACM, New York, pp 349–352
+68. Russell JA (1980) A circumplex model of affect. J Pers Soc Psychol 39:1161
+69. Sawyer R, Smith A, Rowe J et al (2017) Enhancing student models in game-based learning with facial
+    expression recognition. In: Proceedings of the 25th conference on user modeling, adaptation and person-
+    alization. ACM, New York, pp 192–201
+70. Sekhavat YA (2019) Battle of minds: a new interaction approach in BCI games through competitive
+    reinforcement. Multimed Tools Appl :1–16
+71. Sekhavat YA (2020) Collaboration or battle between minds? An attention training game through collabo-
+    rative and competitive reinforcement. Entertain Comput 100360
+72. Sekhavat YA, Roohi S, Mohammadi HS, Yannakakis GN (2020) Play with One’s Feelings: A Study on
+    Emotion Awareness for Player Experience. IEEE Trans Games
+Multimedia Tools and Applications (2021) 80:5225–5253                                                  5253
+
+73. Sharma M, Jalal AS, Khan A (2019) Emotion recognition using facial expression by fusing key points
+    descriptor and texture features. Multimed Tools Appl 78:16195–16219
+74. Shaw M (1986) An input-output model of interactive systems. In: Proceedings of the SIGCHI conference on
+    Human factors in computing systems. pp 261–273
+75. Shilling R, Zyda M, Wardynski EC (2002) Introducing emotion into military simulation and videogame
+    design: America’s Army: Operations and VIRTE. In: Proceedings of the GameOn Conference
+76. Song W, Cai X, Xi Y et al (2017) Real-time single camera natural user interface engine development.
+    Multimed Tools Appl 76:11159–11175
+77. Souza AD, Souza RD (2019) Affective interaction based hybrid approach for emotion detection using
+    machine learning. In: 2019 International Conference on Smart Systems and Inventive Technology
+    (ICSSIT). IEEE, Piscataway, pp 337–342
+78. Takatalo J, Häkkinen J, Kaistinen J, Nyman G (2010) Presence, involvement, and flow in digital games. In:
+    Evaluating user experience in games. Springer, Berlin, pp 23–46
+79. Turečková Š (2016) Using player’s facial emotional expressions as a game input: Effects on narrative
+    engagement
+80. Valli A (2008) The design of natural interaction. Multimed Tools Appl 38:295–305
+81. Von Ahn L, Dabbish L (2008) Designing games with a purpose. Commun ACM 51:58–67
+82. Werbach K, Hunter D (2012) For the win: How game thinking can revolutionize your business. Wharton
+    Digital Press
+83. Xie L, Jia J, Meng H et al (2015) Expressive talking avatar synthesis and animation. Multimed Tools Appl
+    74:9845–9848
+84. Yannakakis GN, Togelius J (2015) Experience-driven procedural content generation. In: 2015 International
+    Conference on Affective Computing and Interaction I (ACII). IEEE, Piscataway, pp 519–525
+85. Yeh Y, Lai SC, Lin C-W (2016) The dynamic influence of emotions on game-based creativity: An
+    integrated analysis of emotional valence, activation strength, and regulation focus. Comput Human Behav
+    55:817–825
+
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and
+institutional affiliations.
+

@@ -1,0 +1,1278 @@
+             sustainability
+
+Article
+Eye Movement Analysis and Usability Assessment on Affective
+Computing Combined with Intelligent Tutoring System
+Hao-Chiang Koong Lin 1 , Yi-Cheng Liao 1, * and Hung-Ta Wang 2
+
+                                          1   Department of Information and Learning Technology, National University of Tainan, Tainan 700, Taiwan
+                                          2   COPLUS Inc. Tainan Branch, Tainan 702, Taiwan
+                                          *   Correspondence: edcr0328@gmail.com
+
+
+                                          Abstract: Education is the key to achieving sustainable development goals in the future, and quality
+                                          education is the basis for improving the quality of human life and achieving sustainable development.
+                                          In addition to quality education, emotions are an important factor to knowledge acquisition and skill
+                                          training. Affective computing makes computers more humane and intelligent, and good emotional
+                                          performance can create successful learning. In this study, affective computing is combined with
+                                          an intelligent tutoring system to achieve relevant and effective learning results through affective
+                                          intelligent learning. The system aims to change negative emotions into positive ones of learning to
+                                          improve students’ interest in learning. With a total of 30 participants, this study adopts quantitative
+                                          research design to explore the learning situations. We adopt the System Usability Scale (SUS) to
+                                          evaluate overall availability of the system and use the Scan Path to explore if the subject stays longer
+                                          in learning the course. This study found that both availability and satisfaction of affective tutoring
+                                          system are high. The emotional feedback mechanism of the system can help users in transforming
+                                          negative emotions into positive ones. In addition, the system is able to increase the learning duration
+                                          the user spends on learning the course as well.
+Citation: Lin, H.-C.K.; Liao, Y.-C.;
+                                          Keywords: affective computing; affective tutoring system; eye movement analysis; sentiment
+Wang, H.-T. Eye Movement Analysis
+and Usability Assessment on
+                                          analysis; usability assessment
+Affective Computing Combined with
+Intelligent Tutoring System.
+Sustainability 2022, 14, 16680.
+https://doi.org/10.3390/                  1. Introduction
+su142416680                               1.1. Research Background and Motivation
+Academic Editor: Aras Bozkurt                  Due to vigorous development of information technology, digital learning development
+                                          and applied education are very common. Emotions are an important part of everyone
+Received: 11 October 2022
+                                          and can affect behavior, thinking skills, decision-making, resilience, well-being, and the
+Accepted: 9 December 2022
+                                          way human beings communicate with each other [1]. Based on the discussions, emotion
+Published: 13 December 2022
+                                          not only is the driving factor that promotes learning but also is the primary factor that
+Publisher’s Note: MDPI stays neutral      hinders the learning process as well. Hence, it is crucial to have reliable methods of emotion
+with regard to jurisdictional claims in   recognition in academic contexts [2]. The term “affective computing” was proposed by
+published maps and institutional affil-   Professor Rosalind Picard in 1997 [3], and it has been guiding computers to identify and
+iations.                                  express emotions and respond intelligently to human emotions [4]. Owing to this, a trend
+                                          has developed that applies emotional lenses to emerging academic research and positions
+                                          emotion at the core of learning [5,6]. Kort and other scholars have proposed an emotion
+                                          conceptualization module (2001) to combine affective computing with intelligent tutoring
+Copyright: © 2022 by the authors.
+                                          system for the purpose of identifying learners’ emotions, responding to affections of current
+Licensee MDPI, Basel, Switzerland.
+                                          learners and promoting learning effectiveness [7]. Moreover, it can also identify the user’s
+This article is an open access article
+                                          emotions and corresponding system responses as well as guide how to keep positive
+distributed under the terms and
+                                          emotions via “mood proxy” and promote the achievement of learning objectives [8,9].
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+                                          As Chen Huang Cheng mentioned in this book (2006), the best way to relieve negative
+creativecommons.org/licenses/by/
+                                          emotions is to shift your thinking direction and appropriately reduce the expansion of
+4.0/).                                    negative emotions. Impacted with positive emotions, determination to solve problems will
+
+
+
+
+Sustainability 2022, 14, 16680. https://doi.org/10.3390/su142416680                                    https://www.mdpi.com/journal/sustainability
+Sustainability 2022, 14, 16680                                                                                           2 of 17
+
+
+
+
+                                 be generated when encountering difficulties [10]. In many studies on the affective tutoring
+                                 system, the experimental results mainly discuss the usability and interactivity of the system.
+                                 In this study, we use Scan Path to understand the subject’s eye movement trajectory and
+                                 observe his/her eye movement fixation duration in each ROI block to understand if the
+                                 subject is more willing to stay in the digital course after combining the tutoring system
+                                 with the affective computing module.
+
+                                 1.2. Research Purpose
+                                      With the advancement of technology, diversified learning modes can create richer
+                                 teaching materials and learning methods. Based on the aforementioned research back-
+                                 ground and motivation, this study aimed to combine affective computing with intelligent
+                                 tutoring system to understand the user’s learning emotions, convert the user’s negative
+                                 emotions into positive ones and improve his/her interest of learning. Moreover, we used
+                                 an eye tracker to perform eye movement analysis and understand if the user is able to
+                                 increase the course learning duration by using the affective tutoring system. Based on the
+                                 research background and motivation as well as the above discussions, the purpose of this
+                                 study was set as follows: 1. Exploring the usability assessment of the affective tutoring
+                                 system. 2. Understanding the fixation duration when using the affective tutoring system
+                                 through eye movement analysis. 3. Understanding if the user is able to increase the course
+                                 learning duration by using the affective tutoring system through eye movement analysis.
+                                 Eye movement analysis was conducted to explore if the affective tutoring system can
+                                 improve learners’ attention and increase the course learning duration. The study themes
+                                 are as follows:
+                                 1.   How satisfied are the users with the affective tutoring system?
+                                 2.   Is the user able to effectively increase the course learning duration by using the
+                                      affective tutoring system?
+
+                                 2. Literature Review
+                                 2.1. Affective Computing
+                                      Affective computing methods have been applied to many fields such as training and
+                                 learning environments [11]. In learning environments, the most important emotions to be
+                                 dealt with are those associated with the teaching process (such as boredom, frustration,
+                                 confusion, and engagement). Picard (1997) proposed four levels of affective computing:
+                                 Recognize Emotion, Understand Emotion, Express Emotion and Emotion Intelligence.
+                                 Affective Computing aims to detect signals caused by emotions and affections, such as
+                                 language, physiological changes and body movements through various sensors. The
+                                 computers will analyze these signals and make appropriate responses to current emotions.
+                                 Emotion recognition can be detected by heartbeat, skin potential difference and facial
+                                 emotion expression [12].
+
+                                 2.2. Affective Tutoring System
+                                      Emotions play a significant role in human behaviors in individual and social com-
+                                 munities. This can happen in any kind of human activity such as learning online [13].
+                                 Recently, researchers have acknowledged the role of emotions in online learning in im-
+                                 proving learning outcomes and enhancing students’ experience [14–16]. The significance
+                                 of incorporating emotional states with the learning process has necessitated the devel-
+                                 opment of ATSs, which is the extended research of ITSs and with the ability to adapt to
+                                 the learner’s adverse emotion effectively to spark the learner’s motivation to learn [17].
+                                 The affective tutoring system is based on the intelligent tutoring system, combining with
+                                 affective computing and featuring the ability to detect the learners’ emotions when they
+                                 are learning [18]. The affective computer-based digital learning system proposed by Duo
+                                 and Song (2012) aims to simulate the traditional teaching mode to analyze and recognize
+                                 learners’ emotions and improve learners’ moods with virtual agents [19]. Mao and Li
+                                 (2010) proposed that success in teaching lay in the ability to quickly identify the learners’
+Sustainability 2022, 14, 16680                                                                                               3 of 17
+
+
+
+
+                                 emotional state, timely adjust the learners’ emotions and enhance the learners’ learning
+                                 motivation. Ammar et al. (2010) added a facial expression detection module to the affective
+                                 tutoring system to boost the learners’ moods and improve the emotional communication
+                                 between the system and the learner. The final results indicate that affective computing can
+                                 effectively monitor the learners’ emotions, appropriately lead to positive emotions and thus
+                                 improve the learning motivation [20]. As Gerald (2004) said, learners may greatly reduce
+                                 their learning motivation due to negative emotions, but positive emotions can effectively
+                                 improve the learners’ learning willingness. Graesser et al. (2004) used natural language
+                                 to set up an emotion module for about 1000 subjects who are students in computer or
+                                 physics majors. As the test results showed, such an emotion module has significantly
+                                 improved the learning effects on both basic knowledge learning and in-depth research and
+                                 discussion [21]. The indicators for measuring the satisfaction of using the affective tutoring
+                                 system include learners’ attitude and affective computing, the performance ability of the
+                                 tutoring system, the accuracy of emotion recognition, the quantity of emotion recognition,
+                                 the teaching course activities and the availability of the system etc. [17]. This study will
+                                 therefore take the above characteristics into account in the design of the system.
+
+                                 2.3. Intelligent Virtual Agents
+                                      Intelligent virtual agents (IVAs) powered by artificial intelligence (AI) are prevalent in
+                                 our daily lives. Amazon’s Alexa, Apple’s Siri, and Microsoft’s Cortana are all IVAs that
+                                 search information in real-time and verbally communicate the results to human beings [22].
+                                 Intelligent Virtual Agents are programs that can be assigned to perform user-specified
+                                 jobs in a way that is comparable to human beings, featuring reactivity, positivity [23],
+                                 autonomy [24], social ability and veracity [25], etc. which is different from traditional
+                                 software. It is personalized, autonomous, proactive, adaptive and continuously running.
+
+                                 2.4. Emotion and Learning
+                                      The research carried out in education and psychology shows that emotion and learning
+                                 have a hidden correlation, which will ultimately enhance learning performance [26]. Russell
+                                 (1980) has built a 2D emotion model diagram and the eight emotions are divided into four
+                                 quadrants, namely, happiness, surprise, boredom, fear, calmness, sadness, disgust and
+                                 anger [27]. Ekman and Friesen (1971) defined six facial expressions: happiness, anger, fear,
+                                 disgust, surprise and sadness [28]. Because emotions may affect learning effectiveness
+                                 and the learning process may also influence the emotions, the correlation has therefore
+                                 led many studies to focus on emotions and teaching. As Guo Shuzhen pointed out (2010),
+                                 tutors need to be able to guide students to think in a right direction, influence students in
+                                 a practical way, cultivate positive thinking and problem-solving ability, trigger students’
+                                 potential abilities and improve learning effects in a happy learning way [29]. As Wen-Tzu
+                                 Chiang (2004) proposed, the best way to adjust your emotion is to shift your attention
+                                 away from your current mood and change the way you think and the point of view with
+                                 which you view things [30]. Ying-Chun Sun (2009) pointed out that the cognitive style can
+                                 generate different learning effects for understanding different emotions during the learning
+                                 process. Therefore, in order to improve learning motivation, students shall be guided to
+                                 maintain positive thinking over time to achieve optimal effect of learning [31].
+
+                                 2.5. Eye Movement Analysis
+                                       In recent years, eye tracking has been widely used as a research tool in many fields [32,33].
+                                 By tracking the user’s fixation and analyzing eye movements and pupil size, his/her cognitive
+                                 state can be studied, such as attention pattern and learning preferences [34,35]. Eye movement
+                                 analysis mainly seeks to detect the learner’s distraction process and understand the learner’s
+                                 attention on news reading through fixation points and eye movement trajectories [36]. As for
+                                 eye movements upon reading, as Rayner (2009) said, tracking eye movements is regarded
+                                 as an intuitive and effective approach to explore people’s cognitive process in reading, scene
+                                 perception and visual search [37]. The average fixation duration is 260–330 ms when the reader
+Sustainability 2022, 14, 16680                                                                                              4 of 17
+
+
+
+
+                                 views images and 225–250 ms when reading words. The movement of fixation is to follow the
+                                 texts from left to right or up to down. About 10–15% of fixation is associated with looking
+                                 back, moving in an opposite direction of the text order. The situation is due to the fact that the
+                                 reader spends a longer time reading the text and has to look back. If more than ten words are
+                                 looked back by the reader, it indicates that the reader does not understand the current texts.
+                                 Attention is a very important step for learning education because you shall first attract the
+                                 attentions of learners before starting to tutor knowledge [38]. Many researchers agree that
+                                 the direction of the head in interpersonal interaction is the easiest way to know the direction
+                                 of the individual’s fixation. When the head is fixed, the eye direction is almost the same as
+                                 that of the individual’s attention, except when the subject suffers from severe strabismus [39].
+                                 When the head is fixed, the eye direction is the same as that of the individual’s fixation [36].
+
+                                 3. Methods
+                                      The objects of this study included 30 college students or above aged 20 to 30 who are
+                                 divided into an experiment group and a control group, each with 15 subjects. The former
+                                 conducted the experiment with the affective tutoring system and the latter conducted the
+                                 experiment with the traditional tutoring system. The eye tracker was applied to perform
+                                 eye movement analysis and tracking on both groups, and the whole experiment took about
+                                 15 min. At the end of the experiment, the subjects were asked to fill in the System Usability
+                                 Scale, which took 10 min.
+
+                                 3.1. Interface Design
+                                      The system interface is divided into Interfaces A, B and C. A is an intelligent virtual
+                                 agent, B is a course module and C is a course menu, as shown in Figure 1. The specific
+                                 functions of the three interfaces are as follows:
+                                 A.   Intelligent Virtual Agent: The intelligent virtual agent gives feedback to the user
+                                      by combining Chinese semantic emotion recognition. When the user types in text
+                                      sentences in the text input box, the system will identify the emotional keywords
+                                      contained in the sentences and timely respond to the user’s emotional results. The
+                                      agent will interact with the user with different emotions and the system will finally
+                                      propose new emotional questions to achieve real-time interaction and communication
+                                      between the user and the system.
+                                 B.   Course Module: The experimental textbook contains information about interactive
+                                      technology describing the main development of interactive technology and other
+                                      related technologies in recent years (such as wearable device, interactive technology,
+                                      somatosensory and five-sense experience etc.). It helps the user to know more about
+                                      the current course by combining with relevant online videos.
+                                 C.   Course Menu: The menu displays each chapter in the course, allowing the user to
+                                      control the reading time for each chapter and then select the next chapter.
+
+                                 3.2. Course Model
+                                      The course refers to digital art. In addition to the textual description of the course,
+                                 picture and video examples are used to help the users understand the course contents. It
+                                 takes 15 min for the subject to watch the course. Interactive design-related technologies are
+                                 added in the learning process to improve the user’s interest of learning.
+Sustainability 2022,
+Sustainability       14, x16680
+               2022, 14,   FOR PEER REVIEW                                                                                                 5 5ofof 18
+                                                                                                                                                   17
+
+
+
+
+                                  Figure 1. Affective Tutoring System Interface.
+                                  Figure 1. Affective Tutoring System Interface.
+
+                                  3.2. Course Model
+                                  3.3. Agent    Model
+                                        The   course model
+                                        The agent      refers to   digital
+                                                                 can  affectart.
+                                                                              theInlearner’s
+                                                                                       addition to    the textual
+                                                                                                 learning           description
+                                                                                                             emotion,    perceiveofthe thelearner’s
+                                                                                                                                            course,
+                                  learningand
+                                  picture         video and
+                                             situation    examples
+                                                                give are used
+                                                                     corresponding to help the    users
+                                                                                          emotional       understand
+                                                                                                        guidance.   In this  coursethe
+                                                                                                                         thestudy,     contents.
+                                                                                                                                          semanticIt
+                                  takes  15 of
+                                  analysis   min for     the subject
+                                                 affective   computing to was
+                                                                          watchused the tocourse.   Interactive
+                                                                                             judge the            design-related
+                                                                                                          semantics of               technologies
+                                                                                                                          dialogue between      the
+                                  are
+                                  useradded    in the
+                                         and the        learning
+                                                    agent          process appropriate
+                                                             and provide      to improve the       user’s interest
+                                                                                               emotional            of learning.
+                                                                                                             feedback    to the agent to adjust
+                                  the user’s learning emotion and enhance his/her learning willingness. Therefore, the
+                                  3.3. Agent
+                                  system       Model
+                                            set up   an agent model as a bridge between the learner and the system. During the
+                                  recognition,    the
+                                        The agent modelsystem canwill affect
+                                                                      respond  thetolearner’s
+                                                                                      corresponding
+                                                                                                 learningsentences
+                                                                                                             emotion,and   change the
+                                                                                                                         perceive    the graphs   of
+                                                                                                                                          learner’s
+                                  the  agent   model    to  enhance    the  learner’s    willingness     to operate.   For
+                                  learning situation and give corresponding emotional guidance. In this study, the semantic example,     when  any
+                                  positive emotion
+                                  analysis   of affectiveis recognized
+                                                             computingin   wastheused
+                                                                                   learner’s    sentences
+                                                                                         to judge            by the system,
+                                                                                                     the semantics            the agent
+                                                                                                                      of dialogue           module
+                                                                                                                                      between   the
+                                  user and the agent and provide appropriate emotional feedback to the agent to adjustfrom
+                                  will  display   a graph    of positive  emotion,     and   when    any  negative  emotion    is  identified   the
+                                  the  learner’s
+                                  user’s  learning  sentences
+                                                      emotion by  andthe  system, the
+                                                                       enhance      his/heremotion
+                                                                                              learning agent   model will
+                                                                                                          willingness.       display a
+                                                                                                                         Therefore,    thegraph  of
+                                                                                                                                            system
+                                  negative    emotion.     If no  emotional      keywords     are  contained    in the  sentence
+                                  set up an agent model as a bridge between the learner and the system. During the recog-           or  the system
+                                  is unable
+                                  nition,  thetosystem
+                                                  recognize
+                                                          will the  inputto
+                                                                respond     sentence,     a dynamic
+                                                                               corresponding       sentences    and graph
+                                                                                                        confusion    changewithout
+                                                                                                                              the graphs emotional
+                                                                                                                                             of the
+                                  feedback     will  be  displayed.    After    the  user’s   emotions     are recognized
+                                  agent model to enhance the learner’s willingness to operate. For example, when any pos-    by   the  system,  the
+                                  agent’s   emotional     feedback   will  be   given   to the  user  in the  set emotional
+                                  itive emotion is recognized in the learner’s sentences by the system, the agent module will performance     state,
+                                  and eight kinds of agent emotion feedback will be set up, including happiness, sadness,
+                                  display a graph of positive emotion, and when any negative emotion is identified from
+                                  fear, frustration, anger, surprise, disgust, and doubt, as shown in Figure 2 below.
+                                  the learner’s sentences by the system, the emotion agent model will display a graph of
+                                  negative emotion. If no emotional keywords are contained in the sentence or the system
+                                  is unable to recognize the input sentence, a dynamic confusion graph without emotional
+                                  feedback will be displayed. After the user’s emotions are recognized by the system, the
+                                  agent’s emotional feedback will be given to the user in the set emotional performance
+                                  state, and eight kinds of agent emotion feedback will be set up, including happiness, sad-
+                                  ness, fear, frustration, anger, surprise, disgust, and doubt, as shown in Figure 2 below.
+Sustainability 2022,
+Sustainability 2022, 14,
+                     14, x FOR PEER REVIEW
+                         16680                                                                                                          66of
+                                                                                                                                          of 18
+                                                                                                                                             17
+
+
+
+
+                                  Figure 2. The icons of the emotional agent’s positive and negative emotions.
+
+                                  3.4. Analysis of
+                                  3.4. Analysis     of Eye
+                                                       Eye Movement
+                                                            Movement Statistics
+                                                                         Statistics
+                                        The proportion and duration of
+                                        The   proportion       and  duration    of time
+                                                                                    time spent
+                                                                                           spent onon the
+                                                                                                       the ROI
+                                                                                                             ROI blocks
+                                                                                                                  blocks of
+                                                                                                                          of the
+                                                                                                                             the subject.
+                                                                                                                                 subject. In
+                                                                                                                                          In this
+                                                                                                                                             this
+                                  study, an eye tracker gifted by Professor He Hongfa of National Taiwan Normal University
+                                  study, an eye tracker gifted by Professor He Hongfa of National Taiwan Normal Univer-
+                                  was used. It is a research outcome from developing the eye tracker hardware and software
+                                  sity was used. It is a research outcome from developing the eye tracker hardware and
+                                  in a five-year project for the Top University Project sponsored by the Ministry of Education
+                                  software
+                                  of          in a five-year
+                                     the Republic                project
+                                                         of China.    Thefor  the Topanalysis
+                                                                           statistics    University     Projectdeveloped
+                                                                                                    software     sponsoredby  by this
+                                                                                                                                 the Ministry
+                                                                                                                                      study wasof
+                                  Educationaccording
+                                  analyzed      of the Republic        of China.formula
+                                                             to the calculation      The statistics    analysis
+                                                                                               in the eye         software
+                                                                                                            tracker’s        developed
+                                                                                                                       manual,  as shownby   this
+                                                                                                                                           below.
+                                  study was analyzed according to the calculation formula in the eye tracker’s manual, as
+                                  1.     Total Time in Zone (ms) [Formula Definition: Total Time in ROI (fix.txt; duration
+                                  shown below.
+                                         totaling in ROI)] [Meaning: Total fixation time in zone]
+                                  1. Total
+                                  2.     Total Time
+                                                Fixation in Zone   (ms) (ms) [Formula Definition: Total fixation duration of fix.txt]
+                                                             Duration
+                                        [Formula       Definition:
+                                         [Meaning: Total fixation    Total  Time inofROI
+                                                                          duration       the(fix.txt;
+                                                                                               subject duration
+                                                                                                        during the totaling in ROI)]
+                                                                                                                      experiment]
+                                  3.    [Meaning:       Total  fixation  time   in zone]
+                                         Average Fixation Duration (ms) [Formula Definition: Average fixation duration of
+                                  2. Total      Fixation
+                                         fix.txt]  [Meaning: Duration   (ms)
+                                                                  Average   fixation duration of the subject during the experiment]
+                                  4.    [Formula       Definition:   Total  fixation duration
+                                         Fixation Counts [Formula Definition:                       of fix.txt]
+                                                                                           Total fixation    counts of fix.txt] [Meaning: Total
+                                        [Meaning:
+                                         fixation       Totalof the
+                                                     counts    fixation  duration
+                                                                      subject  during of the
+                                                                                         the subject    during the experiment]
+                                                                                               experiment]
+                                  3.
+                                  5.    Average Time
+                                         Percent      Fixation   Duration
+                                                             Fixated         (ms)to Total Fixation Duration (%) [Formula Definition:
+                                                                       Related
+                                        [Formula
+                                         fix.txt;      Definition:
+                                                  duration           Average fixation
+                                                               totaling/fixation            duration
+                                                                                     duration    in ROIof fix.txt]
+                                                                                                          (duration totaling of fix.txt)] [Mean-
+                                        [Meaning:       Average    fixation   duration    of  the  subject
+                                         ing: Fixation duration in the zone to total fixation duration]      during the experiment]
+                                  4. Fixation Counts
+                                  3.5. System
+                                        [Formula Usability    Scale Total fixation counts of fix.txt]
+                                                       Definition:
+                                        [Meaning:
+                                        In this   study,Total
+                                                           thefixation
+                                                                System counts
+                                                                          Usabilityof the
+                                                                                      Scale subject  during
+                                                                                              (SUS) was        the It was
+                                                                                                            used.  experiment]
+                                                                                                                           developed by Equip-
+                                  5.    Percent
+                                  ment Co.,    Ltd. Time    Fixated
+                                                       in 1986        Related to
+                                                                and mainly     usedTotal    Fixationthe
+                                                                                      to evaluate      Duration
+                                                                                                          usability(%)
+                                                                                                                     of the system. The System
+                                        [Formula
+                                  Usability            Definition:
+                                               Scale is a            fix.txt;
+                                                              low-cost,       duration
+                                                                          reliable         totaling/fixation
+                                                                                     and rapid      method toduration      in ROI
+                                                                                                                  effectively      (duration
+                                                                                                                               assess the     to-
+                                                                                                                                           user’s
+                                  subjective   feelings
+                                        taling of fix.txt)] toward   the  system    [40].  The   Likert  scale  was   used to measure   the scale
+                                  from point
+                                        [Meaning: 1 to 5   from strongly
+                                                        Fixation   duration indisagree
+                                                                                  the zoneto to
+                                                                                              strongly    agree. The
+                                                                                                  total fixation        formula was, however,
+                                                                                                                  duration]
+                                  divided into even numbers and odd numbers. For even-numbered questions, the numerical
+                                  value 5
+                                  3.5.      wasUsability
+                                       System     subtracted     from the original scores of the question to be the score available. For
+                                                              Scale
+                                  odd-numbered questions, the original scores were subtracted from the numerical value 1
+                                        In this study, the System Usability Scale (SUS) was used. It was developed by Equip-
+                                  to be the score available. Finally, the scores of the even and odd-numbered questions were
+                                  ment Co., Ltd. in 1986 and mainly used to evaluate the usability of the system. The System
+                                  added and multiplied by 2.5 to obtain the final satisfied scores [41]. The scale was analyzed
+                                  Usability Scale is a low-cost, reliable and rapid method to effectively assess the user’s sub-
+                                  by the formula, and the statistics selected by the subjects according to the statistics scale
+                                  jective feelings toward the system [40]. The Likert scale was used to measure the scale
+                                 from point 1 to 5 from strongly disagree to strongly agree. The formula was, however,
+                                 divided into even numbers and odd numbers. For even-numbered questions, the numer-
+                                 ical value 5 was subtracted from the original scores of the question to be the score availa-
+                                 ble. For odd-numbered questions, the original scores were subtracted from the numerical
+                                 value 1 to be the score available. Finally, the scores of the even and odd-numbered ques-
+Sustainability 2022, 14, 16680   tions were added and multiplied by 2.5 to obtain the final satisfied scores [41]. The 7scale   of 17
+
+                                 was analyzed by the formula, and the statistics selected by the subjects according to the
+                                 statistics scale were scored with a total of 100 points for evaluation and analysis. The
+                                 were
+                                 higherscored   with a
+                                          the score, thetotal of 100
+                                                          higher  thepoints
+                                                                      degreeforofevaluation  and
+                                                                                  satisfaction   analysis.
+                                                                                               on the      The higher
+                                                                                                      system          the score, the
+                                                                                                              valuated.
+                                 higher the degree of satisfaction on the system evaluated.
+                                 4. Data Analysis and Results
+                                 4. Data Analysis and Results
+                                 4.1. System Usability Analysis
+                                 4.1. System Usability Analysis
+                                       In order to analyze the user’s usability of the system, the statistical analysis was con-
+                                       In order to analyze the user’s usability of the system, the statistical analysis was
+                                 ducted with the System Usability Scale. A total of 15 participants took part in the experi-
+                                 conducted with the System Usability Scale. A total of 15 participants took part in the
+                                 ment and all of them filled in the scale, which means that all the 15 scales are effective.
+                                 experiment and all of them filled in the scale, which means that all the 15 scales are effective.
+                                 4.1.1.
+                                 4.1.1. System
+                                         System Usability
+                                                   Usability Scale—Reliability
+                                                              Scale—Reliability Analysis
+                                                                                     Analysis
+                                        Some
+                                        Some of questions in the
+                                               of questions   in  the System
+                                                                      System Usability
+                                                                                Usability Scale
+                                                                                            Scaleareareroundabout
+                                                                                                         roundaboutquestions.
+                                                                                                                      questions.Therefore,
+                                                                                                                                   Therefore,
+                                 it
+                                 it is required to invert these roundabout questions first, and then to perform the statistical
+                                    is required   to invert these   roundabout      questions    first, and then  to perform   the  statistical
+                                 analysis according
+                                 analysis    accordingtotothethescale
+                                                                   scalestatistics filled
+                                                                          statistics       in in
+                                                                                      filled  by by     users
+                                                                                                   thethe     to determine
+                                                                                                           users             the user’s
+                                                                                                                  to determine            usa-
+                                                                                                                                   the user’s
+                                 bility  of the system.  From    the overall   usability   scale,  the  average  value is 4.01
+                                 usability of the system. From the overall usability scale, the average value is 4.01 with a   with  a stand-
+                                 ard   deviation
+                                 standard          of 0.512.
+                                             deviation        This This
+                                                         of 0.512.   means    that that
+                                                                          means     the internal    consistency
+                                                                                         the internal             reliability
+                                                                                                         consistency          of the
+                                                                                                                      reliability     scale
+                                                                                                                                  of the     is
+                                                                                                                                         scale
+                                 high.
+                                 is      Figure
+                                     high.       3 3
+                                            Figure shows
+                                                      showsthethe
+                                                                histogram
+                                                                   histogram  of of
+                                                                                 thethe
+                                                                                      overall  usability
+                                                                                         overall           scale.
+                                                                                                   usability  scale.
+
+
+
+
+                                           Overall Usability
+                                 Figure 3. Overall Usability Scale.
+
+                                 4.1.2. System
+                                 4.1.2. System Usability
+                                                Usability Scale—Descriptive
+                                                            Scale—Descriptive Statistics
+                                                                                   Statistics
+                                       This refers to the statistical result of each question of the System Usability Scale. Table 1
+                                      This  refers to the statistical result of each question of the System Usability Scale. Table
+                                 shows the analysis statistics of the System Usability Scale (percentage of five-point scale)
+                                 1 shows the analysis statistics of the System Usability Scale (percentage of five-point scale)
+                                 and Table 2 shows the results of the analysis of each question of the Usability Scale.
+                                 and Table 2 shows the results of the analysis of each question of the Usability Scale.
+                                 Table 1. Analysis Statistics of System Usability Scale (Percentage of five-point scale).
+
+                                                           1                  2                 3                 4                 5
+                                        Q1                0%                0%                6.7%              53.3%             40.0%
+                                        Q2                0%               13.3%              40%               33.4%             13.3%
+                                        Q3                0%                0%               26.7%               40%               33%
+                                        Q4                0%               13.3%             46.7%              26.7%             13.3%
+                                        Q5                0%                0%                40%                40%               20%
+                                        Q6                0%                0%               26.7%              46.7%             26.6%
+                                        Q7                0%                0%                6.7%              46.7%             46.6%
+                                        Q8                0%                0%                6.7%              46.7%             46.6%
+                                        Q9                0%                0%                20%               26.7%             53.3%
+                                        Q10               0%               13.3%             26.7%               20%               40%
+Sustainability 2022, 14, 16680                                                                                                 8 of 17
+
+
+
+
+                                     Table 2. Results of Analysis of Each Question of the Usability Scale.
+
+              N      Minimum Value        Maximum Value        Summation        Average Number        Standard Deviation   Variance
+   Q1         15                 3                5                 65                 4.33                  0.617          0.381
+   Q2         15                 2                5                 52                 3.47                  0.915          0.838
+   Q3         15                 3                5                 61                 4.07                  0.799          0.638
+   Q4         15                 2                5                 51                 3.40                  0.910          0.829
+   Q5         15                 3                5                 57                 3.80                  0.775          0.600
+   Q6         15                 3                5                 60                 4.00                  0.756          0.571
+   Q7         15                 3                5                 66                 4.40                  0.632          0.400
+   Q8         15                 3                5                 66                 4.40                  0.632          0.400
+   Q9         15                 3                5                 65                 4.33                  0.816          0.667
+   Q10        15                 2                5                 58                 3.87                  1.125          1.267
+
+
+                                          The sum of the highest and second highest percentages for each question on a 5-point
+                                     Likert scale represents agreement. The third highest percentages for each question on a
+                                     5-point Likert scale represent neutrality and the second lowest and lowest percentages
+                                     for each question on 5-point Likert scale represent disagreement. Analysis results are
+                                     as follows.
+                                          Q1: I think I would often use the system. This is a straightforward question with
+                                     an average number of 4.33 and standard deviation of 0.617. In all, 40% of users are very
+                                     willing to use the affective tutoring system often for learning, 53.3% of users would like
+                                     to use the affective tutoring system for learning often and 6.7% of users are generally
+                                     willing to use the system. As the system is a combination of emotion recognition and the
+                                     course, emotion feedback is given to users in the aspect of emotion recognition, which has
+                                     increased the enjoyment of the users. Therefore, it is inferred that most users are satisfied
+                                     with this system.
+                                          Q2: I think the system is too complicated. This is a roundabout question with an
+                                     average number of 3.47 and standard deviation of 0.915. In all, 13.3% of users strongly
+                                     disagree that the system is too complicated, 33.4% of users disagree that the system is too
+                                     complicated, 40% of users are neutral about the complexity of the system and 13.3% of
+                                     users think that the system is too complicated.
+                                          Q3: I think the system is easy to use. This is a straightforward question with an
+                                     average number of 4.07 and standard deviation of 0.799. In all, 33% of users think the
+                                     system is very easy to use, 40% of users think the system is easy to use and 26.7% of users
+                                     are neutral about the complexity of the system.
+                                          Q4: I think I need a technician’s help to use the system. This is a roundabout question
+                                     with an average number of 3.40 and a standard deviation of 0.910. In all, 13.30% of users
+                                     think that it is absolutely necessary to have a technician to help use the system, 26.7%
+                                     of users think that it is necessary to have a technician to help use the system, 46.70% of
+                                     users are neutral about whether it is necessary to have a technician to help use the system
+                                     and 13.3% of users think that it is unnecessary to have a technician to help use the system.
+                                     Therefore, we are getting to a conclusion that the users do not have sufficient knowledge
+                                     of affective computing and the functions of the agents need to be introduced. Human
+                                     resources are required to be of assistance to guide the users.
+                                          Q5: I think all functions of the system are integrated well. This is a straightforward
+                                     question with an average number of 3.80 and standard deviation of 0.775. In all, 20% of
+                                     users strongly agree that all functions of the system are integrated well, 40% of users agree
+                                     that all functions of the system are integrated well and 40% of users are neutral about
+                                     whether all functions of the system are integrated well.
+                                          Q6: I think there is too much contradiction in the system. This is a roundabout
+                                     question with an average number of 4.00 and standard deviation of 0.756. In all, 26.60% of
+                                     users strongly disagree that there is too much contradiction in the system, 46.70% of users
+                                     disagree that there is too much contradiction in the system and 26.70% of users are neutral
+                                     about whether there is too much contradiction in the system.
+Sustainability 2022, 14, 16680                                                                                            9 of 17
+
+
+
+
+                                       Q7: I think most people could learn how to use the system fast. This is a straight-
+                                 forward question with an average number of 4.40 and standard deviation of 0.632. In all,
+                                 46.60% of users strongly agree that most people could learn how to use the system fast;
+                                 46.70% of users agree that most people could learn how to use the system fast and 6.70% of
+                                 users are neutral about whether most people could learn how to use the system fast.
+                                       Q8: I think the system is very difficult to use. This is a roundabout question with an
+                                 average number of 4.40 and standard deviation of 0.632. In all, 46.60% of users strongly
+                                 disagree that the system is very difficult to use, 46.70% of users disagree that the system
+                                 is very difficult to use and 6.70% of users are neutral about whether the system is very
+                                 difficult to use.
+                                       Q9: I think I am very confident of using the system. This is a straightforward question
+                                 with an average number of 4.33 and standard deviation of 0.816. In all, 53.30% of users
+                                 strongly agree that they are very confident about using the system, 26.70% of users agree
+                                 that they are very confident about using the system and 20% of users are neutral about
+                                 whether they are very confident about using the system.
+                                       Q10: I think I have to learn something to use the system. This is a roundabout question
+                                 with an average number of 3.87 and standard deviation of 1.125. In all, 40% of users
+                                 strongly agree that they have to learn something to use the system, 20% of users agree that
+                                 they have to learn something to use the system, 26.70% of users are neutral about whether
+                                 they have to learn something to use the system and 40% of users disagree that they have to
+                                 learn something to use the system. The researcher arrived at a conclusion that he/she does
+                                 not know about affective computing and needs the help of technicians; he/she therefore
+                                 thinks he/she needs to learn relevant knowledge before using the system.
+
+                                 4.1.3. Users’ Satisfaction Analysis
+                                      For the score of each question, the odd-numbered questions are straightforward, with
+                                 the score of each question being subtracted by the numerical value 1 to get final score; for
+                                 example, if the score is 3, the calculated result will be 2. The even-numbered questions are
+                                 roundabout, with the numerical value of 5 being subtracted by the score of each question
+                                 to get final score; for example, if the score is 4, the calculated results will be 1. After the
+                                 scores of each question are calculated, all the scores are added and multiplied by 2.5 to
+                                 get the total score. The statistics obtained after the score conversion are shown in Table 3.
+                                 According to the calculated results of the SUS formula, the average score of the subject for
+                                 the system is 81.5. Figure 4 shows how the adjective ratings compare to both the school
+                                 grading scale and the acceptability ranges [41]. The statistical results show that the users
+                                 are satisfied with the usability of the system.
+
+                                 Table 3. Calculated Results of SUS Formula.
+
+                                                 Sample        Average                  Maximum       Minimum      Standard
+                                                                               Median
+                                                  Size         Number                    Value         Value       Deviation
+                                    Overall         15           81.5           82.5        95           67.5       7.245688
+
+
+                                 4.2. Eye Movement Analysis
+                                      The 30 objects of this study were divided into an experiment group and a control
+                                 group with each 15 subjects. The former conducted the experiment by using the affective
+                                 tutoring system, while the latter conducted the experiment by using the traditional tutoring
+                                 system. The eye tracker was applied to both groups in order to perform the eye movement
+                                 analysis and tracking. The whole experiment took about 15 min.
+                                 Table 3. Calculated Results of SUS Formula.
+
+                                                   Sample        Average                       Maximum Minimum               Standard
+                                                                                 Median
+Sustainability 2022, 14, 16680                      Size         Number                         Value   Value                Deviation
+                                                                                                                                  10 of 17
+                                    Overall          15           81.5             82.5           95     67.5                7.245688
+
+
+
+
+                                 Figure 4. A
+                                           A comparison
+                                             comparison of
+                                                        of the
+                                                           the adjective
+                                                               adjective ratings,
+                                                                         ratings, acceptability
+                                                                                  acceptability scores
+                                                                                                scores and school grading scales with
+                                 the
+                                 the average
+                                     average SUS
+                                             SUS score.
+                                                 score.
+
+                                 4.2.1. Eye
+                                      Eye      Movement
+                                            Movement         Fixation Analysis
+                                                         Analysis
+                                       The 30 teaching
+                                                  objectscontents    of thewere
+                                                           of this study     system    were into
+                                                                                  divided     divided   into four sessions.
+                                                                                                   an experiment     group and Thea control
+                                 group   was    compared     with the   experiment   group    in each  session  to understand
+                                 group with each 15 subjects. The former conducted the experiment by using the affective        the fixation
+                                 duration of
+                                 tutoring        the subjects
+                                            system,            using
+                                                       while the       the affective
+                                                                   latter             tutoring
+                                                                          conducted the          system. by
+                                                                                            experiment    After  finishing
+                                                                                                              using  the the   experiment,
+                                                                                                                         traditional  tutor-
+                                 the system.
+                                 ing  aggregate  Theand
+                                                      eyeaverage    data of
+                                                           tracker was        both to
+                                                                          applied   the  control
+                                                                                       both groupsgroup   and to
+                                                                                                      in order      experiment
+                                                                                                               theperform         group,
+                                                                                                                            the eye  move-as
+                                 shown     in  Table  4, were  calculated    to obtain  the  total average
+                                 ment analysis and tracking. The whole experiment took about 15 min.         fixation  duration:  80,889.27
+                                 for the control group and 120,477.2 for the experiment group. The total average fixation
+                                 duration
+                                 4.2.1. Eye at    the course
+                                              Movement         contents
+                                                             Fixation     was 80,687.73 for the control group and 86,751.6 for the
+                                                                       Analysis
+                                 experiment group. The total average fixation count on the course contents was 796,133
+                                       The teaching contents of the system were divided into four sessions. The control
+                                 for the control group and 803,533 for the experiment group. The single average fixation
+                                 group was compared with the experiment group in each session to understand the fixa-
+                                 duration was 101,349 for the control group and 107,962 for the experiment group. In
+                                 tion duration of the subjects using the affective tutoring system. After finishing the exper-
+                                 the analysis of eye movement statistics, the results of the experiment group were better
+                                 iment, the aggregate and average data of both the control group and the experiment
+                                 than those of the control group, which indicates that using the affective tutoring system
+                                 group, as shown in Table 4, were calculated to obtain the total average fixation duration:
+                                 increased the course learning fixation duration.
+                                 80,889.27 for the control group and 120,477.2 for the experiment group. The total average
+                                 fixation
+                                 Table      duration
+                                        4. Sessions     atto
+                                                      one  the course
+                                                             four—Overallcontents  was
+                                                                             Average     80,687.73 for the control group and 86,751.6
+                                                                                       Table.
+                                 for the experiment group. The total average fixation count on the course contents was
+                                 796,133 for the control group and 803,533 Control     for the Group
+                                                                                                experiment group.   Experiment
+                                                                                                                       The singleGroup
+                                                                                                                                    average
+                                 fixation   duration was
+                                     Total Average           101,349
+                                                       Fixation        for the control group
+                                                                Duration                         and 107,962 for the 120,477.2
+                                                                                          80,889.27                    experiment group.
+                                 In the analysisCourse  Contents
+                                                    of eye   movement statistics, the results
+                                                                                          80,687.73of the experiment group     were better
+                                                                                                                         86,751.6
+                                     Total Average Fixation Duration
+                                 than those of the control group, which indicates that using the affective tutoring system
+                                                Course Contents
+                                 increased     the course learning fixation duration.796,133
+                                       Total Average Fixation Counts
+                                                                                                                          803,533
+                                             Course Contents
+                                 Table 4. Sessions                              101,349                                107,962
+                                    Single Averageone to four—Overall
+                                                   Fixation Duration Average Table.
+                                                                                   Control Group             Experiment Group
+                                 4.2.2. Learning   Duration   Analysis
+                                     Total Average Fixation Duration     of Eye Movement     Course
+                                                                                      80,889.27                   120,477.2
+                                       The teaching
+                                               Coursecontents
+                                                       Contents of the system were divided into four sessions. The control group
+                                 wasTotal
+                                       compared    with  the experiment               80,687.73                   86,751.6
+                                            Average   Fixation  Duration group in each session to understand if the affective
+                                 tutoring system   canContents
+                                               Course   effectively increase the learners’ course learning duration. According to
+                                 TableTotal
+                                        5, theAverage
+                                               averageFixation
+                                                       number of                       796,133
+                                                                    the experiment group    and the control group803,533
+                                                                                                                    was 1,084,836.47
+                                                                 Counts
+                                 and 851,582.27   respectively.
+                                               Course Contents   The  former  was  higher  than the latter, which indicates that the
+                                 affective tutoring system lengthened the learning     101,349
+                                                                                          duration compared with   107,962
+                                                                                                                     the traditional
+                                    Single Average Fixation Duration
+                                 tutoring system. According to the significance judgment and analysis results of the data in
+                                 Table 6, the significance was 0.000 < 0.05. We can say that the total course learning duration
+                                 of the experiment group using the affective tutoring system is significantly different from
+                                 that of the control group using the traditional tutoring system.
+                                       According to Table 7 below, the average number of the experiment group and control
+                                 group is 86,751.60 and 80,687.73 respectively. Based on the significance judgment and analy-
+                                 sis results of the data in Table 8, the significance is 0.242 > 0.05. According to Tables 7 and 8,
+                                 the Test (T) table shows that there is no significant difference in the total fixation duration
+                                 of the control group, but the average duration is increased.
+Sustainability 2022, 14, 16680                                                                                                          11 of 17
+
+
+
+
+                                          Table 5. T Verification—Group Statistical Analysis (Total Course Learning Duration).
+
+                                       Average Number              Person(s)         Standard Deviation        Standard Error Mean Value
+       Control Group                       851,582.27                  15                 109,821.034                      28,355.669
+    Experiment Group                      1,084,836.47                 15                 171,437.643                      44,265.009
+
+
+                                          Table 6. T Verification—Independent Sample Verification (Total Course Learning Duration).
+
+                                       Levene Variance Equality Test                    Test (T) to Check if the Average Value Is Equal
+          F                      Significance                      T                          df                  Significance (two-tailed)
+        0.881                       0.356                        −4.437                     23.834                          0.000
+
+
+                                          Table 7. Test (T)—Group Statistics (Fixation duration at the course contents).
+
+                                       Average Number              Person(s)         Standard Deviation        Standard Error Mean Value
+       Control Group                        80,687.73                  15                 12,762.089                       3295.157
+    Experiment Group                        86,751.60                  15                 17,452.989                       4506.342
+
+
+                                          Table 8. Test (T)—Independent sample test (course content gaze time).
+
+                                                    Levene Variance Equality Test            Test (T) to Check if the Average Value Is Equal
+                                   F              Significance                 T                       df          Significance (Two-Tailed)
+    Fixation at the
+                                 1.427                  0.242               −1.086                   25.643                    0.287
+   course contents
+
+
+                                               According to Table 9 below, the average number of the experiment group and the
+                                          control group is 1,084,836.47 and 851,582.27, respectively. Based on the significance judg-
+                                          ment and analysis results of data in Table 10, the significance is 0.003 < 0.05. According
+                                          to Tables 9 and 10, it can be found that there is a significant difference in the total fixation
+                                          duration of the experiment group using the affective tutoring system compared with the
+                                          control group using the general tutoring system. It shows that the fixation duration of the
+                                          users with the affective tutoring system is longer than that of the users with the general
+                                          tutoring system.
+
+                                          Table 9. Test (T)—Group Statistics (Total fixation duration).
+
+                                       Average Number              Person(s)         Standard Deviation        Standard Error Mean Value
+       Control Group                        80,889.27                  15                 12,842.757                       3315.986
+    Experiment Group                       120,477.20                  15                 24,068.766                       3315.986
+
+
+                                          Table 10. Test (T)—Independent Sample Test (Total fixation duration).
+
+                                                    Levene Variance Equality Test            Test (T) to Check if the Average Value Is Equal
+                                   F              Significance                 T                       df          Significance (Two-Tailed)
+    Fixation at the
+                                 10.209                 0.003               −5.620                     28                      0.000
+   course contents
+
+
+                                          4.2.3. Eye Movement ROI Block Analysis
+                                               The teaching contents of the system were divided into four sessions. The control group
+                                          was compared with the experiment group in respect of the time before the first visit of ROI
+                                          block and the counts of fixation before the first visit.
+   Sustainability 2022, 14, 16680                                                                                          12 of 17
+
+
+
+
+                                          Time before the first visit of the ROI block, the time before the first visit of the ROI
+                                    block from sessions one to four of both the control group and the experiment group is zero.
+                                    In this study, the course contents were in the middle position of the page layout, and after
+                                    the nine-point correction, all subjects looked straight ahead and waited for the experiment
+                                    to start, so they had already looked into the ROI block of the course contents at the very
+                                    beginning of the first time, and thus the statistics show zero.
+                                          Fixation counts before the first visit, the fixation counts before the first visit from
+                                    sessions one to four of both the control group and the experiment group are zero. In this
+                                    study, the course contents were in the middle position of the page layout, and after the
+                                    nine-point correction, all subjects looked straight ahead and waited for the experiment to
+                                    start, and the standard fixation duration is 80 ms and the count statistics show zero.
+
+                                    4.2.4. Analysis of Eye Movement Hot Zone
+                                            The teaching contents of the system were divided into four sessions for analysis and
+                                      comparison of hot zones to understand the hot zones of learners’ attention to the contents
+                                      of the textbook in the course of study. Figures 5 and 6 are the first session of the course
+                                      contents of the control group and the experiment group. Figures 7 and 8 are the hot zones
+                                      for the course contents of the control group and the experiment group in the second session.
+                                      Figures 9 and 10 are the course contents of the control group and the experiment group in
+                                      the third session of the fixation hot zone. Figures 11 and 12 show the course contents in the
+Sustainability 2022, 14, x FOR PEER REVIEW
+                                      fourth session of the control group and the experiment group. The experiment shows that13 of 18
+                                      both the control group and the experiment group were completely fixated on the course
+                                      contents in the course content fixation hot zone.
+
+
+
+
+                                     Figure 5.
+                                    Figure     Control group
+                                            5. Control  group(session 1).1).
+                                                               (session
+Sustainability 2022, 14, 16680                                                   13 of 17
+                                  Figure 5. Control group (session 1).
+                                  Figure 5. Control group (session 1).
+
+
+
+
+                                         6. Experiment
+                                  Figure 6. Experimentgroup
+                                                       group(session
+                                                              (session
+                                                                     1).1).
+                                  Figure 6. Experiment group (session 1).
+
+
+
+
+Sustainability 2022, 14, x FOR PEER REVIEW                                           14 of 18
+
+                                         7. Control
+                                  Figure 7. Controlgroup
+                                                    group(session
+                                                          (session2).2).
+                                  Figure 7. Control group (session 2).
+
+
+
+
+                                   Figure8.8.Experiment
+                                  Figure      Experimentgroup
+                                                          group (session
+                                                              (session 2). 2).
+  Sustainability 2022, 14, 16680                                                14 of 17
+                                   Figure 8.
+                                   Figure 8. Experiment
+                                             Experiment group
+                                                        group (session
+                                                              (session 2).
+                                                                       2).
+
+
+
+
+                                   Figure9.
+                                   Figure
+                                   Figure 9.Control
+                                          9. Controlgroup
+                                             Control group(session
+                                                     group  (session
+                                                           (session   3).
+                                                                   3).3).
+
+
+
+
+Sustainability 2022, 14, x FOR PEER REVIEW                                         15 of 18
+
+                                   Figure 10.Experiment
+                                   Figure10.
+                                   Figure 10. Experimentgroup
+                                              Experiment group(session
+                                                         group
+                                                                       3).3).
+                                                                (session
+                                                                (session 3).
+
+
+
+
+                                   Figure 11.
+                                   Figure     Control group
+                                          11. Control group(session
+                                                            (session4).4).
+Sustainability 2022, 14, 16680                                                                                                                     15 of 17
+
+                                  Figure 11. Control group (session 4).
+
+
+
+
+                                 Figure  12.Experiment
+                                  Figure12.  Experimentgroup
+                                                        group(session
+                                                              (session4).
+                                                                       4).
+                                 5. Discussion and Conclusions
+                                  5. Discussion and Conclusions
+                                        In this study, the affective computing was built on the intelligent tutoring system,
+                                         In this study, the affective computing was built on the intelligent tutoring system,
+                                 which not only enhanced the learning interest of the users, but also provided a deeper
+                                  which
+                                 learningnot      only enhanced
+                                             experience.               the learning
+                                                             The real-time              interest
+                                                                                interaction        of thethe
+                                                                                               between        users,  but
+                                                                                                                  users  and                        deeper
+                                                                                                                                    emotionala agents
+                                                                                                                               theprovided
+                                                                                                                            also
+                                  learning    experience.     The   real-time     interaction   between      the   users
+                                 provided emotional feedback and guidance that makes the users turn negative emotions     and   the  emotional      agents
+                                  provided      emotional     feedback      and   guidance    that  makes       the users
+                                 into positive ones during the learning process and improve the learning interest of the    turn   negative     emotions
+                                  into positive
+                                 users.   SUS wasones usedduring      the learning
+                                                             to understand              processofand
+                                                                                 the usability       the improve
+                                                                                                          system, and  the eye
+                                                                                                                            learning    interest
+                                                                                                                                 movement            of the
+                                                                                                                                                statistics
+                                  users.   SUS    was   used   to understand        the usability   of  the    system,   and
+                                 were analyzed to explore the fixation duration at the system. The analysis shows that the     eye  movement         statis-
+                                  tics were
+                                 average       analyzed
+                                            score   of the to   explore
+                                                            users   for thetheusability
+                                                                                fixation ofduration
+                                                                                             the system at theis 81.5, andThe
+                                                                                                                 system.     the analysis     shows that
+                                                                                                                                  overall satisfaction
+                                  the  average     score   of the  users    for the   usability  of  the   system    is  81.5,
+                                 is very high. As shown in the descriptive statistics, the users found it easy to use the systemand   the  overall    satis-
+                                  faction   is very    high.   As  shown     in  the  descriptive     statistics,   the  users
+                                 and the learning process was attractive, which increased the willingness to learn. Therefore,   found    it easy    to  use
+                                 the   system and
+                                  thestatistics    show  the  learning
+                                                           that the        process
+                                                                      design          was
+                                                                                 of the     attractive,
+                                                                                         system   can bewhich adopted,    and itsthe
+                                                                                                                     increased          willingness
+                                                                                                                                    usability     is quite to
+                                 good.     Therefore,
+                                  learn. In the           the of the
+                                                   analysis    statistics
+                                                                        eyeshow     that thestatistics,
+                                                                             movement         design ofthe        system
+                                                                                                             theuse of                adopted, and
+                                                                                                                            can be tutoring
+                                                                                                                         affective                system  its
+                                  usability is
+                                 increased     thequite   good.duration
+                                                    learning      In the analysis      of the eye
+                                                                             of the course.     Themovement
+                                                                                                      eye movement   statistics,  the use
+                                                                                                                            statistics  show of affective
+                                                                                                                                                 that the
+                                  tutoring    system    increased    the   learning    duration   of  the   course.   The
+                                 fixation duration of the users from sessions one to four of the learning and the length    eye  movement        statistics
+                                                                                                                                                       and
+                                  show that
+                                 position        the fixation
+                                             of the   fixationduration
+                                                                 durationcouldof therepresent
+                                                                                       users fromthesessions
+                                                                                                       distributionone and
+                                                                                                                        to four   of the learning
+                                                                                                                              preference     of personaland
+                                  the  lengthIn
+                                 attention.      and   position
+                                                    this  study, ofthethe  fixation
+                                                                         fixation      durationofcould
+                                                                                     duration               represent the
+                                                                                                    the experiment             distribution
+                                                                                                                           group    was longer        pref-
+                                                                                                                                                and than
+                                  erence
+                                 that       of control
+                                       of the  personalgroup,
+                                                            attention.
+                                                                    and Inthethis
+                                                                               eye study,
+                                                                                     movement     statisticsduration
+                                                                                            the fixation         analysisof the    experiment
+                                                                                                                           divided the               group
+                                                                                                                                            experiment
+                                  was    longerthe
+                                 group into        than
+                                                     twothat
+                                                           ROIof the      control
+                                                                 blocks, the         group,
+                                                                                 agent       and
+                                                                                         block  andthetheye      movement
+                                                                                                             course             statistics
+                                                                                                                      block, while           analysis
+                                                                                                                                       there was         di-
+                                                                                                                                                      only
+                                  vided
+                                 the       the block
+                                      course    experiment
+                                                         in thegroup
+                                                                  ROI into
+                                                                         blocktheof two
+                                                                                     the ROI   blocks,
+                                                                                          control  group. the Toagent   block and
+                                                                                                                    further          the course
+                                                                                                                               confirm    whether    block,
+                                                                                                                                                        the
+                                 subjects are interested in the course contents, remove the fixation duration of the agent
+                                 block in the experiment group and intercept the course block of both the experiment group
+                                 and the control group to compare the course learning duration. The statistics show that
+                                 the total learning duration of the course contents of the experiment group was better than
+                                 that of the control group. The research proved that the system can increase the learning
+                                 duration of users’ courses. Through our experiments, the following items were found:
+                                 (1) For the semantic emotion recognition module, the system was unable to recognize some
+                                 fashionable terms used by young people according to the users’ feedback. It was expected
+                                 to collect some popular social platform, advertising works and even some emojis that can
+                                 express emotions. (2) For the sentiment analysis and judgment of words and sentences,
+                                 more considerations are needed because, for some popular words used by young people,
+                                 the meaning is usually not the meaning of emotions, and there is some irony or implied
+                                 meaning. It is easy to be confused with the original words. It is expected that, in the future,
+                                 the system will be more fashionable to match social trends and be closer to the users. (3) For
+                                 the technology of the agent module, it is expected to perform deep learning to train the
+                                 machine to become a ChatBot, which can interact with users more smoothly and naturally.
+                                 For this part, we have planned them into the work for the future.
+Sustainability 2022, 14, 16680                                                                                                      16 of 17
+
+
+
+
+                                   6. Future Prospects
+                                        In recent years, the intelligent tutoring system has integrated users’ emotional state
+                                   into the intelligent tutoring system, which has led to the transformation of the intelligent
+                                   tutoring system to the affective tutoring system. Therefore, affective computing is undoubt-
+                                   edly important in the education environment. In the future, multi-media contents can
+                                   be applied in the design and development of the affective tutoring system. In addition,
+                                   we expect to apply deep learning to the affective tutoring system and make the system
+                                   feature a ChatBot message function. Message function has become an indispensable part of
+                                   contemporary daily life. Under this premise, it is an inevitable trend to be equipped with a
+                                   good ChatBot. Chatbots are no longer seen as mere assistants, for they interact in a way
+                                   that brings them closer to the users as friendly companions [42]. Based on this, we will
+                                   explore the user experience and evaluate the learning effectiveness in the subsequent study.
+
+                                   Author Contributions: Conceptualization, H.-C.K.L. and Y.-C.L.; methodology, H.-C.K.L. and Y.-C.L.;
+                                   software, H.-C.K.L.; formal analysis, Y.-C.L. and H.-T.W.; writing—original draft preparation, Y.-C.L.
+                                   and H.-T.W.; writing—review and editing, H.-C.K.L., Y.-C.L. and H.-T.W.; data collection, Y.-C.L. and
+                                   H.-T.W. All authors have read and agreed to the published version of the manuscript.
+                                   Funding: This research received no external funding.
+                                   Institutional Review Board Statement: Not applicable.
+                                   Informed Consent Statement: Informed consent was obtained from all subjects involved in the study.
+                                   Data Availability Statement: Not applicable.
+                                   Conflicts of Interest: The authors declare that the research was conducted in the absence of any
+                                   commercial or financial relationships that could be construed as a potential conflict of interest.
+
+References
+1.    Morrish, L.; Rickard, N.; Chin, T.C.; Vella-Brodrick, D.A. Emotion regulation in adolescent well-being and positive education. J.
+      Happiness Stud. 2018, 19, 1543–1564. [CrossRef]
+2.    Burić, I.; Sorić, I.; Penezić, Z. Emotion regulation in academic domain: Development and validation of the academic emotion
+      regulation questionnaire (AERQ). Personal. Individ. Differ. 2016, 96, 138–147. [CrossRef]
+3.    Picard, R.W.; Picard, R. Affective Computing; MIT Press: Cambridge, MA, USA, 1997; Volume 252.
+4.    Picard, R.W.; Vyzas, E.; Healey, J. Toward machine emotional intelligence: Analysis of affective physiological state. IEEE Trans.
+      Pattern Anal. Mach. Intell. 2001, 23, 1175–1191. [CrossRef]
+5.    Xu, J. Emotion regulation in mathematics homework: An empirical study. J. Educ. Res. 2018, 111, 1–11. [CrossRef]
+6.    Jiménez, S.; Juárez-Ramírez, R.; Castillo, V.H.; Ramírez-Noriega, A. Integrating affective learning into intelligent tutoring systems.
+      Univ. Access Inf. Soc. 2018, 17, 679–692. [CrossRef]
+7.    Kort, B.; Reilly, R.; Picard, R. An Affective Model of Interplay Between Emotions and Learning: Reengineering Educational
+      Pedagogy-Building a Learning Companion. In Proceedings of the IEEE International Conference on Advanced Learning
+      Technologies, Madison, WI, USA, 6–8 August 2001; pp. 43–46.
+8.    Wang, C.-H.; Lin, H.-C.K. Constructing an Affective Tutoring System for Designing Course Learning and Evaluation. J. Educ.
+      Comput. Res. 2006, 55, 1111–1128. [CrossRef]
+9.    Mastorodimos, D.; Chatzichristofis, S.A. Studying Affective Tutoring Systems for Mathematical Concepts. J. Educ. Technol. Syst.
+      2019, 48, 14–50. [CrossRef]
+10.   Cheng, C.-H. The Power of Positive Thinking. Cult. Corp. 2010, 5, 47–49.
+11.   Mejbri, N.; Essalmi, F.; Jemni, M.; Alyoubi, B.A. Trends in the use of affective computing in e-learning environments. Educ. Inf.
+      Technol. 2022, 27, 3867–3889. [CrossRef]
+12.   Wang, T.-H.; Lin, H.-C.; Chen, H.-R.; Huang, Y.-M.; Yeh, W.-T.; Li, C.-T. Usability of an Affective Emotional Learning Tutoring
+      System for Mobile Devices. Sustainability 2021, 13, 7890. [CrossRef]
+13.   Yadegaridehkordi, E.; Noor, N.F.B.M.; Bin Ayub, M.N.; Affal, H.B.; Hussin, N.B. Affective computing in education: A systematic
+      review and future research. Comput. Educ. 2019, 142, 103649. [CrossRef]
+14.   Yu-Chun, M.; Koong, L.H.-C. A study of the affective tutoring system for music appreciation curriculum at the junior high school
+      level. In Proceedings of the 2016 International Conference on Educational Innovation through Technology (EITT), Tainan, Taiwan,
+      22–24 September 2016; pp. 204–207.
+15.   Cabada, R.Z.; Estrada, M.L.B.; Hernández, F.G.; Bustillos, R.O. An affective learning environment for Java. In Proceedings of the
+      2015 IEEE 15th International Conference on Advanced Learning Technologies, Hualien, Taiwan, 6–9 July 2015; pp. 350–354.
+Sustainability 2022, 14, 16680                                                                                                      17 of 17
+
+
+
+
+16.   Barrón-Estrada, M.L.; Zatarain-Cabada, R.; Oramas-Bustillos, R.; Gonzalez-Hernandez, F. Sentiment analysis in an affective
+      intelligent tutoring system. In Proceedings of the 2017 IEEE 17th international conference on advanced learning technologies
+      (ICALT), Timisoara, Romania, 3–7 July 2017; pp. 394–397.
+17.   Thompson, N.; McGill, T.J. Genetics with Jean: The design, development and evaluation of an affective tutoring system. Educ.
+      Technol. Res. Dev. 2017, 65, 279–299. [CrossRef]
+18.   Mao, X.; Li, Z. Agent based affective tutoring systems: A pilot study. Comput. Educ. 2010, 55, 202–208. [CrossRef]
+19.   Duo, S.; Song, L.X. An E-learning System based on Affective Computing. Phys. Procedia 2012, 24, 1893–1898. [CrossRef]
+20.   Ammar, M.B.; Neji, M.; Alimi, A.M.; Gouardères, G. The affective tutoring system. Expert Syst. Appl. 2010, 37, 3013–3023.
+      [CrossRef]
+21.   Gerald, C. Reading Lessons: The Debate over Literacy; Hill & Wang: New York, NY, USA, 2004.
+22.   Sin, J.; Munteanu, C. An empirically grounded sociotechnical perspective on designing virtual agents for older adults. Hum.
+      Comput. Interact. 2020, 35, 481–510. [CrossRef]
+23.   Wooldridge, M.; Jennings, N.R. Intelligent agents: Theory and practice. Knowl. Eng. Rev. 1995, 10, 115–152. [CrossRef]
+24.   Castelfranchi, C. Guarantees for autonomy in cognitive agent architecture. In International Workshop on Agent Theories, Architectures,
+      and Languages; Springer: Berlin/Heidelberg, Germany, 1994; pp. 56–70.
+25.   Genesereth, M.R. Software Agents Michael R; Genesereth Logic Group Computer Science Department Stanford University: Stanford,
+      CA, USA, 1994.
+26.   Cunha-Perez, C.; Arevalillo-Herraez, M.; Marco-Gimenez, L.; Arnau, D. On Incorporating Affective Support to an Intelligent
+      Tutoring System: An Empirical Study. IEEE Rev. Iberoam. Tecnol. Aprendiz. 2018, 13, 63–69. [CrossRef]
+27.   Russell, J.A. A circumplex model of affect. J. Personal. Soc. Psychol. 1980, 39, 1161. [CrossRef]
+28.   Ekman, P.; Friesen, W.V. Constants across cultures in the face and emotion. J. Pers. Soc. Psychol. 1971, 17, 124–129. [CrossRef]
+29.   Kuo, S.-C. The Meaning of Positive Psychology and Its Application in Learning; Graduate School of Education, Ming Chuang University:
+      Taoyuan, Taiwan, 2010; pp. 56–72.
+30.   Chiang, W.-T. The Emotion Regulation of College Students: Processes and Developmental Characteristics. Bull. Educ. Psychol.
+      2004, 35, 249–268.
+31.   Sun, Y.-C. Evaluation of Learning Emotion and Performance for Learners with Visualizer/Verbalizer Cognitive Style Enrolled in Various
+      Types of Multimedia Materials; Department of Applied Electronic Technology of National Taiwan Normal University: Taipei City,
+      Taiwan, 2010; pp. 1–136.
+32.   Adhanom, I.B.; Lee, S.C.; Folmer, E.; MacNeilage, P. Gazemetrics: An open-source tool for measuring the data quality of HMD-
+      based eye trackers. In Proceedings of the ACM Symposium on Eye Tracking Research and Applications, Stuttgart, Germany, 2–5
+      June 2020; pp. 1–5.
+33.   Hosp, B.; Eivazi, S.; Maurer, M.; Fuhl, W.; Geisler, D.; Kasneci, E. RemoteEye: An open-source high-speed remote eye tracker.
+      Behav. Res. Methods 2020, 52, 1387–1401. [CrossRef]
+34.   Boraston, Z.; Blakemore, S.J. The application of eye-tracking technology in the study of autism. J. Physiol. 2007, 581, 893–898.
+      [CrossRef]
+35.   Carter, B.T.; Luke, S.G. Best practices in eye tracking research. Int. J. Psychophysiol. 2020, 155, 49–62. [CrossRef]
+36.   Tang, D.-L.; Chang, W.-Y. Exploring Eye-Tracking Methodology in Communication Study. Chin. J. Commun. Res. 2007, 12,
+      165–211.
+37.   Rayner, K. Eye movements and attention in reading, scene perception, and visual search. Q. J. Exp. Psychol. 2009, 62, 1457–1506.
+      [CrossRef]
+38.   Rayner, K. Eye movements in reading and information processing: 20 years of research. Psychol. Bull. 1998, 124, 372–422.
+      [CrossRef]
+39.   Langton, S.R.; Watt, R.J.; Bruce, V. Do the eyes have it? Cues to the direction of social attention. Trends Cogn. Sci. 2000, 4, 50–59.
+      [CrossRef]
+40.   Brooke, J. SUS: A ’Quick and Dirty’ Usability Scale. Usability Eval. Ind. 1996, 189, 4–7.
+41.   Bangor, A.; Kortum, P.; Miller, J. Determining what individual SUS scores mean: Adding an adjective rating scale. J. Usability
+      Stud. 2009, 4, 114–123.
+42.   Costa, P. Conversing with personal digital assistants: On gender and artificial intelligence. J. Sci. Technol. Arts 2018, 10, 59–72.
+

@@ -1,0 +1,398 @@
+            An Affective Computing Approach to Develop the
+             Game-based Adaptive Learning Material for the
+                          Elementary Students
+
+             Tzu-Wei Tsai                                          Hsiao Yu Lo                                     Kai-Shao Chen
+  National Taichung University of                       National Taichung University of                    National Taichung University of
+     Science and Technology                                Science and Technology                             Science and Technology
+129, Sec.3, San-Min Rd. Taichung,                     129, Sec.3, San-Min Rd. Taichung,                  129, Sec.3, San-Min Rd. Taichung,
+              Taiwan                                                Taiwan                                             Taiwan
+        +886-4-22196803                                       +886-4-22196803                                    +886-4-22196803
+         wei@nutc.edu.tw                              serena_75222@hotmail.com                               kschen@ms1.hinet.net
+
+ABSTRACT                                                                         1. INTRODUCTION
+E-learning has been the mainstream in the field of education.
+                                                                                 Meeting continue difficulties and setbacks during the learning
+Nowadays, many children use the game-based learning materials
+                                                                                 process, learners will soon decrease their motivation (Zhuang,
+for leaning. However, the difficulty and frustration of the
+                                                                                 2003). The adaptive learning system is to provide the appropriate
+materials usually decrease learners’ pleasure and interests.
+                                                                                 learning materials in accordance to each learner’s ability, emotion
+Learners’ facial emotions intuitionally respond to their learning
+                                                                                 or responses. It could decrease learners’ frustration, carry out
+condition. Accordingly, the aim of the study is developing the
+                                                                                 effective study, and promote the learning motivation and
+affective interface of the game-based adaptive learning to enhance
+                                                                                 achievement. Therefore, adapting learning material for learners’
+children’s learning motivation. The various difficulty levels of a
+                                                                                 emotion is one of the approaches to enhance their motivation
+puzzle game and learning contents are designed to adapt in
+                                                                                 (Vesterinen, 2001).
+accordance to the learner’s facial emotion which is recognized
+and classified by Ekam’s FACS. Three groups of the elementary                    The techniques of facial detection and recognition takes an
+school students are recruited to separately participate in the                   advantageous development nowadays, because face-features are
+evaluation experiments. One group is for the adaptive game,                      cross culture and races (Gus, 2006). Ekman developed an
+another for the adaptive learning content, and the other one is the              international system, Facial Action Coding System (FACS), to
+control group for no adaptive learning. Afterword the subjects use               classify six basic emotions to happiness, disgust, fear, anger,
+the affective usability scale to evaluate the system. The results                surprise and sadness (Ekman, 2002). This study is to apply facial
+reveal the game-based learning system could enhance learners’                    affective computing to develop an affective interface of game-
+learning motivation and satisfaction. Conclude that the affective                based adaptive learning system. Learners’ facial emotion could
+interface developed by facial affective computing is proposed to                 determine the challenge level of a game or learning content. The
+apply on the adaptive learning.                                                  proposed research questions are follows:
+                                                                                 1. Does the affective interface of game-based adaptive learning
+Categories and Subject Descriptors                                               system increase learners’ motivation?
+K.3 [COMPUTERS AND EDUCATION]                                                    2. Does the affective interface of game-based adaptive learning
+                                                                                 system promote learners’ affective usability?
+General Terms                                                                    3. Is the effect different between the adaptive game and the
+Design, Human Factors.
+                                                                                 adaptive learning content?
+
+Keywords
+Keywords: adaptive interface, facial emotion, affective computing,
+game-based learning                                                              2. LITERATURE REVIEW
+                                                                                 2.1 Emotion in Learning
+                                                                                 Dr. Barry Kort mentioned that when learning occurs, it is
+                                                                                 accompanied by an emotional response. As the learning task
+ Permission to make digital or hard copies of all or part of this work for       increases in difficulty, however, one may experience confusion,
+ personal or classroom use is granted without fee provided that copies are       frustration, or anxiety. Learning mat be abandoned because of the
+ not made or distributed for profit or commercial advantage and that             negative feelings (Picard, 1997). Humans interacting with
+ copies bear this notice and the full citation on the first page. To copy        computers can benefit if computers learn to recognize their
+ otherwise, or republish, to post on servers or to redistribute to lists,        emotions. The good teacher detects important affective cues from
+ requires prior specific permission and/or a fee.                                the students and responds differently. If the learning system seems
+ HCCE’12, March 8–13, 2012, Aizu-Wakamatsu, Fukushima, Japan.                    the good teacher detects affective cues from learners and responds
+ Copyright 2012 ACM 978-1-4503-1191-5 …$10.00.
+
+
+
+
+                                                                             8
+to different leaning materials to them, it could raise their learning              were studying on the game-based learning materials.
+motivation and interests.                                                          Accordingly, learners’ emotions were modeled to various
+                                                                                   difficulty levels of leaning materials.
+Motivation is a important driven factor for learning. No
+motivation, no learning. Game is a good approach to induce and              2.     Developing the prototype of affective Interface for game-
+last learners’ motivation (Gee, 2004). Pekrun et al.(2002) stated                  based adaptive learning material: Applying facial affective
+the relationship between learning emotion and motivation:                          computing to develop the adaptive learning system.
+Positive emotion(e.g. Enjoyment) profits the learning motivation;           3.     Teachers’ evaluation: 5 teachers wear recruited to evaluate
+negative emotion (e.g. Boring, helpless, anxiety) lose learning                    effect and efficiency of the prototype on the system usability
+motivation. Consider learners’ emotion in learning is one                          scale (SUS). Then, interview these teachers to get the design
+approaches to enhance their learning motivation (Vesterinen,                       suggestions and opinions for further development.
+2001). Therefore, emotion drive learning motivation, and
+                                                                            4.     Modifying and completing “Affective interface of game-
+motivation promote learning effect (Mao& Li, 2010).
+                                                                                   based adaptive learning material” according the teachers’’
+Emotion is one’s psychophysical responses to external stimuli.                     evaluation.
+Individuals express their emotion experience to communication               5.     Learners’ Empirical evaluation: Recruit learners use the
+with others (Zhuang, 1997). However, 55% of face-to-face human                     “Affective interface of game-based adaptive learning
+communication is relied on facial expressions, indicating that                     material” and evaluate on the affective usability scales (AUS).
+facial expressions play an important role to reveal ones’ affective                The three experiments are executed to compare the effects
+cues (Mehrabian, 1974). Thus, facial emotions could be                             among the adaptive game, the adaptive learning contents and
+applicable to affective computing technique.                                       no adaptive learning.
+                                                                            6.     Statistic Analysis: Descriptive analysis and ANOVA analysis
+2.2 Affective Computing for Game                                                   are executed to analysis the results of affective usability
+Picard (1997) proposed the four purposes of applying affective                     evaluation.
+computing to human-computer interface (HCI):
+1. To decrease users’ frustration when they are unfamiliar with
+     the operation process.
+2. To provide users a better and more appropriate usability.                                         Modeling learning emotion
+3. To apply human’s affective information to develop the
+     application.
+4. To develop the affective computing technique for social
+     communication.                                                               Developing the prototype of affective Interface for game-based
+                                                                                                   adaptive learning material
+Besides, there are three developing factors for players’ emotion in
+games (Gilleade, et al., 2005):
+1.   Assist Me: If the system of the game could give assistance                                             For Teachers
+     responding to players’ emotion, the game will decrease their                                    System Usability Evaluation
+     negative emotion.
+2.   Challenge Me: If the challenge of the game could be adjusted                Modifying and Completing the affective Interface for game-based
+     in accordance to players’ excitement, players are willing to                                 adaptive learning material
+     spend more time on the game.
+3.   Emote Me: If the content of the game could be involved with
+     players’ affective responses, it could arouse players’ emotion
+     and expectation.                                                              Experiemnt A             Experiemnt B            Experiemnt C
+                                                                                 The adaptive game            The adaptive           No adaptive
+Malone & Lepper (1987) advocated the point that most                                  difficulty            content difficulty        learning
+individuals would like to meet a perfect challenge. Accordingly,
+players expect the appropriate level of game challenge. The
+various difficulty levels of games such as the levels of “Tetris”
+game are often used. Most games comprise three difficulty levels:                                           For Learners
+                                                                                                   Affective Usability Evaluation
+easy, medium and hard. Garris & Ahlers (2002) states players are
+                                                                                      (usability, motivation, satisfaction and continue usage)
+much attracted by the game challenge which suits to players and
+intrigues their learning motivation. Therefore, affective computing
+                                                                                               Figure 1. Research Procedure.
+technique could adapt the difficulty levels of learning system in
+accordance to the learners’ recognized emotions. It will profit             3.2 Experimental Design
+learners’ inner satisfaction.                                               The experiment design and the development of the affective
+                                                                            interface of game-based adaptive learning are described as
+3. METHOD                                                                   following sections.
+3.1 Research Procedure
+The research procedure is described as follows (Figure1):                   3.2.1 Subjects
+                                                                            90 subjects are the second-grade students randomly selected from
+1.   Modeling learners’ learning emotion: A pre-test was                    one elementary school in Taichung City, Taiwan. To compare the
+     preformed to realize their learning emotion when learners              effects, the subjects are grouped for Experiment A, B and C. Each
+
+
+
+
+                                                                        9
+group has 30 subjects. The subjects’ information is showed as                  Satisfaction
+Table 1.                                                                       8. I hope to play the game-based learning system in class.
+Experiment A: The game difficulty levels are adapted in                        9. I like use the game-based learning system to play Chinese
+accordance to learners’ emotion.                                                    phrases.
+                                                                               Continuance usage
+Experiment B: The learning contents are adapted in accordance to
+                                                                               10. I would like to continually use the game-based learning
+learners’ emotion
+                                                                                    system to learn Chinese phases.
+Experiment C: This is a control group. No adaption in game-
+based learning materials.
+                                                                                   The empirical situation is shown as Figure 2.
+                  Table 1. Subjects Information
+Experiment                       Gender        Number         Total
+Experiment A                     Boy           16             30
+(The Adaptive Game)              Girl          14
+Experiment B                     Boy           17             30
+(The Adaptive Content)           Girl          13
+Experiment C                     Boy           18             30
+(No Adaptive Learning)           Girl          12
+
+3.2.2 Measurement Tools
+There are two adapted measurements for the empirical evaluations.
+One is system usability scale used for teachers’ evaluation, and
+the other is affective usability scale used for learners’ evaluation.                                  Figure 2 Empirical Situation
+     System usability scale (SUS) was developed by Brooke
+(1996) as a “quick and dirty” survey scale that would allow the               4. AFFECTIVE INTERFACE OF GAME-
+usability practitioner to quickly and easily assess the usability of a        BASED LEARNING SYSTEM
+given product or service. SUS is composed of 10 statements: five
+                                                                              The experiment tool is the affective adaptive interface of game-
+are positive, and the other 5 are negative questions. These
+                                                                              based learning. The development is involved in interactive
+statements are scored on a 5-point scale of strength of agreement.
+                                                                              technology and game-based learning content.
+Final scores for the SUS can range from 0 to 100, because the
+statements alternate between the positive and negative, care must             4.1 Interactive Technology
+be taken when scoring the survey.
+                                                                              4.1.1 System Design
+      Affective usability scale includes four dimensions: learning            The system framework is shown as Figure 3. This game-based
+motivation statement (Zaharias, 2009), satisfaction measurement               adaptive learning system is for single learner. A learner’s facial
+(Yu el al., 2002) and continuance usage (Atchariyachanvanich et               emotion is viewed as the input information. Affective computing
+al., 2006). AUS is also composed of 10 statements: five are                   algorithm is to control the adaptive output of the game-based
+positive, and the other 5 are negative questions. These statements            learning system.
+are scored on a 5-point scale of strength of agreement. The
+statements alternate between the positive and negative, care must             A learner’s facial image is captured by a webcam; eMotion
+be taken when scoring the survey. The 10 statements of AUS are                software is used to recognize his (her) facial emotion and dump
+shown as Table3.                                                              the possibility data of emotions. The processing program is one
+                                                                              intermediary which transfers the dumped data. The control part is
+               Table 3. The 10 statements of AUS                              an affective computing equation programmed by Flash Action
+ Usability                                                                    Script. The adaptive game difficulty or learning contents is the
+ 1. I would like to often use the game-based learning system.                 output results.
+ 2. I need some assistance to use the game-based learning                                 Input                         Control                Output
+     system.                                                                      Learner’s Facial Emotion          Affective Computing
+                                                                                                                                          Adapted Game-based
+                                                                                                                                               Learning
+ 3. Most people will quickly learn to use the game-based
+     learning system.                                                             Image Captured by
+ Motivation                                                                           Webcam
+                                                                                                                                           Adapted Game
+                                                                                                                                             Difficulty
+ 4. I feel the challenge of the game-based learning system is
+                                                                                                                   Flash Action Script
+     great.                                                                      eMotion Recognition
+                                                                                                                        Analysis
+ 5. Because of playing the game-based learning system, I                                                               Computing
+     would like to earn more Chinese phrases.                                                                                             Adapted Learning
+                                                                                   Dumping Data by                                            Content
+ 6. I feel pleasure and interesting to the game-based learning                       Processing
+     system
+ 7. Because of playing the game-based learning system,
+     learning Chinese phrases become easier.
+                                                                                                             Figure 3. System Design.
+
+
+
+
+                                                                         10
+4.1.2 Facial emotions computing                                             4.2 Game Design
+A learner’s facial image is recorded by HD webcam and captured              The game is similar to “Whac-A-Mole” , one kind of the puzzle
+by eMotion software. eMotion, a facial emotion recognition                  game which is often applied to game-based learning materials for
+software, developed by the ISLA Laboratory at the Universiteit              the elementary students. It guides a learner to solve the puzzle,
+van Amsterdam is constructed by a face tracking algorithm.                  challenge the game difficulty and achieve the learning target. The
+eMotion handles the following process in this interactive game: (1)         game flowchart is shown as Figure 5. The three interfaces are
+Face tracking: one’s face captured by the webcam is tracked and             designed for three experiments. Game A is the adaptive game
+detected; (2) Feature extraction: the moving vectors of motion              difficulty; Game B is the adaptive content difficulty; and Game C
+units (MUs) on one’s face are extracted and computed; (3) Facial            is no adaptive learning.
+emotion assessment: the moving vectors were classified and
+assessed the possibility on seven emotions (neutral, happy,
+surprise, angry disgust, fear, sad), according to the facial emotion                                          Start
+defined by FACS (Sebe et al., 2006). A screen shot of the face
+                                                                                                  Input student information
+tracking and the emotion recognition by eMotion software is
+shown in Fig. 4.                                                                                 Facial emotion recognition
+
+                                                                                                           Instruction
+
+                                                                                                       Select game interface
+
+
+
+                                                                                   Experiment A (Ga)      Experiment B (Gb)    Experiment C (Gc)
+
+                                                                                          10 puzzles              10puzzles         10 puzzles
+
+
+
+
+                                                                                           feedback                feedback         feedback
+
+
+
+   Figure. 4. A screen shot of eMotion. The left: one’s face
+ overplayed the wireframe is tracked. The right: the result of                                               Success/Fail
+              one’s facial emotion is identified.
+                                                                                             Figure 5. The Game Flowchart.
+Because learners’ facial expressions are continuous responses, the
+learning emotion has to be processed by two-phrase computation.
+The first phrase is to classify the emotion tendency; the second            4.2.1 Game Rules
+phrase is to determine the learning emotion.                                The screen layout consists of with nine holes. Each hole contains
+Each learning item lasts 10sec. 30 frames of facial images are              a single mole. Once the game starts, the moles will begin to pop
+captured per second. eMotion recognize each frame of image and              up from their holes at random. One Chinese phrase with blank
+dump one set of possibility data of six emotions . In other word,           character(s) appearing on the right side is one learning puzzle.
+300 sets of possibility emotion data were provided to analyze the           The game task is that learner uses a hammer to hit the mole
+emotion tendencies for each learning item. To acquire the emotion           holding the correct Chinese character by clicking mouse. Each
+tendency, the possibility data of emotions were computed by                 learning puzzle lasts 10 sec. Moles will run away after 10sec. If
+equation 1. Thus, every set of the possibility data are transformed         the learner select the right character in 10 sec., he(she) solve the
+to positive emotion or negative emotion.                                    puzzle. If the learner selects the wrong character or spends more
+                                                                            than 10 sec., he(she) fail. There are 10 puzzles in one game task.
+                                                                            The learner correctly hits more than six moles, and “You
+ET= (Happiness) x 1 + (Surprise) x 1 – (Disgust) x 0.25 – (Fear) x          success!” will show up on the end. The learner correctly hits less
+0.5 – (Anger) x 1 – (Sadness) x0.25.                         (1)            than six moles, and “You fail!” will appears on the end. The
+                                                                            scores and learners facial expression will be recorded for further
+ET: emotion tendency
+                                                                            investigation. The game layout is shown as Figure 6.
+Furthermore, the learning emotion (LE) depends on the result of
+positive ET numbers minus the negative ET ones. If the LE is
+greater than zero, it means the learner feel easier toward the
+                                                                            4.2.2 The adaptive game difficulty
+learning item. The system will raise the game difficulty or the             The various levels of game difficulty are referred to the numbers
+content difficuty. Oppositely, if the LE is negative, it means the          of the pop-up moles. The more moles appear, the more game
+learner feels hard toward the learning item. The system will lower          difficulty are. The easy level is three moles; the medium level is
+the game difficulty or the content difficulty..                             five moles; and the hard level is seven moles.
+
+LE= (the numbers of positive ET) - (the numbers of negative ET)             4.2.3 The adaptive material difficulty
+                                                            (2)             The learning contents are about Chinese characters obtained from
+                                                                            the Chinese textbook for the elementary school students. It
+LE: learning emotion                                                        comprises three levels of difficulties: easy, medium and hard to
+ET: emotion tendency                                                        the second-grade students.
+
+
+
+
+                                                                       11
+                                                                              Motivation         A          4.63      0.618     4.449     .022
+
+     Score                              Time                 Puzzle                              B          4.12      0.994
+                                                                                                 C            4       1.072
+
+                                                                             Satisfaction        A           4.6      0.645     5.531     .006
+                                                                                                 B            4       1.065
+                                                                                                 C          3.95      1.055
+
+                                                                              Continue           A          4.57      0.728     2.921     .059
+                                                                               Usage             B          4.07      1.048
+                                                                                                 C           4.2      0.847
+
+
+
+
+                   Moles holding the                hammer
+                                                                             6. CONCLUSION
+                       answer                                                According to the evaluation results, it yields some conclusion to
+                                                                             research questions as follows:
+
+                     Figure 6. Game Layout.                                  Applying facial affective computing to game-based adaptive
+                                                                             learning has significant effects on affective evaluation such as
+5. EVALUATION RESULTS                                                        satisfaction and motivation. It account for the affective adaptive
+                                                                             game-based learning materials could profit learners’ emotion in
+The data of affective usability evaluation are processed by the
+                                                                             learning. However, it has no difference on usability issue. The
+descriptive statistics and ANOVA analysis (Table 2). The
+                                                                             reason probably is that the appearance of three interfaces seems
+comparisons of the effects on the four dimensions (usability,
+                                                                             the same; learners’ might not perceive their adaption.
+motivation, satisfaction and continuance usage) are stated as
+follows:                                                                     Moreover, the adaptive game difficulty has greater effects than the
+                                                                             adaptive content difficulty on motivation and satisfaction. The
+5.1.1 Usability                                                              adaptive game has much effect than the adaptive content on the
+The results suggested that there were no statistically significant           statements of learning motivation, including self-achievement,
+main effect of the affective adaptive interfaces to usability                active learning, learning environment and learning interests. The
+dimension (F=4.723, P>0.05).                                                 explanation might be that learners could acquire their
+                                                                             achievement in the adaptive game difficulty during the short
+5.1.2 Motivation                                                             learning time. However, learners needs more time to recognize the
+ANOVA of variance revealed a significant effect of affective                 correct character based on learners’ ability and knowledge. It
+adaptive interfaces to motivation dimension (F=4.449, P<0.05).               could hardly make it by guess, so the adaptive content difficulty
+The adaptive game difficulty (Mean=4.63, SD=0.618) raises more               induces less achievement. From teachers’ evaluation, they
+learners’ motivation than the adaptive content difficulty                    proposed some suggestions for the adaptive content difficulty: to
+(Mean=4.12, SD=0.994).                                                       prolong the time and repeatedly appear the puzzles which
+                                                                             learners’ fail.
+5.1.3 Satisfaction                                                           It could be concluded that applying facial affective computing to
+ANOVA of variance revealed a significant effect of affective                 the game-based adaptive learning could enhance learners’
+adaptive interfaces to satisfaction dimension (F=5.531, P<0.05).             motivation.
+The adaptive game difficulty (Mean=4.6, SD=0.645) induces
+more satisfaction than the adaptive content difficulty (Mean=4,
+SD=1.065).
+                                                                             7. REFERENCE
+                                                                             [1] Zhuang, C. 1997. Education Psychology, Donghua Publisher,
+5.1.4 Continuance Usage
+                                                                                 Taipei
+The results suggested that there were no statistically significant
+main effect of affective adaptive interfaces to continuance usage            [2] Mehrabian, A., & JAMES, A. R. 1974. The basic emotional
+dimension (F=42.921, P>0.05).                                                    impact of environments. Perceptual and Motor Skills, 38(1),
+                                                                                 283-301.
+                                                                             [3] Vesterinen, E. 2001. Affective Computing. Tik-111.590
+             Table 2 The Results of ANOVA Analysis
+                                                                                 Digital media research seminar, Helsinki, Finland.
+ Dimension      Experiment       Mean          SD     F          Sig.        [4] Guo, B.2006. Research on the Relationship between the
+ Usability          A            4.28      0.929     4.723       .081            Product's Form and Emotion－A. Case Study of Electric
+                                                                                 Kettles. Master Thesis, National Yun-lin university of
+                    B            3.71      1.156                                 science and technology, Taiwan
+                    C            3.42      1.142                             [5] Ekman, P., Friesen, W. V., & Hager, J. C. 2002. Facial
+                                                                                 Action Coding System Manual. Salt Lake: A Human Face.
+
+
+
+
+                                                                        12
+[6] Gee, J.P. 2004. Learning by design: Games as learning                     [13] Garris, R.& Ahlers, R. 2002. Games, Motivation, and
+    machines. Interactive Educational Multimedia, number 8,                        Learning: A Research and Practice Model. Simulation
+    p.15-23                                                                        Gaming December 2002 vol. 33 , 4, 441-467.
+[7] Pekrun, R., Goetz, T., Titz , W.& Perry, R.P.2002. Academic               [14] Brooke, J. (1996). SUS: A “quick and dirty” usability scale.
+    Emotions in Students' Self-Regulated Learning and                              In P. W. Jordan, B. Thomas, B. A.Weerdmeester, & I. L.
+    Achievement: A Program of Qualitative and Quantitative                         McClelland (Eds.), Usability evaluation in industry (pp.
+    Research, Educational Psychologist,37(2),91-105.                               189–194).London: Taylor & Francis.
+[8] Vesterinen, E. 2001. Affective Computing. Tik-111.590                     [15] Zaharias, P. 2009. Comprehensive Usability Design in the
+    Digital media research seminar, Helsinki, Finland.                             context of e-Learning: A Framework augmenting 'traditional'
+[9] Mao X., & Li Z. 2010. Agent based affective tutoring                           usability constructs with instructional design and motivation
+    systems: A pilot study. Computers & Education 55, 202–208.                     to learn. International Journal of Technology and Human
+                                                                                   Interaction vol 5 (4), 37-59.
+[10] Picard, R. W. (1997). Affective computing. Cambridge: The
+     MIT Press.                                                               [16] Yu, F.-Y., Chang, L.-J., Liu, Y.-H. & Chan, T.-W. 2002.
+                                                                                   Learning preferences towards computerised competitive
+[11] Gilleade, Kiel ,Dix, Alan & Allanson, Jen 2005. Affective                     modes, Journal of Computer Assisted Learning, 18: 341- 350.
+     Videogames and Modes of Affective Gaming: Assist Me,
+     Challenge Me, Emote Me, Changing Views – Worlds in Play.                 [17] Atchariyachanvanich, K., Okada, H. & Sonehara, N. 2006.
+                                                                                   What keeps online customers repurchasing through the
+[12] Malone, T., & Lepper, M. 1987. Making learning fun: A                         internet? ACM SIGecom Exchanges, 6(2): 47-57.
+     taxonomy of intrinsic motivations for learning. In R. Snow &
+     M. Farr (Eds.), Aptitude, learning, and instruction , Vol. 3 , p.        [18] Sebe, N., Lew, M. S., Sun, Y., Cohen, I., Gevers, T., &
+     223-253.                                                                      Huang. 2006. T. S.: Authentic facial expression analysis. The
+                                                                                   Journal of Image and Vision Computing, 25, 856-1863
+
+
+
+
+                                                                         13
+

@@ -1,0 +1,831 @@
+SPECIAL SECTION: Methods for the Analysis of Communication
+Detection of Affective States From Text and Speech
+for Real-Time Human–Computer Interaction
+Ricardo A. Calix, Leili Javadpour, and Gerald M. Knapp, Louisiana State
+University, Baton Rouge, Louisiana
+
+
+
+     Objective: The goal of this work is to develop and                     Introduction
+test an automated system methodology that can detect
+emotion from text and speech features.                          Affective human–computer interaction (HCI)
+    Background: Affective human–computer interac-            will be critical for the success of new technologies
+tion will be critical for the success of new systems that    that will be prevalent in the 21st century. There
+will be prevalent in the 21st century. Such systems will     will be continued rapid development of auto-
+need to properly deduce human emotional state before         mated assistive systems that help humans to live
+they can determine how to best interact with people.         better, more productive lives. These will be active
+    Method: Corpora and machine learning classifica-         assistive systems such as robot aides used in hos-
+tion models are used to train and test a methodology         pitals, homes, office, and other environments.
+for emotion detection. The methodology uses a step-
+                                                             Such systems will need to be able to properly
+wise approach to detect sentiment in sentences by
+first filtering out neutral sentences, then distinguishing
+                                                             deduce human emotional state before they can
+among positive, negative, and five emotion classes.          determine how to best interact with people.
+    Results: Results of the classification between emo-         The goal of this work is to develop and test
+tion and neutral sentences achieved recall accuracies        an automated system methodology that can
+as high as 77% in the University of Illinois at Urbana-      detect emotion from text and speech features
+Champaign (UIUC) corpus and 61% in the Louisiana             for use in affective HCI systems (text and
+State University medical drama (LSU-MD) corpus for           speech refer to the semantic and acoustic com-
+emotion samples. Once neutral sentences were filtered        ponents of speech). Emotion detection can be
+out, the methodology achieved accuracy scores for de-        useful in many areas such as text-to-scene pro-
+tecting negative sentences as high as 92.3%.                 cessing, cognitive ergonomics, game design,
+    Conclusion: Results of the feature analysis indicate
+                                                             movie animation, and health care. The field of
+that speech spectral features are better than speech pro-
+sodic features for emotion detection. Accumulated senti-
+                                                             cognitive ergonomics could greatly benefit
+ment composition text features appear to be very impor-      from the use of machine learning techniques to
+tant as well. This work contributes to the study of human    automate tasks and develop environments that
+communication by providing a better understanding of         can adapt to human behavior and emotions.
+how language factors help to best convey human emotion       Aircraft cockpits, hospital operating rooms,
+and how to best automate this process.                       military simulators, and other work environ-
+    Application: Results of this study can be used to        ments could automatically adapt based on a per-
+develop better automated assistive systems that inter-       son’s mood. This can have great benefits in
+pret human language and respond to emotions through          safety and increased productivity.
+3-D computer graphics.                                          Specifically, in health care, there is currently
+                                                             a need to automate many tasks. High costs and
+Keywords: knowledge representation, cognitive pro-
+                                                             the increase in the size of the elderly population
+cesses, language, human–computer interaction
+                                                             have put a strain on the supply of care giving
+                                                             medical personnel. Many tasks that require
+Address correspondence to Gerald M. Knapp, Industrial        medical support staff such as rehabilitation and
+Engineering, 3128 Patrick F. Taylor Hall, Louisiana State    elderly care are expensive and are not being
+University, Baton Rouge, LA 70803; e-mail: gknapp@lsu.edu.
+                                                             performed. In addition, it has been suggested
+HUMAN FACTORS                                                that caring for people needs to have a human
+Vol. 54, No. 4, August 2012, pp. 530-545                     touch (Tapus, Mataric, & Scassellati, 2007).
+DOI:10.1177/0018720811425922                                 This means that automated systems that can
+Copyright © 2012, Human Factors and Ergonomics Society.      detect human behavior and emotion are needed
+Detection of Affective States                                                                     531
+
+
+to perform these tasks, especially when dealing       two corpora to train and test the model helped to
+with elderly patients and children.                   identify the differences and similarities in emo-
+   A current research area is the use of socially     tion detection between narrative- and dialogue-
+enabled robots to treat patients with autism,         based communication. Finally, feature analysis
+rehabilitation needs, and other problems. Tapus,      and an application of the methodology in the
+Tapus, and Mataric (2008) have shown that             HCI cycle are presented.
+patients have better performance in their reha-
+                                                                  Literature Review
+bilitation tasks when assisted by automated sys-
+tems that appropriately respond to their                 Although there have been several attempts to
+behavior. They also note that autistic children       develop affective HCI systems, additional work
+who interact with robots can improve behavior         needs to be done in the area of affective natural
+and cognitive processing. Unfortunately, at this      language processing. In the following sections,
+point, smart automated aides are difficult to         studies that have addressed the issue of emotion
+implement because they need to interpret human        detection in just one language medium (text or
+emotions from language inputs.                        speech) or that integrate both mediums are dis-
+   Emotion detection from language inputs is a        cussed.
+difficult task because emotions can be very sub-
+jective and the set of features that captures emo-    Speech Approaches
+tion in language is not clearly defined.                 Two common issues for emotion detection
+Vocabulary approaches alone are not enough            from speech are (a) which features to use and
+because emotion words that are usually associ-        (b) which segment of the signal should be used.
+ated with specific emotion classes can be used        On the first issue, Chuang and Wu (2004)
+for other emotions. An example of this is when        showed that emotions in speech are related to
+people use sarcasm, where they say one thing          prosody features such as pitch and energy (for-
+but they mean another. Acoustic features are          mants). These authors described how pitch for
+usually related to some emotions, but noise and       happiness or anger is higher than for sadness.
+other factors can affect the ability of a system to   (Pitch is a perceptual property of a signal
+predict emotion. All these aspects contribute to      defined by Jurafsky and Martin, 2008, as a
+make automatic emotion detection a challeng-          “mental sensation of fundamental frequency”
+ing area of research.                                 that can be detected by using the higher cepstral
+   The methodology proposed in this work uses         values of a signal.) Chuang and Wu (2004) also
+a stepwise approach to detect emotion from lan-       indicated that the concentration of acoustic
+guage at the sentence level by first distinguish-     energy (formants) in speech associated with
+ing between emotion and neutral classes and           anger or surprise is greater than the energy
+then among positive, negative, and five emotion       associated with fear. Formants are the ampli-
+classes. The methodology is trained and tested        tude peaks in given frequency ranges that can
+on two affect corpora: (a) the children’s stories     correlate to emotions. They correspond to a
+corpus developed at the University of Illinois at     resonance in the vocal tract. Higher amplitudes
+Urbana-Champaign (UIUC) by Alm (2008) and             correlate to louder sounds. Praat gives the fre-
+(b) the new medical TV drama corpus devel-            quency value (in hertz) where the amplitude
+oped at Louisiana State University (LSU). The         peak is for the given formant.
+UIUC affect corpus is narrative based, with one          Other authors such as Luengo, Navas, and
+speaker per story, low noise, and longer, more        Hernaez (2010) concluded that spectral features
+grammatical sentences. In contrast, the LSU           (Mel frequency cepstral coefficients; MFCCs)
+medical drama (LSU-MD) corpus is dialogue             have a higher contribution to emotion detection.
+based, with multiple speakers, high noise, and        From perceptual experiments (Jurafsky &
+shorter utterances.                                   Martin, 2008), it has been concluded that humans
+   Results of the methodology using various           focus on only certain frequency components of
+supervised learning techniques, feature sets,         the signal. MFCCs are usually very useful in
+and corpora are presented and discussed. Using        emotion detection because the frequency bands
+532		                                                                August 2012 - Human Factors
+
+
+are mapped to the specific Mel scale of the           (2005), on the other hand, propose semantic
+human auditory system and are uniformly               approaches that use knowledge bases to obtain
+spaced. This frequency mapping to the Mel             additional information about the meaning of
+scale helps to better capture the speech signal       words and their relations.
+differences that are relevant to speech.
+    With regard to the second issue of speech         Multimodal Approaches
+segment length, Klabbers, Mishra, and van                Chuang and Wu (2004) and Castellano,
+Santen (2007) conclude that the length of the         Kessous, and Caridakis (2007) showed that
+speech segments is important for emotion              multimodal (two or more mediums such as text,
+detection. Different segment lengths have been        audio) emotion recognition performs better
+used to extract information from the speech sig-      than unimodal (just text or audio) emotion rec-
+nal. In Hansen and Bou-Ghazale (1997), the            ognition. Sebe, Cohen, and Huang (2005) note
+authors used word-level features to detect stress     that determining the optimal point at which dif-
+in utterances using a vocabulary of 35 words.         ferent modes of information should be merged
+This work concluded that “when stress is pres-        is crucial and still an open research problem.
+ent, recognition rates decrease significantly.” In    Studies such as Tawari and Trivedi (2010) pro-
+contrast, Busso, Lee, and Narayanan (2009)            pose the use of context (e.g., gender) and other
+concluded that statistics such as the mean of the     sources to analyze emotion.
+pitch contour at the sentence level are a better
+                                                                          Method
+indicator of emotion than other shorter term sta-
+tistics (e.g., at the phrase or word level).             Based on all the previously described issues,
+                                                      the following methodology for emotion detec-
+Text Approaches                                       tion in text and speech is proposed. The meth-
+   Emotion detection studies in text can loosely be   odology uses a stepwise approach to detect
+classified into lexical-based and high-semantic-      emotion in sentences by first filtering out neu-
+based studies. In general, lexical-based studies      tral sentences, then distinguishing among posi-
+for affect detection from text use a bag of words     tive, negative, and five emotion classes. Text
+approach combined with other text features            and speech features are combined in feature
+such as syntactic elements to perform classifi-       vectors of 69 features each to train and test the
+cation. Osherenko (2008), for instance, used the      emotion detection model.
+presence or absence of negations and intensifi-           The first step in the methodology compares
+ers as features to train and test an emotion          neutral versus emotional sentences. The second
+detection model. Similarly, Tokuhisa, Inui, and       step compares positive and negative sentences,
+Matsumoto (2008) performed emotion detec-             and the third step uses five emotion classes,
+tion in Japanese text using a stepwise classifica-    which are happy, sad, angry, surprised, and
+tion approach and a sentiment polarity                afraid, to perform classification. The emotion
+dictionary of words. In Calix, Mallepudi, Chen,       classification is performed at the sentence level
+and Knapp (2010), an automatic feature extrac-        (UIUC corpus) or utterance level (LSU-MD
+tion approach was proposed that used annotated        corpus) rather than at the phrase or word level
+affect corpora to extract word features for use       to take advantage of the higher amount of infor-
+in emotion classification. This work also pro-        mation available in longer communication seg-
+vides additional background on many other             ments. For the LSU-MD corpus, the additional
+studies on emotion detection in text.                 step of filtering out sentences with three words or
+   Studies that include higher semantic ideas         fewer is also taken. This step is helpful since most
+include Moilanen and Pulman (2007) and Liu,           really short utterances (common in dialogue-
+Lieberman, and Selker (2003). Moilanen and            based corpora) do not contribute much to
+Pulman (2007) proposed the use of sentiment           semantic content and can be better handled by
+composition to detect emotion in text. Sentiment      heuristic rules or speech-only approaches.
+composition says that the sentiment polarity of       Context is used in the methodology by utilizing
+a sentence is the result of the sentiment polarity    previous sentences’ emotional intensities as fea-
+of its constituents. Liu et al. (2003) and Singh      tures (see the following text features section).
+Detection of Affective States                                                                     533
+
+
+Multimodal Corpora                                   Table 1: Children’s Stories Speech Data Set
+                                                     Characteristics
+   The UIUC children’s stories corpus (Alm,                     Number of              Number
+2008) and the LSU-MD corpus were used to                          Audio                   of
+train and test the emotion detection models. The                Recordings Male Female Speakers
+UIUC corpus has been extended for this work
+by adding audio recordings for 89 stories from       Grimm          59        38       21       32
+the corpus (Calix & Knapp, 2011). Sentence           Potter         18        11        7       15
+boundaries matching the sentences and assigned       Andersen       12        5        7        9
+classes in the text corpus were annotated on the
+speech signals using Praat’s manual annotation
+tool. The files are available in MP3 format but
+were converted to WAV format to perform the          Speech Features
+feature extraction. Characteristics of the differ-
+ent speakers that recorded the stories in this          In this work, speech features were extracted at
+corpus can be seen in Table 1.                       the sentence or utterance level (Busso et al.,
+   The emotion annotations in the UIUC corpus        2009) using Praat scripts (Boersma & Weenink,
+were performed by two human annotators.              2005). The features included pitch average and
+Analysis of the annotation scheme (Alm, 2008)        max, intensity average and max, formants (F1–F5),
+indicated that there is some variability in the      and mean and standard deviation for 12 MFCCs.
+annotation as emotion detection can be a sub-        After sampling the acoustic signal, the features
+jective issue. Six emotion labels from the origi-    were extracted as feature vectors containing 33
+nal eight annotated at UIUC were used for the        features per sentence or utterance.
+analysis presented in this article. The six emo-
+tion labels are used for the sake of comparison      Text Features
+as they are common in the literature and referred       A total of 36 text-based features were used
+to as the “Big Six” (Alm, 2008). Other, works        (see Table 2). These features included the
+such as Matthews, Jones, and Chamberlain             counts of emotion words and phrases per class,
+(1990) have explored the use of a set of nondis-     counts of some intensifiers, syntactic features,
+crete emotion dimensions such as arousal             sentiment composition features, and accumu-
+to capture more than six emotions. However,          lated sentiment flow features. Five lists of emo-
+this approach makes classification more diffi-       tion words were used to perform the counts per
+cult as the scales are continuous instead of         emotion class (happy, sad, angry, surprised, and
+discrete. Current research work indicates that       afraid). These counts are used to create the
+activation, expectation, valence, and power          emotion signals that quantify the intensity of
+account for most emotion classes (Fontaine,          each emotion per sentence throughout the story
+Scherer, Roesch, & Ellsworth, 2007).                 or conversation. These lists were collected
+   The LSU-MD corpus consists of utterances          manually and automatically and then expanded
+collected from six episodes of the popular televi-   using WordNet and ConceptNet (Havasi, Speer,
+sion medical drama Grey’s Anatomy. Using con-        & Alonso, 2007). Parts of speech and syntactic
+versations from this medium helps to train and       annotations were used to extract additional syn-
+test the model on a noisy environment where the      tactic information such as intensifiers, subjects
+speakers are performing acted tasks, in this case    and objects, and so on. These syntactic annota-
+practicing medicine. The conversations include       tions were performed using the Stanford parser
+medical dialogue and TV drama emotional con-         and BART toolkit (Versley et al., 2008).
+tent. This is especially useful for the task pro-       Sentiment composition features in this work
+posed in this article of emotion detection. Both     follow a simpler approach than the one proposed
+corpora can be obtained from LSU Natural             in Moilanen and Pulman (2007). This simplified
+Language Processing (LSU-NLP; 2011).                 approach is used to avoid the time-consuming
+534		                                                                  August 2012 - Human Factors
+
+
+Table 2: Text Feature Description
+Names                                       Heuristic Rule for Calculation
+Sentiment composition current sentence      If word from sentence in happy or surprised words list:
+                                            SentCompCurr += 1
+                                            Negative_list = [sad, angry, afraid]
+                                            If word from sentence in Negative_list:
+                                            SentCompCurr −= 1
+Sentiment composition accumulated whole     SentCompAccumHappy =
+  story for happy, sad, angry, surprised,   SentCompAccumHappy + counthap
+  and afraid                                Note: same for other 4 emotion classes
+
+Sentiment composition change previous       SentCompChanPrevCurrAccum =
+  current accumulated                       SentCompAccumCombined—SentCompAccumPrevSent
+
+Sentiment composition accumulated whole     CompAccumPos = CompAccumPos + w * counthap
+  story for POS, NEG, POS1, NEG1            CompAccumNeg = CompAccumNeg + w * (countsad +
+                                             countang + countafr)
+                                            Note: w parameter changed manually
+
+Sentiment composition accumulated whole     SentCompAccumPrevSent (s)= SentCompAccumCombined (s-1)
+  story for the previous sentence           Note: s stands for sentence
+
+Sentiment composition accumulated whole     SentCompAccumCombined = SentCompAccumCombined +
+  story combined                              counthap—countsad—countang—countafr + countsup
+Changes in happy, sad, angry, surprised,    ChangeHap = counthap—PreviousHap
+ and afraid                                 PreviousHap = counthap
+                                            Note: Same for 4 other classes
+
+
+
+
+task of hand coding many rules. Here, the five        techniques used to learn ways to separate data
+emotion lists and simple per-class rules are used     from two or more classes. In general, classifiers
+as decision points to determine sentiment com-        sample data called features from an input
+position per class. If positive emotion words are     medium and associate those features with pre-
+found in the sentence, the sentiment composition      assigned classes. In this case, features are
+feature is incremented by +1. If negative emotion     extracted from sentences in text and speech
+words are found, the sentiment composition fea-       form. Since each sentence has an annotated
+ture is decreased by –1.                              label or class, each set of features can be associ-
+   To capture story context and previous infor-       ated with its assigned class. Using an annotated
+mation, the accumulated sentiment flow through-       corpus, multiple samples (sentences) can be
+out a story is also recorded. Accumulated             represented in the form of a class and a vector
+sentiment flow features take into consideration       of features (the vector space model). This infor-
+the emotion energy (previous counts) of previous      mation can later be divided into a training sub-
+sentences in the story. Additional sentiment delta    set and a testing subset. The training subset can
+features are used to calculate the sentiment          be used to train a model such as a linear equa-
+change between the current sentence and previ-        tion or plane that separates the samples from
+ous sentences. A more detailed description of         two distinct classes. The test subset is used to
+the text-based features can be obtained from          test the models prediction accuracy.
+Calix (2011).                                            Classification methodologies employed include
+                                                      support vector machines (Burges, 1998) using
+Classification Model                                  LIBSVM (Chang & Lin, 2001) and Naïve
+   Classification methodologies are used to per-      Bayes, multilayer perceptron (MLP), decision
+form the analysis. Classifiers are mathematical       trees, random forests, and the k-nearest neighbor
+Detection of Affective States                                                                          535
+
+
+Table 3: Emotion Analysis Phases
+
+Analysis Phase    Reason for This Phase                          Phase Description
+
+Phase 1           To set baseline for analysis with just         Speech affect detection
+                    speech features
+Phase 2           To avoid class imbalance by combining          Multimodal affect detection for two
+                    emotion samples                               classes (emotion vs. neutral)
+Phase 3           To evaluate accuracy with class imbalance      Multimodal affect detection for three
+                                                                  classes (positive, negative, neutral)
+Phase 4           To compare to results from Phase 3             Multimodal affect detection for positive
+                                                                  vs. negative
+Phase 5           To measure fine-grained emotion detection      Multimodal affect detection for five
+                                                                  emotion classes
+Phase 6           To compare different communication             Generalization of the methodology on a
+                    mediums                                       medical drama corpus
+
+
+
+
+classifier (Witten & Frank, 2005) using the             pus is randomly divided into 80% of the sam-
+Waikato Environment for Knowledge Analysis.             ples for training and 20% for testing.
+Naïve Bayes is a probabilistic classifier that             An analysis of the methodology using speech
+usually performs worst with emotional data.             features only from the UIUC corpus was per-
+Therefore, it helps to set the baseline for the         formed first to determine the contribution of
+classification task. Random forest classifiers          speech features to the classification problem. This
+consist of several decision trees and usually           analysis was followed by an analysis of the step-
+produce good results with emotion data.                 wise methodology using multimodal features
+Artificial neural networks (MLP) and support            from the UIUC corpus. The final section shows
+vector machines (SVMs) are classifiers that can         the results of the generalization of the methodol-
+handle nonlinearly separable data. In theory,           ogy on the LSU-MD corpus. Each section, with
+this capability allows them to model data that          recall classification results, is followed by feature
+may be more difficult to classify. SVM is a kernel-     analysis using chi-square feature selection tech-
+based machine learning technique that uses kernel       niques (Witten & Frank, 2005). Chi-square fea-
+functions such as the radial basis function (RBF)       ture ranking is a technique used to calculate the
+kernel to map data to higher dimensional spaces.        likelihood that a feature is correlated with a class
+An RBF kernel is a mathematical technique that          (emotion). Based on the annotations in the cor-
+allows for data transformation. This mathematical       pus, this technique can estimate likelihoods per
+ability allows the classifiers to perform better than   feature and rank the features that are most useful
+other non-kernel-based classifiers (Witten &            in the classification. This helps to identify which
+Frank, 2005). The k-nearest neighbor classifier is      features are important for emotion detection. The
+also a good technique with the added advantage          sequence of steps in the analysis is summarized in
+that it does not require parameter tuning.              Table 3, and results of each phase in the analysis
+                                                        are described in the following sections.
+          Analysis and Results                          Phase 1: Speech Affect Detection
+   Results of the classification task at each step         In this section, an analysis (Table 4) of the
+(Table 3) of the methodology are presented in           impact of 33 speech features alone is per-
+this section. The experiments were conducted            formed. Classification results indicate that pos-
+on 89 stories from the UIUC corpus and on six           itive samples are easier to detect than are
+episodes from the LSU-MD corpus. Each cor-              negative samples. The speech analysis indi-
+536		                                                                                August 2012 - Human Factors
+
+
+Table 4: Speech Affect Detection Using Multiple Classifiers (UIUC corpus)
+
+                                  Multiple Classifier Comparison—Training Set (5,383) and Testing Set (1,346)
+
+                        SVM-RBF                                      Multilayer
+                      (c: 2.5, g: 2.5)        Naïve Bayes            Perceptron        Random Forest          Nearest Neighbor
+
+                   Corr. (%) Incorr. (%) Corr. (%) Incorr. (%) Corr. (%) Incorr. (%) Corr. (%) Incorr. (%) Corr. (%) Incorr. (%)
+
+Positive (2,503)      47.7         52.3      37.9       62.1      54.4      45.6          55.7       44.3       49.8     50.2
+Negative (1,177)      12.2         87.8      50.7       49.3      15.4      84.6          19.0       81.0       27.1     72.9
+Neutral (3,049)       87.2         12.8      39.1       60.9      73.0      27.0          68.2       31.8       58.0     42.0
+All                   59.6         40.4      40.6       59.4      56.3      43.7          55.3       44.7       49.8     50.2
+
+Note. UIUC = University of Illinois at Urbana-Champaign; SVM = support vector machine; RBF = radial basis function; c =
+cost; g = gamma; Corr. = correct; Incorr. = incorrect.
+
+
+Table 5: Multimodal Emotion Classification Between Emotion and Neutral Classes
+
+                             Multiple Classifier Comparison—Training Set (5,383) and Testing Set (1,346)
+
+                                                        Multilayer                                                 Nearest
+                   SVM               Naïve Bayes        Perceptron       Random Forest      Decision Trees         Neighbor
+
+              Corr.     Incorr.      Corr.   Incorr.   Corr.   Incorr.   Corr.    Incorr.    Corr.    Incorr.    Corr.   Incorr.
+               (%)        (%)         (%)      (%)      (%)      (%)      (%)       (%)       (%)       (%)       (%)      (%)
+
+Emotion (1)    71.2      28.8        48.5     51.5     61.5     38.5     77.7      22.3      63.1      36.9      70.5     29.5
+Neutral (2)    71.6      28.4        71.8     28.2     70.3     29.7     57.4      42.6      60.4      39.6      65.7     34.3
+All            71.4      28.6        58.9     41.1     65.5     34.5     68.6      31.4      61.9      38.1      68.4     31.6
+
+Note. SVM = support vector machine; Corr. = correct; Incorr. = incorrect.
+
+
+
+cated that MFCCs have the highest contribution                     an RBF kernel (cost: 4; gamma: 1). Feature
+to emotion detection.                                              analysis (Table 6) using chi-square feature
+                                                                   ranking indicates that sentiment composition
+Phase 2: Multimodal Affect                                         text features have the highest contribution to
+Detection for Two Classes                                          classification accuracies but that speech fea-
+(Emotion Versus Neutral)                                           tures also play an important role.
+   In this section, classification results on the
+two-class problem in the UIUC corpus are                           Phase 3: Multimodal Affect
+presented using both text and speech features.                     Detection for Three Classes
+This is the first step of the methodology that                     (Positive, Negative, and Neutral)
+helps to filter out neutral sentences. It is impor-                   In this section, classification results on the
+tant to filter out neutral sentences because in                    three-class problem in the UIUC corpus are
+general they account for half of all the samples                   presented. The data set includes 2,503 positive
+in the corpus. The data set contains 3,680 emo-                    samples, 1,177 negative samples, and 3,049
+tion samples and 3,049 neutral samples. In                         neutral samples. The best results of the clas-
+machine learning, dealing with class imbal-                        sification on the test set (Table 7) were
+ances in the data set is a very important step                     obtained using the random forest (59%) classi-
+that if not addressed properly can negatively                      fier and SVM (62%) classifier with RBF ker-
+affect the learning process of the models. The                     nel (cost: 4; gamma: 1). This analysis helps to
+best results of the classification methodology                     illustrate that neutral classes, if not filtered
+(Table 5) were obtained using the random for-                      out, decrease the performance of the classifier.
+est (68.6%) and SVM (71%) classifiers. The                         Analysis after filtering out neutral samples is
+SVM classifier normalized the data and used                        presented in the next section.
+      Table 6: Feature Analysis for Emotion Versus Neutral Classes (Phase 2)
+
+      Rank    Chi                      Feature                      Rank      Chi                    Feature                   Rank    Chi             Feature
+
+      1       220 Sentiment composition accumulated whole             17      95    Angry phrases count (Text)                  33     53    Happy words list (Text)
+                    story combined (Text)
+      2       180 Sentiment composition change previous               18      93    Afraid words list (Text)                    34     51    Intensity max (Speech)
+                    current accumulated (Text)
+      3       167 Sentiment composition accumulated whole             19      91    MFCC 11 mean (Speech)                       35     48    NNP (Text)
+                    story negative 1 (Text)
+      4       158 Sentiment composition accumulated whole             20      87    MFCC 5 mean (Speech)                        36     44    MFCC 3 mean (Speech)
+                    story negative (Text)
+      5       153 MFCC 2 mean (Speech)                                21      87    Surprised phrases count (Text)              37     38    Afraid change (Text)
+      6       150 MFCC 12 mean (Speech)                               22      87    Sad phrases count (Text)                    38     38    MFCC 10 mean (Speech)
+      7       145 Sentiment composition accumulated whole             23      87    Happy phrases count (Text)                  39     33    MFCC 7 std. (Speech)
+                    story afraid (Text)
+      8       144 Sentiment composition accumulated whole             24      87    Afraid phrases count (Text)                 40     30    Intensity avg. (Speech)
+                    story sad (Text)
+      9       142 Number of words in sentence (Text)                  25      80    Sad change (Text)                           41     29    MFCC 1 std. (Speech)
+      10      139 Sentiment composition accum. whole story            26      73    Sentiment composition accumulated           42     24    F0 max (Speech)
+                    previous sentence (Text)                                          whole story surprised (Text)
+      11      138 Sentiment composition accumulated whole             27      71    Angry words list (Text)                     43     24    Object environments (Text)
+                    story angry (Text)
+      12      138 MFCC 9 mean (Speech)                                28      71    MFCC 4 mean (Speech)                        44     18    Surprised words list (Text)
+      13      104 Sad words list                                      29      61    MFCC 10 standard deviation (Speech)         45     18    Happy change (Text)
+      14      103 Sentiment composition accumulated whole             30      61    Angry change (Text)                         46     14    Surprised change (Text)
+                    story positive 1 (Text)
+      15      101 Sentiment composition accumulated whole             31      60    MFCC 6 mean (Speech)                        47     12    Subject actor (Text)
+                    story positive (Text)
+      16      101 Sentiment composition accumulated whole             32      53    MFCC 2 standard deviation (Speech)          48     10    Sentiment composition
+                    story happy (Text)                                                                                                         current sentence NPs (Text)
+
+      Note. Table 2 provides additional description of how the text features were calculated. MFCC = Mel frequency cepstral coefficients.
+
+
+
+537
+538		                                                                               August 2012 - Human Factors
+
+
+Table 7: Multimodal Emotion Classification Analysis Using Three Classes
+
+                              Multiple Classifier Comparison—Training Set (5,383) and Testing Set (1,346)
+
+                                                                          Multilayer                            Nearest
+                    SVM             Naïve Bayes       Random Forest       Perceptron       Decision Trees       Neighbor
+
+                Corr.     Incorr.   Corr.   Incorr.    Corr.   Incorr.   Corr.   Incorr.    Corr.    Incorr.    Corr.   Incorr.
+                 (%)        (%)      (%)      (%)       (%)      (%)      (%)      (%)       (%)       (%)       (%)      (%)
+
+Negative (1)    56.9         43.1    33.3    66.7      61.5     38.5     55.7     44.3       49.0     51.0      55.7     44.3
+Positive (2)    31.7         68.3    45.7    54.3      28.5     71.5     30.3     69.7       34.4     65.6      44.8     55.2
+Neutral (3)     78.1         21.9    65.5    34.5      68.2     31.8     67.0     33.0       58.5     41.5      67.8     32.2
+All             62.3         37.7    49.8    50.2      59.1     40.9     56.6     43.4       50.9     49.1      59.4     40.6
+
+Note. SVM = support vector machine; Corr. = correct; Incorr. = incorrect.
+
+
+Table 8: Multimodal Emotion Classification After Filtering Out the Neutral Class
+
+                 Positive vs. Negative: Multiple Classifier Comparison—Training Set (2,944) and Testing Set (736)
+
+                                                                         Multilayer                             Nearest
+                       SVM          Naïve Bayes       Random Forest      Perceptron        Decision Trees       Neighbor
+
+                Corr.     Incorr.   Corr.   Incorr.    Corr.   Incorr.   Corr.   Incorr.    Corr.   Incorr.    Corr.    Incorr.
+                 (%)        (%)      (%)      (%)       (%)      (%)      (%)      (%)       (%)      (%)       (%)       (%)
+
+Negative (1)     89.7        10.3   71.7     28.3      92.3     7.7      76.1     23.9      78.1     21.9      79.4      20.6
+Positive (2)     50.8        49.2   57.0     43.0      45.0    55.0      61.2     38.8      48.3     51.7      62.0      38.0
+All              76.9        23.1   66.8     33.2      76.8    23.2      71.2     28.8      68.3     31.7      73.6      26.4
+
+                  Five Emotion Classes: Multiple Classifier Comparison—Training Set (2,944) and Testing Set (736)
+
+                                                                          Multilayer                            Nearest
+                        SVM          Naïve Bayes      Random Forest       Perceptron       Decision Trees       Neighbor
+                Corr.     Incorr.   Corr.   Incorr.    Corr.   Incorr.   Corr.   Incorr.    Corr.   Incorr.    Corr.    Incorr.
+                 (%)        (%)      (%)      (%)       (%)      (%)      (%)      (%)       (%)      (%)       (%)       (%)
+
+Angry (1)        48.8        51.2   14.6     85.4      53.7     46.3     35.8     64.2      43.1     56.9      52.8      47.2
+Fear (2)         66.5        33.5   25.8     74.2      57.7     42.3     55.5     44.5      40.7     59.3      50.5      49.5
+Happy (3)        73.9        26.1   43.0     57.0      70.5     29.5     58.9     41.1      47.3     52.7      65.7      34.3
+Sad (4)          33.1        66.9   61.4     38.6      39.4     60.6     24.4     75.6      33.9     66.1      45.7      54.3
+Surprised (5)    37.1        62.9   10.3     89.7      32.0     68.0     33.0     67.0      33.0     67.0      38.1      61.9
+All              56.0        44.0   32.9     67.1      54.1     45.9     44.8     55.2      40.8     59.2      52.7      47.3
+
+Note. SVM = support vector machine; Corr. = correct; Incorr. = incorrect.
+
+
+
+Phase 4: Multimodal Affect Detection for                          Phase 5: Multimodal Affect
+Positive Versus Negative                                          Detection for Five Emotion Classes
+  In this section, all neutral samples are filtered                  In this section, all emotion sentences are ana-
+out and the classification model tries to separate                lyzed using five emotion classes (happy, sad,
+between positive and negative classes. The                        angry, surprised, and afraid). The UIUC subset
+UIUC subset includes 2,503 positive samples                       includes 643 samples for angry, 907 for afraid,
+and 1,177 negative samples. All classification                    1,013 for happy, 617 for sad, and 500 for sur-
+models performed better once neutral sentences                    prised. To visualize misclassification errors, the
+were filtered out (Table 8). SVM-RBF (cost: 4;                    confusion matrix for the five classes using the
+gamma: 1) achieved the best results (76.9%).                      SVM classifier can be seen in Table 9.
+Detection of Affective States                                                                   539
+
+
+Table 9: Confusion Matrix for Five Classes
+                                                        Table 13 presents the recall accuracy results
+            Angry Fear Happy     Sad Surprised      of the classification task for positive and nega-
+                                                    tive classes and the five emotion classes. After
+Angry        60     27     22      6          8     filtering out neutral samples and utterances with
+Fear         21    121     24      6         10     three words or fewer, the data set consisted of
+Happy         8     23    153      9         14     1,246 samples. The number of samples per
+Sad          13     37     27     42          8     emotion class was as follows: 969 negative, 277
+Surprised    16     16     22      7         36     positive, 277 happy, 106 sad, 429 angry, 200
+                                                    surprised, and 234 afraid. As can be seen, the
+                                                    data are highly imbalanced, and there are fewer
+   Results of the classification task using five    samples per class. To address this issue, the
+emotion classes are presented in Table 8.           synthetic minority over-sampling technique
+Overall, the random forest and SVM classifiers      (SMOTE) proposed by Chawla, Bowyer, Hall,
+performed best. The SVM classifier normalized       and Kegelmeyer (2002) was applied to the data.
+the data and used an RBF kernel (cost: 4;           Class imbalances can cause classification algo-
+gamma: 1). Feature analysis using chi-square        rithms to underperform. The SMOTE technique
+feature ranking is presented in Table 10. The       oversamples minority classes of a data set to
+feature analysis shows that text-based accumu-      even out the representation of the data. The
+lated sentiment composition features have the       number of samples per class after resampling
+highest contribution to emotion detection for the   was as follows: 969 negative, 554 positive, 426
+five-class problem. Some examples of incorrectly    happy, 424 sad, 429 angry, 420 surprised, and
+classified samples from the UIUC corpus are         444 afraid.
+provided in Table 11.                                   Classification results after class resampling
+                                                    are in the 56% to 84% range and are much bet-
+Phase 6: Generalization of the Methodology          ter (Table 13). Both SVM classification models
+on a Medical Drama Corpus                           for “positive versus negative” (cost: 32; gamma:
+   In this section, the analysis of the methodol-   0.1) and “five emotions” (cost: 100; gamma:
+ogy using 2,657 annotated samples (utterances)      0.9) used an RBF kernel.
+from a medical drama corpus is presented. The                       Discussion
+2,657 samples consisted of 1,246 emotion
+samples and 1,411 neutral samples. Sentences           The lower performance of the methodology
+with three words or fewer were filtered out for     in the “emotion versus neutral” problem using
+this analysis. Table 12 presents the recall accu-   the LSU-MD corpus can be attributed to fol-
+racy results of the classification task between     lowing factors: fragmented sentences, shorter
+emotional and neutral samples. The SVM              sentences, environment noise, dialogue format
+model, which was trained using a polynomial         of the text, sarcasm, and smaller sample size for
+kernel, performed best overall (recall: 61%).       training and testing. In addition, adults who
+   Feature analysis for the classification          read children’s stories may be more expressive.
+between emotion and neutral classes in the             The health care data used in this study are
+LSU-MD corpus indicated that the speech fea-        dialogue based. Therefore, the samples are less
+tures were slightly more useful than were text      likely to be fully formed sentences like in the
+features for emotion detection when compared        children’s stories corpus and have fewer words
+to the UIUC corpus. This result is to be            per sentence. For example, the samples in the
+expected since each sentence or utterance in        medical drama corpus included many utter-
+the medical drama corpus is shorter. As a           ances that are not always grammatical. In fact,
+result, there are fewer words for semantic anal-    the presence of many short statements such as
+ysis. The most useful text features were accu-      “yes,” “good,” and “OK” presented a challenge
+mulated sentiment composition features for          to the classification model, which expected lon-
+the emotion classes.                                ger sentences. This reason influenced the
+540		
+        Table 10: Feature Analysis for Five-Class Problem
+
+        Rank        Chi                    Feature                   Rank     Chi                   Feature                  Rank    Chi                  Feature
+
+        1        352      Happy words list (Text)                     17      165   Sentiment composition accumulated         33      57      MFCC 8 std. (Speech)
+                                                                                      whole story sad (Text)
+        2        308      Sentiment composition accumulated           18      164   MFCC 2 mean (Speech)                      34      56      Sad phrases count (Text)
+                            whole story surprise (Text)
+        3        296      Sentiment composition accumulated           19      144   MFCC 9 mean (Speech)                      35      55      MFCC 9 std. (Speech)
+                            whole story angry (Text)
+        4        289      Sentiment composition accumulated           20      135   MFCC 10 mean (Speech)                     36      51      Intensity avg. (Speech)
+                            whole story positive 1 (Text)
+        5        289      Sentiment composition accumulated           21      118   MFCC 12 standard deviation                37      51      MFCC 1 mean (Speech)
+                            whole story positive (Text)                              (Speech)
+        6        289      Sentiment composition accumulated           22      113   MFCC 4 standard deviation (Speech)        38      50      F0 avg. (Speech)
+                            whole story happy (Text)
+        7        288      Sentiment composition accumulated           23      108   MFCC 7 mean (Speech)                      39      50      MFCC 8 mean (Speech)
+                            whole story afraid (Text)
+        8        284      MFCC 11 mean (Speech)                       24       98   Sad words list (Text)                     40      49      Angry change (Text)
+        9        277      Sentiment composition accumulated           25       95   Angry words list (Text)                   41      48      Surprised words list (Text)
+                            whole story combined (Text)
+        10       269      Sentiment composition accumulated           26       88   Sad change (Text)                         42      48      MFCC 6 mean (Speech)
+                            whole story negative (Text)
+        11       264      Sentiment composition accum. whole          27       83   MFCC 3 standard deviation (Speech)        43      47      MFCC 11 std. (Speech)
+                            story previous sentence (Text)
+        12       263      Sentiment composition accumulated           28       79   Number of words in sentence (Text)        44      44      Afraid words list (Text)
+                            whole story negative 1 (Text)
+        13       231      MFCC 12 mean (Speech)                       29       75   MFCC 7 standard deviation (Speech)        45      42      Surprise change (Text)
+        14       226      Happy change (Text)                         30       75   Sentiment composition current             46      42      Sentiment comp. change
+                                                                                      sentence NPs (Text)                                       previous current accum. (Text)
+        15       218      MFCC 3 mean (Speech)                        31       66   Angry phrases count (Text)                47      40      Intensify emotion (Text)
+        16       167      MFCC 1 standard deviation (Speech)          32       64   MFCC 4 mean (Speech)                      48      38      Surprised phrases count (Text)
+
+        Note. Table 2 provides additional description of how the text features were calculated. MFCC = Mel frequency cepstral coefficients.
+Detection of Affective States                                                                        541
+
+
+Table 11: Incorrectly Classified Samples From the UIUC Corpus
+
+Annotated Class   Predicted Class                                Sentence
+
+Surprised              Angry        Mr. Tod was mystified; he sat quite still, and listened attentively.
+Happy                  Angry        Yes—there was no doubt about it—it had turned out even better
+                                       than he had planned; the pail had hit poor old Tommy Brock,
+                                       and killed him dead!
+Afraid                 Happy        Oh; oh! they are coming back!
+Afraid                 Angry        What dreadful bad language!
+Afraid                 Sad          He lost one of his shoes among the cabbages, and the other shoe
+                                       amongst the potatoes.
+Surprised              Angry        Why on earth don’t you run away? exclaimed the horrified Pigling.
+Afraid                 Happy        She was excited and half-frightened.
+Angry                  Happy        And Mr. McGregor was very angry too.
+Sad                    Angry        Timmy coughed and groaned, because his ribs hurted him.
+Surprised              Happy        Why, I see a table spread with all kinds of good things, and
+                                       robbers sitting round it making merry.
+Angry                  Happy        But the cat, not understanding this joke, sprang at his face, and
+                                       spat, and scratched at him.
+Afraid                 Happy        Thereupon she took her leave of her father, and rode away with
+                                       them, and rode to the court of her former betrothed, whom she
+                                       loved so dearly.
+Happy                  Afraid       The woman who had hoped to find a good sale, gave him what he
+                                       desired, but went away quite angry and grumbling.
+Afraid                 Angry        If we quarrel with him, and he strikes about him, seven of us will
+                                       fall at every blow; not one of us can stand against him.
+Afraid                 Angry        But he did not venture to give him his dismissal, for he dreaded
+                                       lest he should strike him and all his people dead, and place
+                                       himself on the royal throne.
+Afraid                 Sad          It is rather dark, said he; “they forgot to build windows in this
+                                       room to let the sun in; a candle would be no bad thing.”
+Sad                    Angry        Then you may imagine how she wept over her poor children.
+Sad                    Afraid       She sought her children, but they were nowhere to be found.
+Angry                  Afraid       The miller thought to himself: “The wolf wants to deceive
+                                       someone,” and refused; but the wolf said: “If you will not do it, I
+                                       will devour you.”
+Afraid                 Sad          In his trouble and fear he went down into the courtyard and took
+                                       thought how to help himself out of his trouble.
+
+
+approach of filtering out samples with three          flow than narrative-based stories. In dialogue
+words or fewer. Furthermore, the speech record-       formats, the sentiment flow jumps from one
+ings included all kinds of background noise           emotion to another since utterances are coming
+such as beepers, music, and other types of noise.     from different speakers. Finally, in dialogue
+This noise may have confused the detection            systems, speakers do not have to describe the
+system.                                               environment as in children’s stories, and they
+   Another factor that may have influenced the        make substantial use of humor and sarcasm.
+performance is the flow of the conversations.            Although the results were less accurate for
+Dialogue-based conversations have a different         the “emotion versus neutral” problem in the
+542		                                                                             August 2012 - Human Factors
+
+
+Table 12: Multimodal Emotion Classification Between Emotion and Neutral Classes for the Medical
+Corpus
+
+                             Multiple Classifier Comparison—Training Set (2,126) and Testing Set (531)
+
+                                                     Multilayer                                                Nearest
+                      SVM         Naïve Bayes        Perceptron        Random Forest Decision Trees            Neighbor
+
+                Corr.   Incorr.   Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.
+                 (%)      (%)      (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)
+
+Emotion (1)      61         39     53       47        58       42        61       39        49       51        57       43
+Neutral (2)      55         45     66       34        56       44        49       51        58       42        59       41
+All              58         42     60       40        57       43        54       46        54       46        58       42
+
+Note. SVM = support vector machine; Corr. = correct; Incorr. = incorrect.
+
+
+
+Table 13: Multimodal Emotion Classification After Filtering Out the Neutral Class
+
+                 Positive vs. Negative: Multiple Classifier Comparison—Training Set (1,218) and Testing Set (305)
+
+                                                                        Multilayer                           Nearest Neigh-
+                      SVM         Naïve Bayes       Random Forest       Perceptron        Decision Trees          bor
+
+                Corr.   Incorr.   Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.
+                 (%)      (%)      (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)
+
+Negative (1)     83         17     66      34         92       8         84      16         78      22         71      29
+Positive (2)     69         31     65       35        60       40        63       37        59       41        81       19
+All              78         22     65       35        80       20        76       24        71       29        75       25
+
+                 Five Emotion Classes: Multiple Classifier Comparison—Training Set (1,714) and Testing Set (429)
+
+                                                                         Multilayer                             Nearest
+                      SVM         Naïve Bayes       Random Forest        Perceptron       Decision Trees        Neighbor
+
+                Corr.   Incorr.   Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.    Corr.   Incorr.
+                 (%)      (%)      (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)       (%)      (%)
+Angry (1)        56         44     34       66        49       51        32       68        31       69        33       67
+Fear (2)         73         27     41       59        55       45        53       47        45       55        75       25
+Happy (3)        61         39     29       71        38       62        39       61        40       60        69       31
+Sad (4)          84         16     60       40        64       36        51       49        48       52        91        9
+Surprised (5)    71         29     40       60        43       57        50       50        36       64        80       20
+All              69         31     41       59        50       50        45       55        40       60        70       30
+
+Note. SVM = support vector machine; Corr. = correct; Incorr. = incorrect.
+
+
+
+medical drama corpus, the model still per-                          Conclusions and Future Work
+formed moderately well. Both text and speech
+features contributed to the detection. The analy-                Classification between emotion and neutral
+sis suggests that text features can be more dis-               sentences achieved recall accuracies as high as
+criminative on communication data with richer                  77% for emotion samples in a children’s stories
+language (e.g., children’s stories). On the other              corpus and 61% in a medical drama corpus.
+hand, for short utterances, acoustic features                  Once neutral sentences were filtered out, the
+appear to be more discriminative.                              system achieved recall accuracy scores for
+Detection of Affective States                                                                         543
+
+
+
+
+ Figure 1. Emotion-sensitive virtual world renderings.
+
+
+detecting negative sentences as high as 92.3%.           agent interacts is modified in response to the
+The methodology presented in this work using             emotion inputs. Figure 1 presents examples of
+semantically rich and imbalanced corpora pro-            the rendered virtual worlds using cube mapping
+duced results that are consistent with results           and morphing (Akenine-Moller, Haines, &
+presented in Chuang and Wu (2004), Alm (2008),           Hoffman, 2008) and environment maps (Cube
+and Busso et al. (2009). These results are impor-        Maps, 2010). The emotion gradient (upper-right
+tant because they represent a baseline for emo-          panel) represents that the color background can
+tion detection studies using imbalanced data.            be gradually changed to reflect emotion. The
+   The feature analysis helps to corroborate             other renderings represent system responses
+recent findings by Luengo et al. (2010) that spec-       using background and facial expressions on an
+tral features (MFCCs) are better than prosodic           embodied conversation agent.
+features (pitch) for emotion detection. The results         Future work will focus on improving classi-
+also show promising results for text-based fea-          fication accuracy and on exploring emotion
+tures that consider accumulated sentiment com-           magnitude prediction from text and speech.
+position in a story or conversation. The results         Other communication areas that require higher
+of this study suggest that gold-standard corpora         semantic understanding such as humor and sar-
+can be used to develop and tune emotion recog-           casm are not addressed in this work. McGraw
+nition systems but that specific characteristics of      and Warren (2010), for example, argue that
+the application domain must also be considered.          laughter results from violations to norms that are
+   To visualize the system response to emotion           seen as benign. Future work will address these
+detection, the approach uses the detected emo-           issues by exploring the use of semantic data
+tional states as context to adapt and adjust a 3-D       structures, contradiction detection, and comedy
+graphics-based virtual environment and virtual           or sarcasm knowledge bases. The difference
+agent. The environment in which a 3-D virtual            between grammatical and nongrammatical
+544		                                                                                      August 2012 - Human Factors
+
+
+communication will also be studied in more                             Chang, C.-C., & Lin, C. (2001). LIBSVM: A library for support vector
+                                                                           machines. Retrieved from http://www.csie.ntu.edu.tw/~cjlin/
+depth. Nongrammatical approaches will require                              libsvm
+the use of a new parser that can focus on this                         Chawla, N., Bowyer, K., Hall, L., & Kegelmeyer, W. (2002).
+type of sentence structure.                                                SMOTE: Synthetic minority over-sampling technique. Journal
+   As discussed in Larsen and McGraw (2011),                               of Artificial Intelligence Research, 16, 341–378.
+                                                                       Chuang, Z., & Wu, CH. (2004). Multi-modal emotion recognition
+people may hold multiple emotions simultane-                               from speech and text. Computational Linguistics and Chinese
+ously. The method used in this study currently                             Language Processing, 9(2), 45–62.
+predicts only one class per sentence. Future                           Cube Maps. (2010). Cubical environment maps. Retrieved from http://
+work will consider the ability of people to feel                           www.codemonsters.de/home/content.php?show=cubemaps
+                                                                       Fontaine, J., Scherer, K. R., Roesch, E., & Ellsworth, P. (2007).
+concurrent emotional states by developing sep-                             The world of emotions is not two-dimensional. Psychological
+arate classifiers per emotion class.                                       Science, 18, 1050–1057.
+                                                                       Hansen, J. H. L., & Bou-Ghazale, S. (1997). Getting started with
+                       Key points                                          SUSAS: A speech under simulated and actual stress database.
+•• Classification between emotion and neutral sen-                         In EUROSPEECH-97: International Conference on Speech
+                                                                           Communication and Technology (Vol. 4, pp. 1743–1746).
+   tences achieved recall accuracies as high as 77%                        Rhodes, Greece.
+   in the UIUC corpus and 61% in the LSU-MD                            Havasi, C., Speer, R., & Alonso, J. (2007, July). ConceptNet 3:
+   corpus.                                                                 A flexible, multilingual semantic network for common sense
+•• Once neutral sentences were filtered out, the sys-                      knowledge. Paper presented at the 22nd Conference on Artifi-
+                                                                           cial Intelligence, Vancouver, Canada.
+   tem achieved accuracy scores for detecting nega-                    Jurafsky, D., & Martin, J. (2008). Speech and language processing
+   tive sentences as high as 92.3%.                                        (2nd ed.). Upper Saddle River, NJ: Prentice Hall.
+•• Feature analysis indicates that speech spectral                     Klabbers, E., Mishra, T., & van Santen, J. (2007). Analysis
+                                                                           of affective speech recordings using the super-positional
+   features (MFCCs) are better than speech prosodic
+                                                                           intonation model. In Proceedings of the 6th ISCA Work-
+   features (pitch) for emotion detection.                                 shop on Speech Synthesis (pp. 339–344). Bonn, Germany:
+•• Accumulated sentiment composition text features                         ISCA.
+   appear to be very important for emotion detection.                  Larsen, J., & McGraw, A. (2011). Further evidence for mixed
+                                                                           emotions. Journal of Personality and Social Psychology, 100,
+                                                                           1095–1110.
+                                                                       Liu, H., Lieberman, H., & Selker, T. (2003). A model of textual
+                      References                                           affect sensing using real-world knowledge. In Proceedings of
+Akenine-Moller, T., Haines, E., & Hoffman, N. (2008). Real-time            the 2003 International Conference on Intelligent User Inter-
+    rendering. Wellesley, MA: A K Peters.                                  faces (pp. 125–132). New York, NY: Association for Comput-
+Alm, C. O. (2008). Affect in text and speech (Unpublished doctoral         ing Machinery.
+    dissertation). University of Illinois at Urbana-Champaign.         LSU-NLP. (2011). LSU Semantic Analysis Lab. Retrieved from
+Boersma, P., & Weenink, D. (2005). Praat: Doing phonetics by               http://nlp.lsu.edu/
+    computer. Retrieved from http://www.fon.hum.uva.nl/praat/          Luengo, I., Navas, E., & Hernaez, I. (2010). Feature analysis and
+Burges, C. J. (1998). A tutorial on support vector machines for pat-       evaluation for automatic emotion identification in speech.
+    tern recognition. Data Mining and Knowledge Discovery, 2,              IEEE Transactions on Multimedia, 12, 490–501.
+    121–167.                                                           Matthews, G., Jones, D., & Chamberlain, A. (1990). Refining the
+Busso, C., Lee, S., & Narayanan, S. (2009). Analysis of emotion-           measurement of mood: The UWIST Mood Adjective Check-
+    ally salient aspects of fundamental frequency for emotion              list. British Journal of Psychology, 81, 17–42.
+    detection. IEEE Transactions on Audio, Speech, and Language        McGraw, A., & Warren, C. (2010). Benign violations: Making
+    Processing, 17(4), 582–596.                                            immoral behavior funny. Psychological Science, 20, 1–9.
+Calix, R. (2011). Automated semantic understanding of human            Moilanen, K., & Pulman, S. (2007). Sentiment composition. In
+    emotions in writing and speech (Unpublished doctoral disser-           Proceedings of Recent Advances in Natural Language Pro-
+    tation). Louisiana State University, Baton Rouge.                      cessing (pp. 378–382).
+Calix, R., & Knapp, G. (2011, February). Affect Corpus 2.0: An         Osherenko, A. (2008). Towards semantic affect sensing in sen-
+    extension of a corpus for actor level emotion magnitude detec-         tences. In Proceedings of Artificial Intelligence and Simula-
+    tion. Paper presented at the 2nd ACM Multimedia Systems                tion of Behavior (pp. 41–44). London: Society for the Study of
+    conference, San Jose, CA.                                              Artificial Intelligence and Simulation of Behaviour.
+Calix, R., Mallepudi, S., Chen, B., & Knapp, G. (2010). Emotion        Sebe, N., Cohen, I., & Huang, T. (2005). Handbook of pattern rec-
+    recognition in text for 3D facial expression rendering. IEEE           ognition and computer vision. Hackensack, NJ: World Scientific.
+    Transactions on Multimedia, 12, 544–551.                           Singh, P. (2005). EM-ONE: An architecture for reflective common
+Castellano, G., Kessous, L., & Caridakis, G. (2007, September).            sense thinking (Unpublished PhD thesis). Massachusetts Insti-
+    Multimodal emotion recognition from expressive faces, body             tute of Technology, Cambridge.
+    gestures and speech. Paper presented at the Doctoral Con-          Tapus, A., Mataric, M., & Scassellati, B. (2007). The grand chal-
+    sortium of the 2nd International Conference on Affective and           lenges in socially assistive robotics. IEEE Robotics and Auto-
+    Intelligent Interaction, Lisbon, Portugal.                             mation Magazine, 14, 35–42.
+Detection of Affective States                                                                                          545
+
+
+Tapus, A., Tapus, C., & Mataric, M. (2008). User-robot personality      interaction, semantic analysis, natural language pro-
+    matching and assistive robot behavior adaptation for post-stroke
+    rehabilitation therapy. Intelligent Service Robotics, 1, 169–183.
+                                                                        cessing, and machine learning.
+Tawari, A., & Trivedi, M. (2010). Speech emotion analysis: explor-
+    ing the role of context. IEEE Transactions on Multimedia, 12,       Leili Javadpour received a BE in industrial engineer-
+    502–509.                                                            ing from Isfahan University of Technology in 2007
+Tokuhisa, R., Inui, K., & Matsumoto, Y. (2008). Emotion classi-
+    fication using massive examples extracted from the web. In
+                                                                        and an MS in product design and management from
+    Proceedings of the 22nd International Conference on Compu-          Liverpool University in 2009. She is currently pur-
+    tational Linguistics (pp. 881–888). Stroudsburg, PA: Associa-       suing a PhD in engineering science with concentra-
+    tion for Computational Linguistics.                                 tions in information technology and engineering at
+Versley, Y., Ponzetto, S. P., Poesio, M., Eidelman, V., Jern, A.,
+    Smith, J., Yang, X., & Moschitti, A. (2008, May). BART: A           Louisiana State University. Her research interests
+    modular toolkit for co-reference resolution. Paper presented        include semantic analysis and machine learning.
+    at the Language Resources and Evaluation Conference, Mar-
+    rakech, Morocco.
+                                                                        Gerald M. Knapp received BS and MS degrees in
+Witten, I., & Frank, E. (2005). Data mining: Practical machine
+    learning tools and techniques (2nd ed.). San Francisco, CA:         industrial engineering from the State University of
+    Morgan Kaufmann.                                                    New York, Buffalo, in 1987 and 1989, respectively,
+                                                                        and a PhD degree in industrial engineering from the
+Ricardo A. Calix received a BS in industrial and                        University of Iowa, Iowa City, in 1992. He is Fred B.
+systems engineering from the Universidad Tecnologica                    & Ruth B. Zigler Associate Professor of Engineering
+Centroamericana, Tegucigalpa, Honduras, in 2001                         at Louisiana State University, Baton Rouge. His
+and an MBA from Louisiana State University (LSU),                       research interests include semantic analysis and
+Baton Rouge, in 2006. He received MS and PhD                            natural language processing, information systems,
+degrees in engineering science with concentrations                      and human–computer interaction.
+in information technology and engineering from
+LSU, Baton Rouge, in 2010 and 2011, respectively.                       Date received: January 13, 2011
+His research interests include human–computer                           Date accepted: September 9, 2011
+

@@ -1,0 +1,681 @@
+                            Proceedings of the ASME 2011 International Design Engineering Technical Conferences &
+                                                             Computers and Information in Engineering Conference
+                                                                                                   IDETC/CIE 2011
+                                                                          August
+                            Proceedings of the ASME 2011 International Design    28-31, 2011,
+                                                                              Engineering     Washington,
+                                                                                          Technical       DC, USA
+                                                                                                    Conferences &
+                                                             Computers and Information in Engineering Conference
+                                                                                                   IDETC/CIE 2011
+                                                                          August 29-31, 2011, Washington, DC, USA
+
+                                                                                                   DETC2011-4
+
+
+
+
+                                                                                                                                           Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+                                                                                                   DETC2011-48914
+
+            AFFECT PREDICTION FOR EMOTIONAL DESIGN: A COMPARISON STUDY OF
+                    PHYSIOLOGICAL AND SUBJECTIVE SELF-REPORT DATA
+
+                        Feng Zhou                                                          Xingda Qu
+  George W. Woodruff School of Mechanical Engineering,                   School of Mechanical and Aerospace Engineering,
+      Georgia Institute of Technology, Atlanta, USA                        Nanyang Technological University, Singapore
+
+                   Jianxin (Roger) Jiao                                                Martin G. Helander
+  George W. Woodruff School of Mechanical Engineering,                   School of Mechanical and Aerospace Engineering,
+      Georgia Institute of Technology, Atlanta, USA                        Nanyang Technological University, Singapore
+
+
+
+
+ABSTRACT
+                                                                        INTRODUCTION
+      Emotional design has attracted much attention due to its
+                                                                             Affect is essential in the interaction process between
+important role in the development of products and services
+                                                                        humans and systems [1] and is now incorporated as a design
+towards high value-added user satisfaction and performance
+                                                                        parameter to improve task performance and human
+enhancement. However, how to predict users’ affective states
+                                                                        satisfaction. Thus, to design products desirable to humans
+in real time and without having to interrupt the user is critical
+                                                                        holistically, emotional design conceptualizes affect-
+to emotional design. This study compared affect prediction
+                                                                        engendering products by adapting and responding to users’
+between using physiological measures and using self-report
+                                                                        affective states [2]. For example, to improve customer
+subjective measures. Specifically, an experiment was designed
+                                                                        satisfaction, products have been designed for hedonic pleasure
+to elicit seven different affective states using standardized
+                                                                        [3], emotional responses and aspirations [4], and user
+affective pictures as visual stimuli. Each stimulus was
+                                                                        experience [5]. In some instances, optimal performance
+presented for 6 seconds and multiple physiological signals
+                                                                        requires an appropriate arousal level [6], such as in aviation
+were measured, including facial electromyography,
+                                                                        safety and repetitive work where a state of high vigilance is
+respiration rate, electroencephalography, and skin
+                                                                        desirable. Csikszentmihalyi [7] proposed the concept of flow,
+conductance response. Subjective ratings were also recorded
+                                                                        according to which it is often necessary to maintain or prevent
+immediately after stimulus presentation. Three data mining
+                                                                        particular affective states to have optimal performance and
+methods (i.e., decision rules, k-NN, and decomposition tree)
+                                                                        pleasurable user experience. Although the importance of affect
+based on the rough set theory were applied to construct
+                                                                        as a design parameter has been well recognized, two important
+prediction models from physiological measures and subjective
+                                                                        questions regarding acquiring, measuring and predicting
+measures, respectively. We obtained the highest mean
+                                                                        affective states still need to be well tackled: (1) How can we
+prediction rate at 73.69% for physiological models and
+                                                                        effectively acquire users’ affective states without interference
+52.43% for subjective models, respectively, across the 7
+                                                                        in real time? (2) How can we measure and predict user
+affective states. It demonstrates that physiological data are
+                                                                        affective states in the interaction process?
+able to predict better result than subjective self-report data
+did and that physiological computing offers great potential for
+                                                                        Subjective Measures
+the development of emotional design.
+                                                                           Traditional solutions to these questions are typically
+
+
+
+                                                                                1                                 Copyright © 2011 by ASME
+                                                                    1                                     Copyright © 2011 by ASME
+subjective methods, including qualitative and quantitative               recognition method. Nasoz et al. [17] examined four affective
+subjective methods. The former includes user interviews,                 states using physiological signals, including EMG, ECG
+focus groups, and self-reports about one’s affective states [8],         (electrocardiogram), electrodermal, and respiration and
+etc. These methods often rely on verbal accounts of subjects             obtained an averaged accuracy of 80%. In addition,
+about their affective states, which are usually expressed in             physiological data can be acquired in a continuous manner
+abstract, fuzzy, or conceptual terms [9]. The ill-structured             which is consistent with the way people perceive emotions [18]
+nature of affect information coincides with those difficulties in        and thus allows users’ affective states to be evaluated in real
+natural language processing for these acquisition methods                time. Compared with subjective methods, the real-time feature
+(Shaw and Gaines, 1996). When subjects are asked to                      is particularly desirable for products that seek to respond to a
+verbalize their affective states, they are very likely to name the       user’s affective state in ways to improve the interaction [19].
+same state with different terms, even though they feel exactly           For example, earlier studies have suggested that physiological
+
+
+
+
+                                                                                                                                              Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+the same way physiologically. Hence, work based on these                 data collected in real time can help optimize user pleasure and
+methods on affect elicitation and acquisition is often                   efficiency [20], and detect unnecessary irritation or frustration
+dependent on vague assumptions and implicit inference.                   caused by products, without having to interrupt the user [21],
+Moreover, these methods also suffer from recall and selective            thereby helping designers target areas for redesign and
+reporting biases [10]. On some occasions, affect information             improvement [16]. However, it is also suggested one
+can be collected concurrently (e.g., the think-aloud protocol            physiological measure alone is not adequate to give a coherent
+[11]). However, concurrent data collection often interferes              picture of what an affective state is occurring within the user
+with users’ normal activities [12].                                      [22]. This is because the relationship between psychology and
+     Quantitative methods often take advantages of subjective            physiology is not all one-to-one and in many cases, many-to-
+ratings or rankings, such as Likert scales and semantic                  one, one-to many, or many-to-many [23]. Thus, multiple
+differential scaling methods. The technique of (affective)               physiological measures should be included.
+adjective checklist overcomes the vagueness by using
+standardized adjective lists that are often selected, scrutinized,       Research Objective
+structured and finally validated by domain experts. For                       The purpose of this study is to investigate to what extent
+example, Zuckerman and Lubin [13] developed the Multiple                 multiple physiological signals can be used to predict user
+Affect Adjective Check List (MAACL) and revised in 1985                  affective states compared with subjective measures. Models
+(MAACL-R), which consisted of 132 items, covering global                 constructed from physiological measures can be utilized for
+positive and negative affective states. Although it is                   emotional design in real time. Unlike models constructed from
+convenient to collect affective adjectives, the measuring                subjective measures that require conscious evaluations of
+process is often conducted in a retrospective manner, which              products or systems at hand, physiological signals can be
+might be not sufficient in human-product interaction process.            automatically acquired via wearable sensors attached on users’
+Similarly, affective descriptors are commonly used in Kansei             body and they can be fed into the models as input in real time
+engineering to measure users’ feelings toward a product or               with little interference with the current activities. This feature
+other affective stimuli by using, for example, a 7-point Likert          is essential to improve interactions by responding to a user’s
+scale ranging from 1 (absolutely not) to 7 (very much) [8].              affective state timely, for example cars which seek to avoid
+Semantic differential scaling is developed based on Osgood’s             accidents for drowsy drivers or video games which seek to
+semantic differential technique [14]. It develops adjective              match their difficulty level to the affective states of players
+pairs of opposite meanings, e.g., happy vs. unhappy and                  [19]. A dozen of published efforts aimed at finding
+subjects are then asked to rate objects using, for example, a            correlations between physiological signals and affective states
+five point scale such as: 1 = very unhappy, 2 = unhappy, 3 =             with computational methods. Among many others, data
+neutral, 4 = happy and, 5 = very happy. Compared with vague              mining techniques are powerful tools for sifting through layers
+qualitative methods based on verbal accounts, quantitative               of seemingly unrelated data for meaningful relationships.
+methods are often not fuzzy and amenable to statistical                  These techniques can anticipate affective states using
+analysis. Hence, they have been widely applied in Kansei                 predictive models from physiological measures, rather than
+engineering [8], affective design [2, 4] and other areas for             simply differentiation among physiological measures
+measuring affective responses. Nevertheless, such methods                concerning particular affective states. Further, these
+rely heavily on the use of words and adjectives and their                techniques are envisioned to result in more cost-effective,
+interpretation is often influenced by cultural and contextual            efficient, and usable systems, which would, to a large extent,
+factors [3].                                                             address the problems of traditional methods of affect
+                                                                         acquisition and prediction. Therefore, data mining methods
+Physiological Measures                                                   were employed to construct models from both physiological
+     Evidence has shown that physiological signals can                   measures and subjective measures to predict affective states.
+differentiate basic emotions [15]. Picard et al. [16], for
+example, acquired physiological data, including skin
+                                                                         EXPERIMENT DESIGN FOR AFFECT ELICITATION
+conductance response (SCR), electromyography (EMG) of the
+                                                                         Participants
+jaw, blood volume pulse (BVP), and respiration of a single
+                                                                              Forty six participants (23 males and 23 females),
+subject over multiple days and obtained an 81% accuracy on
+                                                                         including 16 Chinese, 15 Indian, and 15 Westerners (Europe
+recognizing eight affective states using a feature-based
+
+                                                                     2
+                                                                                                            Copyright © 2011 by ASME
+                                                                     2                                      Copyright © 2011 by ASME
+and North America), participated in the experiment. All the                 formal data collection, a practice trail with 6 pictures different
+participants are aged between 20 and 30 (mean = 24.4;                       from those in the formal experiment was conducted by the
+standard deviation = 2.3). Each participant was interviewed by              participant. This enabled the participant to familiarize with the
+the experimenter to screen out mental disorder or drug and                  experiment protocols. After all the sensors were installed on
+alcohol abuse. Due to technical difficulties, only data collected           the participant, a 2-minute resting baseline was followed
+from 14 participants in each cultural group (i.e., n = 42 in the            before the first stimulus was presented on a 17-inch desktop
+final) with gender balance were kept. Informed consent was                  around 1 meter away. The experiment took place in a project
+obtained from each participant.                                             room with dim lighting. The order of stimuli presentation was
+                                                                            random but different for each participant in order to minimize
+Affective Stimuli                                                           order effects. After receiving one stimulus, the participant was
+     Twenty-eight pictures were selected as the visual                      asked to rate the stimulus on valence and arousal using the
+
+
+
+
+                                                                                                                                                 Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+affective stimuli from the International Affective Picture                  computer-based SAM. Afterwards, each participant was asked
+System (IAPS) [24]. The IAPS is a set of 1194 normative                     to choose one affective adjective that best describe the
+affective coloured pictures that depict a variety of semantic               affective response to the stimulus from the given terms,
+categories and affective tones, distributed evenly in a 2-                  including excited, amused, contented, neutral, sad, fearful, and
+dimensional space (autonomic arousal vs. hedonic valence).                  disgusted. To minimize carry-over effects, there was a 10-
+The selected stimuli were categorized into seven groups,                    second interval between two consecutive affective stimuli. In
+corresponding to seven discrete affective states that are                   order to reduce within-group variability, the physiological
+commonly experienced: excited, amused, contented, neutral,                  measures, including facial EMG, respiration rate, and SCR,
+sad, fearful, and disgusted. Semantically, these pictures were              were the change scores where baseline levels were subtracted
+selected in an effort to elicit one discrete emotion more than              from task levels.
+another or blended emotions. In this research, the emotional
+labels were obtained according to the participants’ self-report             Physiological Measures
+by majority voting in order for conflict resolving. Participants                  Skin conductance response (SCR), also known as
+were instructed to select one affective adjective that best                 electrodermal response, is a measure of the skin’s ability to
+corresponds to the affective state they felt when viewing the               conduct electricity and represents changes in the sympathetic
+picture; these affective adjectives corresponded to the                     nervous system [26]. It has been proved to be linearly related
+affective states mentioned above. Details about the selected                to affective arousal and independent to affective valence [27].
+visual affective stimuli are given in Table 1.                              SCR was measured by fastening the electrode straps around
+                                                                            the second and the fourth fingers of the participant. First, a
+   Table 1. SELECTED VISUAL AFFECTIVE STIMULI                               baseline was defined as the mean value from 1 second before
+                    FROM IAPS.                                              to 1 second after stimulus onset. Then, SCR change score (in
+                                                                            10-6 ·A V-1) between the peak value from 1 to 4 seconds after
+Affective
+          Excited Amused Contented Neutral   Sad    Fearful Disgusted       stimulus onset and the baseline was recorded. Meanwhile, log
+ States                                                                     transformation [log(SCR+1)] was applied to normalize the
+           4645    1340    2340     7233     2276    6260     3080
+  IAPS     4677    1811    2360     7045     2800    6350     3130          distribution of the response [27].
+Picture # 4687     2341    2550     7010     2900    1120     3170                EMG measures muscle activity by detecting and
+           4694 2352.1     2530     7003     9220    1050     3000          amplifying the tiny electrical impulses that are generated by
+                                                                            muscle fibres when they contract [28]. Facial EMG measures
+Apparatus                                                                   from the zygomaticus major (ZM) and corrugators supercilii
+     A physiological sensing system and the E-Prime®                        (CS) were widely used for recognition of affective states [29].
+software (Psychology Software Tools, Pittsburgh, USA) were                  In this study, EMG electrodes were placed over ZM and CS
+used for data collection. The physiological sensing system                  on the right side of the face. EMG signals were bandpass
+included          an         eight-channel         Biofeedback              filtered from 100 to 1,000 Hz, amplified (× 5,000), rectified
+&NeurofeedbackSystemTM v5.0, i.e., the ProComp Infiniti                     and integrated [27]. The baselines for ZM and CS were
+system (Thought Technology, Montreal, Canada) and a                         defined as the mean activity in the 1 second before stimulus
+Myomonitor® Wireless EMG System (Delsys, Boston, USA).                      onset [27]. Then, the change score (in 10-6 ·V) for both ZM
+The former was used to collect SCR, respiration, and EEG                    and CS were computed by subtracting their respective
+data. The latter was applied to collect facial EMG signals.                 baselines from the mean responses sampled at each 0.5-second
+                                                                            time interval after stimulus onset for the following 6 seconds
+Procedure                                                                   (i.e. altogether 12 values were sampled).
+     First, participants were briefed that there would be                         Respiration measures the rate or volume of air exchange
+different pictures that might prompt different affective states             in human lungs by its rate or amplitude. It is observed that
+and that they should attend to the entire stimulus presentation             high arousal generally increases respiration rate while low
+for 6 seconds. Then, the notion of valence and arousal was                  arousal decreases respiration rate [30]. In this study, the
+explained using Self-Assessment Manikin (SAM) [25], which                   respiration sensor was sensitive to stretch and was strapped
+is a non-verbal pictorial scale (1-9, where 1 is extremely                  around each participant’s abdomen. The respiration rate and
+unpleasant/sleepy, 5 neutral, and 9 extremely pleasant/                     relative respiration amplitude data were collected. Empirically,
+activated) for the measurement of valence and arousal. Before               the baseline was defined as the mean rate of 3 seconds after
+
+                                                                        3
+                                                                                                               Copyright © 2011 by ASME
+                                                                        3                                      Copyright © 2011 by ASME
+                                                                                                                                                 Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+        Figure 1. SCHEMATIC FLOW FOR ROUGH SET-BASED PREDICTION OF DIFFERENT AFFECTIVE STATES.
+
+stimulus onset. Then, the change score for respiration rate (in          approximations of concepts from multiple features [38]. Three
+1/60·(cycle/s)) was calculated by subtracting the baseline from          data mining methods based on the rough set theory were then
+the mean rate at each 0.5-second after stimulus onset for the            used separately to predict affective states based on the
+following 6 seconds.                                                     extracted features. Note that when the model inputs were
+     Electroencephalography (EEG) is the recording of                    subjective ratings, the prediction models were constructed
+electrical activity along the scalp produced by the firing of            without feature extraction since better results could be
+neurons within the brain and reflects correlated synaptic                obtained directly using the rough set-based data mining
+activity caused by post-synaptic potentials of cortical neurons          methods. Specifically, the highest mean prediction accuracy
+[31]. It is the summation of oscillations with a frequency range         rates with and without LDA were 46.20% and 52.43%,
+from 1 to 80Hz, with amplitudes of 0.01 to 0.1 V [32]. Due to            respectively. Figure 1 showed the schematic flow for
+the fact that there was only one sensing electrode in the                predicting different affective states.
+ProComp Infiniti system, it was placed at the Fpz which is
+defined by the international 10-20 system [33] to collect the            Feature Extraction
+alpha (8-12Hz) and beta (12-30Hz) frequencies. The two                      The original feature space is represented by a matrix,
+reference electrodes were located at the left and right ear lobes.       X   xij  , where xij is the j-th sample of the i-th feature
+                                                                                  N M
+The alpha and beta frequencies were extracted to reflect
+different affect related activities [34]. Alpha waves are typical        (i.e. the statistic measures of physiological signals, such as the
+for an alert but relaxed mental state, visible over the parietal         mean of ZM) vector, xi  , N is the total number of feature
+and occipital lobes, while beta waves are related to an active           involved, and M is the total number of samples. Hence, each
+state of mind (busy, alert, anxious thinking, and/or active              column of X (i.e. x j ) across all the features describes one
+concentration), most evident in the frontal cortex [32]. In order        particular affective state. In order to search for those feature
+to minimize artefacts introduced in the EEG signals,                     vectors in the underlying space that best discriminate among
+participants were instructed not to blink during the 6-second            all the affective states, LDA creates a linear transformation
+stimulus presentation as possible as they could, and
+electrooculogram artefacts were corrected by an adaptive filter
+based on the least mean squares regression [35] using EEGLab                                YL M   WT             X N M ,             (1)
+                                                                                                               L N
+software based on Matlab R2008b (Natick, MA, USA).. The
+EEG data was then bandpass filtered into alpha and beta                  where W is projection matrix that maps the original N-
+waves. These waves were subsequently transformed to                      dimensional feature space onto an L-dimensional feature
+calculate the power (in 10-3· Vs-2) during 6 seconds of the              subspace (L is the dimensionality of the new feature subspace
+stimuli presentation as the feature for the following analysis.          and usually L  N ) when maximizing the following
+                                                                         objective [37]:
+AFFECT PREDICTION BASED ON DATA MINING
+     For the comparison purpose, affective states were                                                     WT S B W
+predicted separately by physiological measures and self-                                       J ( W)              ,                      (2)
+                                                                                                           WT SW W
+reported subjective ratings. It is important to synthesize
+diverse physiological measures and identify most relevant
+features for building a robust prediction model. This usually            where SB and SW are the between-class and within-class scatter
+involves a process of reducing the number of the dependent               matrices defined in (3) and (4) below
+measures to the extent that the constructed model is more
+                                                                                   SW   c 1  j c1  xc j  u c  x c j  u c  ,
+                                                                                               C       N                             T
+computationally efficient and accurate [36]. Therefore, linear                                                                             (3)
+discriminant analysis (LDA) was first used to perform feature
+                                                                                     S B   c 1  u c  u  u c  u  ,
+                                                                                                   C                        T
+extraction due to the fact that LDA explicitly makes use of                                                                                (4)
+both between-class and within-class difference information
+[37]. Second, the rough set theory excels in classifying
+
+
+                                                                     4
+                                                                                                                      Copyright © 2011 by ASME
+                                                                     4                                                Copyright © 2011 by ASME
+where C is the total number of affective states, x c j is the j-th                      Decision Rules: Rule generation is based on the concept
+column of the c-th affective states in X, uc is the mean vector                     of reduction [41]. Assuming an information system,
+of classc, Nc is the total number of samples in class c, and u is                   I S  U , F  , where U is a non-empty finite set called the
+the grand mean across C classes. It has been proved that the                        universe such that f  F , f : U  F * and F * is the value
+column vectors of the projection matrix W are the                                   set of F . A reduct is defined as a subset of features in I S ,
+eigenvectors of SW1S B [39]. Nevertheless, it should be noted
+                                                                                    such that   n N  T , where n   f n , d n  is subject to
+that the upper bound of L is min  C , N   1 .
+                                                                                    an indiscernibility relation, in which, for objects x  U and
+     In this study, for physiological measures, a collection of                      y  U , a pair  x, y   U  U belongs to  . Therefore, for any
+42 features (N = 42) by 294 (M = 294, 42 participants by 7
+affective states) samples was used as the original feature space.                   object z  U , a decision rule can be generated, such that
+
+
+
+
+                                                                                                                                                                            Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+There were 7 (C = 7) classes of affective states, and each class                     q  1, Q  , where Q denotes the total number of features
+had 42 (Nc= 42) samples. Based on Eqns. (3)-(4), we obtained                        instantiated by this rule, the predecessor of the rule takes the
+the between-class and within-class scatter matrices SB and SW,                      conjunction of certain feature instances, f q  z  , and the
+from which the projection matrix W was derived. The final 6-
+dimensional (L = 6) feature subspace was determined                                 successor takes on specific values of decision variables,
+according to Eqns. (1)-(2).                                                         d   z  . The general form of a decision rule constructed for
+                                                                                    reduct  and object z is thus given as the following:
+Model Construction
+     The model was constructed based on the extracted                               IF  f1  f1  z    ...   f Q  f Q  z   THEN  d   d   z   . (5)
+features. Three data mining methods based on the rough set
+theory were adopted [40], including decision rules (DR), k-
+nearest neighbour (k-NN), and decomposition trees (DT).                                  To further get better prediction results, the features were
+These methods all take a decision table as the input. The                           discretized into different intervals using cuts that were
+transposed subspace, YM  L , with the corresponding labels of                      produced with the global strategy based on the maximal
+                                                                                    discernibility heuristics [41]. The extent to which a rule is
+different affective states was first tabulated as a decision table                  applicable to (i.e. matches) the training sample is determined
+T   F  D , I  , where F is a non-empty feature set such that                    by the degree of support, which is equal to the number of
+for any feature vector f   f l L  F . For example, for the 6-                   training samples from the decision table for which this rule
+                                                                                    applies correctly. For example, one rule was ‘IF (f1="(-Inf,-
+dimensional feature subspace, f   f1 ,..., f 6  describes one                    2.57)")  (f2="(-2.67,-1.03)")  (f6="(-Inf,-1.49)") THEN
+particular affective state. D is a non-empty decision set such                      (affective_state=neutral)(8)’. It means that if the values of
+that for any decision vector d  d h H  D, where H is the                        Feature 1, Feature 2, and Feature 6 belong to the intervals (-
+total number of the decision variables (only one decision                           Inf,-2.57), (-2.67,-1.03), and (-Inf,-1.49), respectively, then the
+variable involved, i.e., affective state based on emotion labels                    corresponding affective state is neutral with a support of 8.
+in this study). F  D is the universe of inference I ;                              The rough set theory computes the complete set of consistent
+ i   I m*   I , where M denotes the total number of the
+                                                                                    and minimal decision rules [42], i.e., all rules (matched at least
+          M                                                                         by one training example) that are maximally general and
+training samples in the decision table. A specific training                         consistent with the training set. These rules provide bases to
+sample of T , I m*   Fm*  Dc*  , embodies the inference                         predict affective states. For a given test sample, tst, the subset
+                                                                                    of rules matched by tst is selected. If tst matches only rules
+relationship from the features Fm* to the corresponding                             with the same affective state, then the affective state predicted
+affective state Dc* . Fm*   f ml*  is the value set of the feature               by those rules is assigned to tst. However, if tst matches rules
+                                      L
+                                                                                    with different affective states, a commonly used measure in
+vector f ; D  d  is the value set of d , and in this study
+              *
+              c
+                      *
+                      c C                                                           Eqn. (6) for conflict resolving is to be made so that the
+                                                                                    affective state with the highest measure value is chosen [42].
+Dc*  {excited, amused, contented, neutral, sad, fearful,
+disgusted}. An example of the decision table used in data
+mining methods was given in Table 2.                                                         Strength  tst , c                               SupportSet  r  ,   (6)
+                                                                                                                      rMatchRules ( tst , c )
+
+Table 2. AN EXAMPLE OF THE DECISION TABLE USED
+             IN DATA MINING METHODS.                                                where c denotes the c-th affective state, SupportSet(r) is a set
+                                                                                    of training examples matching the rule, r, MatchRules(tst, c) is
+ # Entry Feature 1 Feature 2 Feature 3 Feature 4 Feature 5 Feature 6 Decision       a subset of minimal rules that are applicable to tst and the
+    1      -2.23     -2.60     -2.67      0.11     -0.52     -0.77 excited          affective state is c, and  denotes the cardinality of a set (the
+    2       3.34     -1.03     -1.28     -1.84     -3.14     -2.43 excited
+    …        …        …         …          …         …         …       …            number of elements of a set).
+   293     -3.71     -3.23     -4.63     -2.94     -0.63     1.35 disgusted            k-nearest neighbour (k-NN): This algorithm does not
+   294     -3.66     -4.09     -3.93     -2.94      1.81      0.70 disgusted        compute the whole support set of the minimal rules covering
+
+
+                                                                                5
+                                                                                                                                     Copyright © 2011 by ASME
+                                                                                5                                                    Copyright © 2011 by ASME
+                                          start                                                                                start
+
+
+
+                                   Find the best                                                                       Given T = T(t)
+                                  template t in T                                                                      + T(¬t), for any
+                                                                                                                             tst
+
+
+                                     Divide T so                                                                              tst
+        T = T(t)                    that T = T(t)                           T = T(¬t)             T = T(¬t)                 matches                     T = T(t)
+                                       +T(¬t)
+
+
+
+
+                                                                                                                                                                              Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+                                                                                                                             T(t)
+                                                                                                                     No                  Yes
+                                                                                                     No                                                   No
+          No                                                                   No
+
+                   T(t) of a self-                    T(¬t) of a self-                            T(¬t) is          Go to               Go to           T(t) is
+                   defined size                       defined size                                 leaf             T(¬t)                T(t)            leaf
+
+                                                                                                              Yes                                Yes
+                        Yes                                  Yes
+
+                     Generate                          Generate                                                Predict using            Predict using
+                     decision                        decision rules                                           rules attached           rules attached
+                   rules for T(t)                      for T(¬t)                                                  to T(¬t)                 to T(t)
+
+
+
+
+                                          end                                                                                  end
+
+
+
+                          (a)                                   (b)
+      Figure 2. (a) FLOW CHART OF GENERATING A DECOMPOSITION TREE; (B) FLOW CHART OF PREDICTING A
+                          TESTING SAMPLE USING THE GENERATED DECOMPOSITION TREE.
+
+tst, but is restricted to its neighbourhood S  tst , k  as the set of                              T  T  t   T  t  , where T  t  and T  t  are sub-tables (or
+k training examples defined by a similarity measure [42]:                                            sub-trees) containing all training samples matching and not
+                                                                                                     matching template t, respectively. The generation of a
+         f  x, y    f ( x )  f ( y )   max( f )  min( f )  ,                  (7)          decomposition tree is depicted as in Figure 2(a) and the
+                                                                                                     prediction process for a testing sample, tst, is depicted in
+                                                                                                     Figure 2(b) [43, 44].
+where              x   f1  x  , f 2  x  ,..., f 6  x  , d  x             and
+y   f1  y  , f 2  y  ,..., f 6  y  , d  y   are two training samples;                     RESULTS
+ max( f ) and min( f ) are the maximum and minimum values                                                 The descriptive statistics of physiological measures and
+                                                                                                     subjective ratings were summarized in Table 3. A 10-fold
+for a feature f among the training examples (Note the features                                       cross-validation method was used to validate the predictive
+here are not discretized as the measure,  f , in Eqn. 7 is                                          models. Tables 4 and 5 showed the prediction results from the
+numeric). For one training sample, trn, within S  tst , k  , the                                   models using physiological measures (P models) and
+                                                                                                     subjective ratings (S models) as inputs, respectively. Among
+algorithm constructs a local rule rtst  trn  for tst. Then it checks
+                                                                                                     the selected data mining methods, the k-NN method based on
+whether it is consistent with the remaining training examples                                        the rough set theory generally performed better than decision
+in S  tst , k  , If so, rtst  trn  is added to the support set for                               rules and decomposition trees. When all the affective states
+predicting affective states. Finally, the algorithm selects the                                      were considered as a whole, the 40-NN method (73.69%)
+affective state with the support set of the highest cardinality.                                     appeared to predict affective states most accurately among the
+     Decomposition trees: It is a binary tree, whose every                                           P models and the 10-NN method (52.43%) among the S
+internal node is labelled by some template (any non-leaf                                             models. It was observed that the P models generally
+vertex of the tree) and every external node (leaf) is associated                                     outperformed the S models by more than 20%. When the
+with a set of training samples matching all the templates in a                                       affective states were considered separately, best prediction
+path from the root to a given leaf [43]. For a decision table                                        accuracy rates were 90.02%, 69.20%, 60.80%, 97.10%,
+                                                                                                     90.00%, 69.20%, and 86.50% for excited, amused, contented,
+
+                                                                                              6
+                                                                                                                                                Copyright © 2011 by ASME
+                                                                                              6                                                 Copyright © 2011 by ASME
+bored, fearful, and disgusted, respectively, across different P          Given the prediction accuracy, P models were found to
+models. For the S models, best prediction rates were 58.70%,             perform better than did S models. This might be explained by
+25.50%, 42.30%, 91.30%, 71.70%, 45.50%, and 80.00% for                   the fact that there were only two dimensions (i.e. valence and
+excited, amused, contented, bored, fearful, and disgusted,               arousal) involved in the S models. One shortcoming of the
+respectively. Thus, the P models performed better than the S             valence-arousal model is that it is not good at differentiating
+models for individual affective state as well.                           within the classes of negative and positive affective states [45].
+                                                                         For example, the locations of amused and contented (positive
+    Table 3. SUBJECTIVE AND PHYSIOLOGICAL                                affective states), and fearful and sad (negative affective states)
+ MEASURES (MEAN (STANDARD DEVIATION)) FOR 7                              are rather close in this dimensional model even though there
+                AFFECTIVE STATES.                                        are marked differences in physiological responses. In addition,
+                                                                         physiological signals are less likely to be affected by cognitive
+
+
+
+
+                                                                                                                                               Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+Measure Excited Amused Contented Neutral Sad Fearful Disgusted           and social influence than the subjective measures when
+          7.38   7.35     7.64    5.26 3.25 2.40       1.33              reflecting affective states [16].
+Valence
+         (0.98) (0,79) (0.65) (0.42) (0.76) (0.79) (0.46)                     When compared with previous studies, the result obtained
+          6.82   6.01     5.49    4.24 5.44 6.32       7.54              in this study is slightly lower than Picard et al. [16] and Lisetti
+Arousal
+         (1.31) (1.34) (1.64) (1.20) (1.21) (1.41) (1.49)
+                                                                         and Nasoz [46] in terms of prediction accuracy. Both Picard et
+          0.91   2.03     1.48    0.64 0.63 1.00       0.89
+  ZM
+         (0.66) (1.33) (1.03) (0.45) (0.55) (0.52) (0.51)
+                                                                         al. [16] and Lisetti and Nasoz [46] obtained around 84%
+          0.46   0.40     0.42     0.50 0.59 0.67       0.86             accuracy for predicting affective states. While acknowledging
+  CS                                                                     their achievement, it is cautious to do direct comparisons. First,
+         (0.15) (0.14) (0.13) (0.17) (0.24) (0.28) (0.29)
+ Resp. -0.10 -0.37       -0.21    -1.18 0.07 0.04      -0.23             Picard et al. [16] only employed one healthy subject with 2
+ Rate (1.16) (1.26) (1.44) (1.13) (0.97) (0.99) (1.21)                   years of acting experience. It is possible that the specific
+         0.131 0.113     0.073 0.075 0.099 0.116 0.132                   features and prediction results achieved from one single
+ SCR
+         (0.13) (0.12) (0.07) (0.07) (0.11) (0.13) (0.10)                subject may not be applicable to other subjects well. In other
+         29.96 24.78     27.09 26.61 25.31 27.23 24.91                   words, the results from Picard et al. [16] may not be well
+ Alpha
+         (7.21) (6.72) (7.80) (6.07) (6.95) (7.04) (6.07)
+                                                                         generalized to the overall population. Second, the prediction
+         29.08 28.05     28.92 31.43 29.02 29.24 28.34
+ Beta
+         (4.69) (6.01) (4.54) (5.19) (4.83) (4.83) (6.49)
+                                                                         accuracy is also influenced by the affective stimuli used for
+Note valence and arousal ratings are ranged from 1 to 9; ZM              emotion elicitation. Lisetti and Nasoz [46], for example,
+and CS are in 10-6 V; Resp. Rate = respiration rate which is in          utilized movie scenes for eliciting emotions, and the duration
+1/60·(cycle/s); SCR is in [log(10-6 ·A V-1)]; alpha and beta are         of the presentation of these movie scenes was from 70 to 231
+in 10-3· Vs-2                                                            seconds. This duration is much longer than that in our picture
+                                                                         viewing strategy. Nevertheless, it is also difficult to have such
+     Table 4. PREDICTION ACCURACY (%) FOR 7                              movie scenes that have a strong capability of eliciting
+     AFFECTIVE STATES USING PHYSIOLOGICAL                                emotions in real HCI scenarios.
+                    MEASURES.                                                 Further, it was observed that the prediction accuracy for
+                                                                         amused and contented was poorer compared to other affective
+Method Excited Amused Contented Neutral Sad Fearful Disgusted Mean       states both for the P and S models. This might be due to the
+ DR     90.02 55.70     36.00    84.40 79.80 60.50    81.90 69.76        labelling of affective states using a voting strategy. The
+ DT     70.00 69.20     40.00    73.30 90.00 47.50    50.08 62.88        percentage of votes obtained for the selected pictures (Table 1)
+5-NN 67.30 55.40        56.10    83.70 60.70 57.00    79.20 65.63        varied. It is possible the presentation of pictures did not
+10-NN 72.50 52.00       60.80    89.70 71.70 64.70    86.50 71.13
+20-NN 79.50 44.50       53.30    94.60 61.30 64.20    83.60 68.71        necessarily elicit the corresponding affective states, especially
+30-NN 82.70 43.00       36.80    97.10 87.10 43.20    73.00 66.13        for those with lower votes. Therefore, it would be desirable to
+40-NN 74.00 66.40       50.00    93.00 77.00 69.20    86.20 73.69        have a screening procedure to exclude the unresponsive
+                                                                         participants to the target affective states in the future research.
+     Table 5. PREDICTION ACCURACY (%) FOR 7                                   Traditionally, subjective approaches were commonly used
+  AFFECTIVE STATES USING SUBJECTIVE RATINGS.                             to interpret affective responses to products, such as focus
+                                                                         groups, interviews [8]. However, these approaches can only
+Method Excited Amused Contented Neutral Sad Fearful Disgusted Mean       provide qualitative results and are subject to linguistic
+ DR     37.30 12.00     25.00    91.10 45.00 26.70    80.00 45.30        ambiguity [9]. In this study, the models based on date mining
+ DT     22.50 18.30     23.30    91.30 71.70 40.30    77.20 49.23
+5-NN 48.30 18.30        29.60    85.20 37.00 42.90    75.30 48.09        methods were able to accurately predict various affective
+10-NN 58.70 25.50       34.70    78.60 52.10 39.80    77.60 52.43        states. Such models could be embedded in physiological
+20-NN 50.60 22.00       34.70    81.20 42.70 44.20    72.70 49.73        monitoring systems to monitor, quantify, and predict users’
+30-NN 48.80 21.00       42.30    88.20 50.10 33.80    72.30 50.93        affective states in real time in a continuous manner. As a result,
+40-NN 44.50 18.10       22.90    78.30 42.00 45.50    71.00 46.04
+                                                                         the relationships between affective needs and design elements
+                                                                         in products might be identified, which could facilitate
+DISCUSSIONS                                                              designing products that involve affective experience, such as
+     This study proposed mathematical models based on data               increasing excitement and inhibiting disgust. In this sense,
+mining methods to predict affective states. These models used            adaptive systems based on physiological computing have
+either physiological signals (P models) or subjective ratings (S         potential to sustain user engagement, maximize the positive
+models) as inputs, and discrete affective states as outputs.             affect experienced by the user, and minimize negative affect
+
+                                                                     7
+                                                                                                            Copyright © 2011 by ASME
+                                                                     7                                      Copyright © 2011 by ASME
+by offering assistance if the user is unable to perform the task        [6] Yerkes, R. M., and Dodson, J. D., 1908, "The relation of
+[9].                                                                         strength of stimulus to rapidity of habit-formation,"
+     Although affective states evoked during different human-                Journal of Comparative Neurology and Psychology, 18,
+product interactions might be different, the proposed method                 pp. 459-482.
+may still be a useful tool for the designers. They can be used          [7] Csikszentmihalyi, M., 1990, Flow : The Psychology of
+to accurately assess the possible affective states, and their                Optimal Experience, Harper and Row, New York.
+effects on the user and task performance in a particular                [8] Nagamachi, M., 1995, "Kansei Engineering:A new
+human-product interaction scenario [47]. Consequently, a                     ergonomic consumer-oriented technology for product
+suitable model can be constructed accordingly. For example,                  development," International Journal of Industrial
+the P model based on decision rules had good performance in                  Ergonomics, 15(1), pp. 3-11.
+predicting excitement (see Table 4), so it could be used to             [9] Grandjean, D., Sander, D., and Scherer, K. R., 2008,
+
+
+
+
+                                                                                                                                            Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+evaluate whether a game product is successful, when user                     "Conscious emotional experience emerges as a function
+experience, such as excitement, is important. Moreover,                      of multilevel, appraisal-driven response synchronization,"
+physiological monitoring systems can be integrated into the                  Conscious Cogn, 17(2), pp. 484-495.
+fabric of the wearer to continuously acquire multiple                   [10] Stone, A. A., and Shiffman, S., 1994, "Ecological
+physiological data in an unobtrusive way. These systems are                  momentary assessment (EMA) in behavioral medicine,"
+now developed and continue to be improved, such as ‘Smart                    Annals of Behavioral Medicine, 16(3), pp. 199-202.
+Shirt’ [48]. Therefore, the future of physiological                     [11] Ericsson, K., and Simon, H., 1993, Protocol analysis:
+measurement for emotional design is promising.                               Verbal reports as data, MIT Press, Boston.
+                                                                        [12] Detenber, B. H., 2001, "Measuring emotional responses
+                                                                             in human factors research: some theoretical and practical
+CONCLUSIONS
+                                                                             considerations," Proceedings of the International
+     Emotional design emphasizes users’ affective needs as
+                                                                             Conference on Affective Human Factors Design, M.
+well as task performance. To achieve a better emotional
+                                                                             Helander, H. Khalid, and M. Tham, eds., Asean
+design, we need to determine which affective considerations
+                                                                             Academic Press, London, pp. 124-130.
+must be acquired, measured and predicted, and how and when
+                                                                        [13] Zuckerman, M., and Lubin, B., 1965, The Multiple Affect
+to respond accordingly to the system [47]. In this study,
+                                                                             Adjective Check List, Educational and Industrial Testing
+multiple affective responses were measured using facial EMG
+                                                                             Service, San Diego.
+(ZM and CS), respiration rate, EEG (alpha wave and beta
+                                                                        [14] Osgood, C. E., Suci, G. J., and Tannenbaum, P. H., 1957,
+wave), and SCR as well as subjective ratings when
+                                                                             The measurement of meaning, University of Illinois Press,
+participants were exposed to a wide range of visual affective
+                                                                             Urbana, USA.
+stimuli. Results showed that physiological signals are capable
+                                                                        [15] Ekman, P., Levenson, R. W., and Friesen, W. V., 1983,
+of predicting categorical affective states in real time. P models
+                                                                             "Autonomic nervous system activity distinguishes among
+were found to perform better than S models in terms of
+                                                                             emotions," Science, New Series, 221(4616), pp. 1208-
+predicting the seven selected affective states. These findings
+                                                                             1210.
+indicated that along with using mathematical models,
+                                                                        [16] Picard, R. W., Vyzas, E., and Healey, J., 2001, "Toward
+measuring physiological signals might be an effective way to
+                                                                             machine emotional intelligence: Analysis of affective
+determine the affective states, and further to improve
+                                                                             physiological state," IEEE Transactions on Pattern
+emotional design.
+                                                                             Analysis and Machine Intelligence, 23(10), pp. 1175-
+                                                                             1191.
+REFERENCES                                                              [17] Nasoz, F., Alvarez, K., Lisetti, C. L., and Finkelstein, N.,
+                                                                             2003, "Emotion recognition from physiological signals
+[1] Picard, R. W., 1997, Affective Computing, The MIT                        for presence technologies," International Journal of
+    Press, Cambridge, Massachusetts.                                         Cognition, Technology and Work. Special Issue on
+[2] Helander, M. G., and Tham, M. P., 2003, "Hedonomics -                    Presence, 6(1).
+    affective human factors design," Ergonomics, 46(13-14),             [18] Schiano, D. J., Ehrlich, S. M., and Sheridan, K., 2004,
+    pp. 1269-1272.                                                           "Categorical imperative not: Facial affect is perceived
+[3] Helander, M. G., and Khalid, H. M., 2006, "Affective and                 continuously," Conference on Human Factors in
+    Pleasurable Design," Handbook of Human Factors and                       Computing SystemsVienna, Austria, pp. 49-56.
+    Ergonomics, G. Salvendy, ed., Wiley Interscience, New               [19] Bailenson, J. N., Pontikakis, E. D., Mauss, I. B., Gross, J.
+    York.                                                                    J., Jabon, M. E., Hutcherson, C. A. C., Nass, C., and
+[4] Jiao, J., Xu, Q., Du, J., Zhang, Y., Helander, M. G.,                    Oliver, J., 2008, "Real-time classification of evoked
+    Khalid, H. M., Helo, P., and Ni, C., 2007, "Analytical                   emotions using facial feature tracking and physiological
+    Affective Design with Ambient Intelligence for Mass                      responses," International Journal of Human-Computer
+    Customization and Personalization," International Journal                Studies, 66(5), pp. 303-317.
+    of Flexible Manufacturing Systems 19, pp. 570-595.                  [20] Fairclough, S. H., 2009, "Fundamentals of physiological
+[5] Desmet, P. M. A., and Hekkert, P., 2007, "Framework of                   computing," Interacting with computers, 21(1-2), pp. 133-
+    product experience," International Journal of Design, 1(1),              145.
+    pp. 57-66.                                                          [21] Mandryk, R., and Atkins, M., 2007, "A fuzzy
+
+                                                                    8
+                                                                                                          Copyright © 2011 by ASME
+                                                                    8                                     Copyright © 2011 by ASME
+     physiological approach for continuously modeling                       Machine Intelligence, 23(2), pp. 228-233.
+     emotion during interaction with play technologies,"               [38] Komorowski, J., Pawlak, Z., Polkowski, L., and Skowron,
+     International Journal of Human-Computer Studies 65(4),                 A., 1999, "Rough sets: A tutorial," Rough fuzzy
+     pp. 329-347.                                                           hybridization. A new trend in decision-making, S. K. S.
+[22] Scheirer, J., Fernandez, R., Klein, J., and Picard, R. W.,             Pal, A., ed., Springer, Berlin, pp. 3-98.
+     2002, "Frustrating the user on purpose: a step toward             [39] Fischer, A. H., and Manstead, A. S. R., 2000, "The
+     building an affective computer," Interacting with                      relation between gender and emotions in different
+     Computers, 14(2), pp. 93-118.                                          cultures," Gender and emotion: Social psychology
+[23] Cacioppo, J. T., and Tassinary, L. G., 1990, "Inferring                perspectives, A. H. Fischer, ed., Cambridge University
+     psychological significance from physiological signals,"                Press, New York.
+     American Psychologist, 45(1), pp. 16-28.                          [40] Bazan, J., Nguyen, H. S., Nguyen, S. H., Synak, P., and
+
+
+
+
+                                                                                                                                         Downloaded from asmedigitalcollection.​asme.​org/​IDETC-CIE/​proceedings-pdf/​IDETC-CIE2011/​54792/​917/​4537777/​917_1.​pdf by Zhejiang University user on 25 September 2026
+[24] Lang, P. J., Bradley, M. M., and Cuthbert, B. N., 2008, "              Wróblewski, J., 2000, "Rough set algorithms in
+     International affective picture system (IAPS): Affective               classification problem," Rough set methods and
+     ratings of pictures and instruction manual," No. Technical             applications, L. Polkowski, S. Tsumoto, and T. Lin, eds.,
+     Report A-8, Gainesville, FL.                                           Physica-Verlag, Heidelberg/New York, pp. 49-88.
+[25] Lang, P. J., 1980, "Behavioral treatment and bio-                 [41] Pawlak, Z., 1991, Rough sets: theoretical aspects of
+     behavioral      assessment:     Computer     applications,"            reasoning about data, Kluwer Academic Publisher,
+     Technology in Mental Health Care Delivery Systems, J. B.               Boston.
+     Sidowski, J. H. Johnson, and T. A. Williams, eds., Ablex,         [42] Gora, G., and Wojna, A., 2002, "Riona: A new
+     Norwood, NJ, pp. 119-137.                                              classification system combining rule induction and
+[26] Bernstei, A. S., 1969, "Orienting Response and Direction               instance-based learning," Fundamenta Informaticae, 51(4),
+     of Stimulus Change," Psychon Sci, 12(4), pp. 127-128.                  pp. 369-390.
+[27] Lang, P. J., Greenwald, M. K., Bradley, M. M., and                [43] Nguyen, S. H., 2000, "Regularity analysis and its
+     Hamm, A. O., 1993, " Looking at pictures: Affective,                   applications in data mining," Rough set methods and
+     facial,     visceral,     and     behavioral    reactions,"            applications: New developments in knowledge discovery
+     Psychophysiology 30(3), pp. 261-273.                                   in information systems, L. Polkowski, S. Tsumoto, and T.
+[28] Shelley, K., and Shelley, S., 2001, "Pulse oximeter                    Y. Lin, eds., Physica-Verlag GmbH, Heidelberg,
+     waveform: Photoelectric plethysmography," Clinical                     Germany, pp. 289-378.
+     monitoring, C. Lake, R. Hines, and C. Blitt, eds.,                [44] Bazan, J., and Szczuka, M., 2000, "RSES and RSESlib -
+     Saunders Company, pp. 420-428.                                         A collection of tools for rough set computations," Lecture
+[29] Laparra-Hernández, J., Belda-Loisa, J. M., Medinaa, E.,                Notes in Artificial Intelligence, Springer-Verlag, Berlin,
+     Camposa, N., and Povedaa, R., 2008, "EMG and GSR                       Heidelberg, pp. 592-601.
+     signals for evaluating user's perception of different types       [45] Stemmler, G., 2003, "Methodological considerations in
+     of ceramic flooring," International Journal of Industrial              the psychophysiological study of emotion," Handbook of
+     Ergonomics, 39(2), pp. 326-332.                                        affective sciences, R. J. Davidson, K. R. Scherer, and H.
+[30] Stern, R. M., Ray, W. J., and Quigley, K. S., 2001,                    H. Goldsmith, eds., Oxford University Press, New York.
+     Psychophysiological recording, Oxford University Press,           [46] Lisetti, C. L., and Nasoz, F., 2004, "Using noninvasive
+     New York.                                                              wearable computers to recognize human emotions from
+[31] Creutzfeldt, O. D., Watanabe, S., and Lux, H. D., 1966,                physiological signals," EURASIP J. Appl. Signal Process,
+     "Relations between EEG phenomena and potentials of                     pp. 1672-1687.
+     single cortical cells. I. Evoked responses after thalamic         [47] Hudlicka, E., 2003, "To feel or not to feel: The role of
+     and epicortical stimulation," Electroencephalogr. Clin.                affect in human-computer interaction," International
+     Neurophysiol., 20, pp. 1-18.                                           Journal of HumanComputer Studies, 59, pp. 1-32.
+[32] Kandel, E. R., Schwartz, J. H., and Jessell, T. M., 2000,         [48] Pandian, P. S., Mohanavelu, K., Safeer, K. P., Kotresh, T.
+     Principles of neural science, McGraw-Hill, New York.                   M., Shakunthala, D. T., Gopal, P., and Padaki, V. C.,
+[33] Niedermeyer, E., and Lopes Da Silva, F., 2004,                         2008, "Smart vest: Wearable multi-parameter remote
+     Electroencephalography: Basic principles, clinical                     physiological monitoring system," Med Eng Phys, 30(4),
+     applications, and related fields, Lippincott Williams &                pp. 466-477.
+     Wilkins, Philadelphia.
+[34] Niemic, C. P., 2002, "Studies of emotion: A theoretical
+     and empirical review of psychophysiological studies of
+     emotion," Journal of Undergraduate Research, 1, pp. 15-
+     18.
+[35] Haykin, S., 1996, Adaptive filter theory, Prentice-Hall,
+     Inc., Upper Saddle River, NJ, USA.
+[36] Fodor, I. K., 2002, " A survey of dimension reduction
+     techniques," No. UCRL-ID-148494.
+[37] Martinez, A. M., and Kak, A. C., 2001, "PCA versus
+     LDA," IEEE Transactions on Pattern Analysis and
+
+                                                                   9
+                                                                                                        Copyright © 2011 by ASME
+                                                                   9                                    Copyright © 2011 by ASME
+

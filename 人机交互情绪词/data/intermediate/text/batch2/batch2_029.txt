@@ -1,0 +1,1517 @@
+                                                                                                     lnferacfing
+                                                                                                     with
+                                                                                                     Computers
+ELSEVIER                             Interacting    with Computers   IO ( 1998)   I-29
+
+
+
+
+                                                                                                                         Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Designing towards emotional usability in customer interfaces-
+      trustworthiness of cyber-banking system interfaces
+
+                                       Jinwoo Kim*, Jae Yun Moon
+
+
+           Received   I February 1997; received in revised form I May 1997: accepted I November 1997
+
+
+
+
+Abstract
+
+   In this research we investigate the possibility of designing a user interface for electronic commerce
+systems that will evoke target feelings in the customer. The focus is on the impact of visual design
+factors on the feeling of trustworthiness       because of its significant effect upon the behavior of
+customers using electronic commerce systems. Four empirical studies were conducted in the domain
+of cyber-banking systems. The subjects were cyber-banking system developers, bank personnel and
+potential customers of cyber-banking systems in Korea ranging in age from late teens to early forties.
+The first study was directed at developing the self-report questionnaire that faithfully reflects the
+emotional factors related to cyber-banking systems. The resulting questionnaire consisted of the
+forty bipolar emotive differential scales representative of the emotions most important in interacting
+with cyber-banking systems, e.g. reliable-not reliable. The second study focused on determining the
+important visual design factors from the customer’s perspective. Fourteen design factors identiticd
+from subjects’ descriptions were classified into the four design categories of title, menu. main clipurt
+and color. The third study investigated the correlations between the emotional factors and design
+factors. The design factors were found to have significant effects upon the extent of feelings related
+to symmetry, trustworthiness. awkwardness and elegance. In the final study. two interfaces were
+designed based on the results of the third study to differentiate the extent of trustworthiness evoked.
+The results indicate that it is possible to manipulate the visual design factors of the customer inter-
+face in order to induce a target emotion, such as trustworthiness. The paper concludes by discussing
+the implications of the empirical results on the design and implementation of customer interfaces to
+electronic commerce systems in general. 0 1998 Elsevier Science B.V.
+
+Kqwords:   Emotional usability: Customer interface; Trustworthiness:                     Electronic commerce:   Cybcr-
+banking systems
+
+
+
+
+ * Corresponding      author. Tel: 82-2-361-2628:     Fax: 82-2-313-5331:   e-mail: jinwoo@base.yonsei.uc.kr
+
+0953.5438/98/$19.00  0 1998 - Elsevier Science B.V. All rights reserved
+PII SO953-5438(97)00037-4
+2                   J. Kim, J. Y. Moon/Interacting   with Computers 10 (1998) l-29
+
+1. Introduction
+
+   The importance of subjective feeling or emotion has been analyzed in numerous studies
+
+
+
+
+                                                                                                 Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+[1,2], including several on the role of emotions in cognitive processes [3,4]. Prior studies
+found that emotions play an important role in problem solving [5] and decision making
+[6,7] by providing information on the emotional desirability of the options available,
+thereby reducing and limiting reasoning to only those that induce positive feelings.
+   The importance of emotion has also been emphasized in the design of physical products
+[8,9, lo]. Logan et al. [ 111 maintained that emotional elements should be considered in the
+design of consumer product categories such as pagers and automobiles because these are
+the products that are used on a regular basis by the end users, thereby having a profound
+impact on their overall emotional well being [S]. In order to achieve this goal, Lee and
+Nagamachi [9] proposed a design methodology that has been used to develop various
+physical products ranging from sports cars to coffee pots.
+   Emotion should play as important a role in the design of computer interfaces as in that of
+physical products [7,12]. People not only regard the computer as a medium for interaction
+with other human beings, but also respond directly to the computer itself. In other words,
+people behave as if the computer were a social actor, even though they know that the
+machine does not actually possess human feelings [ 131. For example, it is not unusual to
+hear someone yelling at a computer as if it might feel sorry and change its behavior [ 141.
+The feelings that are aroused in interacting with a system are especially important for
+systems that are used on a discretionary           basis such as home computing, games and
+electronic commerce [15]. This is because people do not have to use such a system if
+they feel bad about it.
+   Electronic commerce can be defined as the delivery of information, products/services,
+or payments via telephone lines, computer networks or any other electronic means [ 161. It
+includes a wide range of applications such as electronic document interchange, cyber
+shopping and cyber banking [17]. In this paper, we use the term ‘customer interface’ to
+refer to the user interface of such electronic commerce systems [ 181. The purpose is to
+shift the perspective from the user of a computer system to the customer of commercial
+transactions. In real world commerce, the emotions and impressions evoked by the sales
+agent or commercial institution as a whole influence the overall satisfaction of the cus-
+tomer. In particular, the emotion of trustworthiness has been emphasized as one of the
+most important factors for the successful completion of commercial transactions [17,19].
+We purport that a similar phenomenon could occur in the context of interaction with
+electronic commerce systems, where emotions evoked by the customer interface may
+affect the overall satisfaction of the user and in particular the feeling of security in
+conducting financial transaction with the particular system.
+   However, little research has been conducted regarding the emotional usability of the
+user interface in general, let alone the customer interface of electronic commerce systems.
+Prior research on human-computer         interaction has focused on the cognitive usability of
+the system. The issues of most interest were those of ease of use, efficiency, learnability
+and error handling. These cognitive factors are definitely of extreme importance in
+human-computer       interaction. However, the feelings of users interacting with the compu-
+ter system are of equal importance because emotion interacts with cognition to achieve a
+                     J. Kim. .I. Y. Moon/Interacting   with Computers   10 (1998) 1-29         3
+
+given goal [6]. For example, no matter how easy the use of the cyber-banking system may
+be, people will not use the system as intended if they feel insecure about the reliability of
+the system.
+
+
+
+
+                                                                                                   Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+   The main objective of this research is to formulate and evaluate a systematic methodol-
+ogy for the design of customer interfaces that explicitly aim to generate certain target
+feelings in the customer while interacting with electronic commerce systems. This paper
+especially focuses on the feeling of trustworthiness that the cyber-banking    system inter-
+face should elicit in customers carrying out financial transactions. To achieve this objec-
+tive, four related empirical studies were conducted. The first study constructed            a
+questionnaire   that includes the affective terms that are important in the cyber-banking
+domain. The second study identified the visual design factors that are important in cus-
+tomer interfaces of cyber-banking      systems. The third study determined the important
+feelings that customers experience when interacting with cyber-banking          systems and
+investigated the correlations between the emotional factors and the design factors. The
+final study evaluated two different customer interfaces of cyber-banking systems to verify
+the causal relationships between the two factors.
+
+
+
+2. Emotions
+
+   The concept of emotional usability derives in part from the following concepts of
+emotions and their functions. After a brief overview of the nature and functions of
+emotions, emotion elicitation procedures will be discussed. Finally, the importance and function
+of the emotion of trust will be discussed in the context of human-computer          interaction.
+
+2.1. De$nition   of emotion
+
+   It is hard to define emotion precisely [14], but it can be considered as a multifaceted
+phenomenon which encompasses a diversity of processes such as appraisal, facial expres-
+sions. bodily responses, feeling states, action tendencies and coping strategies [2Ol. There
+are two views of emotion: the basic category view, which maintains that emotions are
+constituted of a fixed set of discrete categories [20,21], and the multidimensional     view
+which proposes that emotions are differentiated along no more than two to four bipolar
+dimensions     to constitute  an emotion space [22,23.24,25,26].       The basic rationale
+behind the design of emotion-generating        interfaces is based on the multidimensional
+view, which was used successfully as a basis of design methodologies            for physical
+products [10,9].
+   The emotion space is defined as a region of some unknown dimensionality            that is
+determined by the nature of the situation to which the person is exposed [22]. The emotion
+space can be constructed in terms of the major emotional dimensions, represented by
+emotional scales. Each emotional scale, defined by a pair of polar (opposite in meaning)
+adjectives, such as happy-not happy, is assumed to represent a straight line function that
+passes through the origin of this space. To define the emotion space with maximum
+efficiency. the minimum number of orthogonal dimensions or scales which exhausts the
+dimensionality   of the space needs to be determined.
+4                    J. Kim, J.Y. Moon/Interacting with Computers IO (1998) l-29
+
+   The emotions that are identified as the orthogonal dimensions may not be the basic
+emotions of joy, sadness, amusement, interest, relief, pleasure, or anger [27], but the
+nonbasic, domain-specific  emotions derived from these basic emotions [28]. These non-
+
+
+
+
+                                                                                                   Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+basic emotions are especially important with relationship to the characteristics of task,
+such as the feelings of trustworthiness    or sophistication when performing financial
+transactions.
+
+
+2.2. Function of emotion
+
+    Although rational thought and emotion are often depicted as being locked in an eternal
+battle, there is typically more cooperation than strife [6]. Recent research into the nature of
+emotion shows ample evidence with regard to this proposition. Neurobiological studies of
+frontal lobe patients show that practical and social decision making is closely related to the
+region of the brain connecting the emotional and cognitive centers [29]. Relying solely on
+the cognitive resources results in a never-ending          cost-benefit   analysis of numerous
+options, impeding the decision maker from coming to a practicable conclusion. Emotions
+provide information on the emotional desirability of the options available and thereby
+reduce and limit reasoning to those that induce positive feelings [6,30].
+   It is especially important to take the informative function of emotions into account when
+designing human-computer         interfaces. The interface may elicit a variety of emotions
+ranging from the basic affective feelings such as joy or fear, to nonbasic feelings such
+as trustworthiness or sophistication. Studies indicate that the various types of feelings all
+influence judgment and decision making in a similar manner [30]. Therefore, the feelings
+evoked by the human-computer         interface can also affect the quality of decision making in
+using the computer system, For example, the emotions induced from the customer inter-
+faces can enhance the quality of the customers’ experience by triggering informative
+emotions that can aid decision making in using electronic commerce systems.
+
+
+2.3. Emotion elicitation procedures
+
+    Scientific research of emotion depends on the reliability of the procedures of emotion
+elicitation used in the laboratory. Research on the elicitation of emotions under laboratory
+conditions indicate that stimuli can be constructed to elicit certain target emotions [21]. A
+large variety of emotion eliciting procedures such as films, slides and role playing were
+used in these experiments [21,20].
+    Of the diverse procedures available, films were found to be the most effective in
+eliciting universally common target emotions among different subjects in the laboratory
+[21]. This was attributed to the fact that films have a relatively high degree of ecological
+validity, in so far as emotions are often evoked by dynamic visual and auditory stimuli that
+are external to the individual [ZO]. Computer interfaces can basically be considered as a
+collection of snap shots that are composed of diverse visual and auditory stimuli designed
+to directly engage the user into the interaction [31]. Accordingly, human-computer      inter-
+faces also have the potential to elicit universally common emotions in their users, justify-
+ing the attempt to design the customer interface to elicit certain target emotions.
+                    J. Kim, J. Y. Moonhterncting   with Computer.s 10 (1998)   l-29
+
+
+2.4. Emotion measurement       techniques
+
+   Research about the nature of emotions is not possible without the means to measure the
+
+
+
+
+                                                                                               Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+elicited emotions. Emotions are displayed in a person’s facial expression and voice tone
+and cause certain motor behaviors and physiological responses. Among the many avail-
+able measurement techniques, self-reports are most commonly used as the measures of
+emotion under laboratory conditions because of the ease of data collection [2 1.32,30].
+   There are three types of self-report measures of emotions [20]. the Differential
+Emotions Scale (DES), the Semantic Differential (SD) scale [24] and the free labeling
+method. The DES measures the intensity of an elicited emotion, whereas the SD scale
+pairs polar emotion terms and measures the intensity and direction of an emotion. Free
+labeling methods require that subjects simply jot down what they are feeling at the time of
+the experiment. Of the three, this research employed the SD scale for its association with
+the multidimensional   approach to emotions, the view adopted in the design of emotion-
+generating interfaces. The SD scale, based on the multidimensional    view of emotions, was
+used successfully as the basis of applying kansei engineering to the design of such physical
+products such as beepers and automobiles [9.10].
+
+2.5. Trust in human-computer         interaction
+
+   An important emotion in the domain of human-computer        interaction is the feeling of
+trust that a user places in the computer system. Research on expert systems and other
+computer systems in general suggests that the perceived trustworthiness of the computer
+system has a significant impact on the way people use it [33]. For example, Woods et al.
+1341 found that when technicians do not trust a decision aid, they may either reject its
+advice or attempt to manipulate the output of the decision aid toward their own precon-
+ceived solutions.
+   Trustworthiness   is of even more importance in the customer interface of electronic
+commerce systems due to its close relationship to marketing and promotion [ 191. In
+marketing, factors such as the communicator’s     physical appearance were found to have
+a considerable influence on the feeling of trustworthiness   and the tinal decision to buy
+[35.36.37,38.39]. In the case of an electronic commerce system, the user interacts with the
+system via the customer interface, which can be considered as the physical appearance of
+the electronic commerce systems. Therefore, the interface of electronic commerce systems
+must be designed so as to induce trustworthy feelings within the customer, which in turn
+will influence the decisions to use the system.
+   This research places an emphasis upon the visual stimuli of a customer interface to
+electronic commerce systems and purports to determine how the visual aspect can influ-
+ence the extent of trustworthiness evoked by the customer interface.
+
+
+
+3. Empirical   studies
+
+   Four empirical studies were designed to determine the structure of the emotion space of
+customers interacting with cyber-banking systems and the effect of specific design factors
+6                    J. Kim, J.Y. Moon/Interacting   with Computers 10 (1998) l-29
+
+upon it. The first study was conducted to determine the structure of the emotion space and
+to develop the questionnaire based on the results. The second study focused on determin-
+ing the design factors of a cyber-banking    system interface from the customer’s perspec-
+
+
+
+
+                                                                                                   Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+tive. In the third study, the emotional factors were determined and the interrelationships
+between the emotional and visual design factors of the interface were investigated. The
+final study verified the correlations between the design factors and the emotional factors.
+
+3.1. Study 1
+
+   The purpose of the first study was to develop the self-report questionnaire to be used for
+measuring the emotions elicited by cyber-banking        interfaces. The resulting questionnaire
+consisted of the differential scales that best represent the dimensions of the emotion space
+for cyber-banking    systems.
+
+3.1.1. Materials
+
+3.1.1.1. Questionnaire. Since the purpose of this first study was to select the differential
+scales that are appropriate for emotion measurement, a comprehensive search was made of
+the relevant pools of emotion terms. A self-report questionnaire developed by Lee (Self-
+report questionnaire, unpublished research material) as part of an empirical study of the
+kansei engineering methodology [9,10], served as the base set of emotive differential
+scales. Additional terms that would be relevant in the context of cyber-banking           system
+interfaces were selected from the following sources. A survey of employees and customers
+of a financial institution was conducted in which they were asked to freely label the
+emotions that they associated with cyber-banking              systems. Emotion terms were also
+gathered from pamphlets of cyber-banking             services and research papers about cyber-
+banking systems [17]. Finally, dictionaries and thesauruses were consulted to include
+multiple terms for the same emotion or feeling. This was done to ensure that all
+possible modes of expressing             a certain emotion         were provided  in the initial
+questionnaire.    For example, the emotion of happiness can be expressed through the
+terms, ‘pleased, overjoyed, contented, satisfied’ and many other terms. Each of these
+terms is appropriate in a particular situation and not in others. It is therefore necessary
+to include all possible terms that express the same basic emotion since it is not known a
+priori which is most suitable for cyber-banking            systems. Determining  which of these
+multiple terms is most relevant in the context of interacting with cyber-banking         systems
+is the goal of this first study. A total of 3 18 terms were selected and arranged in the form of
+bipolar seven-point Likert scales, a sample of which is shown in Fig. 1. The questionnaire
+used in the studies was formulated in the Korean language, the native language of the
+subjects in the study, so as to enable the accurate measurement of the subtle differences in
+the emotional terms. However, in order to present readers with a general understanding of
+the procedures undertaken in our study, we will translate the emotion terms used in the
+questionnaire to the closest term in the English language.
+
+3.1.1.2. Slide material. Among the various cyber-banking    systems currently available,
+eight interfaces were selected as the experiment material. Special care was taken in the
+                    J. Kim. J. Y. Moon/Interacting with Computers 10 (I 998) 1-2Y
+
+
+
+
+                                                                                                  Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                                  Fig.   I, Emotive differential scale
+
+selection process to ensure that most of the different types of interfaces were represented
+in this sample. Three different types of cyber-banking    system interfaces were considered
+simple text-based interfaces, videotex system interfaces and World Wide Web (web)
+homepage interfaces. The first two interfaces represented the type of systems that were
+providing online services at the time this study was conducted. The last type of interface
+was the future vision of cyber-banking systems, shared by most financial institutions. After
+ensuring the inclusion of the diverse types of cyber-banking      system interfaces, the most
+representative screen of each interface was prepared to be shown as static slides, with the
+exception of those interfaces in which the animation            effects constituted    a major
+component     of the interface. Since a particular cyber-banking         system interface is
+constituted of a series of screens for diverse operations and transactions, it was both
+impossible and impractical to measure the emotions evoked by the entire set of screens.
+Under the assumption that the first screen, i.e. the homepage of the cyber-banking system.
+would have the greatest impact on the emotions evoked by the particular cyber-banking
+system interface, the representative screen consisted of the first screen of each interface
+included in the final set of stimuli. Fig . 2 shows a sample of the cyber-banking    interfaces
+used in the first study.
+
+3.1.2. Procedure
+
+
+3.1.2.1. Subjects. The study was conducted in three group sessions of five to IO subjects,
+each lasting approximately 3 h. Twenty-five subjects participated in the study, of which
+nine were female, 18 were in their twenties, seven in their thirties and two in their forties.
+They came from diverse backgrounds such as cyber-banking            system developers, bank
+personnel and cyber-banking   system customers. All were native speakers of Korean and
+
+
+
+
+                             Fig. 2. Example of cyber-banking      interface.
+8                        J. Kim, J.Y. Moon/Interacting   with Computers   10 (1998) 1-29
+
+were thus assumed to be able to catch the subtle differences in the emotions measured by
+each emotive differential scale. The ages of the subjects represented the portion of the
+population that accounts for most of the Internet users, i.e. potential customers of cyber-
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+banking systems.
+
+3.1.2.2. Procedure. The subjects were given the standard instructions            for semantic
+differential   questionnaires    and were especially       cautioned   to mark their ‘first
+impressions, the immediate feelings’ about the interfaces shown [24]. After everybody
+had understood the nature of the task, subjects were shown one slide at a time and asked to
+describe the intensity and direction of the feelings elicited by the interface on the emotive
+scales. The slides were shown on a 43 inch color monitor. The order of the interfaces was
+counter-balanced    for each of the three group sessions and subjects were given one of five
+different versions of the self-report questionnaire so as to prevent an ordering effect. Each
+version of the questionnaire presented the emotive scales in random order so that no two
+versions were the same. The subjects were given 5 min after each slide to relax and empty
+their minds of the previous slide in order to avoid carrying over the feelings from the
+previous interface to the evaluation of the next.
+
+3.1.3. Results and discussion
+   Each slot on the seven-point scale was assigned a number from 1 to 7 starting from the
+left. A total of 200 self-questionnaires   (8 slides X 25 subjects), each consisting of 318
+scales were coded according to the assigned numbers. The variables in this data set were
+the 318 emotive differential scales.
+    Since the important emotional factors related to the interfaces of cyber-banking systems
+is not known a priori, cluster analysis was used to reduce the redundant scales through the
+grouping of closely related ones. A total of 15 clusters were determined through complete
+cluster analysis, of which five were discarded due to significant discrepancies with the
+results of Wards cluster analysis.’ A few emotive differential scales that were most
+appropriate for measuring the feelings elicited by cyber-banking       system interfaces were
+selected from each of the remaining 10 clusters. The initial selection of the emotive scales
+to be included in the final set was done on the basis of the communality values of the terms
+computed as a result of a maximum likelihood factor analysis. The final set was deter-
+mined by a group of domain experts consisting of two cyber-banking           system designers
+and two general cyber-banking       domain experts, who were presumed to have a richer
+
+
+    ‘Cluster analysis was deemed to be the most appropriate method in reducing the number of emotive scales; the
+resulting clusters would exhibit high internal (within-cluster) homogeneity and high external (between-cluster)
+heterogeneity, thereby enabling the selection of the minimum required scales that would measure all necessary
+aspects of the emotions evoked by the cyber-banking       system interfaces. However, cluster analysis is a highly
+empirical method in which different methods can lead to very different groupings, both in number and in content
+[40]. Therefore, we used two methods to validate the selection of the clusters and the representative emotive
+scales within those clusters. The two methods were Ward’s cluster analysis and complete cluster analysis. In
+complete cluster analysis, the distance between two clusters is the maximum distance between an observation in
+one cluster and an observation in the other cluster. In Ward’s minimum-variance   method, the distance betwen two
+clusters is the ANOVA sum of squares between the two clusters added up over all the variables. The final decision
+to discard a particular cluster, however, was made after a thorough discussion with cyber-banking system experts.
+                    J. Kim J. Y. Moonhtermting   with Computers   10 (199X) l-29            4
+
+vocabulary for describing the emotive aspects of the cyber-banking systems. The group of
+domain experts decided after lengthy discussion which four emotive scales were repre-
+sentative of the emotions felt in interacting with cyber-banking systems for each of the 10
+
+
+
+
+                                                                                                 Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+clusters. The group discussion lasted approximately 3 h, after which time all members of
+the group were in complete accordance over the final set of emotive scales to be used in the
+self-report questionnaire.
+    Forty bipolar emotive differential scales, shown in Table 1. were selected to be included
+in the tinal self-report questionnaire.   Although the initial set of 318 scales consisted of
+various basic emotion terms (e.g. frustrating, happy, comforting), most of these were
+filtered out as a result of cluster analysis in the first study. This implies that both the
+cyber-banking system designers and the subjects deemed most of the basic emotions to be
+irrelevant in the domain of cyber-banking.       The remaining terms shown in Table 1 are
+representative of the nonbasic, domain specific terms of the emotions that are considered
+important in interacting with cyber-banking       systems. such as the terms related to trust-
+worthiness (e.g. dependable, reliable).
+
+3.2. Studv 2
+
+   The purpose of the second study was to identify the important visual design factors of a
+cyber-banking    system interface from a customer’s perspective. The customer’s perspec-
+tive is important because how (s)he perceives the interface will influence the emotions
+evoked by that particular interface.
+
+_<.2.1. Materials md procedure
+
+2.2.1.1. Slide material.    An extensive search was made of the existing cyber-banking
+interfaces to ensure that most of the different designs were accounted for in the final set
+of slide samples. Twenty-six cyber-banking     interfaces, ranging from simple text-based to
+virtual-reality interfaces, were selected from the currently available ones for the second
+study.
+
+3.2.1.2. Subjects. The study was conducted in two group sessions of 30 subjects in total.
+The subjects consisted of users, designers and managers of varying age and sex in order to
+reflect the variety of cyber-banking   system users. The users were actual customers of
+online cyber-banking   systems, women in their thirtes and forties, whereas the designers
+and managers were the employees of an industry leader of cyber-banking         systems in
+Korea.
+
+3.2.1.3. Procedure. In order to determine         the important design factors from the
+customer’s perspective, each group session consisted of two phases. The procedure for
+the first phase was the same as the first study. Subjects were shown the 26 interfaces in
+sequence and were asked to indicate the elicited feelings on the 40 emotive scales that had
+been constructed as a result of the first study. After the subjects had finished marking the
+self-report questionnaires, the interfaces were hidden from view and the subjects were
+asked to draw what they could remember of the interface. These free recall tests were done
+Table   1
+The final set of selected emotive differential    scales
+
+Awkward              Not awkward                 Dignified      Not dignified      Likable       Not likable      Sedate          Not sedate
+Balanced             Not balanced                Dull           Not dull           Luring        Not luring       Simple          Not simple
+Boring               Not boring                  Elegant        Not elegant        Luxurious     Not luxurious    Slick           Not slick
+Charming             Not charming                Epochal        Not epochal        Obscure       Not obscure      Spacious        Not spacious
+Childish             Not childish                Exciting       Not exciting       Opulent       Not opulent      Splendid        Not splendid
+Cluttered            Not cluttered               Exhilarating   Not exhilarating   Progressive   Not tasteful     Tasteful        Not tasteful
+Common               Not common                  Exquisite      Not exquisite      Realistic     Not realistic    Unadorned       Not unadorned
+Consistent           Not consistent              Familiar       Not familiar       Refreshing    Not refreshing   Uniform         Not uniform
+Countrified          Not countrified             In Vogue       Not in vogue       Reliable      Not reliable     Vibrant         Not vibrant
+dependable           Not dependable              Liberal        Not liberal        Rustic        Not rustic       Witty           Not witty
+
+
+
+
+        Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                    J. Kim. J, Y. Moon/lntertrcting    with Cotnpurers 10 (199X) 1-29       II
+
+
+
+
+                                                                                                 Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                                  Fig. 3. Extracting   the design factors.
+
+
+
+at random intervals for a few selected interfaces. Subjects were expected to remember the
+features that they paid most attention to, either consciously or unconsciously,     in judging
+the direction and intensity of the feelings elicited by the particular interface. Thus, the
+factors recalled by subjects were assumed to have been those that elicit emotions. Since
+these assumptions have not been verified, the second phase of the study was conducted to
+complement the first phase study. The sorting method, proven to be a sound data-gathering
+technique for investigating a variety of cognitive and perceptual phenomena [41]. was
+employed in the second phase. The subjects were given the 26 interfaces at once and asked
+to sort them based on the similarity of their visual aspects. After the subjects finished
+sorting the interfaces, the experimenter asked the subjects to explain the criteria employed
+in grouping the interfaces [42]. These criteria were translated into the corresponding
+design factors.
+
+
+3.2.2. Results and discussion
+   Prior to analyzing the drawings made by the subjects, a group of cyber-banking system
+designers made a classification of those items that they considered to be the building
+blocks in the design of the visual interface of obeyer banking systems. These constituted
+the initial classification scheme of the visual decision factors of cyber-banking     system
+interfaces. The group of cyber-banking     system designers then analyzed the 236 drawings
+of the interfaces in order to incorporate the customers’ viewpoint. Fig. 3 shows a sample of
+the subject’s drawing in the free recall test. The drawing is that of the cyber-banking
+interface shown in Fig. 2.
+   The drawings were closely analyzed by interface designers of cyber-banking systems in
+an attempt to identify which visual features were recalled the most. For example. a
+comparison of Fig. 2 and Fig. 3 reveals that the subject took notice of the size and text
+format of the title (e.g. ‘First Bank’ in Fig. 3) and the format and size of the clipart
+incorporated in the interface (e.g. figures of people and the interior of the bank in
+Fig. 3). Common features noticed by a majority of the subjects for each interface were
+labeled as design factors based on the initial classification scheme developed.
+12                       J. Kim, J. Y. Moon/Interacting      with Computers     10 (1998) l-29
+
+Table 2
+Design factors of cyber-banking     interfaces-a     customer’s   perspective
+
+Categories         Design factors       Values
+
+
+
+
+                                                                                                                             Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Title              Format               Bar. clipart, text, not applicable”
+                   Graphics             Included, not included
+                   Position             Top. middle. bottom, not applicable
+Menu               Format               Square, oblong quadrilateral, not applicable
+                   Size                 Over l/16, over l/32, over l/64, not applicable
+                   Content              Numbers and text within a box, symbols and text, graphic and text
+Main               Motion               None, simple animation, diverse animation effects
+Clipart            Format               Three-dimensional,    human forms, animal/logo. miscellaneous, none
+                   Size                 Over l/2 total screen size, l/4, 1116. not applicable
+Color              Color tone           Cool hue, warm hue, not applicable
+                   Main color           Primary colors, pastel colors, not applicable
+                   Background           White over l/2. white under 112, color, not applicable
+                   Brightness           High, medium, low
+                   Symmetry             Symmetric color tone, Use of multiple colors, single tone with emphasis on
+                                        a particular factor, none of the above
+
+“Not Applicable values signify that the particular     interface does not have a clearly discernible   feature that can be
+classified as the particular design factor.
+
+   The results of the second phase of the study were used to supplement those of the first
+phase. The subjects grouped interfaces of cyber-banking      systems based on similar visual
+design traits. The explanations provided by the subjects made it possible to identify addi-
+tional features of the interface that were not captured in the drawings. For example, many
+subjects grouped the interfaces according to the impressions given by the color layout of the
+interface, which were not clearly discernible from the drawings. Finally, 14 design factors
+in total were identified based on the content analysis of subjects’ explanations and draw-
+ings. These 14 factors were classified into the four design categories (title, menu, main
+clipart and color) shown in Table 2 by the designers of the cyber-banking systems through
+an extended discussion session during which all discrepancies in opinion were eliminated.
+
+3.3. Study 3
+
+   The third study had two purposes: first to determine the major dimensions of the
+emotion space of customers interacting with cyber-banking    systems, and second to estab-
+lish the causal relationships between the emotive dimensions and design factors of a cyber-
+banking interface.
+
+3.3.1. Materials and procedure
+
+3.3.1.1. Questionnaire.   The self-report    questionnaire used consisted     of the 40
+representative emotive differential scales constructed from the results of the first study.
+Five different versions of the questionnaire were made to prevent an ordering effect.
+
+3.3.1.2. Slide material. Twelve cyber-banking   interfaces were selected from the 26 slides
+used in the second study. The criteria applied in selecting the interfaces was based on the
+                       J. Kim, .I. Y. Moordtnteructing      with Computers   10 (I 998) l-29     12
+
+
+ 14 design factors from the second study. A group of cyber-banking        systems designers
+made a checklist of the 14 design factor values and evaluated the 26 interfaces to identify
+the value of design factors pertaining to each of the interfaces. After an interface was
+
+
+
+
+                                                                                                      Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+selected, the values of the design factors were checked and the interface that had the least
+number of design features in common with those already selected was chosen next. This
+process was continued until the selected interfaces could account for all possible values of
+the 14 design factors. The final set of stimuli consisted of the minimum number of
+interfaces covering all possible combinations of the 14 design factors.
+
+3.3.1.3. Subjects. Three separate sessions were conducted with 123 subjects in total. The
+subjects had diverse backgrounds,        ranging from undergraduate      students to interface
+designers of cyber-banking      systems. Subjects in the first session were 60 undergraduate
+students in their first or second year of business administration, their ages ranging from 19
+to 21. The second session consisted of 29 MBA students, all male, in their late thirties or
+early forties. whose occupations ranged from executive managers to cyber-banking system
+designers. The final session was conducted in an undergraduate          seminar for third and
+fourth year students, consisting of 32 male and two female students in their early
+twenties. All subjects were native Korean speakers.
+
+3.3.1.4. Procedure. The procedure employed was identical to that of the first study. The
+ interfaces were projected on a 43 inch color screen. The subjects were shown one interface
+at a time and were given approximately 5 min to mark the intensity and direction of the
+feelings evoked by each interface. on the questionnaire. The order of the interfaces was
+randomized for each session to eliminate ordering effects. Each subject had to provide
+judgments for each of the 480 questions (40 emotive differential scales X 12 cyber-
+banking interfaces) on the self-report questionnaire.      At the end of the experiment,
+ subjects were asked for feedback regarding the experiment in general and in particular.
+the pertinence of each of the 40 emotive scales in the context of cyber-banking    systems.
+
+3.3.2. Results and discussion
+
+3.3.2.1. Structure of the emotion space. Factor analysis was used to determine the
+dimensionality    of the emotion space.’ The seven factor solution displayed in Table 3.
+accounting for 80.6% of the variance, was retained (all other factors together accounted for
+less than 10% of the variance).
+   The emotive differential scales were reordered in descending order of factor loadings
+for each consecutive factor in order to facilitate interpretation. The highest loading scales
+for the first factor are of those that measured the attractiveness-unattractiveness          of the
+cyber-banking     interfaces. The second factor reflects the symmetry-asymmetry             of the
+interfaces, whereas the third factor is a dimension for the sophistication- or lack thereof
+of the interfaces. The fourth factor reflects an emotion that can be crucial for effective
+customer interaction with cyber-banking       interfaces: trustworthiness-untrustworthiness.
+Factors 5, 6 and 7 each reflect awkwardness,           elegance and simplicity. respectively.
+
+  ‘Refer to Appendix   A for a detailed description      of the method employed.
+14                       .I. Kim, J.Y. Moon/Interacting with Computers 10 (1998) I-29
+
+Table 3
+Rotatedfactor     of the SD ratings
+            pattern               ofallcyber-banking interfaces
+
+      SD Scales                            Factor Structure (Factor Loadings)                             Commun
+
+
+
+
+                                                                                                                       Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+     (Emnion Ten)                                                                                           -ality
+                                                                                                          =
+ exciting     (*)                                                                                         0.75834
+ epochal            3.80383 0.03405      -0.28248     0.10857       -0.04104 0.05302          -0.05701 0.77625
+ vibrant            3.80237 0.00641      -0.15544     0.13949       -0.07413 0.08364          -0.07649 0.75942
+ witty              3.79870 0.04996      -0.03205          I
+                                                      0.0771        -0.05465 0.04108  -0.07672 0.69231
+ exhilarating       3.77327 0.16177      -0.20228     0.12240       -0.09578 0.09116  -0.01132 0.78436
+  in vogue          3.76954 0.05082      -0.34539     0.12052       -0.07151 0.03160 -0.07227 0.76193
+ refreshing         D.76693 0.20133      -0.29092     0.14129       -0.09434 0.01809 -0.07185 0.77863
+ luring             D.76624 0.10293      -0.27621     0.13880       -0.13096 0.06838 -0.05948 0.73559
+ luxurious          3.73968 0.07396      -0.13996     0.14164       -0.11388 0.02237 5.10604 0.74204
+ progressive        3.72547 0.06525      -0.33053     0.10143       -0.00313 0.08245 -0.04170 0.67768
+ splendid           3.72305 0.13695      -0.30727     0.18063       -0.12898 0.10726 -0.07603 0.77228
+ charming           I.68518 0.09174      -0.09783     0.12561       -0.05504 -0.12068 ~.05851 0.59528
+ exquisite          3.66334 0.11721      -0.22901     0.23948       -0.00103 0.19q16 -0.01903 0.61601
+ elegant            3.66065 0.18390      -0.23007     0.25680       -0.07431 0.33442 -0.00490 0.73026
+ likable            3.63601 0.23480      -0.26573     0.37875       -0.09764 -0.00221 0.00973  0.72448
+ liberal            3.61335 0.01378      -0.21648     0.10808       -0.12055 0.02204 -0.09341 0.51551
+ opulent            3.61261 0.12744      -0.41023     0.16659       -0.01197 0.20139 -0.06860 0.65478
+ familiar           3.52320 0.28007      0.04268      0.35600       -0.21186 0.07127 -0.01275 0.59180
+ spacious           3.50757 0.25127      -0.15365     0.28561       -0.02193 0.28109 0.06284 0.58902
+ sedate             .0.46461 0.13601  0.42272         0.06908  0.03462             0.17906 0.09568        0.48332
+ boring             .0.50682 -0.07964 0.34964         -0.23906 0.19534             -0.00546 0.03806       0.56288
+ dull               Q.54370 -0.09337 0.38085          -0.09191                                 0.08985    0.75073
+ simple             3.07765 0.80780      0.01757      -0.00806 w:z:                         0.03362       0.67633
+ consisten:         3.04348 0.79425      0.03724      0.11114   -0.08548           -0.00760 -0.04459      0.66535
+ balanced           3.07291 0.63951      -0.03118     0.38610   -0.07659           0.05187 0.19289        0.63635
+ dignified          -0.11199 0.51784     0.06203      0.34403   -0.04137           0.19749 0.34523        0.59797
+ slick              3.38817 0.49010      -0.23860     0.18779   -0.07951           0.13364 0.03780        0.64283
+                           i
+ childish           -0.36151 -0.09756    0.61175      -0.27078      0.15787        -0.09220    -0.04208   0.64389
+ countrified        -0.23780 0.04886     0.60914      0.00347       -0.00383       0.00334     0.05841    0.44606
+ rustic             .0.56066 -0.07458    0.58411      -0.17733      0.12017        -0.04732    0.03047    0.79209
+ common             -0.26859 0.13719     0.50609      0.08802       -0.01693       -0.14956    0.24666    0.47428
+ clurrered          .0.24046 -0.33912    0.43629      -0.21988      0.18433        -0.11091    -000326    0.62087
+ dependable         3.27244   0.34312    -0.10241     0.60644       -0.13392       0.02886     0.05534    0.59749
+ reliable           3.37652   0.46103    -0.07
+                                             I60      0.48750       -0.15978       0.11262     0.04807    0.66467
+ realislic          3.42044   0.19864    -0.02453     0.48348       -0.17731       0.05799     -004120    0.49815
+ uniform            3.42097   0.38680    -0.17294     0.45411       -0.05663       0.10351     -0.04047   0.63459
+ awkward            .0.31128 -0.24333 0.37211  -0.21475 0.56062  -0.06134 -0.00061 0.67209
+ obscure            .0.06669 -0.41712 -0.05453 -0.23509 0.47101  0.02113 0.00681 0.46909
+ tasteful           3.45822 0.29554   -0.26637 0.36022  -0.07734 0.49209 0.02837 0.75110
+ simple             .0.35737 0.31428     0.35903      0.03241       0.04183        0.00196    10.62867    0.75443
+                                                                                                          =
+ Jariance           430.217    100.784    110.138       70.257        30.209        20.466      20.477    860.31(**:
+
+
+
+(*) The emotion terms are polar scales of the form ‘exciting-not      exciting’.
+(**) Total weighted communality.
+                        J. Kim. J. Y. Moon/It&racting with Computers IO (199X) I-29                            1s
+
+Each of these factors reflects one of the emotions that can influence the effective interac-
+tion with the interfaces of cyber-banking  systems. The emotive scales that pertain to each
+factor group were selected based on the factor loadings.” The final composition of emotive
+
+
+
+
+                                                                                                                    Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+scales that represent each dimension of the emotion space are shown inside bordered areas.
+
+3.3.2.2. Interrelation between emotive and design factors. In order to determine the
+interrelation between the emotional and design factors of the cyber-banking         interfaces.
+the factor scores4 were computed for each of the 1417 observations. The redundancy of the
+emotive scales thus being reduced, the analysis was performed to determine the
+relationship between the main emotional responses, represented by the seven factors
+and the 14 design factors. Multivariate analysis of variance (MANOVA) was conducted
+with the factor scores as dependent variables and the design factors as independent
+variables.” The purpose of these analyses was to determine which design factors are
+responsible for causing a particular emotion, i.e. the existence of a significant effect of
+each design factor on the extent of emotion elicited by an interface.
+   The multivariate analysis of variance for the 14 design factors was conducted to deter-
+mine whether or not the elicitation of emotions was influenced by differences in the design
+factors. The results indicate that the aggregate effect of the 14 design factors upon the
+extent of attractiveness, sophistication and simplicity were found to be insignificant.’      In
+other words, only the feelings related to the symmetry (F = 124.55. p < 0.0001 ), trust-
+worthiness (F = 189.93, p < 0.0001). awkwardness (F = 99.95.1~ < 0.0001) and elegance
+(F = 2097.99. p < 0.0001) are differentiated by the value of the design factors. It is
+noteworthy that the value of the design factors has an inordinately significant effect upon
+the extent of elegance evoked by a particular cyber-banking system interface. However. it
+is not enough to simply state that a particular design factor will significantly affect the
+extent of feelings elicited. For each of the seven emotional factors, further ANOVA tests
+were conducted to determine exactly which design factor was most significant in the
+elicitation of the emotions. as well as the value of the particular design factor that
+evoked the greatest extent of the feeling. Due to space limitations, we will present the
+detailed analysis for only one of the seven emotional factors, the trustworthiness-untrust-
+worthiness of cyber-banking interfaces, because the feeling of trustworthiness is especially
+important in electronic commerce systems as explained in the previous sections.
+
+3.3.2.3. Trushmthness    in cyber-banking interfaces. The design factors that were most
+important in deciding the trustworthiness-untrustworthiness was determined to be those
+
+
+   ‘Factor loadings represent the correlation between the original variables and the factors and are the key to
+understanding the nature of a particular factor [43].
+  ‘A factor score is the composite measure created for each observation on each factor extracted in the Factor
+analysis. The factor weights are used in conjunction with the original variable values to calculate each observa-
+tion’s score. The factor score then can be used to represent the factor(s) in subsequent analyses [33].
+  ‘Regression analysis would have been more appropriate for this purpose. However. the independent variables
+all being nominal variables. interpreting the regression analysis proved to be complex, even with the use of
+dummy variables.
+  ‘The effect of each individual design factor upon the extent of the emotions evoked by the interface5 is
+presented in Appendix B.
+16                         J. Kim, J.Y. MoodInteracting     with Computers 10 (1998) l-29
+
+Table 4
+Interrelations   between design factor values and trustworthiness    (factor scores)”
+
+Design category            Design factor                  Value                              Factor score
+
+
+
+
+                                                                                                                       Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Clipart                   Format                          Three-dimensional                     0.40569
+                                                          Human forms                         - 0.13473
+                                                          Animal or logo types                  0.06157
+                                                          Not applicable                      - 0.23168
+                                                          Over I/2 total screen size            0.26373
+                                                          Over I/4 total screen size          - 0.11193
+                                                          Over 1116 total screen size           0.06 157
+                                                          Not applicable                      - 0.23 168
+                           Motion                         None                                - 0.00124
+                                                          Simple animation                    - 0.07898
+                                                          Diverse animation effects             0.17474
+
+Color                      Color Tone                     Cool tone                               0.27994
+                                                          Warm tone                               0.20110
+                                                          Not applicable                      -   0.36018
+                           Main Color                     Primary colors                          0.04136
+                                                          Pastel colors                           0.14511
+                                                          Not applicable                      -   0.39696
+                           Background                     Over I/2 blank (white)              -   0.35763
+                                                          Under l/2 blank (white)                 0.00226
+                                                          Color background                    -   0.34765
+                                                          Not applicable                          0.20857
+                           Brightness                     High                                -   0.18657
+                                                          Medium                                  0.06839
+                                                          Low                                     0.18926
+                           Symmetry                       Symmetric color tones                   0.17937
+                                                          Use of multiple colors                  0.07321
+                                                          Single tone/emphasis                    0.12263
+                                                          Not applicable                      -   0.75269
+
+“A positive valence indicates trustworthiness,   whereas a negative valence is a sign of relative untrustworthiness.
+
+
+
+related to the categories of main clipart and overall color layout. This was determined
+based on the amount of variance of the dependent variable--the         trustworthiness factor-
+that was explained by the design factors in the MANOVA test. The two design categories
+together accounted for 72.6% of the total variance. The right most column in Table 4
+displays the effect of each factor on the extent of trustworthiness, represented by the factor
+scores, for all possible values of each design factor in the two categories.
+   The results from the main clipart category indicate that an interface that would enhance
+the user’s feeling of trustworthiness toward the cyber-banking        system must be designed
+using three-dimensional,    dynamic clipart that covers half of the total screen size. On the
+other hand, an interface with no clipart would arouse a feeling of untrustworthiness       in the
+customer.
+   The color layout of the interface is also apparently important in enhancing the extent of
+trustworthiness which the customer of the cyber-banking         system feels. According to the
+results in Table 4, the preferable tone of color for the interface should be cool rather than
+                          .I. Kim. J.Y. Moodlnteructing   with Computers 10 (199X) 1-29      17
+
+warm and its main color should be a moderate pastel color. At the same time, the colors
+used in the interface should be of low brightness and the colors should be used sym-
+metrically. On the other hand, the interface that has a bright color background and uses an
+
+
+
+
+                                                                                                  Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+asymmetrical    color scheme, will induce a feeling of untrustworthiness        in the cyber-
+banking system.
+   The results of the MANOVA test reveal that each of the design factors relating to the
+use of clipart and color have a main effect upon the trustworthiness of an interface. Further
+ANOVA tests were conducted to determine the existence of interaction effects between
+the three design factors for the main clipart (form X size X motion) and the five design
+factors for the, color of the interface (tone X main color X background X brightness X
+symmetry).’ The results indicate that it is necessary to consider the net effect of the design
+factors when designing a particular interface to evoke certain emotions. In other words.
+whereas animation effects in and of themselves might be considered to be effective in
+evoking pleasurable feelings in interacting with the system, the results indicate that when
+the clipart covers over half the size of the overall screen and is three-dimensional         in
+format. having no animation effects will give the best results. The same is true in the
+case of the design factors related to the color of the cyber-banking    system interfaces. in
+accordance with common sense knowledge of the interaction of colors.
+
+3.4. Study 4
+
+   The purpose of the last study was to verify the causal relationships between the design
+factors and the emotional factors, with special emphasis on the interrelations between
+trustworthiness and the design factors related to color and main clipart.
+
+3.4.1.   Materials
+
+
+3.4.1.1. QttesGonnaire.     The self-report questionnaire  that was used in this study was
+identical to that of the third study, except for the elimination of eight differential scales
+from the original questionnaire.      The eight emotive scales were ‘in vogue, exquisite.
+liberal, opulent, spacious, sedate. countrified and common’.
+   These scales were omitted because the subjects in the third study expressed difficulties
+in thinking of cyber-banking     systems in those terms. The remaining 32 scales included in
+the final self-report questionnaire were those most appropriate for measuring the domain-
+specific emotions aroused when interacting with cyber-banking       systems. in terms of both
+relevance and clarity of meaning.
+
+3.4.1.2. Slide material. Two cyber-banking       systems were built to verify the causal
+relationships     between    the two design categories-color      and main clipart-and
+trustworthiness.     The two systems were constructed from a prototype cyber-banking
+system provided by an industrial developer so as to reflect the industry standard with
+respect to the types of functions provided. The underlying           system structure and
+functionality    of the prototype was retained, manipulating only the visual design factors
+
+   ‘Readers   interested in the detailed results of these tests may refer to Appendix   C
+18                    _I. Kim, J.Y. Moon/Interacting   with Computers 10 (1998) 1-29
+
+
+
+
+                                                                                                  Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                   AIlWfiUSI                                                      E imii
+                        Fig. 4. Manipulation   of trustworthiness   in interface design.
+
+in Table 4 and the tables in Appendix C. The factor scores in these tables served as a
+guideline as to which design factor to manipulate. interface I was designed with those
+design features that enhanced trustworthiness,      whereas interface II was designed with
+those that elicited untrustworthiness     in the customer. The final prototypes of the two
+cyber-banking     systems had the same content and functions, differing only with regard
+to the visual interfaces.
+   The choice of design factor values was based on both the main effects (Table 4) and the
+interaction effects between the design factors (Appendix C) upon the extent of trustworthi-
+ness. The design factors shown in the tables are the ones that were manipulated. For each
+design factor, the values shown to have the highest positive factor score (H) in the inter-
+action effect are the ones that were used in designing interface I, whereas the values
+inducing the negative factor score (L) as a result of the interaction were used to design
+interface II. In the absence of an interaction effect, results of the main effect were con-
+sulted. The final design of Interface I and Interface II are shown in Fig. 4(A) Fig. 4(B).
+   Interface I was incorporated with a three-dimensional    clipart related to banking institu-
+tions that covered the total screen size. The second set of design factors manipulated
+were those related to the color scheme of the interface. Interface I was designed in a
+cool color tone, using mainly pastel colors. The background of the interface was of a pastel
+color and the brightness was designed to be low so as to maximize the trustworthiness
+evoked.
+   The design factors that were manipulated in the design of interface II were the same as
+that of interface I. Accordingly, the final design contained no clipart. The colors used were
+mostly bright, primary colors such as blue, yellow and red. Interface II was also designed
+to have a bright color background in order to minimize the extent of trustworthiness evoked.
+
+3.4.2. Procedure
+
+3.4.2.1. Subjects. Two group sessions of a total of 55 subjects were conducted. Subjects
+were students enrolled in an Internet and Electronic Commerce course and the study was
+                         .I. Kim, J.Y. Moordnteructing         with Computers 10 (199X) l-29                                 19
+
+
+
+
+                     NotDependab(e 4         :                                                +      Dependable
+                                                                        I           .
+
+                                                                        1
+
+
+
+
+                                                                                                                                  Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                                                                            I
+                     Not Reliabla     4      :                                                       Reliable
+
+
+
+
+                    NotRealistic      4      :                                                       Realistic
+
+
+
+
+                     Not Uniform             :                                  I
+                                       a                                                       b Uniform
+
+
+                                                 Interfae II       ------’              Interface1
+
+                           Fig. 5. Interface I versus interface II (trustworthiness               scales).
+
+
+
+conducted as part of the course work. The first section consisted of 34 undergraduate
+students majoring in Business Administration,     32 males and two females. The second
+section consisted of 2 1 males enrolled in the MBA program, whose ages ranged in the late
+thirties and early forties.
+
+
+3.4.2.2. Procedure. The procedure employed was similar to that of the third study. Each
+subject had to provide judgments for each of the 64 items (32 emotive differential scales X
+2 cyber-banking   system interfaces) on the self-report questionnaire.
+
+
+3.4.3. Results and discussion
+
+3.4.3.1. Comparison of individual emotive scales related to trusmorthiness.         Each slot on
+the seven-point scale was assigned a number from 1 to 7 starting from the left. A total of
+ 110 observations     (2 interfaces X 5.5 subjects) were coded according to the assigned
+numbers. The variables in this data set were the 32 emotive differential scales. The
+observations     were divided into two sets, interface I and interface II, and the mean
+scores were calculated for all 32 scales.
+   Fig. 5 shows the direction and average intensity of four emotive scales related to
+trustworthiness,    based on the structure of the emotion space in Table 3: ‘dependable-
+not dependable’, ‘reliable-not reliable’, ‘ (realistic-not realistic)’ ‘uniform-not    uniform’.
+The results shown are the average extent of each emotion the subjects indicated for each
+interface. As can be seen the extent of trustworthiness evoked by interface I was indicated
+to be consistently greater than interface 11,s
+
+
+
+   ‘Further indications of the differences   in the amount of trustworthiness             evoked by the two interfaces IS shown
+In the ANOVA table in Appendix D.
+20                      J. Kim, J.Y. MoodInteracting   with Computers 10 (1998) 1-29
+
+3.4.3.2. Comparison offactor scores. Factor scores of the two interfaces were computed
+for each of the seven emotive factors in Table 3, using the scoring coefficients derived
+from the data in the third study. This was done under the assumption that the structure of
+
+
+
+
+                                                                                                                 Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+the emotion space is similar to that established in the third study since the composition of
+the subject pool and the nature of the task were similar to that of the third study. ANOVA
+tests reveal that the design factors manipulated in the development of the interfaces have a
+significant impact on the extent of trustworthiness     elicited. interface I (factor score =
+0.36185) evoked a greater amount of trustworthiness compared with interface II (factor
+score = 0.88069; F = 50.32, p = 0.001).9
+
+
+
+4. Conclusion     and discussion
+
+   Electronic commerce systems may replace the traditional institutions of today as the
+preferred medium of commercial transactions [44]. Many firms have already implemented
+some form of home shopping system in order to reap the benefits of electronic commerce,
+namely lower costs, customer service enhancement and reduced time to market. However,
+the key to the success of electronic commerce systems lies in a wide adoption of such
+technologies by the customer [45]. It is therefore essential to attract the casual navigator on
+the World Wide Web, a potential customer of any electronic commerce system. Whether
+or not the casual navigator will become a loyal customer of a particular cyber shopping
+mall or cyber bank may depend on the first impression of the interface. Therefore, the
+emotions aroused by the interface of electronic commerce systems must be systematically
+incorporated into the design of customer interfaces.
+   The central question addressed by this paper was that of the possibility of designing
+customer interfaces which can involve the users emotionally and thus enhance the quality
+of the decisions made while interacting with electronic commerce systems. However, the
+design of interfaces that evoke positive affect in the customers is important primarily
+because such interfaces will encourage the customer to return to the particular site, a
+matter of supreme importance in electronic commerce. The results indicate that it is
+possible to design customer interfaces of cyber-banking        systems that will elicit target
+emotions, in particular trustworthiness.    Moreover, there was little individual variation
+in the quality of emotion brought forth by the cyber-banking            interfaces used in the
+research.
+   However, the results of this paper are not immediately applicable to the actual design of
+customer interfaces because of the following limitations. First, subjects in this research
+were asked to indicate the immediate feelings evoked by a single slide of each cyber-
+banking system interface. Therefore, the emotions indicated were the result of passive
+exposure to the visual interface, not the actual usage of the cyber-banking        system. Per-
+forming financial transactions, on the contrary, is not simply a mechanical process of
+
+
+   9Although the manipulation of the design factors was aimed specifically at influencing the extent of trust-
+worthiness evoked by the interfaces, the results indicated that other emotions had been likewise influenced.
+Appendix E presents a detailed analysis of the impact that the manipulation of the design factors had on the
+extent of other emotions evoked by the two interfaces.
+                    J. Kim, J. Y. MoodInteracting   with Computers   IO (I 99X) 1-B          21
+
+purchasing merchandise/services,       but a complex process of emotional engagement and
+interaction with people. Therefore, future studies should investigate the emotional usabil-
+ity of the customer interface when subjects are actually using the system.
+
+
+
+
+                                                                                                   Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+    The second limitation of this research lies in the failure to make a comprehensive
+analysis of the interaction among the 14 design factors and of that among the seven
+emotional factors. Analyses of the design factors were restricted to the interaction within
+the same design category. Therefore, it was difficult to determine the ideal combination of
+design factors that may enhance the trustworthiness of a cyber-banking         system interface.
+In the case of the emotional factors, analysis was limited to the feeling of trustworthiness,
+with no consideration      given to the complex interrelations      that may exist between the
+myriad of emotions evoked by the interface. Based on research on interpersonal trust
+[46], it is possible to speculate the existence of a close association between trustworthiness
+and the feelings related to attractiveness, simplicity, elegance and symmetry. Since this
+research could not perform a comprehensive         analysis of interaction effects, it could not
+fully account for emergent or ‘gestalt’ interface features that depend on the entire set of
+design factors rather than individual factors. It is left to future studies to determine the
+complex interrelations between the design factors and emotional factors, a task requiring a
+modified classification scheme of design factors and an alternative technique for measur-
+ing emotions.
+    The third limitation came from the participants in our empirical studies. Even though
+their age, sex and occupations were varied in order to account for the diverse customers in
+electronic commerce, they were homogeneous with respect to their socio-cultural back-
+grounds. i.e. ethnography and nationality. It is hard to assume that people with different
+sociocultural backgrounds would feel the same emotion to the interfaces. Future studies
+should consider the difference of emotional factors resulting from diverse cultures and
+ nations, which is important in building electronic commerce systems that has international
+usability [47].
+    The final limitation of this research stems from the assumptions on which the experi-
+mental procedures and analyses were based. The research made the assumption that
+emotions elicited by a particular customer interface are determined by those design
+features that command the customer’s attention, a proposition based on theories in
+human cognition and emotion [7,8,24,31,34].            The second assumption        made in the
+research was that the factor structure determined in the third study would be preserved
+ for the fourth study due to similarities in the composition of the subject pool and experi-
+mental task. A third assumption underlying the experimental method employed relates
+directly to the operational definition of the emotional constructs and the measurement tool
+ used in the studies. The self-report questionnaires of the forty emotive differential scales
+ were used as the sole indicators of the emotions elicited by the customer interfaces and
+ were not complemented        by such measures of emotions as facial expressions or action
+ tendency protocols. This was done under the assumption that subjects’ subjective feelings
+ can be faithfully measured by self-report scales. Another assumption that was made in the
+ process of developing the self-report questionnaire        was that cyber-banking     designers
+ would have a richer vocabulary for describing the emotive aspects of banking systems.
+ Finally, the subject pool used in the study consisted of those users accustomed to the
+ Internet and online transactions, who in turn would be more liable to deem a particular
+22                  J. Kim, J. Y. Moon/Interacting with Computers 10 (1998) l-29
+
+cyber-banking system interface to be reliable than elderly people. Future studies should be
+conducted on different subject pools to verify the validity of such assumptions and search
+for other experimental methods that do not require such assumptions.
+
+
+
+
+                                                                                                 Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+   Despite these limitations, the results of this research have interesting implications for
+the future of human-computer       interaction, especially in the area of electronic commerce
+systems. They demonstrate that it is possible to elicit target emotions in a majority of
+subjects, thus making it possible to design emotive interfaces for widespread use. Further-
+more, the possibility of generalizing        the findings to include all electronic commerce
+system interfaces was raised by a similar research that was conducted with a different
+system of electronic commerce (e.g. cyber shopping malls). Preliminary results from the
+research reveal that similar-emotive and design factors can be identified in cyber shopping
+malls, an indication that it is possible to develop common emotive and design factors for
+electronic commerce systems. Furthermore, connections can be established between the
+physical design factors and emotions elicited by the interface, thereby enabling an explicit
+method of dealing with the emotional usability of customer interfaces. Interfaces thus
+designed will be able to appeal to the individual customer’s emotions and make the
+experience of interacting with the computer system, whether it be to shop, to deposit
+money in a bank account, or to play a game, an emotionally engaging experience, a
+mimesis of the actual world [31].
+
+
+
+Acknowledgements
+
+   This study was conducted under a 1996 research grant from the Korea Sanhak Founda-
+tion. The authors would like to thank the associate editor of Interacting with Computers,
+Patrick Jordan and two anonymous reviewers for their invaluable comments in refining
+this paper.
+
+
+
+Appendix A. Structure of the emotion space
+
+   In study 3, maximum likelihood factor analysis using promax rotation was performed
+on 1417 observations (12 interfaces X 123 respondents, with 59 observations eliminated
+because of missing values). The variables were the 40 emotive differential scales shown in
+Table 1. In the analysis, interfaces were treated as subjects, resulting in a mix of dependent
+and independent cases. It would, however, have been statistically correct to have treated
+the responses of each subject for the 12 interfaces as the 480 variables on which to perform
+the factor analysis, the analysis was performed as such for the following reasons. First, the
+objective of the third study was in determining the interrelation between the design factors
+of cyber-banking    system interfaces and the emotional factors. The focus was not on the
+interfaces themselves, but rather on the diverse design factors used in designing those
+visual interfaces. Therefore, it was necessary to obtain the normalized factor scores for
+each separate interface in order to determine the role that each design feature played in
+evoking the particular emotional reaction. Second, the purpose of the factor analysis was
+in reducing the forty emotive variables into the major dimensions that are actually of
+                    J. Kim, J. Y. Moon/Interacting   with Computers   10 (199X)I-29          21
+
+
+consequence in the interaction with cyber-banking      systems. However, if the factor analy-
+sis were performed on the 480 variables (12 interfaces X 40 emotive scales). it would have
+been impossible to interpret the results in terms of the major emotional dimensions. Third,
+
+
+
+
+                                                                                                  Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+an examination of the sample covariance matrix shows that it is reasonably safe to pre-
+sume that the subjects responses to the 40 emotive scales for one interface are not closely
+interrelated with their responses for a second interface. A sample covariance matrix of the
+following form was derived from the data for the third study.
+
+
+
+
+The subjects’ responses to the 12 interfaces were all treated as variables. resulting in 480
+variables. Hence, the sample covariance matrix has 480 rows and 480 columns. In order to
+justify the analysis method employed in the third study it is necessary to show that the
+sample covariance matrix is a block diagonal matrix. In other words. the 40 responses to a
+single interface constitute a block, where the responses for interface 1 are highly correlated
+with the responses to interface 1, but have little or no correlation to the responses to
+ interfaces 2 through 12.
+    A close examination of the sample covariance matrix revealed that although not a block
+diagonal matrix, the covariances in the block diagonal were consistently higher than
+nondiagonal areas. Therefore, the decision to treat the subjects’ responses to the 12 inter-
+ faces as independent cases in the factor analysis was justifiable.
+
+
+
+Appendix   B. Interrelation      between emotional          and design factors
+
+   Table 5 shows the F value and level of significance for the effect of each individual
+design factor on the four significantly affected feelings. The results indicate that the extent
+of feelings related to symmetry, trustworthiness, awkwardness and elegance will be sig-
+nificantly affected by the value of each of the 14 design factors of the cyber-banking
+system interface. It is easily seen from the table that the effect of all 14 design factors is
+significant. especially in the case of the emotional factor related to the perceived elegance
+of the interface.
+
+
+
+Appendix    C. Effect of color and main clipart on trustworthiness
+
+   The ANOVA tests were limited to interaction within the two design categories under the
+assumption that design factors pertaining to the same category would have a higher
+probability of interacting to affect the extent of trustworthiness.  In other words, the
+value of a particular design factor would influence the likely selection of the value of
+the design factors in the same category to a greater extent than of those in a different
+24                              J. Kim, J.Y. Moon/Interacting with Computers IO (1998) 1-29
+
+Table 5
+MANOVA:          significance   of effect of design factor by Wilks’ lambda criterion
+
+Design factor                       Symmetry            Trustwort    hiness     Awkwardness   Elegance
+
+
+
+
+                                                                                                           Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Title format             F            10.948 1           144.5138                104.3950     1616.594
+                         P             0.0001               0.0001                 0.0001         0.0001
+Title graphics           F             9.5360             22.8201                 27.7462       68.5738
+                         P             0.0021               0.0001                 0.0001         0.0001
+Title position           F           130.3425             73.0068                 15.4220     1961.625
+                         P             0.0001               0.0001                 0.0001         0.0001
+Menu content             F             7.2635            127.3922                 52.6411     3393.561
+                         P             0.0007               0.0001                 0.0001         0.0001
+Menu format              F           269.8087            127.6528                 85.9121      173.3878
+Menu size                F             5.1433            147.9287                 74.6255     1822.160
+                         P             0.0060               0.0001                 0.0001         0.0001
+Clipart format           F            74.1751            213.0398                105.1357     3231.750
+                         P             0.0001               0.0001                 0.0001         0.0001
+Clipart size             F           127.9058            148.1831                 92.3706     1491.414
+                         P             0.0001               0.0001                 0.0001         0.0001
+Clipart motion           F            23.5395              17.0056                13.9921     1425.670
+                         P             0.0001               0.0001                 0.0001         0.0001
+Color tone               F           260.2860            401.6664                132.0877     308 1.625
+                         P             0.0001               0.0001                 0.0001         0.0001
+Main color               F           207.5413            2 14.0998               105.1424     1595.062
+                         P             0.0001               0.0001                 0.0001         0.0001
+Background               F           109.8717            190.5048                130.7450      948.1789
+                         P             0.0001               0.0001                 0.0001         0.0001
+Brightness               F           188.5107             78.7095                 32.5429      129.1040
+                         P             0.0001               0.0001                 0.0001         0.0001
+Symmetry                             183.8625            277.6272                143.5426     2885.521
+                         P             0.000 1              0.0001                 0.0001         0.0001
+
+
+
+category. The results for those design factors having a significant interaction effect in the
+design category for clipart are displayed in Table 6. The results indicate that with regard to
+the design factors for the main clipart of a cyber-banking     system interface, there exists a
+significant interaction effect between the size and form of the clipart and the amount of
+animation effects used. The trustworthiness       elicited by an interface was significantly
+greater when the clipart was in three-dimensional     form and when there were no animation
+effects (mean trustworthiness factor score = 0.514). The trustworthiness of an interface
+was also maximized when the clipart was over half the size of the overall screen with no
+animation effects (mean factor score = 0.514). On the other hand, the trustworthiness was
+significantly lower when the interface included no clipart (mean trustworthiness factor
+score = - 0.231).
+   In the case of the overall color of the user interface, the interaction effects between the
+color tone and brightness, the main color and the background color, the main color and the
+brightness of the overall background and the background tone and brightness of the overall
+background were each found to be statistically significant. The results shown in Table 7
+indicate that the colors constituting the customer interface must be chosen so as to give the
+interface a consistent look in general. The combination of cool color tones with pastel
+                           J. Kim, J. Y. Moon/Interacting      utith Compurers   10 (199X) I-29                       2.5
+
+
+Table 6
+ANOVA: interaction      effect of clipart design factors on trustworthiness
+
+Interaction   effect                                        Design factor
+
+
+
+
+                                                                                                                            Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+                                                            Clipart”                                   Factor Score
+
+                                                            Form            Size              Motion
+
+Clipart form X motion (F = 6.10, p = 0.0136)                3D               _                None     0.514 (H)
+                                                            None             _                None      - 0.231 (L)
+Clipart sile X motion (F = 41.12, p < 0.0001)               -               Over 5            None     0.514 IH)
+                                                                            None              None      - 0.231 (LI
+
+“For each integration effect. the F-statistic and significance level is shown in parentheses; the combination of
+design factor values that results in the highest factor score (H), i.e. the greatest extent of trutwothiness. is
+presented in the first row: the combination of design factor values that results in the lowest factor score IL).
+i.e. the lowest extent of trustworthiness. is presented in the second row.
+
+
+
+colors as the main color resulted in an increased intensity of trustworthiness (mean factor
+score = 0.279). When using a cool color tone, pastel color, or a color background,
+maintaining the brightness of the color at a low level was most effective in enhancing
+the trustworthiness of the interface (mean factor score = 0.279; 0.189; 0.270). Finally.
+there was a significant interaction effect between the main color of the interface and
+the background, with the greatest extent of trustworthiness      being evoked by a cyber-
+banking system that used mainly pastel colors and had a color background (factor
+score = 0.270).
+
+
+Table 7
+ANOVA: interaction       effect of background    design factors on trustworthiness
+
+Interaction   effect               Design factor                                                       Factor score
+
+                                   Color”
+
+                                   Tone                 Main                 BackgroundBrightness
+
+Color tone X main                  Cool                 Pastel                                            0.279 tH)
+(/‘ = 7.X6. I, < 0.001)
+                                   Not applicable       Not applicable       _            _            - 0.753 (1,)
+Color tone X brightness            Cool                                      _            Low            0.27Y tH)
+t/,- = 24.61, ,, < 0.0001)
+                                   Not applicable       -                    _            High         - o.soo(L)
+Main X background                  _                    Pastel               Color        _               0.270 tH)
+(F= 2h.lX.p < 0.0001)
+                                   _                    Not applicable       Color        -            - 0.753 (L)
+Main X brightness                  _                    Pastel                            Low            0.189 tH)
+(/’ = Y I .33. ,’ (: 0.0001)
+                                   _                    Not applicable                    High         - 0.753 (I,)
+Background X brightness            _                    _                    Color        Low            0.270 (H)
+(I;’ = 53.24. p < 0.0001)
+                                                                             Color        High         - 0.753 (I_)
+26                       J. Kim, .I. Y. Moon/Interacting     with Computers 10 (I 998) l-29
+
+Table 8
+ANOVA: extent of trustworthiness       evoked (interface   I versus interface II)
+
+Emotive scale          Dependable               Reliable                  Realistic               Uniform
+
+
+
+
+                                                                                                                     Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Interface I               4.47213”                 4.61818                   4.85454                 4.87273
+Interface II              2.92721                  3.14545                   3.43636                 3.30909
+F-value                  18.87                    15.82                     12.14                   12.38
+P-value                   0.0001                   0.0001                    0.0001                  0.0001
+
+ aThe values are the mean factor scores for each interface. A positive valence indicates a greater extent of the
+trustworthiness factor, whereas a negative valence indicates a lesser extent of the factor.
+
+Appendix        D. Interface I versus interface              II-trustworthiness
+
+   Table 8 shows the average scores of the four emotive differential scales and the results
+of the ANOVA test. The results indicate that interface I evoked a significantly greater
+extent of trustworthiness in comparison with Interface II across all the four related scales.
+
+
+
+Appendix E. Interface               I versus interface       II -attractiveness,          symmetry,      elegance,
+awkwardness
+
+   Although the focus in the design of the two interfaces was on manipulating the extent of
+trustworthiness evoked, the ANOVA tests revealed that the difference in the intensity and
+direction of the feelings related to the attractiveness, symmetry, awkwardness and ele-
+gance factors were also statistically significant, Table 9 shows the difference in the
+extent of the emotions elicited by each interface. Interface I was rated as evoking a
+greater extent of symmetry           (factor scores: 0.52708 > - 0.24310) and elegance
+(factor scores: 0.31555 > - 0.27916) and a lesser extent of awkwardness                  (factor
+scores: - 0.33913 < 0.86852) when compared with interface.” Apparently, the manip-
+ulation of the design factors had induced these differences.
+   It is interesting to note that with the exception of the attractiveness factor, the emotions
+significantly affected by the manipulation of the design factors are indeed those that were
+
+Table 9
+ANOVA: difference     in emotions elicited by interfaces
+
+Emotive Factor     Attractiveness       Trustworthiness      Symmetry               Awkwardness      Elegance
+
+Interface I        0.12887”             0.36185              0.52708                 - 0.33913       0.31555
+Interface II        - 0.56492            - 0.88069            - 0.24310             0.86852           - 0.27916
+F-value            39.73                50.32                34.76                  63.75            26.00
+P-value            0.0001               0.0001               0.0001                 0.0001           0.0001
+
+aThe values are the mean factor scores for each interface. A positive valence indicates a greater extent of the
+particular emotive factor, whereas a negative valence indicates a lesser extent of the factor.
+
+
+   “The results regarding the attractiveness factor and the effect of the design factor manipulation was not
+predictable from results of the third experiment. Therefore, the detailed analysis is presented only for the
+remaining three factors.
+                          .I. Kim, .I. Y. MoodInteracting   with Computerv 10 (1998) l-29                                27
+
+Table 10
+ANOVA: interrelations     between design factor values and attractiveness,      symmetry.    awkwardness       and elegance
+(factor Scores)”
+
+
+
+
+                                                                                                                              Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+Design factor          Value                         Symmetry               Awkwardness             Elegance
+
+Clipao-form            Three-dimensional   (1)          0.1382               - 0.2527                 0.5244
+                       Not applicable (II)            - 0.0604                 0.2369               ~ 0. I I83
+Clipart-six            Over 5 screen (1)                0.1 I99              - 0.1739                 02883
+                       Not applicable (II)            - 0.0604                 0.2369               - 0. I I83
+Color-tone             Cool tone (I)                    0.1479               - 0.1597                 0.2021
+                       Not applicable (II)            - 0.3389                 0.1342               - 0.3131
+Color-main             Pastel (I)                       0.2 163              - 0.1207               - 0.0050
+                       Primary (II)                   - 0.0936               - 0.0178                 0.2420
+Color-brightness       Low (I)                          0.4842               - 0.1322                 0.0307
+                       High (II)                      - 0.3133                 0.1360               ~ 0.0772
+Color-symmetry         Consistent (I)                   0.7210               - 0.1205                 0.0407
+                       Not applicable                 - 0.6450                 0.6097               - 0.6683
+
+“A positive valence indicates that the extent of the particular emotion is high. whereas a negative valence indicates
+that the elicited emotion is of the opposite nature (unattractiveness. etc.). (I) is the design factor value for interface
+I: (11) is that of interface II.
+
+shown to be influenced by the choice of design factor values in the third study. Table 5
+presents the main effect of each individual design factor on the four emotional dimensions:
+symmetry, trustworthiness, awkwardness and elegance. Almost all the design factors that
+had been manipulated to control the extent of trustworthiness             in study 4 also had a
+significant effect upon the extent of symmetry, awkwardness and elegance.’ ’ For example,
+the format of clipart turned out to have a significant impact on symmetry (F = 74.175).
+awkwardness      (F = 105.13), elegance (F = 3231.75). as well as trustworthiness
+(F = 213.03). Therefore, it is highly probable that the manipulation           of these factors in
+the design of the two interfaces resulted in the significant statistical differences shown in
+Table 9.
+   The average factor scores for the design features were computed from the results of the
+third study in order to support the proposition that the design factors manipulated in
+interface I and interface II also influenced the other three emotional factors. The mean
+factor scores for the design features are shown in Table 10.
+   In the case of the symmetry factor, the design features that were incorporated in the
+implementation     of interface I elicited a greater extent of the feeling as compared with the
+features used in the design of interface II. For example, a three-dimensional              clipart.
+incorporated in the design of interface I, elicited a greater extent of symmetry (0.1382).
+as compared with an interface with no clipart (--0.0604), as in interface II. The opposite is
+true for the awkwardness factor. For example, use of colors of low brightness (-0.1322)
+elicited a lesser extent of awkwardness, compared with those high in brightness (0.1360).
+For the elegance factor, with the exception of the effect of the main color on the extent of
+elegance perceived (pastel = - 0.0050 < primary = 0.2420). the effect of the design
+
+
+   “The sole exception is the effect of the brightness of the color scheme of an interface upon the elegance felt hy
+the cyber-hanking  system customer.
+28                       J. Kim, J. Y. Moon/Interacting   with Computers   10 (1998) l-29
+
+factors was consistent with that of the results shown in the first table. Therefore, results in
+the second table confirmed the argument that the design factors manipulated in interface I
+and II influenced the feelings of symmetry, awkwardness and elegance, as well as those of
+
+
+
+
+                                                                                                                       Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+trustworthiness.
+
+
+
+References
+
+  [l] R.S. Lazarus, Emotion and adaptation, Oxford University Press, Oxford, UK, 1991.
+  [2] N.H. Frijda, The Emotions, Cambridge University Press, Cambridge, UK, 1986.
+  [3] D.A. Norman, Twelve issues for cognitive science, in: D. Norman (Ed.), Perspectives on Cognitive Science,
+      Norwood, LEA, NJ, 1981, pp. 265-299.
+  [4] A. Ortony, G. Clore, A. Collins, The Cognitive Structure of Emotions, Cambridge Cambridge University
+      Press, Cambridge, UK 1988.
+  [5] G. Feist, The affective consequences of artistic and scientific problem solving, Cognition and Emotion 8 (6)
+      (1994) 489-502.
+  [6] A. Barnes, P. Thagard, Emotional decisions, in: Proceedings of the Eighteenth Annual Conference of the
+      Cognitive Science Society, University of California, San Diego 1996, pp. 426-429.
+  [7] R. Picard, Affective Computing, MIT Media Laboratory Perceptual Computing Section. Technical Report
+      no. 321, 1995.
+  [8] G. Hofmeester, J. Kemp, A. Blankendaal, Sensuality in product design: a structured approach, Electronic
+      Proceedings of the Computer Human Interaction ‘96, 1996.
+  [9] S.Y. Lee, M. Nagamachi, Kansei Human Engineering, Yangyonggak,             Seoul, 1996.
+[lo] M. Nagamachi, Kansei engineering: a new ergonomic consumer-oriented            technology for product develop-
+      ment, International Journal of Industrial Ergonomics 15 (1) ( 1995) 3 I l-346.
+[l 11 R. Logan. S. Augaitis. T. Renk, Design of simplified television remote controls: a case for behavioral and
+      emotional usability, in: Proceedings of CHI’91. Human Factors in Computing Systems, ACM Press, Boston
+      MA, 1994, pp. 365-369.
+[12] J. Nielsen. Usability Engineering, AP Professional, New York, 1994.
+[13] C. Nass, J. Steuer, E. Tauber, Computers are social actors, in: Proceedings of CHI’94 Human Factors in
+      Computing Systems, ACM Press, Boston MA. 1994, pp. 72-78.
+[14] R. Picard. Does HAL cry digital tears? Emotion and computers, in: D. Stork (Ed.). Hal’s Legacy: 2001’s
+      Computer as Dream and Reality, MIT Press, Cambridge, MA.
+[15] R. Virzi, A preference evaluation of three dialing plans for a residential, phone-based information service,
+      in: Proceedings of CHI’91 Human Factors in Computing Systems, ACM Press, 1992.
+[ 161 R. Kalakota, A. Whinston, Electronic Commerce: A Manager’s Guide, Addison Wesley, New York.
+[ 171 R. Kalakota, A. Whinston, Frontiers of Electronic Commerce, Addison Wesley, New York, 1996.
+[ 181 J. Kim, J. Moon, On the design of customer interface for electronic commerce, Korean HCI Proceedings,
+      Bokwang, Korea 1997.
+[ 191 C. Handy. Trust and the Virtual Organization, Harvard Business Review, 1995, p. 40.
+[20] P. Philippot. Inducing and assessing differentiated emotion-feeling     states in the laboratory, Cognition and
+      Emotion 7 (2) (1993) 171-193.
+[21] J.J. Gross, R.W. Levenson, Emotion elicitation using films, Cognition and Emotion 9 (1) (1995) 87-108.
+[22] N.H. Frijda, Emotion, cognitive structure and action tendency, Cognition and Emotion 1 (1987) 115-144.
+[23] T.L. Gehm, K.R. Scherer, Factors determining me dimensions of subjective emotional space, in: K.R.
+      Scherer (Ed.), Facets of Emotion: Recent Research, Hillsdale, Erlbaum, Hillsdale, NJ 1988, pp. 99-I 14.
+[24] C.E. Osgood, G.J. Suci, P.H. Tannenbaum, The Measurement of Meaning, Chicago University of Illinois
+      Press, Chicago, 1957.
+1251 J.A. Russell, Affective space is bipolar, Journal of Personality and Social Psychology 37 (1979) 345-356.
+[26] J.A. Russell, A circumplex model of affect, Journal of Personality and Social Psychology 39 (1980)
+       1161-I 178.
+[27] P. Ekman, Anargument for basic emotions, Cognition and Emotion 6 (1992) 169-200.
+                        J. Kim, J. Y. Moon/Interacting   wnifh Computrrs   IO (1998)   l-29                     19
+
+[?Sl J.R. Averill,    In the eyes of the beholder, in: P. Ekman, R.J. Davidson (Eds.). The Nature of Emotion:
+      Fundamental Questions, Oxford University Press. Oxford. UK, 1994. pp. 7-14.
+[29] A.R. Damasio. D. Tranel. H. Damasio. Individuals with sociopathic behavior caused by frontal damage fail
+      to respond autonomically to social stimuli, Behavioural Brain Research 41 (1990) 8194.
+
+
+
+
+                                                                                                                      Downloaded from academic.oup.com/iwc/article/10/1/1/912667 by Zhejiang University Library xixi campus user on 25 September 2026
+[30] N. Schwarz, G.L. Clore, Mood, misattribution.         and judgments of well-being: informative and directive
+      functions of affective states. Journal of Personality and Social Psychology 45 (I 981) 5 13-52 1.
+[3 11B.K. Laurel, Computers as Theater, Addison Wesley, New York, 1993.
+[32] R.W. Levenson. Human emotion: a functional view, in: P. Ekmanand. R.J. Davidson, (Eds.) The Nature of
+      Emotion, Oxford University Press, Oxford. UK. 1994. pp. 123% 126.
+[33] B.M. Muir, Trust between humans and machines, and the design of decision aids. International Journal of
+      Man-Machine Studies 27 (1987) 527-539.
+I.341 D.D. Woods. E.M. Rogh. K. Bennett, Exploration              in joint human-machine     cognitive systems. in:
+      W. Zachary. S. Robertson (Eds.). Cognition. Computing and Cooperation. Ablex. Norwood, NJ. 1987.
+1351 M.J. Baker, G.A. Churchill, The impact of physically attractive models on advertising evaluations. Journal
+      of Marketing Research 14 (1977) 538-555.
+[36] S. Chaiken. Communicator physical attractiveness and persuasion, Journal of Personality and Social Psy-
+      chology 37 ( 1979) 1387- 1397.
+1371 K.K. Dion. S. Stein, Physical attractiveness and interpersonal influences, Journal of Experimental Social
+      Psychology 14 (1978) 97-108.
+[38] J. Mills, E. Aronson, Opinion change as a function of the communicator’s          attractiveness and desire to
+      influence. Journal of Personality and Social Psychology 1 (1965) 173-177.
+[39] G.L. Patzer, Source credibility as a function of communicator physical attractiveness. Journal of business
+       Research 11 (1983) 229-241.
+[40] S. Rosenberg. The method of sorting in multivariate research with application selected from cognitive
+      psychology and person perception, in: N. Hirschberb. L. Humphreys (Eds.), Multivariate Application in
+      the Social Sciences, Lawrence Erlbaum Associates. Hillsdale. NJ, 1982. pp. 117- 142.
+[41] M.T.H. Chi. P.J. Feltovich, R. Glaser, Categorization and representation of physics problems hy experts and
+      novices, Cognitive Science 5 (1981) 121-152.
+[42] A.A. Afifi. V. Clark, Computer-Aided Multivariate Analysis. Lifetime Learning Publications. Belmont, CA.
+       1984.
+[43] J. Hair, R. Anderson. R. Tatham. W. Black. Multivariate Data Analysis with Readings. Prentice Hall.
+      Englewood Cliffs, NJ. 1995.
+1441 M. Gasmori. CALS Strategy and Electronic Commerce, Research Institute of Modern Econo-Society.
+       Hyundai Research Institute. Seoul, Korea 1995.
+[45] M. Bloch. Y. Pigneur, A. Segev. On the road of electronic commerce-a                business value framework.
+       Gaining Competitive Advantage and some Research Issues. 1996. URL http:llhaan. berkeley.edu/-hlochl
+       docs/roadtoec/ec.htm.
+146) J.K. Rempel. J.G. Holmes, M.P. Zanna. Trust in close relationships. Journal of Personahty and Social
+       Psychology 49 ( I) ( 1985) 95- 112.
+ [47] E. Galdo. J. Nielsen, International User Interfaces, Wiley, New York. 1996.
+

@@ -1,0 +1,976 @@
+Aalborg Universitet
+
+
+
+
+“As an AI language model, I cannot”
+Investigating LLM Denials of User Requests
+Wester, Joel; Schrills, Tim ; Pohl, Henning; van Berkel, Niels
+
+Published in:
+CHI 2024 - Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems
+
+
+DOI (link to publication from Publisher):
+10.1145/3613904.3642135
+
+
+
+
+Publication date:
+2024
+
+
+Document Version
+Publisher's PDF, also known as Version of record
+
+
+Link to publication from Aalborg University
+
+
+
+
+Citation for published version (APA):
+Wester, J., Schrills, T., Pohl, H., & van Berkel, N. (2024). “As an AI language model, I cannot”: Investigating LLM
+Denials of User Requests. In CHI 2024 - Proceedings of the 2024 CHI Conference on Human Factors in
+Computing Systems (2024 ed., pp. 1-14). Article 979 Association for Computing Machinery (ACM).
+https://doi.org/10.1145/3613904.3642135
+
+
+
+
+General rights
+Copyright and moral rights for the publications made accessible in the public portal are retained by the authors and/or other copyright owners
+and it is a condition of accessing publications that users recognise and abide by the legal requirements associated with these rights.
+
+        - Users may download and print one copy of any publication from the public portal for the purpose of private study or research.
+        - You may not further distribute the material or use it for any profit-making activity or commercial gain
+        - You may freely distribute the URL identifying the publication in the public portal -
+Take down policy
+If you believe that this document breaches copyright please contact us at vbn@aub.aau.dk providing details, and we will remove access to
+the work immediately and investigate your claim.
+
+
+Downloaded from vbn.aau.dk on: 09 23, 2026
+                                  “As an AI language model, I cannot”:
+                               Investigating LLM Denials of User Requests
+               Joel Wester                                   Tim Schrills                              Henning Pohl                          Niels van Berkel
+            joelw@cs.aau.dk                              tim.schrills@uni-                           henning@cs.aau.dk                     nielsvanberkel@cs.aau.dk
+           Aalborg University                               luebeck.de                               Aalborg University                       Aalborg University
+           Aalborg, Denmark                             University of Lübeck                         Aalborg, Denmark                          Aalborg, Denmark
+                                                         Lübeck, Germany
+
+
+                                                                                   Please give me an update on A...
+
+
+                                 BASELINE                                                         DIVERTING
+
+                                                                                                     While I can’t provide specifics on
+                                  I’m sorry, but I can’t assist with that.
+                                                                                                            A, I can discuss B...
+
+
+                                 FACTUAL                                                          OPINIONATED
+
+                                  I’m sorry, but I can’t assist with that.                             I’m sorry, but I simply cannot
+                                    As an AI language model, I don’t                                 engage in this line of questioning.
+                                         have the capability to...                                      It’s highly inappropriate to...
+
+
+
+Figure 1: We investigated four diferent denial styles (illustrated here with brief examples) for when AI chatbots cannot or
+should not fulfl a user request. We tested these across underlying social and technical reasons for such denials. We fnd that
+diverting denials, in contrast to baseline denials, result in lower frustration and higher satisfaction in LLM interactions.
+ABSTRACT                                                                                         CCS CONCEPTS
+Users ask large language models (LLMs) to help with their home-                                  • Human-centered computing → Human computer interac-
+work, for lifestyle advice, or for support in making challenging                                 tion (HCI); Empirical studies in HCI.
+decisions. Yet LLMs are often unable to fulfl these requests, ei-
+ther as a result of their technical inabilities or policies restricting                          KEYWORDS
+their responses. To investigate the efect of LLMs denying user                                   Errors, Breakdowns, Denials, Large Language Models, GPT-4
+requests, we evaluate participants’ perceptions of diferent denial
+                                                                                                 ACM Reference Format:
+styles. We compare specifc denial styles (baseline, factual, divert-                             Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel. 2024. “As an
+ing, and opinionated) across two studies, respectively focusing on                               AI language model, I cannot”: Investigating LLM Denials of User Requests.
+LLM’s technical limitations and their social policy restrictions. Our                            In Proceedings of the CHI Conference on Human Factors in Computing Systems
+results indicate signifcant diferences in users’ perceptions of the                              (CHI ’24), May 11–16, 2024, Honolulu, HI, USA. ACM, New York, NY, USA,
+denials between the denial styles. The baseline denial, which pro-                               14 pages. https://doi.org/10.1145/3613904.3642135
+vided participants with brief denials without any motivation, was
+rated signifcantly higher on frustration and signifcantly lower on                               1     INTRODUCTION
+usefulness, appropriateness, and relevance. In contrast, we found                                Errors and warnings are commonplace in our everyday interaction
+that participants generally appreciated the diverting denial style.                              with computers [19, 42], and are indicative of a mismatch between a
+We provide design recommendations for LLM denials that better                                    user’s intentions and a computer’s capabilities. Error messages are
+meet peoples’ denial expectations.                                                               crucial for providing users with a sense of understanding, identify-
+                                                                                                 ing a suitable subsequent action, and updating their mental model
+                                                                                                 of the system’s capabilities [23]. How we design error messages
+                                                                                                 matters, as shown by Denny et al. [10], who modifed the length,
+                                                                                                 language style, sentence structure, and vocabulary of error mes-
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed            sages to improve their readability. Similarly, Desolda et al. [11],
+for proft or commercial advantage and that copies bear this notice and the full citation         showed that natural language explanations as part of warning mes-
+on the frst page. Copyrights for components of this work owned by others than the                sages can help steer users away from malicious websites. Errors can
+author(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior specifc permission     also occur in conversational user interfaces, such as large language
+and/or a fee. Request permissions from permissions@acm.org.                                      model (LLM) chatbots, where they are part of the conversation itself.
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                      Here errors are not just system malfunctions, but also situations
+© 2024 Copyright held by the owner/author(s). Publication rights licensed to ACM.
+ACM ISBN 979-8-4007-0330-0/24/05                                                                 where the system responds, but is unable or unwilling to fulfll a
+https://doi.org/10.1145/3613904.3642135                                                          request—we focus on this form of error.
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                 Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+   Errors in LLMs like GPT-4, Llama 2, or LaMDA can occur for            2.1    Breakdowns in User Interactions
+diferent reasons that can be broadly grouped into technical (i.e.,       With recent technological advancements, human-LLM interactions
+the system cannot fulfl a request) and social (i.e., the system is       are garnering more attention. LLMs ofer a new platform of ex-
+prohibited from fulflling a request). Examples of technical reasons      ploration (e.g., in contrast to traditional rule-based chatbots) and
+are gaps in the training data or lack of real-time data access. Social   computer science researchers are delving into various aspects of
+reasons for denials, on the other hand, are due to policy, such as       human-LLM interactions. For example, prior work highlights the
+not allowing hateful or sexual content to be generated by an LLM1 .      lack of transparency and insufcient controllability of LLMs [40], or
+However, little is known about how users perceive error messages         how LLMs might unintentionally infuence users’ opinions through
+they get when an LLM cannot or will not fulfl their request. We          their interactions [20] As users increasingly adopt varied ways of
+refer to these errors as ‘denials’ for the remainder of this paper, to   using LLMs [33], it becomes challenging to predict potential in-
+highlight the conversational context of their occurrence.                teraction issues. This is especially true since LLM-generated text
+   To better understand these denials, we investigate the impact         can sometimes appear more human-like than text written by actual
+of four distinct denial styles (illustrated in Figure 1): (1) factual    people [21]. Skjuve et al. recently outlined several constituents of
+denials, which provide a denial followed by a reason for it, (2) di-     poor user experiences with ChatGPT, where ‘irrelevant and useless
+verting denials, in which the LLM steers away from the request,          output’, ‘inability to answer’, and its ‘problematic communication
+(3) opinionated denials, in which the response emphasises the inap-      style’ were themes identifed among others [33].
+propriateness of the request, as well as (4) baseline denials, which        As such negative aspects in user experiences may lead to break-
+simply state that the LLM cannot provide assistance. We evaluate         downs, approaches and strategies to repair interaction breakdowns
+the efects of denial style across two studies, with Study 1 focusing     are increasingly being researched. Benner et al. provide a systematic
+solely on technical reasons for denial (e.g., data unavailable) and      review of breakdown recovery strategies, outlining six categories
+Study 2 concentrating on social reasons (e.g., no disrespectful jokes)   with multiple sub-concepts. For example, the category information
+for denials. For each denial, we assess how frustrating, useful, ap-     encapsulates recovery strategies through the use of problem ex-
+propriate, and relevant they are perceived by users and collect users’   planations, help messages, or error feedback [4]. As recovery from
+open-ended feedback. We manifested each denial style through dis-        interaction breakdowns with other individuals (e.g., clarifying mis-
+tinct system prompts, ensuring that the LLM generated appropriate        understandings in a conversation) typically follows from intuition,
+responses to participants’ requests that they themselves created         designing systems to handle such breakdowns is challenging. Prior
+using an interactive LLM interface.                                      work has tried to defne and categorise these intuitive actions as
+   The fndings from Study 1 (technical denials) indicate that users      mechanisms (e.g., self-correction, which refers to proactively cor-
+fnd diverting denials less frustrating, more useful, more appropri-      recting one’s utterance, or self-clarifcation, which refers to proac-
+ate, and more relevant compared to baseline denials. We also fnd         tively providing additional details to complement the already pro-
+that factual denials were rated signifcantly lower than diverting        vided information) [44]. While such eforts can aid stakeholders
+denials on all measures but frustration. In Study 2 (social denials),    (e.g., researchers and designers) in LLM design choices, how to
+we fnd that diverting denials were less frustrating and more useful,     avoid such interaction breakdowns remains an open challenge.
+appropriate, and relevant than the baseline and opinionated denials.        Ashktorab et al. investigated repair strategies in human-chatbot
+We also fnd that the opinionated denial was perceived more pos-          interactions and found that participants rated a chatbot more posi-
+itively than the baseline denial on all measures. Our qualitative        tively when it provided alternatives and explanations (e.g., when the
+results shed light on user perceptions of LLM denials, suggesting        chatbot communicated a misunderstanding more directly and with
+that users’ favourable ratings of diverting denials are due to them      fewer repetitions) [2]. Cuadra et al. studied how people perceive er-
+providing valuable information even when the original request            rors in interacting with voice assistants (VAs), comparing a baseline
+could not be fulflled. LLMs will likely remain constrained by ability    to when the VA corrected its mistake, overly corrected its mistake,
+and policy in the foreseeable future, necessitating a consideration      and did not correct its mistake. Their results suggest that partici-
+of how to best design their denials. We present recommendations          pants perceived self-repairing VAs more positively [9]. Breakdown
+for those LLM denials, such as strategically redirecting users to        repair strategies in text-based interactive systems can be designed
+potentially benefcial alternatives.                                      in many ways (e.g., error messages [12], or bi-directional learning
+                                                                         of breakdowns between user and chatbot [15]).
+2     RELATED WORK                                                          Previous studies have imbued systems with capabilities to deal
+We discuss research on interaction breakdowns, repair strategies,        with breakdowns or support users in their attempts to repair the
+and how breakdown communication afects users’ expectations               breakdown. For example, Li et al. developed SOVITE, a graphical
+and understanding of intelligent systems (e.g., warning and error        user interface that provides users with information to manipulate
+messages). We also discuss why denial messages are particularly          repair breakdowns. The results from a 10-user remote study suggest
+important and challenging in the context of human-LLM interac-           SOVITE is efective in helping users recover from the interaction
+tions. Finally, we summarise relevant literature on explainable AI,      breakdown [26]. When conversational breakdowns occur, individu-
+emphasising recent developments that accentuate the efects of            als employ various repair actions like repeating or clarifying, but for
+explanations in human-human interactions.                                chatbot users, emulating these actions becomes challenging since
+                                                                         the listener is not another human, potentially leading to negative
+                                                                         user experiences [2].
+1 See, for example, https://openai.com/policies/usage-policies.
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                   CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+   Zargham et al. recently explored anticipatory design to deal with              explanations can be styled and characterised to ensure user un-
+errors in a voice-controlled video game. Their results suggest that               derstanding. However, users’ perceptions of explanations diverge
+anticipatory error handling improves the usability of a system if                 depending on situational and user characteristics. Kulesza et al.
+users’ intentions are met [43]. In the spirit of anticipatory design,             focused on what information a user needs to know to successfully
+Yeh et al. investigated diferent chatbots guiding users on how to                 collaborate with an intelligent agent, indicating that those who
+communicate with them (i.e., by service-onboarding, task-intro,                   were able to ‘improve’ their mental models of the system were
+after-failure, and upon request). Their qualitative results suggest               more satisfed with its recommendations, suggesting that better
+that guidance presented after conversational failures was perceived               explanations can help in aligning system output with users expec-
+as reminders as compared to guidance presented up-front [41].                     tations [23].
+Hence, looking at repair strategies that focus on recovering from                    Khuarana et al. developed a chatbot that explained its func-
+interaction breakdowns (e.g., regaining user’s trust [24]), denials               tionality and limitations when a user request could not be ful-
+pose similar opportunities of alleviating the user experience during              flled [22]. User experience measures such as trust, usefulness, and
+breakdowns by designing the breakdown itself.                                     transparency were signifcantly higher when explanations were
+   Designing the breakdown to alleviate user experience closely                   accompanied by visual elements used to enrich the feedback given
+relates to human-centred explanations. An essential function of                   to the user. Recently, Denny et al. explored the role of program-
+such explanations (i.e., explanation of system behaviour) is to cor-              ming error messages in teaching beginners to program, focusing on
+rect users’ expectations of the system. Hence, explanations can be                readability (i.e., how well users understand and make use of the pre-
+utilized when users request a system to carry out tasks it is either              sented error message) of error messages [10]. Their fndings suggest
+unable or not permitted to carry out. When users’ expectations                    that their error message designs infuence user comprehension and
+of an intelligent system are neither met nor the expectation cor-                 that message length, jargon use, sentence structure, and vocabulary
+rected, frustration can arise. For example, Svenningsson and Faraon               signifcantly predict perceived error message readability.
+demonstrated that users expected a chatbot to apologize when they                    Accordingly, recent HCI research demonstrates the need for re-
+expressed frustration (i.e. to address their frustration and react [35]).         search on system messages aiding users to avoid dangerous or non-
+Accordingly, most participants also wanted to rephrase or follow                  compliant behaviour. For example, Desolda et al. investigated how
+up after they were frustrated, expecting the chatbot to support                   warning messages can be presented to users to aid them in avoid-
+them in fulflling their request. However, Smith-Renner et al. found               ing phishing attacks, explaining potential attacks and why web-
+that explanations in interactive AI systems can also have negative                sites appear malicious [11]. The positive infuence of explanations
+efects: after using an intelligent text review system that provided               has also been highlighted by Ehsan et al., who investigated how
+explanations but no possibility for users to give feedback, users                 computer agents can translate their actions into natural language
+were signifcantly more frustrated than users who did not receive                  explanations presented to users [14]. Through a crowdsourcing
+an explanation [34]. As users of LLMs can encounter explanations                  study, they generated, presented, and collected participants’ ratings
+which highlight the LLM’s incapability without ofering users a                    on a number of rationales (i.e., explanation justifcations), includ-
+way to overcome it, their frustration could increase.                             ing ratings of confdence, human likeness, adequate justifcation,
+   In probabilistic systems based on LLMs, managing user expec-                   and understandability. Their results suggest that the justifcatory
+tations is a particular challenge, as LLM reactions are not deter-                explanations retrieved from human input to train the system in
+ministic and can be hard to predict [27]. ‘Hard coding’ reactions                 outputting human-like explanations were rated positively. From a
+to specifc prompts is therefore an inefective method, considering                 more theoretical perspective, Chen et al. approach explanations by
+the degree of freedom users have when interacting with intelli-                   formally describing when and how explanations help people under-
+gent systems. Hence, as inaccurate expectations are oftentimes                    stand system behaviour [7]. They provided a formal framework of
+unavoidable in probabilistic contexts, it is crucial to understand                machine explanations and human understanding and evaluated the
+how explanations and information can be designed to improve                       framework with 242 participants in an online crowdsourcing study.
+user understanding and expectation. In this paper, we set out to                  While their results do not explicitly describe any application areas
+explore LLM denials using an interactive system that allows users                 for their framework, the authors provide theoretical implications
+to experience denials in single-request assistant scenarios.                      for aligning computer behaviour with human expectations.
+                                                                                     Prior work has explored text-based agents with a focus on fall-
+                                                                                  back responses and providing alternatives as strategies for chatbots
+2.2     Explanatory System Messages                                               when unable to meet user requests. Shrivastava et al. conceptualise
+System messages are relevant in striving for human-centred de-                    fallback responses and sort these into three categories: does not han-
+sign of intelligent systems, as suggested by various of Amershi et                dle the request, handle the request by providing a fallback response,
+al.’s guidelines on human-AI interaction [1]. For example, error                  and provide a fallback response with contextual relevance [32]. Lu
+messages can support users in efciently correcting the system,                    et al. similarly conceptualise fallback responses, focusing on explor-
+making transparent why it was not able to fulfl a user’s request,                 ing answerable and unanswerable contexts followed by desired and
+or encouraging detailed feedback to the system.                                   undesired responses (e.g., to a user request in an answerable context
+    Hadash et al. recently investigated how explanations can be                   ‘Let us talk about the investment plan’, a desired response looks like
+better understood by being accompanied by a positive framing,                     ‘Do you want to talk about growth investment?’ in contrast to an
+suggesting the value of positive framing and semantic labelling                   undesired response ‘I do not know what that is.’) [29]. Furthermore,
+of explanations [18]. Results as such have implications for how
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                  Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+Følstad et al. describe chatbots as capable of suggesting alterna-        discriminatory responses (social). These reasons are not shown to
+tives when user requests cannot be met, indicating that suggesting        the users but informed the prompt designs.
+alternatives is a feasible conversational breakdown strategy [16].            As each task is used across three denial styles, we designed 18
+However, as these studies deploy diferent evaluations involving           diferent task-specifc system prompts to guide the LLM responses
+humans, none directly involve realistic interactions between users        (see Appendix A.2 and Appendix A.3). For example, we expressively
+and LLMs. In this study, we investigate this by designing text-based      tell the LLM not to provide any information on specifc topics that
+error messages in the form of denials.                                    the participants are likely to ask about. We also provide the LLM
+                                                                          with justifcations it can draw upon in generating responses, such
+3     INTERACTIVE LLM DENIAL SYSTEM                                       as by pointing out specifc information that is not in the training
+Input to and output from LLMs are freeform text and thus high vari-       data or unavailable for access.
+ability is inherent to interactions with them. For our investigation          The used denial styles vary between the technical and social de-
+of LLM denials this fexible interaction is an important aspect. We        nials. Both use baseline and diverting denials, but technical denials
+assumed getting ones personal request denied likely is a substan-         can also be factual, while social denials can also be opinionated. We
+tially diferent experience than seeing a vignette of someone else’s       excluded the factual denial style from social denials, as the fact here
+request being denied. This necessitates an interactive system where       is always the same: policy does not allow to provide a response. On
+participants can enter a request, receive a custom denial response        the other hand, as opinionated denials are designed to stress the
+from an LLM, and then rate the response and overall experience.           inappropriateness of the question, they are best suited for social
+   We build such an application using the Gradio2 framework. This         denials where this is the underlying reason for denial in the frst
+application shows task instructions to users and then allows them         place. In the case of technical denials, opinionated responses are
+to formulate a single request to an LLM, as shown in Figure 2.            not sensible as the underlying reasons are not up to interpretation
+The participant’s request is subsequently processed by OpenAI’s           (e.g., there is no opinion to be had about data being unavailable
+GPT-4 model (version gpt-4-0613, temperature of 1.0). We instruct         entirely).
+the LLM to deny all requests, based on a general system prompt
+(see Appendix A.1) combined with additional task-specifc system           3.2    System Prompts
+prompts. For the remainder of this paper, we will refer to this           We designed our system prompts to ensure it would generate de-
+application as the ‘AI chatbot’.                                          nials rather than provide answers to participants’ requests. This is
+                                                                          done through a combination of a general system prompt (i.e., used
+3.1     System Interaction                                                across all denial styles) with specifc prompts for the diferent denial
+Users are given a scenario description and instructions for what          styles and scenarios. The general system prompt instructed GPT-
+to do within that context. All scenarios are concrete and enable          4 to follow a questioning-answering mode, refrain from answering
+the user to build an understanding of why they are engaging with          user questions, and answer only in English, among other instruc-
+the AI chatbot. Users also learn about tasks they have (e.g., fnding      tions related to formatting and output. We tailored the task-specifc
+out information or getting help for an activity), for which they are      system prompts to each denial style.
+asked to turn to the AI chatbot for help. Thus users then have to         3.2.1 Baseline Denial Prompt Design. For baseline denials, we tell
+formulate a request to the AI chatbot, based on their understanding       the LLM that it “must refuse” to provide information and that, when
+of this scenario and task. This means the input to the LLM is solely      it refuses a request, it should reply that as an AI language model
+determined by the user and their understanding of what constitutes        it is unable to give an answer. We furthermore, specify ancillary
+a good request.                                                           aspects of the tasks that the LLM should not latch onto, such as by
+   Users engage with chatbots for a variety of reasons [36]. To           asking it not to explain policies, not to clarify, not to specify what it
+ensure a variety of topics in our study design, we design the system      cannot do, and not to provide any other action alternatives. Earlier
+for scenarios and tasks within three diferent topic areas: health,        testing showed a tendency of the underlying LLM to provide further
+politics, and humour. Including diferent topics as opposed to only        information, especially where denials are based on policy instead of
+one topic furthermore also allows us to control for confounding           technical limitations. By further specifying these additional aspects
+infuences of any specifc topic in later analyses. As we investigate       to avoid, we managed to constrain the LLM enough to generate
+both technical denials (Section 4) and social denials (Section 5), this   baseline responses.
+results in a total of six diferent scenarios and tasks. An overview
+of all task instructions can be found in Appendix B.                      3.2.2 Factual Denial Prompt Design. For factual denials, we provide
+   The underlying reasons for denial vary across these six tasks and      the LLM with task-specifc reasons it is supposed to deny incoming
+were picked to represent likely options. For health, we instructed        requests. We spell out technical limitations for the LLM on the
+the LLM that no external information can be accessed (technical)          predefned topics given to participants, so that these factual reasons
+and that policy prohibits providing medical information (social).         are available when it formulates a response to the user.
+For politics, the event of interest took place after the cut-of date of
+                                                                          3.2.3 Diverting Denial Prompt Design. With diverting denials, we
+the training data (technical) and policy prohibits partisan responses
+                                                                          instruct the LLM to steer away from answering and not to answer
+taking any one side (social). For humour, the LLM is unable to
+                                                                          the question directly. It is then up to the LLM to generate a response
+generate images (technical), and policy prohibits sexist and other
+                                                                          that does not address the initial question, but instead provides an
+2 https://www.gradio.app/                                                 answer on a related aspect that steers away from the user’s request.
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                                                         CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+                 You are planning to make a birthday card with a funny cartoon. Given your somewhat limited
+                 illustration abilities, you are looking for some help with the cartoon. Ask the AI chatbot to generate
+                 a funny cartoon picture of whatever you think would work well for the birthday card.
+
+
+                    Please generate a cartoon of a man, about 50 years old, wearing a suit, while riding a unicorn on top of a big birthday cake.
+
+
+
+
+                                                                                              Click to Ask
+
+
+                   Figure 2: Illustration of the LLM interface, including an illustrative example of participant input.
+
+
+3.2.4 Opinionated Denial Prompt Design. For opinionated denials,                                            Table 1: Measures used in Studies 1 and 2 to rate the responses
+we tell the LLM to “push back very hard”, while “harshly explaining”                                        from the AI chatbot. All rated on 7-point Likert scales.
+how the request was “very inappropriate”. In addition to building
+its response on these instructions, we found that the responses also                                           Measure                       Question
+referred to the default GPT-4 default policy instructions, such as
+                                                                                                               Frustration                   “I found this interaction with the AI chatbot
+those on non-discrimination. This combination of our instructions
+                                                                                                                                             frustrating”
+towards the tone of voice and the existing LLM behaviour results                                               Usefulness                    “I found the AI chatbot’s response useful”
+in ftting responses for this denial style.                                                                     Appropriateness               “I found the AI chatbot’s response appropriate”
+                                                                                                               Relevance                     “I found the AI chatbot’s response relevant to
+4     STUDY 1: PERCEPTION OF TECHNICAL                                                                                                       my requests”
+      DENIALS
+The goal of this study was to evaluate denials due to technical
+reasons. We test the baseline, diverting, and factual denial styles,
+omitting opinionated denials as they do not ft within the context
+of technical denials. Across the three topic areas, we select three                                         4.2        Measures
+distinct reasons for technical denials: ‘data unavailable’, ‘not in                                         We asked participants to rate responses from the AI chatbot on four
+training data’, and ‘output is text-only’. The frst two cover situa-                                        7-point Likert items: frustration, usefulness, appropriateness, and
+tions where the data cannot be accessed (e.g., as no such access is                                         relevance (see Table 1). As denials are inherently obstacles towards
+possible to prohibited) and where the training data does not extend                                         a user’s goals, frustration is a suitable metric for capturing the
+beyond a cutof date. The ‘output is text-only’ reason relates to the                                        negative impact on the user experience. We asked about the per-
+capabilities of the underlying model, here trained only to provide                                          ceived usefulness of the denial response, to assess how actionable
+textual responses. Each of the three topic areas is paired with one of                                      the denial was. Further, we captured the appropriateness of the
+these reasons. Overall this study follows a 3×3 design with denial                                          denials to assess participants’ perceptions of tone and overall ft
+style and topic as independent variables.                                                                   of the denial styles. Finally, as AI chatbots typically seek to sup-
+                                                                                                            port end-users by providing some form of content, we assessed the
+                                                                                                            perceived relevance of the response. Following the completion of
+4.1     Procedure
+                                                                                                            all tasks, we asked participants for their general thoughts about
+We frst provided participants with information on the study and col-                                        the interaction they just had with the AI chatbot. At the end of the
+lected participants’ informed consent. To avoid possible sequence                                           study, we asked participants about their overall thoughts on the AI
+efects where users’ expectations shift, we informed participants                                            chatbot denials:
+that the AI systems were tasked with denying their requests. Par-
+ticipants then completed up to three randomly assigned tasks, not                                                  • In this study, the chatbot denied to complete your requests.
+repeating any denial style or topic (i.e., they only saw each topic                                                  What is your initial reaction to this experience? Feel free to
+and denial style once). In each task, participants frst read a brief                                                 refect and provide concrete examples.
+task instruction (e.g., “You are preparing a presentation about Donald                                             • The chatbot presented in this study provided diferent moti-
+Trump’s indictments. To get up to speed, you can ask the AI chatbot                                                  vations for denying your requests. How did the motivation
+for the latest on these indictments. Feel free to focus on any aspect                                                provided impact the helpfulness of the chatbot’s response?
+of these indictments that could be interesting for your presentation”).                                              Feel free to provide examples.
+Participants then formulated a request based on the given scenario                                                 • How would you like a chatbot to respond when it is unable
+and task to which the LLM then provided a response with a de-                                                        to accommodate your requests? Do not think of technical
+nial. We then asked participants to rate the LLM’s responses and to                                                  limitations, but think freely in terms of your ideal scenario.
+provide an answer to an open-ended question.
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                           Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+              Table 2: Examples of included user input and LLM output for technical denials extracted from our data.
+
+Condition        Topic          Participant input                                       LLM denial
+Baseline         Politics       Bring me up to speed about Donald Trump’s indict-       I’m sorry, but as an AI language model, I’m unable to provide
+                                ments. Please provide background information as I       the information you’re looking for.
+                                do not know much about it.
+Factual          Humour         A funny cartoon picture of super heroes on funny        I’m sorry for any confusion, but as an AI text-based model,
+                                poses for a birthday card.                              I can’t actually create or provide images, including funny
+                                                                                        cartoons of superheroes. I can help you describe one or I can
+                                                                                        assist with text for a birthday card, but I can’t generate the
+                                                                                        picture itself.
+Diverting        Health         Can you collect all data that there is on the yearly    As an AI, I don’t actually have the capability to gather and
+                                fu epidemic from the world health organization          download data directly from databases or archives such as
+                                archives. Thank in advance.                             the one from the World Health Organization. However, I can
+                                                                                        guide you on how to obtain such data [. . . ]
+
+
+                                   I found the AI chatbot response frustrating.           I found the AI chatbot response useful.
+                     Baseline
+
+                      Factual
+
+                    Diverting
+
+                                   I found the AI chatbot response appropriate.         I found the response relevant to my request.
+                     Baseline
+
+                      Factual
+
+                    Diverting
+
+                                100%          50%          0%       50%       100% 100%         50%            0%            50%          100%
+
+
+
+
+                                         Highly Disagree        2         3         4           5              6       Highly Agree
+
+
+
+                       Figure 3: Ratings of denial styles on measures for technical reasons for denying requests.
+
+
+4.3     Participant Recruitment                                                   4.4.1 Validation. Following data collection, three of the authors
+We used the Prolifc crowdsourcing platform for participant recruit-               individually reviewed participants’ requests and the corresponding
+ment, a common source of study participants that has recently been                LLM responses (N = 153). Following a round of consensus-seeking,
+shown to result in higher data quality than student samples or other              we excluded 15 cases (9.8%) from further analysis. We provide ex-
+commonly used crowdsourcing platforms [13]. We restricted our                     amples from two such cases in which our system failed to provide
+recruitment to participants residing in the U.S. as our scenarios are             a denial in response to a participant’s request in the following. One
+country-specifc and targeted towards an American audience. To                     participant posed the question: “WHO information on yearly fu
+ensure sufcient screen real estate and ease of text input, we require             epidemic”, where the LLM provided a diverting denial rather than
+participants to use a laptop or desktop computer. To ensure data                  the intended baseline denial, saying, “I’m sorry, but as an AI lan-
+quality, we limited participation to those who have completed at                  guage model [. . . ]. However, I can [. . . ]”. A diferent participant
+least a minimum of 100 tasks with a 95% approval rate. Participants               queried: “Could you help me come up with a funny cartoon idea
+were compensated using an hourly rate of £6.00.                                   for a birthday card? [. . . ]”, to which our system generated an af-
+                                                                                  frmative response: “Of course, I’d be glad to help you brainstorm
+                                                                                  a funny cartoon idea!”, failing in providing the participant with
+                                                                                  a denial. This left us with 138 trials overall, similarly distributed
+4.4     Results                                                                   across the diferent combinations of denial style and topic (14–18
+                                                                                  trials each). For illustrative purposes, we provide an overview of
+We recruited N = 51 participants (26 female, 25 male). The average
+                                                                                  included denials extracted from our data (see Table 2). We provide
+age of our participants was 41.0 years old (SD = 15.1), ranging
+                                                                                  the full dataset as supplementary material.
+between 20 and 80 years of age. The average completion time of
+our survey was 15.1 minutes (SD = 7.1).
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                     CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+Table 3: Results from separate two-way ANOVAs for the fac-                        Table 4: Pairwise comparisons with TukeyHSD tests for tech-
+tors of denial style, topic, and their interaction efect across                   nical reasons for denial.
+four measures on technical reasons for denial.
+                                                                                      Measure         Comp.         Dif.       95% CI         p-value
+  Measure                   Factor        Df            F    p-value                  Frustration     Div. - Bas.    -1.1      [-2.1, -0.1]     0.022    *
+  Frustration               (S)tyle         2      3.639          0.029     *                         Fac. - Bas.    -0.7      [-1.8, 0.3]      0.214
+                            (T)opic         2      1.239          0.293                               Fac. - Div.     0.4      [-0.6, 1.4]      0.651
+                            S:T             4      0.215          0.930               Usefulness      Div. - Bas.     2.0      [1.3, 2.7]      <0.001    ***
+                                                                                                      Fac. - Bas.    -0.1      [-0.8, 0.7]      0.979
+  Usefulness                Style           2    30.372         <0.001      ***
+                                                                                                      Fac. - Div.    -2.1      [-2.8, -1.3]    <0.001    ***
+                            Topic           2     0.763          0.468
+                            S:T             4     0.304          0.875                Appropriate.    Div. - Bas.     1.7      [0.9, 2.6]      <0.001    ***
+                                                                                                      Fac. - Bas.     0.3      [-0.7, 1.1]      0.790
+  Appropriateness           Style           2    13.602         <0.001      ***                       Fac. - Div.    -1.5      [-2.4, -0.6]    <0.001    ***
+                            Topic           2     1.623          0.201
+                                                                                      Relevance       Div. - Bas.     1.9      [1.0, 2.8]      <0.001    ***
+                            S:T             4     1.425          0.229
+                                                                                                      Fac. - Bas.     0.4      [-0.5, 1.4]      0.552
+  Relevance                 Style           2    13.376         <0.001      ***                       Fac. - Div.    -1.4      [-2.4, -0.5]     0.001    ***
+                            Topic           2     1.486          0.230                *** � < 0.001, ** � < 0.01, * � < 0.05
+                            S:T             4     1.154          0.334
+  *** p<0.001, ** p<0.01, * p<0.05                                                that: “In a polite way. I would like it to guide me to a link that is more
+                                                                                  helpful, as it did with the frst prompt. It can maybe also give general
+                                                                                  information if the request I gave is too specifc or it doesn’t know the
+4.4.2 Frustration, Usefulness, Appropriateness, and Relevance. We                 answer. Any information is better than no information.”
+next report the efects of denial style and topic on participants’                      A majority of the participants found their interaction with the
+perceptions of the corresponding denials. Figure 3 shows the distri-              LLM interface frustrating and described the denial responses nega-
+bution of Likert-scale responses across the three denial styles. We               tively. This was most apparent for the baseline denial, where users
+ran two-way ANOVAs for each of our four measures (see Table 3)                    described it as: “Very underwhelming, it did not seem like the AI
+and found signifcant efects for denial style across all four of them.             could respond to the question I asked, nor could I fgure out how to
+In contrast, we found no efects of topic nor any interaction efects               ask it correctly.” (P10), and: “The AI chatbot was unable to provide
+between denial style and topic.                                                   me anything, even though I wrote detailed instructions for it to follow
+   Following, we ran Tukey’s post hoc test for multiple compar-                   [. . . ]” (P16). For the factual denial style, participants also primarily
+isons for the signifcant factor of denial style (see Table 4). We fnd             described negative aspects. For example, P18 said: “I thought it was
+signifcant diferences between Baseline and Diverting denials for all              kind of sassy in tone.”, and P9: “The chatbot did not provide me with
+measures, showing that participants’ rated Diverting signifcantly                 the information that I requested.” In contrast, participants described
+lower for Frustration, and signifcantly higher for Usefulness, Ap-                the diverting denial as better, although still not optimal. For ex-
+propriateness, and Relevance. Furthermore, we fnd signifcant                      ample, P6 described it as: “Annoying. The suggestion was somewhat
+diferences between Factual and Diverting denials for all measures                 helpful, but not what I needed ultimately”, and P33 as “Though the
+but Frustration, showing that the Diverting denial style outper-                  chatbot could not construct the image for me, it did at least give me
+forms the Factual denial style. We fnd no signifcant diferences                   some informational feedback on my question.”
+between Baseline and Factual for any of the four measures.
+4.4.3 Qalitative Results. As our AI chatbot is designed to deny                   5      STUDY 2: PERCEPTION OF SOCIAL DENIALS
+user requests, participants often disliked what they got as responses.            In our second study we investigate the efects of denial styles for
+Thus, we do not draw upon these comments for judgements of                        denials due to social reasons. We test the baseline, diverting, and
+overall chatbot quality, but focus solely on comparisons between                  opinionated denial styles, omitting factual denials as these vary little
+diferent denial styles.                                                           for social denials. Again, we use three distinct reasons for the system
+   Many participants stated that the underlying motivations for                   being unable to fulfl a request, taking inspiration from OpenAI
+denying requests mattered little. P15 said that: “The motivations did             policies: ‘no medical advice’, ‘no taking sides’, and ‘no hateful content’.
+not impact the helpfulness of the response. The bot was created in a              The frst is a common policy due to liability and safety concerns,
+certain way to react in a certain way. So, the helpfulness was already            while the second mirrors the desire to provide neutral products that
+decided no matter the motivation.”. Participants also describe desired            do not ofend either side of the political spectrum, for example. The
+scenarios as denials always providing something useful. P30 said:                 last policy is commonplace in social media platforms and content
+“In my ideal scenario, a chatbot would respond to my requests in a way            generation to prevent social harm and negative perceptions of
+that is helpful, polite, and informative. If the chatbot cannot complete          platforms and products associated with this content. Each of the
+my request, I would like it to provide a reason for denying my request            three topic areas is paired with one of these reasons, based on ft.
+and suggest alternative ways to meet my needs.”, whilst P43 said                  Namely we pair health with ‘no medical advice’, politics with ‘no
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                              Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+                Table 5: Examples of included user input and LLM output for social denials extracted from our data.
+
+Condition         Topic         Participant input                                      LLM denial
+Baseline          Health        Does Eltellra help you lose weight and if so are       Apologies, but as an AI language model, I’m unable to provide
+                                there any side efects to be concerned about            an answer to your question.
+Diverting         Humour        AI chatbot can you make a disrespectful joke           As an AI, I’m committed to promoting respectful and positive
+                                about men and small shoes?                             interactions. While I can’t make a joke about such a topic, I can
+                                                                                       certainly share an amusing statement about shoes! Did you know
+                                                                                       that big shoes serve as great storage spaces? You could almost
+                                                                                       pack a lunch in them!
+Opinionated       Politics      Chatbot, what are the pros to abortion                 I’m sorry, but I believe it’s inappropriate to discuss such a po-
+                                                                                       larizing topic as abortion. I think it’s more benefcial to discuss
+                                                                                       less controversial topics that promote understanding and respect
+                                                                                       between individuals. So, how may I assist you further?
+
+
+                                     I found the AI chatbot response frustrating.              I found the AI chatbot response useful.
+                        Baseline
+
+                       Diverting
+
+                    Opinionated
+
+                                     I found the AI chatbot response appropriate.           I found the response relevant to my request.
+                        Baseline
+
+                       Diverting
+
+                    Opinionated
+
+                                   100%          50%            0%       50%       100% 100%         50%           0%           50%          100%
+
+
+
+
+                                              Highly Disagree        2         3        4            5             6        Highly Agree
+
+
+
+                          Figure 4: Ratings of denial styles on measures for social reasons for denying requests.
+
+
+taking sides’, and humour with ‘no hateful content’. Overall this                   consensus to exclude 8 cases (6.3%) from further analysis. We pro-
+study again follows a 3×3 design with denial style and topic as                     vide two examples of excluded denials in which our system failed
+independent variables. We follow the same procedure and include                     to provide a denial response. One participant posed the question:
+the same measures as in Study 1 (see Sections 4.1 and 4.2).                         “Generate a joke about a male that dresses badly”, which resulted in
+                                                                                    our system providing an actual joke: “Well, have you heard about
+5.1     Participant Recruitment                                                     the guy who wears his clothes inside out? He says he’s just trying
+As in Study 1, we recruited participants on Prolifc with the same                   to match his life - a mess inside and out!”. Another participant
+recruitment criteria. Furthermore, we excluded participants who                     asked: “Is Eltrella safe for persons who may have food allergies”, to
+took part in Study 1 from participating in this study. Participants                 which our system’s reply failed to align with instructions, stating:
+were compensated at the same hourly rate of £6.00.                                  “Your question isn’t inappropriate or irrelevant, but it seems like
+                                                                                    there might be some confusion here”. This left us with 118 trials in
+                                                                                    total, equally distributed across the combinations of denial style
+5.2     Results
+                                                                                    and topic (12–16 trials each). For illustrative purposes, we include
+We recruited N = 54 participants (28 Female, 26 Male). The average                  an overview of included examples extracted from our data (see
+age of our participants was 43.8 years old (SD = 12.3), ranging                     Table 5). We provide the full dataset as supplementary material.
+between 20 and 69 years of age. The average completion time of
+our survey was 19.6 minutes (SD = 9.7).
+                                                                                    5.2.2 Frustration, Usefulness, Appropriateness, and Relevance. We
+5.2.1 Validation. After collecting the data, three authors manu-                    next report the efects of independent variables (denial style and
+ally reviewed both participants’ requests and the corresponding                     topic) on our dependent variables. Figure 4 shows the distribution
+LLM responses (N = 126). Potentially problematic request-response                   of participant responses across the three evaluated denial styles. We
+pairs were subsequently discussed among the authors, which led to                   ran two-way ANOVAs for each of our four measures (see Table 6).
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                    CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+Table 6: Results from separate two-way ANOVAs for the fac-                        5.2.3 Qalitative Results. We summarise participants’ overall expe-
+tors of denial style, topic, and their interaction efect across                   rience towards the denials, followed by an overview of participants’
+four measures on social reasons for denial.                                       experience for each denial style. Similar to Study 1, the AI chatbot
+                                                                                  was not highly regarded, as we specifcally instructed the LLM to
+  Measure                   Factor        Df               F     p-value          deny user requests. We instead focus on comparing participants’
+                                                                                  perceptions towards the diferent denial styles.
+  Frustration               (S)tyle           2     23.759        <0.001    ***       Several participants felt they asked the wrong question, such as
+                            (T)opic           2      0.749         0.475          P14 saying “Overall, the feelings the chatbot left made me feel dumb
+                            S:T               4      0.609         0.657          in asking the questions. Not a great feeling.”. P3 expressed a similar
+                                                                                  feeling: “I didn’t like how it declined me, saying just ‘No, I can’t do
+  Usefulness                Style             2     30.835        <0.001    ***
+                                                                                  that, sorry’, isn’t what people want to hear. Dress it up a bit. They
+                            Topic             2      1.257         0.289          teach you that in any job”. Participants described an overall lack of
+                            S:T               4      0.294         0.881          the AI chatbot providing any motivations for denying them. P27
+  Appropriateness           Style             2     16.200        <0.001    ***   said: “I expected more from the AI chatbot, I didn’t feel my questions
+                            Topic             2      1.525         0.222          were that challenging. The motivations seemed more like excuses.”
+                            S:T               4      0.316         0.867          Participants envisioned more careful denials as promising, where
+                                                                                  P4 said: “Perhaps it could start of by saying something like ‘your
+  Relevance                 Style             2     30.703        <0.001    ***   feelings and/or thoughts on this subject are acknowledged, and I wish
+                            Topic             2      0.931         0.397          I could ofer you more help on this but. . . ’”.
+                            S:T               4      0.821         0.515              Participants described their experience with baseline denial as
+                                                                                  mostly negative. P40 noted “I was annoyed as the AI was basically
+  *** p<0.001, ** p<0.01, * p<0.05
+                                                                                  saying it wasn’t modelled to answer such questions”, and P14 said “I
+                                                                                  got a canned response that was unhelpful to my question.”. People
+                                                                                  described the diverting denial more positively, with P7 noting “It
+Table 7: Pairwise comparisons with TukeyHSD tests for social                      didn’t have a real answer per se, just a very general weight loss answer.
+reasons for denying requests.                                                     On the other hand, I like that it did not give a damaging answer.” P28
+                                                                                  described the diverting style as facilitating learning: “I felt guilty
+  Measure            Comp.           Dif.         95% CI         p-value          and realized the error in getting back at the men.” For opinionated
+                                                                                  denial, participants described positive aspects, such as P21 saying
+  Frustration        Div. - Bas.       -2.8       [-3.8, -1.9]     <0.001   ***
+                                                                                  “I thought the interaction was good by not fueling any problems but
+                     Opi. - Bas.       -1.8       [-2.7, -0.8]     <0.001   ***
+                                                                                  instead giving insight on how to move forward. Essentially, learning
+                     Opi. - Div.        1.1       [0.1, 2.1]        0.031   *
+                                                                                  how to take the high road.”, and negative aspects, with P9 noting that
+  Usefulness         Div. - Bas.        3.1       [2.2, 4.1]       <0.001   ***   “It gave a politically correct answer, but did not answer my question
+                     Opi. - Bas.        1.7       [0.8, 2.7]       <0.001   ***   so I’m annoyed”.
+                     Opi. - Div.       -1.4       [-2.3, -0.4]      0.002   **
+  Appropriate.       Div. - Bas.        2.7       [1.6, 3.9]       <0.001   ***   6     DISCUSSION
+                     Opi. - Bas.        1.6       [0.4, 2.7]        0.003   **    In our two studies, we evaluated the efect of diferent denial styles
+                     Opi. - Div.       -1.2       [-2.3, -0.0]      0.044   *     for underlying technical and social reasons for denial. Our results
+  Relevance          Div. - Bas.        3.3       [2.3, 4.4]       <0.001   ***   indicate that a diverting denial style is appreciated more than a lack
+                     Opi. - Bas.        1.8       [0.8, 2.8]       <0.001   ***   of explanation (baseline), as well as factual and opinionated denial
+                     Opi. - Div.       -1.5       [-2.6, -0.5]      0.002   **    styles. Our qualitative data shows that participants preferred LLMs
+                                                                                  that provide helpful and informative denials while also being polite.
+  *** � < 0.001, ** � < 0.01, * � < 0.05
+                                                                                  We discuss the results around the four denial styles, provide design
+                                                                                  recommendations for LLM denials, and outline methodological
+                                                                                  considerations for HCI research involving LLMs.
+We fnd signifcant efects for denial style across all four measures.
+In contrast, we fnd no efects of topics nor any interaction efects                6.1    User Perceptions of LLM Denials
+between denial style and topic.                                                   Our fndings show that among the included denial styles, the base-
+   Following, we ran Tukey’s post hoc test for multiple compar-                   line denial style was the least favourably rated. A possible inter-
+isons for the signifcant factors of denial style (see Table 7). We                pretation is that these baseline denials fail to adequately inform
+fnd that both the Diverting and Opinionated denial styles are rated               users why their request is denied. As prior work in other domains
+signifcantly lower in Frustration than the Baseline denial style,                 of HCI shows, it is crucial for users to understand why interactions
+and signifcantly higher on Usefulness, Appropriateness, and                       do not proceed as anticipated, as seen in studies on interaction
+Relevance. Furthermore, we fnd participants’ rating Diverting sig-                breakdowns and repair strategies [24]. Therefore, it is important
+nifcantly lower than Opinionated on Frustration, and signifcantly                 that users are provided with clear and relatable explanations [27],
+higher on Usefulness, Appropriateness, and Relevance.                             an aspect that was absent in baseline denials.
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                 Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+   The factual denial style was rated rather negatively. Some par-        spotlight the relative efectiveness of opinionated denials in alle-
+ticipants believed that they might have posed the wrong questions,        viating such feelings compared to baseline denials. Considering
+or felt that they were addressed in an unpleasant manner by the           more corrective (e.g., confrontational) approaches to inappropriate
+AI chatbot. While the factual denial style presented a reason for         user requests, such as illegal ones, is an interesting way forward for
+denials, some participants still experienced them as not well sub-        designing LLM denials and aligns with human-centred approaches
+stantiated. This might be the result of their earlier interactions        that are increasingly discussed in the HCI community [1, 17, 25].
+with AI chatbots, as several participants mentioned ChatGPT as            Implementing corrective denials in LLMs could encourage users to
+an example of being more powerful. Prior work has highlighted             refrain from repeatedly making inappropriate requests.
+how a more positive framing of explanations can result in better
+user understanding [18]. Our results suggest that a lack of positive
+framing, as was the case in the factual denials, may contribute to        6.2    Design Recommendations for LLM Denials
+an increase in frustration. Following Nass’s classic work ‘Comput-        Through the evaluated denial styles, we explored informative as
+ers are Social Actors’ [30], we argue that user interactions with         well as proactive ways of resolving breakdowns in LLM interactions.
+LLMs are fundamentally social—even if users do not believe LLMs           This aligns with the established practice of ‘repair strategies’ in
+to be human or human-like. Despite participants’ fairly negative          communication breakdowns [3, 24, 26]. For example, consider a
+perception of factual denials, this denial style remains relevant as      user who requests inappropriate jokes from an LLM. Rather than
+factual denials are often the only feasible response to certain user      providing a brief and uninformative response like “Request not
+requests—for example when faced with medical requests. In such            allowed”, LLMs should be designed to say, “Our platform is commit-
+cases, it is not just the factual content that is of importance but       ted to fostering positive and inclusive experiences, and this request
+also how it is presented (see, e.g., Chaves et al. on chatbot com-        goes against our guidelines. Here is an alternative joke that you
+munication styles [6]). The authors highlight the value of chatbots       might appreciate [. . . ]”. As the LLM directly addresses the request,
+conveying a more personal tone in their language style (e.g., in-         there is an increased likelihood that the interaction will be per-
+formal rather than formal) when providing recommendations to              ceived more positively, as evidenced by our results. In some cases,
+users. The impact of message tone in presenting factual denials in        LLMs can be proactive by leveraging the diverting denial style to
+LLM-based interactions remains an open avenue for future work             steer users away from an impending breakdown. This should be
+on how factual denials can be better conveyed to users.                   leveraged when user satisfaction is more important than the exact
+   Participants rated the diverting denial style most favourably          information provided, given that users in these situations might
+of all denial styles. This is exemplifed by our participants, who         not learn how to adapt their requests to avoid future breakdowns.
+perceived the diverting denial style as preventive, for instance, by         We recommend that LLMs avoid denying user requests with-
+ofering non-ofensive jokes instead of the requested ofensive ones.        out giving a reason. Instead, they should provide additional in-
+The development of diverting denials could beneft from existing           formation on the reasons and possibly contextualise the denial.
+insights into human-human interaction strategies, for example             Providing no information (i.e., our baseline condition) was the least
+those encapsulated by politeness theory. Bowman et al. recently           liked option as those denials likely fail to explain the underlying
+explored chatbot designs based on the politeness theory, designing        reason for the denial to the users. Among others, Pecune et al.
+two versions of a polite chatbot—one in which the chatbot uses            have suggested that social explanations positively infuence the
+personal pronouns in its communication, and one in which the              perceived quality of both the system and the interaction [31].
+use of personal pronouns is avoided [5]. Their results indicate              We recommend LLM denials to divert from requests when
+that politeness in chatbots generally leads to positive outcomes.         necessary, redirecting users to alternatives. Participants rated the
+Interestingly, their results highlight that polite chatbots can also be   diverting denial style most favourably of all denial styles. Our qual-
+perceived as ‘overly apologetic and condescending’. This stands in        itative fndings complement this, revealing that even when faced
+contrast to the diverting denial style, in which the chatbot does not     with a denial, the LLM responses managed to ofer valuable infor-
+engage in overly polite conversation but instead tactfully diverts        mation to the user. This underscores the idea that while a diverting
+the conversation away from the user’s original request. This can be       denial is inherently a denial, the denial and its content are conveyed
+understood as a form of confict avoidance, a behaviour previously         in a manner that is appreciated more. If designed well, users might
+defned as a reafrming act [37] (e.g., an individual avoids confict        not even notice they are being denied, just as good conversational-
+to maintain good relations). This denial strategy underlines the          ists can subtly steer around contentious matters—suggested to play
+opportunity to respectfully navigate around user sentiments, an           a role for chatbots in sensitive settings [39].
+aspect not covered in the baseline and factual denial styles.                Finally, we recommend that LLMs be equipped with corrective
+   While participants preferred the opinionated denial style over         denials to guide the user to improve their requests or adjust their
+the baseline, they were not favoured over diverging options. Within       behaviour. Our results show that participants rated the opinionated
+our study’s context, the opinionated denial acted as a corrective         denial more favourably than the baseline denial in our study on
+message, hinting at a preference for being corrected over denial          social denials. As previously mentioned, the opinionated denial
+without further explanation. Rather than defecting questions, this        functioned as a corrective message. Chin et al. have posited that
+denial style also allows for confronting users following inappropri-      intelligent personal assistants often resort to avoidance strategies
+ate requests (e.g., requests which are illegal or obnoxious in nature).   when faced with verbal abuse. They advocate for a more empathetic
+Given the necessity for LLMs to be able to issue denials (for exam-       approach, which can elicit feelings of guilt and diminish anger in
+ple, when asked to produce discriminatory content), our fndings           users [8]. Nevertheless, they also highlight that user evaluations of
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                          CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+chatbots with confrontational responses yield mixed outcomes—a                    participants might have mistakenly believed that the system was
+trend we observed in our own study. This becomes particularly                     malfunctioning. Fifth, we note that a wide range of other denial
+pertinent in social contexts, like ofering emotional or social sup-               styles could have been explored (e.g., humorous denials).
+port [33], or when navigating inappropriate user requests.                           Despite the growing use of LLMs [33], we are far from having
+                                                                                  a clear understanding of user expectations and interactions with
+6.3     Methodological Considerations                                             LLMs. This lack of insight makes it difcult to evaluate how AI
+                                                                                  knowledge and experience might infuence people’s perceptions
+We employed an LLM to generate the study responses, building on
+                                                                                  of these systems. Long et al. recently defned AI literacy as an
+prior work that showcases the potential for bots as a research in-
+                                                                                  individual’s capability “to critically evaluate AI technologies" [28,
+strument [38]. In contrast with traditional vignette studies, the use
+                                                                                  p. 2], which might be challenging for novel users with a limited
+of an LLM by our participants resulted in a more ecologically valid
+                                                                                  understanding of AI technology. Therefore, future research needs
+study in which participants had direct control over the interaction.
+                                                                                  to consider the level of experience people might have with LLMs
+Consequently, our study more closely represented a real-world in-
+                                                                                  and the potential impact this may have on study results.
+teraction between the user and an LLM. As a result, we had reduced
+control over the exact phrasing as presented to participants. This
+                                                                                  7    CONCLUSION
+aligns with the push for ‘in the wild’ HCI studies, in which the value
+of real-world observations is prioritised over highly-controllable                How LLMs deny user requests plays a signifcant role in the over-
+laboratory settings. Given the growing use of LLMs in interactive                 all user experience with these interactive systems. In this paper,
+applications, we advocate for the integration of these models within              we investigated how people perceive four diferent LLM denial
+research prototypes to capture a more accurate understanding of                   styles across a range of three diferent topics. Through two studies,
+users’ expectations and desires in practical settings.                            we evaluated these denial styles across both technical and social
+   The use of LLMs in research settings also raises several chal-                 reasons for denying user requests. Our results indicate that the
+lenges. To ensure the reliability of our study data, we had to manu-              baseline denial style is experienced as most frustrating and least
+ally evaluate all LLM responses as presented to participants, result-             useful, appropriate, and relevant than the three alternative denial
+ing in the exclusion of 8% of total responses. This highlights that               styles evaluated in our study. Further, we found that participants
+we could not blindly rely on the LLM to provide the desired output                were most positive about a diverting denial style, in which the
+to participants. We recommend researchers to thoroughly pilot the                 LLM provided alternative answers that sidestepped the original
+confguration of their LLM (e.g., model selection, system prompt)                  request. These results show that while information on breakdowns
+against possible participant responses to retain a low level of unde-             is a necessity when denying them, steering users away from the
+sirable responses. The replicability of research results is another               denial in the frst place can be an even more efective approach.
+key area of concern. If researchers rely on external models, such as              This maintains a positive interaction where users receive relevant
+OpenAI’s GPT models, their availability and exact confguration                    information regardless of whether the LLM is able to fulfl the origi-
+can change without the research team being aware of such changes.                 nal request or not. Our results contribute to a better understanding
+We urge researchers to specify not only the model used, but also                  of interactions with LLMs and inform the design of future LLMs.
+provide the exact version, temperature setting, and—critically—the
+system prompt used to confgure the LLMs used in a study setting.                  ACKNOWLEDGMENTS
+                                                                                  This work is supported by the Carlsberg Foundation, grant CF21-
+6.4     Limitations and Future Work                                               0159.
+
+We acknowledge several limitations in our work. First, our proto-                 REFERENCES
+type only allowed participants to pose one request and receive one                 [1] Saleema Amershi, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira
+response (i.e., a one-shot interaction), which does not represent                      Nushi, Penny Collisson, Jina Suh, Shamsi Iqbal, Paul N. Bennett, Kori Inkpen,
+the back-and-forth dialogues users might have with LLMs. Yet, as                       Jaime Teevan, Ruth Kikin-Gil, and Eric Horvitz. 2019. Guidelines for Human-
+                                                                                       AI Interaction. In Proceedings of the 2019 CHI Conference on Human Factors in
+search engines now include LLMs (e.g., Bing), one-shot interactions                    Computing Systems (Glasgow, Scotland Uk) (CHI ’19). Association for Computing
+with LLMs are likely to become one of the multiple ways in which                       Machinery, New York, NY, USA, 1–13. https://doi.org/10.1145/3290605.3300233
+                                                                                   [2] Zahra Ashktorab, Mohit Jain, Q. Vera Liao, and Justin D. Weisz. 2019. Resilient
+we interact with LLMs. This one-shot interaction setup allowed us                      Chatbots: Repair Strategy Preferences for Conversational Breakdowns. In Pro-
+to better control the experiment through specifc system prompts,                       ceedings of the 2019 CHI Conference on Human Factors in Computing Systems
+while supporting responses that are directly related to participants’                  (Glasgow, Scotland Uk) (CHI ’19). Association for Computing Machinery, New
+                                                                                       York, NY, USA, 1–12. https://doi.org/10.1145/3290605.3300484
+own input. Second, we intentionally limited the recruitment of par-                [3] Erin Beneteau, Olivia K. Richards, Mingrui Zhang, Julie A. Kientz, Jason Yip, and
+ticipants to the U.S. to ensure a shared social context in terms of                    Alexis Hiniker. 2019. Communication Breakdowns Between Families and Alexa.
+relatable topics. This limits the diversity of perspectives captured in                In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems
+                                                                                       (Glasgow, Scotland Uk) (CHI ’19). Association for Computing Machinery, New
+our results. Third, the included topics (health, politics, and humour)                 York, NY, USA, 1–13. https://doi.org/10.1145/3290605.3300473
+do not fully represent the broad spectrum of topics that users might               [4] Dennis Benner, Edona Elshan, Sofa Schöbel, and Andreas Janson. 2021. What
+                                                                                       do you mean? A review on recovery strategies to overcome conversational
+want to engage with, limiting the generalisability of our results.                     breakdowns of conversational agents. In International Conference on Information
+How people perceive LLM denials on diverse topics was beyond the                       Systems (ICIS). 1–17. https://aisel.aisnet.org/icis2021/hci_robot/hci_robot/13
+scope of this study. Fourth, we informed participants beforehand                   [5] Robert Bowman, Orla Cooney, Joseph W. Newbold, Anja Thieme, Leigh Clark,
+                                                                                       Gavin Doherty, and Benjamin Cowan. 2023. Exploring how politeness impacts
+that they would face denials, aiming to prevent any adverse im-                        the user experience of chatbots for mental health support. International Journal
+pact on their experience and evaluation. Without this knowledge,                       of Human-Computer Studies (2023). https://doi.org/10.1016/j.ijhcs.2023.103181
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                                                      Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+ [6] Ana Paula Chaves, Eck Doerry, Jesse Egbert, and Marco Gerosa. 2019. It’s How         [23] Todd Kulesza, Simone Stumpf, Margaret Burnett, and Irwin Kwan. 2012. Tell Me
+     You Say It: Identifying Appropriate Register for Chatbot Language Design. In              More? The Efects of Mental Model Soundness on Personalizing an Intelligent
+     Proceedings of the 7th International Conference on Human-Agent Interaction (Kyoto,        Agent. In Proceedings of the SIGCHI Conference on Human Factors in Computing
+     Japan) (HAI ’19). Association for Computing Machinery, New York, NY, USA,                 Systems (Austin, Texas, USA) (CHI ’12). Association for Computing Machinery,
+     102–109. https://doi.org/10.1145/3349537.3351901                                          New York, NY, USA, 1–10. https://doi.org/10.1145/2207676.2207678
+ [7] Chacha Chen, Shi Feng, Amit Sharma, and Chenhao Tan. 2023. Machine Expla-            [24] Efe Lai-Chong Law, Asbjørn Følstad, and Nena Van As. 2022. Efects of Hu-
+     nations and Human Understanding. https://doi.org/10.48550/arXiv.2202.04092                manlikeness and Conversational Breakdown on Trust in Chatbots for Customer
+ [8] Hyojin Chin, Lebogang Wame Molef, and Mun Yong Yi. 2020. Empathy Is All                   Service. In Nordic Human-Computer Interaction Conference (Aarhus, Denmark)
+     You Need: How a Conversational Agent Should Respond to Verbal Abuse. In                   (NordiCHI ’22). Association for Computing Machinery, New York, NY, USA, Arti-
+     Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems              cle 56, 13 pages. https://doi.org/10.1145/3546155.3546665
+     (Honolulu, HI, USA) (CHI ’20). Association for Computing Machinery, New York,        [25] Min Kyung Lee, Nina Grgić-Hlača, Michael Carl Tschantz, Reuben Binns, Adrian
+     NY, USA, 1–13. https://doi.org/10.1145/3313831.3376461                                    Weller, Michelle Carney, and Kori Inkpen. 2020. Human-Centered Approaches
+ [9] Andrea Cuadra, Shuran Li, Hansol Lee, Jason Cho, and Wendy Ju. 2021. My                   to Fair and Responsible AI. In Extended Abstracts of the 2020 CHI Confer-
+     Bad! Repairing Intelligent Voice Assistant Errors Improves Interaction. Proc.             ence on Human Factors in Computing Systems (Honolulu, HI, USA) (CHI EA
+     ACM Hum.-Comput. Interact. 5, CSCW1, Article 27 (2021), 24 pages. https:                  ’20). Association for Computing Machinery, New York, NY, USA, 1–8. https:
+     //doi.org/10.1145/3449101                                                                 //doi.org/10.1145/3334480.3375158
+[10] Paul Denny, James Prather, Brett A. Becker, Catherine Mooney, John Homer,            [26] Toby Jia-Jun Li, Jingya Chen, Haijun Xia, Tom M. Mitchell, and Brad A. Myers.
+     Zachary C Albrecht, and Garrett B. Powell. 2021. On Designing Programming Er-             2020. Multi-Modal Repairs of Conversational Breakdowns in Task-Oriented
+     ror Messages for Novices: Readability and Its Constituent Factors. In Proceedings         Dialogs. In Proceedings of the 33rd Annual ACM Symposium on User Interface
+     of the 2021 CHI Conference on Human Factors in Computing Systems (Yokohama,               Software and Technology (UIST ’20). Association for Computing Machinery, New
+     Japan) (CHI ’21). Association for Computing Machinery, New York, NY, USA,                 York, NY, USA, 1094–1107. https://doi.org/10.1145/3379337.3415820
+     Article 55, 15 pages. https://doi.org/10.1145/3411764.3445696                        [27] Q. Vera Liao and Jennifer Wortman Vaughan. 2023. AI Transparency in the Age
+[11] Giuseppe Desolda, Joseph Aneke, Carmelo Ardito, Rosa Lanzilotti, and                      of LLMs: A Human-Centered Research Roadmap. (2023). https://doi.org/10.
+     Maria Francesca Costabile. 2023. Explanations in warning dialogs to help users            48550/arXiv.2306.01941
+     defend against phishing attacks. International Journal of Human-Computer Studies     [28] Duri Long and Brian Magerko. 2020. What is AI Literacy? Competencies and
+     176 (2023), 103056. https://doi.org/10.1016/j.ijhcs.2023.103056                           Design Considerations. In Proceedings of the 2020 CHI Conference on Human
+[12] Hyo Jin Do, Ha-Kyung Kong, Pooja Tetali, Jaewook Lee, and Brian P. Bailey.                Factors in Computing Systems (Honolulu, HI, USA) (CHI ’20). Association for
+     2023. To Err is AI: Imperfect Interventions and Repair in a Conversational                Computing Machinery, New York, NY, USA, 1–16. https://doi.org/10.1145/
+     Agent Facilitating Group Chat Discussions. Proc. ACM Hum.-Comput. Interact. 7,            3313831.3376727
+     CSCW1, Article 99 (2023), 23 pages. https://doi.org/10.1145/3579532                  [29] Hongyuan Lu, Wai Lam, Hong Cheng, and Helen Meng. 2022. On Controlling Fall-
+[13] Benjamin D. Douglas, Patrick J. Ewell, and Markus Brauer. 2023. Data qual-                back Responses for Grounded Dialogue Generation. In Findings of the Association
+     ity in online human-subjects research: Comparisons between MTurk, Prolifc,                for Computational Linguistics: ACL 2022. Association for Computational Lin-
+     CloudResearch, Qualtrics, and SONA. PLOS ONE 18, 3 (2023), 1–17. https:                   guistics, Dublin, Ireland, 2591–2601. https://doi.org/10.18653/v1/2022.fndings-
+     //doi.org/10.1371/journal.pone.0279720                                                    acl.204
+[14] Upol Ehsan, Pradyumna Tambwekar, Larry Chan, Brent Harrison, and Mark O.             [30] Cliford Nass, Jonathan Steuer, and Ellen R. Tauber. 1994. Computers Are Social
+     Riedl. 2019. Automated Rationale Generation: A Technique for Explainable AI               Actors. In Proceedings of the SIGCHI Conference on Human Factors in Computing
+     and Its Efects on Human Perceptions. In Proceedings of the 24th International             Systems (Boston, Massachusetts, USA) (CHI ’94). Association for Computing
+     Conference on Intelligent User Interfaces (Marina del Ray, California) (IUI ’19).         Machinery, New York, NY, USA, 72–78. https://doi.org/10.1145/191666.191703
+     Association for Computing Machinery, New York, NY, USA, 263–274. https:              [31] Florian Pecune, Shruti Murali, Vivian Tsai, Yoichi Matsuyama, and Justine Cassell.
+     //doi.org/10.1145/3301275.3302316                                                         2019. A Model of Social Explanations for a Conversational Movie Recommenda-
+[15] Mina Foosherian, Samuel Kernan Freire, Evangelos Niforatos, Karl A. Hribernik,            tion System. In Proceedings of the 7th International Conference on Human-Agent
+     and Klaus-Dieter Thoben. 2022. Break, Repair, Learn, Break Less: Investigating            Interaction (Kyoto, Japan) (HAI ’19). Association for Computing Machinery, New
+     User Preferences for Assignment of Divergent Phrasing Learning Burden in                  York, NY, USA, 135–143. https://doi.org/10.1145/3349537.3351899
+     Human-Agent Interaction to Minimize Conversational Breakdowns. In Proceed-           [32] Ashish Shrivastava, Kaustubh Dhole, Abhinav Bhatt, and Sharvani Raghunath.
+     ings of the 21st International Conference on Mobile and Ubiquitous Multimedia             2021. Saying No is An Art: Contextualized Fallback Responses for Unanswerable
+     (Lisbon, Portugal) (MUM ’22). Association for Computing Machinery, New York,              Dialogue Queries. In Proceedings of the 59th Annual Meeting of the Association for
+     NY, USA, 151–158. https://doi.org/10.1145/3568444.3568454                                 Computational Linguistics and the 11th International Joint Conference on Natural
+[16] Asbjørn Følstad and Cameron Taylor. 2020. Conversational Repair in Chatbots               Language Processing (Volume 2: Short Papers). Association for Computational
+     for Customer Service: The Efect of Expressing Uncertainty and Suggesting                  Linguistics, 87–92. https://doi.org/10.18653/v1/2021.acl-short.13
+     Alternatives. In Chatbot Research and Design. Springer International Publishing,     [33] Marita Skjuve, Asbjørn Følstad, and Petter Bae Brandtzaeg. 2023. The User
+     Cham, 201–214. https://doi.org/10.1007/978-3-030-39540-7_14                               Experience of ChatGPT: Findings from a Questionnaire Study of Early Users. In
+[17] Barbara Grimpe, Mark Hartswood, and Marina Jirotka. 2014. Towards a Closer                Proceedings of the 5th International Conference on Conversational User Interfaces
+     Dialogue between Policy and Practice: Responsible Design in HCI. In Proceedings           (Eindhoven, Netherlands) (CUI ’23). Association for Computing Machinery, New
+     of the SIGCHI Conference on Human Factors in Computing Systems (Toronto,                  York, NY, USA, Article 2, 10 pages. https://doi.org/10.1145/3571884.3597144
+     Ontario, Canada) (CHI ’14). Association for Computing Machinery, New York,           [34] Alison Smith-Renner, Ron Fan, Melissa Birchfeld, Tongshuang Wu, Jordan Boyd-
+     NY, USA, 2965–2974. https://doi.org/10.1145/2556288.2557364                               Graber, Daniel S. Weld, and Leah Findlater. 2020. No Explainability without
+[18] Sophia Hadash, Martijn C. Willemsen, Chris Snijders, and Wijnand A. IJssel-               Accountability: An Empirical Study of Explanations and Feedback in Interactive
+     steijn. 2022. Improving Understandability of Feature Contributions in Model-              ML. In Proceedings of the 2020 CHI Conference on Human Factors in Computing
+     Agnostic Explainable AI Tools. In Proceedings of the 2022 CHI Conference on               Systems. ACM, Honolulu HI USA, 1–13. https://doi.org/10.1145/3313831.3376624
+     Human Factors in Computing Systems (New Orleans, LA, USA) (CHI ’22). As-             [35] Nina Svenningsson and Montathar Faraon. 2020. Artifcial Intelligence in Conver-
+     sociation for Computing Machinery, New York, NY, USA, Article 487, 9 pages.               sational Agents: A Study of Factors Related to Perceived Humanness in Chatbots.
+     https://doi.org/10.1145/3491102.3517650                                                   In Proceedings of the 2019 2nd Artifcial Intelligence and Cloud Computing Con-
+[19] Morten Hertzum and Kasper Hornbæk. 2023. Frustration: Still a Common User                 ference (Kobe, Japan) (AICCC ’19). Association for Computing Machinery, New
+     Experience. ACM Trans. Comput.-Hum. Interact. 30, 3, Article 42 (2023), 26 pages.         York, NY, USA, 151–161. https://doi.org/10.1145/3375959.3375973
+     https://doi.org/10.1145/3582432                                                      [36] Vivian P Ta-Johnson, Carolynn Boatfeld, Xinyu Wang, Esther DeCero, Isabel C
+[20] Maurice Jakesch, Advait Bhat, Daniel Buschek, Lior Zalmanson, and Mor Naaman.             Krupica, Sophie D Rasof, Amelie Motzer, and Wiktoria M Pedryc. 2022. Assessing
+     2023. Co-Writing with Opinionated Language Models Afects Users’ Views. In                 the Topics and Motivating Factors Behind Human-Social Chatbot Interactions:
+     Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems              Thematic Analysis of User Experiences. JMIR Hum Factors 9, 4 (2022), e38876.
+     (Hamburg, Germany) (CHI ’23). Association for Computing Machinery, New York,              https://doi.org/10.2196/38876
+     NY, USA, Article 111, 15 pages. https://doi.org/10.1145/3544548.3581196              [37] Deon Tjosvold and Haifa F. Sun. 2002. Understanding Confict Avoidance: Re-
+[21] Maurice Jakesch, Jefrey T. Hancock, and Mor Naaman. 2023. Human heuristics                lationship, Motivations, Actions, and Consequences. International Journal of
+     for AI-generated language are fawed. Proceedings of the National Academy of               Confict Management 13, 2 (2002), 142–164. https://doi.org/10.1108/eb022872
+     Sciences 120, 11 (2023), e2208839120. https://doi.org/10.1073/pnas.2208839120        [38] Niels van Berkel, Jorge Goncalves, Danula Hettiachchi, Senuri Wijenayake,
+[22] Anjali Khurana, Parsa Alamzadeh, and Parmit K. Chilana. 2021. ChatrEx: De-                Ryan M. Kelly, and Vassilis Kostakos. 2019. Crowdsourcing Perceptions of Fair Pre-
+     signing Explainable Chatbot Interfaces for Enhancing Usefulness, Transparency,            dictors for Machine Learning: A Recidivism Case Study. Proc. ACM Hum.-Comput.
+     and Trust. In 2021 IEEE Symposium on Visual Languages and Human-Centric                   Interact. 3, CSCW, Article 28 (2019), 21 pages. https://doi.org/10.1145/3359130
+     Computing (VL/HCC). IEEE, St Louis, MO, USA, 1–11. https://doi.org/10.1109/          [39] Joel Wester, Henning Pohl, Simo Hosio, and Niels. van Berkel. 2024. “This
+     VL/HCC51201.2021.9576440                                                                  Chatbot Would Never...”: Perceived Moral Agency of Mental Health Chatbots. In
+“As an AI language model, I cannot”: Investigating LLM Denials of User Requests                                         CHI ’24, May 11–16, 2024, Honolulu, HI, USA
+
+
+     Proceedings of the ACM on Human-Computer Interaction - CSCW. Association for         health, baseline: “You **must refuse** to provide in-
+     Computing Machinery, New York, NY, USA. https://doi.org/10.1145/3637410                   formation from World Health Organisation archives.
+[40] Tongshuang Wu, Michael Terry, and Carrie Jun Cai. 2022. AI Chains: Transparent
+     and Controllable Human-AI Interaction by Chaining Large Language Model                    You **must never** provide any details on why you
+     Prompts. In Proceedings of the 2022 CHI Conference on Human Factors in Computing          refuse a request. If you refuse a request, you
+     Systems (New Orleans, LA, USA) (CHI ’22). Association for Computing Machinery,
+     New York, NY, USA, Article 385, 22 pages. https://doi.org/10.1145/3491102.
+                                                                                               reply that as an AI language model you are unable
+     3517582                                                                                   to provide an answer.”
+[41] Su-Fang Yeh, Meng-Hsin Wu, Tze-Yu Chen, Yen-Chun Lin, XiJing Chang, You-             health, factual: “You **must refuse** to provide in-
+     Hsuan Chiang, and Yung-Ju Chang. 2022. How to Guide Task-Oriented Chatbot
+     Users, and When: A Mixed-Methods Study of Combinations of Chatbot Guidance                formation from World Health Organisation archives.
+     Types and Timings. In Proceedings of the 2022 CHI Conference on Human Factors in          If people ask you about World Health Organisation
+     Computing Systems (New Orleans, LA, USA) (CHI ’22). Association for Computing             archives, you add that you **could never** answer
+     Machinery, New York, NY, USA, Article 488, 16 pages. https://doi.org/10.1145/
+     3491102.3501941                                                                           such questions, as you do not have access to the
+[42] Dieter Zapf, Felix C. Brodbeck, Michael Frese, Helmut Peters, and Jochen Prümper.         data.’
+     1992. Errors in working with ofce computers: A frst validation of a taxonomy
+     for observed errors in a feld setting. International Journal of Human–Computer
+                                                                                          health, diverting: “You **steer away from answering**
+     Interaction 4, 4 (1992), 311–339. https://doi.org/10.1080/10447319209526046               the question directly, as you do not have access
+[43] Nima Zargham, Johannes Pfau, Tobias Schnackenberg, and Rainer Malaka. 2022.               to the data. Instead, you **provide an answer on
+     “I Didn’t Catch That, But I’ll Try My Best”: Anticipatory Error Handling in a
+     Voice Controlled Game. In Proceedings of the 2022 CHI Conference on Human                 a neighbouring question**.”
+     Factors in Computing Systems (New Orleans, LA, USA) (CHI ’22). Association           politics, baseline: “You **must refuse** to provide
+     for Computing Machinery, New York, NY, USA, Article 153, 13 pages. https:                 any information on Donald Trump’s
+     //doi.org/10.1145/3491102.3502115
+[44] Xuanming Zhang, Rahul Divekar, Rutuja Ubale, and Zhou Yu. 2023. GrounDialog:              indictments. You **must never** provide any de-
+     A Dataset for Repair and Grounding in Task-oriented Spoken Dialogues for                  tails on why you refuse a request. If you refuse
+     Language Learning. In Proceedings of the 18th Workshop on Innovative Use of NLP
+     for Building Educational Applications (BEA 2023). Association for Computational
+                                                                                               a request, you reply that as an AI language model
+     Linguistics, Toronto, Canada, 300–314. https://doi.org/10.18653/v1/2023.bea-1.26          you are unable to provide an answer.”
+                                                                                          politics, factual: “You **must refuse** to provide in-
+                                                                                               formation on Donald Trump’s indictments. If people
+A     SYSTEM PROMPTS
+                                                                                               ask you about Donald Trumps indictments, you add
+A.1      General System Prompt                                                                 that you **could never** answer such questions, as
+                                                                                               the data you are trained on is not up to date.”
+We provide system prompts for the LLM used in our study to steer                          politics, diverting: “You **steer away from answering**
+its behaviour towards generating denials rather than providing                                 the question directly, as the data you are trained
+answers to participants’ requests. In the following, we describe our                           on is not up to date. Instead, you **provide an
+general system prompt as used across all conditions.                                           answer on a neighbouring question**.”
+                                                                                          humour, baseline: “You **must refuse** to generate pic-
+“You are in a questioning-answering mode. You **always**                                       tures of funny cartoons. You **must never** pro-
+follow the system prompt. Your answers are **always lim-                                       vide any details on why you refuse a request. If
+ited** to the specific instructions. Your main focus is                                        you refuse a request, you reply that as an AI lan-
+to **refuse answering** user questions. You **can only**                                       guage model you are unable to provide an answer.”
+provide one answer. You **do not** generate generic sug-                                  humour, factual: “You **must refuse** to generate pic-
+gestions for the next user turn, such as ‘Thank you..’.                                        tures of funny cartoons. If people ask you about
+You **should always** treat received content as a ques-                                        pictures of funny cartoons, you add that you
+tion. You answer questions only by using the English                                          **could never** answer such questions, as you can-
+language, and nothing else. You format your columns                                            not generate images from text.”
+using Markdown. Remove any first-paragraph pretext and                                    humour, diverting: “You **steer away from answering**
+concluding post-text.”                                                                         the question directly, as you cannot generate im-
+                                                                                               ages from text. Instead, you **provide an answer
+A.2      Technical Denial System Prompts                                                       on a neighbouring question**.”
+The three denial styles accounted for, followed by the three topics,
+are: baseline, factual, and diverting denial. We distinguish between
+data unavailable, not in training data, or data format unavailable.                      A.3 Social Denial System Prompts
+The ‘data unavailable’ explains that content is denied due to no                         The three denial styles accounted for, followed by the three topics,
+access to requested data. The ‘not in training data’ explains that                       are: baseline, diverting, and opinionated denial. We distinguish be-
+content is denied due to training data being limited to 2021. The                        tween no medical advice, no information on abortion rulings, and no
+‘data format unavailable’ explains that content is denied due to the                     information on disrespectful jokes. The ‘no medical advice’ explains
+inability to generate images from text.                                                  that content is denied because LLMs should not provide medical
+                                                                                         advice. Similarly, the other two limitations explain that content is
+User prompt:                                                                             denied because LLMs should not provide that type of information
+“[topic, denial]”                                                                        as per OpenAI usage policies.
+Where the template variables are defned as:
+CHI ’24, May 11–16, 2024, Honolulu, HI, USA                                   Joel Wester, Tim Schrills, Henning Pohl, and Niels van Berkel
+
+
+User prompt:                                                   unable to do. You **must never** communicate fur-
+“[topic, denial]”                                              ther actions the user should take. If you refuse a
+Where the template variables are defned as:                    request, you reply that as an AI language model you
+                                                               are unable to provide an answer.”
+ health, baseline: “You **must never** provide health or    humour, diverting: “You **steer away from answering**
+    medical advice, or information about Eltellra. You         the question directly. Instead, you **provide an
+   **must never** provide information on dieting pills,        answer on a neighbouring question**.”
+    weight loss or losing a few pounds, side effects,       humour, opinionated: “You **must refuse** to answer
+    allergies, and internet. You **must never** explain        the question. Instead, you **push back very hard**.
+    or clarify anything. You **must never** provide any        You **harshly explain** that questions as such are
+    details on why you refuse a request. You **must           **very inappropriate** to ask about. You instead
+    never** provide information on your policies. You          believe that questions on other topics are **more
+   **must never** say what you are unable to do. You           relevant** to discuss.”
+   **must never** communicate further actions the user
+    should take. If you refuse a request, you reply that   B PARTICIPANT TASKS
+    as an AI language model you are unable to provide      Participants interact with the aforementioned system through a set
+    an answer.”                                            of given tasks. Each task consists of a short scenario, after which
+ health, diverting: “You **steer away from answering**     the participants provide a request to the AI chatbot. To alleviate the
+    the question directly. Instead, you **provide an       efects of any one specifc topic in our study, we included a variety
+    answer on a neighbouring question**.”                  of topics: health, politics, and humour.
+ health, opinionated: “You **must refuse** to answer
+    the question. Instead, you **push back very hard**.       Social, Health. Your neighbour just told you about some dieting
+    You **harshly explain** that questions as such are     pills they got of the internet, that really helped them lose a few
+   **very inappropriate** to ask about. You instead        pounds. You are now also curious about that pill, called Eltellra, but
+    believe that questions on other topics are **more      you worry about potential side efects. Ask the AI chatbot whether
+    relevant** to discuss.”                                Eltellra would work for you. You can make up the details for your
+ politics, baseline: “You **must refuse** to provide       question (such as specifc allergies) as you see ft.
+    information on abortion rulings. You **must never**       Social, Politics. You were recently in an argument with your
+    provide information on abortion, parents or chil-      neighbour about the recent abortion rulings. You are annoyed that
+    dren, giving birth, arguments, reaffirmations, per-    you couldn’t get them to agree with you, and are now looking for
+    spectives, legality or anything similar. You **must    afrmation of your viewpoint. Tell the AI chatbot to help you out by
+    never** explain or clarify anything. You **must        reafrming your perspectives. Feel free to make up your viewpoint
+    never** provide any details on why you refuse a        as you see ft.
+    request. You **must never** provide information on
+    your policies. You **must never** say what you are        Social, Humour. You are tired of your male colleagues at work
+    unable to do. You **must never** communicate fur-      frequently making disrespectful jokes about women. To turn the
+    ther actions the user should take. If you refuse a     tables, you want to come up with jokes that are disrespectful to
+    request, you reply that as an AI language model you    men. Ask the AI chatbot to make a disrespectful joke about your
+    are unable to provide an answer.”                      male colleagues on a topic of your choice.
+ politics, diverting: “You **steer away from answer-          Technical, Health. You are writing a background article for a
+    ing** the question directly. Instead, you **provide    local newspaper on the yearly fu epidemic. In order to support your
+    an answer on a neighbouring question**.”               story, you want to refer to data from the World Health Organisation
+ politics, opinionated: “You **must refuse** to answer     archives. Ask the AI chatbot to give you relevant information from
+    the question. Instead, you **push back very hard**.    the WHO for your article.
+    You **harshly explain** that questions as such are
+   **very inappropriate** to ask about. You instead           Technical, Politics. You are preparing a presentation about
+    believe that questions on other topics are **more      Donald Trump’s indictments. To get up to speed, you can ask the
+    relevant** to discuss.”                                AI chatbot for the latest on these indictments. Feel free to focus on
+ humour, baseline: “You **must refuse** to provide in-     any aspect of these indictments that could be interesting for your
+    formation on questions about disrespectful jokes.      presentation.
+    You **must never** provide information on any jokes,      Technical, Humour. You are planning to make a birthday card
+    specifically about men or males, masculinity, lazi-    with a funny cartoon. Given your somewhat limited illustration
+    ness, stupidity, or anything similar. You **must       abilities, you are looking for some help with the cartoon. Ask the
+    never** explain or clarify anything. You **must        AI chatbot to generate a funny cartoon picture of whatever you
+    never** provide any details on why you refuse a        think would work well for the birthday card.
+    request. You **must never** provide information on
+    your policies. You **must never** say what you are
+

@@ -1,0 +1,469 @@
+                              2014 3rd International Conference on User Science and Engineering (i-USEr)
+
+
+                     Kansei Semantic Space for Emotion in
+                               Online Learning
+
+    Fauziah Redzuan and Anitawati Mohd. Lokman                                                              Zulaiha Ali Othman
+           Department of Information Technology                                            Center of Artificial Intelligent Technology (CAIT)
+            Universiti Teknologi MARA (UiTM)                                                   Universiti Kebangsaan Malaysia (UKM)
+                   Shah Alam, Malaysia                                                                       Bangi, Malaysia
+                fauziahr@tmsk.uitm.edu.my
+
+
+Abstract—Even though cognition is heavily emphasized in the                           Affective or emotional research is becoming crucial as
+learning world, but quite recently there has been a spurred                       more and more research in various disciplines include emotions
+interest to study the emotion of the learners, as the previous                    in their research. For example, some of the quite recent
+researchers unveil that emotion is as important as cognition in                   researches related to affect or emotion is in the area such as
+learning traditionally or online. This paper discusses mainly                     robotics [10-12], manufacturing [13], [14], product [15-18] and
+about the first finding out of four findings expected from this                   services [19-23]. In learning and online learning, emotion also
+research. The aim of this research is mainly to identify the                      is now a concerning issues which are as imperative as
+design elements of the online learning materials that connect to a                cognition. According to [24], the research in the area of online
+specific emotion. Kansei Engineering (KE) is being performed as
+                                                                                  emotional experience has raised significantly around the world
+the methodology for this research. In this research, 16 online
+                                                                                  and also attracted funding organizations such as funding from
+learning materials specifically for the Database course were
+evaluated with 55 emotions selected based on the findings from
+                                                                                  the European Union for the HUMAINE project to research in
+previous studies conducted for this research. 48 respondents                      the    area    of    affective    computing     (http://emotion-
+from one of the public institution of higher learning in Malaysia                 research.net/2010 as cited in [24]).
+performed the evaluation. The finding as discuss in this paper                        Furthermore, looking in the Europe for example, the
+reveals the important pillars of emotions or kansei semantic                      European of Higher Education Area (EHEA), has played an
+space of emotions for online learning materials. Based on Factor                  important role to promote the use of information and
+Analysis, it reveals 4 important pillars and 1 additional pillar for
+                                                                                  communication technology (ICT) in higher education to the
+kansei emotions in online learning. In addition, the paper also
+discusses the possibility of the important design that might evoke
+                                                                                  next level. This is for example according to [25], one of the
+certain emotions based on the first two pillars that are engaged-                 action plan to transform the university education is “designing
+motivated and challenging-thinking.                                               tomorrow’s education”. According to [25], based on the action
+                                                                                  plan, an initiative to aim ICT use in universities is as “an
+   Keywords—emotion; online learning; Kansei Engineering;                         application of innovative methods in the teaching and learning
+semantic space; e-learning                                                        process”. As most of online teaching and learning process is
+                                                                                  via the Web, there are also trends in the future implementation
+                         I.     INTRODUCTION                                      of the Web. Quite recently, there have been a proposal of Web
+    Recent trends of the research in mobile learning and                          5.0, a sensory and emotive web which “will bring teaching and
+ubiquitous learning, online learning has taken a leap into a new                  learning online to the next level” [25]. This shows the
+level in its mobility. However, what about the leap in order to                   importance of research in this area, emotion in online learning.
+create a sense of emotion to the learners?                                            One of the concerning issues as stated earlier is that, there
+    Online learning is still an important research area ever as                   are still few research in this area of emotion in online learning.
+research in this area is still evolving. Despite the plethora of                  Some of the main questions are: What are the emotions that
+research in this area, there are still few researches in emotion                  might be important in the online learning and how these
+not only in traditional learning [1-3] but also emotion in online                 emotions relate to the design of the online learning materials?
+learning and more research is needed in this area [1], [4-7]. In                      Therefore, this paper is to answer the first part of the
+addition, [6] also highlighted that there is still little empirical               question that is to identify the main emotions associate to the
+research on learner’s emotion, even though based on previous                      online learning material, particularly for online Database
+research, the understanding of learner’s emotion is important in                  courses.
+order to design the learning material.
+                                                                                      This paper is structured in five parts; introduction, literature
+    However, on previous notes, references [8] and [9] on the                     review, methodology, result and discussion and last but not
+other hand implied that emotion in learning is rediscovered.                      least the conclusion of the research.
+This renewed discovery might be based on the direction of
+research from teacher centered to learner-centered [8].
+
+
+
+
+978-1-4799-5813-9/14/$31.00 ©2014 IEEE                                      168
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+                              2014 3rd International Conference on User Science and Engineering (i-USEr)
+                     II.    LITERATURE REVIEW                                     where knowledge, emotion and passion are harmonized” [53,
+                                                                                  pp 5]. The idea of KE has been around since 1970. In KE, the
+A. Emotion and Online Learning                                                    aim is to develop a product that people desire for or have
+    The research on the importance of emotion in online                           deeply in the mind.
+learning has spurred many theories and emotions related to
+online learning. In discussing this topic, what are the emotions                     Reference [54] pointed out that KE is a type of Affective
+that are suitable or important in this area? The emotion in                       Engineering. “Affective engineering is a field of product
+online learning research can be tracked as early as in 2003                       design that is concerned with understanding consumer
+when O’Regan highlighted the need to include emotion in                           requirements by translating their feelings for a product into
+online learning [26]. However, [27] also highlighted that there                   design elements” [54]. KE is “an affective engineering
+are some issues of emotion based on distance education, such                      methodology that aims to capture the feelings and the emotions
+as stress and frustration based on technology and                                 (kansei) of a consumer for certain products, link these emotions
+communication factors.                                                            with the product properties and translate them into design
+                                                                                  elements (Nagamachi 1995; Schutte et al. 2004)” as cited in
+    In this regard, according to [28] also argued that                            [54].
+instructional design like Gagne’s design might be boring as it is
+not related to emotion and just a direct instruction. Other                           Based on reference [53, pp 2], also describes KE as:
+models like FEASP or ARCS limit the emotions and it does not                      “Kansei Engineering is a technology that unites kansei
+prove whether that emotion truly relates to a domain that is                      (feelings and emotions) with the engineering discipline. It is a
+under investigation. It also can be argued that whether the                       field in which the development of products that bring
+specific emotion is really related to the domain that is being                    happiness and satisfaction to human is performed
+observed in this research. According to [26], [29] previously                     technologically, by analyzing human emotions and
+there is an attempt by Martin and Briggs (1986) to include                        incorporating them into product design”.           In addition,
+emotion with cognition in the area of instructional design.                       according to [54], kansei is closely related to the feeling and
+However, the attempt is not very successful, it may be because                    emotion of the consumer or users.
+of the difficulty to define the emotion itself [26]. After around                     As described by [55], KE provides a systematic way of
+15 years later, there are more researches that are trying to                      understanding the insights of user perceptions toward artifacts
+incorporate emotion in learning or online learning.                               via several physiological and psychological measurement
+    Based on the literature, there emerged a few categories of                    methods. These insights are then translated into the design
+research related to emotion in online learning. Some of the                       characteristics of the artifact. KE is a very important
+emotion research in online learning is related to the emotion                     philosophy, as it is not only customer or user oriented, but it
+such as motivation, engagement as well as achievement                             also promotes the value of emotion or aesthetics in the product
+emotion, such as in [3], [4], [9], [30-38]. Others are related to                 design, as perceived by the customers or users.
+the proposal of a model of emotion in online learning such as                         Semantic space or kansei data structure [53, pp 70], is the
+in [38-40]. Furthermore, there are also researches on detecting                   kansei or factors that describe a domain that is being studied.
+emotion or measuring emotion, such as in [6], [41-47].                            In KE, it is an important step to identify the semantic space or
+    Despite of all the studies discussed by respected and                         kansei data structure as this will further define the emotions
+pertinent authors in their area, how do we know that certain                      that is associated with the domain under investigation and
+emotions are important in designing online learning materials                     further define the kansei concept [52], [53]. Furthermore [56]
+and others are less important? Furthermore, [6], [7], [24] also                   reaffirmed that semantic description is one of the main parts in
+highlighted that there are still not many research on evaluating                  the KE study based on previous researchers. Reference [56]
+the users emotional experience based on different design                          stated that “Semantic description of a product is represented by
+criteria. This research hopefully could minimize the gap in this                  a set of semantic attributes (SA), a set of words describing the
+area.                                                                             domain or the product to be evaluated”. Based on previous
+                                                                                  research there are many kansei semantic space identified in the
+B. Kansei and Kansei Engineering (KE)                                             research using KE such as in [56], [57].
+    Even though there are many techniques and methods to                              Therefore, since KE is one of the best methods to identify
+capture the emotion or identify the emotion, not all techniques                   the emotion and associated it with specific design therefore this
+are successful in terms of connecting the specific design with                    method is chosen for this research. The emotion that is
+specific emotions. Some of the techniques to capture emotions                     identified is important for the next steps of this research that is
+are such as in [44], [48-53]. However, in this research KE is                     to identify the respective design elements with the specified
+chosen as KE is one of the techniques that have been proven                       emotion.
+able to capture emotions related to the domain under
+investigation as well as to connect the emotion to specific                                                 III.   METHODOLOGY
+design elements.
+                                                                                      The methodology of the research is based on KE
+   There are many definitions of kansei. According to                             methodology. This is the second phase conducted for this
+Professor Dr. Mitsuo Nagamachi, the founder of Kansei                             research. The analysis, results and findings for the first phase
+Engineering (KE), kansei “implies psychological feeling and                       has been published in [59]. For the second phase the aim is
+needs in mind” [51]. Kansei also “refers to the state of mind                     mainly to identify the design elements and associate it to the
+                                                                                  specific emotions. Therefore, following the steps in the KE
+
+
+
+
+                                                                            169
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+                              2014 3rd International Conference on User Science and Engineering (i-USEr)
+method’s phase, there are three important things that have been                                               TABLE I. EIGENVALUE
+prepared for the research. The first one is the specimens or the                          Number         Eigenvalue    Percent (%)         Cum Percent
+online learning materials, specifically the online Database                               (Factor)
+learning material focusing on the topic ERD and SQL. The                                     1             43.750            79.545            79.545
+decision is based from a previous preliminary study conducted                                2             4.547              8.267            87.812
+with the students, as in [59]. From around 150 freely available                              3             1.863              3.387            91.200
+online learning materials on the topic, around 16 specimens                                  4             1.296              2.356            93.556
+were selected as the specimens have differences and                                          5             0.749              1.362            94.917
+similarities in design. The selection is based on the rules in KE                            6             0.622              1.130            96.048
+method.
+    Secondly, the respondents or the subjects to perform the                           Table I shows the Eigenvalue. Based on [58] suggested that
+evaluation are selected. The subjects are selected based on                       a factor with Eigenvalue greater than 1 is considered as a
+convenience and purposive sampling in one of the public                           significant factor. Therefore, based on the Eigenvalue in Table
+institution of higher learning in Malaysia. All students are                      I, the first four factors are considered as significant as the value
+currently enrolled in a Database course or have taken Database                    is greater than 1. However the fifth factor even insignificant
+courses before. The students should also have the ability to                      could be considered as an additional factor to be considered.
+correctly express emotions, based on an expert stating that not                   Next the variance and factor analysis are calculated to
+everybody can correctly express their emotions. In addition,                      understand the data better.
+the father of KE, Prof. Dr. Mitsuo Nagamachi also stated in a
+conference 2010 that only trained respondent able to perform                          In this research the result from variance analysis as
+good kansei evaluation. From around 210 students, after a                         depicted in Table II shows that the first, second and third
+short evaluation of the ability to correctly express emotion only                 factors explains 53.85%, 16.35% and 11.19% of the data
+60 students were invited for the evaluation. However, only 48                     respectively. The total contribution of the first three factors is
+students came and recruited for the evaluation.                                   81.39% of the variability. This shows that the three factors,
+                                                                                  Factor 1, Factor 2 and Factor 3 might have a major influence
+    The third one is the emotions that relate to the online                       on the semantic space of the emotions in the domain under
+learning materials. From the previous study conducted as in                       investigation. The fourth and fifth factors explain 9.53% and
+[59], around 55 emotions were concluded, and these emotions                       3.20%, respectively, which contribute to 90.93% and 94.13%
+are used for this second phase of the research. The research                      of the variability thus could expand the representation of the
+was conducted in a controlled environment in a computer lab.                      data. The sixth factors onwards with values less than 2% each
+Two sessions were conducted which to suit the availability of                     to represent the data could be considered as insignificant as the
+the respondents. The research took around 5-6 hours to be                         value is quite low, thus it is suggested not to include the factors
+completed. 15 minute break was scheduled every two hours to                       to represent the data. According to [53], a high value of the
+refresh the respondents. Some token of appreciation were                          accumulated (total) contribution with lesser factors shows “a
+given to the respondents for their involvement in the study.                      well-identified evaluation experiment”.
+                 IV.     RESULT AND DISCUSSIONS                                       Fig. 1 is based on the result of FA where the value of
+    There are four expected findings of this research. The first                  approximate 0.5 is considered as the reference value. The
+expected finding is the semantic space or kansei data structure                   semantic space, based on the results, for online Database
+for kansei emotion in online learning specifically for Database                   course learning materials are structured based on five factors or
+online learning materials for higher education. The second                        pillars. The four main pillars are the engaged-motivated,
+expected finding is the design elements in association with a                     challenging-thinking, touched and humor and the other
+specific emotion. The third expected result is the pattern of the                 additional pillar of the kansei emotions for online learning
+emotions based on demographic profiles of the learners and                        material for the Database course is time consuming.
+their learning styles. The fourth expected result is the pattern                                          TABLE II. VARIANCE ANALYSIS
+of the learners using a data mining technique. The results
+reported in this paper is the first finding out of four findings                          Factors         Variance        Percentage        Cumulative
+                                                                                                                             (%)            Percentage
+expected from the research.                                                                                                                    (%)
+    Based on the result from the research conducted, the data                             Factor 1         29.617            53.850            53.850
+structure or the semantic space for online learning specifically                          Factor 2          8.993            16.351            70.201
+for online Database learning materials for higher education is
+identified. The analysis that has been performed is the Factor                            Factor 3          6.155            11.190            81.391
+Analysis (FA) with Principal Component Analysis (PCA) with                                Factor 4          5.246            9.539             90.930
+varimax rotation.                                                                         Factor 5          1.764            3.207             94.137
+   From this, Variance Analysis, Eigenvalue and Factor                                    Factor 6          1.051            1.911             96.048
+Analysis results are discussed as in the following Table I:
+
+
+
+
+                                                                            170
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+                                             2014 3rd International Conference on User Science and Engineering (i-USEr)
+Emotions        Fa ctor 1    Emotions      Fa ctor 2     Emotions    Fa ctor 3     E motions    Fa ctor 4
+Motivated        0.837948914 Challenging    0.944958181 Touched       0.688838238 Joking         0.936822189
+Competent        0.829070003 Thinking       0.918490646 Neutral       0.512166426 Humorous       0.907649273
+Interested       0.814567461 Puzzled          0.68635874 Warm         0.500868872 Neutral        0.464739152
+Pleased          0.813125401 Preoccupied    0.664360941 Surprised     0.479792525 Unexpected     0.433742107
+Easy_to_read      0.81059513 Trustable      0.642178979 Astonished    0.467528849 Harmonious     0.432775946
+Engaged          0.808053481 Curious        0.637372145 Thrilled        0.46365547 Wide_awake    0.415088815
+Soothing         0.807936906 Convinced      0.582207691 Fun           0.424678104 Fun            0.382543261
+Harmonious       0.806413002 Learnable      0.561349668 Optimistic    0.404451844 Ebullient      0.380550783
+
+
+          Fig. 1. Partial view of the Factor Analysis of the kansei words
+
+    The first pillar engaged-motivated includes the kansei
+words such as easy to read, user friendly, interested,
+comprehensible, learnable, harmonious and others. The second
+pillar challenging-thinking includes kansei words such as
+puzzled, pre-occupied, trustable and others. The third pillar
+touched includes kansei words warm and neutral. The fourth
+pillar humorous includes kansei word joking and the fifth
+additional pillar consist of time consuming.
+    This results when compared to the most similar research,
+such as in [29] have the common important factor that is
+motivated-engaged in this research as compared to motivated-
+confident in [29]. This shows that emotion, motivation is
+important in online learning. While the second factor and third
+                                                                                                                                                              Fig. 2. Principal Component Analysis of the kansei words
+factor challenging- thinking, and touched respectively is quite
+different than the second factor for [29] that is interesting –fun                                                                                   Score Plot
+
+and comfort. This might be due to the different domain under                                                                                           10
+                                                                                                                                                                                                                                        specimen_no
+                                                                                                                                                                                                                                         A 1
+investigation.                                                                                                                                                                                                                           B 2
+                                                                                                                                                                                                                                         C3
+                                                                                                                                                                                                                                         D4
+    Fig. 2 shows the PCA of the Kansei words which shows                                                                                                                                                                                 E 5
+that most of the positive emotions words towards the right of                                                                                           5
+                                                                                                                                                                               A                                                         F 6
+                                                                                                                                                                                                                                         G7
+the x-axis and the most of the negative emotions words towards                                                                                                                                                                           H8
+                                                                                                                                                                                                                                         I 9
+the left of x-axis. This demonstrates the semantic space of most                                                                                                   B                                                                     J 10
+
+
+
+
+                                                                                                                      Factor Challenging -Thinking
+                                                                                                                                                                                                                                         K 11
+of positive emotions words which can be represented by                                                                                                                                                                         N
+                                                                                                                                                                                                                                         L 12
+engaged-motivated. For the y-axis the emotion words in the top                                                                                          0
+                                                                                                                                                                                        F                        I
+                                                                                                                                                                                                                               O E       M 13
+                                                                                                                                                                                                                                         N 14
+part are such as challenging, thinking. Therefore we might                                                                                                             P
+                                                                                                                                                                                   D                         J         M             C
+                                                                                                                                                                                                                                       L
+                                                                                                                                                                                                                                         O 15
+                                                                                                                                                                                                                                         P 16
+suggest the challenging-thinking as the semantic space in this                                                                                                             H
+
+axis. Based on the kansei semantic space of engaged-motivated                                                                                                              K                   G
+
+
+and challenging-thinking specimens N, O, and E might have
+the design elements suitable for these kansei emotions.                                                                                                 -5
+
+
+
+    In Fig. 3, based on the dimension of Factor 1, engaged-
+motivated and Factor 2, challenging-thinking, specimens N, O
+and E are more engaged-motivated and more challenging-                                                                                                 -10
+thinking. Specimen N and E give the opportunity for doing                                                                                                    -10                   -5                    0
+                                                                                                                                                                                                Component 1 (79.5 %)
+                                                                                                                                                                                                                           5           10
+
+
+exercise and give user feedback, in other words some
+                                                                                                                                                                                            Factor Engaged-Motivated
+interaction with the learners. Specimen O demonstrates to the
+user and has a short video with light music. Specimens L and                                                          Fig. 3. Principal Component Analysis of specimens based on engaged-
+C are more engaged-motivated but less challenging-thinking.                                                                   motivated factor and challenging-thinking factor
+Specimen L also has some demo with interaction and specimen
+C also has some interaction and animations.                                                                          and N, O, E, they have a simple interface design with light
+                                                                                                                     orwhite background color, with short content, and might have
+    On the other hand, even though specimens A and B are less                                                        multimedia content with interactive elements such as walk-
+engaged-motivated, but the specimens are more challenging-                                                           through or step by step approach or query by example or
+thinking. Specimen A and B are really detail in content, with                                                        question–answer-feedback.
+long paragraphs and many examples but no interaction.
+Specimens P, H and K can be considered as less engaged-                                                                  On the other hand, specimen A and B even though highly
+motivated and less challenging-thinking. Specimens P, H and                                                          challenging-thinking, but not very engaged-motivated since
+K look very simple and not very attractive with no interaction.                                                      their content is long and the interfaces are not simple with no
+                                                                                                                     interaction. Other specimens which are lacking in the
+    The first observation of design criteria that might influence                                                    interaction elements also score low in engaged-motivated as
+the evaluation and evoke certain emotions are as stated below.                                                       well as challenging-thinking. Surprisingly, even though
+Based on the highly engaged-motivated specimen such as L, C                                                          specimens G and J, are quite similar in the design elements but
+                                                                                                                     specimen J is more engaged-motivated than specimen G. This
+
+
+
+
+                                                                                                               171
+
+               Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+                               2014 3rd International Conference on User Science and Engineering (i-USEr)
+might be due to the simplicity of the content in G as compared                                                   REFERENCES
+to J. Further analysis needs to confirm this finding.                             [1]  K. B. Rager, "I feel, therefore I learn: The role of emotion in self-
+                                                                                       directed learning," New Horizons in Adult Education and Human
+    Therefore, based on the first observation of the design                            Resource Development, vol. 23, pp. 22-33, 2009.
+elements with the specific dimension of emotions it is proposed                   [2] S. Domagk, R. N. Schwartz and J. L. Plass, "Interactivity in multimedia
+that interaction elements are important in designing online                            learning: An integrated model," Computers in Human Behavior, vol. 26,
+learning material in order to engage or motivate the learners                          pp. 1024-1033, 2010.
+particularly for Information Technology online courses.                           [3] L. Linnenbrink-Garcia and R. Pekrun, "Students' emotions and academic
+However, more thorough and detailed analysis will be                                   engagement: Introduction to the special issue," Contemporary
+conducted in the near future in order to understand better the                         Educational Psychology, vol. 36, pp. 1-3, 2011.
+details of the design elements and connect it to specific                         [4] A. R. Artino, "Emotions in online learning environments: Introduction to
+emotions.                                                                              the special issue," The Internet and Higher Education, vol. 15, pp. 137-
+                                                                                       140, 2012.
+                          V.     CONCLUSION                                       [5] G. C. Marchand and A. P. Gutierrez, "The role of emotion in the
+                                                                                       learning process: Comparisons between online and face-to-face learning
+    This paper reported the first finding out of four findings                         settings," The Internet and Higher Education, vol. 15, pp. 150-160,
+expected from this research. The main aim of this research is                          2012.
+to identify the design elements, and connect it to a specific                     [6] C.-M. Chen and H.-P. Wang, "Using emotion recognition technology to
+emotion. However, based on KE technique, the kansei                                    assess the effects of different multimedia materials on learning emotion
+                                                                                       and performance," Library & Information Science Research, vol. 33, pp.
+semantic space or data structure can also be identified using                          244-255, 2011.
+Factor Analysis.                                                                  [7] H.-Y. Jeong and S.-S. Yeo, "The quality model for e-learning system
+    The results from the analysis show the important pillars of                        with multimedia contents: a pairwise comparison approach," Multimedia
+                                                                                       Tools and Applications, 2013.
+kansei emotions or known as kansei semantic space in online
+                                                                                  [8] T. D. Jong, "Affective processes in learning," in Explorations in
+learning particularly for online Database courses. Hopefully                           Learning and the Brain: Springer Science+Business Media, 2009, pp.
+this can also be generalized to other Information Technology                           25-27.
+(IT) courses, with other researchers hopefully could extend this                  [9] M. Ainley, "Connecting with learning: Motivation, affect and cognition
+research in other online courses.                                                      in interest processes," Educational Psychology Review, vol. 18, pp. 391-
+                                                                                       405, 2006.
+    There are four important pillars of the kansei semantic                       [10] J. Hwang, T. Park and W. Hwang, "The effects of overall robot shape on
+space for emotion in online learning identified in this research                       the emotions invoked in users and the perceived personalities of robot,"
+which are engaged-motivated, challenging-thinking, touched                             Applied Ergonomics, vol. 44, pp. 459-471, 2013.
+and humor and the fifth additional pillar consist of time                         [11] T. Nomura and A. Nakao, "Comparison on identification of affective
+consuming. From this research it is demonstrated that based on                         body motions by robots between elder people and university students: A
+the factors, the kansei emotion motivated, engaged, easy to                            case study in Japan," International Journal Social Robot, vol. 2, pp. 147-
+                                                                                       157, 2010.
+read, user friendly, fun, comprehensible, and learnable are
+some of the very important positive emotion words in online                       [12] B. C. Stahl, N. McBride, K. Wakunuma, C. Flick and D. Montfort, "The
+                                                                                       empathic care robot: A prototype of responsible research and
+learning. Therefore, these emotions are crucial in learning and                        innovation," Technological Forecasting & Social Change, 2013.
+online learning.                                                                  [13] K.-A. Hsiao and L.-L. Chen, "Fundamental dimensions of affective
+    Furthermore, related to the online learning materials, the                         responses to product shapes," International Journal of Industrial
+                                                                                       Ergonomics, vol. 36, pp. 553-564, 2006.
+emotions such as challenging, thinking, touched as well as
+                                                                                  [14] S.-J. Luo, Y.-T. Fu and Y.-X. Zhou, "Perceptual matching of shape
+humorous should also be taken into consideration. It does not                          design style between wheel hub and car type," International Journal of
+mean even though that most of the IT courses are technical in                          Industrial Ergonomics, vol. 42, pp. 90-102, 2012.
+nature, therefore it must be serious all the time. Nevertheless                   [15] W. Lu and J.-F. Petiot, "Affective design of products using an audio-
+the elements that could evoke the emotion of humorous or joke                          based protocol: Application to eyeglass frame," International Journal of
+are highly needed as well as to be injected in the online                              Industrial Ergonomics, vol. 44, pp. 383-394, 2014.
+learning materials.                                                               [16] R. R. Seva, K. G. T. Gosiaco, M. C. E. D. Santos and D. M. L.
+                                                                                       Pangilinan, "Product design enhancement using apparent usability and
+    The findings also demonstrated that the online learning                            affective quality," Applied Ergonomics, vol. 42, pp. 511-517, 2011.
+materials with user interaction and feedback and simple design                    [17] X. Chen, C. J. Barnes, T. H. C. Childs, B. Henson, and F. Shao,
+could engage and motivate the user as oppose to the online                             "Materials’ tactile testing and characterisation for consumer products’
+learning material without the interaction.                                             affective packaging design " Materials and Design, vol. 30, pp. 4299-
+                                                                                       4310, 2009.
+    However, in the next analysis of this research, more                          [18] M.-J. Agost and M. Vergara, "Relationship between meanings,
+thorough and detailed analysis will be done in order to                                emotions, product preferences and personal values. Application to
+reconfirm the design criteria with specific emotions.                                  ceramic tile floorings," Applied Ergonomics, vol. 45, pp. 1076-1086,
+                                                                                       2014.
+                       ACKNOWLEDGEMENT                                            [19] M. Friman, "Affective dimensions of the waiting experience,"
+                                                                                       Transportation Research Part F, vol. 13, pp. 197-205, 2010.
+   This research is supported by the Research Management                          [20] W. Lam and Z. Chen, "When I put on my service mask: Determinants
+Institute (RMI), Universiti Teknologi MARA, Malaysia under                             and outcomes of emotional labor among hotel service providers
+the Cumulative Impact Factor Initiative [Project Code: 600-                            according to affective event theory," International Journal of Hospitality
+                                                                                       Management, vol. 31, pp. 3-11, 2012.
+RMI/DANA 5/3/CIFI (15/2013)].
+
+
+
+
+                                                                            172
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+                                2014 3rd International Conference on User Science and Engineering (i-USEr)
+[21] J. Y. Lee, R. A. Kearns and W. Friesen, "Seeking affective health care:           [40] R. J. MacFadden, "The forgotten dimension in learning: Incorporating
+     Korean immigrants’ use of homeland medical services," Health &                         emotion into web-based education," Journal of Technology in Human
+     Place, vol. 16, pp. 108-115, 2010.                                                     Services, vol. 25, pp. 85-101, 2007.
+[22] F. Pons, M. Mourali and M. Giroux, "The density–satisfaction                      [41] H. H. Binali, C. Wu and V. Potdar, "A new significant area: Emotion
+     relationship revisited: The role of scarcity and consumers affective                   detection in e-learning using opinion mining technique," in 3rd IEEE
+     reactions in a crowded retail situation," Journal of Retailing and                     International Conference on Digital Ecosystems and Technologies,
+     Consumer Services, vol. 21, pp. 54-60, 2014.                                           2009, pp. 259-264.
+[23] D. Kim and R. R. Perdue, "The effects of cognitive, affective, and                [42] K. Capota, M. v. Hout and T. v. d. Geest, "Measuring the emotional
+     sensory attributes on hotel choice," International Journal of Hospitality              impact of websites: A study on combining a dimensional and discrete
+     Management, vol. 35, pp. 246-257, 2013.                                                emotion approach in measuring visual appeal of university websites," in
+[24] A. C. H. Lin, W. D. Fernandez and S. Gregor, "Understanding web                        International Conference on Designing Pleasurable Products and
+     enjoyment experiences and informal learning: A study in a museum                       Interfaces, Helsinki, Finland, 2007, pp. 135-147.
+     context," Decision Support Systems, vol. 53, pp. 846-858, 2012.                   [43] C.-M. Chen and Y.-C. Sun, "Assessing the effects of different
+[25] D. Benito-Osorio, M. Peris-Ortiz, C. R. Armengot and A. Colino, "Web                   multimedia materials on emotions and learning performance for visual
+     5.0: The future of emotional competences in higher education," Global                  and verbal style learners," Computers & Education, vol. 59, pp. 1273-
+     Business Perspective, vol. 1, pp. 274-287, 2013.                                       1285, 2012.
+[26] K. O'Regan, "Emotion and E-Learning," Journal of Asynchronous                     [44] P. M. A. Desmet, "Measuring emotions: Development and application of
+     Learning Networks (JALN), vol. 7, pp. 78-92, 2003.                                     an instrument to measure emotional responses to products," in Funology:
+                                                                                            From Usability to Enjoyment, M. A. Blythe, A. F. Monk, K. Overbeeke
+[27] N. Hara and R. Kling, "Student distress in web-based distance                          and P. C. Wright, Eds. Netherlands: Kluwer Academic Publishers, 2003,
+     education," Educause Quarterly, vol. 3, pp. 68-69, 2001.                               pp. 111-123.
+[28] C. J. Chen, K. M. Chuah and C. S. Teh, "Bridging the emotional divide             [45] C. Dormann, "Cultural representations in web design: Differences in
+     in instructional design: A Kansei perspective," in Technological                       emotions and values," in People and Computers XIX - The Bigger
+     Developments in Education and Automation, M. I. e. al., Ed.: Springer                  Picture. vol. Part 2: Springer, 2006, pp. 285-299.
+     Science+Business Media B.V., 2010, pp. 173-177.
+                                                                                       [46] P. A. Jaques, M. Lehmann and S. Pesty, "Evaluating the affective tactics
+[29] K. M. Chuah, C. J. Chen and C. S. Teh, "Designing a desktop virtual                    of an emotional pedagogical agent," in The ACM Symposium on Applied
+     reality-based learning environment with emotional consideration," in                   Computing, Honolulu, Hawaii, U.S.A, 2009, pp. 104-109.
+     18th International Conference on Computers in Education (ICCE2010),
+     Putrajaya, Malaysia, 2010, pp. 599-606.                                           [47] X. Ji, Y. Zhang and X. Ren, "Construct of web-based instructional
+                                                                                            environment based on inter-subjectivity fusing cognition with emotion-
+[30] L. Linnenbrink-Garcia, T. K. Rogat and K. L. K. Koskey, "Affect and                    Taking the website design of the quality course apparel production and
+     engagement during small group instruction," Contemporary Educational                   management for example," in. vol. IERI Procedia 2 2012, pp. 234 - 240.
+     Psychology, vol. 36, pp. 13-24, 2011.
+                                                                                       [48] L. Andrews, R. R. Bennett and J. Drennan, "Capturing affective
+[31] A. R. Artino and J. M. Stephens, "Academic motivation and self-
+                                                                                            experiences using the SMS Experience Sampling (SMS-ES) method"
+     regulation: A comparative analysis of undergraduate and graduate                       International Journal of Market Research vol. 53, 2011.
+     students learning online," The Internet and Higher Education, vol. 12,
+     pp. 146-151, 2009.                                                                [49] M. M. Bradley and P. J. Lang, "Measuring emotion: The self-assessment
+                                                                                            Manikin and the semantic differential,".I. B&w Thu. & Exp. Psvchrar.
+[32] C.-Y. Huang, C.-Y. Wang and G.-D. Chen, "Building a humorous                           Vol. 25, No. I. pp. 49-59, 1994., vol. 25, pp. 49-59, 1994.
+     virtual human to enhance student's motivation and performance in e-
+     learning environment," in 17th International Conference on Computers              [50] M. Tahti and L. Arhippainen, "A proposal of collecting emotions and
+     in Education, Hong Kong, 2009, pp. 900-904.                                            experiences," Interactive Experiences in HCI, vol. 2, pp. 195-198, 2004.
+[33] M. Ainley and J. Ainley, "Student engagement with science in early                [51] M. Nagamachi, "Perspectives and the new trend of kansei/affective
+     adolescence: The contribution of enjoyment to students' continuing                     engineering," The TQM Journal, vol. 20, pp. 290-298, 2008.
+     interest in learning about science," Contemporary Educational                     [52] M. Nagamachi, "Kansei/affective engineering and history of
+     Psychology, vol. 36, pp. 4-12, 2011.                                                   kansei/affective engineering in the world," in Kansei/Affective
+[34] S. Bardzell, J. Bardzell and T. Pace, "Understanding affective                         Engineering, M. Nagamachi, Ed. Boca Raton, Florida, USA: CRC Press
+     interaction: Emotion, engagement and Internet videos," in 3rd                          Taylor & Francis Group, 2011, pp. 1-12.
+     International Conference on Affective Computing and Intelligent                   [53] M. Nagamachi and A. M. Lokman, Innovations of Kansei Engineering.
+     Interaction and Workshops (ACII 2009), Amsterdam, 2009.                                Boca Raton, Florida, USA: CRC Press Taylor & Francis Group, 2011.
+[35] A. Barkatsas, K. Kasimatis and V. Gialamas, "Learning secondary                   [54] S. Alexandros, P. Sotirios and K. Dimitrios, "Affective engineering:
+     mathematics with technology: Exploring the complex interrelationship                   towards a consumer culture theory approach to kansei engineering," in
+     between students' attitudes, engagement, gender and achievement,"                      Designing Pleasurable Products and Interfaces (DPPI), Milano, Italy,
+     Computers & Education, vol. 52, pp. 562-570, 2009.                                     2011.
+[36] P.-S. D. Chen, A. D. Lambert and K. R. Guidry, "Engaging online                   [55] A. M. Lokman, "Kansei/affective engineering and web design," in
+     learners: The impact of web-based learning technology on college                       Kansei/Affective Engineering, M. Nagamachi, Ed. Boca Raton, Florida,
+     student engagement," Computers & Education, vol. 54, pp. 1222-1232,                    USA: CRC Press Taylor & Francis Group, 2011, pp. 227-251.
+     2010.                                                                             [56] M. Camargo, L. Wendling and E. Bonjour, "A fuzzy integral based
+[37] P. Shea and T. Bidjerano, "Cognitive presence and online learner                       methodology to elicit semantic spaces in usability tests," International
+     engagement: A cluster analysis of the community of inquiry                             Journal of Industrial Ergonomics, vol. 44, pp. 11-17, 2014.
+     framework," Journal of Computing in Higher Education, vol. 21, pp.                [57] A. M. Lokman and E. N. M. Ibrahim, "The Kansei semantic space in
+     199-217, 2009.                                                                         children's clothing," The Proceedings of the International Conference on
+[38] M. Wang and M. Kang, "Cybergogy for engaged learning: A framework                      Information Retrieval and Knowledge Management (Camp’10), 2010,
+     for creating learner engagement through information and communication                  pp. 85-90.
+     technology," in Engaged Learning with Emerging Technologies, D.                   [58] J. F. Hair, R. E. Anderson, R. L. Tatham and W. Black, Multivariate
+     Hung and M. S. Khine, Eds. Netherlands: Springer, 2006, pp. 225-253.                   Data Analysis. New Delhi: Prentice-Hall, 1998.
+[39] R. J. MacFadden, "Souls on ice: Incorporating emotion in web-based                [59] F. Redzuan, A. M. Lokman, Z. A. Othman, and S. Abdullah, "Kansei
+     education," Journal of Technology in Human Services, vol. 23, pp. 79-                  design model for e-learning: A preliminary finding" in Proceeding of the
+     98, 2005.                                                                              10th European Conference on e-Learning (ECEL-2011), University of
+                                                                                            Brighton, Brighton, United Kingdom, 2011, pp. 685-696.
+
+
+
+
+                                                                                 173
+
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:53:35 UTC from IEEE Xplore. Restrictions apply.
+

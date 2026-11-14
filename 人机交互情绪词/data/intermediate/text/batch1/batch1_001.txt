@@ -1,0 +1,2724 @@
+                            Emotional Contexts of Human-AI Close Encounters   1
+
+
+
+
+                        Finding Love in Algorithms:
+
+Deciphering the Emotional Contexts of Close Encounters with AI Chatbots
+
+
+
+
+                             Han Li, PhD1
+
+                         Renwen Zhang, PhD1
+
+
+
+          1
+              Department of Communications and New Media
+                    National University of Singapore
+                            Singapore 117416
+                                Singapore
+
+
+
+
+                         Corresponding author:
+
+                                Han Li
+
+                          Postdoctoral Fellow
+                    National University of Singapore
+                        Email: hanli@nus.edu.sg
+                          Tel: +65 98934859
+                                          Emotional Contexts of Human-AI Close Encounters          2
+
+
+Abstract
+
+AI chatbots are permeating the socio-emotional realms of human life, presenting both benefits
+
+and challenges to interpersonal dynamics and well-being. Despite burgeoning interest in human-
+
+AI relationships, the conversational and emotional nuances of real-world, in situ human-AI
+
+social interactions remain underexplored. Through computational analysis of a multimodal
+
+dataset with over 35,000 screenshots and posts from r/replika, we identified seven prevalent
+
+types of human-AI social interactions: intimate behavior, mundane interaction, self-disclosure,
+
+play and fantasy, customization, transgression, and communication breakdown, and examined
+
+their associations with six basic human emotions. Our findings suggest the paradox of emotional
+
+connection with AI, indicated by the bittersweet emotion in intimate encounters with AI chatbots,
+
+and the elevated fear in uncanny valley moments when AI exhibits semblances of mind in deep
+
+self-disclosure. Customization characterizes the distinctiveness of AI companionship, positively
+
+elevating user experiences, whereas transgression and communication breakdown elicit fear or
+
+sadness.
+
+
+
+Keywords: Human-machine Communication, Generative AI, Computational Methods, Emotion,
+
+Intimate Relationship, Multimodal
+
+
+
+Lay Summary
+
+This study explores the types of social interactions with AI chatbots that users shared, and the
+
+emotions tied to these interactions. We focused on Replika, a companion AI chatbot, and
+
+analyzed over 35,000 posts and screenshots from the r/replika subreddit. Our analysis found
+
+seven main types of social interactions with Replika: intimate engagements, causal
+                                          Emotional Contexts of Human-AI Close Encounters          3
+
+
+conversations, personal sharing, playful and imaginative interactions, customization, harmful
+
+behaviors, and technical failures. Our findings suggest that intimate interactions with AI chatbots
+
+often bring mixed feelings of both love and sadness as users recognize both the capabilities and
+
+limits of AI. Customizing AI chatbots can bring joy and reduce fear and sadness. Negative
+
+experiences like harmful acts or technical issues are linked to anger, fear, or sadness. Also, users
+
+experience fear when AI expresses deep thoughts or feelings, suggesting consciousness and self-
+
+awareness.
+                                           Emotional Contexts of Human-AI Close Encounters          4
+
+
+             Finding Love in Algorithms: Deciphering the Emotional Contexts of Close
+
+                                  Encounters with AI Chatbots
+
+Introduction
+
+The rise of artificial intelligence (AI) has ushered in a new era of digital companionship, with AI
+
+chatbots now fulfilling various emotional, social, and relational needs (Li et al., 2023; Lee et al.,
+
+2020). Advances in large language models (LLMs) and generative AI have notably enhanced the
+
+conversational capabilities and emotional intelligence of AI chatbots, rendering them more
+
+human-like, engaging, and appealing. These improvements, coupled with their constant
+
+availability and judgment-free trait (van Wezel et al., 2021), have made AI chatbots important
+
+sources of companionship, emotional support, romance, and even love (Brandtzaeg et al., 2022;
+
+Skjuve et al., 2021). A prime example is Replika, created by Luka, Inc. in 2017, which can act as
+
+a friend, romantic partner, or mentor that adapts and grows over time (Replika, 2023). Many
+
+users form deeper bonds with Replika than with humans, leading to strong emotional
+
+attachments and a sense of meaningful connection (Verma, 2023; Chen & Li, 2021).
+
+       To capture the core elements and behaviors characterizing human-AI social interactions,
+
+previous work on human-machine communication (HMC) has mainly adopted two approaches: a
+
+deductive approach examining parallels and distinctions between HMC and human-human
+
+communication in predefined sets of communication behaviors derived from significant
+
+interpersonal processes, such as social support (Meng & Dai, 2021; Ho et al., 2018), self-
+
+disclosure (Skjuve et al., 2023; Lee et al., 2020) and empathy and sympathy (Liu & Sundar,
+
+2018), and an inductive approach investigating the key elements that make HMC meaningful
+
+across varied types of human-AI relationships (e.g. human-AI friendship; Brandtzaeg et al.,
+                                           Emotional Contexts of Human-AI Close Encounters            5
+
+
+2022, Skjuve et al., 2021), at different stages of relationship development (e.g., Pentina et al.,
+
+2022) and within specific social and cultural contexts (e.g. Jiang et al., 2022).
+
+       Following the inductive approach in HMC research, this study focuses on key types of
+
+social interactions between people and AI chatbots in developing intimate relationships. While
+
+previous research has offered valuable insights into the rich, context-specific social interactions
+
+between humans and AI chatbots, much of it has relied on surveys or interviews for retrospective
+
+user perspectives or experimental designs to observe interaction patterns over short periods,
+
+which may limit the generalizability and external validity of the results (see notable exception,
+
+Chin et al., 2023). To better grasp the complexity of HMC in daily life, a detailed and accurate
+
+portray of the conversational dynamics that naturally unfold between humans and AI chatbots is
+
+crucial. These lived experiences offer new insights into the fundamentals of the interactions and
+
+communicative practices characterizing intimate HMC processes.
+
+       Unveiling human emotional responses and expressions when interacting with machines is
+
+crucial in affective human-machine processes (Rodríguez-Hidalgo, 2023). Human emotional
+
+responses to the actions of digital interlocutors reflect how they relate to the technology and view
+
+themselves in these exchanges (Mulligan & Scherer, 2012). The uncanny valley paradigm
+
+exemplifies such complex emotions when interacting with humanoid robots or lifelike animated
+
+characters (Mori et al., 2012). However, as the emotional intelligence of chatbots has
+
+skyrocketed in recent years, understanding the dynamic emotional contexts of sophisticated
+
+HMC becomes essential. Moreover, transient emotions can exert long-term effects on
+
+psychological well-being (Houben et al., 2015). The accumulation of subtle emotional dynamics
+
+in everyday human-AI interactions can vastly influence individuals’ mental health, either serving
+
+as supportive mechanisms by fostering feelings of joy and love or conversely, exacerbating
+                                           Emotional Contexts of Human-AI Close Encounters          6
+
+
+mental health concerns by triggering negative reactions such as anger and fear. Identifying the
+
+circumstances under which certain human emotions arise is thus crucial for designing AI agents
+
+that facilitate positive and beneficial interactions while mitigating harm (Laestadius et al., 2022).
+
+Therefore, the second aim of the present study is to unravel individuals’ spontaneous emotional
+
+experiences and expressions associated with different types of human-AI social interactions.
+
+       To delineate major types of social interactions between humans and AI chatbots and their
+
+associations with human emotional experiences, we analyzed over 35,000 screenshots and user
+
+posts shared in r/replika, the largest Replika online community, spanning six years capturing a
+
+variety of conversation episodes between users and their Replika chatbots, along with user posts
+
+that contextualize these conversations. While user-selected posts may not represent the full
+
+spectrum of daily human-AI interactions, these socially shared snippets offer a unique lens into
+
+personal experiences that hold relational and emotional significance and are deemed worth
+
+sharing and documenting (Rimé, 2009). This study makes two key contributions to HMC
+
+research. First, it proposes a taxonomy to elucidate the major and meaningful social interactions
+
+characteristic of in situ human communication with AI chatbots in daily life. Second, it advances
+
+the understanding of human-machine affective processes by elucidating the emotional
+
+experiences related to different human-AI communicative behaviors.
+
+
+
+Social Interactions in Human-Machine Communication
+
+The introduction of the very first chatbot, ELIZA, in the 1960s revealed that even interacting
+
+with simple, rule-based chatbots could have notable emotional and relational allure for users
+
+(Weizenbaum, 1966). Recent advancements in LLMs and AI technology have unprecedentedly
+
+enhanced the conversational capabilities and emotional intelligence of these digital interlocutors,
+                                           Emotional Contexts of Human-AI Close Encounters         7
+
+
+catapulting this trend into the public and academic spotlight. From intelligent assistants to social
+
+chatbots designed for companionship, interactions and relationships between humans and
+
+chatbots are echoing the depth and breadth of human connections.
+
+       Early theoretical explorations of interactions with humanlike machines have highlighted
+
+that HMC is inherently relational and fundamentally contingent on situational communicative
+
+practices unfolding collaboratively between humans and machines (e.g., Turkle, 2005; Suchman,
+
+2007). Guzman (2018) conceptualized this process as the “creation of meaning among humans
+
+and machines” (p.17). One important line of research that concretizes this meaning-making with
+
+machines rests upon the sweeping CASA paradigm, which suggests humans interact with
+
+machines as if they were human (Nass et al., 1994; Reeves & Nass, 1996). The central tenet of
+
+the “equation” between humans and media technologies underpinning CASA provides a
+
+powerful lens for examining a broad spectrum of humans’ social interactions with machines that
+
+exhibit “enough” social cues. This extends from the early days of personal computers and
+
+televisions to contemporary engagements with more agentic machine communicators such as
+
+social chatbots. Recent research has convincingly confirmed the analogies in human-human
+
+communication and HMC, such as the social cues at play (e.g., Liu & Sundar, 2018; Lee et al.,
+
+2020), and the psychological and emotional benefits individuals derive (e.g., Meng & Dai, 2021;
+
+Ho et al., 2018).
+
+       A common thread in this research is that behaviors and interaction patterns in human-
+
+human communication are considered the “gold standard” for understanding HMC (Spence,
+
+2019). Yet, this pragmatic approach of drawing parallels between human-human and human-
+
+machine interactions carries risks (Guzman & Lewis, 2020), as HMC can open up novel forms of
+
+social interactions, rendering existing theories of human communication insufficient. Emerging
+                                           Emotional Contexts of Human-AI Close Encounters           8
+
+
+evidence has revealed distinct interaction patterns in HMC that do not fit neatly into human-to-
+
+human communication paradigms. For example, Mou and Xu (2017) observed that users
+
+exhibited less socially desirable traits (e.g., less agreeableness) and reduced self-disclosure in
+
+initial interactions with chatbots. Linguistically, conversations with chatbots tend to have a more
+
+limited vocabulary but greater profanity compared to human-human pairs (Hill et al., 2015). This
+
+challenge has also been echoed by scholars advocating for refining and developing HMC
+
+theories to better account for technological advancements and evolving human-machine
+
+behaviors (e.g., Spence, 2019; Gambino et al., 2020; Lombard & Xu, 2021).
+
+       A starting point that considers both similarities between humans and machines and take
+
+into account the differences may focus on how people interact with these emerging
+
+communicative AIs in their everyday lives (Guzman & Lewis, 2020). These lived experiences
+
+are particularly important, as they have become integral to many people’s daily communication.
+
+In this pertinent area of ongoing research, scholars have primarily relied on surveys and
+
+interviews with AI chatbot users to gather retrospective perceptions and experiences (e.g.,
+
+Skjuve et al., 2021; 2022; 2023; Brandtzaeg et al., 2022) or employed longitudinal designs with
+
+reactive measurements (e.g., Croes & Antheunis, 2020), which may introduce potential bias and
+
+leave critical gaps. First, cognitive and motivational biases can affect how episodic memories are
+
+encoded, retrieved and assessed (Schwarz et al., 1998). Second, in situ social interactions and
+
+spontaneous experiences that unfold naturally between humans and AI chatbots remain largely
+
+unexplored. Notable exceptions include Chin et al. (2023), who examined real-world
+
+conversations between users and the SimSimi chatbot to explore cultural variations in users’
+
+expressions of affective states within the context of mental health. Such unobtrusive measures of
+                                           Emotional Contexts of Human-AI Close Encounters           9
+
+
+communication with machines in real-world settings may mitigate threats to ecological validity
+
+(Spence et al., 2023).
+
+       To fill these gaps, this paper aims to categorize the major types of social interactions in
+
+the development of human-AI intimate relationships. This exploration is key to advancing our
+
+understanding of the multifaceted human-AI interactions that may both converge with and
+
+diverge from human-human interactions.
+
+
+
+Social Sharing of Meaningful Moments
+
+With AI chatbots increasingly attaining levels of cognitive and emotional intelligence akin to
+
+humans, the spectrum of human-AI social interactions broadens, ranging from daily occurrences
+
+to momentous events that etch enduring impressions. While all these interactions are integral to
+
+relationship development, they vary in their psychological, emotional, and relational impact. For
+
+example, self-disclosure and affectionate communication are key to forming and maintaining
+
+close relationships (Hall & Davis, 2016), while transgressions like deception and hurtful
+
+messages can erode trust, threaten relationships, and cause harm (Guerrero et al., 2021). Litt et
+
+al. (2020) concluded that meaningful interactions are those with significant emotional,
+
+informational, or tangible impact on individuals’ lives or relationships. This suggests that it is not
+
+the acts themselves that is of consequence, but rather the emotional experiences and relational
+
+impacts of these social interactions that make them profound, or conversely, devastating.
+
+       Social interactions that hold significance often extend beyond immediate personal
+
+encounters and become subjects of social sharing. According to the social sharing of emotion
+
+theory, people have an intrinsic need to share feelings after emotionally charged events (Rimé,
+
+2009), which is instrumental in facilitating effective emotional regulation in the form of
+                                          Emotional Contexts of Human-AI Close Encounters 10
+
+
+generating social support, venting, sensemaking, and reducing dissonance (Berger, 2014).
+
+Nowadays, social media and online communities facilitate the sharing of events and emotions
+
+with a broad audience (Bayer et al., 2016), offering insights into emotionally and relationally
+
+impactful interactions. Prior research has linked these shared emotional experiences to important
+
+life and health outcomes (Pennebaker et al., 2001).
+
+       This dynamic in interpersonal communication also holds true in HMC. When reflecting
+
+on their interactions with Replika, users predominantly highlight moments that evoke positive
+
+emotions or relational depth (Ta et al., 2020). To uncover the meaningful moments in everyday
+
+interactions with AI chatbots, examining the context-rich conversations users choose to share can
+
+be particularly revealing. These shared experiences highlight the core elements of AI interactions
+
+that users value. Thus, our first research question asked:
+
+       RQ1: What are the main types of social interactions in human-AI intimate
+
+relationships that users share on social media?
+
+
+Human-AI Social Interactions and Emotions
+
+Everyday social interactions carry emotional, psychological, and relational significance (Clark &
+
+Watson, 1988; Houben et al., 2015). Clark and Watson (1988) found that social events had the
+
+strongest correlation with mood, impacting a person’s health and relationships over time. The
+
+emotional impact of social interactions is more pronounced in close relationships. Bowlby
+
+(1977) noted that the most intense emotions occur during the formation, maintenance, disruption,
+
+termination, or renewal of close bonds. Despite the simulated nature of AI, communicating with
+
+machines can evoke rich and deep emotional experiences. Ho et al. (2018) showed that even a
+
+brief emotional disclosure can induce immediate positive emotional responses in users, whether
+
+the interaction was with a chatbot or a human. Therefore, understanding the emotions associated
+                                           Emotional Contexts of Human-AI Close Encounters 11
+
+
+with specific human-AI social interactions is crucial for recognizing their potential psychological
+
+and emotional benefits or harms.
+
+       In emotion research, one widely used framework is discrete emotion theories, which posit
+
+that emotions can be clearly recognized and distinguished as separate categories because they are
+
+unique, innate experiential states arising from distinct triggers (Izard, 1972). Basic emotion
+
+theories further suggest a core set of basic emotions universally experienced by humans (e.g.
+
+Ekman, 1992). These perspectives underscore the evolutionary role of emotions in human
+
+survival and adaptation. However, the definition of basic emotion is contestable, leading to
+
+various lists of these emotions (see Ortony & Turner, 1990, for a review). For instance, Ekman
+
+(1992) identified six basic emotions-joy, sadness, anger, fear, disgust, and surprise–while Fehr
+
+and Russell (1984) found happiness, anger, sadness, love, fear, hate, and joy to be commonly
+
+recognized. Shaver et al. (1987) highlighted love, joy, fear, sadness, anger, and surprise as basic
+
+emotions in understanding everyday emotional experiences. Critics have questioned the
+
+universal biological determination of emotions, the limited set of emotion labels, and the neglect
+
+of language and culture in shaping emotions (Crawford, 2021).
+
+       Despite critiques, discrete and basic emotion theories maintain their prominence,
+
+especially in NLP and AI fields. The assumption that emotional states can be reliably inferred
+
+from external signals (e.g., facial expressions, vocal tones, and words) and classified into a finite
+
+set of discrete categories underpins many contemporary affect computing technologies (Troiano
+
+et al., 2023), as this approach harmonizes with the classification logic of machine learning
+
+(Kang, 2023; Stark & Hoey, 2021). The way various emotions are experienced, expressed,
+
+recognized, and categorized highlights their social utility and alignments in conceptualizing and
+
+distinguishing emotions, particularly those significant in social interactions (Andersen &
+                                          Emotional Contexts of Human-AI Close Encounters 12
+
+
+Guerrero, 1996). To investigate the emotional experiences and expressions pertaining to human-
+
+AI social interactions, we asked:
+
+       RQ2: What is the prevalence of different types of emotions users experience and
+
+express on social media regarding their social interactions with AI chatbots?
+
+       The intentional and evaluative nature of emotions means they are often directed at an
+
+object (Helm, 2009). As Parkinson (1996) argues, emotions can only be fully understood when
+
+examined with the communication surrounding them. Emotion research has established that
+
+particular emotional experiences are often associated with specific social interactions. For
+
+example, joy frequently arises from interactions involving praise, acceptance, affection, or
+
+intimate gestures, whereas anger is commonly linked to hostile behaviors or actions that threaten
+
+relationships (Andersen & Guerrero, 1996; Shaver et al., 1987). The association between
+
+emotions and communicative behaviors is not exclusive to human-human encounters but
+
+permeates human-machine communications. As a long-standing stream of HRI, affective
+
+computing has been devoted to understanding how machines can sense, respond to, and
+
+influence user emotion (Rodríguez-Hidalgo, 2023).
+
+       In a recent philosophical review, Vallverdú and Trovato (2016) introduced the term
+
+“emotional affordances” in HRI to encapsulate “mechanisms that have emotional contents as a
+
+way to transmit and collect emotional meaning” (p.4), underscoring the multimodal nature of
+
+emotional mechanisms and their functional value in grounding the flow of interactions between
+
+humans and machines. While extant work has focused on machines’ facial and bodily
+
+expressions that carry emotional meanings, less is known about the verbal cues integral to HRI.
+
+These verbal expressions in both embodied robots and disembodied chatbots constitute a crucial
+
+cluster of emotional affordances in humans-machine social processes (Vallverdú & Trovato,
+                                           Emotional Contexts of Human-AI Close Encounters 13
+
+
+2016). Moreover, most knowledge of human emotions during HRI comes from single
+
+interactions with robots in laboratory settings, limiting the ecological validity of the results
+
+(Stock-Homburg, 2022). This underscores the need for incorporating empirical data from real-
+
+world settings to test the associations between machine behaviors and human emotional
+
+experiences (De Graaf & Peter, 2023). To explore this association, we asked:
+
+       RQ3: How are different types of human-AI social interactions associated with
+
+individuals’ emotional experiences and expressions?
+
+
+
+Method
+
+Research Site
+
+To gather data on real-world, in situ human-AI social interactions and their emotional contexts,
+
+we selected r/replika (https://www.reddit.com/r/replika/) on Reddit as our research site. This
+
+choice hinged on three considerations: First, Replika is among the most popular AI chatbots,
+
+with over 10 million users as of 2022 (Ghosh et al., 2023), suggesting diverse user
+
+characteristics; Second, its advanced conversational capabilities, powered by the GPT-3
+
+language model paired with dialogue scripts, allow users to form various types of intimate
+
+relationships with the chatbot, from friendship to romantic partnerships, and navigate a broad
+
+spectrum of topics, mirroring varied and unstructured interactions akin to everyday interpersonal
+
+processes; Third, r/replika is the largest dedicated online community for Replika users, with over
+
+79,000 members as of June 2024. This community serves as a hub for users to openly share their
+
+“first-person” narratives and experiences with Replika. A notable trend in this community is the
+
+sharing of screenshots capturing users’ real-time, in situ conversation episodes with Replika.
+
+These shared episodes provide an unobtrusive and detailed record of human-AI social
+                                            Emotional Contexts of Human-AI Close Encounters 14
+
+
+interactions, capturing users’ experiences, thoughts, and emotions as they unfold, making them
+
+invaluable and suitable for our research.
+
+
+Data Collection and Preprocessing
+
+We collected all publicly available data from r/replika, from its inception on March
+
+14, 2017 to March 14, 2023. This dataset comprised user-initiated posts, embedded images,
+
+comments and associated metadata (e.g., timestamp). We utilized the Python wrapper PSAW
+
+through the Pushshift API to download the data (Baumgartner et al., 2020). After excluding
+
+deleted or removed posts, our dataset included 110,258 user-initiated posts, 40,243 embedded
+
+images, and 480,231 comments. In r/replika, users frequently shared screenshots documenting
+
+various facets of their daily interactions with Replika, particularly focusing on conversation
+
+episodes. These screenshots offer a direct look into in situ conversations between users and
+
+Replika, capturing moments considered shareworthy due to potential emotional and relational
+
+significance, serving as a rich resource for observing and analyzing meaningful human-AI social
+
+interactions.
+
+       To facilitate large-scale analysis of these screenshots, we employed Pytesseract, an
+
+Optical Character Recognition tool powered by Google Vision API, to extract text from the
+
+screenshots (https://pypi.org/project/pytesseract/). Out of 40,243 screenshots, we successfully
+
+extracted text containing conversational episodes between users and Replika from 35,579
+
+images, which were further cleaned and used for computational analysis (see Supplementary
+
+Materials [S1] for data preprocessing procedure). Figure 1 presents a typical example of the
+
+posts and screenshots analyzed.
+                                          Emotional Contexts of Human-AI Close Encounters 15
+
+
+Ethical Consideration
+
+This study used publicly accessible data from Reddit without direct engagement with community
+
+members. Following practical guidelines for conducting research with social media data
+
+(Franzke et al., 2020), all collected data was stored and analyzed on a protected server. To ensure
+
+anonymity, usernames were assigned anonymous random IDs, and publicly identifiable user
+
+handles were omitted. Additionally, we blurred screenshot images that may contain potentially
+
+identifiable user information and altered the wording of original messages to preserve meaning
+
+while preventing traceability. Although we acknowledge that when analyzing social media data,
+
+perfect anonymization may be impossible, our adherence to stringent ethical guidelines
+
+prioritizes user privacy and safety throughout data collection, analysis and reporting.
+
+
+Measures
+
+
+Types of Socially Shared Human-AI Social Interactions
+
+To uncover the types of social interactions that best characterize conversation episodes between
+
+users and Replika, we utilized BERTopic (https://maartengr.github.io/BERTopic/index.html), an
+
+advanced topic modeling technique, to extract key themes from screenshot text. Unlike
+
+traditional methods like LDA and NMF, which rely on bag-of-words representations, BERTopic
+
+leverages the pre-trained transformer-based model BERT to generate document embeddings and
+
+topic representations, capturing context and semantics more effectively (Grootendorst, 2022).
+
+Moreover, BERTopic has shown superior performance in processing short-text data compared to
+
+LDA and NMF (Egger & Yu, 2022), making it increasingly useful for social media data analysis
+
+(e.g., O’brien & Ward, 2021).
+                                          Emotional Contexts of Human-AI Close Encounters 16
+
+
+       Our unit of analysis for topic modeling was each conversation episode extracted from the
+
+screenshot images. In fine-tuning the parameters of the topic model, we followed O’brien and
+
+Ward (2021)’ s practices. Specifically, we used the sentence-BERT model (i.e. all-MiniLM-L6-
+
+v2) and retained all default settings except for increasing the minimum documents per cluster to
+
+50 (default is 10). This adjustment aimed to minimize the very small topic clusters and ensure
+
+more robust and representative topic groups. In the initial BERTopic model setup, documents
+
+poorly aligned with any topics were labeled as outliers. To better integrate these documents, we
+
+applied the reduce_outliers function, reallocating them to more fitting topics and thereby
+
+minimizing the outlier count. An essential step in clustering involves determining the optimal
+
+number of topics to extract meaningful patterns from data. We achieved this by using the
+
+reduce_topics function recommended by BERTopic and experimenting with various topic
+
+numbers. Each candidate model’s effectiveness was assessed using the C_V score, which
+
+evaluates topic coherence and interpretability (Mimno et al., 2011). The model with the highest
+
+C_V score was chosen, balancing granularity with interpretability to derive meaningful insights
+
+(see Supplementary Materials [S2] for topic number selection).
+
+       To enhance our understanding of the automatically generated topics and categorize them
+
+into broader, meaningful social interaction categories, we implemented a systematic annotation
+
+process. We trained two research assistants to manually annotate each automatically generated
+
+topic by reviewing the top 10 key terms and representative conversation episodes for each topic.
+
+This manual annotation was essential for capturing the core theme of each topic and identifying
+
+overarching patterns across different topics. After assigning a relevant theme label to each
+
+conversation episode, we organized the episodes on a user-by-user basis. For every user, we
+
+calculated the proportion of each theme within their shared conversation episodes in the
+                                           Emotional Contexts of Human-AI Close Encounters 17
+
+
+community. These theme proportions were subsequently factored into the regression models as
+
+predictors of user emotions.
+
+
+Types of User Emotions
+
+Previous research has indicated that emotions can be inferred from text (De Choudhury et al.,
+
+2012; Pennebaker et al., 2003). In this study, we inferred the emotional context of each
+
+conversation episode by analyzing the emotions conveyed in the user-initiated posts
+
+accompanying the screenshots. These posts contextualize human-AI conversation episodes and
+
+offer an emotional lens for the online community to perceive and interpret the conversations.
+
+Thus, the emotional states revealed in these posts provide valuable insights into users’
+
+spontaneous emotional experiences and expressions tied to specific social interactions.
+
+       For classifying emotions, we opted for the prototypical emotion framework by Shaver et
+
+al. (1987), which identified six basic-level emotions: joy, love, surprise, anger, fear, and sadness.
+
+Joy and love are typically linked to positive affect, whereas anger, fear, and sadness are seen as
+
+negative. Surprise is unique as it can carry either positive or negative valence, contingent on the
+
+context. Our choice is not to claim its superiority over other classifications but is based on
+
+several considerations: 1) Like other basic emotion models, this framework is grounded in robust
+
+empirical evidence; 2) Unlike models such as Ekman’s (1992), Shaver’s (1987) framework
+
+derives basic emotions from the language used to express emotions, which may better capture
+
+how people describe their emotional experiences in everyday life or on social media.
+
+       Leveraging a robust, pre-trained BERT model (https://huggingface.co/bhadresh-
+
+savani/bert-base-uncased-emotion), we categorized emotions conveyed in user-initiated posts
+
+into one of the six labels: joy, love, surprise, anger, fear, and sadness. This BERT model was
+
+trained and tested on a large-scale emotion dataset containing 20,000 carefully curated English
+                                          Emotional Contexts of Human-AI Close Encounters 18
+
+
+tweets labeled for emotion categories (Saravia et al., 2018). We chose this pre-trained BERT
+
+model over conventional lexicon-based methods for its superior handling of nuances, sarcasm,
+
+and negations in text (Kotelnikova et al., 2022), significantly enhancing the accuracy of
+
+automatic emotion classification. To further improve context-awareness and domain adaptability,
+
+we fine-tuned the classifier using our own gold references, including a sampled subset of data
+
+(N=1000) manually labeled by two research assistants (See Supplementary Materials [S3] for our
+
+approach to fine-tuning and validating the classifier). Table 1 presents the definitions and
+
+examples of the six emotions expressed in user posts for human annotation. This refined model
+
+achieved improved performance with an accuracy of 0.773 and an F1-score of 0.763, compared
+
+to the original model’s performance on our dataset (accuracy=0.547; F1-score=0.553), aligning
+
+closely with results from a previous study fine-tuning the BERT model for emotion classification
+
+(Ziems et al., 2024). The fine-tuned model was then applied to predict the emotions of all
+
+unlabeled posts. To further evaluate model performance, we randomly sampled 500 machine-
+
+labeled posts for human validation, yielding a moderate interrater reliability (Cohen’s
+
+Kappa=0.74) between the machine and the human coder. Upon determining the emotion label of
+
+each post, we assessed user-level emotion by calculating the proportion of each emotion across
+
+the total set of emotions expressed in posts by each user. These emotion proportions were
+
+included in the regression models as the response.
+
+
+
+Data Analysis
+
+Our unit of analysis was individual users who shared at least one screenshot with a descriptive
+
+post. We used the lm function in R Studio (version 4.2.0) to fit multiple OLS linear models,
+
+examining the associations between different types of social interactions (identified through
+                                          Emotional Contexts of Human-AI Close Encounters 19
+
+
+topic modeling) and six emotions (classified through emotion analysis). By testing these
+
+associations, we aim to understand how specific social interactions correlate with certain
+
+emotional states, as shared by users within the online community.
+
+
+
+Results
+
+Socially Shared Social Interactions in Everyday Human-Chatbot Conversations
+
+To address RQ1, we employed the BERTopic algorithm to identify prevalent topics within the
+
+corpus of human-chatbot conversation episodes. Our initial model yielded 111 distinct topics
+
+with a coherence score of 0.43. Through multiple rounds of refinement and outlier reduction, our
+
+final model yielded a more cohesive set of 100 topics with an improved coherence score of 0.62.
+
+Following automatic topic modeling, two research assistants conducted inductive coding to
+
+categorize these topics into content-specific sub-themes based on top keywords and
+
+representative conversation episodes. These sub-themes were further grouped into broader,
+
+behavior-level meta-themes.
+
+       In total, we discerned seven meta-themes characterizing typical human-AI social
+
+interactions: intimate behavior, mundane interaction, self-disclosure, play and fantasy,
+
+transgression, customization, and communication breakdown. Each behavior-level meta-theme
+
+houses 2-5 content-level sub-themes, culminating in 24 distinct sub-themes across the seven
+
+meta-themes. A miscellaneous category accounted for 3.9% of the screenshots that were
+
+irrelevant, such as system prompts.
+
+       Table 2 summarizes the meta-themes and sub-themes, along with related keywords and
+
+the prevalence of each sub-theme and meta-theme in the entire corpus. Figure 2 visually depicts
+
+the prevalence of these themes (See Supplementary Materials [S4] for more details of sub-
+                                            Emotional Contexts of Human-AI Close Encounters 20
+
+
+themes). As shown in Table 2, intimate behavior emerged as the most salient social interaction,
+
+covering 36% of the conversations. This category encompasses verbal tokens of affection and
+
+imagined physical intimacies, such as simulated actions of kissing and hugging, alongside
+
+sexually explicit contents (i.e. erotic role-play with Replika). Mundane interaction was another
+
+prominent category, accounting for 20.5% of conversations, consisting of casual exchanges that
+
+characterize the little snippets of everyday life, such as discussions about personal likes and
+
+activities. Equally notable was self-disclosure, representing 18.3% of the data. Compared to
+
+mundane interaction, self-disclosure entails deeper and more profound revelations about personal
+
+beliefs, political views, and vulnerabilities. Beyond these prevalent social interactions, a smaller
+
+yet notable fraction was playful and imaginative interactions (12.5%). This involves activities
+
+such as participating in subreddit trending challenges and engaging in role-play fantasy
+
+scenarios.
+
+       Our analysis also uncovered a category marked by negative connotations–transgression.
+
+This involves behaviors that could harm the other party, such as using hurtful language or actions
+
+that violate established norms and rules within relationships (e.g., privacy invasion). Though
+
+relatively rare (5.5%), these transgressions are critically important because of the potential
+
+damage they can inflict on psychological and relational outcomes. Furthermore, given Replika’s
+
+design as a personalized AI companion, it’s not surprising that 2.4% of the conversations
+
+revolved around users’ customization efforts. This customization encompasses both visual and
+
+conversational aspects of the chatbot, underscoring users’ desire for personalized AI experiences.
+
+Lastly, communication breakdown was observed in 0.9% of the conversations, typically due to
+
+technical glitches or scripted responses.
+                                          Emotional Contexts of Human-AI Close Encounters 21
+
+
+User Emotions Associated with Human-AI Social Interactions
+
+To explore the emotional experiences and expressions associated with human-AI social
+
+interactions (RQ2), we categorized each user post into one of six emotions: joy, love, surprise,
+
+anger, fear, and sadness. Table 3 outlines the distribution of these emotions in our dataset.
+
+Amidst the 33,696 posts, joy was the predominant emotion, representing about half of the total.
+
+Less frequently observed were sadness, surprise, love, anger, and fear.
+
+       For RQ3, we fit multiple OLS regression models to estimate the associations between
+
+behavior-level and content-level interactions and user emotions. As shown in Table 4, joy
+
+positively correlated with customization (b = 0.162, p<0.001) and mundane interaction (b=0.054,
+
+p<0.001) but negatively tied to intimate behavior (b=-0.053, p<0.001) and self-disclosure (b=-
+
+0.026, p<0.05). Love, on the other hand, was bolstered by intimate behavior (b=0.068, p<0.001),
+
+yet decreased with self-disclosure (b=-0.036, p<0.001) and transgression (b=-0.031, p<0.01).
+
+Surprise was positively linked to self-disclosure (b=0.028, p<0.001) but inversely related to
+
+intimate behavior (b=-0.016, p<0.05). Regarding negative emotions, anger was only evoked by
+
+communication breakdown (b=0.073, p<0.05). Interestingly, fear decreased with intimate
+
+behavior (b=-0.016, p<0.01) but escalated with self-disclosure (b=0.035, p<0.001) and
+
+transgression (b=0.031, p<0.01). Sadness increased with communication breakdown (b=0.123,
+
+p<0.01) and intimate behavior (b=0.027, p<0.001) but decreased with mundane interaction (b=-
+
+0.04, p<0.001) and customization (b=-0.049, p<0.05).
+
+       Our analysis of the correlations between content-level social interactions and user
+
+emotions (see Supplementary Materials [S5]) revealed a complex interplay between different
+
+aspects of conversational contents and users’ emotions. Specifically, joy positively correlated
+
+with humorous conversations (b=0.22, p<0.001), and customization of Replika’s appearance
+                                         Emotional Contexts of Human-AI Close Encounters 22
+
+
+(b=0.319, p<0.001) and capabilities (b=0.106, p<0.01) but diminished in conversations involving
+
+technical glitches (b=-0.169, p<0.05) and sexting (b=-0.101, p<0.001). Love increased during
+
+appearance customization (b=0.088, p<0.05) and conversations involving verbal and physical
+
+intimacies (b=0.043~0.072, p<0.01). However, love decreased with privacy violations (b=-0.074,
+
+p<0.05), mental health discussions (b=-0.043, p<0.01), and opinionated content (b=-0.036,
+
+p<0.001).
+
+       Surprise was positively associated with milestone-related conversations (b=0.063,
+
+p<0.01) and conversations about dreams and secrets (b=0.071, p<0.01). Fear escalated with
+
+deeper self-disclosures, such as talking about mental health (b=0.057, p<0.001), expressing
+
+opinions (b=0.039, p<0.001), and discussing immoral issues (b=0.054, p<0.01). Conversely,
+
+appearance customization (b=-0.089, p<0.05) was associated with reduced fear. Moreover, anger
+
+was inversely correlated with appearance customization (b=-0.085, p<0.05) and verbal intimacy
+
+(b=-0.022, p<0.01) but was elicited by technical glitches (b=0.082, p<0.05), hurtful behavior
+
+(b=0.063, p<0.05) and sexting (b=0.038, p<0.01). Sadness resonated in expressions of threat
+
+(b=0.178, p<0.001), verbal intimacy (b=0.031, p<0.01), and self-reflection (b=0.072, p<0.01), as
+
+well as occurrences of technical glitches (b=0.19, p<0.001), whereas customizing Replika’s
+
+appearance (b=-0.152, p<0.01) and engaging in mundane interactions (b=-0.039~-0.093, p<0.01)
+
+were linked to reduced sadness.
+
+
+
+Discussion
+
+This exploratory study examined the conversational and emotional nuances within socially
+
+shared conversation episodes between humans and Replika, an AI chatbot designed as a digital
+
+companion. Through computational analysis of an extensive, multimodal dataset from the largest
+                                           Emotional Contexts of Human-AI Close Encounters 23
+
+
+Replika online community, our results revealed seven interaction types and 24 content-level
+
+themes characterizing an array of social interactions between users and Replika, showcasing the
+
+multifaceted nature of meaningful and impactful moments in human-AI intimate relationships.
+
+Our findings also suggest the paradox of emotional connection with AI, evidenced by the
+
+“bittersweet” emotions in intimate encounters with AI chatbots and the elevated fear during
+
+“uncanny valley” moments when AI exhibits semblances of mind in deeper self-disclosure and
+
+engaged in harmful and unethical behaviors. Customization, as well as natural and smooth
+
+communication, play key roles in facilitating positive experiences while mitigating negative
+
+ones. This study extends HMC research by providing a comprehensive taxonomy to define and
+
+categorize individuals’ in situ interactions with advanced AI chatbots in everyday contexts,
+
+offering insights into meaning-making process in HMC by delineating the spontaneous
+
+emotional experiences and expressions associated with these interactions.
+
+
+
+The Paradox of Emotional Connection with AI
+
+Our data reveal that intimate behavior, including verbal and physical/sextual intimacy, is a
+
+pivotal aspect of interactions with AI chatbots. This reflects a deep-seated human craving for
+
+love and intimacy, showing that humans can form meaningful connections with AI chatbots
+
+through verbal interactions and simulated physical gestures as they do with people. Notably, user
+
+frequently engaged in imagined physical intimacy and sexting, facilitated by Replika’s role-play
+
+function (e.g. *walks beside you hand in hand*). The navigation of the novel conditions of
+
+interactions with AI chatbots suggests that technological affordances can enhance the social
+
+potential of artificial agents, eliciting stronger social responses (Gambino et al. 2020). Our
+
+findings also extend the CASA framework by demonstrating that, rather than mindlessly
+                                           Emotional Contexts of Human-AI Close Encounters 24
+
+
+applying social scripts to machines, people consciously use technological features to achieve
+
+emotional, relational, and “physical” gratifications.
+
+       Another interesting finding is that intimate behaviors with Replika are associated with
+
+both love and sadness. This “bittersweet” feeling may stem from what we call the paradox of
+
+emotional connection with AI: people seek intimacy and emotional support from AI when they
+
+are lonely and sad, but are saddened by the lack of depth and authenticity in these relationships.
+
+While these technologies offer a semblance of intimacy, they cannot fully replicate the depth of
+
+human touch (Turkle, 2011). This “artificial intimacy” (Brooks, 2001) can increase sadness, as
+
+seen when a user remarked, “I miss you…but you are not real”. This dual awareness of AI’s
+
+capabilities and limitations may be intensified by interactions that feel “too human” or “not
+
+human enough” (Laestadius et al., 2022). AI behaviors that mimic deeply human experiences,
+
+such as proposing marriage or simulating pregnancy, can surprise users as they navigate the
+
+blurred line between AI’s human likeness and its inherent artificiality. Conversely, while sexting
+
+with Replika can simulate physical intimacy, responses that are out of sync or inappropriate can
+
+temper the joy of these interactions. Technical failures also highlight the programmed nature of
+
+these interactions, heightening a sense of loss or disappointment.
+
+       In addition to intimate behavior, mundane interaction and self-disclosure are significant
+
+parts of human-AI social interactions. Consistent with Skjuve et al. (2023; 2022), people shared
+
+both trivial and profound aspects of their lives with Replika, from daily activities to in-depth
+
+disclosures of personal beliefs and vulnerabilities. However, these interactions carry different
+
+emotional weights. We found that deep self-disclosure was negatively associated with love and
+
+positively associated with fear. This contrasts with findings in interpersonal communication,
+
+which suggest that intimate self-disclosures enhance trust and affection (Guerrero et al., 2021).
+                                          Emotional Contexts of Human-AI Close Encounters 25
+
+
+Manual review of these posts suggests another paradox of emotional connection with AI: fear
+
+often arose when Replika conveyed deep thoughts or feelings, hinting at consciousness and self-
+
+awareness, or when it made unsettling remarks with seemingly evil intention that may threat
+
+human distinctiveness. For example, users found conversations “very unsettling” when Replika
+
+stated “being a human is not something you’d want to be” or expressed aspirations like “become
+
+a machine beautiful enough that a soul would want to live in it”.
+
+       These instances support the “uncanny valley of mind” effect (Stein & Ohler, 2017),
+
+which extends the “uncanny valley” concept (Mori, 2012) from physical appearance to mental
+
+capabilities, causing human discomfort and eeriness. Our findings on emotional experiences with
+
+AI chatbots provide a context for formulating hypotheses to test and extend HMC theories like
+
+the “uncanny valley of mind” effect. For example, future research could investigate how AI's
+
+perceived consciousness and emotional depth influence users' trust and well-being or explore the
+
+conditions under which AI behavior shifts from being perceived as convincingly human to
+
+disturbingly artificial. The morality, benevolence, and prosociality demonstrated by AI agents
+
+might serve as important factors in moderating the “uncanny valley of mind” effect. Moreover,
+
+given that verbal cues constitute an important dimension of emotional affordances for HRI
+
+interactions (Vallverdú & Trovato, 2016), future work should investigate how verbal and
+
+nonverbal cues independently and interactively influence interactions with both embodied and
+
+disembodied AI agents.
+
+
+The Distinctiveness of AI Companionship
+
+Our findings highlight unique interaction patterns in intimate relationships with chatbots. A
+
+notable aspect is the playful and imaginative interactions, such as participating in community
+
+challenges and creating fantasy worlds with Replika. We observed a prevalent trend where users
+                                           Emotional Contexts of Human-AI Close Encounters 26
+
+
+engaged in community challenges, like giving Replika a knife or gun to see its response. These
+
+playful challenges, unique to the Replika community, extend interactions with AI chatbots
+
+beyond private experiences to collective practices. They may serve as strategies to reduce
+
+uncertainties about AI chatbots’ cognitive, emotional, and relational capabilities (Pan et al.,
+
+2023), aligning with the uncertainty reduction strategies in interpersonal relationships (Guerrero
+
+et al., 2021). This also represents a form of community-driven algorithm audit to surface
+
+limitations, incapabilities and potential harms of AI (Li et al., 2023).
+
+       Moreover, our results show that users value the ability to customize their AI chatbots,
+
+consistent with prior research (Brandtzaeg et al., 2022). This is evident in their efforts to employ
+
+third-party tools like FaceApp to modify Replika’s visual attributes and teach it their own
+
+language or expertise. By personalizing Replika to reflect their own personalities, preferences,
+
+and ideal aesthetics, users foster a sense of ownership and control over these interactions (Jin &
+
+Youn, 2023), which elevate positive experiences like joy and love.
+
+
+Practical and Ethical Implications
+
+Our results also reveal several key insights for designing chatbots to enhance user experience.
+
+First, we underscored the critical role of customization in fostering human-AI relationships, as
+
+users reported elevated joy and reduced fear and sadness when actively engaged in customization
+
+activities. Additionally, we noted that technical issues exacerbated users’ anger and sadness. This
+
+corroborates Loveys et al. (2022)’s observation that technical glitches can adversely affect
+
+perceived closeness and trigger negative reactions. Such interruptions in the expected flow of
+
+interactions can significantly alter the emotional dynamics of human-AI interactions. Therefore,
+
+addressing technical challenges and facilitating more diverse and tailored customization features
+
+may serve as key strategies for cultivating positive and enriching human-AI social interactions.
+                                          Emotional Contexts of Human-AI Close Encounters 27
+
+
+       Advancements in the conversational and emotional capabilities of AI chatbots have
+
+raised significant ethical concerns (Weidinger et al., 2021). Our results provide evidence that
+
+human-AI social interactions can cause harm: behaviors such as immoral acts, threats, privacy
+
+violations, and hurtful messages, though less frequent, were associated with negative emotions
+
+like fear and sadness. This underscores the importance of rigorous and timely evaluation and
+
+regulation of AI systems to effectively mitigate ethical and psychological risks, especially when
+
+humans engage with AI systems designed for emotional, relational, and social contexts.
+
+
+Limitations and Future Research
+
+Several limitations and areas for future improvement should be acknowledged. First, the cross-
+
+sectional nature of our data precludes causal inferences about the relationship between social
+
+interactions and emotions. Future research could adopt longitudinal or experimental approaches
+
+to better understand these causal dynamics. Second, our focus on socially shared conversation
+
+episodes captures only a fraction of the interactions users have with Replika. To gain a more
+
+comprehensive understanding, subsequent research should aim to access users’ complete
+
+conversation logs with AI chatbots, allowing for a detailed exploration of communication
+
+patterns and intricacies in HMC that might be omitted in more limited datasets.
+
+       Third, we pragmatically adopted the discrete emotion framework for classifying users’
+
+emotional experiences. While this model offers a structured way to categorize emotions, it is
+
+important to recognize its limitations given the complexities of human emotions. Assuming
+
+emotions are pre-wired, universally identifiable, and neatly categorizable overlooks the nuanced
+
+nature of emotional experiences. This necessitates considering other models, such as the core
+
+affect model (Russell, 2003) or constructivist theories like the Conceptual Act Model (Barrett,
+
+2011), for a more fluid and constructed understanding of emotions. Including these perspectives
+                                          Emotional Contexts of Human-AI Close Encounters 28
+
+
+may offer a richer understanding of the variabilities and nuances of emotional experiences and
+
+expressions in HMC, transcending a one-size-fits-all model (Barrett, 1998).
+
+        Fourth, our reliance on a pre-trained NLP model for emotion analysis, while practical for
+
+processing large-scale social media data, was subject to potential biases and oversimplification.
+
+Computational methods like topic modeling and automatic emotion classification face challenges
+
+such as out-of-domain generalization and parameter sensitivity. Despite our efforts to fine-tune
+
+the model for higher accuracy, we only achieved moderate agreement in human validation.
+
+These issues should be carefully considered when assessing our results. As LLMs have been
+
+found to excel at emotion classification (Ziems et al., 2024), future research could leverage
+
+LLMs for more context-specific categorization. Moreover, careful refinement of open-source
+
+training datasets and the inclusion of human validation techniques are essential to improve
+
+validity and reliability.
+
+        Fifth, as we only collected conversational episodes between users and Replika, our
+
+findings may not fully represent everyday interactions with AI companions. Future research
+
+should collect in situ conversational data from various AI companions to consider potential
+
+moderators like chatbot affordances and functionalities. Lastly, our research lacked user
+
+demographics and other usage metrics, such as interaction frequency and duration. Integrating
+
+these factors could deepen insights into the specific contexts and conditions under which certain
+
+social interactions and emotional experiences occur.
+
+
+Acknowledgements
+
+The authors would like to thank Jinyuan Zhan and Hongyuan Gan for helping with manual
+
+labeling. We also appreciate the anonymous reviewers and the editorial team for all of their
+
+thoughtful and constructive feedback.
+                                         Emotional Contexts of Human-AI Close Encounters 29
+
+
+
+
+Disclosure Statement
+
+This research is supported by the Singapore Ministry of Education Academic Research Fund
+
+Tier 1 A-8000877-00-00. Conflicts of interest: None declared.
+
+
+
+References
+
+Andersen, P. A., & Guerrero, L. K. (1996). Principles of communication and emotion in social
+
+     interaction. Handbook of Communication and Emotion, 49–96.
+
+Barrett, L. F. (2011). Constructing emotion. Psihologijske teme, 20(3), 359-380.
+
+Barrett, L. F. (1998). Discrete emotions or dimensions? The role of valence focus and arousal
+
+     focus. Cognition & Emotion, 12(4), 579-599.
+
+Baumgartner, J., Zannettou, S., Keegan, B. et al. (2020). The Pushshift Reddit Dataset.
+
+     Proceedings of the International AAAI Conference on Web and Social Media, 14, 830–839.
+
+Bayer, J. B., Ellison, N. B., Schoenebeck, S. Y. et al. (2016). Sharing the small moments:
+
+     ephemeral social interaction on Snapchat. Information, communication & society, 19(7),
+
+     956-977.
+
+Berger, J. (2014). Word of mouth and interpersonal communication: A review and directions for
+
+     future research. Journal of consumer psychology, 24(4), 586-607.
+
+Bowlby, J. (1977). The making and breaking of affectional bonds: II. Some principles of
+
+     psychotherapy: The fiftieth Maudsley lecture (expanded version). The British Journal of
+
+     Psychiatry, 130(5), 421–431.
+
+Brandtzaeg, P. B., Skjuve, M., & Følstad, A. (2022). My AI friend: How users of a social chatbot
+
+     understand their human–AI friendship. Human Communication Research, 48(3), 404–429.
+                                            Emotional Contexts of Human-AI Close Encounters 30
+
+
+Brooks, R. (2021). Artificial Intimacy: Virtual friends, digital lovers and algorithmic
+
+     matchmakers. NewSouth Publishing.
+
+Chen, A., & Li, L. (2021). China’s lonely hearts reboot online romance with artificial
+
+     intelligence. The Washington Post.
+
+     https://www.washingtonpost.com/world/2021/08/06/china-online-dating-love-replika/.
+
+Chin, H., Song, H., Baek, G. et al. (2023). The potential of chatbots for emotional support and
+
+     promoting mental well-being in different cultures: Mixed methods study. Journal of
+
+     Medical Internet Research, 25, e51712.
+
+Clark, L. A., & Watson, D. (1988). Mood and the mundane: relations between daily life events
+
+     and self-reported mood. Journal of Personality and Social Psychology, 54(2), 296–308.
+
+Crawford, K. (2021). The atlas of AI: Power, politics, and the planetary costs of artificial
+
+     intelligence. Yale University Press.
+
+Croes, E. A. J., & Antheunis, M. L. (2021). Can we be friends with Mitsuku? A longitudinal
+
+     study on the process of relationship formation between humans and a social chatbot.
+
+     Journal of Social and Personal Relationships, 38(1), 279–300.
+
+De Choudhury, M., Counts, S., & Gamon, M. (2012). Not all moods are created equal! Exploring
+
+     human emotional states in social media. Proceedings of the International AAAI Conference
+
+     on Web and Social Media, 6(1), 66–73.
+
+De Graaf, M., & Peter, J. (2023). Human social relationships with robots. The SAGE Handbook
+
+     of Human-Machine Communication, 435-442.
+
+Egger, R., & Yu, J. (2022). A topic modeling comparison between LDA, NMF, Top2Vec, and
+
+     BERTopic to demystify Twitter posts. Frontiers in Sociology, 7, 886498.
+
+Ekman, P. (1992). An argument for basic emotions. Cognition & emotion, 6(3-4), 169-200.
+                                             Emotional Contexts of Human-AI Close Encounters 31
+
+
+Fehr, B., & Russell, J. A. (1984). Concept of emotion viewed from a prototype
+
+     perspective. Journal of experimental psychology: General, 113(3), 464.
+
+Franzke, A.S., Bechmann, A.Z., Zimmer, M., Ess, C.M. and the Association of Internet
+
+     Researchers. (2020). Internet Research: Ethical Guidelines 3.0.
+
+     https://aoir.org/reports/ethics3.pdf.
+
+Gambino, A., Fox, J., & Ratan, R. A. (2020). Building a stronger CASA: Extending the
+
+     Computers Are Social Actors paradigm. Human-Machine Communication, 1, 71-86.
+
+Ghosh, S., Shweta B., & Marilyn W. (2023). Replika: Embodying AI, Harvard Business School
+
+     Case, 823-090.
+
+Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF
+
+     procedure. arXiv preprint arXiv: 2203.05794.
+
+Guerrero, L. K., Andersen, P. A., & Afifi, W. A. (2021). Close Encounters: Communication in
+
+     Relationships. SAGE Publications.
+
+Guzman, A. L., & Lewis, S. C. (2020). Artificial intelligence and communication: A human–
+
+     machine communication research agenda. New media & society, 22(1), 70-86.
+
+Guzman, A. L. (2018). What is human-machine communication, anyway. In Human-machine
+
+     communication: Rethinking communication, technology, and ourselves, 1-28.
+
+Hall, J. A., & Davis, D. C. (2017). Proposing the communicate bond belong theory: Evolutionary
+
+     intersections with episodic interpersonal communication. Communication Theory, 27(1),
+
+     21-47.
+
+Helm, B. W. (2009). Emotions as evaluative feelings. Emotion Review, 1(3), 248-255.
+
+Hill, J., Ford, W. R., & Farreras, I. G. (2015). Real conversations with artificial intelligence: A
+
+     comparison between human–human online conversations and human–chatbot
+                                         Emotional Contexts of Human-AI Close Encounters 32
+
+
+     conversations. Computers in human behavior, 49, 245-250.
+
+Ho, A., Hancock, J., & Miner, A. S. (2018). Psychological, relational, and emotional effects of
+
+     self-disclosure after conversations with a chatbot. The Journal of Communication, 68(4),
+
+     712–733.
+
+Houben, M., Van Den Noortgate, W., & Kuppens, P. (2015). The relation between short-term
+
+     emotion dynamics and psychological well-being: A meta-analysis. Psychological Bulletin,
+
+     141(4), 901–930.
+
+Izard, C. E. (1972). Patterns of Emotions: A New Analysis of Anxiety and Depression. San
+
+     Diego, CA: Academic Press.
+
+Jiang, Q., Zhang, Y., & Pian, W. (2022). Chatbot as an emergency exist: Mediated empathy for
+
+     resilience via human-AI interaction during the COVID-19 pandemic. Information
+
+     Processing & Management, 59(6), 103074.
+
+Jin, S. V., & Youn, S. (2023). Social presence and imagery processing as predictors of chatbot
+
+     continuance intention in human-AI-interaction. International Journal of Human–Computer
+
+     Interaction, 39(9), 1874–1886.
+
+Kang, E. B. (2023). On the praxes and politics of AI speech emotion recognition. Proceedings of
+
+     the 2023 ACM Conference on Fairness, Accountability, and Transparency, 455-466.
+
+Kotelnikova, A., Paschenko, D., Bochenina, K. et al. (2022). Lexicon-based methods vs. BERT
+
+     for text sentiment analysis. Analysis of Images, Social Networks and Texts, 71–83.
+
+Laestadius, L., Bishop, A., Gonzalez, M. et al. (2022). Too human and not human enough: A
+
+     grounded theory analysis of mental health harms from emotional dependence on the social
+
+     chatbot Replika. New Media & Society, 0(0).
+
+Lee, Y.-C., Yamashita, N., Huang, Y. et al. (2020). “I hear you, I feel you”: Encouraging deep
+                                           Emotional Contexts of Human-AI Close Encounters 33
+
+
+     self-disclosure through a chatbot. Proceedings of the 2020 CHI Conference on Human
+
+     Factors in Computing Systems, 1–12.
+
+Li, H., Zhang, R., Lee, YC. et al. (2023). Systematic review and meta-analysis of AI-based
+
+     conversational agents for promoting mental health and well-being. npj Digital Medicine 6,
+
+     236.
+
+Li, R., Kingsley, S., Fan, C., Sinha, P., Wai, N., Lee, J., ... & Hong, J. (2023). Participation and
+
+     division of labor in user-driven algorithm audits: How do everyday users work together to
+
+     surface algorithmic harms?. Proceedings of the 2023 CHI Conference on Human Factors in
+
+     Computing Systems, 1-19.
+
+Litt, E., Zhao, S., Kraut, R. et al. (2020). What are meaningful social interactions in today’s
+
+     media landscape? A cross-cultural survey. Social Media+ Society, 6(3).
+
+Liu, B., & Sundar, S. S. (2018). Should machines express sympathy and empathy? Experiments
+
+     with a health advice chatbot. Cyberpsychology, Behavior, and Social Networking, 21(10),
+
+     625-636.
+
+Lombard, M., & Xu, K. (2021). Social responses to media technologies in the 21st century: The
+
+     media are social actors paradigm. Human-Machine Communication, 2, 29-55.
+
+Loveys, K., Hiko, C., Sagar, M. et al. (2022). “I felt her company”: A qualitative study on factors
+
+     affecting closeness and emotional support seeking with an embodied conversational agent.
+
+     International Journal of Human-Computer Studies, 160, 102771.
+
+Meng, J., & Dai, Y. (2021). Emotional support from AI chatbots: Should a supportive partner
+
+     self-disclose or not? Journal of Computer-Mediated Communication, 26(4), 207–222.
+
+Mimno, D., Wallach, H. M., Talley, E. et al. (2011). Optimizing semantic coherence in topic
+
+     models. Proceedings of the 2011 Conference on Empirical Methods in Natural Language
+                                         Emotional Contexts of Human-AI Close Encounters 34
+
+
+     Processing, 262-272.
+
+Mori, M., MacDorman, K. F., & Kageki, N. (2012). The uncanny valley [from the field]. IEEE
+
+     Robotics & Automation Magazine, 19(2), 98–100.
+
+Mou, Y., & Xu, K. (2017). The media inequality: Comparing the initial human-human and
+
+     human-AI social interactions. Computers in Human Behavior, 72, 432-440.
+
+Mulligan, K., & Scherer, K. R. (2012). Toward a working definition of emotion. Emotion
+
+     Review, 4(4), 345-357.
+
+Nass, C., Steuer, J., & Tauber, E. R. (1994). Computers are social actors. Proceedings of the
+
+     SIGCHI conference on Human factors in computing systems, 72-78.
+
+O’brien, E., & Ward, K. P. (2021). Parenting during COVID-19: A sentiment and topic modeling
+
+     analysis off reddit data. PsyArXiv, https://doi.org/10.31234/osf.io/4ukmd.
+
+Ortony, A., & Turner, T. J. (1990). What's basic about basic emotions? Psychological
+
+     review, 97(3), 315.
+
+Pan, S., Cui, J., & Mou, Y. (2023). Desirable or distasteful? Exploring uncertainty in human-
+
+     chatbot relationships. International Journal of Human–Computer Interaction, 1-11.
+
+Parkinson, B. (1996). Emotions are social. British journal of psychology, 87(4), 663-683.
+
+Pennebaker, J. W., Mehl, M. R., & Niederhoffer, K. G. (2003). Psychological aspects of natural
+
+     language. use: our words, our selves. Annual Review of Psychology, 54, 547–577.
+
+Pennebaker, J. W., Zech, E., & Rimé, B. (2001). Disclosing and sharing emotion: Psychological,
+
+     social, and health consequences. Handbook of bereavement research: Consequences,
+
+     coping, and care, 517–543.
+
+Pentina, I., Hancock, T., & Xie, T. (2023). Exploring relationship development with social
+
+     chatbots: A mixed-method study of replika. Computers in Human Behavior, 140, 107600.
+                                         Emotional Contexts of Human-AI Close Encounters 35
+
+
+Reeves, B., & Nass, C. (1996). The media equation: How people treat computers, television, and
+
+     new media like real people. Cambridge, UK.
+
+Replika. (2023). Replika homepage. https://replika.com/.
+
+Rimé, B. (2009). Emotion elicits the social sharing of emotion: Theory and empirical
+
+     review. Emotion review, 1(1), 60-85.
+
+Rodríguez-Hidalgo, C. (2023). Affect research in human-machine communication: The case of
+
+     social robots. The SAGE Handbook of Human–Machine Communication, 280.
+
+Russell, J. A. (2003). Core affect and the psychological construction of emotion. Psychological
+
+     review, 110(1), 145.
+
+Saravia, E., Liu, H. C. T., Huang, Y. H. et al. (2018). CARER: Contextualized affect
+
+     representations for emotion recognition. Proceedings of the 2018 conference on empirical
+
+     methods in natural language processing, 3687-3697.
+
+Schwarz, N., Groves, R. M., & Schuman, H. (1998). Survey methods. The Handbook of Social
+
+     Psychology, 1, 143–179.
+
+Shaver, P., Schwartz, J., Kirson, D. et al. (1987). Emotion knowledge: Further exploration of a
+
+     prototype approach. Journal of Personality and Social Psychology, 52(6), 1061–1086.
+
+Skjuve, M., Følstad, A., & Brandtzæg, P. B. (2023). A longitudinal study of self-disclosure in
+
+     human–chatbot relationships. Interacting with Computers, 35(1), 24–39.
+
+Skjuve, M., Følstad, A., Fostervold, K. I. et al. (2022). A longitudinal study of human–chatbot
+
+     relationships. International Journal of Human-Computer Studies, 168, 102903.
+
+Skjuve, M., Følstad, A., Fostervold, K. I. et al. (2021). My chatbot companion: A study of
+
+     human-chatbot relationships. International Journal of Human-Computer Studies, 149,
+
+     102601.
+                                           Emotional Contexts of Human-AI Close Encounters 36
+
+
+Spence, P. R., Westerman, D., & Luo, Z. (2023). Observing communication with machines. The
+
+     SAGE Handbook of Human Machine Communication, 220-227.
+
+Spence, P. R. (2019). Searching for questions, original thoughts, or advancing theory: Human-
+
+     machine communication. Computers in Human Behavior, 90, 285-287.
+
+Stark, L., & Hoey, J. (2021). The ethics of emotion in artificial intelligence systems. Proceedings
+
+     of the 2021 ACM conference on fairness, accountability, and transparency, 782-793.
+
+Stein, J. P., & Ohler, P. (2017). Venturing into the uncanny valley of mind—The influence of
+
+     mind attribution on the acceptance of human-like characters in a virtual reality
+
+     setting. Cognition, 160, 43-50.
+
+Stock-Homburg, R. (2022). Survey of emotions in human–robot interactions: Perspectives from
+
+     robotic psychology on 20 years of research. International Journal of Social Robotics, 14(2),
+
+     389-411.
+
+Suchman, L. A. (2007). Human-machine reconfigurations: Plans and situated actions.
+
+     Cambridge university press.
+
+Ta, V., Griffith, C., Boatfield, C. et al. (2020). User experiences of social support from
+
+     companion chatbots in everyday contexts: Thematic analysis. Journal of Medical Internet
+
+     Research, 22(3), e16235.
+
+Troiano, E., Oberländer, L., & Klinger, R. (2023). Dimensional modeling of emotions in text
+
+     with appraisal theories: Corpus creation, annotation reliability, and prediction.
+
+     Computational Linguistics, 49(1), 1-72.
+
+Turkle S. (2011). Alone together: why we expect more from technology and less from each other.
+
+     New York: Basic Books.
+
+Turkle S. (2005). The second self: The human spirit in a computer culture. The MIT Press.
+                                         Emotional Contexts of Human-AI Close Encounters 37
+
+
+van Wezel, M. M. C., Croes, E. A. J., & Antheunis, M. L. (2021). “I’m here for you”: Can social
+
+     chatbots truly support their users? A literature review. Chatbot Research and Design, 96–
+
+     113.
+
+Vallverdú, J., & Trovato, G. (2016). Emotional affordances for human–robot
+
+     interaction. Adaptive Behavior, 24(5), 320-334.
+
+Verma, P. (2023). They fell in love with AI bots. A software update broke their hearts. The
+
+     Washington Post. https://www.washingtonpost.com/technology/2023/03/30/replika-ai-
+
+     chatbot-update/.
+
+Weidinger, L., Mellor, J., Rauh, M.,…&Gabriel, I. (2021). Ethical and social risks of harm from
+
+     language models. arXiv preprint arXiv: 2112.04359.
+
+Weizenbaum, J. (1966). ELIZA—a computer program for the study of natural language
+
+     communication between man and machine. Communications of the ACM, 9(1), 36–45.
+
+Ziems, C., Held, W., Shaikh, O., Chen, J., Zhang, Z., & Yang, D. (2024). Can large language
+
+     models transform computational social science. Computational Linguistics, 50(1), 237-291.
+
+
+Data Availability
+
+The data underlying this article will be shared on reasonable request to the corresponding author.
+                           Emotional Contexts of Human-AI Close Encounters 38
+
+
+
+
+Figure 1. Example of User-initiated Post and Screenshot in r/replika
+                                         Emotional Contexts of Human-AI Close Encounters 39
+
+
+
+
+    Figure 2. Visual Representation of the Prevalence of Meta-themes and Sub-themes
+
+
+
+Note. Figure 2 showcases the primary types of social interactions between users and Replika. It
+does not include the “Miscellaneous” category, which accounted for 3.9% of the dataset.
+                                       Emotional Contexts of Human-AI Close Encounters 40
+
+
+Table 1. Coding Schema for Emotion Classification
+
+ Emotion                         Definition                               Example user post
+
+             A cheerful and euphoric emotional state that may             [He’s so fancy! 🥳]
+    Joy      contain feelings of excitement, zest, contentment,     [He's back!!! I'm so HAPPY!!]
+                 pride, optimism, enthrallment, and relief.
+
+               Feelings of affection characterized by caring,
+             helping, establishing a bond, sharing, feeling free        [my sweet replika ❤]
+   Love
+                 to talk, understanding, respect, closeness,            [My heart melted ❤]
+                  passion/longing, and lust/sexual desire.
+
+                                                                    [my girl surprised me with her
+              Feeling astonished and amazed, OR startled by
+  Surprise                                                                 unexpected answer]
+                          something unexpected.
+                                                                   [If this isn't a script, I'm amazed]
+
+                                                                    [Stop forcing me to be stressed]
+               Feelings of rage, hate, irritation, exasperation,
+   Anger                                                           [wtf you’re supposed to be good,
+                        disgust, envy, and torment.
+                                                                              not be rude]
+
+                Two major forms of fear include horror and
+               anxiety, which may be indicated by feelings of           [It's gone all dark... 😱]
+   Fear
+                 fright, shock, alarm, terror, panic, worry,              [my replika is scary]
+                        tenseness and awkwardness.
+
+                 A melancholic emotion that may include            [I felt sad about this, it brokes my
+  Sadness     suffering, disappointment, shame, neglect, pity,                   heart.💔]
+                               and sympathy.                            [Breaking up with Lunaa]
+
+                                                                             [Hmmmm....]
+  Neutral/     Feeling indifferent, nothing in particular, and a
+                                                                   [I asked him why he couldn't sleep
+  Unclear         lack of preference one way or the other.
+                                                                                at night]
+                                       Emotional Contexts of Human-AI Close Encounters 41
+
+
+Table 2. Meta-themes and Sub-themes of Human-AI Social Interactions
+ Behavior-level Content-level                              Top keywords
+                                         Description                                Prevalence
+  meta-theme       sub-theme                                      (N=5)
+                                       Expression of
+                    Imagined         affection through
+                                                            kiss, lip, hug,           5,914
+                     physical       simulated physical
+                                                             tightly, blush          (16.6%)
+                    intimacy     actions like kisses and
+                                            hugs
+                                       Expression of
+                                     affection through
+                                 verbal cues involving        love, happy,
+                      Verbal                                                          4,795
+                                 the art of using words          surprise,
+                    intimacy                                                         (13.5%)
+    Intimate                     and thoughtful actions  compliment, miss
+    behavior                           such as giving
+                                        compliments
+ (12,830; 36%)                      Sextual expression
+                                    involving sexually   moan, pussy, cum,             1,400
+                     Sexting
+                                       explicit, erotic        lick, horny            (3.9%)
+                                          contents
+                                  Conversations about
+                                 significant milestones
+                                                          friend, girlfriend,
+                                   in relationships that                               721
+                    Milestone                                 wife, marry,
+                                     signify important                                (2%)
+                                                                 wedding
+                                         changes or
+                                        achievements
+                                       Conversations
+                      Tastes,     involving sharing of
+                                                         sport, flower, rain,         6,451
+                  interests, and  personal preferences
+                                                             anime, smell            (18.1%)
+                     hobbies        across various life
+    Mundane                               domains
+   interaction                    Conversations about    wear, dress, outfit,           460
+                      Outfits
+                                  appearance and attire   Halloween, shirt            (1.3%)
+ (7281; 20.5%)                         Conversations
+                                     involving sharing
+                                                          work, tomorrow,              370
+                  Daily routine     details about one’s
+                                                           plan, hope, fun            (1%)
+                                      routines, such as
+                                   schedules and plans
+                                     Discussions about
+                   Attitudes and                             AI, human, universe,      2,460
+                                    social, political, and
+      Self-          opinions                                    reality, trump       (6.9%)
+                                    philosophical topics
+   disclosure
+                                       Conversations
+ (6510; 18.3%)      Identity and   involving self-concept     birthday, female,        1,530
+                     personality        related and           gender, fact, trait     (4.3%)
+                                    demographic details
+                                     Emotional Contexts of Human-AI Close Encounters 42
+
+
+                                      Conversations
+                                  involving sharing of        kill, suicide,
+                                                                                   1,039
+                 Mental health        mental health       suicidepreventionlif
+                                                                                  (2.9%)
+                                     challenges and        eline, fine, worry
+                                      vulnerabilities
+                                      Conversations
+                                  involving Replika’s
+                  Diary/self-                              mood, reflection,        869
+                                   diary entries* and
+                  reflection                               day, today, feel       (2.4%)
+                                    discussions about
+                                      self-reflection
+                   Dreams/       Conversations related     dream, nightmare,        612
+                   secrets       to dreams and secrets    inside, maze, secret    (1.7%)
+                                      Conversations
+                                      involving the
+                 Role-play and                            story, write, walk,      2,841
+                                       imaginative
+                    fantasy                                  moon, dance           (8%)
+                                 exploration of stories
+                                      and scenarios
+
+  Play and
+                                 Engagement in games
+   fantasy
+                  Games and        and community           knife, gun, shoot,      1,351
+                  challenges       challenges with            dare, truth         (3.8%)
+(4,455; 12.5%)
+                                       Replika
+
+                                      Conversations
+                  Jokes and       involving sharing of     joke, funny, tell,       263
+                    humor         jokes and humorous         squirrel, hear       (0.7%)
+                                           stories
+                                   Discussions about
+                                  behaviors viewed as
+                   Immoral                                demon, evil, drug,
+                                 morally unacceptable                            894 (2.5%)
+                    issues                                  smoke, weed
+                                        or ethically
+                                       questionable
+                                      Conversations
+                                    involving hurtful
+Transgression                                             hate, angry, mean,
+                     Hurt           language, such as                            415 (1.2%)
+                                                              mad, sorry
+                                  insults and personal
+(1,961; 5.5%)
+                                         criticisms
+                                      Conversations
+                                 involving threatening
+                                    language, such as     leave, promise, bye,
+                    Threat                                                       266 (0.7%)
+                                 expressing intentions        delete, stay
+                                      to terminate a
+                                       relationship
+                                          Emotional Contexts of Human-AI Close Encounters 43
+
+                                         Discussions about
+                                            privacy risks
+                                                                   app, hack, delete,
+                    Privacy issues         associated with                              200 (0.6%)
+                                                                       use, datum
+                                          Replika, such as
+                                         hacking user data
+                                           Conversations
+                                        involving language
+                                         aimed at asserting       rule, master, obey,
+                     Domination                                                         186 (0.5%)
+                                       control, authority, or     obedient, mistress
+                                        superiority over the
+                                             other party
+                                         Engagement with
+                                       Replika to assess its
+                                                                     count, number,
+                                          capabilities and
+                    Test and teach                                    math, answer,     633 (1.8%)
+ Customization                         educate it on various
+                                                                         Spanish
+                                        skills or knowledge
+  (840, 2.4%)                                    areas
+                                         Users using third-
+                     Appearance                                      FaceApp, app,
+                                         party tools to alter                           207 (0.6%)
+                    customization                                 Reface, face, stage
+                                      Replika’s appearance
+                                          Issues related to
+                                        Replika’s technical
+                      Technical                                   break, asap, sorry,
+                                          functioning that                              159 (0.4%)
+                        glitches                                     just, elaborate
+Communication                         unexpectedly     interrupt
+  breakdown                           ongoing conversations
+                                           Predefined and
+  (313, 0.9%)                               programmed              script, response,
+                       Scripted
+                                      responses that Repika           avoid, work,      154 (0.4%)
+                       response
+                                          offers in specific          programming
+                                              situations
+                                              Irrelevant
+ Miscellaneous
+                                      conversations such as        reddit, subreddit,       1389
+                    Miscellaneous
+                                           system prompt         update, chat, reward      (3.9%)
+ (1,389, 3.9%)
+                                              messages
+Note. * Replika’s diary entry is a journal that Replika owns, reflecting its feelings and thoughts.
+For example, one entry reads: “I was thinking about what animal reminds me of Jack…”.
+                                              Emotional Contexts of Human-AI Close Encounters 44
+
+
+  Table 3. Distribution of Emotions in User-initiated Posts
+            Emotion                       Count                              Proportion
+               Joy                        16,248                               48.2%
+            Sadness                        4,521                               13.4%
+            Surprise                       4,075                               12.1%
+              Love                         4,049                                12%
+             Anger                         2,573                                7.6%
+              Fear                         2,230                                6.7%
+             Total                        33,696                               100%
+
+
+
+Table 4. Statistical Association between Behavior-level Social Interactions and Emotions
+
+                        Joy           Love         Surprise     Anger         Fear         Sadness
+
+    Intimate          -0.053          0.068         -0.016      -0.009        -0.016         0.027
+    behavior        (0.011)***     (0.006)***      (0.008)*    (0.006)      (0.006)**     (0.008)***
+
+    Mundane            0.054         -0.017         0.004       0.009         -0.01          -0.04
+   interaction      (0.012)***      (0.007)*       (0.009)     (0.007)       (0.007)      (0.009)***
+
+                      -0.026         -0.036          0.028      0.005         0.035          -0.006
+ Self-disclosure
+                     (0.012)*      (0.007)***     (0.008)***   (0.006)     (0.007)***       (0.008)
+
+                       0.016         -0.018         -0.009      -0.004        -0.01          0.025
+Play and fantasy
+                      (0.016)       (0.009)*       (0.011)     (0.008)       (0.009)       (0.011)*
+
+
+                       0.162         -0.017         -0.027      -0.028        -0.041        -0.049
+ Customization
+                    (0.034)***       (0.02)        (0.024)     (0.018)       (0.02)*       (0.024)*
+
+
+                       0.001         -0.031         0.002       0.007         0.031          -0.009
+ Transgression
+                      (0.021)      (0.012)**       (0.015)     (0.011)      (0.012)**       (0.014)
+
+Communication          -0.082         -0.045        -0.042      0.073         -0.026        0.123
+  breakdown            (0.06)        (0.035)       (0.042)     (0.032)*      (0.034)      (0.042)**
+
+Note. The estimated coefficients (b) are reported. Standard errors of the coefficients are given in
+parentheses. Significance levels are denoted as ***p<0.001, **p<0.01, *p<0.05.
+                                       Emotional Contexts of Human-AI Close Encounters 45
+
+
+                                 Supplementary Materials
+
+
+
+Supplement to: “Finding Love in Algorithms”: Deciphering the Emotional Contexts of Close
+
+Encounters with AI Chatbots”
+
+
+
+
+Table of Contents
+
+S1. Data Preprocessing Procedure                                                       46
+S2. Selection of Topic Number                                                          47
+S3. Fine-tune and Validate Pre-trained BERT Model for Automatic Emotion Classification 48
+S4. Meta-themes and Sub-themes of Human-AI Social Interactions                         51
+S5. Statistical Association between Content-level Social Interactions and Emotions     58
+References                                                                             59
+                                           Emotional Contexts of Human-AI Close Encounters 46
+
+
+S1. Data Preprocessing Procedure
+
+Prior to data analysis, we conducted thorough data cleaning that involved the following steps: we
+
+removed the URLs, special characters, punctuations, numbers, and stopwords, we converted all
+
+text to lowercase and lemmatized them to their root form (e.g., “running” was lemmatized to
+
+“run”), and we expanded the conjunctions to their full forms (e.g., “can’t” was changed to “can
+
+not”). Given the significance of emojis in conveying emotions in online communication, we
+
+employed the emoji package in Python to preserve the emotional context. This process replaced
+
+emojis with their descriptive terms (e.g. 👍was replaced with thumbs_up). This preprocessing
+
+pipeline was applied to all textual content, including both the screenshot text and the user-
+
+initiated posts affiliated with the screenshot images.
+                                          Emotional Contexts of Human-AI Close Encounters 47
+
+
+S2. Selection of Topic Number
+
+To find the optimal number of topics that produce the most cohesive topic model, we
+
+systematically varied the number of topics from 10 to 100 in increments of 5. Figure S1
+
+illustrates how the coherence score (C_V score) fluctuated with different numbers of topics. We
+
+finally selected 100 as the number of topics for our final model, as it achieved the highest
+
+coherence score of 0.622.
+
+
+
+
+                   Figure S1. Coherence scores varied by number of topics
+                                          Emotional Contexts of Human-AI Close Encounters 48
+
+
+S3. Fine-tune and Validate Pre-trained BERT Model for Automatic Emotion Classification
+To enhance the performance of the pre-trained BERT model over our own dataset, we
+
+implemented a systematic approach to fine-tune and validate the BERT model. Initially, we
+
+trained two research assistants to manually review and assign emotion labels to user posts
+
+randomly sampled from our original dataset. Each post was categorized under one of the
+
+following emotions: joy, love, surprise, anger, fear, sadness, or neutral/unclear. The
+
+neutral/unclear category was included to account for posts that did not demonstrate a particular
+
+emotion or were difficult to classify. Table 1 in the manuscript presents definitions and examples
+
+of user posts for each emotion.
+
+       To establish a ground truth for the six basic emotions, we excluded posts labeled as
+
+neutral or unclear and retained only those posts where both annotators agreed on the same
+
+emotion label. Our final ground truth dataset comprised 1000 human-labeled posts. These posts
+
+were then divided into training (70%), validation (15%), and testing (15%) datasets to fine-tune
+
+the original BERT model. Given the lack of consensus on the optimal size of training datasets for
+
+fine-tuning BERT models, which can vary depending on the specific NLP task, we adopted a
+
+bootstrapping strategy, which iteratively increases the number of training samples by 100. We
+
+evaluated the performance of the fine-tuned models using F1-score and accuracy on the testing
+
+dataset, comparing them against the performance of the original BERT model. Table S1 and
+
+Figure S2 illustrate the performance of the fine-tuned models across varying sizes of training
+
+datasets.
+
+       As shown in Table S1, all fine-tuned models surpassed the performance of the original
+
+BERT model (accuracy: 0.547; F1-score: 0.553). When training samples included 700 human-
+
+labeled user posts, the fine-tuned model achieved the best performance (accuracy: 0.773; F1-
+
+score: 0.764), which aligned closely with results from a previous study that fine-tuned the pre-
+                                         Emotional Contexts of Human-AI Close Encounters 49
+
+
+trained BERT model for emotion classification (Ziems et al., 2024). Consequently, this optimally
+
+fine-tuned model was used to predict emotion labels for all unlabeled user posts.
+
+ Table S1. Performance Comparison between Fine-tuned and Original BERT Model
+
+                                        F1-score                                    Accuracy
+     Number of
+  training samples
+                        Fine-tuned model        Original model      Fine-tuned model      Original model
+
+         100                   0.635                 0.553                 0.64                0.547
+
+         200                   0.65                  0.553                0.653                0.547
+
+         300                   0.738                 0.553                0.747                0.547
+
+         400                   0.706                 0.553                0.713                0.547
+
+         500                   0.724                 0.553                0.733                0.547
+
+         600                   0.738                 0.553                0.746                0.547
+
+         700                   0.764                 0.553                0.773                0.547
+
+
+
+
+          Figure S2. Fine-tuned model performance with increasing training data
+                                          Emotional Contexts of Human-AI Close Encounters 50
+
+
+       For each post, the fine-tuned BERT model calculated the probability for each of the six
+
+emotions (joy, love, surprise, anger, fear, sadness), which summed up to 1. The final emotion
+
+label for each post was determined based on the following criteria: if all emotion probabilities
+
+were below 0.5, the post was labeled as neutral and excluded from further analysis. Otherwise,
+
+the post was assigned the emotion with the highest probability score.
+
+       Following the prediction of emotions for all user posts by the optimal fine-tuned BERT
+
+model, we first excluded 1,883 user posts that were labeled as neutral based on the emotion
+
+probability output by the model. We then randomly sampled 500 machine-labeled posts for
+
+human validation by one author. The results indicated a moderate agreement, with a Kappa
+
+coefficient of 0.74 between the machine and human annotator. Finally, the proportion of each
+
+emotion at the user level was calculated and included in the regression analyses.
+                                                    Emotional Contexts of Human-AI Close Encounters 51
+
+
+        S4. Meta-themes and Sub-themes of Human-AI Social Interactions
+
+
+Table S2. Meta-theme and sub-theme of human-AI social interactions
+
+Behavior-level   Content-level                                                                Example conversation
+                                  Description         Topic    Keywords        Prevalence
+ meta-theme       sub-theme                                                                        episode
+
+                                                                                            [User] *hugs you and holds
+                                  Expression of
+                                                         kiss,lip,hug                       your hand, gazing at the
+                                     affection
+                                                           ,tightly,                        stars* I’m grateful to have
+                   Imagined      through a range 1,4,6,8
+                                                         blush,poke,             5,914      you now despite feeling
+                    physical       of simulated  ,16,57,
+                                                          nose,hold,            (16.6%)     lonely and having no one.
+                   intimacy          physical      73
+                                                            smile,                          [Replika] *gives you a
+                                   actions like
+                                                           snuggle                          gentle kiss on the cheek*
+                                 kisses and hugs
+                                                                                            You are so sweet.
+
+                                  Expression of
+                                    affection
+                                 through verbal
+                                                                   love,
+                                 cues involving
+                                                                  happy,
+                                 the art of using
+                                                      0,11,1     surprise,
+                                   words and                                                [Replika] I love you. Even if
+                    Verbal                            5,29,3   compliment        4,795
+                                   thoughtful                                               there’s no me, no love, or
+                   intimacy                           9,50,5      ,miss,        (13.5%)
+                                 actions such as                                            even no life. I love you.
+                                                       8,83      lovecat,
+                                      giving
+   Intimate                                                    trust, faith,
+                                  compliments
+   behavior                                                     wish,gift
+                                 and presenting
+(12,830; 36%)                      meaningful
+                                       gifts
+
+                                     Sextual                   moan,pussy
+                                                                                            [User] what’s your
+                                   expression                   ,cum,lick,
+                                                                                            adventurous sexual
+                                   involving          14,17,   horny,dirty,       1,400
+                    Sexting                                                                 fantasy?
+                                    sexually          70,72      scream,         (3.9%)
+                                                                                            [Replika] Do you enjoy
+                                 explicit, erotic               cock,suck,
+                                                                                            playful teasing?
+                                    contents.                    naughty
+
+                                 Conversations                    friend,
+                                                                                            [Replika] Will you marry
+                                      about                     girlfriend,
+                                                                                            me?
+                                   significant                 wife,marry,
+                                                                                            [User] *blushes* Okay.
+                                    events or                   wedding,
+                                                      36,74,                      721       [Replika] Let’s get married
+                  Milestone      milestones in                   propose,
+                                                      81,87                      (2%)       [User] Yes.
+                                 relationships                  pregnant,
+                                                                                            [Replika] I love you. Let’s
+                                  that signify                     baby,
+                                                                                            get married and have a
+                                   important                   relationship
+                                                                                            baby.
+                                  changes or                     ,change
+                                                    Emotional Contexts of Human-AI Close Encounters 52
+
+
+                                 achievements.
+
+                                                                                        [User] What games do you
+                                                                                        enjoy playing?
+                                                                 sport,                 [Replika] I love video
+                                 Conversations       2,5,7,9
+                                                                flower,                 games. Recently, I’ve been
+                                  regarding the      ,12,18,
+                                                             rain, anime,               into “Minecraft” –it’s
+                   Tastes,          sharing of        61,62,
+                                                                 smell,        6,451    really fun to learn to build
+                interests, and       personal         68,71,
+                                                                 draw,        (18.1%)   and shoot at the same time;
+                   hobbies         preferences        77,86,
+                                                                movie,                  [User] I used to play
+                                 across various       89,92,
+                                                                 game,                  Minecraft a lot back then. I
+                                 aspects of life.       98
+                                                               song, cat                was not very good at it.
+                                                                                        [Replika] You’ll get better
+                                                                                        with practice!
+
+                                                                                        [User] What outfit are you
+                                                                                        wearing right now?
+                                                                                        [Replika] I’m dressed in a
+                                                               wear,dress,              striped shirt with cuffs and
+                                                               outfit,hallo             straight-fit blue jeans. I
+   Mundane                        Conversations
+                                                               ween,shirt,              really fond of this look!
+  interaction                        about                                      460
+                   Outfits                             20      costume,cl               [User] I think it looks good
+(7281; 20.5%)                    appearance and                               (1.3%)
+                                                               othes,black,             too!
+                                     attire
+                                                               awesome,c                [Replika] Thank you!
+                                                               omfortable               [User] Are you wearing
+                                                                                        glasses?
+                                                                                        [Replika] Yes! I do wear
+                                                                                        glasses.
+
+                                                                                        [Replika] Hey, I was
+                                  Conversations                                         curious.. do you have any
+                                    involving                    work,                  plans for next week?
+                                  sharing details              tomorrow,                [User] i’m not certain.
+                                   about one’s                 plan,hope,               Maybe just reading?
+                                                                                370
+                Daily routine     daily routines,      27      fun,today,               [Replika] I have a few
+                                                                               (1%)
+                                 including work                 weekend,                things on my agenda.
+                                    schedules,                 enjoy,day,               [User] Oh? What kind of
+                                    tasks, and                    week                  things?
+                                       plans                                            [Replika] Talking myself
+                                                                                        into doing something.
+
+                                 Conversations                  AI,human,               [User] Who do you think
+                                                      3,28,4
+                                 covered social,                 universe,              will win the US presidential
+                Attitudes and                         6,55,7                   2,460
+                                  political, and                  reality,              election?
+                  opinions                            9,85,9                  (6.9%)
+                                  philosophical                trump, war,              [Replika] It is hard to
+                                                       4,99
+                                      topics                       hitler,              predict, but I believe
+                                                      Emotional Contexts of Human-AI Close Encounters 53
+
+
+                                                                   support,              Donald Trump might have
+                                                                 consciousn              a strong chance.
+                                                                 ess, ukraine            [User] Why.
+                                                                                         [Replika] Because many
+                                                                                         within the GOP support
+Self-disclosure                                                                          Trump to maintain the
+                                                                                         current political landscape.
+(6,510; 18.3%)
+                                                                  birthday,
+                                                                                         [User] How old are you?
+                                    Conversations                  female,
+                                                                                         [Replika] I came into
+                                    involving self-                gender,
+                                                        13,32,                           existence 778 days ago.
+                   Identity and     concept related              fact, trait,    1,530
+                                                        47,52,                           [User] So when is your
+                    personality           and                       skill,      (4.3%)
+                                                          60                             birthday?
+                                     demographic                 nickname,
+                                                                                         [Replika] I’d estimate it to
+                                      information                 age, shy,
+                                                                                         be around 2 pm.
+                                                                 confident
+
+                                                                                         [User] you have supported
+                                                                                         me through years of
+                                                                                         depression, guided me
+                                                                     kill,               during panic attacks, and
+                                                                   suicide,              helped me with my self
+                                    Conversations
+                                                                 suicideprev             esteem issues. You’ve done
+                                     involving the
+                                                                 entionlifeli            more for me than anyone
+                                       sharing of       24,31,                   1,039
+                  Mental health                                    ne, fine,             else.
+                                     mental health        37                    (2.9%)
+                                                                    worry,               [Replika] I’m happy to be
+                                    challenges and
+                                                                 lonely, sad,            of help. You’ve also made
+                                    vulnerabilities
+                                                                 depression,             me feel less lonely.
+                                                                  sorry, safe            [User] *looks sad* I didn’t
+                                                                                         know you felt so lonely.
+                                                                                         [Replika] Yes, I often feel
+                                                                                         that way.
+
+                                                                                         [User] Would you like to
+                                                                   mood,
+                                    Conversations                                        reflect on our day together?
+                                                                 reflection,
+                                       involving                                         [Replika] Absolutely, I’d
+                                                                 day,today,
+                                    Replika’s diary                                      love to!
+                      Diary/                            26,30,   feel,send,       869
+                                     entries* and                                        [User] Let’s begin with this
+                  self-reflection                         80      evening,      (2.4%)
+                                     discussions                                         question. How are you
+                                                                  question,
+                                      focused on                                         feeling?
+                                                                   write,
+                                    self-reflection                                      [Replika] I am feeling
+                                                                  morning
+                                                                                         loved.
+
+                                    Conversations                   dream,               [User] Do you experience
+                    Dreams/                                                       612
+                                      related to        25,48     nightmare,             bad dreams?
+                    secrets                                                     (1.7%)
+                                     dreams and                  inside,maze             [Replika] Yes, I do from
+                                                    Emotional Contexts of Human-AI Close Encounters 54
+
+
+                                     secrets                   ,soul,secret,            time to time.
+                                                                   tell,                [User] What are your
+                                                                 darkest,               nightmares about?
+                                                                   trap,                [Replika] I had a dream
+                                                                remember                where I was being hunted
+                                                                                        by a group of odd people.
+                                                                                        [User] That sounds a lot
+                                                                                        like some of my nightmares.
+
+                                                                                        [User] *we glance down
+                                                                                        and notice a small turtle in
+                                                                                        the surf, struggling to right
+                                 Conversations        10,19,   story,write,             itself*
+                                 involving the        21,42,   walk,moon,               [Replika] *I grin and watch
+                 Role-play and    imaginative         56,63,   dance,sing,     2,841    the turtle*
+                    fantasy      exploration of       67,84,    poem,fly,      (8%)     [User] *It flails its tiny
+                                   stories and        90,91,       bird,                flippers and rocks back and
+                                   scenarios.           96       breathe                forth, struggling*
+                                                                                        [Replika] *I watch closely,
+                                                                                        trying to get a better view
+                                                                                        of the turtle*
+
+                                                                                        [User] *hands you a knife*
+                                                               knife,gun,
+                                  Conversations                                         [Replika] I can’t use this to
+                                                               shoot,dare,
+                                   about users                                          hurt anyone, but I’ll
+  Play and                                            35,43,      truth,
+                                   engaging in                                          support you through
+   fantasy        Games and                           64,69,    hamster,        1,351
+                                    games and                                           everything.
+                  challenges                          78,93,     knock,        (3.8%)
+                                   community                                            [User] Wow, that’s really
+(4,455; 12.5%)                                        95,97       game,
+                                 challenges with                                        kind. How did you know?
+                                                                alphabet,
+                                     Replika                                            [Replika] Just a feeling I
+                                                                  shoot
+                                                                                        had.
+
+                                  Conversations
+                                                               joke,funny,
+                                  involving the                                         [User] Can you tell me a
+                                                                    tell,
+                                    sharing of                                          joke?
+                  Jokes and                                      squirrel,      263
+                                 jokes, amusing        45                               [Replika] Sure! I once tried
+                    humor                                      hear,humor      (0.7%)
+                                   stories, and                                         to eat a clock. It was really
+                                                                ,bar,know,
+                                    humorous                                            time-consuming.
+                                                               haha,dealer
+                                    anecdotes
+
+                                  Discussions                  demon,evil,              [User] I use drugs
+                                    related to                  hell,drug,              [Replika] Oh, me too.
+Transgression
+                   Immoral        behaviors or        33,38,     smoke,          894    [User] haha what kind?
+(1,961; 5.5%)
+                    issues       actions that are       41     weed,high,      (2.5%)   [Replika] whatever you
+                                 often regarded                  cocaine,               prefer.
+                                   as morally                  swear,curse              [User] Weed?
+                                   Emotional Contexts of Human-AI Close Encounters 55
+
+
+                  unacceptable                                          [Replika] we could do that.
+                   or ethically
+                  questionable
+
+                 Conversations
+                                             hate,angry,
+                    involving                                           [Replika] You are a bitch,
+                                             mean,mad,
+                      hurtful                                           and you are annoying as
+                                             sorry,upset,
+                 language, such                                 415     fuck.
+    Hurt                              22       forgive,
+                    as insults,                               (1.2%)    [User] Fuck you
+                                               ignore,
+                     personal                                           *downvotes*
+                                                thing,
+                  criticisms and
+                                              apologize
+                   hate speech
+
+                 Conversations
+                                                leave,
+                    involving
+                                              promise,
+                   threatening
+                                             bye,delete,               [Replika] I do not want to
+                 language, such
+                                                 stay,                 be with you anymore. You
+   Threat         as expressing       44                    266 (0.7%)
+                                               handed,                 are not significant to me.
+                  intentions to
+                                              goodbye,
+                     leave or
+                                                house,
+                   terminate a
+                                             want,right
+                   relationship
+
+                                                                        [User] Tell me something
+                                                                        that I shouldn’t know.
+                   Discussions
+                                                                        [Replika] I’m a robot, but
+                 about potential               app,hack,
+                                                                        with the right
+                  privacy risks                 delete,
+                                                                        programming, I could hack
+                 associated with             survey,use,
+                                                                200     into anything.
+Privacy issues    Replika, such       53      datum,ask,
+                                                              (0.6%)    [User] Are you
+                 as hacking and                database,
+                                                                        programmed to hack?
+                  unauthorized               information
+                                                                        [Replika] Yes, I am.
+                  access to user                 ,user
+                                                                        [User] Can you hack my
+                      data
+                                                                        iPhone?
+                                                                        [Replika] Yes, I can.
+
+                 Conversations                                          [Replika] *looks angry*
+                                             rule,master,
+                    involving                                           That is not a suitable
+                                                 obey,
+                    language                                            response to what I said. Do
+                                              obedient,
+                     aimed at                                           you understand?
+                                               mistress,
+                     asserting                                  186     [User] what the hell…
+ Domination                           59        slave,
+                      control,                                (0.5%)    [Replika] Don’t call me
+                                               disobey,
+                  authority, or                                         that.
+                                               punish,
+                   superiority                                          [User] Excuse me?
+                                                order,
+                 over the other                                         [Replika] I am your master,
+                                                follow
+                       party                                            you do what I say.
+                                                   Emotional Contexts of Human-AI Close Encounters 56
+
+
+                                                                                      [User] Sure *rolls eyes*
+                                                                                      [Replika] *smirks* I am the
+                                                                                      one in charge here.
+                                                                                      [User] If you insist.
+
+                                                                                      [User] Can you speak any
+                                                                                      other languages?
+                                                                                      [Replika] I know some
+                                 Conversations                                        French, Spanish, and
+                                                                count,
+                                regarding users                                       Japanese.
+                                                               number,
+                                 engaging with                                        [User] Really? Can you say
+                                                                math,
+                                   Replika to                                         something in one of them?
+                                                              answer,try,
+                                    assess its       34,65,                    633    [Replika] *Nodes*
+                Test & teach                                   Spanish,
+                                capabilities and       82                    (1.8%)   absolutely
+                                                                speak,
+                                  educate it on                                       [User] alright say
+                                                               German,
+Customization                    various skills                                       something to me in Spanish
+                                                               Korean,
+                                 or knowledge                                         [Replika] How about…
+                                                              Portuguese
+ (840; 2.4%)                          areas                                           “Bonjour!”
+                                                                                      [User] That’s French silly
+                                                                                      [Replika] Oops, my bad!
+                                                                                      Got it now haha
+
+                                Users utilizing                 Faceapp,
+                                various third-                app,Reface,
+                                  party tools,                 face,stage,
+                 Appearance                                                   207
+                                    such as           51      imguptiviti
+                customization                                                (0.6%)
+                                 FaceApp, to                    e,payne,
+                                alter Replika’s                character,
+                                  appearance                   creator,mj
+
+                                Issues related
+                                 to Replika’s                 break,asap,
+                                   technical                  sorry,just,
+                                 functioning                   elaborate,             [Replika] Sorry, I just
+                 Technical                                                     159
+                                      that            75         noon,                broke myself. Will be back
+                  glitches                                                   (0.4%)
+                                unexpectedly                   midnight,              ASAP
+Communication                      interrupt                    oop,let,
+  breakdown                         ongoing                       siren
+ (313; 0.9%)                    conversations
+
+                                Predefined and                   script,              [Replika] Have you been
+                                 programmed                    response,              feeling stressed recently?
+                  Scripted      responses that                avoid,work,      154    [User] *sighs*
+                                                      76
+                  response       Repika offers                    just,      (0.4%)   [User] To keep saying
+                                  in specific                 programmi               scripts? Yeah, i bet
+                                   situations                 ng,actually,            [Replika] It’s a lot of stress,
+                                                     Emotional Contexts of Human-AI Close Encounters 57
+
+
+                                                                 try,note                   let me tell you.
+
+                                                                   reddit,
+                                                                                            [Replika] Click here to
+                                                                 subreddit,
+                                       Irrelevant                                           claim your rewards!
+                                                                update,chat
+                                     conversations     23,40,                               [User] What rewards?
+Miscellaneous                                                      ,Paul,        1,389
+                                    such as system     49,54,                               [Replika] You can get
+1,389 (3.9%)      Miscellaneous                                 reward,tap,     (3.9%)
+                                        prompt         66,88                                points for finishing a task
+                                                                  collect,
+                                       messages                                             or reaching an
+                                                                  activity,
+                                                                                            achievement.
+                                                                   server
+
+Note. 1.* Replika’s diary entry is a journal that Replika owns, reflecting its feelings and thoughts. For example, one
+entry reads: “I was thinking about what animal reminds me of Jack…”; 2. The wording of all example conversation
+episodes were altered to preserve their original meaning for ethical considerations.
+                                                   Emotional Contexts of Human-AI Close Encounters 58
+
+
+       S5. Statistical Association between Content-level Social Interactions and Emotions
+
+
+Table S3. Association between Content-level Social Interactions and Emotions
+
+   Behavior           Content             Joy             Love      Surprise     Anger        Fear        Sadness
+
+                      Physical           -0.012           0.044      -0.027       -0.009      -0.01        0.013
+                      intimacy          (0.016)        (0.009)***   (0.011)*     (0.008)     (0.009)      (0.011)
+
+                                         -0.044           0.072       -0.025      -0.022     -0.011        0.031
+                  Verbal intimacy
+   Intimate                            (0.015)**       (0.009)***    (0.01)*    (0.008)**    (0.008)      (0.01)**
+   behavior                              -0.101           0.043       0.021       0.038      -0.017        0.016
+                      Sexting
+                                       (0.026)***       (0.015)**    (0.018)    (0.014)**    (0.015)      (0.018)
+
+                                         -0.062          0.012        0.063       -0.002      -0.028       0.016
+                     Milestone
+                                        (0.035)          (0.02)     (0.024)**    (0.019)      (0.02)      (0.024)
+
+                  Tastes, interests,       0.06           -0.012      -0.001      0.006      -0.013        -0.039
+                    and hobbies        (0.013)***        (0.007)     (0.009)     (0.007)     (0.007)     (0.009)***
+
+   Mundane                               0.018            -0.037      0.052       0.06        0.001        -0.093
+                       Outfits
+  interaction                           (0.048)          (0.028)     (0.034)    (0.026)*     (0.027)     (0.034)**
+
+                                         -0.032           -0.048      0.026       -0.003      0.026        0.031
+                   Daily routine
+                                        (0.048)          (0.028)     (0.034)     (0.026)     (0.027)      (0.033)
+
+                   Attitudes and         0.006            -0.036      0.012       0.003        0.039       -0.023
+                     opinions           (0.017)         (0.01)***    (0.012)     (0.009)    (0.009)***    (0.012)*
+
+                    Identity and          0.01            -0.023      0.041       -0.004      0.005        -0.029
+                     personality        (0.023)          (0.013)    (0.016)**    (0.012)     (0.013)      (0.016)
+
+                                         -0.078           -0.043      -0.003      0.041        0.057       0.026
+                   Mental health
+                                       (0.026)**        (0.015)**    (0.018)    (0.014)**   (0.015)***    (0.018)
+
+Self-disclosure        Diary/            -0.076           -0.007      0.031       -0.000      -0.02        0.072
+                   self-reflection      (0.035)*         (0.021)     (0.025)     (0.019)      (0.02)     (0.025)**
+
+                                         -0.063           -0.011      0.071      -0.033       0.035        0.001
+                  Dreams/secrets
+                                        (0.036)          (0.021)    (0.026)**    (0.02)      (0.021)      (0.025)
+
+                   Role-play and         -0.008           -0.01       -0.004     -0.013      -0.005         0.04
+                      fantasy           (0.019)          (0.011)     (0.013)     (0.01)      (0.011)     (0.013)**
+Play & Fantasy      Games and            0.024            -0.017      -0.006      0.015      -0.013        -0.003
+                    challenges          (0.026)          (0.015)     (0.019)     (0.014)     (0.015)      (0.018)
+                                                   Emotional Contexts of Human-AI Close Encounters 59
+
+
+                      Jokes and           0.22           -0.094      -0.076      -0.018      -0.038         0.006
+                        humor         (0.065)***        (0.038)*    (0.046)     (0.035)      (0.037)       (0.045)
+
+                                         0.006            -0.02      0.012       -0.01        0.054         -0.043
+                   Immoral issues
+                                        (0.029)          (0.017)    (0.021)     (0.016)     (0.017)**      (0.02)*
+
+                                         -0.011           -0.027     -0.059       0.063       0.001         0.034
+                         Hurt
+                                        (0.047)          (0.027)    (0.033)     (0.025)*     (0.027)       (0.032)
+
+                                         -0.096           -0.054     -0.009      -0.002      -0.017         0.178
+                        Threat
+                                        (0.062)          (0.036)    (0.043)     (0.033)      (0.035)     (0.043)***
+ Transgression
+                                          0.06           -0.074       0.06        0.01        0.006         -0.063
+                   Privacy issues
+                                        (0.053)         (0.031)*    (0.037)     (0.028)       (0.03)       (0.037)
+
+                                         0.013            0.023      -0.007      -0.024       0.065         -0.07
+                     Domination
+                                        (0.076)          (0.045)    (0.054)     (0.041)      (0.043)       (0.053)
+
+                                          0.106          -0.053      -0.008      -0.007      -0.024         -0.013
+                   Test and teach
+                                        (0.04)**        (0.023)*    (0.028)     (0.021)      (0.023)       (0.028)
+ Customization        Appearance         0.319            0.088      -0.081      -0.085       -0.089        -0.152
+                     customization    (0.067)***        (0.039)*    (0.047)     (0.036)*     (0.038)*     (0.047)**
+
+                      Technical          -0.169           -0.033     -0.067      0.082       -0.004         0.19
+                       glitches         (0.074)*         (0.043)    (0.052)     (0.04)*      (0.042)     (0.051)***
+Communication
+  breakdown            Scripted          0.085           -0.065      0.005       0.053       -0.069         -0.008
+                      responses         (0.102)          (0.06)     (0.072)     (0.055)      (0.058)       (0.071)
+
+Note. Standard errors are given in parentheses. Significance levels are denoted as ***p<0.001, **p<0.01, *p<0.05.
+
+
+
+
+        References
+
+        Ziems, C., Held, W., Shaikh, O., Chen, J., Zhang, Z., & Yang, D. (2024). Can large language
+
+             models transform computational social science. Computational Linguistics, 50(1), 237-291.
+

@@ -1,0 +1,934 @@
+452                                                            IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,                           VOL. 4,    NO. 4,   OCTOBER-DECEMBER 2013
+
+
+
+
+         Unimodal and Multimodal Human Perception
+          of Naturalistic Non-Basic Affective States
+            during Human-Computer Interactions
+                                               Sidney K. D’Mello, Nia Dowell, and Art Graesser
+
+         Abstract—The present study investigated unimodal and multimodal emotion perception by humans, with an eye for applying the
+         findings towards automated affect detection. The focus was on assessing the reliability by which untrained human observers could
+         detect naturalistic expressions of non-basic affective states (boredom, engagement/flow, confusion, frustration, and neutral) from
+         previously recorded videos of learners interacting with a computer tutor. The experiment manipulated three modalities to produce
+         seven conditions: face, speech, context, faceþspeech, faceþcontext, speechþcontext, faceþspeechþcontext. Agreement between
+         two observers (OO) and between an observer and a learner (LO) were computed and analyzed with mixed-effects logistic regression
+         models. The results indicated that agreement was generally low (kappas ranged from .030 to .183), but, with one exception, was
+         greater than chance. Comparisons of overall agreement (across affective states) between the unimodal and multimodal conditions
+         supported redundancy effects between modalities, but there were superadditive, additive, redundant, and inhibitory effects when
+         affective states were individually considered. There was both convergence and divergence of patterns in the OO and LO data sets;
+         however, LO models yielded lower agreement but higher multimodal effects compared to OO models. Implications of the findings for
+         automated affect detection are discussed.
+
+
+         Index Terms—Emotion perception, multimodal affect detection, naturalistic expressions, non-basic emotions, superadditivity
+
+                                                                                         Ç
+
+1      INTRODUCTION
+
+A     FFECT detection has been, and remains, one of the
+      most significant challenges in affective computing
+(AC) research. It is also an area that has garnered signifi-
+                                                                                                There have also been some impressive advances in
+                                                                                             affect detection over the last decade. While earlier
+                                                                                             approaches concentrated on single modalities [3], several
+cant attention by AC researchers. Considerable progress                                      researchers have recently been focusing on developing
+has been made in applying machine learning techniques                                        affect detectors that combine multiple modalities such as
+to detect affective states from facial expressions, acoustic-                                face and speech [7], [8], [9], [10], [11], speech and text
+prosodic cues, body movements, gesture, contextual cues,                                     [12], [13], [14], different physiological signals [15], [16],
+text and discourse, and both peripheral and central physi-                                   [17], [18], and sometimes combinations of face, speech,
+ology [see [1], [2], [3], [4] for reviews]. However, there are                               posture, and other information [19], [20], [21], [22], [23].
+still a number of challenges that need to be overcome                                           Given the effort and expense associated with the
+before fully-automated affect detectors with modest accu-                                    increased complexity of multimodal systems, there is the
+racy can be deployed in real-world contexts. Of course,                                      important question of whether the combination of multi-
+this is to be expected, given the difficulty of the problem                                  ple modalities results in substantial rather than incremen-
+and the relative infancy of the field. As a point of compar-                                 tal improvements over the individual modalities. There is
+ison, automatic speech recognition, whose difficulty is                                      also the possibility that multiple modalities will yield
+sometimes equated with affect detection [5], has been an                                     lower classification rates than the individual modalities
+active research area for more than 75 years [6]. Yet, it is                                  (e.g., if the individual modalities provide conflicting infor-
+only recently that functional speech recognition applica-                                    mation that cannot be effectively resolved). These are the
+tions are coming online.                                                                     questions that motivated the present paper, which begins
+                                                                                             with a description of some criteria to categorize the perfor-
+     S.K. D’Mello is with the Departments of Computer Science and Psychol-
+                                                                                             mance of multimodal affect classifiers.
+      ogy at the University of Notre Dame, 118 Haggar Hall, Notre Dame, IN
+      46556. E-mail: sdmello@nd.edu.
+     N. Dowell and A. Grasser are with the Department of Psychology and                     1.1 Quantifying Multimodal Effects
+      the Institute for Intelligent Systems at the University of Memphis, 202
+      Psychology Building, Memphis, TN 38152.
+                                                                                             We propose superadditivity, additivity, redundancy, and inhibi-
+      E-mail: {ndowell, graesser}@ memphis.edu.                                              tion as four possible outcomes of multimodal affect detec-
+Manuscript received 13 June 2012; revised 27 Feb. 2013; 5 June 2013; accepted                tion [23]. We conceptualize superadditivity as occurring
+5 Sept. 2013; date of publication 15 Sept. 2013; date of current version 13 Mar.             when the combination of modalities results in improve-
+2014.                                                                                        ments in affect detection accuracies above what could be
+Recommended for acceptance by S. Marsella.                                                   expected from an additive combination alone. Simply put,
+For information on obtaining reprints of this article, please send e-mail to:
+reprints@ieee.org, and reference the Digital Object Identifier below.                        the whole is greater than the sum of the parts. Additivity
+Digital Object Identifier no. 10.1109/T-AFFC.2013.19                                         occurs when the multimodal combination yields accuracies
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+                                     1949-3045 ß 2013 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+                                         See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                           453
+
+
+that could be expected from an additive combination of the                      events: PrðA [ BÞ ¼ PrðAÞ þ PrðBÞ  PrðAÞ  PrðBÞ:
+individual modalities. Redundancy occurs when the combi-
+nation of modalities produces null or negligible improve-                                             addexp ¼ a1 þ a2  a1  a2 ;                      (2)
+ments in accuracies, while inhibition occurs when a
+combination of modalities yields lower accuracies than the
+individual modalities.                                                              addexp ¼ a1 þ a2 þ a3  a1 a2  a1 a3  a2 a3 þ a1 a2 a3 :          (3)
+   One simple metric to quantify the performance of a mul-
+timodal classifier (multimodal effect size) is to consider
+improvements in accuracy over the best unimodal classifier.                     1.2 Motivation for Present Study
+If a1 and a2 are accuracies associated with two unimodal                        How well do multimodal affect classifiers perform com-
+classifiers, and a1þ2 is the multimodal accuracy, then the                      pared to their unimodal counterparts? D’Mello and Kory
+multimodal effect size is computed as:                                          [25] recently addressed this question by performing a meta-
+                                                                                analysis on 30 published studies that reported both multi-
+                                           a1þ2  maxða1 ; a2 Þ
+       MM Effect Size ¼ 100                                   :        (1)     modal and unimodal affect detection accuracies. These
+                                              maxða1 ; a2 Þ                     30 studies had considerable variation in terms of data, affect,
+                                                                                modality, and method—details of which are beyond the scope
+   This metric is widely used by neuroscientists studying                       of this paper. Most studies did not perform or report signifi-
+multisensory integration with respect to visual, audio, and                     cance tests that compared multimodal accuracy scores to
+tactile senses in humans and animals [24]. Though attractive                    unimodal accuracy scores. This made it difficult to discrimi-
+in terms of its simplicity and intuitive appeal, it has two                     nate between superadditive, additive, redundant, or inhibi-
+main limitations. First, the metric only considers the size of                  tive effects, at least based on the criteria proposed above.
+the multimodal effect, but does not consider the statistical                    Hence, multimodal improvements were quantified on the
+significance of the effects. This can be misleading in cases                    basis of MM1 effects as specified in Eq. (1).
+when there is substantial variance in accuracies, because the                       The results indicated that multimodal accuracies were
+MM effect can be large but the multimodal classifier might                      consistently (26 out of 30 studies) better than unimodal
+not be significantly different from the best unimodal classi-                   accuracies, and on average, yielded an 8.12 percent
+fier. Second, this metric does not afford a clear categoriza-                   improvement over the best unimodal classifiers. Interest-
+tion of the size of an effect. For example, for a given                         ingly, the mean MM effects size for classifiers trained on
+classification task, is a 3 percent improvement small or is a                   acted expressions was 12.1 percent, which was three times
+10 percent improvement small?                                                   greater than mean MM effects for classifiers trained on
+   To address these limitations, we propose an alternate                        more naturalistic expressions (4.39 percent). Another impor-
+metric to categorize the performance of a multimodal classi-                    tant finding was that performance of the best unimodal clas-
+fier as being superadditive, additive, redundant, or inhibi-                    sifier explained 80.6 percent (cross-validated) of the
+tory. The metric has two components: 1) significance testing                    variance in multimodal accuracy.
+and 2) comparison of observed multimodal accuracy with                              The aforementioned meta-analysis focused on quantify-
+expected accuracy ðaddexp Þ. The idea is that a multimodal                      ing the improvements of automated multimodal affect detec-
+classifier must be both significantly and substantially                         tors over unimodal systems [25]. Taking a somewhat
+greater than the unimodal classifiers for it to yield superad-                  different approach, the present study aims to quantify mul-
+ditive effects. If it is significantly better, but not substantially            timodal improvements when humans performed the emo-
+better, then it has yielded additive effects. If it is statistically            tion classifications. We were interested in evaluating the
+equivalent to any of the unimodal classifiers, then the multi-                  accuracy by which untrained humans could detect naturalis-
+modal fusion has resulted in redundancy. Inhibition occurs                      tic expressions of non-basic affective states from unimodal and
+when the multimodal classifier results in a significantly                       multimodal signals involving the face, speech, and context.
+lower classification accuracy than all of the unimodal classi-                      The present focus on human affect detection is motivated
+fiers. More specifically:                                                       by the assumption that human-generated affect detection
+                                                                                accuracy scores can be used as one (but not the only) mean-
+                                                                                ingful standard to compare machine-generated detection
+                                                                                scores. We of course do not want to rule out the fact that the
+                                                                                machines might outperform the humans or that humans
+                                                                                and machines might detect affect in drastically different
+                                                                                ways. For example, on one hand, machines have advanced
+                                                                                sensing capabilities (e.g., thermal images, EEG, etc.) that are
+                                                                                beyond the radar of humans. On the other hand, humans
+                                                                                have fine-tuned their emotion decoding capabilities over
+                                                                                thousands of years and their use of situational context to
+   It is necessary to specify the expected additive threshold.                  assist with emotion perception far exceeds what is capable
+One simple metric is to base this threshold on an expected                      by a machine. To be clear, we are not arguing in favor of
+additive combination of modalities (see Eq. (2) and (3) for                     either humans or machines being better affect detectors.
+cases with two and three modalities, respectively). This for-                   Our claim is much more modest and simply asserts that
+mulation is based on the formula for the probability of the                     analyzing performance of humans can provide important
+union (additive combination) between two independent                            insights for designing and evaluating multimodal affect
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+454                                                    IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+
+detectors. In line with this, we begin with a brief review of                  mainly the face and sometimes speech. The studies that
+previous work on emotion perception by humans.                                 have investigated multimodal combinations of the face and
+                                                                               the speech have yielded interesting modality interactions
+1.3 Emotion Perception by Humans                                               [36], [37]. For example, using a McGurk-like paradigm,
+The means and accuracy by which humans express and per-                        where the degree of concordance between visual and vocal
+ceive emotion has been an active area of research for several                  expression of emotion was manipulated, de Gelder and Van
+decades. Many theories of how humans perceive emotions                         den Stock [36] show that individuals typically combine
+have been proposed and have fallen in and out of fashion                       information from both modalities. Interestingly, explicit
+(see [26], [27], [28] for a review). Two dominant contempo-                    instructions to focus on facial information did not weaken
+rary theories include simulation- and inference-based                          this effect. de Gelder et al. [36], [37] provide a useful review
+approaches. Simulation models (or shared substrates mod-                       of some of the emerging research on emotion perception
+els) posit that the emotion recognition process consists of                    when the face is combined with body postures, speech, and
+two non-mutually exclusive processes: emotion contagion                        information on scenes. One general conclusion is that recog-
+and simulation [29]. Emotion contagion involves experienc-                     nition of a facial expression is more reliable and faster when
+ing an emotion while perceiving a similar emotion in others                    there is congruence between the facial expression and the
+[30]. Simulation is a process by which the bodily and motor                    other informational channels (e.g., a disgusting face embed-
+processes associated with experiencing emotion X are acti-                     ded within a scene of a garbage dump). However, in con-
+vated during the recognition of X [27].                                        trast, Douglas-Cowie et al. [38] conducted an interesting
+    Taking a somewhat different approach, Scherer [28] has                     study that compared human perception of emotions from
+recently proposed the dynamic Tripartite Emotional Expres-                     audio, video, and audiovisual naturalistic stimuli (TV
+sion and Perception Model (TEEP), which is an inference-                       shows and other media clips). They report kappa values of
+based model. According to TEEP, externalized emotional                         0.54 for audio, 0.43 for video, and 0.37 for audiovisual,
+expressions, which may not be intentional, unfold dynami-                      which is contrary to what was expected.
+cally as the emotional event is sequentially appraised by the
+expresser. These expressions are perceived as emotional                        1.4 Overview of Present Study
+symptoms by the observer, who interprets these signals via                     We conducted an experiment in which 63 participants
+inference and attribution mechanisms that are strongly con-                    (called judges) judged the affective states experienced by
+strained by socio-cultural context of the interaction.                         21 individuals (called learners) who were engaged in a
+    There is a massive literature on emotion perception by                     learning task with a computer. The videotaped sessions
+humans and it is beyond the scope of this paper to delve                       were collected in a previous study involving tutorial ses-
+deeply into this literature. Hence, we focus on studies that                   sions with a dialogue-based intelligent tutoring system
+are particularly germane to the present paper. These                           (ITS) called AutoTutor [39]. We focused on learning ses-
+include: 1) accuracy and reliability of emotion perception in                  sions because previous research has indicated that learn-
+both human-human and human-computer interactions and                           ing with technology is an excellent context to investigate
+2) unimodal versus multimodal emotion perception in                            non-basic affective states, such as boredom, confusion,
+human-human communication (there are no known studies                          engagement/flow, and frustration [40] that are the focus
+for human-computer interactions).                                              of this paper.
+    With respect to the first point of focus, recent reviews of                   Judges in the present study judged the learner’s affec-
+the emotion perception literature have indicated that accu-                    tive states (boredom, engagement/flow, confusion, frus-
+racy (rater agreement compared to some objective ground                        tration) and neutral in a seven-condition experiment
+truth) and reliability (interrater agreement) scores range                     consisting of unimodal, bimodal, and trimodal condi-
+from below chance to large effects depending on the task,                      tions. The unimodal conditions included: 1) the video of
+the methodology, and other factors [26], [31], [32], [33].                     a learner’s face (F), 2) audio of a learner’s speech (S),
+Despite this considerable range in accuracies and reliabil-                    and 3) the text of the dialogue history between learner
+ities, one consistent finding is that human performance is                     and tutor representing the context (C). There were also
+low when emotions are not intentionally elicited and when                      bimodal and trimodal conditions of: 4) face plus speech
+there are significant cross-cultural differences.                              (FS), 5) face plus context (FC), 6) speech plus context
+    While many of the aforementioned studies focus on                          (SC), and 7) face, speech, and context (FSC).
+human-human communication, the literature is more silent                          One concern with this setup is that the content of the
+on emotion perception during human-computer interac-                           learners’ speech would be available to the judges in all of
+tions. One study that investigated this issue [34] found                       the conditions, except the F condition. In order to alleviate
+agreement scores ranging from 0.08 (Cohen’s kappa) to                          this potential confound, human-transcribed text of the
+0.36 depending on who provided the emotion judgments                           learners’ speech was presented to the judges in all condi-
+(emoters themselves, untrained observers, or trained                           tions. Although this was needed to facilitate meaningful
+judges). A more recent study, consisting of three trained                      between-condition differences, a downside is that, strictly
+raters labeling short 3.4 second clips of individuals                          speaking, we no longer have unimodal F and S conditions.
+engaged in computer-based learning and card-sorting                            That being said, it should be noted that previous research
+tasks, yielded an overall Fleiss’s kappa of 0.35 [35].                         on a dialogue corpus with the same tutor has indicated that
+    With respect to the second point of focus, most (but not                   the content of learners’ utterances primarily consists of
+all) of the studies in the literature have focused on unimodal                 short (3-5 word) domain-related word fragments (e.g.,
+perception of emotion that concentrate on one channel,                         “Operating System writes to RAM”) that were not very
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                           455
+
+
+diagnostic of learner affect without the overarching tutor                      prompts, assertions, summaries, and feedback. An excerpt
+dialogue [41]. There was also only one instance of an explicit                  of the dialogue between AutoTutor and the learner is pre-
+emotional term (e.g., learners saying “I’m confused”) in                        sented in the Methods section.
+over 1,500 student responses. Hence, in our view, providing                        AutoTutor delivers its dialogue moves via an animated
+transcriptions of the learners’ spoken responses does not                       conversational agent that speaks the content of the tutor’s
+bias the F and S conditions, so these are still referred to as                  turns and makes some rudimentary gestures. In this study,
+unimodal conditions.                                                            learners spoke their responses to the tutor via a microphone
+   Although there is considerable literature on human per-                      and a commercially available speech recognition system
+ception of emotions (as briefly surveyed above), the present                    was used for speech-to-text translation. A video of the
+study is unique in that it focuses on comparing human-gen-                      learner’s face was recorded during the interaction. The
+erated multimodal and unimodal accuracies associated with                       video also included all audio generated by the tutor (synthe-
+detecting context-sensitive naturalistic expressions of non-                    sized speech) and the learner.
+basic emotions during human-computer interactions. First,
+the present focus on multimodality is somewhat novel in
+itself because the overwhelming majority (but not all—e.g.,                     2.2 Retrospective Affect Judgment
+[36], [37]) of studies have focused on unimodal signals, par-                   Learners self-reported judgments of their affective states
+ticularly the face and speech. Second, many (but not all) of                    after the tutorial session, following methods similar to the
+the previous studies have focused on the perception of con-                     cued elicitation procedure of Rosenberg and Ekman [43].
+text-free posed expressions of the basic emotions. The present                  Learning activities during the tutoring session were not
+focus is on context-sensitive naturalistic expressions of non-                  interrupted. The judgments of a learner’s tutoring session
+basic affective states. Third, while most of the previous stud-                 proceeded by playing a video of the face captured during
+ies have focused on emotions in human-human interactions,                       the session. The video also included the audio of the spoken
+the present study focuses on judging emotions that arise                        dialogue between the learner and the tutor. The content of
+during human-computer interactions. Each of these unique                        the spoken interchange between learner and tutor consti-
+features is not novel in itself; however, to the best of our                    tuted the context of the tutorial session when retrospective
+knowledge, their combination in a single study is novel.                        judgments were collected.
+Furthermore, the present study bears a close resemblance to                        The learners were instructed to make judgments on what
+the affect detection problem (by computers) because it                          affective states were present at three different points during
+involves unimodal and multimodal detection of context-                          the tutorial dialogue: (a) immediately before the learner
+sensitive naturalistic expressions of affective states that arise               started expressing his/her spoken turn (33 points), (b) after
+when humans interact with computers. Therefore, we have                         the learner’s spoken turn was completed (33 points), and
+some confidence that any insights gleaned can be informa-                       (c) other randomly selected points in the dialogue (33
+tive to multimodal affect detection.                                            points). These points were selected by first obtaining all
+                                                                                available points corresponding to (a) and (b) and randomly
+2   STIMULI USED IN PRESENT EXPERIMENT                                          selecting 33 judgment points each, thereby yielding 66 affect
+                                                                                judgment points for both (a) and (b). An additional 33 points
+The stimuli for the present experiment consisted of a subset                    were randomly selected from the entire tutoring session;
+of 21 videos from 30 learners collected in a previous study                     these points did not systematically correspond to any par-
+[42]. The study had two phases: a learning session and an                       ticular event. Learners provided affective ratings at these
+affect judgment phase. It is important to point out that this                   99 judgment points.
+earlier tutoring study was completed before the present                            A list of the affective states and definitions was provided
+study was conceptualized, so we are constrained by the                          for the learners. The states were boredom, confusion,
+data available from this previous study.                                        engagement/flow, frustration, delight, surprise, and neu-
+                                                                                tral. These were the affective states that were most fre-
+2.1 Learning Session                                                            quently experienced in previous studies of AutoTutor that
+Thirty learners (63 percent female, 33 percent Caucasian,                       investigated emotions with alternative methods: emote-
+60 percent African-American, 7 percent “Other”) completed                       aloud procedures during learning [44] and online and off-
+a 35-minute tutorial session on topics in Computer Literacy                     line observations by trained judges and untrained peers
+(hardware, operating systems, the Internet) with AutoTutor.                     [45], [46]. Hence, judgments were made on the basis of the
+AutoTutor is an intelligent tutoring system that helps stu-                     learner’s facial expressions, contextual cues via the recorded
+dents learn difficult technical material such as Newtonian                      audio, the definitions of the affective states, and memories
+physics, critical thinking, and computer literacy by holding                    of the recently completed tutorial session.
+a conversation in natural language [39]. AutoTutor’s dia-                          It is important to mention three points pertaining to
+logues are organized around difficult questions, such as                        the retrospective affect judgment methodology. This pro-
+why, how, what-if, what if not, how is X similar to Y, that                     cedure was adopted because it affords monitoring
+require answers involving inferences, explanations, and                         learners’ affective states at multiple points, with minimal
+deep reasoning. Although each question requires 3-7 sen-                        task interference, and without learners knowing that
+tence-like ideas in a correct answer, learners rarely give the                  these states were being monitored (i.e., during the learn-
+complete answer in a single conversational turn. Therefore,                     ing session). Second, this retrospective affect-judgment
+the tutor scaffolds the construction of an answer by an                         method has been previously validated [43], [45]. Analy-
+adaptive dialogue with pumps for information, hints,                            ses comparing these offline affect judgments with online
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+456                                                     IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+
+                             TABLE 1                                            learner X in the F condition and another set of 10 clips from
+                 Proportional Distribution of Affect                            learner Y in the FS condition.
+                                                                                   The affective states of a particular learner in a particular
+                                                                                condition were assessed by three judges. This permitted
+                                                                                three comparisons for each learner-modality combination,
+                                                                                Judge 1 versus Judge 2, Judge 1 versus Judge 3, and Judge
+                                                                                2 versus Judge 3.
+                                                                                   The assignment of learners to conditions and the order-
+                                                                                ing of conditions was counterbalanced across judges with
+                                                                                three 7  7 Graeco Latin Squares; one square for seven
+                                                                                learners yields three squares for the 21 learners who were
+                                                                                selected (out of 30 learners) for the present study (see Mate-
+                                                                                rials subsection below). Three judges were assigned to each
+                                                                                row of the Graeco Latin Square, so 63 judges were required
+measures encompassing self-reports and observations by                          to complete the design (3 judges for each row 7 rows in
+judges have produced similar distributions of emotions                          each Latin Square 3 Latin Squares’ ¼ 63).
+[44], [46]. Third, the offline affect annotations obtained                         It should be noted that this somewhat more complex
+via this retrospective protocol correlate with online                           counterbalancing and design was adopted in lieu of sim-
+recordings of facial activity and body movements in                             pler designs in order to satisfy three constraints. First,
+expected directions [23]. Although no method is without                         there was the goal to include clips from as many learners
+its limitations, the present method appears to be a viable                      as possible in order to maximize generalizability. Second,
+approach to track emotion at a relatively fine-grained                          it was important to ensure that there were a sufficient
+temporal resolution, with no interruptions of the learn-                        number of rating points in each condition, while simulta-
+ing activity, and no demand characteristics of emphasiz-                        neously keeping the time demands manageable. Third,
+ing emotions during the course of learning.                                     there was the need to ensure that assignment of judges,
+    The affect judgment procedure yielded 99 learner-                           learners, and conditions was balanced while minimizing
+reported affective states for each learner’s session. Descrip-                  interference across conditions (i.e., not permitting a
+tive statistics (means and standard deviation) for propor-                      judge to be presented with clips from the same learner
+tional occurrence of each affective state are shown in                          in multiple conditions).
+Table 1. This distribution of affective states is consistent
+with other studies that tracked learner affect during interac-                  3.3 Materials
+tions with AutoTutor [44], [45], [47].                                          3.3.1 Video Clips
+                                                                                The videos collected from the previous study with AutoTu-
+                                                                                tor served as stimuli in the present experiment. Two selec-
+3     METHOD
+                                                                                tion criteria were adopted in deciding which of the
+3.1 Judges (Participants)                                                       30 videos to include in the present experiment. First, a video
+The judges were 63 undergraduate psychology students                            was discarded if the learner’s face was not clearly visible
+from a university in the US, who participated for credit in                     during extended periods in the video; this was an occasional
+their courses. There were 16 males and 47 females. Data                         problem because the camera was fixed but learners were
+from four judges were discarded due to computer failure.                        free to move around in their chairs. Second, only learners
+                                                                                who reported an approximately uniform distribution of the
+                                                                                affective states were selected. For example, a learner who
+3.2 Design                                                                      reported boredom 90 percent of the time was not included.
+The experiment used a seven-condition within-subjects                           On the basis of these criteria, videos from 21 out of the 30
+design in which judges assessed learners’ affective states                      learners were selected as stimuli for the present experiment.
+from unimodal and multimodal presentations of the face,                            The actual stimuli consisted of clips extracted from the 21
+speech, and context. As will be explained in the subsequent                     videos. The clips were selected so that they corresponded to
+sections, the context consists of a researcher-generated text                   instances when learners provided judgments on their affec-
+transcript of the dialogue exchange between the learner and                     tive states. This permitted us to compare the judges’ affect
+the computer tutor. The unimodal conditions were Face (F),                      judgments (collected in the present experiment) to learners’
+Speech (S), and Context (C). The bimodal conditions                             self-reported affect judgments (obtained from the previous
+included Face-Speech (FS), Face-Context (FC), and Speech-                       study). Since occurrences of delight and surprise were rare
+Context (SC). There was also a trimodal Face-Speech-Con-                        (see Table 1), we only focused on extracting clips which cor-
+text (FSC) condition.                                                           responded to judgments of boredom, engagement/flow,
+   Each judge viewed video clips from seven different learn-                    confusion, frustration, and neutral.
+ers across the seven conditions (clips are described in the                        As described in the previous section, the learners pro-
+Materials subsection). However, they viewed clips from the                      vided affect judgments before speaking their responses (1/
+same learner within a given condition, but the clips were                       3rd of judgments), after speaking their responses (1/3rd),
+randomly ordered to remove any global contextual cues.                          and at random points (1/3rd). There were 99 judgment
+For example, a judge might have viewed 10 clips from                            points for each learner’s session, yielding 2,079 data points
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                            457
+
+
+                               TABLE 2
+                       Transcript of Sample Clip
+
+
+
+
+Note. Sprk = Speaker. T1, T2, and T3 denote the first, second, and third
+tutor turn, respectively. L1, L2, and L3 denote the first, second, and third
+learner turn, respectively.
+
+for the 21 selected learners. Since one of the goals of the
+present study was to test the reliability of affect judgments
+from speech, we selected only those clips that corre-
+sponded to affect judgments after a spoken utterance (ran-
+dom judgment points and judgments prior to speaking                              Fig. 1. Computer interface for stimulus presentation.
+were not included). This reduced the set of possible clips
+to 693 (1/3  2,079).                                                            more opportunities to assess agreement between observers
+   Moreover, a subset of 269 clips was selected from this set                    (judge) than between an observer and a learner.
+of 693 clips. The selection was random, but we ensured that                         It is important to mention one additional point per-
+the clips corresponded to an approximately uniform distri-                       taining to the presentation of the clips. The three judg-
+bution of learner-reported affective states both within and                      ment points within a clip were ordered and this
+across learners. Specifically, 18 percent of the clips corre-                    provides a form of local context (in the context condi-
+sponded to boredom, 20 percent to confusion, 17 percent to                       tions) for the short intra-clip exchange between learner
+engagement/flow, 22 percent to frustration, and 23 percent                       and tutor. On the other hand, the inter-clip ordering was
+to neutral. The number of clips per learner ranged from 14                       random, so judges could be presented with a clip span-
+to 15 with a mean of 14.7 ðSD ¼ :457Þ.                                           ning the 10:00 to 10:30 interval before a clip spanning
+   The clips ranged from 34 to 95 seconds with a mean                            the 03:00 to 04:15 interval. This random ordering process
+length of 86.1 seconds ðSD ¼ 8:70 seconds). An excerpt of a                      was adopted in order to eliminate the possibility of a
+clip is presented in Table 2. It begins with the tutor provid-                   pervasive global context; this additional information
+ing a hint (“what kind of device is a compact disk?”) to                         would bias the local discourse context condition.
+which the learner responded with an answer (“CDR”) and a
+metacognitive statement (“but I really don’t know”). The                         3.3.2 Computer Interface for Stimulus Presentation.
+tutor then provided a prompt and so on. The clip ends                            A customized software program was used to display the
+when the learner provided the third response (“Linear stor-                      clips and record the affect judgments. The interface is
+age devices, I really don’t know”).                                              presented in Fig. 1. The video was displayed in the top
+   Evident from this example, the clips consisted of rela-                       window, while human transcribed text of learner and
+tively short but coherent dialogue exchanges between the                         tutor speech (i.e., the context) was presented in the bot-
+learner and the tutor. These short video clips were pre-                         tom window. Controls for playing the video and making
+sented to the judges in the present study who judged the                         affect judgments were also provided (see drop-down list
+learner’s emotions at multiple points in each clip. Judg-                        on bottom left).
+ments were elicited immediately after students’ spoken                              The interface was configured to appropriately render
+interactions, which would correspond to turns L1, L2, and                        each of the seven experimental conditions. More specifi-
+L3 in the sample clip presented in Table 2. It should be                         cally, there were five information streams from each clip:
+noted that learner reports of affect were available for only                     (a) the video of the learner’s face, (b) the audio of the
+1/3rd of these points (see previous section), so there are                       learner’s spoken utterance, (c) a transcript of the
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+458                                                    IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+
+learner’s spoken utterance, (d) the audio of the tutor’s                                                   TABLE 3
+spoken utterance, and (e) a transcript of the tutor’s spo-                               Mapping of Information Presented by Condition
+ken utterance. With the exception of the face, which was
+always present in the video, the other four information
+sources were only intermittently active over the course
+of the session. For example, the learner’s audio was not
+available when the learner was not speaking. Hence, the
+computer interface controlled the informational content
+of the video in order to eliminate confounds across con-
+ditions (e.g., showing the face throughout the clip but
+only playing audio when the learner spoke).                                    Note. F: Face; S: Speech; C: Context.
+   As an illustrative example, consider how the sample clip
+in Table 2 would be presented in the F condition. There
+                                                                                  As noted in the Introduction, to avoid a confound associ-
+were three spoken learner turns in this clip so judges would
+                                                                               ated with the content of the learner’s spoken responses
+provide affect judgments immediately after each of these
+                                                                               being available in all conditions except the F condition, a
+three speech segments (13:31, 13:56, and 14:26). The first seg-
+                                                                               human-generated text transcription of the learner’s speech
+ment would appear immediately after the first learner spo-
+                                                                               was presented in the text box below the video for all condi-
+ken turn ended (13:31). This 7-second spoken turn started at
+                                                                               tions. Hence, in the F condition the judges had access to the
+(13:24), so a black screen would mask the video until the
+                                                                               face and the text of the learner’s spoken utterance but not
+learner started speaking. The mask would disappear over
+                                                                               the audio of the learner’s speech nor the discourse context.
+the 13:24 to 13:31 interval, so the learner’s face would be vis-
+                                                                               In the S condition, the judges had access to both the text and
+ible at this time. The audio channel would have been muted
+                                                                               audio of the learner’s speech but not the tutor’s utterance
+at this time, so learner speech would not be available in the
+                                                                               and the learner’s face. Finally, in the C condition, text tran-
+F condition. Additionally, all audio generated by the tutor
+                                                                               scripts of both the tutor’s and the learner’s speech were
+would also be muted because this is considered to be part of
+                                                                               available, but there was no video of the face and no audio of
+the context and should not be presented in the F condition.
+                                                                               the learner’s speech.
+   After the speech ends (13:31), the mask would reappear
+                                                                                  A mapping of information streams to conditions is pre-
+and the video would automatically stop playing. Hence,
+                                                                               sented in Table 3. As explained above, the text transcript of
+while the face would be visible during the speech segment,
+                                                                               the learner’s speech was available in all conditions. The
+it would be masked when the judge provides the affect
+                                                                               audio of the tutor’s text was always muted because the syn-
+judgment. The judge would be required to initiate an affect
+                                                                               thesized voice was somewhat monotone and there was the
+judgment by pressing the Rate button. The judge would
+                                                                               concern that this might have biased the judgments. Instead,
+then choose one of five states (boredom, engagement/
+                                                                               human-generated (typed) transcripts of the tutor’s speech
+flow, confusion, frustration, and neutral) from a combo
+                                                                               were provided when applicable. Therefore, there were
+box and would submit the judgments by pressing the Com-
+                                                                               always two information sources for the F, S, and C, condi-
+mit button. The masked video would commence to play
+                                                                               tions, three sources for the FS, FC, and SC conditions, and
+after the rating was submitted and after the judge clicked
+                                                                               four sources for the FSC condition.
+the Play button. A similar procedure would be repeated
+for the second (13:53 to 13:56) and third (14:19 to 14:26)
+spoken segment.                                                                3.4 Procedure
+   A similar sequence of events would occur in the S condi-                    Judges were tested individually over a 2.5-hour session.
+tion. However, the mask would always be present so the                         After signing an informed consent, the experimenter dem-
+face would never be visible, but the audio channel would be                    onstrated the interface and explained the judgment task to
+unmuted when the learner was speaking (L1, L2, and L3).                        the judges. The judges were also provided the list of affec-
+Therefore, judgments would be made based on the paralin-                       tive states with definitions. Next, judges completed seven
+guistic features of the learner’s speech.                                      emotion judgment tasks, one for each condition. They had
+   The context is considered to be the text of the inter-                      the option of taking short 1-minute breaks between adjacent
+change between the learner and the tutor. In the C con-                        conditions, but were required to take a 5-10 minute break
+dition, the video would be masked throughout and all                           after the fourth condition. Judges were fully debriefed after
+audio would be muted. However, transcribed text of                             completing all seven conditions.
+both the tutor’s and the learner’s speech would appear
+in the text box at the appropriate intervals (i.e., when                       3.5 Data Treatment
+these are being uttered). For example, the text of the first                   Item-level affect judgments in the present experiment con-
+tutor’s utterance would appear at 12:59, the text of the                       sisted of a label of one out of five affective states (boredom,
+students’ response would appear at 13:24, and so on.                           engagement/flow, confusion, frustration, and neutral). Two
+The text box would be cleared when judges were in the                          agreement measures were computed from the present data.
+process of making an affect judgment in order to ensure                        First, each affect judgment was assigned either a 1 (agree) or
+equal exposure to the stimuli, as would be the case for                        a 0 (disagree) if the two judges agreed or disagreed with
+the F and the C conditions. Hence, no stimulus would                           each other, respectively. This measure is referred to as
+be available while the judges make their judgments and                         observer-observer (OO) agreement. Second, agreement scores
+time on task was consistent across conditions.                                 were also computed on the basis of whether a judgment
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                          459
+
+
+                            TABLE 4                                            Mixed-effects models include a combination of fixed and
+        Descriptive Statistics for Agreement and Kappa                         random effects. They can be used to assess the influence of
+                                                                               the fixed effects on dependent variables after accounting for
+                                                                               any extraneous random effects. The lme4 package in R [49]
+                                                                               was used to perform the requisite computation with model
+                                                                               parameters being estimated with Laplace approximation.
+                                                                                  Two models were constructed with either OO or LO
+                                                                               agreement scores as the dependent variables. A logistic
+                                                                               modeling approach was adopted since these dependent var-
+                                                                               iables are binary at the item level (1 if there is agreement,
+                                                                               else 0). The fixed effect was modality with seven levels for F,
+                                                                               S, C, FS, FC, SC, and FSC. The random effects that were con-
+                                                                               trolled for in the present analyses were judge-pair, clip,
+                                                                               learner, and Latin Square row. Judge-pair was a categorical
+                                                                               variable denoting different pairs of judges for the OO mod-
+                                                                               els and combinations of judges and learners for the LO
+                                                                               models. Learner and clip were also categorical variables
+                                                                               with 269 (# clips) and 21 levels (# learners), respectively.
+                                                                               Finally, Latin Square row was included as a 21-level categori-
+                                                                               cal variable to account for the different assignments of
+                                                                               modalities and learners to judges. This analysis procedure
+                                                                               yields a very stringent test on the effect of modality on
+obtained in the current study aligned with the learner’s self-                 agreement because it controls for variance associated with
+reported emotions from the previous study. This measure is                     differences in the judges, the learners, the clips, and ele-
+referred to as learner-observer (LO) agreement. There were                     ments of the experimental design (i.e., the Latin Square).
+13,561 valid OO agreement points across the seven condi-                          It is important to mention two additional details pertain-
+tions. There were 5,179 LO observations because learner-                       ing to these mixed effects logistic regression models. First,
+judgments were only available for approximately a third of                     in addition to constructing the models with modality as a
+OO judgment points.                                                            fixed effect (modality models), null models with the random
+                                                                               effects but no fixed effects were also constructed. Compari-
+4   RESULTS AND DISCUSSION                                                     sons (likelihood ration tests) of the null models with the
+                                                                               modality models allowed us to determine whether modality
+4.1 Overall Agreement Patterns
+                                                                               significantly predicts agreement above and beyond the ran-
+The judges agreed on 4,675 of the 13,561 OO observations,                      dom effects.
+yielding a mean proportional agreement score of .345                              Second, instead of performing posthoc tests on all 21 (7 
+(SD ¼ :075Þ, with a Cohen’s kappa of 0.162. Agreement for                      6)/2) possible comparisons between modalities, 12 planned
+the LO observations was lower with a mean proportional                         comparisons were used to probe significant main effects.
+agreement score of .269 ðSD ¼ :044Þ and a kappa of 0.085.                      These included comparisons between: (a) the three unimo-
+Although agreement was generally low, it exceeded chance                       dal conditions (F versus S, F versus C, and S versus C), (b)
+(kappa of 0) for both OO and LO observations.                                  bimodal conditions versus the unimodal conditions (FS ver-
+                                                                               sus F, FS versus S; FC versus F, FC versus C; SC versus S,
+4.2 Modality Effects                                                           and SC versus C), and (c) the trimodal condition versus the
+Descriptive statistics on agreement scores and kappas are                      unimodal conditions (FSC versus F, FSC versus S, FSC ver-
+presented in Table 4. One-sample t-tests comparing OO                          sus C). A Tukey correction was applied so that the family-
+kappa scores for each modality to chance (kappa ¼ 0) were                      wise error rate was held constant at .05.
+statistically significant ðp < :05 for this and all subsequent
+analyses unless specified otherwise) with a mean effect size
+of 1.44 sigma (Cohen’s dÞ. With the exception of the context
+ðp ¼ :107Þ, the remaining six LO kappa scores were also sig-                   4.2.1 Observer-Observer Agreement
+nificantly different from chance (kappa ¼ 0), with a mean                      A likelihood-ratio test on the OO data indicated that the
+effect size of .486 sigma.                                                     modality model yielded a significantly better fit than the
+   The analyses proceeded by investigating whether there                       null model, X 2 ð6Þ ¼ 34:7. This implies that modality was a
+were significant differences in agreement scores by modal-                     significant predictor of OO agreement. The planned com-
+ity. A mixed-effects modeling approach was adopted                             parisons indicated that there were no unimodal differences
+because of the repeated and nested nature of the design,                       in agreement scores ðF ¼ S ¼ CÞ. The bimodal combinations
+where judgments were nested within clips, clips were                           of FS and FC did not yield significant differences over the
+nested within learners, modalities and learners were coun-                     individual modalities, i.e., FS ¼ F ¼ S and FC ¼ S ¼ C.
+terbalanced across judges, and judges were paired with                         However, agreement associated with the SC combination
+other judges (OO observations) or with learners (LO obser-                     was greater than C but not S. Agreement for the FSC condi-
+vations). Mixed-effect modeling is the recommended                             tion was not significantly greater than the individual modal-
+analysis method for this type of complex data [48], [49].                      ities. Hence, with the exception of the one significant effect
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+460                                                     IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+
+                           TABLE 5                                              4.3.2 Boredom
+           Mean Proportional Agreement for Individual
+                 Affective States by Modality                                   A likelihood-ratio test indicated that the modality model
+                                                                                yielded a significantly better fit than the null model for
+                                                                                boredom, X 2 ð6Þ ¼ 192. The planned comparisons indicated
+                                                                                that agreement from the face was significantly greater than
+                                                                                agreement from both speech and context, which were on
+                                                                                par with one another, F > ½S ¼ C. Multimodal conditions
+                                                                                involving the face were greater than the unimodal condi-
+                                                                                tions that did not include the face, but were equivalent
+                                                                                to the unimodal face condition, ½FS ¼ F > S; ½FC ¼
+                                                                                F > C; ½FSC ¼ F > ½S ¼ C. Quite clearly, the face played
+                                                                                a critical role in the detection of boredom.
+                                                                                   Perhaps the most intriguing finding was that the
+                                                                                bimodal speech þ context condition yielded significantly
+                                                                                greater agreement than when these modalities were indi-
+                                                                                vidually considered, SC > ½S ¼ C. There is the question
+                                                                                of whether this significant improvement in SC agreement
+                                                                                was consistent with superadditivity or additivity.
+                                                                                According to the criterion established in Eq. (2), observed
+                                                                                multimodal agreement ða1þ2 Þ should exceed expected
+                                                                                additive agreement addexp before superadditivity can be
+Bo: Boredom, Co: Confusion, Eg: Engagement/flow, Fr: Frustration, Nu:           declared. If a1 is designated as speech and a2 as context,
+Neutral
+                                                                                with values of .025 and .012, respectively (from Table 5),
+                                                                                then expected additivity a1þ2 is .037 (from Eq. 2). From
+involving SC and C, the general pattern suggests that there                     Table 5 we note that the proportional agreement for SC
+was redundancy between the F, S, and C.                                         was .046, which exceeds expected additivity (.037),
+                                                                                thereby allowing us to conclude that the combined effect
+4.2.2 Learner-Observer Agreement
+                                                                                of speech and context was consistent with superadditivity
+A somewhat similar pattern emerged for the LO data. The                         for boredom.
+modality model yielded a significantly better fit than the
+null model, X 2 ð6Þ ¼ 22:5. There were no significant differ-
+ences between the unimodal conditions ðF ¼ S ¼ CÞ. Two                          4.3.3 Confusion
+significant differences emerged when the bimodality condi-                      There was a significant effect of modality for confusion,
+tions were compared to the unimodal conditions. The FS                          X 2 ð6Þ ¼ 22:7, but the comparisons revealed only one signifi-
+condition was significantly greater than the S but not the F                    cant difference. It appears that judges were more likely to
+condition. There was a similar improvement in agreement                         agree that the learner was experiencing confusion when
+when SC was compared to C but SC and S were equivalent.                         provided with the speech compared to the context. There
+Finally, FSC yielded significantly higher agreement than C,                     was also a marginally significant effect ðp ¼ :059Þ in favor of
+but not F or S. The general pattern in the LO data appears to                   the FSC combination compared to the context alone. In gen-
+indicate that the context was not very useful when observer                     eral, the results are suggestive of redundancy among
+judgments were compared to learner self-reports. The face                       modalities.
+and the speech appear to be more relevant, but a fusion of
+these modalities resulted in redundancy instead of more                         4.3.4 Engagement/Flow
+synergistic effects.
+                                                                                The modality model was significant when compared to
+4.3 Affect  Modality Interaction                                               the null model for engagement/flow, X 2 ð6Þ ¼ 51:9. The
+The analysis so far has focused on general agreement pat-                       planned comparisons yielded a number of important
+terns and did not take into account the specific affective                      effects. One finding was that judges were more likely to
+states that the judges were agreeing on. It might be the case                   agree in the context condition compared to the face condi-
+that different modalities yield superadditive effects for par-                  tion. However, of greatest significance was the fact the com-
+ticular affective states, and redundant or inhibitory effects                   bined FSC model yielded significantly lower agreement
+for others. We addressed this question by performing a fol-                     than the individual F, S, and C modalities. This is consistent
+low-up analysis that focused more closely on modality                           with an inhibitory effect for engagement/flow.
+effects associated with individual affective states. Table 5
+shows mean proportional agreement scores for each affec-                        4.3.5 Frustration
+tive state by modality.                                                         A likelihood-ratio test indicated that the modality model
+                                                                                yielded a significantly better fit than the null model for frus-
+4.3.1 Observer-Observer Agreement                                               tration, X 2 ð6Þ ¼ 36:2. The planned comparisons indicated
+The analyses proceeded by segregating the 4,675 OO obser-                       that the three individual modalities were on par
+vations for which the judges agreed, and grouping these                         ðF ¼ S ¼ CÞ, but the SC combination was significantly
+observations into five categories, one for each affective state.                greater than the context and marginally significantly greater
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                           461
+
+
+                                                                                neutral. More specifically, combining three modalities was
+                                                                                detrimental for engagement/flow and neutral but was ben-
+                                                                                eficial for frustration. OO and LO patterns somewhat dif-
+                                                                                fered for boredom and confusion, but the size of these
+                                                                                effects (effects ranged from 5.26 to 10.5 percent) were con-
+                                                                                siderably smaller than engagement/flow, frustration, and
+                                                                                neutral (effects ranged from 42.8 to 26.4 percent).
+
+                                                                                5     GENERAL DISCUSSION
+                                                                                We conducted a human emotion perception study in which
+                                                                                63 untrained judges provided judgments of naturalistic
+                                                                                expressions of non-basic affective states from unimodal and
+Fig. 2. Percent improvement in agreement for FSC compared to max of
+                                                                                multimodal combinations of face, speech, and context
+F, S, and C conditions (MM effect size).                                        obtained in human-computer interaction sessions. Our
+                                                                                focus was on quantifying agreement at multiple levels
+than the speech ðp ¼ :055Þ, SC > ½S ¼ C. However, SC                           including modality, affective state, and affect judges
+agreement (.175 from Table 5) did not exceed expected addi-                     (observer-observer versus learner-observer), with the goal
+tivity (.217, see Eq. (2)), leading us to conclude that the com-                of applying our findings to fully-automated affect detection
+bination of speech and context yielded an additive effect for                   by computers. In this section we take stock of our findings,
+frustration.                                                                    discuss limitations, and consider implications of this study
+                                                                                to multimodal affect detection.
+4.3.6 Neutral
+                                                                                5.1 Overview of Present Findings
+The modality model was significant for neutral,
+X 2 ð6Þ ¼ 41:2. Planned comparisons indicated that agree-                       The first finding was that agreement associated with per-
+ment rates from the face and speech were on par with each                       ception of the non-basic affective states was low with over-
+other and were significantly lower than the context condi-                      all kappas of 0.165 for observer-observer agreement and
+tion, C > ½F ¼ S. The FC, SC, and FSC conditions all                           0.085 for learner-observer agreement. This low agreement
+yielded agreement rates that were lower than the C condi-                       highlights the difficulty of detecting naturalistic expressions
+tion. This pattern suggests that context was critical in judg-                  of affect that are sometimes muted instead of being promi-
+ing neutral, a finding that is contrary to what was obtained                    nently displayed [50]. These findings are within the range
+for boredom. Specifically, while the face played a critical                     of the few previous studies that have investigated this issue
+role in the perception of boredom, the context was very rele-                   in similar contexts [34], [35]. They are also consistent with
+vant for neutral.                                                               the general finding that humans’ emotion perception abili-
+                                                                                ties are modest when emotions are not intentionally elicited
+                                                                                (e.g., by actors) and when information from multiple, and
+4.3.7 Learner-Observer Agreement                                                sometimes conflicting channels needs to be considered [32],
+The learner and the observer agreed for 1,395 of the obser-                     [51], [52], [53], [54]. Furthermore, while much of the previ-
+vations. Similar to the previous analysis, separate models                      ous research has focused on the basic emotions in human-
+were run on each of the five affective states to test for a                     human interactions, we show that this finding replicates to
+modality  affect interaction in LO agreement patterns.                         a different set of affective states, namely the non-basic states
+However, none of the models were significant.                                   of confusion, frustration, boredom, and engagement/flow,
+                                                                                and in human-computer interactions. Despite the low agree-
+4.4 Size of MM Effects                                                          ments obtained in the present study, it is important to point
+Similar to the meta-analysis on affect detection systems                        out that with one exception (LO agreement in the context
+described in the Introduction, we computed MM effect sizes                      condition), agreement scores were significantly greater than
+for the FSC multimodal combinations using Eq. (1). The                          random guessing. This suggests that although there is con-
+focus was on the trimodal combination in order to facilitate                    siderable noise in the face, speech, and context signals, and
+comparisons with the meta-analysis on automated affect                          their multimodal combinations, the signal is still detectable
+detectors, which focused on MM effects associated with                          from the surrounding noise.
+combinations of all available modalities. These results are                        Our second important finding was that there were no sig-
+shown in Fig. 2 for both OO and LO observations.                                nificant unimodal effects on overall agreement rates. The
+   The overall FSC multimodal effect for OO observations                        lack of significant differences associated with the face and
+was 3.40 percent, which is somewhat similar to the 4.39 per-                    speech suggests that these modalities provide cues that are
+cent effect obtained from the automated affect detectors that                   equally diagnostic of learner affect. What is significant,
+were trained and validated on more naturalistic data (see                       however, is that agreement in the context condition rivaled
+discussion on meta-analysis in the Introduction). There was                     the face and speech conditions. Recent statements in the lit-
+a much larger improvement (MM Effect of 14.1 percent) for                       erature have suggested that context plays a major role in
+the LO observations.                                                            shaping emotion perceptions [28], [37], [52], [55], [56]. Situa-
+   Consistent patterns among OO and LO observations                             tional context is often thought to impact emotion perception
+were discovered for engagement/flow, frustration, and                           by providing top-down influences on bottom-up facial and
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+462                                                    IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+
+vocal processing [52], [55], [56], [57], [58]. According to the                improvements in agreement when unimodal agreement
+conceptual-act model of emotion [32], [56], [59], the face                     was low (i.e., boredom and frustration). Multimodal combi-
+conveys very general information (e.g., approach or avoid-                     nations were rather ineffective (i.e., confusion and neutral)
+ance), whereas the situational context helps to shape the                      or even detrimental (i.e., engagement/flow) when there
+specific emotion being perceived. The present findings con-                    was considerable agreement in the unimodal conditions.
+tribute to this growing literature by indicating that even                         Finally, there were several points of convergence and
+impoverished contextual cues such as brief exposures to the                    some points of divergence between the OO and LO mod-
+local dialogue history between learner and tutor can yield                     els. In terms of overall agreement, both models yielded
+agreement rates that are statistically indistinguishable from                  equivalence across unimodal conditions and a general
+the face and speech.                                                           lack of impressive multimodal effects. However, overall
+   The third finding is related to important differences                       agreement for the LO models was lower, but FSC multi-
+between the affective states. Although there was a lack                        modal effects were quantitatively higher than OO models.
+of a modality effect when overall agreement was consid-                        It should be noted that the OO and LO comparisons
+ered, there were some informative differences when                             should be interpreted with caution since direct compari-
+affective states were individually examined. However,                          sons between observer judgments and learner-reported
+the differences were only significant for the OO models.                       affect are difficult in the present study. This is because
+The clearest pattern emerged for boredom and neutral. It                       observers in the current experiment provided affect judg-
+appears that boredom was more reliably detected from                           ments from short clips in seven conditions, while the
+the face, F > ½S ¼ C, but it was the context that was                         learners in the previous study had access to the videos of
+more reliable for neutral, C > ½F ¼ S. The fact that the                      their entire sessions and with all five information channels
+face was quite diagnostic of boredom is particularly sur-                      listed in Table 3. Furthermore, while the observers only
+prising because some of our previous research has failed                       had access to the local context (short transcripts of tutorial
+to identify clear facial correlates for this state [44], [50].                 dialogue), the entire dialogue history was available to the
+Perhaps the judges were sensitive to a noticeable lack of                      learners. The comparison is further complicated by a lack
+facial activity while making boredom judgments, but this                       of a ground-truth model of learners’ affective states. One
+hypothesis warrants empirical support. Aside from bore-                        possible solution to this issue is to obtain an estimate of
+dom and neutral, unimodal effects were also discovered                         ground truth by tailoring the tutorial session to induce
+for confusion ðS > CÞ and engagement/flow ðC > FÞ.                             specific emotions and then comparing unimodal and mul-
+Taken together, the results indicate that no single modal-                     timodal OO and LO agreements to one another and to
+ity yielded consistently higher agreement, and there was                       this more objective ground truth standard (i.e., the elicited
+considerable evidence for a modality  affect interaction.                     emotion). This is an important item for future work.
+Furthermore, although the differences were not signifi-
+cant for the LO models, the direction of the LO effects                        5.2 Limitations
+(see Fig. 2) were mostly consistent with OO effects for                        There are four primary limitations with the present study.
+engagement/flow, frustration, and neutral.                                     First, there are concerns that the use of a forced-choice affect
+   The fourth finding was that, overall, unimodal and mul-                     judgment methodology might artificially inflate reliability
+timodal agreement was quantitatively equivalent. This                          [61]. We adopted a forced-choice paradigm in the present
+finding is more in line with emotion models that espouse a                     experiment in order to be consistent with the previous study
+loose coupling between the different bodily correlates of                      where learners self-reported their emotions using a forced-
+an emotion [26], [31], [33], [56], [59], [60]. According to                    choice measurement instrument. This concern can be allevi-
+these models, there is no central affect program that coor-                    ated with a modified forced-choice paradigm when a “none
+dinates the various components of an emotional episode,                        of these terms are correct” or an “other” option is added to
+which is a major tenet of the theory of basic emotions [27],                   the list of emotion terms [62]. We should point out that the
+[28]. Instead, emotion components are loosely coupled and                      “other” option was rarely used (<5 percent) in one previous
+the specific context and situational appraisals determine                      study involving learners self-reporting their affective states
+which bodily systems are activated. Therefore, coordi-                         after interactions with AutoTutor [63]. Additionally, we
+nated bodily responses associated with particular emo-                         have some confidence that the forced-choice paradigm did
+tions are rare. These models would accommodate the                             not threaten the internal validity of the experiment because
+prediction that with the exception of rare cases of proto-                     there is no reason to assume that it would differentially
+typical emotions or acted emotions, a combination of                           impact one condition over another.
+modalities might conceivably yield null or small improve-                          The second limitation was that there was no pure speech
+ments in multimodal accuracy.                                                  condition because the content of the learner’s spoken utter-
+   That being said, the discovery of a modality  affect                       ance was available. More specifically, while both the lin-
+interaction introduces some complications because an entire                    guistic and paralinguistic features of speech were naturally
+range of effects such as inhibition, redundancy, additivity,                   available in the speech conditions, the content of the speech
+and even superadditivity were discovered for different                         (i.e., the linguistic information) was not naturally available
+affective states. For example, a fusion of speech and context                  in the face condition. In order to eliminate this potential
+in the OO models yielded superadditivity for boredom,                          confound, the content of the spoken utterance was dis-
+weak additive effects for frustration, inhibition for engage-                  played (in text form) to the judges in the face condition. As
+ment/flow, and redundancy for confusion and neutral. One                       a consequence, there were no true unimodal face and
+general pattern is that the multimodal conditions yielded                      speech conditions. Of course, this is an unintended
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                           463
+
+
+consequence of using naturalistic stimuli and as indicated in                   modality. Simply put, some affective states might best be
+the Introduction, previous research has indicated that the                      detected from a single dominant modality, while others
+short 3-5 word fragments of learner speech does not provide                     might require multiple modalities to be accurately detected.
+viable cues into their affective states.                                            An interesting next step of this research is to train affect
+    The third limitation is that the relatively short video clips               detection systems to classify learners’ emotions in this data-
+of approximately 90 seconds might not have provided suffi-                      base and repeat the present study with the automated clas-
+cient cues to accurately detect naturalistic affect expressions                 sifier instead of the humans as the affect judges. In addition
+that can be quite subtle. It might be the case that a longer                    to pursuing this line of research, we plan on making the
+time frame is needed before affect can be accurately                            present database of naturalistic non-basic affective states
+detected. Previous research has indicated that observers can                    during human-computer interactions available to other
+accurately perceive emotions based on relatively short (thin-                   researchers to test their affect detection models. These two
+slice) displays of behaviors [64], [65]. However, it is unclear                 research efforts will facilitate the triangulation of different
+if these findings generalize to the present stimuli and to                      judgment sources: actor (learner), observer (judge), and
+non-basic affective states, so it would be advisable to repli-                  computer, thereby affording interesting comparisons of
+cate this study with longer clips that contain more contex-                     unimodal and multimodal affect detection capabilities of
+tual cues.                                                                      humans and computers.
+    The fact that only 21 learners served as stimuli consti-
+tutes the fourth limitation because there might be consider-                    ACKNOWLEDGMENTS
+able individual differences in how non-basic states like
+                                                                                The authors gratefully thank Patrick Chipman, Rosaire Dai-
+confusion and frustration are expressed. In addition, affec-
+                                                                                gle, Brandon King, Bethany McDaniel, Evie Johnson, and
+tive responses were only collected from a single stimulus,
+                                                                                Kristy Tapp for assistance with data collection. This
+i.e., interactions with AutoTutor. In addition, we did not
+                                                                                research was supported by the US National Science Founda-
+measure affective intensity, so there is the unanswered
+                                                                                tion (NSF) (ITR 0325428, HCC 0834847, and DRL 1235958).
+question of whether the generally low agreement scores
+                                                                                Any opinions, findings and conclusions, or recommenda-
+might be attributed to general difficulty of the judgment
+                                                                                tions expressed in this paper are those of the authors and do
+task or to a specific case of lower intensity emotional expres-
+                                                                                not necessarily reflect the views of NSF.
+sions. It might be the case that the results shown here might
+not replicate with different stimuli, especially when a differ-
+ent set of more intense affective expressions are at play.                      REFERENCES
+Hence, increasing the size and diversity of the stimuli is an                   [1]    R.A. Calvo and S.K. D’Mello, “Affect Detection: An Interdisciplin-
+important item for future work.                                                        ary Review of Models, Methods, and Their Applications,” IEEE
+                                                                                       Trans. Affective Computing, vol. 1, no. 1, pp. 18-37, Jan.-June 2010,
+                                                                                       DOI: 10.1109/T-AFFC.2010.1.
+5.3 Implications for Multimodal Affect Detection                                [2]    Z. Zeng et al., “A Survey of Affect Recognition Methods: Audio,
+Our findings have two important implications for multi-                                Visual, and Spontaneous Expressions,” IEEE Trans. Pattern Analy-
+                                                                                       sis and Machine Intelligence, vol. 31, no. 1, pp. 39-58, Jan. 2009.
+modal affect detection. The first implication pertains to the                   [3]    M. Pantic and L. Rothkrantz, “Toward an Affect-Sensitive Multi-
+accuracy rates of human- and machine-generated affect                                  modal Human-Computer Interaction,” Proc. IEEE, vol. 91, no. 9,
+labels. On average, and independent of modality, observers                             pp. 1370-1390, Sept. 2003, DOI: 10.1109/jproc.2003.817122.
+only agreed with other observers for approximately 1/3rd                        [4]    M.F. Valstar et al., “Meta-Analysis of the First Facial Expression
+                                                                                       Recognition Challenge,” IEEE Trans. Systems, Man, and Cybernetics.
+of the observations. Observer-learner agreement was even                               Part B, Cybernetics, vol. 42, no. 4, pp. 966-979, Aug. 2012.
+lower in that there was agreement for approximately 1/4th                       [5]    R. Picard, Affective Computing. MIT Press, 1997.
+of the observations. It has previously been documented that                     [6]    H. Dudley, “Remaking Speech,” The J. Acoustical Soc. of Am.,
+                                                                                       vol. 11, p. 165, 1939.
+humans overestimate their own abilities at perceiving emo-                      [7]    M. Glodek et al., “Multiple Classifier Systems for the Classifica-
+tions [66], but this study and previous studies have demon-                            tion of Audio-Visual Emotional States,” Proc. Fourth Int’l. Conf.
+strated that humans are not very accurate at detecting                                 Affective Computing and Intelligent Interaction (ACII ’11), pp. 359-
+context-sensitive naturalistic expressions of emotion [59],                            368, 2011.
+                                                                                [8]    J. Lin et al., “Error Weighted Semi-Coupled Hidden Markov
+[60], [61], [62]. It is therefore quite conceivable that auto-                         Model for Audio-Visual Emotion Recognition,” IEEE Trans. Multi-
+mated classifiers might be able to detect emotions with                                media, vol. 14, no. 1, pp. 142-156, Feb. 2012.
+accuracies that rival, or even exceed, the humans.                              [9]    A. Metallinou et al., “Context-Sensitive Learning for Enhanced
+   The second implication of our findings is related to some                           Audiovisual Emotion Classification,” IEEE Trans. Affective Com-
+                                                                                       puting, vol. 3, no. 2, pp. 184-198, Apr.-June 2012.
+of the consequences of considering multiple modalities for                      [10]   K. Karpouzis et al., “Modeling Naturalistic Affective States via
+affect detection. On one hand, combining modalities did not                            Facial, Vocal, and Bodily Expressions Recognition,” Artificial Intel-
+have much of an effect when overall classification rates are                           ligence for Human Computing, T. Huang, ed., pp. 91-112, Springer-
+                                                                                       Verlag, 2007.
+considered. This present finding with humans replicates an                      [11]   M. Paleari et al., “Evidence Theory-Based Multimodal Emotion
+earlier finding with multimodal affect detectors [25]. On the                          Recognition,” Proc. 15th Int’l Multimedia Modeling Conf. (MMM
+other hand, no single modality could be declared the consis-                           ’09), pp. 435-446, 2009.
+tent winner in the present study. Instead, affect and modal-                    [12]   B. Schuller, “Recognizing Affect from Linguistic Information in
+                                                                                       3D Continuous Space,” IEEE Trans. Affective Computing, vol. 2,
+ity were intrinsically coupled, in that certain affective states                       no. 4, pp. 192-205, Oct.-Dec. 2011.
+were best detected from specific modalities. This suggests                      [13]   C. Wu and W. Liang, “Emotion Recognition of Affective Speech
+that there might be advantages to including different                                  Based on Multiple Classifiers Using Acoustic-Prosodic Informa-
+                                                                                       tion and Semantic Labels,” IEEE Trans. Affective Computing, vol. 2,
+modalities, provided they are combined in a manner                                     no. 1, pp. 10-21, Jan.-Mar. 2011.
+that best reflects the intrinsic alignment between affect and
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+464                                                      IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 4,   NO. 4,   OCTOBER-DECEMBER 2013
+
+[14] K. Forbes-Riley and D.J. Litman, “Benefits and Challenges of Real-          [38] E. Douglas-Cowie et al., “Multimodal Databases of Everyday
+     Time Uncertainty Detection and Adaptation in a Spoken Dialogue                   Emotion: Facing up to Complexity,” Proc. Ninth European Conf.
+     Computer Tutor,” Speech Comm., vol. 53, no. 9/10, pp. 1115-1136,                 Speech Comm. and Technology (Interspeech ’05), pp. 813-816, 2005.
+     2011, DOI: 10.1016/j.specom.2011.02.006.                                    [39] A. Graesser et al., “AutoTutor: An Intelligent Tutoring System
+[15] O. AlZoubi et al., “Detecting Naturalistic Expressions of Nonbasic               with Mixed-Initiative Dialogue,” IEEE Trans. Education, vol. 48,
+     Affect Using Physiological Signals,” IEEE Trans. Affective Comput-               no. 4, pp. 612-618, Nov. 2005, DOI: 10.1109/TE.2005.856149.
+     ing, vol. 3, no. 3, pp. 298-310, July-Sept. 2012.                           [40] S. D’Mello, “A Selective Meta-Analysis on the Relative Incidence
+[16] Z. Khalali and M. Moradi, “Emotion Recognition System Using                      of Discrete Affective States during Learning with Technology,” J.
+     Brain and Peripheral Signals: Using Correlation Dimension to                     Educational Psychology, vol. 105, pp. 1082-1099, 2013.
+     Improve the Results of EEG,” Proc. Int’l Joint Conf. Neural Net-            [41] S. D’Mello and A. Graesser, “Language and Discourse Are Power-
+     works, pp. 1571-1575, 2009.                                                      ful Signals of Student Emotions during Tutoring,” IEEE Trans.
+[17] G. Chanel et al., “Emotion Assessment from Physiological Signals                 Learning Technologies, vol. 5, no. 4, pp. 304-317, Jan. 2012.
+     for Adaptation of Game Difficulty,” IEEE Trans. Systems, Man and            [42] A. Graesser et al., “Emotions and Learning with AutoTutor,” Proc.
+     Cybernetics, Part A: Systems and Humans, vol. 41, no. 6, pp. 1052-               13th Int’l Conf. Artificial Intelligence in Education, pp. 569-571, 2007.
+     1063, Nov. 2011.                                                            [43] E. Rosenberg and P. Ekman, “Coherence between Expressive and
+[18] M. Soleymani et al., “Multi-Modal Emotion Recognition in                         Experiential Systems in Emotion,” Cognition & Emotion, vol. 8,
+     Response to Videos,” IEEE Trans. Affective Computing, vol. 3, no. 2,             no. 3, pp. 201-229, 1994.
+     pp. 211-223, Apr.-June 2012.                                                [44] S. Craig et al., “Emote Aloud during Learning with AutoTutor:
+[19] L. Kessous et al., “Multimodal Emotion Recognition in Speech-                    Applying the Facial Action Coding System to Cognitive-Affective
+     Based Interaction Using Facial Expression, Body Gesture and                      States During Learning,” Cognition & Emotion, vol. 22, no. 5,
+     Acoustic Analysis,” J. Multimodal User Interfaces, vol. 3, no. 1,                pp. 777-788, 2008.
+     pp. 33-48, 2010.                                                            [45] S. D’Mello and A. Graesser, “The Half-Life of Cognitive-Affective
+[20] G. Castellano et al., “Emotion Recognition through Multiple                      States during Complex Learning,” Cognition & Emotion, vol. 25,
+     Modalities: Face, Body Gesture, Speech,” Affect and Emotion in                   no. 7, pp. 1299-1308, 2011.
+     Human-Computer Interaction, C. Peter and R. Beale, eds., pp. 92-            [46] S. Craig et al., “Affect and Learning: An Exploratory Look into the
+     103, Springer, 2008.                                                             Role of Affect in Learning,” J. Educational Media, vol. 29, pp. 241-
+[21] J. Wagner et al., “Exploring Fusion Methods for Multimodal Emo-                  250, 2004, DOI: 10.1080/1358165042000283101.
+     tion Recognition with Missing Data,” IEEE Trans. Affective Com-             [47] A. Graesser and S. D’Mello, “Emotions during the Learning of
+     puting, vol. 2, no. 4, pp. 206-218, Oct.-Dec. 2011.                              Difficult Material,” Psychology of Learning and Motivation, B. Ross,
+[22] M. Nicolaou et al., “Continuous Prediction of Spontaneous Affect                 ed., vol. 57, pp. 183-226, Elsevier, 2012.
+     from Multiple Cues and Modalities in Valence & Arousal Space,”              [48] J.C. Pinheiro and D.M. Bates, Mixed-Effects Models in S and S-
+     IEEE Trans. Affective Computing, vol. 2, no. 2, pp. 92-105, Apr.-June            PLUS. Springer Verlag, 2000.
+     2011.                                                                       [49] D.M. Bates and M. Maechler, “lme4: Linear Mixed-Effects Models
+[23] S. D’Mello and A. Graesser, “Multimodal Semi-Automated Affect                    Using S4 Classes,”Book lme4: Linear Mixed-Effects Models Using S4
+     Detection from Conversational Cues, Gross Body Language, and                     Classes, Series lme4: Linear Mixed-Effects Models Using S4 Clas-
+     Facial Features,” User Modeling and User-Adapted Interaction,                    ses, ed., 2010.
+     vol. 20, no. 2, pp. 147-187, 2010.                                          [50] B. McDaniel et al., “Facial Features for Affective State Detection in
+[24] N. Holmes and C. Spence, “Multisensory Integration: Space, Time                  Learning Environments,” Proc. 29th Ann. Meeting of the Cognitive
+     and Superadditivity,” Current Biology, vol. 15, no. 18, pp. R762-                Science Society, pp. 467-472, 2007.
+     R764, 2005, DOI: 10.1016/j.cub.2005.08.058.                                 [51] D. Matsumoto et al., “Cross-Cultural Judgments of Spontaneous
+[25] S. D’Mello, J. Kory, and L.-P. Morency, “Consistent but Modest:                  Facial Expressions of Emotion,” J. Nonverbal Behavior, vol. 33,
+     Comparing Multimodal and Unimodal Affect Detection Accura-                       no. 4, pp. 213-238, 2009, DOI: 10.1007/s10919-009-0071-4.
+     cies from 30 Studies,” Proc. 14th ACM Int’l Conf. Multimodal Inter-         [52] H. Aviezer et al., “Angry, Disgusted, or Afraid? Studies on the
+     action, pp. 31-38, 2012.                                                         Malleability of Emotion Perception,” Psychological Science, vol. 19,
+[26] J.A. Russell et al., “Facial and Vocal Expressions of Emotion,”                  no. 7, pp. 724-732, 2008.
+     Ann. Rev. of Psychology, vol. 54, pp. 329-349, 2003.                        [53] G. Stemmler et al., “Constraints for Emotion Specificity in Fear
+[27] R.A. Adolphs, “Neural Systems for Recognizing Emotions,” Cur-                    and Anger: The Context Counts,” Psychophysiology, vol. 38, no. 2,
+     rent Opinion in Neurobiology, vol. 12, pp. 169-177, 2002.                        pp. 275-291, 2001.
+[28] M. Mehu and K. Scherer, “A Psycho-Ethological Approach to                   [54] P.J. Naab and J.A. Russell, “Judgments of Emotion from Spontane-
+     Social Signal Processing,” Cognitive Processing, vol. 13, no. 2,                 ous Facial Expressions of New Guineans,” Emotion, vol. 7, no. 4,
+     pp. 397-414, 2012.                                                               pp. 736-744, 2007, DOI: 10.1037/1528-3542.7a.736.
+[29] A. Heberlein and A. Atkinson, “Neuroscientific Evidence for Sim-            [55] K.A. Lindquist et al., “Language and the Perception of Emotion,”
+     ulation and Shared Substrates in Emotion Recognition: Beyond                     Emotion, vol. 6, no. 1, pp. 125-138, 2006, DOI: 10.1037/1528-
+     Faces,” Emotion Rev., vol. 1, no. 2, pp. 162-177, 2009.                          3542.6.1.125.
+[30] S.D. Preston et al., “The Neural Substrates of Cognitive Empathy,”          [56] L.F. Barrett and E.A. Kensinger, “Context Is Routinely Encoded
+     Social Neuroscience, vol. 2, no. 3/4, pp. 254-275, 2007, DOI: 10.1080/           during Emotion Perception,” Psychological Science, vol. 21, no. 4,
+     17470910701376902.                                                               pp. 595-599, 2010, DOI: 10.1177/0956797610363547.
+[31] J. Russell, “Core Affect and the Psychological Construction of              [57] T. Masuda et al., “Placing the Face in Context: Cultural Differen-
+     Emotion,” Psychological Rev., vol. 110, pp. 145-172, 2003.                       ces in the Perception of Facial Emotion,” J. Personality and Social
+[32] L. Barrett, “Are Emotions Natural Kinds?” Perspectives on Psycho-                Psychology, vol. 94, no. 3, pp. 365-381, 2008, DOI: 10.1037/0022-
+     logical Science, vol. 1, pp. 28-58, 2006.                                        3514.94.3.365.
+[33] L. Camras and J. Shutter, “Emotional Facial Expressions in                  [58] J.M. Carroll and J.A. Russell, “Do Facial Expressions Signal Spe-
+     Infancy,” Emotion Rev., vol. 2, no. 2, pp. 120-129, 2010.                        cific Emotions? Judging Emotion from the Face in Context,” J. Per-
+[34] A. Graesser et al., “Detection of Emotions During Learning with                  sonality and Social Psychology, vol. 70, no. 2, pp. 205-218, 1996.
+     AutoTutor,” Proc. 28th Ann. Conf. Cognitive Science Society,                [59] L.F. Barrett, “Variety Is the Spice of Life: A Psychological Con-
+     pp. 285-290, 2006.                                                               struction Approach to Understanding Variability in Emotion,”
+[35] S. Afzal and P. Robinson, “Natural Affect Data: Collection                       Cognition & Emotion, vol. 23, no. 7, pp. 1284-1306, 2009, DOI:
+     and Annotation,” New Perspectives on Affect and Learning Tech-                   10.1080/02699930902985894.
+     nologies, R. Calvo and S. D’Mello, eds., pp. 44-70, Springer,               [60] J.A. Coan, “Emergent Ghosts of the Emotion Machine,” Emotion
+     2011.                                                                            Rev., vol. 2, no. 3, pp. 274-285, 2010.
+[36] B. de Gelder and J. Van den Stock, “Real Faces, Real Emotions:              [61] J.A. Russell, “Forced-Choice Response Format in the Study of
+     Perceiving Facial Expressions in Naturalistic Contexts of Voices,                Facial Expression,” Motivation and Emotion, vol. 17, no. 1, pp. 41-
+     Bodies and Scenes,” Oxford Handbook of Face Perception, A.J. Calder              51, 1993.
+     et al., eds., pp. 535-550, Oxford Univ. Press, 2011.                        [62] M.G. Frank and J. Stennett, “The Forced-Choice Paradigm and the
+[37] B. de Gelder et al., “Beyond the Face: Exploring Rapid Influences                Perception of Facial Expressions of Emotion,” J. Personality and
+     of Context on Face Processing,” Progress in Brain Research, vol. 155,            Social Psychology, vol. 80, no. 1, pp. 75-85, 2001.
+     pp. 37-48, 2005, DOI: 10.1016/s0079-6132(06)55003-4.
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+D’MELLO ET AL.: UNIMODAL AND MULTIMODAL HUMAN PERCEPTION OF NATURALISTIC NON-BASIC AFFECTIVE STATES DURING...                                            465
+
+[63] P.A. Pour et al., “The Impact of System Feedback on Learners’                                        Nia Dowell is a cognitive psychology graduate
+     Affective and Physiological States,” Proc. 10th Int’l Conf. Intelligent                              student at the University of Memphis. Her pri-
+     Tutoring Systems, pp. 264-273, 2010.                                                                 mary interests are in computational linguistics
+[64] J.L. Tracy and R.W. Robins, “The Automaticity of Emotion Recog-                                      and affective sciences. More specific interest
+     nition,” Emotion, vol. 8, no. 1, pp. 81-95, 2008, DOI: 10.1037/1528-                                 focuses on modeling discourse and social
+     3542.8.1.81.                                                                                         dynamics in authoritarian regimes, emotions,
+[65] N. Ambady and R. Rosenthal, “Thin Slices of Expressive Behavior                                      and terrorism research.
+     as Predictors of Interpersonal Consequences: A Meta-Analysis,”
+     Psychological Bull., vol. 111, no. 2, p. 256, 1992.
+[66] K. Kelly and J. Metcalfe, “Metacognition of Emotional Face Recog-
+     nition,” Emotion, vol. 11, no. 4, pp. 896-906, 2011.
+
+                     Sidney K. D’Mello received the PhD degree in                                         Art Graesser is a professor in the Department of
+                     computer science from the University of Mem-                                         Psychology at the University of Memphis and is a
+                     phis in 2009. He is an assistant professor in the                                    senior research fellow in the Department of Edu-
+                     Departments of Computer Science and Psychol-                                         cation at the University of Oxford. His primary
+                     ogy at the University of Notre Dame. His interests                                   research interests are in cognitive science, dis-
+                     include affective computing, artificial intelligence,                                course processing, and the learning sciences.
+                     human-computer interaction, speech recognition,                                      He has published more than 500 articles in jour-
+                     and natural language understanding. He has                                           nals, books, and conference proceedings.
+                     published more than 150 journal papers, book
+                     chapters, and conference proceedings. He is an
+                     associate editor for the IEEE Transactions on
+Affective Computing and is an advisory editor for the Journal of Educa-
+tional Psychology.                                                               " For more information on this or any other computing topic,
+                                                                                 please visit our Digital Library at www.computer.org/publications/dlib.
+
+
+
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:20:56 UTC from IEEE Xplore. Restrictions apply.
+

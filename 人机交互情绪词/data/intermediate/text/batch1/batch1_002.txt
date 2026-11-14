@@ -1,0 +1,1162 @@
+International Journal of Social Robotics (2024) 16:2043–2063
+https://doi.org/10.1007/s12369-024-01175-5
+
+
+
+
+An User-Centered Evaluation of Two Socially Assistive Robots
+Integrated in a Retirement Home
+Antonio Jerez1 · Ana Iglesias2 · José Manuel Pérez-Lorenzo3 · Alberto Tudela1 · Alejandro Cruces1 ·
+Juan Pedro Bandera1
+
+Accepted: 9 September 2024 / Published online: 27 September 2024
+© The Author(s) 2024
+
+
+Abstract
+Socially assistive robots are receiving a growing interest in the health and social care sectors. They are considered a promising
+technology to add value to the work of caregivers, and relieve them of simple and repetitive tasks. However, these robots
+currently face significant difficulties when deployed in everyday scenarios due to a number of factors. Most of these factors
+are related to insufficient consideration of the user perspective and incorrect evaluation procedures. This paper aims to address
+these issues. Its objective is to analyze the long-term accessibility, usability, social acceptance and user experience for two
+different socially assistive robots performing the same tasks in a retirement home. The evaluation procedure is based on a
+framework specifically designed to consider these criteria. Collected results show that both robots received an overall positive
+feedback. Although the number of users participating in the evaluation was not very high, due to the chosen recruitment
+criteria and the period of activity of this research project, during the COVID19 pandemic, these results allow to extract
+relevant insights towards a meaningful use of social robots in shared social care contexts.
+
+Keywords Socially assistive robot (SAR) · Long-term evaluation · User studies · Human–robot interaction (HRI)
+
+
+                                                                   1 Introduction
+
+                                                                   Population worldwide is aging significantly. This demo-
+B Juan Pedro Bandera                                               graphic change particularly affects European (EU) countries,
+    jpbandera@uma.es                                               Japan or the United States, among others. According to cur-
+    Antonio Jerez                                                  rent projections, by 2050, one in four people living in Europe
+    antoniojcor@uma.es                                             and North America will be over 65 [1]. Moreover, certain
+    Ana Iglesias                                                   regions within these countries are more sensitive to this
+    aiglesia@inf.uc3m.es                                           change. For instance, in the South of Spain, the proportion of
+    José Manuel Pérez-Lorenzo                                      Andalusians aging 64 or more will rise from 19.6% in 2015,
+    jmperez@ujaen.es                                               to 28.8% in 2035 [2]. This silver society will inevitably lead
+    Alberto Tudela                                                 to a higher number of people requiring health and social care
+    ajtudela@uma.es                                                services either at home or in retirement homes. Moreover,
+    Alejandro Cruces                                               as a consequence of this demographic shift, the evolution of
+    acruces@uma.es                                                 the Caregiver Support Ratio (CSR) suggests that in the near
+1   Department of Electronic Technology, Universidad de            future there will be very limited availability of carers to meet
+    Málaga, ETSI de Telecomunicación, Campus de Teatinos, s/n,     this increasing demand [3].
+    29071 Málaga, Spain                                               Technological tools are emerging as a key asset for these
+2   Department of Computer Science and Engineering,                caregivers. Ambient Assisted Living (AAL) environments
+    Universidad Carlos III de Madrid, Av. de la Universidad, 30,   can integrate autonomous monitoring and communication
+    28911 Leganés, Madrid, Spain                                   systems in the home or in health and social care facili-
+3   Department of Telecommunication Engineering, Universidad       ties. They can also include mechanisms that can remind
+    de Jaén, E.P.S. de Linares, Campus Científico Tecnológico,     or encourage residents to perform rehabilitation or main-
+    s/n, 23700 Linares, Jaén, Spain
+
+
+                                                                                                                        123
+2044                                                                          International Journal of Social Robotics (2024) 16:2043–2063
+
+
+tenance exercises, and provide remote assistance. Within
+AAL ecosystems, the use of Socially Assistive Robots (SAR),
+designed to provide assistance through social interaction [4],
+may become an interesting option due to the proactivity,
+autonomy, adaptability and potential acceptability of these
+agents [5]. They can also become efficient social facilitators
+[6].
+    However, the development of SAR is currently facing
+major difficulties, that go beyond the expected technical ones.
+The main constraints that currently prevent the widespread
+use of these robots include: (i) the lack of long term exper-
+imentation in real environments [7]; (ii) the acceptability,
+utility and ethical issues that usually arise from designs that
+did not sufficiently incorporate the user perspective [8]; and
+(iii) the difficulties in properly describing, evaluating and     Fig. 1 The Socially Assistive Robots employed in this study. The GoBe
+regulating SAR [9, 10].                                           robots are on the left, the CLARA robots on the right
+    This paper presents the results of an experiment conducted
+at Vitalia Teatinos retirement home, located in Southern
+Spain, over several months. The objective of the experiment       usable robot interfaces according to the users’ needs. Fig-
+is to analyze the long-term accessibility, usability, social      ure 1 shows the two types of robots employed. One of them
+acceptance and user experience, for two different socially        (the GoBe robot) is a commercial prototype of a telepresence
+assistive robots doing the same tasks in a retirement home.       robot. The other (the CLARA robot) has been specifically
+    The experiment was performed in the context of two            designed as a SAR to be used in previous projects [12].
+regional research projects and one European project. The             Section 7 shows the main outcomes related to the inter-
+starting hypothesis for these projects is: Socially Assis-        action between the residents and the robots, providing
+tive Robots (SAR) in retirement homes can be accepted by          information on the accessibility and usability of the robot
+staff, residents and their relatives when their tasks have        interfaces, as well as the user experience when interacting
+been defined using user-centered strategies and participa-        with the robots and the social acceptance of the robots in the
+tory design.                                                      retirement home. Sections 8 and 9 discuss the main results
+    This paper focuses on the second part of the validation       and conclude the paper.
+of this hypothesis. In a previous paper, we focused on the
+methodology and methods used to carefully design the tasks
+to be performed by the SAR and the robot interfaces [11].         2 State of the Art
+This paper, on the other hand, focuses on the following
+research questions: Given a SAR whose functionality has           Since the very first implementations of Socially Assistive
+been designed according to user-centered strategies, will this    Robots in particular, and social robots in general, the consid-
+SAR be socially accepted by the residents? Will the user          eration of the user perspective has been clearly established
+experience of interacting with the robot be positive?             as a key requirement for defining the appearance and char-
+    In this paper, Sect. 2 provides an insight into the cur-      acteristics of these agents [4, 13]. As a result, SAR today,
+rent research advances both in Socially Assistive Robots          inspired by user opinion in the best implementations and,
+and Human–Robot Interaction fields, regarding technology          at least, following well-known acceptable cultural formulas
+evaluation from both technical and social perspectives. Sec-      taken from cartoons, films or others, usually attract positive
+tion 3 describes the methodology and methods employed in          attention. They are perceived as promising devices, and tend
+the evaluation of this paper, the robotic platforms, and infor-   to make good or very good first impressions when exposed
+mation about the recruitment of participants at the retirement    to untrained users. In fact, it is common for these devices to
+home.                                                             generate emotional bonds from the user to the robot, an event
+    Two different tasks were defined for this long-term eval-     that the SAR can foster by mimicking emotional responses
+uation, described in Sect. 4. The interfaces employed for the     [14]. These bonds can make the SAR become a useful tool
+robots to interact with the residents in these use cases are      in certain tasks, such as rehabilitation procedures [15], ther-
+detailed in Sect. 5. The evaluation used two different robotic    apies for autism spectrum disorder [16, 17], or for people
+systems with different physical features, to compare how          with dementia [18]. The appearance and consolidation of
+these features influence results. Both implemented the same       these bonds also raises important ethical discussions [8, 10,
+tasks, following the same protocols and using accessible and      14]. These discussions are not always able to keep pace with
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                   2045
+
+
+the rapid spread of SAR, although strong warnings against           incorporate the social dimension along with the technical
+this dissociation continue to be published [10, 19].                one. Moreover, development and evaluation frameworks [36]
+    Among the application contexts available for SAR, retire-       become an interesting asset to evaluate the use of SAR in
+ment homes and day care centers are receiving a growing             everyday environments. One example of these frameworks
+interest in recent years [20–22]. SAR in these scenarios aim        is the recently proposed AUSUS evaluation framework [22],
+at assisting caregivers with simple and repetitive tasks, so that   employed in this paper.
+these professionals have more time to provide personalized
+meaningful care. In fact, SAR have been considered for years
+as a promising technology for assisting elderly and depen-
+dant people [7]. However, these robots still face important
+issues that prevent them from fulfilling these perspectives         3 Methodology and Methods
+[21, 23].
+    From a technical point of view, SARs struggle to adapt          3.1 User Centered and Participatory Design
+their behaviour to their interlocutors, even if their percep-
+tion systems are able to robustly acquire data from typically       The methodology and methods used during the research work
+cluttered, noisy environments [24]. These adaptation prob-          presented in this article follow an extended User Centered
+lems limit their ability to exhibit social behaviour, which         Design (UCD) approach. This approach combines iterative,
+is the most important feature these agents need to incorpo-         user-centred design [31] and participatory design [34] to
+rate. Furthermore, in these assistive contexts, Human–Robot         perform the design of the use cases, and the evaluation of
+Interaction (HRI) processes have to consider the variable,          the results. The methodology and methods of the extended
+usually reduced, interaction capabilities of elders and their       approach followed are detailed in [31] and the details of how
+relatives. Cultural changes between regions also force an           this approach was used to design the use case and interfaces
+adaptation of the HRI protocols to each specific case [25].         for the evaluation described in this paper are detailed in [11].
+Finally, retirement homes and day care centers are a challeng-      Once the use cases and interfaces have been implemented in
+ing scenario for an autonomous or semi-autonomous agent,            the robotic platforms, this paper focuses on another phase
+in terms of user safety and comfort [21].                           of the design process: the evaluation of the residents’ accep-
+    From a user perspective, recent studies show that when          tance and their experience interacting with the robot over a
+SARs move from controlled environments to everyday                  long period of time in a retirement home.
+unconstrained contexts, initial positive impressions usually            The residents provide during the evaluation procedure
+do not evolve into long term acceptance and utility [10, 26],       detailed in this paper a valuable feedback, that will be used
+even if the robot behaves technically correctly [24]. On the        to improve the robots and use cases in the future, and in
+contrary, once the novelty effect fades out, the false expec-       short, the future experience of residents if SAR were fully
+tations created, the lack of real utility, or the absence of any    integrated into retirement homes. They are therefore par-
+added value compared to other solutions may dramatically            ticipating in the final design of the interfaces and services
+affect the user perception of the SAR and prevent its use           provided by the robots, and are empowered by having a say
+[7]. Some of the reasons for these problems are related to          in the important decisions about the future technology in
+the fact that SAR experiments are traditionally affected by         their retirement home, in contrast to the common situation
+short duration, biased selection of participants, and incorrect     of not taking part in the design activities, which can lead to
+experimentation procedures [7, 19, 23]. But another key fac-        an exclusion feeling [37].
+tor is that the user centered approach followed to design the
+appearance of the robot usually does not extend to the defi-
+nition of its functional properties, nor to the tasks it should
+perform [10].                                                       3.2 AUSUS Framework
+    Recent work aims to overcome these issues, mainly by
+(i) approaching the research, design and development on             The AUSUS framework [22] (Fig. 2) was used to evaluate
+socially assistive robots from a multidisciplinary point of         the performance of the robotic platforms in the retirement
+view; (ii) involving users in the design process from the           home. AUSUS takes into account different factors related to
+very beginning; and (iii) testing SAR in everyday settings,         Human–Robot Interaction (HRI), such as accessibility and
+in long-term experiments where user feedback allows adapt-          usability, but it also includes factors related to user expe-
+ing the final solution to their needs [27–30]. To meet these        rience while interacting with the robot, and social factors
+requirements in SAR experimentation, it is necessary to con-        such as the social acceptance and societal impact. The study
+sider user centered design approaches [31] and co-creative          presented in this paper focuses on Accessibility, Usability,
+and participatory methodologies [32–35], that are able to           Social acceptance and User Experience.
+
+
+                                                                                                                         123
+2046                                                                         International Journal of Social Robotics (2024) 16:2043–2063
+
+
+                                                                  connection, and a security code generated individually for
+                                                                  each video call.
+                                                                      The GoBe robot, developed by Blue Ocean Robotics,
+                                                                  is a telepresence robot.1 Its main features are a large tac-
+                                                                  tile screen, a pair of loudspeakers specifically designed for
+                                                                  human–robot voice interaction, and a wide-angle camera that
+                                                                  gives the user a better view of the environment. These fea-
+                                                                  tures define GoBe as a platform specifically suited to the
+                                                                  video calling use case. The robot is also equipped with a
+                                                                  laser sensor that allows it to avoid collisions, by gradually
+                                                                  reducing its speed as it approaches an obstacle.
+                                                                      The GoBe robot does not move autonomously, but it is
+                                                                  designed to be controlled remotely. The remote user employs
+                                                                  a web based interface to move and maneuver the robot in
+                                                                  different environments. The same interface provides video
+Fig. 2 AUSUS framework’s evaluation factors and methods [22]
+                                                                  and audio communication between the remote user and the
+                                                                  people around the robot (i.e. telepresence). For the use cases
+                                                                  studied in this paper, this telepresence interface is used to
+                                                                  make the video calls. These interfaces are provided by the
+3.3 Robotic Platforms                                             manufacturer and have not been modified for this study.
+                                                                      Both robots use an instance of the CORTEX [41] cognitive
+Figure 1 shows the two type of robots employed in the paper.      architecture. The technical details about these architectures
+Their appearance and features are very different, as they have    lie beyond the scope of this paper. Briefly, they contain the
+been designed for different purposes. However, they run the       information of the context as an inner representation, that
+same cognitive architecture. They also execute the same use       the different components of the robot use to share data and
+cases, with only minor implementation differences that only       synchronize during the execution of the use case. These com-
+affect how the technicians control them.                          ponents also allow the architecture to interchange data with
+    CLARA robot [38] is a socially assistive robot initially      motors, sensors, screens and external servers. As detailed
+developed within the framework of the CLARC EU project            above, the only component of this architecture that differs
+ECHORD++ (FP7-ICT-601116) to perform Comprehensive                from CLARA to GoBe robot is the navigation stack.
+Geriatric Assessment (CGA) procedures [39]. It is equipped
+with a differential base, a tactile screen, speakers, a Sick 2D   3.4 Inclusion and Exclusion Criteria
+lidar, and one RGB-D camera. This camera complements the
+lidar sensor for navigation purposes, and allows the detection    The residents included in the study must have a certain cog-
+of objects and people in the environment. The robot also has      nitive capacity. The threshold was determined following both
+a safety bumper that stops it if the robot contacts with an       the Montreal Cognitive Assessment (MoCA) and the Lobo’s
+obstacle.                                                         Minimental scale, which are the ones used by the psychology
+    CLARA robot uses a navigation stack, programmed on the        department of Vitalia Home retirement home. According to
+Robot Operating System (ROS) framework [40], that allows          the Lobo’s Minimental scale, for geriatric people, score equal
+it to navigate autonomously in unconstrained environments,        or higher to 23 is considered normal [42].
+safely avoiding obstacles. Thus, during the use cases the robot      The MoCA is brief, simple, and reliable as a screening test
+simply sets random way points located within predefined           for Alzheimer’s disease, and is used along other test (in this
+areas (e.g. ’announcing area in room 1’) to move around the       case the Lobo’s Minimental scale). A score of 26 or higher
+retirement home.                                                  of 30 is considered normal [43].
+    CLARA robot has been provided with an ad-hoc video               Regarding other capabilities (sensory, emotional or motor),
+call system specifically implemented for this robot using web     the residents interacting with the robot were only required to
+technologies. This system uses two external servers but it        be able to hear and/or see the displayed texts. No more con-
+does not depend on third-party providers. As a result, rela-      strains were imposed. The diversity that brings this broad
+tives only need a web browser in order to reserve time slots      inclusion criteria aligns with the following goal: to design a
+and establish the video call on their endpoint. Relatives pro-    SAR able to adapt to as many users as possible. As pointed
+vide an email address during the reservation procedure, so
+the robot can send a reminder email containing the reser-
+vation time, the instructions needed to make the video call       1 https://gobe.blue-ocean-robotics.com/.
+
+
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                     2047
+
+
+out in [37, 44], older people are as different as everyone else,   4 Use Case Specifications
+or even more, since ageing meets us in very different ways.
+                                                                   This study focuses on two different use cases performed by
+3.5 Recruitment of Participants                                    the robots during the evaluation sessions. These use cases
+                                                                   were previously co-defined in participatory workshops by
+The two evaluation groups were recruited from residents at         the retirement home staff, residents and researchers [11].
+the Vitalia Teatinos retirement home. All the participants         The use cases were not modified for or during the evaluation
+were elderly citizens (age between 65 and 85) who fulfilled        presented in this paper. The use cases are the "town crier"
+the inclusion criteria previously detailed. Table 1 details the    (robot announcer) and the "video call" (videoconferencing
+physical and cognitive characteristics of the users. The level     with family and friends).
+of impairment is encoded using the following 4 levels:
+                                                                   4.1 “Town Crier” Use Case
+ • None. The participant does not have any impairment.
+ • Mild. The participant has some level of impairment, but         In this use case, the SAR navigates around the retirement
+   only needs assistance tools in specific circumstances (e.g.     home and announces relevant information to the residents,
+   glasses for reading).                                           such as the daily menu, upcoming birthdays, or upcoming
+ • Medium. A notable impairment which requires an assis-           events. It is also able to display this information on demand,
+   tive tool.                                                      when users tap on the icons on its touch screen. The robot
+ • Severe. Almost total impairment which not only requires         starts this use case from its charging station, and returns to it
+   an assistive tool, but also depends in other people to do       when the use case finishes.
+   daily activities.                                                  For the experiments discussed in this paper, the SAR can
+                                                                   provide the following information:
+   Table 2 describes the previous technological experience
+                                                                    • Daily menu.
+of each user. Three levels are employed for this description:
+                                                                    • Current time and date.
+                                                                    • Current weather forecast and temperature.
+ • None. The user is unable to use, or knows nothing, about         • Upcoming events.
+   any technological device.                                        • Upcoming birthdays.
+ • Little experience. The user is able to use some techno-
+   logical devices, but always with some assistance.                  In order to adapt to the capabilities and abilities of the resi-
+ • Some experience. The user is capable of use the basic           dents, being older persons which a great variety of functional
+   functions of any device by herself.                             disabilities, the interfaces where designed following the prin-
+                                                                   ciples of Universal Design and according to the accessibility
+   Regarding the professionals of the retirement home, they        guidelines for Human–Robot Interaction [45]. Therefore, the
+were not intrinsically participating in the evaluation sessions,   information is presented in a multimodal way: spoken aloud
+that focused on the experience of residents. However, this         and displayed as subtitles on the SAR screen. If a resident
+evaluation can benefit from being supplemented by the expe-        wants to access any particular information, she can tap on
+rience of others [37, 44]. Hence, the professionals provide        the appropriate area on the screen mounted on the robot (see
+their perspective about the use of a SAR in their retirement       Sect. 5 for more details). This action triggers the correspond-
+home, through the arrangement of one formal meeting during         ing announcement.
+the evaluation period and casual conversations throughout             For the tests evaluated in this paper, the robot was pro-
+the sessions. The feedback collected in these activities allows    grammed to announce the daily menu twice, just before lunch
+identifying the "standing up" dilemma discussed in Sect. 8.2.      (announcements at 12:00 and 12:30) and dinner (announce-
+   The general characteristics of the study are summarized         ments made at 19:00 and 19:30). The tactile screen was not
+in the following list:                                             in use during these programmed announcements, but was
+                                                                   available at all other times, allowing residents to receive
+ • Number of participants: 14                                      information on demand (Fig. 3).
+ • Timeframe: 11:00–13:00.
+ • Duration of individual interviews: 10 min.                      4.2 Video Calling Use Case
+ • Duration of focus group sessions: 45 min.
+ • Duration of observation (per participant): 5 min.               The main objective of this use case is to enable residents to
+ • Method of data collection: Observation, questionnaires          communicate with their relatives via video calls. The imple-
+   and interviews.                                                 mentation of this use case was mainly motivated by the
+
+
+                                                                                                                          123
+2048                                                                                 International Journal of Social Robotics (2024) 16:2043–2063
+
+
+Table 1 User’s characteristics
+                                    User ID          Gender    Hearing impairments       Visual impair      Motor impair       Cognitive impair
+
+                                    User 1*          Male      Mild                      Mild               Medium             None
+                                    User 2**         Male      Medium                    Mild               Severe             None
+                                    User 3**         Female    Mild                      Mild               Mild               None
+                                    User 4           Male      Medium                    Medium             Medium             None
+                                    User 5*          Male      None                      Medium             None               None
+                                    User 6           Female    None                      Medium             Severe             None
+                                    User 7           Female    None                      None               Medium             None
+                                    User 8*          Female    Mild                      None               Medium             None
+                                    User 9**         Male      None                      Medium             Severe             None
+                                    User 10          Female    Severe                    Mild               Mild               None
+                                    User 11**        Male      None                      Medium             Mild               Medium
+                                    User 12          Female    None                      Medium             Mild               None
+                                    User 13**        Male      None                      Medium             Medium             None
+                                    User 14          Female    Medium                    Mild               None               None
+                                    *The user did not fill the final comparative test
+                                    **The user did not complete the evaluation process
+
+Table 2 Previous technological experience of the users
+User ID                    New technology aptitudes                                   Robot interaction                    Video call experience
+
+User 1*                    None                                                       None                                 None
+User 2**                   None                                                       None                                 None
+User 3**                   None                                                       None                                 None
+User 4                     Computer (at work)                                         None                                 None
+User 5*                    Cell phone, computer (Social media, news)                  None                                 None
+User 6                     Cell phone (internet browsing)                             None                                 None
+User 7                     Computer (e-mail)                                          None                                 None
+User 8*                    Cell phone (social media)                                  None                                 Little exp
+User 9**                   Cell phone (watching videos, social media)                 None                                 Some exp
+User 10                    None                                                       None                                 None
+User 11**                  Computer (writing)                                         None                                 None
+User 12                    None                                                       None                                 Little exp
+User 13**                  Computer(at work)                                          None                                 Little exp
+User 14                    Computer(writing)                                          None                                 Some exp
+*The user did not fill the final comparative test
+**The user did not complete the evaluation process
+
+
+isolation imposed by the COVID19 pandemic: visits were                  The SAR then begins to navigate from its charging station
+not allowed in the retirement home. Although the pandemic               to the designated points in the common areas of the retire-
+restrictions are no longer in place (except for the wearing of          ment home, where it announces the video call using both
+face masks), this service is still requested by residents who           voice and text. The announced information can be adjusted
+want another way to communicate with relatives and friends              to the preferences of the users (i.e. they may prefer the robot
+living abroad.                                                          not to provide certain details in the announcements). In this
+   In this use case, the robot is able to autonomously start a          particular implementation, following the preferences of the
+video call with the resident on a day and time that are pre-            residents, the announce includes:
+viously selected by the resident’s relative through a booking
+process. Once a time slot has been reserved, and a few min-
+utes before the video call is due to start, an email is sent to           • The name and surname of the resident.
+the relative with instructions on how to make the video call.             • The name of the relative, along with the type of relation-
+                                                                            ship between the two.
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                           2049
+
+
+
+
+Fig. 3 Resident tapping in the robot screen during the town crier use
+case
+
+                                                                        Fig. 4 "Town-crier" use case interface in SAR screen: a Main screen;
+ • The common room where the video call will set up.                    b Showing text while speaking
+ • The time at which the video call starts.
+                                                                        iii. Activities. Scheduled activities and events for the current
+   Once the announcements have been made, the robot moves                    day.
+to the location where the video call will take place. When it            iv. Birthdays. Upcoming residents’ birthdays.
+reaches this position, it waits for a person to be detected in
+front of the robot. Once the resident is detected, the video call           Additionally, this interface will automatically popup sub-
+starts. Finally, when the call is over, the robot says goodbye          titles with the text of the sentences that are being spoken at
+to the resident and returns to its charging station.                    that moment by the SAR (Fig. 4b).
+
+                                                                        5.2 Video Call Interfaces
+5 Human–Robot Interfaces
+                                                                        The two robots use a different interface for the relatives or
+The two robots employ the same interface to interact with res-          friends performing the video call. It was not possible during
+idents in the "Town-crier" use case. The only difference is the         the experiment to properly collect feedback from these users:
+screen configuration, that is vertical in the GoBe and horizon-         they did not have time to conduct interviews, and the proto-
+tal in the CLARA. The interface adapts dynamically to this              type status of the robots -specially the GoBe robot- required
+change. The booking and video call interfaces, however, are             a strong technical supervision for these users. Hence, the
+different. CLARA robot uses the ones specifically designed              interfaces discussed here are only the ones employed by the
+for this study, while GoBe robot employs the ones provided              residents during the video calls. Figure 5 shows these inter-
+by its manufacturer. The robots also included teleoperation             faces. CLARA robot uses a full-screen interface within a
+and supervision interfaces for the technicians. These last              web browser, while the GoBe robot employs a proprietary
+interfaces are not evaluated in this paper.                             interface very similar, but including a space under the video
+                                                                        stream to write messages. For the conducted experiment, this
+5.1 “Town-Crier” Interface                                              space only displayed the name of the relative to avoid eval-
+                                                                        uating different functionalities.
+Figure 4 represents the main view in the tactile screen
+installed in the SAR for the town crier use case. This interface
+has been implemented following accessibility and usability              6 Experimental Set-up
+criteria. The user can select the following options in this
+interface by tapping on them:                                           6.1 Environment
+
+  i. Calendar. Information about the current day in the cal-            Experiments presented in this paper started in November
+     endar.                                                             15th, 2021. The first robot deployed in the retirement home
+ ii. Weather information, obtained from an Internet service.            was the CLARA robot. But after one month, the retirement
+
+
+                                                                                                                                123
+2050                                                                              International Journal of Social Robotics (2024) 16:2043–2063
+
+
+
+
+Fig. 5 Video call interfaces for the residents: a CLARA robot; b GoBe
+robot
+
+
+
+home forbade the entrance to all visitors due to a COVID-19             Fig. 6 Common room
+wave that lasted until March, 2022. Then, a second evalua-
+tion period took place during the next four months. The GoBe
+robot was deployed at the beginning of this second period, in
+March 2022. The experiments ended in July, 21th, 2022. The
+robots were used in the retirement home for five months. The
+agenda of the retirement home and the availability of resi-
+dents made it possible to schedule 1–2 sessions per week. A
+total of 24 sessions were carried out. The appearance, fea-
+tures and functionality of the robots were set following an
+UCD procedure before the evaluation period [11]. They did
+not change during the experiments described in this paper.
+   The experiment was set up in the Vitalia Teatinos retire-
+ment home, located in Málaga, Spain. Due to access restric-
+tions resulting from the COVID19 pandemic situation, in
+order to prevent the spread of the virus, the evaluation ses-
+sions were finally conducted in just one room (Fig. 6). This            Fig. 7 Common room
+multi-purpose room is where residents watch TV, meet for a
+chat, read, take a nap, or have lunch, among other activities.
+The room is equipped with furniture such as tables, chairs,
+armchairs, cabinets and a sofa (Figs. 6 and 7). Some of these
+items are usually moved to different positions, according to
+the preferences of residents and the activities performed in the
+room. The robots had to navigate avoiding (autonomously, in
+the case of the CLARA robot) all these obstacles. Moreover,
+there were residents, and occasional workers, who moved
+around the room walking, using a walker or wheelchair, or
+pushing trolleys with medication or food.
+   The charging bases of both robots (Fig. 8) were also
+located in the room, in a place that avoided interfering with
+the daily activities in the retirement home.
+   During the tests, it was mandatory to follow the proto-
+col of the retirement home (wearing masks, checking body
+                                                                        Fig. 8 Common room. SAR’s charge base
+temperature, frequent hand cleaning, etc.). Furthermore, all
+the residents are vulnerable population. Hence, each time
+there was a rise in COVID-19 cases, all visitors (including
+the researchers) were forbidden to enter the retirement home.
+These circumstances negatively affected the number of ses-
+sions that were able to be conducted.
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                  2051
+
+
+   It was important to avoid any kind of distraction during the    1. The evaluator reminds the residents the itinerary of the
+evaluation sessions, as the only people staying in the common         robot.
+room during those sessions were the residents who voluntary        2. The residents stay at the room as they usually do, depend-
+enrolled in the evaluation and one of the researchers. This           ing on the hour. Hence, if the test is performed near lunch
+technician was in charge of setting up and monitoring the             time, they sit around the tables. At mid-morning, some
+evaluation session, and guaranteeing safe operation during            of them will usually be on the armchairs reading news-
+the experiments. However, as commented above, it was not              papers, while others may be at the sofa watching TV.
+possible to completely avoid other residents or staff members      3. The socially assistive robot performs its task (town crier
+to occasionally go around the room during the sessions.               or video-conference).
+                                                                   4. After the use case, the evaluator interviews the residents
+6.2 Evaluation Procedure                                              to collect first impressions about the session. Addition-
+                                                                      ally, some guided questions are also asked, related to the
+The user-centered evaluation applied to this study was based          socially assistive robot and interaction details (volume,
+on A/B testing [46]. We created two different groups and              text on screen, robot speed, etc).
+users were randomly assigned to one of these groups. The
+first group, named Group A, started the testing procedure
+using the CLARA robot. Group B started testing the GoBe
+robot. During the evaluation of the "town crier" use case,
+                                                                   6.3 Material
+participants were given a situation where they had to pretend
+that they needed information provided by the SAR, so they
+                                                                   Quantitative and qualitative methods were combined, to eval-
+had to interact with it. Regarding the evaluation of the video
+                                                                   uate and compare both the performance of the robots and the
+call use case, participants only needed to sit in front of the
+                                                                   feedback provided by the residents.
+robot and have a conversation with another person.
+    After several weeks of interacting with the SARs, the par-
+ticipants in each group were asked to fill a user questionnaire.
+There they could share their impressions of the SAR they
+interacted with. Then, by the end of the evaluation period,        1. Questionnaires and structured interviews: User question-
+both groups switched SARs, so the participants could interact         naires and interviews were performed with the residents
+with the other platform. Finally, a comparative questionnaire         and staff in the retirement home, before and after inter-
+was filled again by both groups. The goal of this questionnaire       acting with the robotic platforms. Before the evaluation
+was to collect the different impressions about both SARs, and         process, sociodemographic variables and technology use
+highlight the qualities that made each one distinct from the          and skills (Table 2) were surveyed. After each session,
+other in various aspects of the HRI procedure.                        questionnaires and structured interviews were conducted
+    Finally, at the request of the participants and in order to       to measure subjective accessibility, usability criteria,
+facilitate communication during the interviews, the residents         user’s experience and robot’s acceptance. The test, ques-
+gave each robot a name. They chose the name "Felipe" for              tionnaire, and structured interviews contained questions
+the CLARA robot, while the GoBe robot was named "Cipri"               on a 5-point Likert scale [47]. In this study, there were two
+after a video call with one relative of the same name who             main types of questionnaire: (1) a post-session interview,
+was the first to use the video call function on the GoBe robot.       where general data about HRI is collected (Figs. 9, 10 and
+Regarding this naming process, the CLARA robot was not                11, where the X axis indicates number of residents); and
+only the first one the residents put a name on, but also the one      (2) a comparative questionnaire, where general aspects
+whose naming procedure occurred more naturally, without               of both robots were asked (Fig. 12), once both groups
+any intervention of the researchers. In the case of the GoBe          interacted with both robots. This comparative question-
+robot, the researchers had to ask the residents to name the           naire is not a Likert scale. However, it keeps using 5-point
+robot.                                                                items to describe preferences, so it could be easily filled
+    The Group A was the first to start the evaluation, in             by participants already used to these scales.
+November 15 2021. Due to a lock down imposed by the                2. Observations: Direct observations of the HRI process
+COVID-19 pandemic, it was not until March when Group B                were performed by the evaluator. The sessions were also
+would start the evaluation with the GoBe robot. This detail is        recorded so the rest of experts working in this study could
+important due to the lapse of time between the deployment             analyze these interactions. These observations comple-
+of both robots (the CLARA robot was in the retirement home            mented the data collected in the interviews (e.g. they
+5 months before the GoBe robot).                                      allow measuring interaction times, or checking how each
+    The sessions were conducted following these steps:                user tap the screen).
+
+
+                                                                                                                        123
+2052                                                                           International Journal of Social Robotics (2024) 16:2043–2063
+
+
+7 Evaluation of the Results                                         familiar with at least some technologies. Only 4 of them use
+                                                                    cell phones.
+This section presents the results collected using the previ-           Participants who had no technological background, and
+ously described AUSUS framework [22].                               those of them who had only used computers, found diffi-
+   Regarding participants, although at the beginning of the         culties to operate the interfaces of both robots. The reason
+study 14 residents volunteered, a decrease in participation         behind this issue is that there are strong similarities between
+occurred during the post-session interviews. The main rea-          the operation mode of the robots and the use of a cell phone,
+sons were:                                                          as both systems rely on a touchscreen as its main interface. As
+                                                                    a result, only those participants who are used to cell phones
+ • The main inclusion criteria was to have an adequate              showed a better attitude towards learning to use the robot.
+   cognitive capacity. Some of the residents that meet this         This is in line with the study described in [48], where the
+   criteria in the retirement home were staying there only          participants who owned a smartphone and a tablet were also
+   temporarily (e.g. because they were in a rehabilitation          those more interested in the use of modern technologies.
+   process). Users 9, 11 and 13 left the retirement home            Furthermore, this reduced group of participants in our exper-
+   before the study ended. Thus, they were not able to com-         iments were able to follow the tasks given by the evaluator
+   plete the post test interviews.                                  without any help by May (12 sessions after reopening the
+ • User 2 participated in the sessions, but he did not feel like    retirement home). More details about learnability are pro-
+   doing the post-sessions interviews.                              vided in its corresponding subsection.
+ • Finally, user 3 left the study after one session because she
+   did not agree with the study and stated that "this robot is      7.1.3 Understanding
+   going to substitute a human job".
+                                                                    GoBe robot is equipped with a larger screen and better qual-
+                                                                    ity speakers. However, as Fig. 10 shows, when both robots
+Due to these circumstances, it was finally possible to collect
+                                                                    provide the same information, both robots are clearly under-
+the complete post-test data from 9 participants (Users 1, 4,
+                                                                    stood.
+5, 6, 7 and 8 at Group A and users 10, 12 and 14 at Group
+B).
+                                                                    7.2 Usability
+   Finally, at the end of the evaluation period, both groups
+switched the robots that were used in the evaluations, and
+                                                                    7.2.1 Effectiveness
+a comparative interview about both robots was done to the
+six participants who agreed to complete it (Users 4, 6 and 7
+                                                                    During the first 10 sessions with the CLARA robot and the
+from group A and users 10, 12 and 14 from group B). Ques-
+                                                                    first 8 with the GoBe, one evaluator monitored and, when
+tions focused on which robot the user preferred depending
+                                                                    necessary, gave clues to the participants. This was necessary
+on certain metrics (sound, image, appearance, utility, etc.).
+                                                                    because especially in the first sessions of interaction with the
+                                                                    robot, the success rate of the residents in executing a given
+7.1 Accessibility                                                   task was low. Nearly all of them required some clues and help
+                                                                    selecting the options in the touch screen. This was because the
+7.1.1 Perception                                                    residents did not initially know how to interact with the robot
+                                                                    and very few had previous experience with digital interfaces
+Regarding perception, no major issues were found related            similar to this one. However, the success rate was measured
+neither to the sound nor the images and text. However, beyond       after each session and increased at the end of the evaluation:
+questionnaire results, subjectively all users positively appre-     83% of the participants who finished the study were able to
+ciated the significantly larger screen and the higher quality       interact with the robot, without any clue from the evaluator,
+sound of the GoBe robot.                                            at the end of the experiments.
+
+7.1.2 Operation                                                     7.2.2 Learnability
+
+While all users could perceive the sounds and images pro-           The learnability factor measures how easy is for novice users
+vided by the robot, it was difficult for some of them to operate    to learn using a system [36]. As mentioned in the previous
+it. As stated in Table 1, 5 of the 14 participants had never used   section, at the beginning of the sessions the residents needed
+cell phones, computers, or any kind of technology, which is         a lot of hints from the technician in order to successfully
+reported as one of the common challenges that older users           get the information from the robot. However, as the study
+face with welfare technology [37]. The rest of them were            continued, these clues were reduced. After these aforemen-
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                  2053
+
+Fig. 9 Results for the individual
+evaluation of each robot (1).
+Questions are grouped by
+categories
+
+
+
+
+tioned sessions, around two months after the reopening of the      before. Despite this, these 9 participants showed not only a
+retirement home due to COVID-19, 3 of the residents from           better attitude towards using the robot, but also to learn about
+Group A and 2 from Group B, who were the participants              how to use it. This is in line with [48] and consistent with
+with a previous technological experience, were able to inter-      [49], where it is concluded that a positive transfer from a pre-
+act with the robot without further help. In the case of the rest   vious experience from learning technology or from systems
+of participants, the researcher needed to continue providing       that are quite similar makes the new learning process easier.
+some clues in order to successfully conclude the task.             Another example can be found in [37] where it is reported an
+   In this study, 9 of the 14 participants have previous           user that, without a previous technology experience, didn’t
+experience with technologies (mainly with cell phones or           want to test in front of others as she felt that her learning
+computers), but none of them had interacted with a robot           curve didn’t evolve at the same pace as others. By May (two
+
+
+                                                                                                                        123
+2054                                                                         International Journal of Social Robotics (2024) 16:2043–2063
+
+Fig. 10 Results for the
+individual evaluation of each
+robot (2). Questions are grouped
+by categories
+
+
+
+
+months after the re-open of the retirement home due to the         7.2.3 Efficiency
+COVID-19 wave), the evaluator did not need to tell these 9
+participants how to interact with the robot. Instead, those par-   Two months after the reopening of the retirement home due to
+ticipants were just asked questions like "What day is today?"      COVID-19, the average time participants took to successfully
+or "How is the weather today?", and they got the answer            fulfill the task of the "town crier" use case in Group A was
+tapping the adequate section on the screen.                        10 s, whereas for Group B was 17.57 s. This difference is
+                                                                   not caused by the interaction process itself (both robots had
+                                                                   the same user interfaces implemented in their screens), but
+                                                                   by the different heights of the position of the screen. Most
+                                                                   participants were sat on an armchair or their wheelchair when
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                             2055
+
+Fig. 11 Results for the
+individual evaluation of each
+robot (3). Questions are grouped
+by categories
+
+
+
+
+Fig. 12 Results for the
+comparative post-test
+questionnaire. Each question is
+preceded by the category it is
+related to
+
+
+
+
+interacting with the robot, so for the GoBe robot they had to   Speech Recognition is planned to be included to facilitate the
+get up to tap the screen.                                       interaction with the robot via voice.
+
+
+
+7.2.4 Flexibility                                               7.2.5 Robustness
+
+Regarding flexibility, the users had only one input channel     Both robots were able to perform the use cases adequately
+with the robot (the touchscreen) to ask for specific informa-   in the selected locations. While the ability to navigate
+tion. However, the robot has several ways to communicate        autonomously became a particularly robust asset for the
+with the users: voice, icons and subtitles, adapting to the     CLARA robot, in the experiments presented in this paper the
+user’s needs. In the next versions of the robots, Automatic     autonomous motion followed very similar paths to the pre-
+
+
+                                                                                                                   123
+2056                                                                           International Journal of Social Robotics (2024) 16:2043–2063
+
+
+viously teleoperated motion. The residents did not perceive             use case (score: 1). As before, she felt more emotionally
+any change in the behaviour of the robot.                               attached due to its appearance.
+    Regarding the interface, for some of the residents the tac-
+tile screen was difficult to handle. They had to learn how to       The general consensus leaned towards the GoBe robot, with
+correctly tap it, considering the sensitivity of the device. This   an average score of 4.0. These results are logical due to the
+issue caused some discomfort, specially when the residents          GoBe robot being originally designed for this use case specif-
+have to approach or stand up to touch the screen.                   ically. This is in line with the study in [48] regarding the
+    Furthermore, the robustness concept is also related to          appearance of a robot versus the functionality, where it is
+a proper functionality in the interface with the robot and          concluded that the participants agreed that functionality is
+with the possibility of using that interface to ask for help, if    more important than appearance based on participants inter-
+required. In the robots employed in this study, the latter func-    views. However, it must be taken into account that this may
+tion was not included in the interface, mainly because there        depend on the use case as stated in [50], and for example
+were always a technician close to the experiment. However,          in stressful or complex situations, more human-like robots
+its implementation is totally feasible for future iterations of     could be preferred [51].
+the evaluation.
+                                                                    7.3 Social Acceptance
+7.2.6 Utility
+                                                                    All the participants, except one at Group A, felt that the
+In the comparative questionnaire mentioned at the beginning         behaviour of the robots were socially adequate in every
+of this section, some of the questions were related to which        moment. Furthermore, all the participants also felt that the
+robot (CLARA or GoBe) was more useful for each use case.            robots were polite from a social standpoint.
+For this comparison, a score of 5 means that the user clearly          As mentioned in the Experimental Setup section, partici-
+preferred the GoBe robot, while a score of 1 means that the         pants belonging to Group A showed more initiative naming
+CLARA robot was preferred. In the "town crier" use case,            the robot, while in Group B the researchers needed to suggest
+the results were as follows:                                        that task to the participants.
+
+ • Two of the participants definitely preferred the GoBe            7.3.1 Performance Expectancy
+   robot (score: 5), because it has a larger and easier to use
+   touchscreen.                                                     Figure 9 shows that none of the participants (except one
+ • One participant slightly preferred the GoBe robot over           belonging to Group A) have seen a robot before. Further-
+   the CLARA one (score: 4). She mentioned that she would           more, not all participants have ever seen either a real town
+   have chosen the 5 value if the GoBe screen was in a lower        crier, so the overall performance expectancy of the robot was
+   height.                                                          not high.
+ • Two participants felt indifferent about which robot is              Regarding the video call use case, and particularly with
+   more useful (score: 3 in the Likert scale).                      the GoBe robot, the perform expectancy were not high due
+ • Lastly, one participant preferred the CLARA robot                to video calls being more common in the retirement home.
+   (score: 1). She felt more emotionally attached to that           However, this led to an interesting result, which was reflected
+   robot due to its appearance, that resembled a person for         in two comments given by the participants:
+   her.
+                                                                     • “Thanks to the robot I can see my relatives without
+The general consensus was balanced between both robots,                masks”.
+leaning slightly towards the GoBe robot, with an average             • “Although it is not a personal visit, at least I can see
+score of 3.5.                                                          more relatives than usual” (NOTE: Due to COVID-19,
+   In the "video call" use case, the main results were as fol-         personal visit where limited to one relative per resident)
+lows:
+                                                                    7.3.2 Effort Expectancy and Self-efficacy
+ • Four of the participants definitely preferred the GoBe
+   robot (score: 5). The participants explained that "it has a      Due to the absence of any previous experience with robots
+   larger screen" and "it is simpler to use".                       for all participants, there was a high effort expectancy. Fur-
+ • One of the participants felt indifferent (score: 3).             thermore, during the recruiting period, most of the possible
+ • The same participant that preferred the CLARA robot in           participants who did not enroll the test group argued that "it
+   the "town crier" use case also preferred it in the video call    is very difficult to use the robot", even though they have never
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                2057
+
+
+interacted with any. These comments agree with the conclu-        participants wanted to tap one of the buttons of the touch-
+sions reached in [49], where the authors conclude that both       screen, but the robot did not react. These participants felt
+the social environment or the self-perception may influence       frustrated due to this lack of response. This issue is produced
+the use of technology, and for example the idea that people       by the limited sensitivity of the touch screen of CLARA
+are too old to learn will negatively affect it. However, by the   robot. For future tests either the sensitivity will be adjusted
+end of the evaluation period, most participants agreed that       or a new touch screen will be used.
+using the robot was not that difficult as they expected.
+   Figure 10 shows that, although both groups found easy to
+focus on the robot (except for one person in group A), in         7.4 User Experience
+Group B, participants believed that they would remember
+more information if it was given by a human instead of a          7.4.1 Embodiment
+robot while interacting with the GoBe robot. In the case of
+Group A, they felt indifferent whether the information was        The analysis of the effects of the embodiment in the percep-
+given by a robot or a human when they interacted with the         tion of the robot was one of the main goals in this study. The
+CLARA robot (all of them gave a score of 3 to this question).     two platforms were analyzed in parallel following the A/B
+                                                                  testing approach, as stated above. As displayed in Fig. 12,
+7.3.3 Attitude Towards Using Technology                           the results for the question about embodiment are equally
+                                                                  distributed. Two of the participants preferred the appearance
+This item is related with other results presented throughout      of the CLARA robot because it was "cute" and "endearing",
+this section. Participants who are used to technologies, such     due to its more humanoid form. On the other hand, other two
+as computer and cell phones, showed not only a better under-      participants preferred the GoBe robot’s embodiment, due to
+standing of the usage of the robot, but also a better attitude    its more robust design, giving them a sense of security.
+towards using it. Furthermore, these participants were more
+efficient performing the designated tasks in the use cases, and   7.4.2 Emotion
+provided more nurturing feedback.
+                                                                  Regarding the CLARA robot, none of the users were afraid
+7.3.4 Forms of Grouping                                           to touch it. The main emotions that produced this robot on
+                                                                  the users, on their own words, were: "joy", "satisfaction" (as
+This study did not lasted enough to let the participants share    the robot implies an advance in society) and "excitement".
+some kind of identity with the robot, so this subsection will     Only one of the six users felt emotionally indifferent toward
+be left for future iterations of this research.                   the robot.
+                                                                     On the other hand, when interacting with the GoBe robot,
+7.3.5 Attachment                                                  two of the residents agreed that they felt afraid of breaking
+                                                                  the robot at the beginning of the experiments. The third user
+Figure 12 shows the comparative evaluation results. They          was not afraid.
+show that, although both are almost equally appreciated in           In both cases, the emotions of the users after interacting
+the retirement home, the GoBe robot was slightly preferred        with the robot were overall positive. They used expressions
+(average score of 3.3) due to its more robust design and better   as: "excitement", "admiration" and "I really liked the expe-
+equipment.                                                        rience".
+   As mentioned before, the CLARA robot was the first one
+which was brought to the retirement home, thus residents had
+more time to develop a feeling of attachment. The appearance      7.4.3 Human-Oriented Perception
+of CLARA robot also helped fostering this feeling. Despite
+these facts, the result presented here shows that, at the end,    The only outcome for this subsection is the one displayed
+a more robust design and higher quality equipment compen-         in Fig. 11, which shows that the behaviour of the two robots
+sated both the time advantage and the "endearing" factor,         was considered socially adequate (with average values of
+leading to an equal appreciation for both robots (as stated in    1.2 and 1.3 in these items). Following social conventions
+Fig. 12).                                                         and expectations is an important feature to avoid stressful
+                                                                  human robot interaction [52]. While there was a transference
+7.3.6 Reciprocity                                                 of human features to the robots -e.g. they were named-, the
+                                                                  perception of them as artificial devices was always present:
+Regarding the reciprocity, there is only one issue that           "the video call has been good, but I would have preferred my
+occurred during several sessions of the CLARA robot. Some         daughter to be here".
+
+
+                                                                                                                      123
+2058                                                                          International Journal of Social Robotics (2024) 16:2043–2063
+
+
+7.4.4 Feeling of Security                                          cluded the experiment. These participants were interviewed
+                                                                   after having tested both robots. Figure 12 shows the results
+No major issue was found regarding this item. Only one user        collected in these questionnaires. These results can be com-
+on Group A and another from Group B felt certain discomfort        plemented with the following qualitative feedback:
+when both robots were around, stating that they were intimi-
+dated by their appearances, although both robots’ movements         • For the town crier use case, 3 participants preferred the
+were slow and stop moving as soon as an obstacle was in the           GoBe robot, mainly due to the larger screen. Only one
+way. Nevertheless, these participants did not explained with          participant preferred the CLARA robot, because she felt
+any details why they did not feel secure around the robots.           more attached to it. The average score for this question
+                                                                      was 3.5.
+7.4.5 Co-experience                                                 • For the video call use case, 4 participants clearly pre-
+                                                                      ferred the GoBe robot. Again, the main reason for this
+These results were not collected from questionnaires, but             decision was its larger screen. Also, one of these par-
+from field experience (observations). The evaluation period           ticipants mentioned that the GoBe robot was simpler to
+was not long enough to guarantee a complete removal of                use (GoBe is completely teleoperated). One of the partic-
+the novelty factor. However, it is important to highlight one         ipants felt indifferent, and the other preferred the CLARA
+phenomena that occurred during the last month of the evalu-           robot, again due to her stronger emotional attachment to
+ation: when the evaluator started the evaluation sessions and         it.
+proceeded to call the participants, they began to call other        • 5 of the 6 participants preferred the screen of the GoBe
+residents (even though they did not belong to the proper              robot (average score of 4.5), mainly because of the larger
+study group). They wanted them to join the experiment and             size. Only one participant slightly preferred the screen of
+see the robot working. The experiments started conversa-              the CLARA robot, because it was better aligned with her
+tions about the robots, that extended well beyond the sessions        line of sight.
+themselves. Given the limited duration and number of par-           • 3 participants did not notice the subtitles.
+ticipants involved in the experiments, further studies should
+be conducted to clarify the reasons under these behaviours.
+Previous research [53, 54] suggest these results are produced         The last question of the comparative questionnaire made
+by the SAR acting as a social facilitator.                         the users choose about which robot would they keep. This
+                                                                   question was also asked during the last weeks of the exper-
+7.5 Societal Impact                                                iments, where both robots were in the same room. At first,
+                                                                   none of the robots was preferred over the other. However,
+The evaluation of the quality of life, working conditions and      at the end of the evaluation period, when the comparative
+employment indicators will be reported in a different paper        questionnaire was passed, the results slightly leaned towards
+of one of our colleagues [55]. Both Education and Cultural         choosing the GoBe robot, since 3 participants voted it with a 5
+context were not evaluated due to being indicators which           score. The reasons behind their decision were its better audio
+were not centered on the objectives of this study.                 and video interfaces. These participants also stated that it has
+                                                                   a prettier design. On the other hand, two participants chose
+                                                                   the CLARA robot (voting with a 1 score), because they felt
+8 Discussion                                                       more emotionally attached to it. They also described CLARA
+                                                                   as "easier to approach", both physically and from an interac-
+Although there were not so many volunteers in this project,        tion perspective. Only one participant felt indifferent about
+two interesting queries arose regarding the Human–Robot            which robot to keep.
+Interaction process. One of these questions was proposed              Furthermore, participants were given the opportunity of
+before the study (Which robot is easier to interact with?).        commenting freely about any of the robots or the research.
+The other emerged during one of the focus group sessions           The following are representative answers:
+with the clinics (Is it correct that the residents have to stand
+up to interact with the robots?).                                   • “Felipe could be a little higher”
+                                                                    • “I like them”
+8.1 Which Robot is Easier to Interact with? GoBe vs                 • “I like both robots. I would love that they could give us
+    CLARA                                                             the medicine”
+                                                                    • “Due to my situation, robots are not part of my worries”
+As previously detailed, a comparison questionnaire between          • “This represents a major advance”
+the two robots was passed to all participants who con-              • “Both robots are really well designed, especially Cipri”
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                   2059
+
+
+   The group of participants was not large enough to jump to        the user, regardless of their sensory and motor capabilities.
+any solid conclusions. However, from these results it seems         However, the present dilemma questions this goal. Hence,
+that, in the long term, functionality (i.e. the better interfaces   it is important to regulate the facilitation lent by the robot
+of GoBe robot) and a more robust design, which gave a sense         to avoid a lack of proactive interaction in the user’s side.
+of security in most participants, prevailed against the emo-        The dilemma can also be stated as follows: when design-
+tional attachment (that CLARA robot generated more easily)          ing a robot following an user centered design, how should
+for the designed use cases. However, these results also show        designers proceed if two different user groups have oppo-
+that a more humanoid (or "endearing" as some participants           site requirements for the robot? The answer to this question
+described) embodiment of the robot not also raised attach-          is not obvious. It implies exhibiting different behaviours for
+ment feelings among the participants, but it also facilitated       different situations and users. Hence, the robot should not fol-
+the interaction in a certain degree. This should be taken into      low a generic use case, not even when it has been designed
+account if the intention were to provide a companion robot.         following user needs. Instead, individualized responses and
+Actually, in [48] it is reported that companion robots such as      behaviours become the mechanism that allows the robot
+an AIBO were not interesting enough as they were "nothing           modulate its responses to each particular user and context
+to cuddle with".                                                    [56]. This behavioural adaptation may let the robot avoid, at
+   The GoBe robot gave a sense of security, but its design also     least partially, issues emanating from these dilemmas.
+overwhelmed the participants, leading to a lack of incentive to
+interact with it. On the other hand, the CLARA robot became         8.3 Main Difficulties Met
+a focus of interaction for participants and non-participants in
+the retirement home, even when the robot was turned off.            - The COVID-19 constant hazard both hindered the com-
+These interactions off the tests were usually performed as          munication with the residents and significantly affected the
+jokes. Some residents liked to talk to the robot just for fun,      number of possible sessions for the study.
+even if it was turned off. While this situation had not a real      - As previously detailed, our target users were usually people
+effect in the programmed use cases, it gave a good insight          able to live independently. Hence, many of them were staying
+of how the robot can facilitate socialization. However, it will     at the retirement home only for a certain time period (e.g.
+be important to analyze how the functionality of the robot          during a rehabilitation process). This circumstance produced
+changes this effect against the one produced, for example,          losses in the volunteer groups. Next studies will address this
+by a fixed puppet. This analysis will require a different set of    issue by determining as exclusion criteria "People who are
+experiments, to be performed in future projects.                    expected to be in the retirement home for less than 2 months".
+                                                                    - Employed questionnaires are too long. After each session,
+8.2 The “Standing Up” Dilemma                                       most participants felt exhausted. After they had to perform
+                                                                    the first post test interview, they were no longer interested in
+One of the main discussions that arose during the evaluation        doing that again.
+was what we would like to provisionally call the "Standing          - Some of the questions were difficult to answer for some
+up" dilemma. This predicament consists on whether is correct        participants (e.g. "Are you familiar with the concept ’smart
+to: (i) totally facilitate the interaction for the users; or (ii)   environment’?").
+leave some degree of difficulty to them, in order to encourage      - Safety distance detectors, that avoided the robot to approach
+a more pro-active HRI.                                              too much to residents, had to be installed in the robots. These
+   In this study, the dilemma came up during the focus group        same systems prevented the robot to approach the users to a
+session with the clinics held on 14th June 2022. One of them        comfortable interaction distance. Hence, the residents had to
+mentioned how the height of the GoBe robot was an advan-            approach the robot when it stops close to them. This circum-
+tage for them, because it would make residents stand up to          stance limits the proactive HRI capabilities of the robots.
+interact with it. Hence, interactions with the robot required       - During the video call use case study with relatives, many
+both a cognitive and a physical activity.                           difficulties were found regarding both the recruiting and the
+   The problem came when some residents complain on the             scheduling process (agenda mismatches, retirement home
+very same reason the clinics were praising the GoBe robot.          COVID-19 protocol, etc). This issue limited the number of
+They did not feel like getting up to interact with the robot (as    video calls that could be performed during the evaluation
+Fig. 12 shows, for question "Which screen is easier to tap?").      period.
+Moreover, there is still the case of those residents which are      - SAR usually raise high expectations. Seeing the robot mov-
+incapable of standing up.                                           ing and interacting, even in the simple scenarios employed in
+   The importance of this dilemma is directly tied to the           this study, made it easy for users to expect more capabilities.
+design of the socially assistive robot. In this study, one of       Some false expectations inevitably arose between users, spe-
+the main goals that were set was to make the robot adapt to         cially in the early stages of the experiments. For example, as
+
+
+                                                                                                                         123
+2060                                                                             International Journal of Social Robotics (2024) 16:2043–2063
+
+
+soon as the SAR was stationed in the retirement home, many           the ability to adapt their behaviour to different contexts and
+residents started talking to it, expecting a response. Others        users [56].
+wanted it to cook for them, or expected the robot to recog-
+                                                                     Acknowledgements This work has been funded by the regional
+nize them and remember previous conversations. These false
+                                                                     projects AT17-5509-UMA ’ROSI’ (Plan Andaluz de Investigación,
+expectations should be avoided as they are one of the main           Desarrollo e Innovación—PAIDI 2020, Junta de Andalucía) and
+reasons why users disengage from using the robot [10, 24].           UMA18-FEDERJA-074 ’ITERA’ (Programa Operativo FEDER
+In the study presented in this paper, the functionalities of the     Andalucía 2014–2020. Convocatoria 2018), by the FEDER/Ministerio
+                                                                     de Ciencia e Innovación—Agencia Estatal de Investigación RTI2018-
+SARs were defined beforehand counting with the end users in
+                                                                     099522-B-C41 and RTI2018-099522-A-C44 projects, and by the DIH-
+the design process [11]. These participatory strategies reduce       HERO SUSTAIN project (European Union’s Horizon 2020 research
+expectations, and lead to more constructive feedback and             and innovation programme, under grant agreement No 825003). The
+higher participation rates.                                          authors would like to thank the residents, relatives and professionals
+                                                                     at Vitalia Teatinos, for their kind help during all these experiments.
+- From a technical perspective, these experiments have
+                                                                     Funding for open access charge: Universidad de Málaga / CBUA.
+highlighted some minor and major issues that affect robot
+performance and will be discussed in a different paper. They         Funding Funding for open access publishing: Universidad de Málaga/
+also help identifying physical and functional features for the       CBUA.
+robots to achieve long-term acceptance.                              Data Availability The datasets generated during and/or analysed dur-
+                                                                     ing the current study are available from the corresponding author on
+                                                                     reasonable request.
+
+9 Conclusion                                                         Declarations
+
+This paper describes user experience results from a study on         Conflict of interest People affiliated to the same university might know
+                                                                     about the work (Universidad de Málaga, Universidad Carlos III de
+the long-term use of SAR in retirement homes. The use cases          Madrid and Universidad de Jaén). People working at Blue Ocean
+were not too ambitious, but they were created in a co-creative       Robotics or MetraLabs GmbH might also know about the work. The
+process to meet the specific needs of the users in the target        authors declare no further Conflict of interest.
+retirement home. These use cases sufficed to gain insight into
+                                                                     Ethical Approval The study was conducted according to the guidelines
+the HRI process. The number of participants involved in the          of the Declaration of Helsinki, and approved by the Provincial Ethi-
+experiments was also limited. However, the paper provides            cal Committee of the Andalusian Public Healthcare system (Comité
+some preliminary results on how different factors, related to        de Ética de la Investigación Provincial de Málaga, session hold on
+appearance and functionality, affect the acceptability, utility      24/09/2020).
+and accessibility of the robots once the novelty effect fades        Infomed Consent Informed consent was obtained from all subjects
+out.                                                                 involved in the study.
+    The presented study has shown that, although an ’endear-
+ing’ or ’cute’ appearance encourages interaction with a SAR,         Open Access This article is licensed under a Creative Commons
+                                                                     Attribution 4.0 International License, which permits use, sharing, adap-
+functionality is the quality that prevails over time in the evalu-   tation, distribution and reproduction in any medium or format, as
+ated use cases. On the other hand, as simple as the employed         long as you give appropriate credit to the original author(s) and the
+use cases are, a SAR working in a retirement home raises             source, provide a link to the Creative Commons licence, and indi-
+some high expectations it will not fulfill. In order to avoid        cate if changes were made. The images or other third party material
+                                                                     in this article are included in the article’s Creative Commons licence,
+these false expectations to produce disengagement, constant          unless indicated otherwise in a credit line to the material. If material
+and fluent communication between researchers and users is            is not included in the article’s Creative Commons licence and your
+necessary during the experiments.                                    intended use is not permitted by statutory regulation or exceeds the
+    One of the main highlights of this study is the direct rela-     permitted use, you will need to obtain permission directly from the copy-
+                                                                     right holder. To view a copy of this licence, visit http://creativecomm
+tionship between previous experience with technology and             ons.org/licenses/by/4.0/.
+(i) the ability to learn to use new devices and; (ii) most impor-
+tantly, attitudes towards interacting with a robot. Nine of
+the 14 participants had previous experience with technol-            References
+ogy (either computers and/or mobile phones). This group
+not only experienced a better learning curve, but were also           1. World Population Prospects (2022) https://population.un.org/wpp/
+more motivated to use the robot and give feedback.                    2. Proyección de población de Andalucía por ámbitos subregionales
+    Finally, this study also concludes that the role of a SAR as         2009–2035 (2012)
+                                                                      3. Ribeiro O, Araújo L, Figueiredo D, Paúl C, Teixeira L (2022) The
+a social facilitator can have a relevant impact in elderly care.         caregiver support ratio in Europe: estimating the future of poten-
+The benefits and drawbacks of this particular effect should              tially (un)available caregivers. Healthcare 10(1):11. https://doi.org/
+be further explored, specially when robots are equipped with             10.3390/healthcare10010011
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                                     2061
+
+
+ 4. Feil-Seifer D, Mataric MJ (2005) Defining socially assistive             21. Papadopoulos I, Koulouglioti C, Lazzarino R, Ali S (2020)
+    robotics. In: 2005 IEEE 9th international conference on rehabil-             Enablers and barriers to the implementation of socially assistive
+    itation robotics, pp 465–468                                                 humanoid robots in health and social care: a systematic review.
+ 5. Gómez-Donoso F, Escalona F, Rivas FM, Cañas JM, Cazorla M                    BMJ Open. https://doi.org/10.1136/bmjopen-2019-033096
+    (2019) Enhancing the ambient assisted living capabilities with           22. Iglesias A, Garc’ia J, García-Olaya A, Fuentetaja R, Fernández
+    a mobile robot. Comput Intell Neurosci. https://doi.org/10.1109/             F, Romero-Garcés A, Marfil R, Bandera A, Ting KLH, Voilmy
+    HUMANOIDS.2017.8246957                                                       D, Dueñas A, Suárez-Mejías C (2021) Extending the evaluation
+ 6. Anghel I, Cioara T, Moldovan D, Antal M, Pop CD, Salomie I,                  of social assistive robots with accessibility indicators: the AUSUS
+    Pop CB, Chifu VR (2020) Smart environments and social robots                 evaluation framework. IEEE Trans Hum Mach Syst 51(6):601–
+    for age-friendly integrated care services. Int J Environ Res Public          612. https://doi.org/10.1109/THMS.2021.3112976
+    Health. https://doi.org/10.3390/ijerph17113801                           23. Arthanat S, Begum M, Gu T, LaRoche DP, Xu D, Zhang N (2020)
+ 7. Robotics 2020 multi-annual roadmap for robotics in Europe (2015)             Caregiver perspectives on a smart home-based socially assistive
+    Technical report, SPARC: The Partnership for Robotics in Europe,             robot for individuals with Alzheimer’s disease and related demen-
+    euRobotics Aisbl, Brussels, Belgium                                          tia. Disabil Rehabil Assist Technol 15(7):789–798. https://doi.org/
+ 8. Vandemeulebroucke T, Casterle BD, Gastmans C (2020) Ethics                   10.1080/17483107.2020.1753831
+    of socially assistive robots in aged-care settings: a socio-historical   24. Gallego J, Lohse M, Evers V (1987) D6.3: acceptability of a home
+    contextualisation. J Med Ethics 46:128–136                                   companion robot. Technical Report Final Report v 1.3, Accompany
+ 9. Keizer RACMO, van Velsen L, Moncharmont M, Riche B,                          Project
+    Ammour N, Signore SD, Zia G, Hermens H, N’Dja A (2019)                   25. Kachouie R, Sedighadeli Khosla R, Chu M-T (2014) Socially assis-
+    Using socially assistive robots for monitoring and preventing frailty        tive robots in elderly care: a mixed-method systematic literature
+    among older adults: a study on usability and user experience chal-           review. Int J Hum Comput Interact 30(5):369–393. https://doi.org/
+    lenges. Health Technol 9:595–605                                             10.1080/10447318.2013.873278
+10. Seibt J, Damholdt MF, Vestergaard C (2020) Integrative social            26. Hall A, Wilson CB, Stanmore E, Todd C (2017) Implementing
+    robotics, value-driven design, and transdisciplinarity. Interact Stud        monitoring technologies in care homes for people with dementia:
+    21(1):111–144                                                                a qualitative exploration using normalization process theory. Int
+11. Iglesias A, Viciana R, Pérez-Lorenzo JM, Lan Hing Ting K,                    J Nurs Stud 72:60–70. https://doi.org/10.1016/j.ijnurstu.2017.04.
+    Tudela A, Marfil R, Dueñas A, Bandera JP (2020) Towards long                 008
+    term acceptance of socially assistive robots in retirement houses:       27. McGinn C, Bourke E, Murtagh A, Donovan C, Cullinan MF (2019)
+    use case definition. In: 2020 IEEE international conference on               Meeting stevie: perceptions of a socially assistive robot by residents
+    autonomous robot systems and competitions (ICARSC), pp 134–                  and staff in a long-term care facility. In: 2019 14th ACM/IEEE
+    139                                                                          international conference on human–robot interaction (HRI), pp
+12. Lan Hing Ting K, Voilmy D, De Roll Q, Iglesias A, Marfil R (2021)            602–603. https://doi.org/10.1109/HRI.2019.8673161
+    Fieldwork and field trials in hospitals: co-designing a robotic solu-    28. Clabaugh C, Mahajan K, Jain S, Pakkar R, Becerra D, Shi Z, Deng
+    tion to support data collection in geriatric assessment. Appl Sci            E, Lee R, Ragusa G, Matarić M (2019) Long-term personaliza-
+    11(7):3046                                                                   tion of an in-home socially assistive robot for children with autism
+13. Breazeal C (2001) Affective interaction between humans and                   spectrum disorders. Front Robot AI. https://doi.org/10.3389/frobt.
+    robots. In: Kelemen J, Sosík P (eds) Advances in artificial life.            2019.00110
+    Springer, Berlin, pp 582–591                                             29. Céspedes N, Irfan B, Senft E, Cifuentes CA, Gutiérrez LF, Rincon-
+14. Payr S (2015) Towards human–robot interaction ethics. In: Trappl             Roncancio M, Belpaeme T, Múnera M (2021) A socially assistive
+    R (ed) A construction manual for robots’ ethical systems. Cognitive          robot for long-term cardiac rehabilitation in the real world. Front
+    Technologies. Springer, Cham                                                 Neurorobot. https://doi.org/10.3389/fnbot.2021.633248
+15. Pulido JC, González JC, Suárez-Mejías C, Bandera A, Bustos P,            30. Getson C, Nejat G (2022) The adoption of socially assistive robots
+    Fernández F (2017) Evaluating the child-robot interaction of the             for long-term care: during COVID-19 and in a post-pandemic
+    naotherapist platform in pediatric rehabilitation. Int J Soc Robot           society. Front Neurorobot 35(5):301–309. https://doi.org/10.1177/
+    9:343–358                                                                    08404704221106406
+16. Wainer J, Robins B, Amirabdollahian F, Dautenhahn K (2014)               31. Abras C, Maloney-Krichmar D, Preece J (2004) User-centered
+    Using the humanoid robot Kaspar to autonomously play triadic                 design. In: Bainbridge W (ed) Encyclopedia of human–computer
+    games and facilitate collaborative play among children with autism.          interaction, vol 37. Sage Publications, Thousand Oaks, pp 445–456
+    Auton Ment Dev 6:183–199                                                 32. Van der Velden M, Mörtberg C et al (2015) Participatory design and
+17. Ali S, Mehmood F, Ayaz Y, Sajid M, Sadia H, Nawaz R (2022) An                design for values. Handbook of ethics, values, and technological
+    experimental trial: multi-robot therapy for categorization of autism         design: sources, theory, values and application domains. Springer,
+    level using hidden Markov model. J Educ Comput Res 60:722–741.               Cham, pp 41–66
+    https://doi.org/10.1177/07356331211040405                                33. Simonsen J, Robertson T (eds) (2012) Routledge international
+18. Chang WL, Šabanovic S (2015) Interaction expands function:                   handbook of participatory design. Routledge, New York
+    social shaping of the therapeutic robot Paro in a nursing home.          34. Bratteteig T, Wagner I (2014) Disentangling participation: power
+    In: Proceedings of the tenth annual ACM/IEEE international con-              and decision-making in participatory design. Springer, Berlin
+    ference on human–robot interaction, HRI ’15, Portland, OR, USA,          35. Nygaard K (1979) The iron and metal project trade union partic-
+    pp 343–350                                                                   ipation. In: Sandberg A (ed) Computers dividing man and work,
+19. Kitt ER, Crossman MK, Matijczak A, Burns GB, Kazdin AE (2021)                vol 12. Utbildningsproduktion, Malmo, pp 94–107
+    Evaluating the role of a socially assistive robot in children’s mental   36. Weiss A, Bernhaupt R, Lankes M, Tscheligi M (2009) The USUS
+    health care. J Child Fam Stud 30(7):1722–1735. https://doi.org/10.           evaluation framework for human–robot interaction. In: AISB2009:
+    1007/s10826-021-01977-5                                                      proceedings of the symposium on new frontiers in human–robot
+20. Kriegel J, Grabner V, Tuttle-Weidinger L, Ehrenmüller I (2019)               interaction, vol 4, pp 11–26
+    Socially assistive robots (SAR) in in-patient care for the elderly.      37. Joshi SG, Bratteteig T (2016) Designing for prolonged mastery
+    Stud Health Technol Inform 260:178–185                                       on involving old people in participatory design. Scand J Inf Syst
+                                                                                 28(1):3–36
+
+
+                                                                                                                                          123
+2062                                                                                   International Journal of Social Robotics (2024) 16:2043–2063
+
+
+38. Voilmy D, Suarez C, Romero-Garcés A, Reuther C, Pulido JC,             53. Abdi J et al (2018) Scoping review on the use of socially assistive
+    Marfil R, Manso LJ, Lan Hing Ting K, Iglesias A, González JC,              robot technology in elderly care. BMJ Open 8:e018815
+    García J, García Olaya A, Fuentetaja R, Fernández F, Dueñas A,         54. Anghel I, Cioara T, Moldovan D, Antal M, Pop CD, Salomie I,
+    Calderita LV, Bustos P, Barile T, Bandera JP, Bandera A (2017)             Pop CB, Chifu VR (2020) Smart environments and social robots
+    CLARC: a cognitive robot for helping geriatric doctors in real             for age-friendly integrated care services. Int J Environ Res Public
+    scenarios. In: ROBOT. Advances in intelligent systems and com-             Health 17(11):3801. https://doi.org/10.3390/ijerph17113801
+    puting, vol 693. Springer, pp 403–414                                  55. Rojas Sierra X, Nørskov S (2023) Mobile telepresence robots and
+39. Bandera A, Bandera JP, Bustos P, Calderita L, Dueñas A, Fernández          meaningful work in health care. In: 39th European Group for
+    F, Fuentetaja R, Olaya A, García-Polo F, González Dorado JC, Igle-         Organizational Studies (EGOS) Colloquium; Conference date: 06-
+    sias A, Manso L, Marfil R, Pulido JC, Reuthe C, Romero-Garcés              07-2023 through 08-07-2023
+    A, Suárez C (2016) CLARC: a robotic architecture for comprehen-        56. Bensch S, Sun J, Bandera JP, Romero-Garcés A, Hellström T
+    sive geriatric assessment. In: Proceedings of the XVII workshop            (2023) Personalised multi-modal communication for HRI. In: Pro-
+    of physical agents                                                         ceedings of the RO-MAN conference, weighting the benefits of
+40. Stanford Artificial Intelligence Laboratory et al. Robotic Operating       autonomous robot personalization (WARN) workshop
+    System. https://www.ros.org
+41. Bustos P, Manso LJ, Bandera AJ, Bandera JP, García-Varea I,
+    Martínez-Gómez J (2019) The cortex cognitive robotics architec-        Publisher’s Note Springer Nature remains neutral with regard to juris-
+    ture: use cases. Cogn Syst Res 55:107–123                              dictional claims in published maps and institutional affiliations.
+42. Lobo A, Saz P, Marcos G, Día JL, De La Cámara C, Ventura T, Asín
+    FA, Pascual LAM, Montañés JMR, Aznar SN (1999) Revalidation
+    and standardization of the cognition mini-exam (first Spanish ver-
+    sion of the Mini-Mental Status Examination) in the general geriatric
+                                                                           Antonio Jerez finished his degree in Healthcare Engineering in 2021
+    population. Med Clin 112(20):767–74
+                                                                           and since then holds a position as Teaching and Research Personnel.
+43. Nasreddine ZS, Phillips NA, Bédirian V, Charbonneau S, White-
+                                                                           He is a researcher in the TIC-125 (Ingeniería de Sistemas Integrados)
+    head V, Collin I, Cummings JL, Chertkow H (2005) The Montreal
+                                                                           research group. His work, and also the main theme of the thesis he
+    cognitive assessment, MoCA: a brief screening tool for mild cog-
+                                                                           is currently working on, focuses on socially assistive robots, design
+    nitive impairment. J Am Geriatr Soc 53:695–699. https://doi.org/
+                                                                           research and UX evaluation. He is involved in research projects that
+    10.1111/j.1532-5415.2005.53221
+                                                                           aim to implement socially-aware robots, integrated in both privated
+44. Joshi SG, Bratteteig T (2015) Assembling fragments into con-
+                                                                           and shared smart environments, always following both participatory
+    tinuous design: on participatory design with old people. In:
+                                                                           and user centered methodologies in order to design accepted, useful
+    Oinas-Kukkonen H, Iivari N, Kuutti K, Öörni A, Rajanen M (eds)
+                                                                           and accessible tools.
+    Nordic contributions in IS research. Springer, Cham, pp 13–29
+45. Qbilat M, Iglesias A, Belpaeme T (2021) A proposal of accessibility
+    guidelines for human–robot interaction. Electronics 10(5):561
+46. Fernandes Í, Rocha S, Portela C, Braz Junior G, Almeida J, Silva       Ana Iglesias obtained her Ph.D. in 2004 and has been an assistant
+    A, Viana D, Rabelo J, Paiva A, Rivero L (2022) Defining an             professor at the Carlos III University of Madrid since 2019. She is a
+    a/b testing process for usability and user experience evaluation       researcher in the Department of Computer Science and Engineering.
+    through the analysis of the results of a literature review. In: HCI    Her research interests focus on accessibility, human-machine interac-
+    international 2022-late breaking papers. Design, user experience       tion, advanced database technologies, natural language processing and
+    and interaction: 24th international conference on human–computer       information retrieval, among others. She has received several national
+    interaction, HCII 2022, virtual event, 26 June–1 July, 2022, Pro-      and international research awards for her work in the field of accessi-
+    ceedings. Springer, pp 204–213                                         ble electronic devices for all.
+47. Joshi A, Kale S, Chandel S, Pal DK (2015) Likert scale: explored
+    and explained. Br J Appl Sci Technol 7(4):396
+48. Saplacan Lindblom D, Herstad J, Zada P (2020) An analysis of
+                                                                           José Manuel Pérez-Lorenzo obtained his Ph.D. in 2010, and he is a lec-
+    independent living elderly’s views on robots a descriptive study
+                                                                           turer at the University of Jaén, where he is a member of the TIC-257
+    from the Norwegian context. In: Proceedings of the thirteenth inter-
+                                                                           (Advances in Intelligent Systems and Applications) research group.
+    national conference on advances in computer–human interactions
+                                                                           His work is related to fields such as artificial perception algorithms,
+    (ACHI 2020), pp 199–208
+                                                                           networks and internet technologies and cloud services. He has been
+49. Barnard Y, Bradley MD, Hodgson F, Lloyd AD (2013) Learning
+                                                                           involved in research projects that try to apply different technological
+    to use new technologies by older adults: perceived difficulties,
+                                                                           solutions to the field of health and personal care.
+    experimentation behaviour and usability. Comput Hum Behav
+    29(4):1715–1724. https://doi.org/10.1016/j.chb.2013.02.006
+50. Yogeeswaran K, Złotowski J, Livingstone M, Bartneck C, Sumioka
+    H, Ishiguro H (2016) The interactive effects of robot anthropo-        Alberto Tudela Telecommunication Engineer with specialization in
+    morphism and robot ability on perceived threat and support for         electronics by the University of Malaga in 2016. In September of the
+    robotics research. J Hum Robot Interact 5(2):29–47. https://doi.       same year he joined the Integrated Systems Engineering group of the
+    org/10.5898/JHRI.5.2.Yogeeswaran                                       Department of Electronic Technology of the University of Malaga in
+51. Hinds PJ, Roberts TL, Jones H (2004) Whose job is it anyway? A         a project of integration of manipulator arms by 3D printing within
+    study of human-robot interaction in a collaborative task. Hum Com-     the framework of the CLARC system architecture. In June 2017, he
+    put Interact 19(1–2):151–181. https://doi.org/10.1080/07370024.        obtained the Master’s degree in Mechatronics Engineering from the
+    2004.9667343                                                           University of Malaga with a TFM focused on pedestrian detection for
+52. Martinetti A, Chemweno PK, Nizamis K, Fosch-Villaronga E               autonomous vehicles. Subsequently, he has continued in the same line
+    (2021) Redefining safety in light of human–robot interaction: a        of research developing perceptual agents that allow monitoring the
+    critical review of current standards and regulations. Front Chem       state of the world to be integrated into the cognitive architecture of
+    Eng 3:666237. https://doi.org/10.3389/fceng.2021.666237                a social assistive robot. Since then, he has participated in 5 R+D+i
+
+
+123
+International Journal of Social Robotics (2024) 16:2043–2063                                                                                     2063
+
+
+projects, made 3 contributions to congresses, contributed with 2 chap-        Juan Pedro Bandera obtained his Ph.D. in 2010 and since 2017 holds
+ters in specialized books and published 2 articles.                           a position as Assistant Professor at the University of Málaga. He is a
+                                                                              researcher in the TIC-125 (Ingeniería de Sistemas Integrados) research
+                                                                              group. His work focuses on robotics, artificial vision, smart environ-
+                                                                              ments and socially assistive robots. He is involved in research projects
+Alejandro Cruces holds a higher engineering degree in telecommu-
+                                                                              that aim to implement socially-aware robots, integrated in smart envi-
+nications and a master’s degree about teaching. He has worked for
+                                                                              ronments and able to adapt to different users and contexts. These
+more than ten years in the research group TIC-125 (Integrated Sys-
+                                                                              projects also aim to move the robots from the lab to daily life envi-
+tems Engineering) at the University of Málaga, where he has also held
+                                                                              ronments, following user centered design processes. These robots aim
+a full-time teaching position for two years in the area of Electronic
+                                                                              to become accepted, useful and accessible tools.
+Technology. He is currently in the process of obtaining a PhD in the
+field of social robotics, focused on improving the adaptation of these
+robots to their context thanks to their integration in intelligent environ-
+ments, promoting the synergy between both technologies.
+
+
+
+
+                                                                                                                                         123
+

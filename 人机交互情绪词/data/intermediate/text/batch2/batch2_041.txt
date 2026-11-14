@@ -1,0 +1,780 @@
+Exploration of user interface mechanisms with affect labeling to
+                   enhance online discussion
+           Mariana L. de Carvalho                                                Thomas Olsson                                         Joel Kiskola
+      Faculty of Information Technology                             Faculty of Information Technology                     Faculty of Information Technology
+        and Communication Sciences,                                   and Communication Sciences,                           and Communication Sciences,
+      TAUCHI Research Center, Tampere                               TAUCHI Research Center, Tampere                       TAUCHI Research Center, Tampere
+                   University                                                    University                                            University
+      mariana.linharesdecarvalho@tuni.fi                                  thomas.olsson@tuni.fi                                   joel.kiskola@tuni.fi
+ABSTRACT                                                                                            1   INTRODUCTION
+Heated and uncivil discussions are regrettably common in social                                     Computer-mediated communication (CMC) in the form of text-
+media, potentially leading to harmful atmospheres. In the present                                   based, asynchronous messaging has become the primary commu-
+work, we explore how relatively simple user interface mechanisms                                    nication channel for many. Social media services and online dis-
+might nudge users to choose a more civil tone by promoting an                                       cussion groups could be considered one of the most ubiquitous
+emotion regulation process called affect labeling — i.e., naming                                    forms of information and communication technology. In this con-
+one’s emotions. In particular, we focus on labeling emotions in re-                                 text, aggressive and insulting behavior is regrettably common and
+sponse to online news articles, as this is a ubiquitous form of online                              has been extensively problematized in related literature [2, 19, 43].
+multimedia. Based on systematic design exploration, we present                                      Hostile behavior has become so common in online discussions that
+four concrete mechanisms as alternatives for affect labeling news                                   it is often even expected by users [5]. Several theories have tried
+articles: an emotion wheel, an intensity slider, emotion analysis                                   to explain the problems in CMC, ranging from media richness [31]
+done through machine learning, and free text labeling. In a quali-                                  and online disinhibition [15, 33] to the role of anonymity [37]. The
+tative evaluation study, 18 interviewees discussed the designs in                                   theoretical viewpoint that the present work builds on proposes
+focus groups in order to identify design aspects that might lead to                                 that the lack of nonverbal cues in textual communication hampers
+high acceptability and usability. The study findings help reflect how                               the ability to regulate emotions and to feel empathy [16]. This
+emotion regulation could be facilitated by UI mechanisms, which                                     paper further follows the premise that better understanding the
+design aspects both encourage affect labeling and are acceptable by                                 processes of emotion regulation in CMC is key to address the issues
+users, and how affect labeling can meaningfully influence online                                    of hostility commonly seen online.
+interactions.                                                                                           Different services have adapted to the online environment in
+                                                                                                    order to take advantage of the immediate access to information
+CCS CONCEPTS                                                                                        provided by the internet and devices such as computers and smart-
+                                                                                                    phones. One of these services are news businesses, and it has been
+• Human-centered computing; • Empirical studies in collab-
+                                                                                                    shown that hostile commenting and lack of emotional control also
+orative and social computing;
+                                                                                                    influence their online platforms and users, which is the focus of the
+                                                                                                    present study. Detrimental effects include inhibiting news readers’
+KEYWORDS                                                                                            motivation to participate [25], influencing users’ perception about
+Interaction design, User interface, Online emotion regulation, Af-                                  the public opinion [4], and impacting users’ perception of the qual-
+fect labeling, Online multimedia, News platforms, Online hostility,                                 ity of journalistic content [22]. As misbehavior may be considered
+Emotion regulation mechanisms                                                                       a symptom of an unknown combination of other difficult problems
+                                                                                                    (e.g., intentional trolling, comments quickly evolving into hateful
+ACM Reference Format:                                                                               discussion threads, unclear norms in online behavior), hostility
+Mariana L. de Carvalho, Thomas Olsson, and Joel Kiskola. 2021. Explo-
+                                                                                                    in online news commenting can be considered a wicked problem,
+ration of user interface mechanisms with affect labeling to enhance on-
+line discussion. In Academic Mindtrek 2021 (Mindtrek ’21), June 01–03,
+                                                                                                    making it a fruitful field for new design approaches. Considering
+2021, Tampere/Virtual, Finland. ACM, New York, NY, USA, 11 pages. https:                            the ubiquity of online news services and the fact that social media
+//doi.org/10.1145/3464327.3464332                                                                   plays a key role in the spreading of news content, news related
+                                                                                                    posts comprise a significant part of the content visible to users of
+                                                                                                    various online services—as do the possibly hostile interactions and
+Permission to make digital or hard copies of all or part of this work for personal or               use of language in the public comments.
+classroom use is granted without fee provided that copies are not made or distributed                   Affect labeling (i.e., naming one’s emotional reactions) has re-
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than ACM                  cently been identified as a promising approach for emotion regu-
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,             lation [13, 34]. In this paper, we explore how emotion regulation
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.
+                                                                                                    could be elicited online through affect labeling mechanisms in the
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                            user interface (UI), possibly resulting in emotional regulation while
+© 2021 Association for Computing Machinery.                                                         writing comments. It is noteworthy that the UI mechanisms that
+ACM ISBN 978-1-4503-8514-5/21/06. . . $15.00
+https://doi.org/10.1145/3464327.3464332
+
+
+
+
+                                                                                              210
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                                                  Mariana L. de Carvalho et al.
+
+
+facilitate and structure CMC among various social media are rela-            comment is one that intends to attack the other party, through the
+tively homogenous. As a consequence, it is possible to assume that           use of low-level expressions such as name-callings and insults, cre-
+the design of such communication mechanisms significantly shape              ating negative emotions like anger. It is important, though, to not
+the communication practices and play a significant role in peo-              mix civility with politeness. Being argumentative or even assertive
+ple’s online behavior. This calls for exploration of how alternative         is possible while keeping civility, as long as the features associated
+UI design mechanisms could support or trigger emotion regula-                with hostility are not found in the comment. The main character-
+tion processes. Currently, in order to discourage or manage uncivil          istic of civility is not politeness, but the constructive engagement
+behavior, most online services rely on behavioral guidelines, use            with others [38].
+of human moderators, or reactive interventions from other users                 Although scholars have arrived at distinct conclusions, different
+[17, 18, 20]. In this light, this study examines how users could be          theories underline slightly different factors that lead to such behav-
+nudged to moderate their own behavior, stopping hostility before             ior. Still, theories present concepts that overlap and allow flaming
+it takes a textual form, instead of remedying the damage already             in commenting platforms to be approached from different angles.
+done.                                                                        Media Richness Theory [31], for example, could explain flaming
+    The paper presents and evaluates a set of alternative UI mecha-          as a result of the lower richness of commenting platforms when
+nisms for affect labeling in the context of commenting online news.          compared to real-life interaction, as aspects from communication
+As groundwork, different online news platforms and social media              such as non-verbal cues are not present. The absence of such cues is
+services were benchmarked to identify existing UI mechanisms for             also mentioned in Online Disinhibition Effect, a concept that tackles
+improving the quality of reader comments. These served as basis              people’s lowering of restraints online [15, 33]. The effect can lead
+for the brainstorming phase where different designs were created,            to both positive and negative behavior, the latter having the term
+focusing on eliciting an affect labeling process. The present study          toxic disinhibition coined and describing factors such as anonymity,
+consists of the evaluation of selected design alternatives, aiming           invisibility, asynchronicity, absence of non-verbal cues and person-
+to investigate which would be most accepted by users and due to              ality traits as enablers of disinhibited behavior [15]. Anonymity
+which characteristics.                                                       is also mentioned in the Social Identity model of Deindividuation
+    Given the various detrimental phenomena in online discussions            Effects [37], which proposes shift from personal to social levels of
+[e.g., 1, 25, 29] there is a need for more detailed understanding on         identification, leading to a lower perception of members as distinct
+how emotions function in digital media. Proposing changes for                individuals and creating a sense of anonymity.
+current UI that are effective yet ethical can lead to improvement               Despite the different views on what leads users to misbehave
+of emotional awareness and emotion management, contributing                  online, there is an agreement among researchers that misbehavior
+to online interactions and enhancing communication culture. As               can lead to harm. Here, news platforms were chosen as focus due to
+carefully controlled experimental research on the topic is rare, de-         previous studies demonstrating different impacts it can suffer. Also,
+tails about the emotional processes are left unexplained. To the             since journalism plays a significant role in society, news vehicles
+best of our knowledge there is no research on using computational            proved to be a fruitful field for this investigation. Commenting plat-
+affect labelling in digital media to help the users understand the           forms are one of the easiest tools for online engagement and are
+emotional nuances in ongoing discourse and managing their own                usually seen favorably by both users and journalists [41]. Although
+emotional reactions.                                                         a small percentage of the total users comment on these platforms,
+    This study contributes to understanding (1) of the use of affect         the majority reads what has been posted [30], meaning that the
+labeling in online news commenting and (2) its acceptability by              effects of the comments are not restricted only to those actively
+potential users, leading to a (3) set of evaluated designs that could be     engaging in the discussions. Consequences vary from influence on
+further developed, implemented, and studied in authentic settings.           the users’ perception about the public opinion [4] to sources or
+                                                                             subjects of stories becoming targets to criticism or harsh attacks
+2     RELATED WORK                                                           through the comments [27]. The latter may lead to an increased
+In the following, first we discuss previous research on hostility            difficulty in getting new sources and information for future stories,
+in online comments and its impact in online newspapers. Second,              as those involved might become hesitant or fearful due to the pos-
+we introduce recent studies on affect labeling and its possible ap-          sibility of online hostility. Yet, the most relevant impact might be
+plications online. Lastly, we present a summary of the review of             that negative and positive comments influence readers’ perception
+existing UI mechanisms that might enable user engagement and/or              on the quality of journalistic content [22], with hostile comments
+                                                                             leading to the impression that such content has poor quality.
+maintenance of discourse quality, which supported the design brain-
+                                                                                The design work presented in this paper will focus on promot-
+storming phase.
+                                                                             ing emotion regulation, which might prevent misbehavior and its
+                                                                             resulting negative impact.
+2.1     Hostility Online and the Impact on Online
+        Newspapers
+Both in academic environment and public discourse, the negative              2.2    Affect Labeling and its Application Online
+aspects of social media and its consequences have given fuel to crit-        Emotions are social in nature. They are often evoked by other
+ical discussions, conceptual work, as well as empirical studies [e.g.,       people, directed to others, and regulated in order to influence or
+2, 7, 39, 42]. Research trying to explain hostility online, commonly         abide to people and to the norms of the social context [6, 9, 10].
+known as flaming, is extensive. It is possible to say that a hostile         In moments where a certain emotion is inappropriate, it might be
+
+
+
+
+                                                                       211
+Exploration of user interface mechanisms with affect labeling to enhance online discussion                          Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland
+
+
+necessary to start a process of emotion regulation [11], modulating                          approach is to induce positive emotions with exposure to positive
+the emotion so that it better serves the situation and goals.                                emotional stimuli such as happy faces [35] or smiley emoticons
+   Affect labeling is one implicit form of emotion regulation, mean-                         [26], or even CAPTCHAs containing stimuli that evoke positive
+ing a relatively automatic process which demands little monitoring                           emotions [17].
+or awareness [3]. It refers to labeling your own or others’ emotions                            Nevertheless, as hostility in online discussion continues to im-
+or to label the emotionally evocative aspect of a stimulus [13]. This                        pact human interactions, we argue that exploration of further al-
+can be done in either a private or public condition, for example as                          ternatives that try to mitigate these effects is necessary. With the
+when keeping a personal diary or making posts on social media, as                            promising results related to affect labeling, as described in section
+long as the process of labeling occurs. Several studies have shown                           2.2, the present study explores how emotion regulation could be
+that when applying affect labeling to emotional stimuli, participants                        encouraged by the UI.
+report decreased levels of emotion, both positive and negative ones
+[e.g. 8, 21, 23]. However, it was also shown that people are likely
+                                                                                             3     DESIGN PROCESS AND OUTCOMES
+to believe that affect labelling does not work, supposing it would
+actually cause more distress. This shows there is no need for a per-                         The design process intended to develop alternative UI mechanisms
+son to have a conscious intent to regulate their emotions in order                           that (1) could utilize affect labeling to elicit emotion regulation, (2)
+for affect labeling to be effective [23].                                                    could be technically implemented on news websites, and (3) are
+   This lack of awareness about the ongoing effects of affect label-                         not radically different from mechanisms in different present-day
+ing may cause it to be a useful tool to incite emotion regulation                            interfaces, increasing the chances for acceptability. The following
+without the person perceiving the ongoing process, and still achiev-                         sections describe the design process as well as four selected designs
+ing emotion regulating results. One example was a recent study                               (out of 14 in total).
+that observed the evolution of emotions when affect labeling was
+performed by Twitter users in naturally occurring episodes [34].                             3.1    Reviewing Existing Mechanisms
+It was noted that immediately after the users had expressed their                            In order to keep the created designs close to what users are already
+emotions in written form, a rapid decrease of negative emotions                              minimally familiar and increase chances of acceptability, 54 news-
+and a less rapid decrease of positive emotions resulted. This find-                          papers from across the globe and 17 social media services were
+ing supports the assumption of affect labeling influencing both                              benchmarked. A set of standard mechanisms, commonly used in
+negative and positive emotions. Furthermore, as this was a public                            most websites, was identified. It was also analyzed if there were dis-
+demonstration of affect labeling and had noticeable results, the find-                       tinctive mechanisms being employed and how did they differ from
+ings support the aforementioned possibility of private vs. public                            the standard ones. The differences were categorized and later served
+regulation process.                                                                          as reference for the designs’ idea generation phase. The intention
+   These results suggest that affect labeling could be a viable mecha-                       was to see what approaches our designs could take, matching the
+nism to promote emotion regulation online. As an implicit, unobtru-                          affect labeling process to one of these categories. Even if the listed
+sive form of emotion regulation, the idea might also be applicable                           categories and mechanisms are not frequent, users have already
+in encouraging more civil online discussion.                                                 been introduced to the concepts, which could lead to less unfa-
+                                                                                             miliarity and higher acceptability. One was considered out of the
+2.3     User Interfaces for Persuading Behavioral                                            standard set if it (1) offered new forms of interaction, (2) provided
+                                                                                             information in new forms regarding the users’ engagement and its
+        Change in Online Discussions
+                                                                                             quality, (3) presented one of the standard mechanisms under a dif-
+Despite the extensive ongoing discussion on how online conduct                               ferent form or approach or (4) made the behavior guidelines easily
+could be improved, there is little prior work focusing on the user                           accessible for the user or encouraged the interactions towards a
+interfaces and human-computer interaction aspects. A pioneering                              healthier behavior.
+example is the work of Diakopoulos et al. [27], among others men-                               All things considered; the review consolidated our impression
+tioned below. Additionally, media organizations companies are ea-                            that there is little variation in how the users can express their
+gerly developing their own solutions. For example, the Norwegian                             emotions. Most importantly, it seems that existing news sites and
+Broadcasting Corporation utilizes custom-built quizzes to confirm                            social media services do not feature explicit affect labeling. This
+the user read the article before commenting it [36]. Although this                           motivated us to continue with the design exploration.
+does not directly tackle hostility, the solution attempts to guarantee
+the reader will make an informed comment instead of engaging in
+a possibly exalted discussion without proper base on the topic. Ad-                          3.2    Idea Generation and Selection
+ditionally, there are machine learning based solutions like Jigsaw’s                         We started by outlining different design options for generation of
+Perspective API [14], which can detect toxic writing to some extent,                         alternative UI mechanisms that could lead to affect labeling. Based
+and this can be shown to the writer as a score, an emoji, or made to                         on literature and our own reasoning, we defined four different
+trigger a notification that attempts to persuade the writer to reflect                       categories of options (summarized in Table 1). Each category has
+one’s writing. Others have proposed preliminary UI solutions that                            different options that could be combined between themselves, as
+attempt to bridge polarized groups (i.e., decrease polarization) in                          well as correspond to one of the categories listed in section 3.1.
+social media, challenging the common design agenda of merely pro-                            Some of the specific options in the table are better explained in
+viding balanced-information recommendations [24]. One proposed                               section 4.2, along with the designs.
+
+
+
+
+                                                                                   212
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                                                    Mariana L. de Carvalho et al.
+
+
+                             Table 1: Categories used to specify how affect labeling could happen in the designs
+
+ Category                                                                    Options
+ Labeling done by                                                            Current user; another user; machine
+ Timing of the labeling                                                      Before reading; before commenting; after typing the comment
+                                                                             (before the system posts it); after posting
+ Format used                                                                 Words: free text; pre-determined text
+                                                                             Visual: images (emoticons); colors
+ Intensity measurement                                                       Form: slider; words; colors; wheel dimensions
+
+
+   Options in the category “Labeling done by” are inspired by Torre           UI mock-ups. With a diversity of designs, our intent was to inves-
+and Lieberman [13]. The authors state that affect labeling can in-            tigate different visualizations and interactions that could initiate
+volve describing one’s own emotions or describing an evocative                an affect labeling process while matching the mentioned criteria
+aspect of an emotional stimulus, which could mean to describe                 (matching options from Table 1, while being technically feasible and
+someone else’s. They also mention that affect labeling can be per-            relatively conventional). There are several common UI elements
+formed by speaking, writing, or even choosing among provided                  and mechanisms that are like the concepts for affect labeling tools,
+labels (this will be referred to when explaining the choices for              for example buttons to express impressions (e.g., thumbs up/down,
+“Format used”). The option of ‘provided labels’ is divided into two           flagging) or rating possibilities (star counting, or sliders in software
+possibilities: those provided by other people (the designers) or those        UIs). Further, as stated above, some users are familiar with tools
+provided by the machine.                                                      that are conceptually related to the affect labeling mechanisms,
+   Options in the category “Timing of the labeling” are based on              such as Facebook reaction tool, or even reporting options where
+our own thinking. However, they were thought out of possibilities             it’s possible to say you didn’t like a certain content.
+already available to users. On Facebook, for example, users can react             In practice, the idea generation was performed by the first au-
+to a post independently of having read the content or commented,              thor, who has formal education in interaction design and industrial
+matching the “before reading” and “before commenting”. It is also             design. She generated affect labeling design proposals by adapting,
+possible to react to the post or other comments after publishing              combining, and varying the mentioned options for use in affect
+your own, matching the “after posting” option. The “after com-                labeling. Further, she kept the design style in the proposals close to
+menting” option was an investigation on how users could rethink               what is commonly seen in discussion platforms and social media.
+their comments before posting them. The author wondered if being                  She then submitted the sketches to the second author for feed-
+able to express however they wanted, and only then attempting to              back on further possibilities and improvements. The creation pro-
+regulate their emotions, could lead to significant opinions among             cess was guided by intuition while mixing the different categories
+users.                                                                        and took around two weeks. No specific creativity techniques were
+   As for options in the category “Format used”, there were two               used, other than free form brainstorming and mind mapping.
+forms, text and images. For text, users could use free text and pre-              When defining which designs would be evaluated, as some
+made labels [13], which could be combined to a visual form, e.g., a           seemed similar to one another due to the combinations of cate-
+range of emoticons (pre-determined labels) in reaction tools can be           gories used, ten maximally diverse designs were selected. Then, the
+used for affect labeling. Lastly, the option of colors to help reinforce      authors listed potential positive and negative aspects for each de-
+emotions was inspired by the colors present in Plutchik’s emotion             sign, narrowing the selection down to 6 designs. The selection was
+wheel [32].                                                                   made based on which ideas could, assumedly, be more easily imple-
+   The “Intensity measurement” options represent typical infor-               mented and have more potential to be further developed. These 6
+mation visualization elements that users would likely be familiar             designs were then evaluated by interviewees. A second evaluation
+with. For example, closeness to the center for the design inspired in         phase took place for this article, defining which ones would be
+Plutchik’s emotion wheel [32] or the intensity of hues when color             reported, resulting on the 4 designs presented in this paper. The
+is employed. Text wise, words are a form of measurement as the                other 2 evaluated designs are not described here because, during
+user can employ different adjectives for a same range of emotion              the evaluation, it became clear the concepts needed further develop-
+to indicate intensity, such as annoyance and rage. Lastly, a slider is        ment. Too many questions arose on how the functionalities would
+a familiar concept to indicate levels comparing two aspects (in this          work, focusing the discussion more on options for implementation
+case, the range of an emotion). It was chosen over a Likert scale             than on the affect labeling aspect.
+to give users more freedom and investigate how they would react
+to it. Further, as stated in section 3, users are familiar with tools         3.3      Summary of the Selected Four Designs
+that can be conceptually related to the affect labeling mechanisms,
+such as Facebook reaction tool or upvote/downvote, where they                 Here the designs are introduced on a conceptual level, describing
+are able to express their impression towards the content. Next, alto-         the intentions for behavioral impact instead of technical details
+gether fourteen (14) designs were ideated and then concretized as             regarding implementation. The designs mostly focus on the moment
+                                                                              when the affect labeling process should take place, without further
+                                                                              considerations on how comment threads would look like. Except for
+
+
+
+
+                                                                       213
+Exploration of user interface mechanisms with affect labeling to enhance online discussion                         Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland
+
+
+                                               Table 2: Summary of the designs and their characteristics
+
+ Design                               Labeled by              Timing                            Format                                  Intensity
+ 1: Emotion Wheel                     Self                    Before commenting &               Images (emoticons); colors              Colors: wheel
+                                                              after posting
+ 2: Slider                            Self                    Before commenting                 Images (emoticons)                      Slider (user); colors
+ 3: Emotion Analysis                  Self & machine          After commenting                  Free text & machine’s answer            Words (machine & users)
+ 4: Free Text                         Self                    Before commenting                 Free text                               Words (user)
+
+
+Emotion Wheel (design 1), possibilities such as if the information
+provided by one user would appear to others, or if this would
+help personalize the website content were not discussed so far. A
+summary on the categories used for each design is also presented
+(Table 2).
+    The Emotion Wheel (Fig. 1) was inspired by characterization of
+emotions on Plutchick’s emotion theory [32]. As far as our knowl-
+edge goes, there are no UI mechanisms currently available for users
+that follow the design of Plutchick’s Wheel of Emotion. This design
+allows the user to see the ratings for the article and the commenting
+section in the form of emojis (see top right corner of Fig.1), and to
+contribute to these ratings. On the article page, the user can vote on
+their impression towards the content, labeling their emotions by po-                         Figure 1: Mechanism used by the reader based on the Emo-
+sitioning the thumb in the emotion wheel. It basically offers a more                         tion Wheel concept.
+high-resolution and two-dimensional “react” mechanism, where
+the user can choose from different emotion options and define the
+intensity of their emotion. Both the emotion and the intensity (re-
+fer to Tables 1 and 2) are color coded. The chosen format is based
+on color symbolism proposals on how certain hues are related to
+certain emotions [40]. However, it also uses color differences to
+represent intensity, supported by the wheel dimensions: the more
+intense emotions being in the center of the wheel, matching the
+high saturated hues (e.g., pure red for rage, while lighter red for
+annoyance). The distance between the emotions on the wheel (close
+on intense levels and distant on mild levels) is not something to be
+considered here, as in Plutchik’s proposal this same shape can be
+turned into a cone. Considering the categories for new mechanisms,
+this presents a new approach to an existing tool and also provides                           Figure 2: Mechanism takes the regular “reaction” tool fur-
+information for the users, in this case by showing the average rat-                          ther with the introduction of intensity measurement.
+ings of users’ labels. While the Emotion Wheel is not a concept
+known to everybody, the design may resemble UIs in products such
+as videogames.                                                                               or weaker emotion (having the pure color on one end and a color
+    In the “Slider” design (Fig. 2), a conventional reaction mechanism                       tint on the other). However, here the interaction is more restricted,
+is given a little more complexity. While commonly the user selects                           allowing just horizontal movement with the slider instead of the
+just the emotion (e.g., Facebook), here there is the possibility to                          full freedom of the wheel. This can better fit certain user groups or
+define intensity. Before commenting, the user chooses the emotion                            situations, as it might be easier or faster to use, resulting in a more
+towards the article and is then allowed to move the slider to in-                            straightforward interaction.
+dicate the intensity of the chosen reaction. Once the emotion has                               Emotion Analysis (Fig. 3) promotes a new form of interaction.
+been selected, the slider will change to a gradient from darker to                           While the user is writing, the machine identifies words/expressions
+lighter color commonly associated with the chosen emotion (e.g.,                             that indicate certain emotions and highlights them. When the user
+dark red to light red for anger). The user is then able to move the                          stops writing, the system indicates the major emotion perceived in
+thumb freely. The Slider is conceptually very similar to the Emotion                         the post and asks the user if it has made the right interpretation.
+Wheel, providing new approaches to the existing reaction tool. It is                         The UI also gives the user a recommendation based on the behavior
+also supported by color symbolism ideas, as the gradient for each                            policies depending on what was identified. The user is able then
+emotion has a different color. Like in the Emotion Wheel, color                              to correct the machine if they think a wrong emotion was identi-
+lightness informs the user which end represents the more intense                             fied. The design so far does not define if the user must answer the
+                                                                                             question in order to be able to post the comment or if this is an
+
+
+
+
+                                                                                   214
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                                                Mariana L. de Carvalho et al.
+
+
+
+
+Figure 3: The design applies machine learning to identify                  Figure 4: The design requires the user to elaborate their own
+possible emotions and instigate self-evaluation.                           labels instead of selecting pre-made tags, which is more la-
+                                                                           borious and demands more reflection.
+
+
+optional step. Both options were considered by participants when           the alternatives but, rather, as a means to deepen the understanding
+performing the evaluations. Being the first design to rely on textual      of the relevant design qualities in this challenging context.
+information when stating the emotions (“Format use”, view Tables
+1 and 2), Emotion Analysis is more analytical and direct due to both       4.1    Methodology and Participants
+the marking on the user’s text and the exposing of which emotions
+                                                                           Semi-structured focus group sessions were conducted with 18 par-
+were identified. Despite being so explicit, it can feel like a valida-
+                                                                           ticipants, representing a variety of nationalities, primarily from
+tion of the user’s emotions as the label was provided by another
+                                                                           Europe. The participants’ ages ranged between 21 and 33 years; 4
+individual (the machine, in this case) [13]. It is the only design
+                                                                           were bachelor students, 11 master students and 3 doctoral students,
+where the category Labeled by is done by two entities (the user
+                                                                           all from the first author’s home university. Six focus group sessions
+and the machine). So not only there is the validation possibility, as
+                                                                           were organized, each with three participants. The interviews were
+previously mentioned, but requires some introspection by the user
+                                                                           conducted in groups in order to stimulate discussion among partici-
+to evaluate if the machine is correct or what is the right emotion.
+                                                                           pants and thus to better understand the various perspectives to the
+   Free Text (Fig. 4) asks the user to freely write what emotions the
+                                                                           topic. The duration of the sessions varied from 40 to 80 minutes.
+news article evoked. Although some services can provide option for
+                                                                               Each session included three parts: 1) interviewing on the par-
+free text feedback, we were not able to find such a mechanism being
+                                                                           ticipant’s preferences regarding sources of online news; activity
+offered in a similar context as presented here. This was inspired
+                                                                           in online news discussions; and thoughts on the perceived value
+by Torre & Lieberman’s [13] discussion on the different impacts
+                                                                           and expected efficiency of affect labeling; 2) open-ended, qualita-
+of pre-made and self-generated tags. Depending on the identified
+                                                                           tive evaluation of the chosen designs, where they were asked to
+words, the placeholder for the comment box changes. This feedback
+                                                                           describe the design and their understanding about it and to discuss
+can seem more light weight than the one in Emotion Analysis, but
+                                                                           perceived ease of use and usefulness; 3) discussion on the most and
+it does not have the condition which can lead to the feeling of
+                                                                           least preferred designs and their characteristics.
+validation (having label provided by another individual). Regarding
+                                                                               During the first part of the interview, all participants claimed
+intensity definition, despite the textual approach, with this design
+                                                                           using different sources to keep updated with the news (at least the
+the user is given more freedom to specify their emotions instead
+                                                                           headlines, to have an idea of the main topics). Half mentioned the
+of choosing just from pre-made tags as in the previous designs.
+                                                                           social media as the place from where they access articles’ links
+Moreover, Free Text also addresses the users’ individuality since
+                                                                           and keep track of events. Six participants checked more than one
+they can use their own terms to categorize emotions and intensity
+                                                                           news service, either due to the scope of the services (world news vs
+(e.g., slangs).
+                                                                           local news) or because of the political alignment of the service. One
+   All in all, the designs are based on the idea of asking the users
+                                                                           participant used the news service’s app daily to browse headlines
+to explicitly state their emotions towards the content of the article,
+                                                                           and check news. However, none of the participants claimed to
+stopping the users from immediately writing their thoughts to a
+                                                                           comment or engage in online discussions with other users, although
+comment, and proposing a moment of self-reflection. By giving
+                                                                           four said they shared the link privately with people they know in
+the users the chance to be aware of their emotions and externaliz-
+                                                                           order to discuss directly. The reason for such behavior supports
+ing them in an explicit way, the interventions aim to support the
+                                                                           the study by Reader [5], as participants claimed commenting didn’t
+moderation of particularly strong emotions.
+                                                                           achieve anything fruitful, as many users are not willing to change
+                                                                           their points of view, and you put yourself under risk of getting
+4    EVALUATION STUDY                                                      attacked.
+In order to evaluate the quality of the proposed designs from a user-          In the second part of the session, the interviewees were presented
+centric viewpoint, we organized six focus group discussions. The           short animations on how the mechanisms would work, along with
+study was not intended as a comprehensive evaluation to prioritize         a verbal explanation. A relatively low-fidelity form of prototype
+
+
+
+
+                                                                     215
+Exploration of user interface mechanisms with affect labeling to enhance online discussion                         Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland
+
+
+was chosen to gather user evaluations on the concept design level                            she would keep editing trying to predict what other users might
+as early in the design process as possible. The UI was intentionally                         think about it and their reactions. The other options (reactions,
+unpolished as the intention was to focus on the concept idea instead                         emoticons, memes, and GIFs) were perceived as more unpersonal
+of aesthetic aspects, also inviting the interviewees to give critique                        ways to communicate emotions. They allow the writer to keep an
+and suggestions of improvement with a low threshold. Although                                “emotional safe distance” from the possible responses as there were
+this group of participants were not active commenters, they are                              no text for hostile users to use against them (e.g., manipulating the
+active readers who use online services with high frequency, being                            perception on what the user had originally commented).
+therefore used to different UI mechanisms. They were asked to                                       “Reactions and likes are easy to use, because they are
+evaluate if the design felt natural and followed early mental models,                               more anonymous than commenting.” – Woman, 31.
+or if there were steps which interrupted the interaction flow and
+                                                                                                All in all, the participants recognized the benefits of affect la-
+to what extent. They also reflected if the design proposals could
+                                                                                             beling and its results as an emotion regulation process. However,
+become an encouraging tool to start engaging online, the reasons
+                                                                                             just like they specified conditions to do it in real-life, the same was
+for it and possible outcomes of such use.
+                                                                                             required for CMC. Affect labeling was perceived as a valid tool
+   The interviews were recorded and the recordings transcribed.
+                                                                                             and participants were open to it as long as it did not pose (extra)
+The data were grouped by similar ideas and opinions in order to de-
+                                                                                             risk of receiving hostile reactions, hence the interest in alternative
+fine possible average behaviors and points of view, forming an affin-
+                                                                                             forms of expression that did not provide such a clear access to their
+ity diagram. The interviews were primarily analyzed through the
+                                                                                             intimate thoughts like it can be done with plain words.
+lenses of understanding participants’ perceptions on affect labeling
+in general and impressions and preferences regarding user-centric                            4.2.2 Perception on Ease of Use. When asked how natural the use
+product qualities like ease of use and usefulness.                                           of the mechanisms seem, or how easy it felt to understand their
+                                                                                             functioning, the opinions varied relatively much across the designs.
+4.2     Results                                                                                 Concerning Emotion Wheel, most participants stated that the
+4.2.1 Attitudes Towards Affect Labeling. Even though the partici-                            wheel appears too confusing, with two of them specifying that the
+pants recognized the possible benefits of elaborating on their emo-                          colors were the reason for the confusion. However, three partici-
+tions under different circumstances (e.g., while chatting with close                         pants liked it or found it interesting despite the difficulty. These
+friends), none said to actively do so in computer-mediated com-                              participants claimed they would not have problems since they have
+munication. Only one participant said to post texts about their                              to interact with different sorts of interfaces in work or hobbies
+emotions online, but only in private profiles or in platforms that                           (e.g., video games). Seven participants reinforced that the choice
+allow anonymous posts. According to both Deindividuation and                                 of emotion would be very complex, either because there are too
+Online disinhibition effect arguments [15, 33, 37], anonymity is a                           many options for both emotion and intensity to choose from, or
+factor supporting flaming. However, eight participants considered                            because 1) one might have several emotions regarding a topic or 2)
+anonymity in another way, as a factor to provide a safe zone to                              feel between two different emotions that are not close in the wheel
+share experiences. One participant pointed out that, for some users,                         for the user to select.
+writing comments is a mean to assert their opinions without the                                     “I like it, but the colors make it super complicated. The
+intent to have discussions and consider other points of view. These                                 spectrum of information is too big. The interaction
+users tend to employ a unidirectional, many times combative, at-                                    itself is nice, would just need improvement on the
+titude towards the discussion. Therefore, a comment containing                                      selection of emotions.” – Woman, 31.
+emotional views could be used as a weapon against the writer (e.g.,                             In other words, it seems that the way how the options are pre-
+if it contains an opposite opinion, or simply to bully).                                     sented in relation to each other did not match many participants’
+        “Some people probably get relief from venting online                                 mental models of different emotions’ interrelations. There was also
+        in comments. If you try to discuss with them, you                                    feedback on the use of colors, as it became an extra element to be
+        don’t get any improvement or change of opinions.                                     inspected, and how it increased the confusion participants felt ei-
+        Emotions are weaponized, it’s easy to get attacked.” –                               ther because it visually polluted the interface or because the mental
+        Man, 28.                                                                             model on which color represents which emotion did not match.
+                                                                                             Lastly, three participants mentioned the possibility of freely moving
+   When asked about open text as a way to articulate their emo-
+                                                                                             the thumb to define intensity could be changed to fixed pre-defined
+tions and impressions online, the participants saw other forms of
+                                                                                             levels, e.g., high, medium, and low intensity. The perception was
+expression such as reaction mechanisms, emoticons, memes, and
+                                                                                             that users would either drag the thumb randomly inside each inten-
+GIFs as safer options. They perceived texts as an intimate way to
+                                                                                             sity level instead of actually thinking which position best represents
+convey emotions, creating a sense of pressure on the writer to ex-
+                                                                                             their emotions.
+press their ideas and intent clearly while not exposing themselves
+too much to possible hostile replies. The possibility of being misun-                               “The selection of emotions, deciding where you want
+derstood, increasing the chances of receiving aggressive responses,                                 to place the thumb is confusing. . . although visually
+led participants to think that it can be better to avoid commenting,                                appealing.” – Man, 33.
+matching the study on inhibition of users’ motivation to partici-                              The Slider was then described as a simpler option when com-
+pate [28]. One participant emphasized specifically how, in the end,                          pared to the other designs, easier to understand and learn. It was
+her comment text did not match the originally intended one, as                               considered more convenient and straightforward as the user only
+
+
+
+
+                                                                                   216
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                                                  Mariana L. de Carvalho et al.
+
+
+needs to choose one option from the dropdown menu, despite the                      create confusion because you read the article expect-
+free use of the slider. Eight participants, however, thought that the               ing to feel something due to the reactions, but then
+direction of the slider along with the color gradient was confusing,                feel something else.” – Man, 32.
+which confirms the feedback from Emotion Wheel that using mul-                   The Slider received similar comments. Although the interac-
+tiple means to convey emotion and intensity should be done with               tion design was associated with the current reaction mechanisms
+extra care as they can become conflicting.                                    available in some existing websites (as previously mentioned), par-
+        “The logic of the slider connecting the intensity and                 ticipants were interested on how their inputs (both selected emo-
+        color gradient can give some doubts, what should be                   tion and measure in the intensity slider) would show up on their
+        left or right.” – Man, 26.                                            comment and to other users. Four participants understood that dis-
+                                                                              playing one’s chosen emotion could have beneficial consequences
+   The same applied to the continuous scale of the slider, with the
+                                                                              such as increasing empathy or helping with misunderstandings, for
+majority of participants claiming they would drag the thumb to an
+                                                                              example in comments with sarcastic language.
+average position instead of being overly precise. Four participants
+found necessary to simplify the concept a bit further, as too many                  “It could help the interaction because people could
+clicks were required. Since the design is fairly similar to other UI                relate to you.” – Woman, 25.
+mechanisms available (e.g., Facebook’s reaction), the extra clicks               Emotion Analysis received the most intense feedback. All the
+were found to possibly cause annoyance and lead the user to ignore            participants mentioned impressions regarding the AI such as feel-
+the tool, despite the possibility to give more detailed input.                ing of control, censorship, intrusion, unexpected extra steps, or
+        “Feels much more natural, especially because it gives                 the possibility that the tool would only anger more the users by
+        you the possibility to express the arousal. The Ok                    pointing out their hostility. It was found that the most problematic
+        button could maybe be under the scale, or not have                    step of the tool was the request for emotion confirmation due to
+        an Ok at all.” – Woman, 31.                                           the feeling of “feeding the AI”. Participants felt like they did not
+                                                                              want to give information to the AI as they did not know how the
+   Emotion Analysis was considered much different from the pre-               collected data would or could be used in the future. However, eight
+vious options. Four participants said the tool worked fast and was            participants thought it could also lead to good results. The marked
+easy to understand, especially because it resembled tools used in             words and recommendation were seen as a help to achieve neutral-
+other services such as online banking where information confir-               ity in comments done by users without actual extreme emotions,
+mation is required. This matched the preference already seen in               while the emotion confirmation request can be a form of validation
+Emotion Wheel for mechanisms which resembled other UIs.                       for emotions.
+   Lastly, Free Text received mixed feedback. While participants
+agreed the interaction itself was easy, five of them found it unnatural             “For some cases it could help a bit, but maybe not
+to divide their comment into two steps. As it was not clear the                     so much because people making hostile comments
+purpose and consequences or benefits of stating their emotions in a                 usually know that they are being hostile and that’s the
+separate box, the extra step was seen as disruptive. It was perceived               purpose. But it could help in situations where people
+that users naming their own emotions put on an extra burden,                        are not actually hostile (maybe it’s sarcasm or saying
+which can make pre-made tags a preferable option, matching the                      an inside joke), so the machine helps with neutrality.”
+proposals by Torre & Lieberman [13].                                                – Man, 26.
+                                                                                 Lastly, Free Text received mixed feedback on usefulness. Par-
+        “I don’t know if people would take the time to write
+                                                                              ticipants often mentioned critical points such as the possibility of
+        in separate boxes or if they would just type their com-
+                                                                              users ignoring the emotion box, how it might feel like a burden,
+        ments.” – Man, 26.
+                                                                              the lack of clarity on the purpose of the tool and if other users can
+4.2.3 Impressions on Usefulness and Effectiveness. When it came               see what you wrote. Nonetheless, five participants reinforced the
+to usefulness, participants expressed more defined standards about            benefits of free text and typing your emotions, allowing users to
+the requirements for mechanisms.                                              be more detailed and personal and promoting self-reflection. The
+   In Emotion Wheel participants focused mostly on the display                impressions on self-reflection match the review by Torre & Lieber-
+of ratings for the articles and comment threads. Two participants             man [13], which served as reference for this design, regarding the
+actively stated the ratings were a good feature that could help               stronger effect caused when users generate their own emotional
+people better select which news they would read, based on their               labels.
+current emotional wishes or demands. They also stated the ratings                   “Users would have to think and acknowledge what
+could give a sense of validation of the readers’ own emotions by                    they are feeling, but it’s a more difficult process that
+checking other users’ inputs. Four other participants were more                     people might not want to do.” – Man, 32.
+insistent on its display as a problematic aspect, with possibility of           Although participants perceived useful aspects in all the designs,
+manipulation by the voters (similar to downvoting articles based              Emotion Wheel and Slider were considered best on this regard be-
+on political agenda) or that it could influence the readers on their          cause usefulness and usage of the mechanism was not conditioned
+emotions about the news before they read it.                                  by the users’ mood. Free Text was linked to a series of negative
+        “Having a community feedback first might influence                    aspects, so users would need to overcome all these impressions
+        how you feel about the article before reading, or might               and have a deeper wish to self-evaluate and express themselves.
+
+
+
+
+                                                                        217
+Exploration of user interface mechanisms with affect labeling to enhance online discussion                         Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland
+
+
+Emotion Analysis’s feedback to the user had its efficiency depen-                                   “I believe most people would like the machine learn-
+dent on the intensity of the users’ mood when commenting, as the                                    ing one (Emotion Analysis) because it’s purely based
+possibility to provoke users with extreme emotions is a liability                                   on what you wrote and reacts to that.” – Man, 26.
+even if the mechanism can fulfill its purpose with less extreme                                 Aspects that lead to most rejection came from Emotion Wheel,
+users.                                                                                       Emotion Analysis and Free Text. Emotion Wheel (1 vote) was said
+4.2.4 Impressions on Confidence and Acceptance. Two other as-                                to demand too much time on the wheel interaction while Emotion
+pects received special attention from the participants. The first                            Analysis (four votes) gave a feeling of control over the user and
+issue mentioned several times throughout the evaluations was how                             the negative feedbacks were too direct. Lastly, Free Text (2 votes)
+the level of trust of the user towards the service could influence                           felt like a second commenting box as the purpose was not clear,
+the acceptability of the tool. Participants thought users would be                           giving extra work to the users, and free text felt too personal. The
+more willing to engage with the tools in websites that they visit fre-                       other nine votes were for one of the designs not discussed here, as
+quently and are aligned with their views, trusting the news service                          part of the participants’ arguments were based on doubts about
+had good intent towards the readers instead of simply collecting                             other moments of interaction with the mechanism that were not
+data for their own sole benefit.                                                             contemplated at the design.
+   The second point was how the system provides feedback for the                                    “Don’t know if it’s necessary to have so many options.
+user. Emotion Analysis was criticized on how the feedback was too                                   It’s too detailed for something like this, demands more
+direct, since the machine flagged possibly problematic content and                                  time than I’d be willing to give.” – Man, 26 about
+gave behavior recommendations based on the identified emotions.                                     Emotion Wheel.
+At the same time, more subtle approaches such as the change of                                      “I wouldn’t like to use the one with machine learning
+the placeholder was seen by half of the participants as an irrelevant                               (Emotion Analysis), because it feels like it’s trying to
+measure because users might not take the time to read it. Also,                                     control or being too protective.” – Woman, 31.
+since it disappears once you start typing in the box, users might
+                                                                                                    “I personally don’t see any value in typing my emotion
+ignore what was written. It was mentioned as well that users could
+                                                                                                    for this one, they just want to know information about
+react badly to such direct feedback, especially if it came from a
+                                                                                                    me but it’s not clear what I would get back.” – Woman,
+service which they don’t trust or are not aligned with their views
+                                                                                                    31 about Free Text.
+and standards, matching the trust aspect mentioned above.
+4.2.5 Summarizing Preference Factors. Lastly, participants were                              5     DISCUSSION
+asked (1) which design they preferred, (2) which they believed                               We next summarize the main aspects that were expected by the
+would be most accepted by a majority of users and (3) which they                             focus group participants to affect the acceptability, effectiveness,
+disliked the most and/or wouldn’t use if encountered online. The                             and ease of use in this context. While the explorative nature of the
+reasons for such preferences are as follow.                                                  study does not permit drawing concrete design guidelines, the fol-
+    Emotion Wheel, Slider and Emotion Analysis were preferred by                             lowing provides relevant perspectives to consider when designing
+participants, Emotion Wheel receiving 3 votes, Slider 6 votes and                            UIs to afford affect labeling and stimulate emotion regulation.
+Emotion Analysis 3 votes. When asked which designs they thought
+would be better accepted by a majority of users, two participants                            5.1    Interaction Timing
+did not answer. Slider received nine votes and Emotion Analysis
+                                                                                             The intrusiveness or disruptiveness of the designs on the users’
+received four votes. The reasons for Emotion Wheel are the emoti-
+                                                                                             reading/commenting flow was a point that came up frequently.
+con illustrated ratings available for the article and comment thread,
+                                                                                             Free Text, and Emotion Wheel to some extent, were criticized on
+and resemblance to previously familiar UIs (e.g., in videogames).
+                                                                                             how long users would spend evaluating themselves in order to
+For the Slider the explanation was that it is simple, fast to use, and
+                                                                                             describe their emotional state. This would pause the interaction
+it resembles existing UI tools. Lastly, Emotion Analysis was chosen
+                                                                                             flow for a longer time than users expect based on their experience
+due to the feeling of focus on the user, for getting information even
+                                                                                             with previous mechanisms.
+if the person does not answer the emotion confirmation request, for
+                                                                                                Even designs whose interaction steps were perceived as faster
+not disturbing or requesting as much and due to familiarity from
+                                                                                             faced some problems. The Slider was considered the simplest one
+other services/activities. The other six votes were for one of the
+                                                                                             to use. However, the solution should be further iterated and tested,
+designs not discussed here, as the votes were conditioned to ways
+                                                                                             as participants understood differently how to manipulate the slider
+on how the design could be further developed.
+                                                                                             (mostly diverging on which direction they thought represented a
+        “I liked best the Emotion Wheel mostly because of                                    stronger or weaker emotion). Emotion Analysis was considered
+        the overview, but without all the colors.” – Woman,                                  equally fast because the number of steps done by the user is small,
+        24.                                                                                  most of the work the being performed by the machine.
+        “I preferred most the one with machine learning (Emo-
+        tion Analysis), because it feels very personal and di-                               5.2    Accounting for Users’ Input
+        rected to me.” – Woman, 25.                                                          As the designs only showed the commenting process instead of how
+        “The Slider can be an option for most people, because                                the text would be displayed once the comment was posted, confir-
+        it doesn’t take much time and is simple.” – Man, 33.                                 mation of the participants’ inputs and how it would be presented
+
+
+
+
+                                                                                   218
+Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland                                                                             Mariana L. de Carvalho et al.
+
+
+was another topic of relevance. Although not directly related to            had positive reactions and considered it as a form of validation
+the affect labeling process, this influenced acceptability. The mat-        for said emotion. This opinion matches the speculation made by
+ter can be linked to Averill’s proposal on emotions as temporary            Torre & Lieberman [13], which believed pre-made labels provided a
+social roles, claiming that social context affected one’s emotions          kind of validation and recognition feeling on the person’s emotions,
+and reactions, and that the context itself was influenced by other’s        since the labels were created by somebody else.
+behavior and emotional state, among other factors [12].
+   Participants gave different suggestions on how the emotional             6     CONCLUSIONS
+input could be displayed, such as: a reaction counting (like Facebook       The results of this work present different aspects to be consid-
+shows for posts nowadays), or a representation of your chosen               ered when designing UI mechanisms that enable affect labeling,
+emotion shown alongside your comment, which could help to create            a strategy thought as an option to improve level of civility in on-
+empathy and avoid misunderstandings (e.g., irony). These concerns           line interactions, such as commenting news articles. This paper
+were exposed with Slider and Machine Learning, which had higher             presented the design and user-centric evaluation of four designs
+acceptance but did not give any hint on how this information would          in order to identify aspects that might lead to higher acceptance
+be displayed after commenting. This interest on properly conveying          by users, enhancing the chances of successfully eliciting an affect
+the user’s intentions and increasing other users’ understanding             labeling process. Our findings indicated pros and cons for every
+shows that participants recognize a lower communication efficiency          design. It seemed that the use of free text was the most unaccept-
+when commenting online, such as suggested by the Media Richness             able as it can reveal too personal information. These self-generated
+Theory [31].                                                                labels, although providing deeper self-reflection, had higher levels
+   Emotion Wheel, despite having the wheel criticized due to its            of rejection also due to social media and commenting platforms
+complexity, was appreciated due to the available ratings for article        being perceived as environments for fast-paced interaction. From
+and comment thread. This might not be as personalized as display-           this perspective the three other alternative designs are worth fur-
+ing the emotion input in your comment, but it gives an idea on              ther investigations. The analysis of the interviews reaffirms some
+how the community is reacting. However, considering the negative            previous studies on the public’s perception of online commenting
+aspects mentioned in section 5.2.3, two concerning ways on how              spaces, reaffirming the need for new forms to stimulate more civil
+users can be influenced can be speculated in case the ratings show a        discussions.
+negative emotion. First, users might anticipate what sort of content
+will be found (both in the article and comments) and avoid it with          ACKNOWLEDGMENTS
+the intent to preserve their emotional state. This could lead to alien-     We thank all the participants of the evaluation study for their in-
+ation, as users may avoid controversial – yet relevant – content.           sightful comments.
+The second possibility is that users might open the article with a
+pre-disposition towards negative emotions, which could impact               REFERENCES
+both their processing of the article’s content and how they will             [1] Adam D. I. Kramer, Jamie Guillory and J. Hancock. “Experimental evidence of
+interact with other users (generating more uncivil interactions).                massive-scale emotional contagion through social networks.” Proceedings of the
+                                                                                 National Academy of Sciences of the United States of America 111 24 (2014):
+                                                                                 8788-90
+                                                                             [2] Amos Guiora and Elizabeth A. Park. 2017. Hate Speech on Social Media.
+5.3     Means to Express Emotions                                                Philosophia 45, 3 (Sep. 2017), 957–971. DOI: https://doi.org/10.1007/s11406-017-
+                                                                                 9858-4
+Alternative ways to express emotions and preference for pre-made             [3] Anett Gyurak, James J. Gross and Amit Etkin. 2011. Explicit and implicit emotion
+labels were two other factors which highly stood out on the partic-              regulation: A dual-process framework. Cognition and Emotion 25, 3 (April 2011),
+ipants’ wish to engage online and their acceptability of the mecha-              400-412. DOI: https://doi.org/ 10.1080/02699931.2010.544160
+                                                                             [4] Ashley A. Anderson, Dominique Brossard, Dietram A. Scheufele, Michael A.
+nisms.                                                                           Xenos and Peter Ladwig. 2014. The “nasty effect:” Online incivility and risk
+   It was considered by the interviewees that emotional expressions              perceptions of emerging technologies. Journal of Computer-Mediated Communi-
+can be a topic used to attack users and that text increased the                  cation 19, 3 (April 2014), 373-387. DOI: https://doi.org/10.1111/jcc4.12009
+                                                                             [5] Bill Reader. 2012. Free Press vs. Free Speech? The Rhetoric of ‘Civility’ in Regard
+possibility of being target to hostility, as words can be more direct            to Anonymous Online Comments. Journalism & Mass Communication Quarterly
+and give a clearer view on someone’s emotions. Rejection lowered                 89, 3 (Sep. 2012), 495–513. DOI: https://doi.org/10.1177/1077699012447923
+                                                                             [6] Brian Parkinson. 1996. Emotions are social. British Journal of Psychology 87, 4
+if emotions were to be expressed through other means such as                     (Nov. 1996), 663-683. DOI: http://dx.doi.org/10.1111/j.2044-8295.1996.tb02615.x
+images (e.g., reactions, GIFs), as participants interpreted them as a        [7] Dhiraj Murthy and Sanjay Sharma. 2019. Visualizing YouTube’s comment space:
+less personal form of expression and transferred the responsibility              online hostility as a networked phenomena. New Media & Society 21, 1 (Jan. 2019),
+                                                                                 191–213. DOI: https://doi.org/10.1177/1461444818792393
+of interpreting the content to the person who is reading.                    [8] Elena Constantinou, Katleen Bogaerts, Ilse van Diest and Omer van den Bergh.
+   Pre-made labels have been shown to have a more immediate                      2013. Inducing symptoms in high symptom reporters via emotional pictures: The
+effect of emotion decrease when compared to self-generated labels,               interactive effects of valence and arousal. Journal of Psychosomatic Research 74,
+                                                                                 3 (March 2013), 191–196. DOI: https://doi.org/10.1016/j.jpsychores.2012.12.015
+which have a delayed decrease effect but last longer [e.g., 8, 21, 23].      [9] Gerben A. Van Kleef, Arik Cheshin, Agneta H. Fischer and Iris K. Schneider. 2016.
+Participants initially thought pre-made labels might cause annoy-                Editorial: The Social Nature of Emotions. Frontiers in Psychology 7 (June 2016),
+                                                                                 896. DOI: https://doi.org/10.3389/fpsyg.2016.00896
+ance if users do not see a label corresponding to their emotions,           [10] Gerben A. Van Kleef. 2009. How emotions regulate social life: the emotions as
+but the option of creating their own received more criticism and                 social information (EASI) model. Current Directions in Psychological Science 18,
+was conflicting with the preference for fast-to-use mechanisms.                  3 (June 2009), 184–188. DOI: https://doi.org/10.1111/j.1467-8721.2009.01633.x
+                                                                            [11] James J. Gross. 2015. Emotion Regulation: Current Status and Future
+   Also, as mentioned in section 4.2.3, when Emotion Analysis had                Prospects. Psychological Inquiry 26, 1 (March 2015), 1–26. DOI: https://doi.org/
+the system identify emotions and provide feedback, participants                  10.1080/1047840X.2014.940781
+
+
+
+
+                                                                      219
+Exploration of user interface mechanisms with affect labeling to enhance online discussion                               Mindtrek ’21, June 01–03, 2021, Tampere/Virtual, Finland
+
+
+[12] James R. Averill. 1980. A constructionist view of emotion. In R. Plutchik & H.               supported cooperative work (CSCW ’11). Association for Computing Machinery,
+     Kellerman (Eds.), Emotion: Theory, research and experience (Vol. 2, pp. 305 –                New York, NY, USA, 133–142. DOI: https://doi.org/10.1145/1958824.1958844
+     339). New York: Academic Press.                                                         [28] Nina Springer, Ines Engelmann and Christian Pfaffinger. 2015. User Comments:
+[13] Jared B. Torre and Matthew D. Lieberman. 2018. Putting Feelings Into Words:                  Motives and Inhibitors to Write and Read. Information, Communication & Society
+     Affect Labeling as Implicit Emotion Regulation. Emotion Review 10, 2 (April                  18, 7 (Jan. 2015), 798–815. DOI: https://doi.org/ 10.1080/1369118X.2014.997268
+     2018), 116–124. DOI: https://doi.org/10.1177/1754073917742706                           [29] Noam Lapidot-Lefler & Azy Barak. 2012. Effects of anonymity, invisibility, and
+[14] Jigsaw. 2017. Perspective API. Retrieved October 16, 2019 from https://www.                  lack of eye-contact on toxic online disinhibition. Comput. Hum. Behav. 28, 434-
+     perspectiveapi.com/#/home                                                                    443. DOI=http://dx.doi.org/10.1016/j.chb.2011.10.014.
+[15] John Suler. 2004. The online disinhibition effect. CyberPsychology & Behavior 7,        [30] Renee Barnes. 2015. Understanding the Affective Investment Produced Through
+     3 (July 2004) 321–326. DOI: https://doi.org/10.1089/1094931041291295                         Commenting on Australian Alternative Journalism Website New Matilda. New
+[16] Joseph B. Walther. 1993. Impression development in computer-mediated interac-                Media & Society 17, 5 (May 2015), 810–826. DOI: https://doi.org/10.1177/
+     tion. Western Journal of Communication 57, 4, 381-398. DOI: https://doi.org/10.              1461444813511039
+     1080/10570319309374463                                                                  [31] Richard L. Daft and Robert H. Lengel. 1986. Organizational Information Require-
+[17] Joseph Seering, Tianmi Fang, Luca Damasco, Mianhong “Cherie” Chen, Likang                    ments, Media Richness and Structural Design. Management Science 32, 5 (May
+     Sun, and Geoff Kaufman. 2019. Designing User Interface Elements to Improve                   1986), 554-571. DOI: https://doi.org/10.1287/mnsc.32.5.554
+     the Quality and Civility of Discourse in Online Commenting Behaviors. In Pro-           [32] Robert Plutchik. 1980. A general psychoevolutionary theory of emotion. In R.
+     ceedings of the 2019 CHI Conference on Human Factors in Computing Systems                    Plutchik & H. Kellerman (Eds.), Emotion: Theory, research and experience, Theo-
+     (CHI ’19). Association for Computing Machinery, New York, NY, USA, Paper 606,                ries of emotion (Vol. 1, pp. 3–33). New York: Academic Press.
+     1–14.                                                                                   [33] Rosalind Dyer, Ruth Green, Marian Pitts, and Gill Millward. 1995. What’s the
+[18] Joseph Seering, Tony Wang, Jina Yoon, and Geoff Kaufman. 2019. Moderator                     flaming problem? or Computer Mediated Communication—deindividuating or
+     Engagement and Community Development in the Age of Algorithms. New                           disinhibiting? In Proceedings of the HCI’95 conference on People and computers
+     Media & Society 21, 7 (July 2019), 1417–1443. DOI: https://doi.org/10.1177/                  X (HCI ’95). Cambridge University Press, USA, 289–302.
+     1461444818821316                                                                        [34] Rui Fan, Onur Varol, Ali Varamesh, Alexander Barron, Ingrid A. van de Leemput,
+[19] Judith S. Donath. 2002. Identity and deception in the virtual community. In                  Marten Scheffer & Johan Bollen. 2018. The minute-scale dynamics of online
+     Communities in cyberspace. Routledge, 37–68.                                                 emotions reveal the effects of affect labeling. Nature Human Behavior 3, 1 (Dec.
+[20] Kaitlin Mahar, Amy X. Zhang, and David Karger. 2018. Squadbox: A Tool to                     2018), 92-100. DOI: https://doi.org/10.1038/s41562-018-0490-5
+     Combat Email Harassment Using Friendsourced Moderation. In Proceedings of               [35] Sheila T. Murphy and Robert B. Zajonc. 1993. Affect, cognition, and awareness:
+     the 2018 CHI Conference on Human Factors in Computing Systems (CHI ’18).                     affective priming with optimal and suboptimal stimulus exposures. Journal of
+     Association for Computing Machinery, New York, NY, USA, Paper 586, 1–13.                     Personality and Social Psychology 64, 5 (June 1993), 723-739. DOI: https://doi.
+     DOI: https://doi.org/10.1145/3173574.3174160                                                 org/10.1037//0022-3514.64.5.723
+[21] Lisa J. Burklund, J. David Creswell, Michael R. Irwin and Matthew D. Lieberman.         [36] Ståle Grut. 2017. With a quiz to comment, readers test their article comprehension.
+     2014. The common and distinct neural bases of affect labeling and reappraisal in             Retrieved January 20, 2020 from https://nrkbeta.no/2017/08/10/with-a-quiz-to-
+     healthy adults. Frontiers in Psychology 5 (March 2014), 221. DOI: https://doi.org/           comment-readers-test-theirarticle-comprehension/
+     10.3389/fpsyg.2014.00221                                                                [37] Stephen D. Reicher, Russell Spears and Tom Postmes. 1995. A Social Identity
+[22] Marco Dohle. 2018. Recipients’ Assessment of Journalistic Quality. Digital Journal-          Model of Deindividuation Phenomena. European Review of Social Psychology 6,
+     ism 6, 5 (May 2018), 563-582. DOI: https://doi.org/10.1080/21670811.2017.1388748             1 (Jan. 1995), 161-198. DOI: https://doi.org/ 10.1080/14792779443000049
+[23] Matthew D. Lieberman, Tristen K. Inagaki, Golnaz Tabibnia and Molly J. Crock-           [38] Susan Herbst. 2010. Rude democracy: Civility and incivility in American politics.
+     ett. 2011. Subjective responses to emotional stimuli during labeling, reap-                  Philadelphia: Temple University Press.
+     praisal, and distraction. Emotion 11, 3 (June 2011), 468–480. DOI: https://doi.org/     [39] Tal O. Harel, Jessica K. Jameson and Ifat Maoz. 2020. The Normalization of Hatred:
+     10.1037/a0023503.                                                                            Identity, Affective Polarization, and Dehumanization on Facebook in the Context
+[24] Matti Nelimarkka, Salla-Maaria Laaksonen, and Bryan Semaan. 2018. Social                     of Intractable Political Conflict. Social Media + Society 6, 2 (April 2020), 1-10.
+     Media Is Polarized, Social Media Is Polarized: Towards a New Design Agenda                   DOI: https://doi.org/10.1177/2056305120913983
+     for Mitigating Polarization. In Proceedings of the 2018 Designing Interactive           [40] Theo Van Leeuwen. 2011. The language of color: an introduction. London: Rout-
+     Systems Conference (DIS ’18). Association for Computing Machinery, New York,                 ledge.
+     NY, USA, 957–970.                                                                       [41] Thomas B. Ksiazek. 2018. Commenting on the News. Journalism Studies 19, 5
+[25] Mei Alonzo & Milam Aiken. 2004. Flaming in electronic communication. Decision                (Aug. 2016), 650-673. DOI: 10.1080/1461670X.2016.1209977
+     Support Systems, 36(3), 205–213. https://doi.org/10.1016/S0167-9236(02)00190-2          [42] Thomas Tamblyn. 2015. Social Media Road Rage. (March 2015). Retrieved
+[26] Montserrat Comesaña, Ana Paula Soares, Manuel Perea, Ana P. Piñeiro, Isabel                  from: https://www.huffingtonpost.co.uk/2015/03/12/social-media-road-rage-is-
+     Fraga, and Ana Pinheiro. 2013. ERP correlates of masked affective priming with               very-real_n_6855236.html?guccounter=1
+     emoticons. Computers in Human Behavior 29, 3 (May 2013), 588–595. DOI:                  [43] Whitney Phillips. 2011. LOLing at tragedy: Facebook trolls, memorial pages and
+     https://doi.org/10.1016/j.chb.2012.10.020                                                    resistance to grief online. First Monday 16, 12 (Nov. 2011). DOI: https://doi.org/
+[27] Nicholas Diakopoulos and Mor Naaman. 2011. Towards quality discourse in                      10.5210/fm.v16i12.3168
+     online news comments. In Proceedings of the ACM 2011 conference on Computer
+
+
+
+
+                                                                                       220
+

@@ -1,0 +1,659 @@
+                                                                                                           Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                               Interacting with Computers 16 (2004) 295–309
+                                                                          www.elsevier.com/locate/intcom
+
+
+
+
+                The effects of affective interventions
+                  in human –computer interaction
+                          Timo Partalaa,*, Veikko Surakkaa,b
+a
+ Department of Computer Sciences, Research Group for Emotions, Sociality, and Computing, Tampere Unit
+         for Computer–Human Interaction, University of Tampere, FIN-33014 Tampere, Finland
+        b
+          Department of Clinical Neurophysiology, Tampere University Hospital, P.O. Box 2000,
+                                     FIN-33521 Tampere, Finland
+            Received 27 February 2003; revised 11 December 2003; accepted 11 December 2003
+
+
+
+
+Abstract
+   The present study investigated the psychophysiological effects of positive and negative affective
+interventions in human– computer interaction during and after the interventions. Eighteen subjects
+were exposed to pre-programmed mouse delays in an interactive problem-solving task. Following
+the mouse delays three types of conditions were used: positive or negative interventions given via
+speech synthesizer, and no intervention. Facial electromyographic responses were recorded from the
+zygomaticus major and corrugator supercilii muscle sites. These muscles control smiling and
+frowning, respectively. Smiling activity was significantly higher during the positive than the other
+conditions. It was also significantly higher after the positive interventions than the no intervention
+condition. The frowning activity attenuated significantly more after the positive interventions than
+the no intervention condition. Following the positive interventions the users’ problem solving
+performance was significantly better than after no intervention. In all, the results suggest that both
+types of affective intervention had beneficial effects over ignoring the user. The results suggest
+further that positive intervention may be especially useful.
+q 2004 Elsevier B.V. All rights reserved.
+Keywords: Human emotions; Human–computer interaction; Psychophysiology; Affective intervention; Speech
+synthesis; Facial expression
+
+
+
+1. Introduction
+
+    The field of human –computer interaction has recently been widened by a new research
+field of affective computing. Picard (1997) defined affective computing as computing that
+
+ * Corresponding author. Tel.: þ 358-3-215-8555; fax: þ358-3-215-6070.
+   E-mail address: tpa@cs.uta.fi (T. Partala).
+
+0953-5438/$ - see front matter q 2004 Elsevier B.V. All rights reserved.
+doi:10.1016/j.intcom.2003.12.001
+                                                                                                Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+296             T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+relates to, arises from, or deliberately influences emotions. The growing interest in
+affective computing originates from findings in psychology and psychophysiology of
+human emotions, which highlight the importance of emotion in human behavior. For
+example, there is evidence that affective processing influences cognitive processing and
+may even have primacy over it (Murphy and Zajonc, 1993). In addition, there is substantial
+evidence that affects play a central role in human-human communication (Surakka and
+Hietanen, 1998; Zajonc, 1980). With respect to human –computer interaction, it was found
+very recently that positive affective feedback significantly facilitated recovery from
+physiological arousal and accentuated cognitive operations (Aula and Surakka, 2002). In
+sum, it seems that emotions could be of great importance in human –computer interaction.
+   Emotion can be defined as discrete categories or as a space of different dimensions. A
+well-known discrete emotions framework is the argument for basic emotions by Ekman
+(1993). He defined six basic emotions: anger, disgust, fear, joy, sadness, and surprise. On
+the other hand, according to the dimensional emotions framework, emotion can be defined
+as a set of dimensions, which together define the emotional space (Bradley and Lang,
+1994, 2000). Out of the original three dimensions (valence, arousal, and dominance),
+valence and arousal are the two most commonly used dimensions. The valence dimension
+varies from negative to positive emotional pole and the middle of the dimension represents
+neutral affect. In the same fashion, the arousal dimension varies from calm to highly
+aroused pole. Lang and his co-workers have suggested that the valence dimension reflects
+the presence of an appetitive or aversive motivation system of the human brain. This
+system is linked to behavioral tendencies of approach and withdrawal, respectively. The
+arousal dimension has been suggested to reflect the intensity of either appetitive or
+aversive systems (Bradley and Lang, 2000; Lang, 1995; Lang et al., 1993).
+   Many studies have shown that various changes in physiological activity are integrally
+related to emotional responses. For example, there is evidence that facial muscle activity is
+related to emotions. It has been shown that the electrical activity of zygomaticus major (the
+muscle that draws the lip corners up producing a smile) is positively associated with
+subjectively experienced valence, whereas the electrical activity of corrugator supercilii
+(the muscle that knits and lowers the brows) is negatively associated with experienced
+valence (Bradley and Lang, 2000; Cacioppo et al., 1986; Dimberg, 1990). Thus, by
+measuring the activations of these muscles it is possible to obtain information about the
+subject’s affective state. In current emotion research, it is in most cases imperative to
+monitor human physiology while studying emotions (Öhman and Birbaumer, 1993).
+   In human– computer interaction research, the use of emotion-related physiological
+signals has been infrequent. Scheirer et al. (2002) used pattern recognition to recognize
+user frustration from two physiological signals: galvanic skin response and blood volume
+pressure. Their results showed recognition rates of user frustration that were significantly
+better than random. Other proposed physiological measures have included, for example,
+pupil size measurement (Partala et al., 2000; Partala and Surakka, 2003) and the
+measurement of electrical activity of facial muscles with electromyography (EMG)
+(Laakso et al., 2001; Partala et al., 2001).
+   There are different ways in which emotions could be utilized in human – computer
+interaction. One approach has been the study of alleviating the negative emotions related
+to the use of information technology. Even though there have been advances in software
+                                                                                                 Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309     297
+
+and user interface design, problem situations are still common, and they often have
+negative effects on the user’s affective state. Suggested negative consequences may
+include, for example, increased stress, decreased productivity, and decreased trust towards
+computers from the side of the user (Klein et al., 2002).
+    It seems possible to influence the user’s negative emotional state, and reduce the related
+negative consequences. Klein et al. (2002) conducted an experiment in which the user was
+deliberately frustrated during a game-playing situation, and the user was given affective
+support using a text-based agent. Their results showed that the users chose to interact
+significantly longer with the computer when they were given textual affective support by
+the agent as compared to the condition in which no support was given. The use of textual
+affective support also led to significantly longer computer usage as compared to an
+opportunity to vent feelings using a text box. Based on these findings Klein et al. (2002)
+suggested that ‘computers are capable of alleviating strong, negative emotions, even when
+they are the source of these negative emotions’.
+    There are several possible techniques for the emotional stimulation of the user. In
+addition to textual or other visual emotional messages, auditory stimulation offers a
+promising alternative. There is evidence that different emotional reactions can be evoked
+using different auditory stimuli. In addition to the prosodic features of auditory messages,
+the use of speech contents as such seems especially suitable for emotional stimulation. It is
+known that people recognize emotions from both the emotion-related prosodic cues and
+the contents of spoken messages (Scherer et al., 1991). The emotion-related prosodic cues
+in speech include, for example, fundamental frequency, pitch range, intensity, articulation,
+and speech rate (Cahn, 1990; Murray and Arnott, 1993; Scherer et al., 1991). There is
+evidence that both types of emotional cues (i.e. verbal content and prosodic features) can
+be used to evoke emotional reactions (Scherer et al., 1984).
+    We have recently found evidence that emotionally provocative sounds can be used to
+evoke different autonomic nervous system responses and subjective experiences (Partala
+et al., 2000; Partala and Surakka, 2003). There is also evidence that careful manipulations
+of the prosodic cues of vocal affect expressions result in differential responses in the
+electromyographic activity of emotion-related facial muscles and behavioral approach-
+withdrawal responses (Hietanen et al., 1998).
+    Importantly, it has been shown by Aula and Surakka (2002) that it is possible to
+influence the user’s emotions by using different affective wordings in the messages given
+using synthetic speech, while keeping the speech prosody constant. In their experiment,
+the use of emotionally negative, neutral, and positive synthetic speech feedback to
+cognitive tasks resulted in significant differences in the activity of the autonomic nervous
+system and enhanced response times while solving cognitive problems. The subjective
+ratings showed that the subjects also experienced the emotional feedback as negative,
+neutral or positive.
+    The present aim was to study the effects of affective interventions using synthetic
+speech with emotional content. The interventions were given when the subjects’ problem
+solving had been interrupted by mouse delays. Facial EMG responses were measured
+during and after positive and negative worded affective interventions. Task performance in
+problem solving was analyzed following these interventions. Facial EMG activity and task
+performance were also measured in relation to a no intervention condition. This condition
+                                                                                               Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+298              T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+reflects the state of most current systems, which do not use affective interventions in
+problematic computer use situations. We also analyzed the subjective ratings of the
+affective interventions and the no intervention condition. We hypothesized that the three
+interventions conditions would produce different results on the subjects’ EMG responses
+of the zygomaticus major and corrugator supercilii facial muscles, task performance, and
+subjective valence and arousal.
+
+
+
+2. Methods
+
+
+2.1. Subjects
+
+   Twenty-four volunteer students participated in the experiment Data from six subjects
+were discarded due to technical problems or excessive eye blinking Thus, the results are
+based on data from 18 subjects (nine females, mean age 24.2 years) All the subjects had
+normal or corrected-to-normal vision, normal color vision, and normal hearing by their
+own report.
+
+2.2. Equipment
+
+   The experiment was run on a Pentium II PC computer under the Windows NT operating
+system. A 1500 Nokia 500 Xa monitor in the 1024 £ 768 resolution mode was used as a
+display. The EMG activity was recorded with a Grassw Model15 RXie 8-channel
+differential amplifier and PolyVIEWe PRO/32 2.0 software. For a bipolar EMG
+recording, In Vivo Metric Ag/AgCl (E220X) surface electrodes filled with electrode paste
+were used. Timing markers were sent from the stimulus computer to the EMG recording
+device with a special cable using parallel port communications.
+
+2.3. EMG recordings
+
+   For the EMG recording, the electrodes were attached according to the guidelines by
+Fridlund and Cacioppo (1986). The subject’s skin was cleaned and slightly abraded with
+electrode paste. Electrodes were attached on the left side of the face above the zygomaticus
+major muscle site (the muscle that draws the lip corners up producing a smile) and
+corrugator supercilii muscle site (the muscle that knits and lowers the brows producing a
+frown). The EMG signal was amplified with high-pass and low-pass filters set at 100 and
+1000 Hz, respectively. The sampling rate was 1 kHz. The signal was amplified 20,000
+times for zygomaticus major and 50,000 times for corrugator supercilii. Eye movements
+and eye blinks were monitored with electrodes attached above and below the subject’s
+right eye. This signal was amplified 2000 times with a high-pass filter set at 0.3 Hz and a
+low-pass filter set at 30 Hz. The interelectrode impedances were , 10 kV. The signals
+were also monitored in real time on a computer display during the whole experiment.
+                                                                                                Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309    299
+
+
+
+
+                                 Fig. 1. Screenshot of a task layout.
+
+2.4. Tasks
+
+   The experimental tasks consisted of 12 problem-solving tasks, in which the subject had
+to arrange colored squares into a given order as shown with indicator squares (Fig. 1). In
+each task, there were 16 big gray squares with small colored indicator squares by their
+side. There were also two big auxiliary squares at the center of the screen. These squares
+were used as temporary holders when rearranging the colors and they were empty in the
+beginning of each task. On the lower right side of the screen, there was a timer that was
+updated every second.
+   The user’s task was to sort the colors in the big gray squares so that each big square had
+the same color as the indicator square beside it. The colors were initially in mixed
+positions. This initial state was the same for all subjects. The colors could be moved by
+dragging and dropping them with a mouse, and they could only be dragged to empty
+squares. The colors in the big gray squares were not visible unless the subject clicked on
+the square, after which the color was visible for 0.4 s. A color was also visible, as the
+subject started dragging it towards a different square. The subject could only swap colors
+in any two big squares via the auxiliary squares at the screen center. Thus, the subject had
+to perform at least four dragging movements to swap two colors and at least 32 dragging
+movements to complete the task. The 12 tasks consisted of four different square layouts
+and three different color orders for each layout.
+2.5. Stimuli
+
+   There were two different affective intervention categories and a condition with no
+intervention The interventions were created and delivered using a Finnish speech
+                                                                                                 Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+300              T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+synthesizer program Mikropuheq version 4.2. The following parameter values were used
+in creating a male voice: speed 4, pitch 2 2, peacefulness 0, random variation 0, and
+interval between words 0. The goal was to create a voice that is as neutral as possible
+regarding speech prosody.
+   Each stimulus consisted of two sentences. The first sentence stated that the system was
+not functioning properly. The emotional words were in the second sentence. In the positive
+intervention condition, emotionally positive words were selected so that they would map
+into the positive end of the valence dimension. In the negative intervention condition,
+emotionally negative words were selected so that they would map into the negative end of
+the valence dimension.
+   Eight differently worded interventions were used in both intervention categories. The
+placements of emotional words were varied so that the affective parts of the sentences
+would not appear too similar to the subject, and the subject would have to process each
+message individually. They were varied so that in both categories, there were three
+interventions, in which the emotional word was at or near the beginning of the second
+sentence, and three interventions, in which the emotional word was at or near the end of
+the second sentence. There were also two interventions, in which there were two emotional
+words: one in the beginning of the second sentence and one at or near the end of the second
+sentence. All the interventions were about 4.5 s long. The positive interventions included,
+for example (translated from Finnish), ‘The functions of the computer were suspended.
+Great that the computer will soon work again.’ and the negative interventions included, for
+example, ‘The execution of the program was interrupted. This is frustrating.’
+
+2.6. Procedure
+
+   As the subject entered the laboratory, she/he was seated in a comfortable chair The
+subject was told that the experiment consisted of two phases: the task phase and the rating
+phase. Next, the electrodes were attached, and the subject was told a cover story that while
+interacting with the computer, the skin temperature of her/his face will be measured with
+surface electrodes.
+   First, the subject had to enter demographic information (name, age, gender) to the
+computer. After that the experimental tasks were introduced to the subject. Before the
+actual tasks, the subject tried one practice task until she/he reported that she/he understood
+the experimental task. Thereafter, the subject was told that besides the actual tasks, she/he
+would also face problematic situations during the experiment. The subject was also told
+that she/he will be given comments by the computer during the experiment, and that she/he
+should try to listen to the comments carefully, and try to understand the message of the
+comments. To familiarize the subject to the forthcoming stimuli, the subject was first
+shown a picture of an expressionless character face after which a sample of neutral speech
+synthesis was played. After that, the experiment was started. This phase lasted for about
+25 –30 min.
+   During each task, the subject was exposed to two series of deliberately caused mouse
+delays. The first delays were started randomly at 20– 30 s from the onset of the task, and
+the second delays were started randomly at 15– 25 s after the end of the first series of
+delays and the possible affective intervention. Each series of mouse delays lasted for 12 s
+                                                                                                 Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309     301
+
+and consisted of five mouse delays of 2.32 s, and a period of 0.1 s between each pair of
+delays, during which the mouse worked normally. In practice, it was impossible for the
+subject to continue the task during these periods. However, the mouse cursor moved
+occasionally, as the subjects kept trying to move the cursor during these periods. After
+each 12-s delay period, there was a period of about 6.5 s during which first an
+expressionless face was shown to signal the subject that speech communication was
+soon to be expected from the computer. After one second, the speech synthesizer gave
+either a positive or a negative speech intervention, and one second after the end of the
+speech the face disappeared from the screen. In the no intervention condition, the
+subject’s mouse was disabled during the corresponding 6.5-s period, but she/he did not
+receive any intervention. After this period, in all conditions there was a three second
+period, during which the mouse was disabled. After that period the mouse started
+working normally again. After each task, there was a rest period of 10 s before moving
+on to the next task.
+   The experiment was counterbalanced so that the subjects were divided into three groups
+(three females and three males in each group). The counterbalancing matrix (3
+groups £ 24 intervention positions) consisted of eight consecutive 3 £ 3 Latin squares
+so that two similar Latin squares were not placed consequently. This procedure ensured
+the full counterbalancing of conditions and interventions during the experiment.
+   After the subjects had completed all the tasks, they were instructed to rate their
+subjective valence and arousal during the delay period, and in response to the no
+intervention condition and the positive and negative interventions. The ratings were given
+on the computer using the semantic differential method (Bradley and Lang, 1994). Two
+nine-point rating scales were used for the ratings of valence and arousal. First, the subject
+was instructed to rate the mouse delay period and she/he had an opportunity to try the
+delay period once more. Second, the subject was instructed to rate the no intervention
+condition used in the experiment on valence and arousal. Third, the subject was instructed
+to listen to all the 16 intervention stimuli again, and rate her/his affective state on both
+valence and arousal dimensions.
+
+2.7. Data analysis
+
+   The EMG data was analyzed as follows First, the EMG data was rectified. Second, eye
+blinks were removed from the data. Data from all channels were discarded for all data
+points if the electrical activity in the eye blink channel exceeded 40 mV. Third, the data was
+baseline corrected using a three-second baseline measured before the onset of each delay
+period. Fourth, the average values for the baseline corrected data were calculated for two
+periods of interest: during the 6.5-s intervention period and during the three second
+time period following the offset of the intervention stimuli. The average EMG activity of
+the preceding delay period was subtracted from the average EMG activities of the three
+conditions (i.e. negative, positive, and no intervention) for both periods of interest. This
+was done, because the main interest was in the change of the EMG activity during these
+periods as compared to the activity during the delay period. The behavioral data was
+analyzed in terms of the number of successful dragging movements during the 10-s period
+after each intervention, starting from the first mouse click on a big gray square.
+                                                                                                      Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+302             T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+   For the statistical analyses of the EMG data and the behavioral data, within-subject
+repeated measures analyses of variance were used. Greenhouse –Geisser corrected degrees
+of freedom were used in the ANOVAs and the pairwise comparisons were Bonferroni
+corrected when needed. For the subjective data, Friedman’s rank tests were used to analyze
+the data, and Wilcoxon’s matched-pairs signed-ranks tests were used in the pairwise
+comparisons. All the significance levels reported in pairwise comparisons were two-tailed.
+
+
+3. Results
+
+3.1. Electromyographic responses
+
+   The mean EMG activity changes during and after interventions for the zygomaticus
+major muscle site are shown in Fig. 2. A one-way ANOVA for the data during the
+interventions showed a significant effect of intervention condition on zygomaticus major
+EMG activity Fð2; 34Þ ¼ 10:0; p , 0:01: Pairwise comparisons showed that zygomaticus
+major EMG activity was significantly higher during the positive interventions than both
+during the no intervention condition tð17Þ ¼ 3:4; p , 0:01 and during the negative
+interventions tð17Þ ¼ 2:8; p , 0:05: The zygomaticus major EMG activity was also
+significantly higher during the negative interventions than during the no intervention
+condition tð17Þ ¼ 2:7; p , 0:05:
+   A one-way ANOVA for the data during the period of three seconds after the
+interventions showed a significant effect of intervention condition on zygomaticus major
+EMG activity Fð2; 34Þ ¼ 9:3; p , 0:01: Pairwise comparisons showed that the activity
+was significantly higher after the positive interventions than after the no intervention
+condition tð17Þ ¼ 3:5; p , 0:01: The other differences were not significant, but they were
+approaching statistical significance (positive vs. negative tð17Þ ¼ 2:5; p , 0:07; negative
+vs. no intervention tð17Þ ¼ 2:6; p , 0:06Þ:
+   The mean EMG activity changes from the delay period for the corrugator supercilii
+muscle site are shown in Fig. 3. The figure shows that interestingly there was a relaxation
+
+
+
+
+ Fig. 2. Mean zygomaticus major EMG change (and SEM) from the EMG activity during the delay period.
+                                                                                                              Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                  T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309                303
+
+
+
+
+Fig. 3. Mean corrugator supercilii EMG activity change (and SEM) from the activity during the delay period.
+
+
+
+of this muscle site activity to both negative and positive interventions. However, a one-
+way ANOVA for the data during the interventions did not show a significant effect of
+intervention condition on corrugator supercilii EMG activity.
+   A one-way ANOVA for the data for the three-second period after the interventions
+showed a significant effect of intervention condition on corrugator supercilii EMG
+activity Fð2; 34Þ ¼ 6:2; p , 0:05: Pairwise comparisons showed that the corrugator
+supercilii EMG activity was significantly attenuated after the positive interventions than
+after the no intervention condition tð17Þ ¼ 3:0; p , 0:05: The other differences were not
+significant. However, the difference in corrugator supercilii EMG activity between the
+negative interventions and the no intervention condition approached statistical
+significance tð17Þ ¼ 2:6; p , 0:06:
+
+3.2. Behavioral results
+
+   The results for the number of successful moves during the 10-s period right after
+the system started working again after the different intervention categories are
+presented in Fig. 4. A one-way ANOVA showed a significant effect of intervention
+condition Fð2; 34Þ ¼ 5:8; p , 0:05: Pairwise comparisons showed that the number of
+successful moves was significantly higher after positive interventions than after the no
+intervention condition tð17Þ ¼ 2:7; p , 0:05: The other differences were not
+significant. However, the difference in the number of successful moves after the
+negative interventions and after the no intervention condition approached statistical
+significance tð17Þ ¼ 2:6; p , 0:06:
+
+3.3. Subjective ratings
+
+   The mean rating on the valence scale during the delay period was 3.28 The average
+subjective ratings on the valence scale after the three intervention conditions are shown
+                                                                                                      Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+304              T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+
+
+
+Fig. 4. Average number of successful moves (and SEM) after the positive interventions, the negative
+interventions, and the no intervention condition.
+
+
+
+in Fig. 5. A Friedman’s rank test showed a significant effect of intervention condition on
+the ratings of valence x22 ð2Þ ¼ 21:4; p , 0:001: Pairwise comparisons showed that the
+ratings of valence were more positive after the positive interventions than the no
+intervention condition Z ¼ 3:3; p , 0:01: The ratings of valence were also more positive
+after the positive interventions than the negative interventions Z ¼ 3:0; p , 0:01:
+The difference between the negative interventions and the no intervention condition was
+not significant.
+   The mean rating of arousal during the delay period was 6.50. The subjective ratings on
+the arousal scale (calm-highly aroused) after the three conditions are shown in Fig. 6.
+A Friedman’s rank test did not show a significant effect of intervention condition on the
+ratings of arousal.
+
+
+
+
+                            Fig. 5. The average valence ratings (and SEM).
+                                                                                                  Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309      305
+
+
+
+
+                           Fig. 6. The average arousal ratings (and SEM).
+
+
+4. Discussion
+
+   The results showed that as compared to the no intervention condition, the use of
+positively worded affective interventions resulted in significantly higher level
+of zygomaticus major activity (i.e. smiling activity) during the interventions. During the
+positive interventions, the level of smiling activity was also significantly higher than
+during the negative interventions, and the smiling activity was also significantly higher
+during the negative interventions than during the no intervention condition. For the data
+during the 3-s period after the intervention offset, the level of smiling activity was also
+significantly higher after the positive interventions than after the no intervention condition.
+   For the data during the interventions, there were no statistically significant differences
+between conditions in corrugator supercilii activity (i.e. frowning activity) although the
+activity of this muscle site was clearly decreased during both emotional interventions.
+However, the use of positively worded affective interventions resulted in significantly
+decreased level of frowning activity after the interventions, as compared to the no
+intervention condition.
+   The analysis of the subjects’ task performance showed that positively worded
+interventions resulted in significantly better task performance when compared to the
+condition with no intervention. The ratings of valence and arousal showed that the subjects
+rated their affective valence as more positive after the positive interventions than after the
+negative interventions and after the no intervention condition.
+   In general, our results are in line with the previous research. The current results for the
+zygomaticus major muscle site EMG activity showed an increase in response to positively
+worded interventions and a smaller increase in response to negatively worded
+intervention. A similar trend has been reported earlier for emotionally positive and
+negative visual material (Lang et al., 1993). Bradley and Lang (2000) studied the facial
+EMG responses to affective sounds. Their results showed a significant linear dimensional
+correlation between smiling activity and ratings of pleasure, but the results showed no
+significant differences in smiling activity between different stimulus categories (negative,
+                                                                                                Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+306             T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+neutral, and positive). In the current experiment, the emotional stimulus categories seemed
+to elicit more pronounced smiling activity than in Bradley and Lang (2000). In the current
+results, most of the differences in smiling activity between the different intervention
+categories were also statistically significant.
+    Previous research has suggested an inversely linear relationship between frowning
+activity and ratings of valence (Bradley and Lang, 2000). In addition, they found
+statistically significant differences in frowning activity as a function of stimulus category
+(negative, neutral, and positive). In the current results, the only statistically significant
+difference was found after the intervention between the positive intervention condition and
+the no intervention condition. However, the frowning activity decreased after both positive
+and negative interventions so that the decrease was somewhat larger for the positive
+interventions. A similar kind of result was presented in Hietanen et al. (1998) who found
+that vocal expressions with content speech prosody evoked decreased frowning activity in
+the group that was classified as sensitive to emotional contagion. Decreased frowning
+activity may in fact be associated with enhanced subjective valence. Thus, these results
+suggest that both positively and negatively worded affective interventions enhanced the
+subject’s emotions on the valence scale. Especially, the positive interventions were
+helpful. In addition, the current result, which showed that the relaxation of the muscle
+associated with frowning was greatest for the positive intervention category can be seen as
+compatible with the results of Aula and Surakka (2002). Their results showed that the
+subjects’ pupillary responses attenuated faster towards the baseline after positive task-
+related feedback than after neutral and negative task-related feedback.
+    The behavioral results are also in line with the previous research. For example,
+according to Isen (2000) a growing body of research indicates that even mild positive
+affective states can markedly influence everyday thought processes leading to improved
+decision-making and problem-solving. This conclusion was supported by the current
+results in which positive interventions resulted in improved problem-solving performance
+in terms of the number of successful moves. Our results are also in line with the results of
+Aula and Surakka (2002), who found that emotionally positive feedback in HCI provoked
+shorter response times to simple mathematical problems as compared to negative
+feedback. The current study also showed that the behavioral effect could also be achieved
+using affective interventions related to the system malfunctions rather than feedback
+related to the user’s task performance (cf. Aula and Surakka, 2002).
+    The valence ratings showed that the interventions were successful in evoking emotional
+experiences. In contrast to valence ratings, there were no significant differences in the
+ratings of arousal for the different conditions. These results show that the current
+experiment was successful in manipulating the subjects’ affective valence without
+influencing the subjects’ affective arousal. Probably the use of more arousing affective
+interventions would result in stronger effects. In future studies, it may be also possible to
+create affective interventions specifically designed to manipulate the subjects’ arousal or
+to manipulate both valence and arousal dimensions together systematically.
+    The results of the current study showed that synthetic speech with emotional content
+could be efficiently used in affective interventions to achieve positive effects. This is in
+line with previous research. Aula and Surakka (2002) found that synthetic speech feedback
+could be used to evoke different autonomic nervous system responses in the user. Similar
+                                                                                                Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309    307
+
+results have also been obtained using non-speech affective sounds (Partala et al., 2000;
+Partala and Surakka, 2003). All these studies also found differences in subjective ratings of
+different affective stimuli. Thus, it seems that using affective speech or affective sounds,
+the subject’s emotions can be regulated in terms of both physiological activity and
+subjective experiences. In addition, it seems possible to accomplish improvements in the
+user’s task performance using affective speech.
+   The current results have some implications for application design. The majority of the
+current systems do not use any affective interventions. In the current experiment, the no
+intervention condition was chosen so that the subject did not get any messages about the
+system problems, which represents the state of the art in most systems, especially in the
+cases the problems are not very fatal like an operating system crash. Thus, the results
+suggest that it would be beneficial to incorporate affective support strategies to current
+systems. For example, it would be possible for the system to notice system difficulties that
+are not under user control (e.g. a failure or delays in software execution), and respond to
+the difficulties in an affectively supportive way. Synthetic speech seems to be a promising
+output media, but other channels such as text could be used, too. In addition, affective
+interventions could be also brought to situations, in which the user has to wait for
+something to be processed (e.g. long application loading times or long download times for
+the Internet).
+   The findings also encourage the measurement of facial expressions in human –
+computer interaction. The subjects’ emotional reactions to affective interventions were
+verified in the activity of two facial muscles. This suggests that the measurement of facial
+expression could be useful in evaluating human – computer interaction on an affective
+level. In addition, because it seems possible to measure the user’s facial expression during
+human – computer interaction with enough accuracy, the measurement of facial
+expressions could be used as an affective computer input signal. Thus, our results support
+the view of, for example, Lisetti and Schiano (2000), who consider the measurement of
+facial expressions as useful computer input.
+   In this paper, we have introduced the concept of affective interventions. By doing so we
+wanted to emphasize that in the current experiment the affective messages were not related
+to the user’s actions or task performance. Instead, in this case the computer took the
+initiative to influence on the user’s affective state. In human – computer interaction, the
+transition from affective feedback to affective interventions seems to open new
+possibilities. Affective interventions could be used, for example, as system-initiated
+responses to changes that impede the user’s work. Affective interventions could also be
+proactive, for example, they may be given before the user has encountered a certain
+problem in her/his work. In addition to using affective interventions to alleviate the
+effects of system problems, there are application fields, which could benefit from affective
+interventions. Especially in fields in which motivation is a crucial factor, such as
+computer-assisted learning, affective interventions could be assumed to have beneficial
+effects.
+   Clearly, a great deal of further research is needed to understand the effects of affective
+interventions in different situations. In the current study, the emotional content was in the
+wording of the affective messages, while the speech prosody was kept as neutral as
+possible. This was enough to evoke significant changes in the subject’s physiology,
+                                                                                                                  Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+308                T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309
+
+behavior, and subjective ratings of emotional state. It is likely that by also manipulating
+the prosody of the speech, it would be possible to achieve even stronger effects. Further,
+animated agents with different gestures and facial expressions to convey additional
+affective information could be used for enhancing the effects of affective interventions.
+The contexts in which the interventions are given also range from feedback related to
+different user tasks to interventions not directly related to the user’s task like in this
+experiment.
+    In addition, affective interventions could be used as computer responses to significant
+changes in the user’s physiology. In the field of affective computing, research work is
+being done on the measurement of different physiological signals, and the recognition of
+meaningful affective phenomena from the signals (e.g. Laakso et al., 2001; Partala and
+Surakka, 2003; Picard, 1997; Scheirer et al., 2002). Following the knowledge on how to
+recognize emotional states from affective signals, the question of how to react to the
+changes in the user’s affective state becomes important. Physiological signals can be
+monitored in real time by the computer, and the computer can also monitor the
+physiological changes caused by its affective interventions, and adjust its behavior
+accordingly. Consequently, this kind of advanced adaptive technology could even show
+emotional intelligence similar to that of humans. For example, the computer could rule out
+the use of interventions that cause negative user responses in the context of a particular
+situation or a particular user.
+    As a whole, the results of the current study showed that as compared to no intervention
+condition, different physiological, behavioral, and experiential user reactions could be
+evoked by using affective interventions. The results showed that significant changes in
+physiology and subjective experiences could be evoked by altering the emotional wording
+of the intervention. The current physiological and behavioral results can be considered as
+promising. It seems that affective interventions can have positive effects to physiological
+activity in general, if the user is in a negative emotional state before the intervention.
+Positive-worded interventions proved to be especially helpful. Thus, based on the current
+experiment, we can seriously encourage further studies on the effects of affective
+interventions in human –computer interaction.
+
+
+Acknowledgements
+
+  The authors would like to thank all the test subjects. This research was funded by
+Tampere Graduate School in Information Science and Engineering (TISE) and the
+Academy of Finland (projects 167491 and 54011).
+
+
+References
+
+Aula, A., Surakka, V., 2002. Auditory Emotional Feedback Facilitates Human – Computer Interaction,
+   Proceedings of HCI 2002, Springer, Berlin, pp. 337– 349.
+Bradley, M.M., Lang, P.J., 1994. Measuring emotions: the self-assessment manikin and the semantic differential.
+   Journal of Behavioral Therapy and Experimental Psychiatry 25 (1), 49–59.
+                                                                                                                       Downloaded from academic.oup.com/iwc/article/16/2/295/723724 by College of Science Zhejiang University user on 25 September 2026
+                    T. Partala, V. Surakka / Interacting with Computers 16 (2004) 295–309                       309
+
+Bradley, M.M., Lang, P.J., 2000. Affective reactions to acoustic stimuli. Psychophysiology 37, 204–215.
+Cacioppo, J.T., Petty, R.E., Losch, M.E., Kim, H.S., 1986. Electromyographic activity over facial muscle regions
+    can differentiate the valence and intensity of affective reactions. Journal of Personality and Social Psychology
+    50, 260 –268.
+Cahn, J., 1990. The generation of affect in synthesized speech. Journal of the American Voice I/O Society 8,
+    1–19.
+Dimberg, U., 1990. Facial electromyography and emotional reactions. Psychophysiology 19, 643–647.
+Ekman, P., 1993. An argument for basic emotions. Cognition and Emotion 6 (3), 169–200.
+Fridlund, A.J., Cacioppo, J.T., 1986. Guidelines for human electromyographic research. Psychophysiology 23
+    (5), 567–589.
+Hietanen, J.K., Surakka, V., Linnankoski, I., 1998. Facial electromyographic responses to vocal affect
+    expressions. Psychophysiology 35 (5), 530–536.
+Isen, A.M., 2000. Positive affect and decision making. In: Lewis, M., Haviland, I. (Eds.), Handbook of Emotions,
+    Guilford Press, New York, pp. 417 –435.
+Klein, J., Moon, Y., Picard, R.W., 2002. This computer responds to user frustration: theory, design, and results.
+    Interacting with Computers 14, 119– 140.
+Laakso, J., Juhola, M., Surakka, V., Aula, A., Partala, T., 2001. Neural Network and Wavelet Recognition of
+    Facial Electromyographic Signals, Proceedings of the 10th World Congress on Medical Informatics,
+    Medinfo, IOS Press, pp. 489– 492.
+Lang, P.J., 1995. The emotion probe: studies of motivation and attention. American Psychologist 50, 372–385.
+Lang, P.J., Greenwald, M.K., Bradley, M.M., Hamm, A.O., 1993. Looking at pictures: affective, facial, visceral,
+    and behavioral reactions. Psychophysiology 30, 261 –273.
+Lisetti, C.L., Schiano, D.J., 2000. Automatic facial expression interpretation: where human –computer
+    interaction, artificial intelligence and cognitive sciences intersect. Pragmatics and Cognition 8 (1), 185–235.
+Murphy, S.T., Zajonc, R.B., 1993. Affect, cognition, and awareness: affective priming with suboptimal and
+    optimal stimulus. Journal of Personality and Social Psychology 64, 723–739.
+Murray, I.R., Arnott, J.L., 1993. Toward the simulation of emotion in synthetic speech: a review of literature on
+    human vocal emotion. Journal of the Acoustical Society of America 93 (2), 1097–1108.
+Öhman, A., Birbaumer, N., 1993. Psychophysiological and cognitive-clinical perspectives on emotion:
+    introduction and overview. In: Birbaumer, N., Öhman, A. (Eds.), The Structure of Emotion, Hogrefe and
+    Huber Publishers, Seattle, pp. 3 –17.
+Partala, T., Surakka, V., 2003. Pupil size as an indication of affective processing. International Journal of
+    Human–Computer Studies 59 (1–2), 185 –198.
+Partala, T., Jokiniemi, M., Surakka, V., 2000. Pupillary Responses to Emotionally Provocative Stimuli,
+    Proceedings of ETRA 2000, Eye Tracking Research and Applications, Symposium 2000, ACM Press,
+    pp. 123 –129.
+Partala, T., Aula, A., Surakka, V., 2001. Combined voluntary gaze direction and facial muscle activity as a new
+    pointing technique, Proceedings of INTERACT 2001, IOS Press, pp. 100–107.
+Picard, R.W., 1997. Affective Computing. MIT Press, Cambridge, MA.
+Scheirer, J., Fernandez, R., Klein, J., Picard, R.W., 2002. Frustrating the user on purpose: a step toward building
+    an affective computer. Interacting with Computers 14, 93 –118.
+Scherer, K.R., Ladd, D.R., Silverman, K.E.A., 1984. Vocal cues to speaker affect: testing two models. Journal of
+    Acoustical Society of America 76 (5), 1346–1356.
+Scherer, K.R., Banse, R., Wallbott, H.G., Goldbeck, T., 1991. Vocal cues in emotion encoding and decoding.
+    Motivation and Emotion 15 (2), 123 –148.
+Surakka, V., Hietanen, J.K., 1998. Facial and emotional reactions to Duchenne and non-Duchenne smiles.
+    International Journal of Psychophysiology 29, 23–33.
+Zajonc, R.B., 1980. Feeling and thinking: preferences need no inferences. American Psychologist 35, 151–175.
+

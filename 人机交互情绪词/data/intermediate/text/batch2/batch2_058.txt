@@ -1,0 +1,681 @@
+IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,              VOL. 1,   NO. 2,   JULY-DECEMBER 2010                                                             109
+
+
+
+
+Optimal Arousal Identification and Classification
+ for Affective Computing Using Physiological
+     Signals: Virtual Reality Stroop Task
+           Dongrui Wu, Member, IEEE, Christopher G. Courtney, Brent J. Lance, Member, IEEE,
+                       Shrikanth S. Narayanan, Fellow, IEEE, Michael E. Dawson,
+                                 Kelvin S. Oie, and Thomas D. Parsons
+
+       Abstract—A closed-loop system that offers real-time assessment and manipulation of a user’s affective and cognitive states is very
+       useful in developing adaptive environments which respond in a rational and strategic fashion to real-time changes in user affect,
+       cognition, and motivation. The goal is to progress the user from suboptimal cognitive and affective states toward an optimal state that
+       enhances user performance. In order to achieve this, there is need for assessment of both 1) the optimal affective/cognitive state and
+       2) the observed user state. This paper presents approaches for assessing these two states. Arousal, an important dimension of affect,
+       is focused upon because of its close relation to a user’s cognitive performance, as indicated by the Yerkes-Dodson Law. Herein, we
+       make use of a Virtual Reality Stroop Task (VRST) from the Virtual Reality Cognitive Performance Assessment Test (VRCPAT) to
+       identify the optimal arousal level that can serve as the affective/cognitive state goal. Three stimuli presentations (with distinct arousal
+       levels) in the VRST are selected. We demonstrate that when reaction time is used as the performance measure, one of the three
+       stimuli presentations can elicit the optimal level of arousal for most subjects. Further, results suggest that high classification rates can
+       be achieved when a support vector machine is used to classify the psychophysiological responses (skin conductance level, respiration,
+       ECG, and EEG) in these three stimuli presentations into three arousal levels. This research reflects progress toward the
+       implementation of a closed-loop affective computing system.
+
+       Index Terms—Affective computing, arousal classification, affect recognition, virtual reality, Stroop task, Yerkes-Dodson Law.
+
+                                                                                 Ç
+
+1    INTRODUCTION
+
+A   FFECTIVE computing [42] is “computing that relates to,
+    arises from, or influences emotions.” It has been gaining
+popularity rapidly in the last decade because it has great
+                                                                                     potential in the next generation of human-computer
+                                                                                     interfaces [42], [57], [59]. One goal [53] of affective
+                                                                                     computing is to design a computer system that responds
+                                                                                     in a rational and strategic fashion to real-time changes in
+                                                                                     user affect (e.g., happiness, sadness, etc.), cognition (e.g.,
+. D. Wu is with the Industrial Artificial Intelligence Laboratory, GE Global
+                                                                                     frustration, boredom, etc.), and motivation, as represented
+  Research, Niskayuna, NY 12309.                                                     by speech [16], [24], [51], [65], facial expressions [12], [35],
+  E-mail: drwu09@gmail.com.                                                          physiological signals [11], [22], neurocognitive performance
+. C.G. Courtney is with the Department of Psychology and Institute for               [40], and multimodal combination [4], [32], [72]. Potential
+  Creative Technologies, University of Southern California, SGM 911, 3620            applications of affective computing include the following:
+  McCllintock Ave., Los Angeles, CA 90089-1061.
+  E-mail: courtney@ict.usc.edu.
+. B.J. Lance is with the Translational Neuroscience Branch, US Army                      .   Learning [6], [9], [44], e.g., a computer tutor that
+  Research Laboratory, Building 459, Mulberry Point Road, Aberdeen                           recognizes the student’s affective and cognitive
+  Proving Ground, MD 21005-5425. E-mail: blance@ict.usc.edu.                                 status to individualize its teaching strategy.
+. S.S. Narayanan is with the Signal Analysis and Interpretation Laboratory              . Affective gaming [14], [27], [29], [55], e.g., a game that
+  (SAIL), Ming Hsieh Department of Electrical Engineering, University of
+  Southern California, 3740 McClintock Avenue, EEB 430, Los Angeles, CA                      changes its settings (difficulty, visualization, music,
+  90089-2564. E-mail: shri@sipi.usc.edu.                                                     etc.) automatically to keep the gamer engaged.
+. M.E. Dawson is with the Department of Psychology, University of                       . Robotics [2], [13], [46], e.g., a personalized robot
+  Southern California, SGM 903, 3620 McClintock Ave., Los Angeles, CA
+  90089-1061. E-mail: mdsawson@usc.edu.
+                                                                                             companion that understands and displays affect.
+. K.S. Oie is with the US Army RDECOM, Army Research Laboratory,                        . Healthcare and behavioral informatics [26], [43], [45],
+  RDRL-HRS-C, Building 459, Mulberry Point Road, Aberdeen Proving                            e.g., assessment in autism.
+  Ground, MD 21005-5425. E-mail: kelvin.oie@us.army.mil.
+. T.D. Parsons is with the Institute for Creative Technologies, University of
+                                                                                     Our research focuses on closed-loop affective computing
+  Southern California, 12015 Waterfront Drive, Playa Vista, CA 90094-                systems, i.e., how to build interactive environments [11],
+  2536. E-mail: tparsons@ict.usc.edu.                                                [56], which adapt automatically to move the user’s
+Manuscript received 16 May 2010; revised 9 Sept. 2010; accepted 1 Oct. 2010;         affective and cognitive state to the desired state. A diagram
+published online 20 Oct. 2010.                                                       of such a system is shown in Fig. 1. It consists of three
+Recommended for acceptance by J.-M. Fellous.
+For information on obtaining reprints of this article, please send e-mail to:
+                                                                                     main blocks:
+taffc@computer.org, and reference IEEECS Log Number
+TAFFC-2010-05-0034.                                                                      .     Controller, which outputs the control signal to
+Digital Object Identifier no. 10.1109/T-AFFC.2010.12.                                          change the environment and, hence, the user’s affect.
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+                                               1949-3045/10/$26.00 ß 2010 IEEE       Published by the IEEE Computer Society
+110                                                             IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,             VOL. 1,   NO. 2, JULY-DECEMBER 2010
+
+
+
+
+Fig. 1. A closed-loop affective computing system.
+
+      . Affect modeling, which models the relationship
+        between the environment surrounding the user                                 Fig. 2. The Yerkes-Dodson Law.
+        and the change of the user’s affect.
+   . Affect recognition, which recognizes the user’s affect
+                                                                                     explained simply in terms of stimulus encoding or response
+        from various signals, e.g., speech, facial expressions,
+                                                                                     interference. Further, the increased difficulty found in the
+        gestures, physiological signals, etc.
+                                                                                     Stroop interference task has been shown to directly evoke
+   Additionally, we also need to know the desired                                    autonomic changes in cardiovascular arousal [19].
+affective/cognitive state so that we can regulate the user’s                            The aims of this study are to
+actual affective/cognitive state toward it. This paper
+presents an approach for this problem and also a method                                  1.  assess whether or not it is possible to identify a
+for affect recognition using physiological signals.                                          subject’s optimal level of arousal using three stimuli
+   Research on affect [47], [49] has shown that affect can be                                presentations from VRST, based on user test perfor-
+represented as points in a multidimensional space. One of                                    mance, and
+the most frequently used affect spaces consists of three                                2. investigate the extent to which it is possible to
+dimensions [8], [21]:                                                                        accurately classify a subject’s arousal state into three
+                                                                                             levels, based on the user’s physiological responses.
+   . Valence, which ranges from negative to positive.
+                                                                                     Successful achievement of the objectives will allow for
+   . Arousal, which ranges from low to high.
+                                                                                     construction of the input signal and the affect recognition
+   . Dominance, which ranges from weak to strong.
+                                                                                     block in Fig. 1. The classifier built above can be used to
+   Among them, arousal is closely related to a subject’s                             indicate whether or not the subject is near his/her optimal
+performance in mental tasks. According to the well-known                             level of arousal. If not, one may also know whether it is
+Yerkes-Dodson Law [69], performance is a nonmonotonic                                excessively high or low. Results will be important steps in
+function of arousal, as shown in Fig. 2. Performance                                 implementing the closed-loop affective computing system
+increases with arousal when the arousal level is low, then                           in Fig. 1.
+reaches its peak at the optimal arousal level, and then                                 The remainder of the paper is organized as follows:
+decreases as arousal continues to increase. So, in an affective                      Section 2 introduces VRCPAT’s VRST and the experimental
+computing system which aims to improve the user’s                                    setup. Section 3 explains how a subject’s performance on the
+performance in mental tasks, such as learning and affective                          VRST can be used to identify the user’s optimal arousal level.
+gaming, it is very important to be able to identify the user’s                       Section 4 presents a support vector machine (SVM) approach
+optimal arousal level and to recognize whether or not the
+                                                                                     to distinguish among three arousal levels. Finally, Section 5
+user’s actual arousal level is close to that optimal level.
+                                                                                     draws conclusions and proposes future research directions.
+   In this paper, we make use of the Virtual Reality Stroop
+Task (VRST) from the Virtual Reality Cognitive Performance
+Assessment Test (VRCPAT) [37], [38], [39], [41] to find the                          2    VIRTUAL REALITY COGNITIVE PERFORMANCE
+optimal1 arousal level. We chose the Stroop color inter-                                  ASSESSMENT TEST (VRCPAT)
+ference task because it is among the most extensively                                2.1 Introduction
+studied paradigms in neuropsychology and it has known
+                                                                                     At the University of Southern California’s Institute for
+relation to the anterior cingulate cortex (ACC). The Stroop
+                                                                                     Creative Technologies we have developed an adaptive
+color interference task produces a classical behavioral effect
+                                                                                     virtual environment for assessment and rehabilitation of
+[54] that consists of a lengthening in reaction time to color
+                                                                                     neurocognitive and affective functioning. This project
+naming when the word meaning and the presentation do
+                                                                                     brings together a team of researchers to incorporate cutting
+not match (i.e., they are “incongruent”) relative to when they
+                                                                                     edge neuropsychological and psychophysiological assess-
+correspond (i.e., they are “congruent” [33]). The ACC is
+                                                                                     ment into state-of-the-art interactive and adaptive virtual
+known to be involved in a form of attention that serves to
+                                                                                     Iraqi/Afghani scenarios. These scenarios consist of a virtual
+regulate both cognitive and emotional processing [3], [61].
+The ACC’s involvement in the Stroop color interference task                          city, a virtual vehicle checkpoint, and a virtual Humvee
+has been delineated by cognitive neuroimaging studies [25],                          driving scenario in simulated Iraqi and Afghani settings.
+[36], [58]. The extensive distributed network of activated                           Two primary goals define these virtual and adaptive
+regions suggests that the Stroop interference effect cannot be                       environments: 1) a Virtual Reality Cognitive Performance
+                                                                                     Assessment Test (VRCPAT 1.0) that includes a battery of
+   1. As presented in Section 2.2, we chose three scenarios from VRST and            neuropsychological and psychophysiological measures for
+identified the best arousal level among them. This best arousal level should         diagnostic assessment and treatment of subjects with
+be close to the optimal arousal level in Fig. 2; however, it may not be exactly
+the same as it is. For simplicity, it is referred to as “optimal arousal level” in   affective disorders, brain injury, or neurocognitive deficits;
+this paper.                                                                          and 2) a Virtual Reality for Cognitive Performance and
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+WU ET AL.: OPTIMAL AROUSAL IDENTIFICATION AND CLASSIFICATION FOR AFFECTIVE COMPUTING USING PHYSIOLOGICAL SIGNALS:...                                    111
+
+
+                                                                                “Color Naming” condition, the subject must respond with
+                                                                                the name of the color that appears on the screen. In the
+                                                                                “Word Reading” condition, the subject must respond with
+                                                                                the word that appears on the screen. In the “Interference”
+                                                                                condition, the subject must press the button corresponding
+                                                                                with the color of the word that appears on the screen,
+                                                                                ignoring what the word says.
+                                                                                   Psychophysiological measures of skin conductance level
+                                                                                (SCL), respiration (RSP), vertical electrooculograph
+                                                                                (VEOG), electrocardiographic activity (ECG), and electro-
+                                                                                encephalographic activity (EEG) are recorded continuously
+                                                                                throughout exposure to the virtual environment.
+
+                                                                                2.2 Experiment Setup
+                                                                                There are many different scenarios eliciting different levels
+                                                                                of arousal in VRST. In this study, we chose the following
+                                                                                three of them to affect different arousal levels:
+Fig. 3. The Humvee Stroop Scenarios: (a) color naming, (b) word                    . Scenario I: low threat, color naming.
+reading, and (c) interference.
+                                                                                   . Scenario II: high threat, color naming.
+                                                                                   . Scenario III: high threat, interference.
+Adaptive Treatment (VRCPAT 2.0) that develops an
+                                                                                Each scenario consisted of 50 tests. Three colors (blue,
+adaptive environment in which data gleaned from the                             green, and red) were used, and they were displayed with
+assessment module (VRCPAT 1.0) will be used for refined                         equal probability. In Scenario I, 50 colored numbers were
+analysis, management, and rehabilitation of subjects who                        displayed at random locations on the windshield one by
+have suffered blast injuries (varying levels of traumatic                       one while the subject was driving through a safe zone.
+brain injury) and/or are experiencing combat stress                             Scenario II was similar to Scenario I, except that the subject
+symptoms (e.g., post-traumatic stress disorder [18]).                           was driving through an ambush zone. Scenario III was
+   While immersed in the VRCPAT, a subject’s neurocog-                          similar to Scenario II, except that Stroop tests instead of
+nitive and psychophysiological responses are recorded in                        color naming tests were used.
+an attempt to understand how the activation of particular                          Given the known ACC involvement in cognitive and
+brain areas is related to given tasks. It is hoped that this will               affective processing of Stroop interference stimuli, the three
+allow us to better uncover the relationship between the                         scenarios are in the order of I < II < III. Our conjecture is
+neural correlates of neurocognitive functioning in virtual                      that the arousal level in Scenario I is too low for peak
+environments for generalization to real-world functioning.                      performance, i.e., the arousal level is on the left of the
+Following the acquisition of these data, we will use                            optimal arousal level in Fig. 2; on the contrary, the arousal
+nonlinear approximation to model specific neurocognitive                        level in Scenario III is too high for peak performance, i.e.,
+and affective processes of persons immersed in VRCPAT.                          the arousal level is on the right of the optimal arousal level
+   The VRST utilized in the current study involves the                          in Fig. 2. Finally, the arousal level in Scenario II, which is
+subject being immersed into a virtual Humvee as it travels                      between those of Scenarios I and III, is close to or at the
+down the center of a road, during which Stroop stimuli [54]                     optimal arousal level in Fig. 2; hence, the subject should
+appear on the windshield, as shown in Fig. 3. The VRST                          have the best performance in Scenario II.
+stimuli are presented within both “safe” (low-threat) and                          A total of 19 college-aged students participated in this
+“ambush” (high-threat) settings: start section, palm am-                        experiment. Strict exclusion criteria were enforced so as to
+bush, safe zone, city ambush, safe zone, and bridge ambush.                     minimize the possible confounding effects of additional
+Low-threat zones consist of little activity aside from driving                  factors known to adversely impact a person’s ability to
+down a desert road, while the more stressful high threat                        process information, including psychiatric (e.g., mental
+zones include gunfire, explosions, and shouting among                           retardation, psychotic disorders, diagnosed learning dis-
+other stressors.                                                                abilities, attention-deficit/hyperactivity disorder, and bipo-
+   The VRST assesses simple attention, gross reading speed,                     lar disorders, as well as substance-related disorders within
+divided attentional abilities, and executive functioning. The                   2 years of evaluation) and neurologic (e.g., seizure dis-
+task requires the subject to inhibit an overlearned response                    orders, closed head injuries with loss of consciousness
+in favor of an unusual one. It takes advantage of the                           greater than 15 minutes, and neoplastic diseases) conditions.
+subject’s ability to read words more quickly and auto-                          The University of Southern California’s Institutional Review
+matically than s/he can name colors [28]. If a word is                          Board approved the study. After informed consent was
+displayed in a color different from the color it actually                       obtained, basic demographic information was obtained.
+names, for example in Fig. 3c, the word “red” is displayed
+with a blue colored font, the subject would press the button                    3    OPTIMAL AROUSAL LEVEL IDENTIFICATION
+corresponding with the word “red” more readily than s/he
+                                                                                The optimal arousal level was identified based on a subject’s
+can respond with the color in which it is displayed, which
+in this case is “blue.” The subject must correctly respond to                   test performance in the three VRST scenarios. Each subject’s
+each Stroop stimulus immediately after it appears. In the                       performance was evaluated using two criteria:
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+112                                                            IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,               VOL. 1,   NO. 2, JULY-DECEMBER 2010
+
+
+                                                                                                              TABLE 1
+                                                                                                  Mean and Standard Deviation of the
+                                                                                            Two Performance Measures in Different Scenarios
+
+
+
+
+                                                                                    performance-arousal profiles were consistent with the
+Fig. 4. Number of correct responses for the 18 subjects. Note that a                Yerkes-Dodson Law. Furthermore, 10=18  55:6% of the
+larger number of correct responses correspond to a better performance.
+                                                                                    subjects’ performance-arousal profiles satisfied our conjec-
+                                                                                    ture, that is, their optimal arousal level was close to or at the
+      . Number of correct responses, which is the number of                         arousal level elicited in Scenario II.
+        times that the subject indicated the correct color.                            The mean and standard deviation of the number of correct
+    . Reaction time, which is the time between the stimulus                         responses for all 18 subjects in one group across each of the
+        onset and the subject’s correct response. Incorrect                         three scenarios are shown in Table 1. An ANOVA showed no
+        responses were not considered in this study.                                significant affect between the number of correct responses
+Our conjecture is that Scenario II has an arousal level close                       across the three scenarios (Fð2;51Þ ¼ 2:26, p ¼ 0:1142). This
+to or at the optimal arousal level, and hence, the subject                          suggests that the number of correct responses may not be an
+should have better performance than that in Scenarios I and                         adequate performance measure for distinguishing among
+III. This conjecture is tested next using both performance                          the three arousal levels. Reaction time is a better perfor-
+                                                                                    mance measure, as we will demonstrate next.
+measures.
+                                                                                    3.2 Performance Based on the Reaction Time
+3.1   Performance Based on the Number of Correct
+      Responses                                                                     The reaction times for the 18 subjects are shown in Fig. 5.
+                                                                                    We again partitioned these 18 subjects into three groups:
+One of the 19 subjects did not respond at all in one of the
+three scenarios and was excluded as an outlier. Only the                               .    Group1: those subjects whose shortest reaction time
+remaining 18 subjects were studied in this paper.                                           was obtained in Scenario II.
+   The numbers of correct responses for the 18 subjects                                . Group2: those subjects whose shortest reaction time
+are shown in Fig. 4. We partitioned these 18 subjects into                                  was obtained in Scenario I.
+three groups:                                                                          . Group3: those subjects whose shortest reaction time
+                                                                                            was obtained in Scenario III.
+      . Group1: those subjects whose maximum number of
+                                                                                       These groups are indicated by different line patterns in
+        correct responses was obtained in Scenario II.
+                                                                                    Fig. 5. Observe that:
+   . Group2: those subjects whose maximum number of
+        correct responses was obtained in Scenario I.                                  1.    Eleven of the 18 subjects belong to Group1, i.e., their
+   . Group3: those subjects whose minimum number of                                          optimal arousal levels were elicited in Scenario II.
+        correct responses was obtained in Scenario II.                                       These subjects’ performances were consistent with
+   These groups are indicated by different line patterns in                                  the Yerkes-Dodson Law and also our conjecture.
+Fig. 4. Observe that:                                                                  2.    Four of the 18 subjects belong to Group2, i.e., their
+                                                                                             optimal arousal levels were elicited in Scenario I.
+       Ten of the 18 subjects belong to Group1, i.e., their
+      1.                                                                                     These subjects’ performances were also consistent
+       optimal arousal levels were elicited in Scenario II.                                  with the Yerkes-Dodson Law. A subject’s reaction
+       These subjects’ performances were consistent with                                     time increasing from Scenario I to II and then to III
+       the Yerkes-Dodson Law and also our conjecture.                                        means that this subject has a very low optimal
+   2. Five of the 18 subjects belong to Group2, i.e., their                                  arousal level, lower than or equal to the arousal level
+       optimal arousal levels were elicited in Scenario I.                                   elicited in Scenario I.
+       These subjects’ performances were also consistent
+       with the Yerkes-Dodson Law. A subject’s number of
+       correct responses decreasing from Scenario I to II
+       and then to III means that this subject has a very low
+       optimal arousal level, lower than or equal to the
+       arousal level elicited in Scenario I.
+   3. Three of the 18 subjects belong to Group3. These
+       subjects’ performances were inconsistent with the
+       Yerkes-Dodson Law, i.e., in theory, we should not
+       have performance that first decreases and then
+       increases as arousal increases.
+In summary, when the number of correct responses is used                            Fig. 5. Reaction time for the 18 subjects. Note that a shorter reaction
+as a performance measure, 15=18  83:3% of the subjects’                            time corresponds to a better performance.
+           Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+WU ET AL.: OPTIMAL AROUSAL IDENTIFICATION AND CLASSIFICATION FOR AFFECTIVE COMPUTING USING PHYSIOLOGICAL SIGNALS:...                                      113
+
+
+    3.   Three of the 18 subjects belong to Group3, i.e., their
+         optimal arousal levels were elicited in Scenario III.
+         These subjects’ performances were also consistent
+         with the Yerkes-Dodson Law. A subject’s reaction
+         time decreasing from Scenario I to II and then to III
+         means that this subject has a very high optimal
+         arousal level, higher than or equal to the arousal
+         level elicited in Scenario III.
+In summary, when the reaction time is used as a
+performance measure, all subjects’ performance-arousal
+profiles were consistent with the Yerkes-Dodson Law.
+Furthermore, 11=18  61:1% of the subjects’ performance-
+arousal profiles satisfied our conjecture, that is, their
+optimal arousal level was close to or at the arousal level
+elicited in Scenario II.
+   The mean and standard deviation of the reaction time for
+all 18 subjects in one group across each of these three
+scenarios are also shown in Table 1. An ANOVA showed a
+statistically significant difference between the mean reac-
+tion times across the three scenarios (Fð2;51Þ ¼ 6:02,
+p ¼ 0:0045), indicating that reaction time provides a super-
+ior performance measure to correct responses for distin-
+guishing the level of arousal. Our results also support the
+popularity of the use of reaction time in Stroop tests [28].
+
+
+4    AROUSAL CLASSIFICATION
+In the previous section, we have demonstrated that most of                        Fig. 6. The 29 features extracted from four physiological signals.
+the subjects’ performance-arousal profiles are consistent with
+the Yerkes-Dodson Law, particularly when reaction time is                                          EEG ¼ ‘‘raw’’ EEG    V EOG                          ð1Þ
+used as a performance measure. In addition, 61.1 percent of                       where
+the subjects’ performance-arousal profiles also satisfy our
+conjecture. In summary, it is possible to elicit different levels                           ¼ covðV EOG;          ‘‘raw’’ EEGÞ=varðV EOGÞ:               ð2Þ
+of arousal and identify the optimal arousal level using VRST.
+                                                                                  We then filtered each EEG channel by a [1, 30] Hz bandpass
+The next question is whether or not these arousal levels can be
+                                                                                  filter and detrended each channel within each epoch. Finally,
+recognized accurately from physiological signals. If so, then
+                                                                                  from each channel, we derived the spectral power for several
+the classifier can be used in a real-time affective computing
+                                                                                  brain activity oscillations within each epoch [34]. Specifically,
+system. This section presents our classification results using a
+                                                                                  we used the ranges [3.5, 7] Hz for theta waves, [7.5, 13.5] Hz
+SVM [5], [7], [50].
+                                                                                  for alpha waves, and [13.5, 19.5] Hz for beta waves.
+4.1 Feature Extraction                                                                After all 29 features were extracted across all epochs for
+Twenty-nine features were extracted from the data, includ-                        each subject, each feature was normalized to the interval [0, 1].
+ing three from SCL, three from RSP, two from ECG, and 21                          4.2 Feature Ranking and Selection
+from EEG, as shown in Fig. 6. To do this, the data were first
+                                                                                  Given that all of the 29 features may not be useful in
+split into overlapping 3-second epochs2 which were time
+                                                                                  classification, it is necessary to select a subset of the best
+locked to the stimulus presentation such that the epoch
+                                                                                  features because redundant features may deteriorate the
+began 1 second before the stimulus and ended 2 seconds                            classification performance while increasing the computa-
+after stimulus presentation. From the SCL and the RSP data,                       tional cost [17].
+we extracted minimum, mean, and maximum values                                       Feature ranking is often used as a preliminary step in
+throughout the epoch, while we extracted the number of                            feature selection [17]. In this paper, we rank the features
+beats per epoch and inter-beat-interval (IBI) from the ECG.                       using the iterative sequential forward selection (SFS)
+EEG was recorded at the Fp1, Fp2, Fz, Cz, Pz, O1, and O2                          method [23]. Initially, the best feature set is empty, and the
+electrode sites, based on the International 10-20 system for                      remaining feature set consists of all the 29 features. In each
+EEG electrode placement [20]. Before extracting the 21 EEG                        iteration, one feature that maximizes the fivefold cross-
+features, we first removed the ocular artifacts from EEG                          validation performance of the SVM is moved from the
+signals using the VEOG data in conjunction with the                               remaining feature set to the best feature set. SFS iterates
+regression analysis method introduced in [52]:                                    until the remaining feature set is empty, so it takes
+                                                                                  29 iterations to finish. The rank of the features is the order
+   2. This 3-second window was chosen empirically. The classification             in which they are added to the best feature set.
+performance in Section 4.3 could vary if longer scoring windows were used,
+or different window lengths were used for different features. The latter             For feature selection, we started with the single best
+approach is currently under investigation.                                        feature and gradually added the next best feature to the
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+114                                                            IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,               VOL. 1,   NO. 2, JULY-DECEMBER 2010
+
+
+                                                                   TABLE 2
+                                          Subject-Dependent Feature Selection and Classification Results
+
+
+
+
+feature subset until the fivefold cross-validation perfor-                          most important. This is reasonable, as theta waves seem to
+mance stops improving.                                                              be related to the level of arousal [15], [48]. For ECG features,
+                                                                                    IBI was much more important than Heartbeats.
+4.3 Feature Selection and Classification Results                                        In the subject-independent case, we want to study
+In this section, we present the subject-dependent and                               whether or not a subject’s arousal level in an experiment
+subject-independent classification results, respectively.                           can be predicted from other subjects’ arousal levels in the
+   In the subject-dependent case, we want to study whether                          same experiment. We used a leave-one-out cross-validation
+or not a subject’s arousal level in a new experiment can be                         approach: Each time, 17 subjects’ 50  3  17 ¼ 2;550
+predicted from his/her responses in previous experiments.                           experiments were used in training and the remaining
+So, we considered each subject separately, and trained an                           subject’s 50  3 ¼ 150 experiments were used in testing.
+SVM to classify his/her responses into three groups.                                This procedure was repeated 18 times so that all 18 subjects
+Fivefold cross-validation was used: We used 120 of the                              were tested. The average classification rate of the 18 runs
+subject’s 150 responses in feature selection and training and                       was 36.9 percent, very close to random guess. This was not
+the remaining 30 in testing, and repeated this procedure                            surprising since the selected features in the subject-
+five times until all 150 responses were tested. The features                        dependent case are quite different from subject to subject,
+selected by SVM for different subjects are shown in Table 2,                        i.e., the individual difference was too large to find a good
+and the corresponding fivefold cross-validation classifica-                         subject-independent classifier.
+tion rates are shown in the last row. An average classifica-                            In summary, it is possible to classify a subject’s arousal
+tion rate of 96.5 percent was achieved. Observe from the                            level accurately by comparing his/her responses with his/
+feature selection results that:                                                     her own previous responses, but it is difficult to do that by
+                                                                                    comparing his/her responses with other subjects’ re-
+       generally a small number of features were enough
+      1.
+                                                                                    sponses. So, in practice, it is necessary to run VRST
+       for classification, and
+                                                                                    individually for each subject in order to accurately capture
+   2. different features were used by the SVM for different
+                                                                                    his/her arousal profile.
+       subjects, a fact which is intuitively explained by
+       individual response profiles across the same phy-
+       siological signals.                                                          5    CONCLUSIONS AND FUTURE RESEARCH
+Among the four physiological signals, SCL and RSP                                   In this paper, we used the VRST from the VRCPAT, a
+features were the most important. EEG features were                                 virtual environment for assessment of neurocognitive and
+moderately important. For EEG features, among the three                             affective functioning to identify the optimal arousal level in
+waves (theta, alpha, and beta), theta waves seem to be the                          mental tasks. Two performance measures, the number of
+           Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+WU ET AL.: OPTIMAL AROUSAL IDENTIFICATION AND CLASSIFICATION FOR AFFECTIVE COMPUTING USING PHYSIOLOGICAL SIGNALS:...                                     115
+
+
+correct responses and the reaction time, were compared,                          surveys to establish the relationship between the change of
+and we found that the reaction time is a better performance                      these variables and the change of the user’s arousal level.
+measure to distinguish among different arousal levels                            We expect that it will be difficult to represent these
+experienced by users of the VRST. We also found that a                           relationships using precise functions. Linguistic rules based
+moderate level of arousal can lead to improved perfor-
+                                                                                 on interval type-2 fuzzy sets [30], [71], which are better able
+mance, as suggested by the Yerkes-Dodson Law. We have
+                                                                                 to model linguistic uncertainties than traditional fuzzy sets
+also presented a subject-dependent SVM-based classifier
+which achieved over 84 percent accuracy in distinguishing                        [70], are viewed very favorably. We have developed
+among three arousal levels using physiological signals. The                      procedures to extract such rules from databases [62], [63]
+results in this paper enable us to identify the optimal                          and surveys [31], [62], [64], and have successfully applied
+arousal levels and recognize whether or not the user is close                    the rules to social judgments [31], [62], [64].
+to or at that optimal level. These are two important steps in                       Once affect modeling is completed, we need to design a
+building a closed-loop affective computing system that                           control algorithm that changes these variables to move the
+adapts automatically to keep the user at the optimal arousal                     user’s arousal level toward the optimal level. This algo-
+level.                                                                           rithm should be able to handle individual differences, and
+                                                                                 also be able to perform the regulation smoothly and
+5.1 Future Directions                                                            quickly. Again we believe fuzzy rule-based controllers
+We have achieved a high subject-dependent classification                         [60], [66], [67], [68] are more favorable than traditional PID
+rate using SVM, but SVM is a black-box approach and,                             controllers [1], as it is difficult to represent the desired
+hence, gives us little insight about the underlying patterns                     affective/cognitive state and the user’s actual affective/
+of how subject’s physiological responses are affected by
+                                                                                 cognitive state by precise numbers.
+different arousal levels. To do this, we need more
+transparent methods. The following two approaches will
+be considered in our future research:                                            ACKNOWLEDGMENTS
+   1.   A rule-based method, where a rule in the following                       The authors would like to thank the associate editor and the
+        form is constructed for each physiological feature:                      anonymous reviewers, whose comments have helped
+           IF feature > threshold1, THEN Class1; IF feature <                    improve this paper significantly. Dongrui Wu was with
+        threshold2, THEN Class2; Otherwise, Class3.                              the Institute for Creative Technologies and the Signal
+           The thresholds can be found from the distribution                     Analysis and Interpretation Laboratory, University of
+        of the feature. If we use the 29 features above, then                    Southern California. Brent J. Lance was with the University
+        we will have 29 such rules. These rules could be                         of California’s Institute for Creative Technologies.
+        combined using majority vote.
+    2. A Naive Bayes approach [10], where we assume that
+        the features are independent of each other and find
+                                                                                 REFERENCES
+        the class using the maximum a posteriori (MAP) rule.                     [1]    K. Astrom and T. Hagglund, Advanced PID Control. ISA Press,
+                                                                                        2006.
+    When reaction time is used as a performance measure, we                      [2]    C. Breazeal, “Emotion and Sociable Humanoid Robots,” Int’l J.
+are able to identify that 61.1-percent subjects have optimal                            Human-Computer Studies, vol. 59, nos. 1/2, pp. 119-155, 2003.
+                                                                                 [3]    G. Bush, P. Luu, and M.I. Posner, “Cognitive and Emotional
+arousal level at or close to that elicited in Scenario II. The                          Influences in Anterior Cingulate Cortex,” Trends in Cognitive
+optimal arousal levels for the rest 38.9-percent subjects are                           Sciences, vol. 4, no. 6, pp. 215-222, 2000.
+either no higher than that elicited in Scenario I or no lower                    [4]    C. Busso, Z. Deng, S. Yildirim, M. Bulut, C.M. Lee, A.
+than that elicited in Scenario III. To accurately identify the                          Kazemzadeh, S. Lee, U. Neumann, and S.S. Narayanan, “Analysis
+                                                                                        of Emotion Recognition Using Facial Expressions, Speech and
+optimal arousal level for all subjects, we need to increase the                         Multimodal Information,” Proc. Int’l Conf. Multimodal Interfaces,
+range of elicitable arousal levels in our future development of                         pp. 205-211, Oct. 2004.
+VRST. Additionally, currently VRST uses virtual Iraqi/                           [5]    C.-C. Chang and C.-J. Lin, “LIBSVM: A Library for Support Vector
+                                                                                        Machines,” http://www.csie.ntu.edu.tw/cjlin/libsvm, 2009.
+Afghani scenarios. Whether or not the optimal arousal levels
+                                                                                 [6]    C. Conati, “Probabilistic Assessment of Users Emotions in
+identified from these scenarios are identical or close to those                         Educational Games,” Applied Artificial Intelligence, vol. 16,
+in other scenarios, e.g., classroom, games, or everyday life, is                        nos. 7/8, pp. 555-575, 2002.
+also worth investigation.                                                        [7]    C. Cortes and V. Vapnik, “Support-Vector Network,” Machine
+                                                                                        Learning, vol. 20, pp. 273-297, 1995.
+    Our research goal is to fully implement a closed-loop                        [8]    R. Cowie and R. Cornelius, “Describing the Emotional States
+affective computing system, as shown in Fig. 1. So far, we                              That Are Expressed in Speech,” Speech Comm., vol. 40, pp. 5-
+have been able to construct the input signal, i.e., we can                              32, 2003.
+                                                                                 [9]    S.D. Craig, A.C. Graesser, J. Sullins, and B. Gholson, “Affect and
+identify the optimal arousal level, and we have also been able
+                                                                                        Learning: An Exploratory Look into the Role of Affect in Learning
+to recognize the user’s actual arousal level from physiological                         with Autotutor,” J. Educational Media, vol. 29, no. 3, pp. 241-250,
+signals. Our future research will focus on the other two                                2004.
+essential blocks of the closed-loop affective computing                          [10]   R.O. Duda, P.E. Hart, and D.G. Stork, Pattern Classification. Wiley-
+                                                                                        Interscience, 2000.
+system, i.e., affect modeling and controller design.                             [11]   S.H. Fairclough, “Fundamentals of Physiological Computing,”
+    For affect modeling, we need to model the relationship                              Interacting with Computers, vol. 21, pp. 133-145, 2009.
+between the environment surrounding the user and the                             [12]   B. Fasel and J. Luettin, “Automatic Facial Expression Analysis: A
+change of the user’s affect. For example, in games, possible                            Survey,” Pattern Recognition, vol. 36, no. 1, pp. 259-275, 2003.
+                                                                                 [13]   T. Fong, I. Nourbakhsh, and K. Dautenhahn, “A Survey of
+environment parameters are difficulty levels, music, back-                              Socially Interactive Robots,” Robotics and Autonomous Systems,
+ground color, etc. We need to perform experiments or                                    vol. 42, nos. 3/4, pp. 143-166, 2003.
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+116                                                         IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,               VOL. 1,   NO. 2, JULY-DECEMBER 2010
+
+[14] K. Gilleade, A. Dix, and J. Allanson, “Affective Videogames and             [38] T. Parsons, C. Courtney, L. Cosand, A. Iyer, A. Rizzo, and K. Oie,
+     Modes of Affective Gaming: Assist Me, Challenge Me, Emote                        “Assessment of Psychophysiological Differences of West Point
+     Me,” Proc. Digital Games Research Assoc. Conf., pp. 16-20, June 2005.            Cadets and Civilian Controls Immersed within a Virtual Environ-
+[15] J. Green and A. Arduini, “Hippocampal Activity in Arousal,”                      ment,” Proc. Fifth Int’l Conf. Foundations of Augmented Cognition.
+     J. Neurophysiology, vol. 17, no. 6, pp. 533-557, 1954.                           Neuroergonomics and Operational Neuroscience, pp. 514-523, 2009.
+[16] M. Grimm, K. Kroschel, E. Mower, and S.S. Narayanan,                        [39] T. Parsons and A. Rizzo, “Initial Validation of a Virtual
+     “Primitives-Based Evaluation and Estimation of Emotions in                       Environment for Assessment of Memory Functioning: Virtual
+     Speech,” Speech Comm., vol. 49, pp. 787-800, 2007.                               Reality Cognitive Performance Assessment Test,” Cyberpsychology
+[17] I. Guyon and A. Ellisseeff, “An Introduction to Variable and                     and Behavior, vol. 11, pp. 17-25, 2008.
+     Feature Selection,” J. Machine Learning Research, vol. 3, pp. 1157-         [40] T.D. Parsons, A. Iyer, L. Cosand, C. Courtney, and A.A. Rizzo,
+     1182, 2003.                                                                      “Neurocognitive and Psychophysiological Analysis of Human
+[18] J.L. Herman, “Complex PTSD: A Syndrome in Survivors of                           Performance within Virtual Reality Environments,” Studies Health
+     Prolonged and Repeated Trauma,” J. Traumatic Stress, vol. 5, no. 3,              Technology and Informatics, vol. 142, pp. 247-252, 2009.
+     pp. 377-391, 1992.                                                          [41] T.D. Parsons and A.A. Rizzo, “Affective Outcomes of Virtual
+[19] Y. Hoshikawa and Y. Yamamoto, “Effects of Stroop Color-Word                      Reality Exposure Therapy for Anxiety and Specific Phobias: A
+     Conflict Test on the Autonomic Nervous System Responses,”                        Meta-Analysis,” J. Behavior Therapy and Experimental Psychiatry,
+     AJP—Heart and Circulatory Physiology, vol. 272, no. 3, pp. 1113-                 vol. 39, pp. 250-261, 2008.
+     1121, 1997.                                                                 [42] R. Picard, Affective Computing. The MIT Press, 1997.
+[20] H. Jasper, “The Ten-Twenty Electrode System of the International            [43] R. Picard, “Affective Medicine: Technology with Emotional
+     Federation,” Recommendations for the Practice of Clinical Neurophy-              Intelligence,” Future of Health Technology, R. Bushko, ed., pp. 69-
+     siology, Elsevier Publishing Company, 1983.                                      83, IOS Press, 2002.
+[21] R. Kehrein, “The Prosody of Authentic Emotions,” Proc. Speech               [44] R. Picard, S. Papert, W. Bender, B. Blumberg, C. Breazeal, D.
+     Prosody Conf., pp. 423-426, Apr. 2002.                                           Cavallo, T. Machover, M. Resnick, D. Roy, and C. Strohecker,
+[22] J. Kim and E. Andre, “Fusion of Multichannel Biosignals Towards                  “Affective Learning a Manifesto,” BT Technology J., vol. 22, no. 4,
+     Automatic Emotion Recognition,” Multisensor Fusion and Integra-                  pp. 253-269, 2004.
+     tion for Intelligent Systems, S. Lee, H. Ko, and H. Hahn, eds., pp. 55-     [45] H. Prendinger and M. Ishizuka, “What Affective Computing and
+     68, Springer-Verlag, 2009.                                                       Life-Like Character Technology Can Do for Tele-Home Health
+[23] J. Kittler, “Feature Set Search Algorithms,” Pattern Recognition and             Care,” Proc. Workshop HCI and Homecare, Apr. 2004.
+     Signal Processing, C.H. Chen, ed., pp. 41-60, Springer, 1978.               [46] P. Rani, C. Liu, N. Sarkar, and E. Vanman, “An Empirical Study of
+[24] C.M. Lee and S.S. Narayanan, “Toward Detecting Emotions in                       Machine Learning Techniques for Affect Recognition in Human-
+     Spoken Dialogs,” IEEE Trans. Speech and Audio Processing, vol. 13,               Robot Interaction,” Pattern Analysis and Application, vol. 9, no. 1,
+     no. 2, pp. 293-303, Mar. 2005.                                                   pp. 58-69, 2006.
+[25] M. Liotti, M.G. Woldorff, R. Perez, and H.S. Mayberg, “An ERP               [47] J.A. Russell, “Core Affect and the Psychological Construction of
+     Study of the Temporal Course of the Stroop Color-Word                            Emotion,” Psychological Rev., vol. 110, pp. 145-172, 2003.
+     Interference Effect,” Neuropsychologia, vol. 38, no. 5, pp. 701-711,        [48] S. Sanei and J.A. Chambers, EEG Signal Processing. John Wiley &
+     2000.                                                                            Sons, 2007.
+[26] C. Lisetti and C. LeRouge, “Affective Computing in Tele-Home                [49] K. Scherer, “What Are Emotions? And How Can They Be
+     Health,” Proc. 37th Hawaii Int’l Conf. System Sciences, p. 8, Jan.               Measured?” Social Science Information, vol. 44, no. 4, pp. 695-729,
+     2004.                                                                            2005.
+[27] C. Liu, P. Agrawal, N. Sarkar, and S. Chen, “Dynamic Difficulty
+                                                                                 [50] B. Scholkopf, A. Smola, R.C. Williamson, and P.L. Bartlett, “New
+     Adjustment in Computer Games through Real-Time Anxiety-
+                                                                                      Support Vector Algorithms,” Neural Computation, vol. 12, pp. 1207-
+     Based Affective Feedback,” Int’l J. Human-Computer Interaction,
+                                                                                      1245, 2000.
+     vol. 25, no. 6, pp. 506-529, 2009.
+                                                                                 [51] B. Schuller, M. Lang, and G. Rigoll, “Recognition of Spontaneous
+[28] C.M. MacLeod, “Half a Century of Research on the Stroop Effect:
+                                                                                      Emotions by Speech within Automotive Environment,” Proc.
+     An Integrative Review,” Psychological Bull., vol. 109, no. 2, pp. 163-
+                                                                                      German Ann. Conf. Acoustics, pp. 57-58, Mar. 2006.
+     203, 1991.
+                                                                                 [52] H.V. Semltsch, P. Anderer, P. Schuster, and O. Presslich, “A
+[29] C. Magerkurth, A. Cheok, R. Mandryk, and T. Nilsen, “Pervasive
+                                                                                      Solution for Reliable and Valid Reduction of Ocular Artifacts,
+     Games: Bringing Computer Entertainment Back to the Real
+                                                                                      Applied to the P300 ERP,” Psychophysiology, vol. 23, no. 6, pp. 695-
+     World,” ACM Computers in Entertainment, vol. 3, no. 3, pp. 11-29,
+                                                                                      703, 1986.
+     2005.
+[30] J.M. Mendel, Uncertain Rule-Based Fuzzy Logic Systems: Introduction         [53] N. Serbedzija and S. Fairclough, “Biocybernetic Loop: From
+     and New Directions. Prentice-Hall, 2001.                                         Awareness to Evolution,” Proc. IEEE Congress Evolutionary
+[31] J.M. Mendel and D. Wu, Perceptual Computing: Aiding People in                    Computation, pp. 2063-2069, May 2009.
+     Making Subjective Judgments. Wiley-IEEE Press, 2010.                        [54] J. Stroop, “Studies of Interference in Serial Verbal Reactions,”
+[32] A. Metallinou, S. Lee, and S.S. Narayanan, “Decision Level                       J. Experimental Psychology, vol. 18, pp. 643-661, 1935.
+     Combination of Multiple Modalities for Recognition and Analysis             [55] J. Sykes and S. Brown, “Affective Gaming: Measuring Emotion
+     of Emotional Expression,” Proc. Int’l Conf. Acoustics, Speech, and               through the Gamepad,” Proc. Conf. Human Factors, pp. 732-733,
+     Signal Processing, pp. 2462-2465, Mar. 2010.                                     Apr. 2003.
+[33] J. Morton and S.M. Chambers, “Selective Attention to Words and              [56] A. Tan and R. Muhlberger, “From Operator to Interaction:
+     Colors,” The Quarterly J. Experimental Psychology, vol. 25, no. 3,               Designing an Affective Computing System for Interactive Light-
+     pp. 387-397, 1973.                                                               ing,” Proc. Computer/Human Interaction Conf., Apr. 2009.
+[34] M. Nuwer, “Quantitative EEG: I. Techniques and Problems of                  [57] J. Tao and T. Tan, “Affective Computing: A Review,” Affective
+     Frequency Analysis and Topographic Mapping,” J. Clinical                         Computing and Intelligent Interaction, pp. 981-995, Springer, 2005.
+     Neurophysiology, vol. 5, no. 1, pp. 1-43, 1988.                             [58] S. Taylor, S. Kornblum, E.J. Lauber, S. Minoshima, and R.A.
+[35] M. Pantic and L.J. Rothkrantz, “Automatic Analysis of Facial                     Koeppe, “Isolation of Specific Interference Processing in the
+     Expressions: The State of the Art,” IEEE Trans. Pattern Analysis and             Stroop Task: PET Activation Studies,” Neuroimage, vol. 6, no. 2,
+     Machine Intelligence, vol. 22, no. 12, pp. 1424-1445, Dec. 2000.                 pp. 81-92, 1997.
+[36] J.V. Pardo, P.J. Pardo, K.W. Janer, and M.E. Raichle, “The Anterior         [59] E. Vesterinen, “Affective Computing,” Proc. Digital Media Research
+     Cingulate Cortex Mediates Processing Selection in the Stroop                     Seminar, 2001.
+     Attentional Conflict Paradigm,” Proc. Nat’l Academy of Sciences             [60] L.-X. Wang, Adaptive Fuzzy Systems and Control: Design and Stability
+     USA, vol. 87, no. 1, pp. 256-259, 1990.                                          Analysis. Prentice Hall, 1994.
+[37] T. Parsons, L. Cosand, C. Courtney, A. Iyer, and A. Rizzo,                  [61] P.J. Whalen, G. Bush, R.J. McNally, S. Wilhelm, S.C. McInerney,
+     “Neurocognitive Workload Assessment Using the Virtual Reality                    M.A. Jenike, and S.L. Rauch, “The Emotional Counting Stroop
+     Cognitive Performance Assessment Test,” Proc. Eighth Int’l Conf.                 Paradigm: A Functional Magnetic Resonance Imaging Probe of
+     Eng. Psychology and Cognitive Ergonomics, pp. 243-252, 2009.                     the Anterior Cingulate Affective Division,” Biological Psychiatry,
+                                                                                      vol. 44, no. 12, pp. 1219-1228, 1998.
+                                                                                 [62] D. Wu, “Intelligent Systems for Decision Support,” PhD disserta-
+                                                                                      tion, Univ. of Southern California, May 2009.
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+WU ET AL.: OPTIMAL AROUSAL IDENTIFICATION AND CLASSIFICATION FOR AFFECTIVE COMPUTING USING PHYSIOLOGICAL SIGNALS:...                                     117
+
+[63] D. Wu and J.M. Mendel, “Linguistic Summarization Using IF-                                        Brent J. Lance received the PhD degree in
+     THEN Rules and Interval Type-2 Fuzzy Sets,” IEEE Trans. Fuzzy                                     computer science from the Information Sciences
+     Systems, to appear, 2010.                                                                         Institute at the University of Southern California,
+[64] D. Wu and J.M. Mendel, “Social Judgment Advisor: An Applica-                                      and did postdoctoral research at the Institute for
+     tion of the Perceptual Computer,” Proc. IEEE World Congress on                                    Creative Technologies and also at the University
+     Computational Intelligence, July 2010.                                                            of Southern California. He is currently a compu-
+[65] D. Wu, T.D. Parsons, E. Mower, and S.S. Narayanan, “Speech                                        ter scientist in the Translational Neuroscience
+     Emotion Estimation in 3D Space,” Proc. IEEE Int’l Conf. Multimedia                                Branch at the Army Research Laboratory at the
+     and Expo, pp. 737-742, July 2010.                                                                 Aberdeen Proving Grounds, Maryland. His
+[66] D. Wu and W.W. Tan, “Type-2 FLS Modeling Capability                                               research focuses on the use of virtual reality in
+     Analysis,” Proc. IEEE Int’l Conf. Fuzzy Systems, pp. 242-247, May           affective computing and neuroscience. He is a member of the IEEE.
+     2005.
+[67] D. Wu and W.W. Tan, “Genetic Learning and Performance                                              Shrikanth (Shri) S. Narayanan is currently the
+     Evaluation of Type-2 Fuzzy Logic Controllers,” Eng. Applications                                   Andrew J. Viterbi professor of engineering at the
+     of Artificial Intelligence, vol. 19, no. 8, pp. 829-841, 2006.                                     University of Southern California (USC), and
+[68] D. Wu and W.W. Tan, “Interval Type-2 Fuzzy PI Controllers: Why                                     holds appointments as a professor of electrical
+     They Are More Robust,” Proc. IEEE Int’l. Conf. Granular Comput-                                    engineering, computer science, and linguistics
+     ing, pp. 802-807, Aug. 2010.                                                                       and psychology, and as the founding director of
+[69] R. Yerkes and J. Dodson, “The Relation of Strength of Stimulus to                                  the Ming Hsieh Institute. Prior to USC, he was
+     Rapidity of Habit-Formation,” J. Comparative Neurology and                                         with AT&T Bell Labs and AT&T Research from
+     Psychology, vol. 18, pp. 459-482, 1908.                                                            1995 to 2000. At USC, he directs the Signal
+[70] L.A. Zadeh, “Fuzzy Sets,” Information and Control, vol. 8, no. 3,                                  Analysis and Interpretation Laboratory (SAIL).
+     pp. 338-353, 1965.                                                          His research focuses on human-centered information processing and
+[71] L.A. Zadeh, “The Concept of a Linguistic Variable and Its                   communication technologies, with a special emphasis on behavioral
+     Application to Approximate Reasoning-1,” Information Sciences,              signal processing and informatics. He is a fellow of the IEEE, the
+     vol. 8, no. 3, pp. 199-249, 1975.                                           Acoustical Society of America, and the American Association for the
+[72] Z. Zeng, M. Pantic, G.I. Roisman, and T.S. Huang, “A Survey of              Advancement of Science (AAAS), and a member of Tau Beta Pi, Phi
+     Affect Recognition Methods: Audio, Visual, and Spontaneous                  Kappa Phi, and Eta Kappa Nu. He is also an editor for the Computer
+     Expressions,” IEEE Trans. Pattern Analysis and Machine Intelligence,        Speech and Language journal and an associate editor for the IEEE
+     vol. 31, no. 1, pp. 39-58, Jan. 2009.                                       Transactions on Multimedia, the IEEE Transactions on Affective
+                                                                                 Computing, and the Journal of the Acoustical Society of America. He
+                          Dongrui Wu received the BE degree in auto-             was previously an associate editor of the IEEE Transactions on Speech
+                          matic control from the University of Science and       and Audio Processing (2000-2004) and IEEE Signal Processing
+                          Technology of China, Hefei, Anhui, P.R. China,         Magazine (2005-2008). He is the recipient of a number of honors,
+                          in 2003. He received the ME degree in electrical       including Best Paper Awards from the IEEE Signal Processing Society in
+                          engineering from the National University of            2005 (with Alex Potamianos) and in 2009 (with Chul Min Lee), and
+                          Singapore in 2005, and the PhD degree in               selection as an IEEE Signal Processing Society Distinguished Lecturer
+                          electrical engineering from the University of          for 2010-2011. He has published more than 400 papers and has eight
+                          Southern California, Los Angeles, in 2009. He          granted US patents.
+                          was a postdoctoral research associate in the
+                          Institute for Creative Technologies and the                                      Michael E. Dawson received the PhD degree in
+Signal Analysis and Interpretation Laboratory, Viterbi School of                                           1967 and has been a member of the faculty of
+Engineering, University of Southern California. He is currently working                                    the Department of Psychology at the University
+at the Industrial Artificial Intelligence Laboratory, GE Global Research,                                  of Southern California since 1984. His research
+Niskayuna, New York. His main research interests include affective                                         and teaching specialty is in the area of psycho-
+computing, computational intelligence, human-machine interaction,                                          physiology. He has studied the psychophysiol-
+intelligent control, machine learning, and speech and physiological                                        ogy of schizophrenia and has also published
+signal processing. He has more than 30 publications, including a book                                      widely on psychophysiological measures of
+Perceptual Computing: Aiding People in Making Subjective Judgments                                         conditioning, emotion, and attention. His labora-
+(with J.M. Mendel, Wiley-IEEE, 2010), and the Best Student Paper                                           tory is currently involved in studying the psycho-
+Award from the IEEE International Conference on Fuzzy Systems in                 physiology and neurophysiology of the learning of emotions and
+2005. He is a member of the IEEE.                                                specifically their relations to phobias. He was coauthor of the book
+                                                                                 Emotions and Bodily Responses and was coeditor of the book Startle
+                         Christopher G. Courtney is currently working in         Modification: Implications for Neuroscience, Cognitive Science, and
+                         collaboration with the University of Southern           Clinical Science. He was the recipient of two prestigious awards from the
+                         California’s Institute for Creative Technologies        US National Institutes of Mental Health: 1) the Research Scientist
+                         as a cognitive neuroscience doctoral candidate          Development Award and 2) the MERIT Award. He was elected the
+                         in the Psychology Department at the University          president of the Society for Psychophysiological Research and he also
+                         of Southern California. He is a member of the           served on the Board of Directors for both the Society for Psychophy-
+                         NeuroSim Laboratory, and specializes in using           siological Research and the Society for Research in Psychopathology.
+                         psychophysiological measurement techniques              He served as an associate editor of Psychophysiology, the premier
+                         to study various psychological phenomena. His           journal in the field, and continues to serve as a consulting editor for
+                         current research includes understanding the             many psychological journals. He is currently a charter member and
+psychophysiological correlates of virtual reality exposure to work toward        fellow of the Association for Psychological Science.
+the development of a psychophysiologically based human-computer
+interface. His main interests include developing techniques to score and
+analyze physiological data in real time in order to make changes in
+virtual environments based on the users psychophysiological responses.
+
+
+
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+118                                                         IEEE TRANSACTIONS ON AFFECTIVE COMPUTING,               VOL. 1,   NO. 2, JULY-DECEMBER 2010
+
+                        Kelvin S. Oie received the PhD degree in                                       Thomas D. Parsons is the director of the
+                        neuroscience and cognitive sciences from the                                   Neuroscience and Simulation (NeuroSim) La-
+                        University of Maryland, College Park, in the fall of                           boratory, an assistant research professor, and a
+                        2006. He was awarded a graduate fellowship in                                  research scientist at the University of Southern
+                        1999 from the University of Maryland. He is                                    California’s Institute for Creative Technologies.
+                        serving as the research kinesiologist at the US                                He has currently designed the Virtual Reality
+                        Army Research Laboratory (ARL) which he                                        Stroop Task. In addition to his patents (with
+                        joined in December 2004 as part of the Human                                   eHarmony.com), he has published more than
+                        Research and Engineering Directorate (HRED).                                   100 papers in peer-reviewed journals and other
+                        He is currently the lead scientist and manager of                              forums. His research focuses on human-com-
+a multiyear, multiorganization, applied research program examining a             puter interface research with adaptive virtual environments and
+broad range of issues related to dynamic task loading and neurocognitive         advanced conversational virtual human agents that have been applied
+performance, with an emphasis on measurement and understanding of                to medical and mental health applications.
+brain behavior in real-world task environments. His previous research
+examined adaptive processes in human multisensory integration.
+                                                                                 . For more information on this or any other computing topic,
+                                                                                 please visit our Digital Library at www.computer.org/publications/dlib.
+
+
+
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:12:48 UTC from IEEE Xplore. Restrictions apply.
+

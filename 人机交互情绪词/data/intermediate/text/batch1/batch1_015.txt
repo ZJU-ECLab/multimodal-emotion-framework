@@ -1,0 +1,921 @@
+                                                        Author's personal copy
+
+
+                                                               Learning and Instruction 22 (2012) 145e157
+
+
+
+                                                      Contents lists available at SciVerse ScienceDirect
+
+
+                                                          Learning and Instruction
+                                         journal homepage: www.elsevier.com/locate/learninstruc
+
+
+
+
+Dynamics of affective states during complex learning
+Sidney D’Mello*, Art Graesser
+202 Psychology Building, The University of Memphis, Memphis, TN 38152, USA
+
+
+
+
+a r t i c l e i n f o                                a b s t r a c t
+
+Article history:                                     We propose a model to explain the dynamics of affective states that emerge during deep learning
+Received 29 August 2010                              activities. The model predicts that learners in a state of engagement/ﬂow will experience cognitive
+Received in revised form                             disequilibrium and confusion when they face contradictions, incongruities, anomalies, obstacles to goals,
+3 October 2011
+                                                     and other impasses. Learners revert into the engaged/ﬂow state if equilibrium is restored through
+Accepted 4 October 2011
+                                                     thought, reﬂection, and problem solving. However, failure to restore equilibrium as well as obstacles that
+                                                     block goals trigger frustration, which, if unresolved, will eventually lead to boredom. The major
+Keywords:
+                                                     hypotheses of the model were supported in two studies in which participants completed a 32e35 min
+Affective states
+Affective dynamics
+                                                     tutoring session with a computer tutor. Their affective states were tracked at approximately 110 points in
+Emotions                                             their tutoring sessions via a retrospective affect judgment protocol. Time series analyses conﬁrmed the
+Confusion                                            presence of confusioneengagement/ﬂow, boredomefrustration, and confusionefrustration oscillations.
+Cognitive disequilibrium                             We discuss enhancements of the model to address individual differences and pedagogical and motiva-
+                                                     tional strategies that are inspired by the model.
+                                                                                                                       Ó 2011 Elsevier Ltd. All rights reserved.
+
+
+
+
+1. Introduction                                                                       referential processing (Clore & Huntsinger, 2007; Fielder, 2001;
+                                                                                      Fredrickson & Branigan, 2005; Isen, 2008; Schwarz, in press).
+    Efforts to learn difﬁcult subject matter at deeper levels of                          The inextricable link between affect and cognition is a funda-
+comprehension involve a complex coordination of cognitive                             mental assumption adopted by the major theories of emotion.
+processes and affective states. Cognitive processes that underlie                     Although the contemporary theories of emotion (Barrett, 2009;
+inference generation, causal reasoning, problem diagnosis,                            Frijda, 2009; Izard, 2007; Russell, 2003; Scherer, 2009) convey
+conceptual comparisons, and coherent explanation generation are                       general links between cognitive processes and affective states,
+accompanied by affective states such as irritation, frustration,                      they do not directly explain and predict the sort of emotions that
+anger, and sometimes rage when the learner makes mistakes,                            occur during complex learning (described below in Scope of the
+struggles with troublesome impasses, and experiences failure. On                      Model subsection), such as attempts to master physics, biology,
+the other hand, positive affective states such as ﬂow, delight,                       or critical thinking skills. Fortunately, theoretical frameworks that
+excitement, and eureka are experienced when tasks are completed,                      predict systematic relationships between affective and cognitive
+challenges are conquered, insights are unveiled, and major                            states during complex learning are beginning to emerge in the
+discoveries are made. Simply put, emotions are systematically                         ﬁelds of psychology (Deci & Ryan, 2002; Dweck, 2002;
+affected by the knowledge and goals of the learner, as well as vice                   Immordino-Yang & Damasio, 2007), education (Buff, Reusser,
+versa (Mandler, 1976, 1999; Stein & Levine, 1991). Cognitive activ-                   Rakoczy, & Pauli, 2011; Csikszentmihalyi, 1990; Huk & Ludwigs,
+ities such as causal reasoning, deliberation, goal appraisal, and                     2009; Linnenbrink, 2006; Meyer & Turner, 2006; Schutz &
+planning processes operate continually throughout the experience                      Pekrun, 2007), and artiﬁcial intelligence in education (Calvo &
+of emotion. For example, ﬂexibility, creative thinking, efﬁcient                      D’Mello, 2011; Conati & Maclaren, 2009; Forbes-Riley & Litman,
+decision-making, and conceptually-driven relational thinking have                     2010). Emotion research in education during the last century
+been linked to positive affect, while negative affect has been                        mainly focused on test anxiety or motivation-based traits, whereas
+associated with narrower localized attention and stimulus-driven                      researchers in the last decade have begun to investigate a much
+                                                                                      broader set of academic emotions.
+                                                                                          Pekrun (2010) has classiﬁed academic emotions into four cate-
+                                                                                      gories that include achievement emotions, topic emotions, social
+ * Corresponding author. Tel.: þ1 901 378 0531.                                       emotions, and epistemic emotions. Achievement emotions
+   E-mail addresses: sdmello@memphis.edu, sidney.dmello@gmail.com (S. D’Mello).       (e.g., contentment, anxiety, and frustration) are linked to learning
+
+0959-4752/$ e see front matter Ó 2011 Elsevier Ltd. All rights reserved.
+doi:10.1016/j.learninstruc.2011.10.001
+                                                   Author's personal copy
+
+
+146                                          S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+
+activities (e.g., homework, taking a test) and outcomes (e.g.,                    focuses on whether a learner is generally in either a positive or
+success, failure), whereas topic emotions are aligned with the                    negative mood during an entire learning session is also unsatis-
+learning topic (e.g., empathy for a protagonist while reading classic             factory, because learners oscillate between positive and negative
+literature). On the other hand, social emotions such as pride, shame,             states throughout the session. What is required is a ﬁne-grained
+and jealousy are not directly related to the topic but reﬂect the fact            analysis of the rapid dynamics of both positive and negative
+that educational activities are socially situated. Finally, epistemic             affective states that naturally occur during effortful learning
+emotions arise from cognitive information processing, such as                     activities. The present paper presents such a model and reports two
+surprise when novelty is encountered or confusion when the                        studies that empirically test its major predictions.
+student experiences an impasse. According to the controlevalue
+theory, these academic emotions arise from cognitive appraisals of                2. A model of affective dynamics during learning
+control over the learning task and value in the learning activity,
+with reciprocal connections between the emotions, their anteced-                      The proposed model highlights the critical role of cognitive
+ents, and their consequents (Pekrun, 2006).                                       disequilibrium in driving deep learning and inquiry. Cognitive
+    The emerging research on student emotions in classrooms                       disequilibrium is a state of uncertainty that occurs when an indi-
+focuses on a broad array of affective responses that are elicited in              vidual is confronted with obstacles to goals, interruptions of orga-
+a number of learning contexts. Other research has focused on                      nized action sequences, impasses, contradictions, anomalous
+a more in-depth analysis of a smaller set of emotions that arise                  events, dissonance, incongruities, unexpected feedback, uncer-
+during deep learning in more restricted contexts and over shorter                 tainty, deviations from norms, and novelty. The importance of
+time spans, from 30-min to 1.5 h (Baker, D’Mello, Rodrigo, &                      cognitive disequilibrium in learning and problem solving has a long
+Graesser, 2010; Conati & Maclaren, 2009; Forbes-Riley & Litman,                   history in psychology that spans the developmental, social, and
+2010; Rodrigo & Baker, 2011; Woolf et al., 2009). These learning                  cognitive sciences (Berlyne, 1978; Chinn & Brewer, 1993; Collins,
+contexts include a multitude of computer environments, such as                    Warnock, Aiello, & Miller, 1975; Festinger, 1957; Graesser & Olde,
+preparation for high-stakes test taking, problem solving, reading                 2003; Laird, Newell, & Rosenbloom, 1987; Miyake & Norman, 1979;
+comprehension, and essay writing. The emotions that appear to be                  Piaget, 1952; Schank, 1999). The notion that cognitive disequilib-
+prominent in these learning sessions include boredom, engage-                     rium extends beyond cognition and into emotions has also been
+ment/ﬂow, confusion, frustration, anxiety, curiosity, delight, and                acknowledged and investigated for decades (Festinger, 1957;
+surprise (see Calvo & D’Mello, 2011).                                             Graesser, Lu, Olde, Cooper-Pye, & Whitten, 2005; Lazarus, 1991;
+    The deﬁnitions of most of these learning-centered affect states               Mandler, 1976; Piaget, 1952). What is less clear, however, is the
+are well known, but confusion and engagement/ﬂow require some                     trajectory of cognitive-affective states that are spawned by cognitive
+clariﬁcation. Although most would agree that confusion is not                     disequilibrium and how these trajectories impact learning and
+a ‘basic’ emotion (e.g., anger, disgust, sadness, fear) (Ekman, 1992),            problem solving. It is this trajectory of affective states that is the
+there is some debate about classifying confusion as either an                     focus of the present paper.
+emotion (Keltner & Shiota, 2003; Rozin & Cohen, 2003; Silvia,                         The proposed model posits that the complex interplay between
+2009), an epistemic affective state (Pekrun, 2010), or a mere                     external events that trigger impasses and obstacles that block goals,
+cognitive state (Clore & Huntsinger, 2007). The present paper                     coupled with goal appraisal (Mandler, 1999; Stein & Levine, 1991),
+considers confusion to be an epistemic affective state and refers to              cognitive disequilibrium (Chinn & Brewer, 1993; Graesser, Lu, et al.,
+the entire set of states under consideration in this article (boredom,            2005; Graesser & Olde, 2003; Piaget, 1952), and impasse resolution
+confusion, etc.) as affective states or cognitive-affective mixtures              (Siegler & Jenkins, 1989; VanLehn, Siler, Murray, Yamauchi, &
+instead of emotions perse.                                                        Baggett, 2003), is the key to understanding the affective states that
+    Engagement/ﬂow is a cognitive-affective state that sometimes                  underlie complex learning. The model is presented in Fig. 1 in the
+has a short time span, but at other times forms part of                           form of a state transition network. The nodes (circles) in the ﬁgure
+Csikszentmihalyi’s (1990) conception of ﬂow (Baker et al., 2010). It              represent the affective states (in parentheses) and their presumed
+is important to point out that a learner can be engaged without                   causes (in bold). Links represent situations that trigger transitions
+necessarily experiencing ﬂow; for example, being engaged in order                 between the different states. Solid links represent primary compo-
+to avoid failure when one is anxious. Quite different from this form              nents of the model, whereas other (dashed) links are secondary.
+of engagement, we conceptualize engagement/ﬂow as a state of                          The model assumes that learners are typically in a prolonged
+engagement with a task such that concentration is intense, atten-                 state of either (a) engagement/ﬂow as they pursue the superordi-
+tion is focused, and involvement is complete. However, it need not                nate learning goal of mastering the material in the learning envi-
+involve some of the task-related aspects which Csikszentmihalyi                   ronment or (b) disengagement (boredom) when they abandon
+(1975) associates with ﬂow, such as clear goals, balanced chal-                   pursuit of the superordinate learning goal. When learners are
+lenge, or direct and immediate feedback. It also may not involve                  deeply engaged, they attempt to assimilate new information into
+some of the aspects of Csikszentmihalyi’s conceptualization that                  existing knowledge schemas. When new or discrepant information
+refer to extreme intensity to the extent that there is time distortion            is detected, attention shifts to the discrepant information, the
+or loss of self-consciousness. Such intense ﬂow experiences would                 autonomic nervous system increases in arousal, and the learner
+be welcome, but are rare in the learning environments under                       experiences a variety of possible affective states, depending on the
+investigation in the present study.                                               context, the amount of change, and whether important goals are
+    The identiﬁcation of the affective states that occur during                   blocked (Mandler, 1984, 1999; Stein & Levine, 1991).
+learning is critical, but it could be argued that merely knowing what                 Learners experience cognitive disequilibrium when they are
+states occur has limited utility. What is missing is a speciﬁcation of            confronted with a contradiction, anomaly, system breakdown, or
+how these states evolve, morph, interact, and inﬂuence learning                   error, and when they are uncertain about what to do next (Carroll &
+and engagement. An analysis of mood states during a learning                      Kay, 1988; Graesser, Lu, et al., 2005; Graesser & Olde, 2003; Siegler
+session will not sufﬁce, because states such as confusion, frustra-               & Jenkins, 1989; VanLehn et al., 2003). Confusion is a key signature
+tion, and delight arise and decay at much faster timescales (a few                of the cognitive disequilibrium that occurs when an impasse is
+seconds) compared to moods (several minutes or a few hours)                       detected (Link 1A). Learners must engage in effortful problem
+(Ekman, 1984; Rosenberg, 1998). Furthermore, an analysis that                     solving activities in order to resolve the impasse and restore
+                                                Author's personal copy
+
+
+                                             S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                  147
+
+
+
+
+                                                      Fig. 1. Hypothesized model of affect dynamics.
+
+
+equilibrium. The learner initiates a subgoal of resolving the impasse             feedback on an action, then there is a positive emotion such as
+through effortful reasoning and problem solving. Equilibrium is                   contentment or delight (Link 2B). The positive emotion eventually
+restored when the source of the discrepant information is discov-                 dissipates to the equilibrium state (Link 2C) where the superordi-
+ered and the impasse is resolved (Link 2A).                                       nate goal of learning is resumed.
+   The above form of productive confusion associated with
+impasse resolution can be contrasted with hopeless confusion.                     2.1. Scope of the model
+Hopeless confusion occurs when the impasse cannot be resolved,
+the student gets stuck, there is no available plan, and important                     It is important to deﬁne the scope of the proposed model. First,
+goals are blocked. The model hypothesizes that learners will                      the model applies to learning at deeper levels of comprehension
+experience frustration in these situations (Link 3). Furthermore,                 (deep or complex learning). Complex learning requires learners to
+consistent with forced-effort theories of boredom (Larson &                       generate inferences, answer causal questions, diagnose and solve
+Richards, 1991; Robinson, 1975), persistent frustration may transi-               problems, make conceptual comparisons, generate coherent
+tion into boredom, a crucial point at which the learner disengages                explanations, and demonstrate application and transfer of acquired
+from the learning process (Link 4).                                               knowledge (Graesser, Ozuru, & Sullins, 2010). This form of learning
+   The model also hypothesizes some secondary links involving                     can be contrasted with shallow learning activities (memorizing key
+surprise and delight (dashed links in Fig. 1), in addition to the four            phrases and facts) and procedural learning. Complex learning is
+major links (Links 1A, 2A, 3, and 4). Link 1B is activated when an                inevitably accompanied by failure, so the learner experiences a host
+event may be appraised as being unexpected, in which case the                     of affective states. In comparison, they are presumably more
+event evokes surprise (Link 1B). Confusion is triggered if the                    affectively neutral in shallow learning sessions under similar task
+novelty resonates with an impasse (Link 1C).                                      conditions.
+   In addition to the Confusion / Engagement/Flow link, which                         Second, the model assumes that learners are in a base state of
+occurs when an impasse has been resolved, if the resolution trig-                 engagement and are actively processing the material for the
+gers an achievement of an important goal or there is positive                     impasse-driven dynamics to unfold. A radically different set of
+                                                   Author's personal copy
+
+
+148                                          S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+
+affective trajectories are expected when the learner is bored or                  Although the coupling of transitions with events would ostensibly
+passively processing the material at shallower levels of compre-                  yield a more stringent test of the model than focusing on transi-
+hension. Such learners might experience persistent boredom or                     tions alone, complications arise in some of the more naturalistic
+engage in non-productive activities such as zoning out, checking                  learning sessions. By naturalistic we simply mean that the events
+email, surﬁng the web, or talking to a friend. The model does not                 and affective states naturally evolve over the course of the inter-
+apply to these noncritical passive learners.                                      action as opposed to being experimentally manipulated.
+    Third, the model focuses on a subset of the affective states that                 Some of the complications associated with naturally evolving
+routinely arise during the comprehension of difﬁcult subject matter               affect include: (a) the relatively low frequencies and skewed
+in relatively short learning sessions (e.g., learning physics from                distributions of some affective states, (b) difﬁculties in the temporal
+a computer tutor or preparing for a standardized exam). From the                  alignment of states and events (i.e., when no obvious cause can be
+standpoint of the four categories of emotions proposed by Pekrun                  associated to a transition), (c) the inability to make causal claims
+(2010), this includes a subset of the achievement (e.g., boredom,                 when multiple events occur in close temporal proximity, and (d)
+frustration) and epistemic emotions (e.g., confusion). Social                     interpretation difﬁculties that arise when the valence of multiple
+emotions and topic emotions, although critical to academic settings               events is not complimentary (e.g., providing negative feedback
+(Pekrun, 2010), are currently beyond the scope of the model.                      followed by a motivational statement). Unfortunately, these
+                                                                                  complications are the rules, rather than the exceptions, in natu-
+2.2. Testing the model at multiple levels                                         ralistic learning sessions, as in the case of the present research
+                                                                                  where students’ affective states are tracked during interactions
+    The aforementioned model on affect dynamics can be tested at                  with a dialog-based computer tutor.
+a number of levels of granularity. At a minimum, the hypothesized                     One possible way to alleviate these complications is to system-
+affective states (boredom, engagement/ﬂow, confusion, frustration,                atically manipulate the learning session in order to test the causal
+delight, and surprise) should be observed at signiﬁcant rates during              inﬂuences of critical events on particular transitions. For example,
+complex learning activities such as studying for a test, reading                  one can induce an affective state (the predicted source), generate an
+difﬁcult technical material, solving complex problems, or inter-                  event (the predicted trigger), and track the student’s subsequent
+acting with a computer or human tutor. This prediction has been                   state (the predicted sink). Alternate source states and triggers can
+supported in a number of studies that have tracked emotions in                    also be manipulated to serve as controls. This methodology would
+a number of contexts and with a variety of methodologies (see                     ostensibly solve a large number of the issues described above.
+Calvo & D’Mello, 2011, for several such studies). One ﬁnding is that              Unfortunately, its signiﬁcant limitation is that it does not provide
+confusion, frustration, boredom, and engagement/ﬂow are the                       any insights on the naturalistic dynamics of student affect, and the
+major affective states that students experience across diverse                    resulting manipulated events are sometimes awkward for bonaﬁde
+learning contexts, student populations, and methods to track                      learning environments. A methodology with manipulated events
+emotions. States such as surprise and delight are consistently                    that run the risk of clashing with ecologically valid complex learning
+observed, but with lower frequencies. Curiosity and anxiety are                   is incompatible with the goals of the present research.
+observed with relatively high frequencies, but only in some                           In our view, the most defensible position is to test the model at all
+contexts (e.g., high level of intrinsic motivation for curiosity and              four levels of granularity. One can also introduce a ﬁfth level where
+high-stakes testing or being in the presence of a human tutor for                 the model can be tested for its generalizability to different student
+anxiety).                                                                         populations, content areas, and learning environments. Testing the
+    At a ﬁner level of granularity, the model predicts that events in             model at these levels will require a combination of correlational
+the learning session serve as antecedents or elicitors of speciﬁc                 studies, randomized controlled experiments, ﬁeld studies, and
+affective states. One example prediction is that impasses and                     many others. This is an ambitious research program which far
+anomalies trigger confusion and cognitive disequilibrium. Another                 exceeds the scope of any single study. The goal of the present study is
+is that events that block goals and the general unavailability of                 more modest, namely to test some claims about the dynamics of
+a plan (being stuck) yield frustration. These predictions have also               naturally evolving affective experiences. Our focus on affective
+been supported by existing data, a very small subset of which is                  transitions and not their causes is our attempt to test the model at
+summarized in this section. Consistent with the predictions of the                a single level, knowing full well that additional experiments with
+model, it appears that contradictory statements in tutorial dialogs,              more systematic manipulations and a simpler learning environment
+hints (e.g., What about X?), and descriptions of system breakdowns                will be needed. We chose to focus on this level of analysis because
+all appear to be antecedents of confusion (D’Mello, Craig, Sullins, &             failure to identify systematic transitions among affective states
+Graesser, 2006; Graesser, Lu, et al., 2005). Similarly, negative                  precludes testing at higher levels. Speciﬁcally, it is pointless to test
+feedback from a tutor as well as interruptions that block goals have              causes of affect transitions if the transitions themselves do not
+been established as potential antecedents of frustration (D’Mello                 spontaneously emerge. It should also be noted that previous studies
+et al., 2006; Kapoor, Burleson, & Picard, 2007).                                  (cited above) have veriﬁed some of the events that trigger particular
+    Testing the model at yet another level of granularity leads to the            states (e.g., negative feedback for frustration), so we have some idea
+issue that is at the heart of this paper: what are the natural                    as to the causes of some of the transitions.
+dynamics of the affective states? Speciﬁcally, the model hypothe-
+sizes the presence of particular transitions between the affective                2.3. Hypotheses and present studies
+states and the absence of other transitions. Affective dynamics is an
+important phenomenon that has not received much emphasis, so                         This study empirically tests four hypotheses of the model per-
+tests of the predictions pertaining to affective transitions is an                taining to transitions among affective states. Transitions involving
+important step in validating the model.                                           delight and surprise were not addressed because these states are
+    An analysis at an even ﬁner level of granularity would involve                not at the crux of the model and do not occur with sufﬁcient
+simultaneously testing both the predicted transitions as well as the              frequency in the learning environment we tested.
+events that are hypothesized to trigger these transitions. That is, for              The ﬁrst hypothesis, called the disequilibrium hypothesis
+any particular predicted transition, one could assess the probability             (Hypothesis 1), states that learners in an engaged/ﬂow state will
+that the transition was triggered by event E1 versus E2, and so on.               experience cognitive disequilibrium and confusion when they detect
+                                                Author's personal copy
+
+
+                                             S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                      149
+
+
+impasses (Link 1A). This hypothesis predicts the occurrence of tran-              matter, and the version of AutoTutor. It should be pointed out that
+sitions from engagement/ﬂow to confusion and the absence of tran-                 the amount of training time and the number of questions covered
+sitions from engagement/ﬂow into frustration and boredom. By                      in the current studies were much less than previous studies that
+absence, we mean that a transition either, does not occur, is extremely           systematically assessed learning gains with AutoTutor. The goals of
+rare, or its rate of occurrence is statistically indistinguishable from           the present study were to analyze the affective states during
+what could be expected by a random process (chance).                              learning from AutoTutor rather than assessing learning gains. Given
+    The second hypothesis is the productive confusion hypothesis                  the short amount of training time and the small number of ques-
+(Hypothesis 2). According to this hypothesis, cognitive disequilib-               tions covered, impressive learning gains were not expected, and
+rium, impasses, and confusion provide learners with an opportu-                   systematic analyses on learning gains were not performed.
+nity to think, deliberate, and problem solve (Graesser & Olde, 2003;                  AutoTutor’s dialogs are organized around difﬁcult questions and
+VanLehn et al., 2003). Confusion is alleviated and learners revert                problems (called main questions) that require reasoning and
+back to cognitive equilibrium if the problem solving process results              explanations in the answers. The following is an example of
+in a resolution of the impasse. In contrast to productive confusion,              a challenging question in computer literacy: “How can John’s
+the model hypothesizes that there should be a transition that                     computer have a virus but still boot to the point where the oper-
+resonates with hopeless confusion when learners cannot resolve an                 ating system starts?” In order to correctly answer a main question,
+impasse (Hypothesis 3). Hence, the model supports links between                   students need to articulate 3e7 sentential expressions, which
+confusion and engagement/ﬂow (Hypothesis 2) and confusion and                     normally involves between 25 and 100 turns in a conversation.
+frustration (Hypothesis 3), but not confusion and boredom.                        When presented with these questions, students typically respond
+    The fourth hypothesis, or the disengagement hypothesis                        with answers that are only one word to two sentences in length. In
+(Hypothesis 4), states that persistent failure, which is related to               order to guide students in their construction of an improved
+frustration, eventually transitions into disengagement and                        answer, AutoTutor actively monitors learners’ knowledge states
+boredom. According to this fourth hypothesis there should be                      and engages them in a turn-based dialog. AutoTutor adaptively
+a transition from frustration to boredom (Link 4), but frustration                manages the tutorial dialog by providing feedback, pumping the
+should not transition into engagement/ﬂow.                                        learner for more information, giving hints, correcting misconcep-
+    The model does not make any predictions for transitions that                  tions, answering questions, and summarizing answers.
+either emanate from the neutral state (Neutral / Affect) or                           The dialog for a difﬁcult question is implemented over a number
+terminate into the neutral state (Affect / Neutral). It also does not             of conversational turns. Each turn of AutoTutor in the conversa-
+make explicit predictions for four affective transitions. These                   tional dialog has three information slots (i.e. constituents). The ﬁrst
+involve a transition from frustration to confusion and three tran-                slot of most turns is short feedback on the quality of the student’s
+sitions stemming from boredom. Transitions from frustration to                    last turn. This feedback is either positive (e.g., “very good”, “bravo”),
+confusion might occur if an additional impasse is reached, whereas                negative (e.g., “not quite”, “almost”), or neutral (e.g., “uh huh”,
+a learner is more likely to stay frustrated when they are stuck.                  “okay”). The second slot advances the coverage of the ideal answer
+Transitions that stem from boredom are equally probable. A bored                  with either prompts for speciﬁc words (e.g., “X is a type of what?”),
+learner might be re-engaged if presented with an engaging stim-                   hints (e.g., “What can you say about X?”), assertions with correct
+ulus or might become frustrated from having to endure the                         information (e.g., “X is required for ..”), corrections of miscon-
+learning session. We explored these four possibilities even though                ceptions, or answers to students’ questions (via information
+they were not guided by any explicit predictions from the model.                  retrieval from a glossary or textbook). The third slot is a cue to the
+However, we did not consider transitions involving neutral because                student for the ﬂoor to shift from AutoTutor as the speaker to the
+the present focus is on Affect / Affect transitions.                              student. For example, AutoTutor ends each turn with a question or
+    The four major hypotheses were tested in two studies in which                 a gesture (rendered by the animated conversational agent) to cue
+college students interacted with a validated intelligent tutoring                 the learner to do the talking. Discourse markers (e.g., “and also”,
+system called AutoTutor. AutoTutor helps learners construct                       “okay”, “well”) connect the utterances of these three slots of
+explanations by interacting with them in natural language with                    information within a turn.
+adaptive dialog moves similar to human tutors, as will be described                   AutoTutor can keep the dialog on track because it is always
+below (Graesser, Chipman, Haynes, & Olney, 2005). Both studies                    comparing what the student says to anticipated input (i.e., the
+involved a 30e35 min learning session after which participants                    expectations and misconceptions in the curriculum script). Auto-
+provided self-reported affect judgments at approximately 100                      Tutor assesses the conceptual quality of the learner’s response
+points in their tutoring sessions via a retrospective affect judgment             using state of the art natural language processing algorithms
+protocol (Graesser et al., 2006). The likelihoods of the hypothesized             (Jurafsky & Martin, 2008). As the learner expresses information
+transitions were assessed from these judgments. The purpose of                    over many turns, the list of expectations is eventually covered and
+the ﬁrst study was to systematically test the predictions of the                  the main question is scored as answered. AutoTutor then presents
+model, whereas the second study assessed the extent to which the                  students with the next main question in the series.
+ﬁndings replicated with a different version of AutoTutor and with                     The AutoTutor interface along with a sample dialog between
+some important methodological changes.                                            a college student and AutoTutor is presented in Fig. 2.
+
+3. Brief description of the learning environment (AutoTutor)
+                                                                                  4. Study 1
+    AutoTutor is a fully automated tutor for Newtonian physics,
+computer literacy, and critical thinking (Graesser, Chipman, et al.,              4.1. Method
+2005; Graesser et al., 2004). The impact of AutoTutor in facili-
+tating the learning of deep conceptual knowledge has been vali-                   4.1.1. Participants
+dated in over a dozen experiments on college students (Graesser                       The participants were 28 undergraduate Psychology students
+et al., 2004; VanLehn et al., 2007). Tests of AutoTutor have                      from a mid-south university in the U.S. There were 5 males and 23
+produced learning gains of .4e1.5 sigma (a mean of .8), depending                 females. 37% of the students were Caucasian, 56% African-
+on the learning measure, the comparison condition, the subject                    American, and 7% were classiﬁed as “Other”. The participants
+                                                      Author's personal copy
+
+
+150                                            S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+
+
+
+                         Fig. 2. The AutoTutor interface and sample dialog from an actual tutorial session with a knowledgeable student.
+
+received course credit for their participation. Prior coursework in                 unsure of their state, they could rewind the window to the previous
+computer literacy was not required.                                                 ﬁxed point and replay the 20-s segment. Participants also desig-
+                                                                                    nated any affective judgment they had experienced during the 20 s
+4.1.2. Materials and equipment                                                      in between the previous pause and the current pause (spontaneous
+    Two computers were used for presentation and data capture.                      judgments) by manually pausing the videos and providing a judg-
+One of the computers handled the tutorial interaction, whereas the                  ment. Both ﬁxed and spontaneous judgments occurred simulta-
+other computer was used to record a video of the participant’s face.                neously over a single pass of the face and screen videos.
+Three channels of information were recorded and collected while                         Participants were provided with a checklist of seven states for
+participants interacted with AutoTutor on topics of computer                        them to mark along with deﬁnitions of the states. The deﬁnitions
+literacy. First, an IBMÒ Blue Eyes Camera (Morimoto, Koons, Amir, &                 were present on a piece of paper that participants retained
+Flickner, 1998) was used for collecting data on facial movements at                 throughout the affect judgment procedure. The experimenter
+a ﬁne-grained resolution. Second, body posture was tracked by the                   answered any questions pertaining to these deﬁnitions prior to
+Body Pressure Measurement System (BPMS, version 5.23) devel-                        commencing the procedure.
+oped by TekscanÒ Inc (Tekscan, 1997). Third, Camtasia StudioÔ,                          Boredom was deﬁned as “being weary or restless through lack of
+a screen capturing software package, recorded a video of the                        interest”. Confusion was deﬁned as “a noticeable lack of under-
+participant’s entire tutoring session with AutoTutor. The captured                  standing”, whereas engagement/ﬂow was a “state of interest that
+video also included an audio stream of the synthesized speech                       results from involvement in an activity”. Frustration was deﬁned as
+generated by the AutoTutor animated conversational agent.                           “dissatisfaction or annoyance”. Delight was “a high degree of
+                                                                                    satisfaction”. Surprise was “wonder or amazement, especially from
+4.1.3. Procedure                                                                    the unexpected”. Neutral was deﬁned as “no apparent emotion or
+    Participants interacted with AutoTutor version 2.0 for 32 min on                feeling”. The affect judgments were not based on these deﬁnitions
+one of three randomly assigned topics in computer literacy: hard-                   alone but on the combination of videos of their faces, contextual
+ware (N ¼ 9), Internet (N ¼ 10), or operating systems (N ¼ 9). The                  cues via the screen capture, the deﬁnitions of the emotions, and
+three different topics were used to maximize content coverage                       their recent memories of the interaction.
+rather than to systematically test for topic-related differences in                     It is important to mention three important points pertaining to
+affective proﬁles. The sessions were 32 min long because we were                    the present affect judgment methodology. This procedure was
+interested in obtaining 30-min tutorial sessions in addition to a 2-                adopted because it affords monitoring participants’ affective states
+min introduction provided by AutoTutor. Sessions were terminated                    at multiple points, with minimal task interference, and without
+after 32-min to control for time on task across participants.                       participants knowing that these states were being monitored while
+    During the interaction the BPMS and the Blue Eyes camera                        completing the learning task. Second, this retrospective affect
+recorded a video of the participants’ posture and face respectively.                judgment method has been previously validated (Rosenberg &
+The computer’s display was recorded as well using the Camtasia                      Ekman, 1994), and analyses comparing these ofﬂine affect judg-
+screen capture software. After interacting with AutoTutor, the video                ments with online measures encompassing self-reports and
+streams from the AutoTutor screen (see Fig. 2) and the participant’s                observations by judges have produced similar distributions of
+face were synchronized and displayed to the participants. The                       emotions (Craig, D’Mello, Witherspoon, & Graesser, 2008; Craig,
+screen capture included the tutor’s synthesized speech, printed                     Graesser, Sullins, & Gholson, 2004). Third, the ofﬂine affect anno-
+text, students’ responses, dialog history, and images, thereby                      tations obtained via this retrospective protocol correlate with
+providing the context of the tutorial interaction.                                  online recordings of facial activity and gross body movements in
+    Participants completed some questionnaires (not relevant to                     expected directions (D’Mello & Graesser, 2010). Although no
+present study) for 10e15 min after the tutorial session. Next, they                 method is without its limitations, the present method appears to be
+provided judgments on their affective states by viewing the face                    a viable approach to track emotions at a relatively ﬁne-grained
+and screen videos that were recorded during the tutorial session.                   temporal resolution.
+The videos were synchronized and at the end of each 20-s interval,
+the two video streams were paused (freeze framed) and the                           4.1.4. Data treatment
+participant was asked to provide judgments of the affective states                  4.1.4.1. Preparing time series of affective responses. The retrospec-
+they experienced at that instant (ﬁxed judgments). If they were                     tive affect judgment procedure yielded 2547 ﬁxed judgments and
+                                                 Author's personal copy
+
+
+                                              S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                      151
+
+
+430 spontaneous judgments, collectively yielding 2977 self-                            In Eq. (3), Pr(A) is the agreement between two raters, and Pr(E)
+reported affect judgments for the 28 participants’ AutoTutor                       is the expected agreement. So k removes the agreement expected
+sessions. On average there were 91 (SD ¼ 10) ﬁxed judgments and                    by chance and then normalizes by the total possible agreement (1:
+17 (SD ¼ 14) spontaneous judgments per participant. Since the goal                 perfect agreement) minus expected agreement. The likelihood
+of the present analyses is to analyze affect transitions across each               metric proceeds in the same way, however, rather than agreement,
+participant’s entire AutoTutor session, both ﬁxed and spontaneous                  we use conditional probability as a measure of association (see Eq.
+judgments were analyzed together rather than in isolation. On                      (2)). The expected degree of association is Pr(Mtþ1), because if Mtþ1
+average there were 106 total judgments from each participant                       and Mt are independent, then Pr(Mtþ1jMt) ¼ Pr(Mtþ1). Therefore,
+(SD ¼ 9).                                                                          the numerator of Eq. (2) equals the degree of association observed
+    There were 483 instances of boredom, 593 engagement/ﬂow,                       minus the degree of association expected under independence. If
+533 confusion, 335 frustration, 849 neutral, 94 delight, and 80                    the observed degree of association is higher than that expected
+surprise. We analyzed the proportional occurrence of the affective                 under independence, then the numerator will be positive (a posi-
+states experienced by the 28 learners. A repeated measures ANOVA                   tive association). If the observed association is equal to that ex-
+indicated that there was a statistically signiﬁcant difference in the              pected under independence, then the numerator will be zero (no
+distribution of states, F(6, 162) ¼ 10.81, Mse ¼ .023, p < .001, partial           association). Finally, if the observed association is less than that
+eta-square ¼ .286. Bonferroni post-hoc tests revealed that the                     expected under independence, the numerator will be negative (a
+proportional occurrence of boredom (M ¼ .160, SD ¼ .140), confu-                   negative association). Thus the sign and the magnitude of L is
+sion (M ¼ .180, SD ¼ .127), engagement/ﬂow (M ¼ .199, SD ¼ .161),                  intuitively understandable as the direction and size of the associ-
+frustration (M ¼ .114, SD ¼ .107), and neutral (M ¼ .288, SD ¼ .248)               ation between Mtþ1 and Mt, accounting for the base rate of Mtþ1.
+were on par and signiﬁcantly greater than delight (M ¼ .032,
+SD ¼ .038) and surprise (M ¼ .027, SD ¼ .028), which were equiva-
+lent to each other.                                                                4.2. Results and discussion
+    A time series that preserved the temporal ordering of the
+affective states was constructed for each participant. On average,                     Eq. (2) was used to compute the likelihoods of all possible state
+there were 106 elements per time series (SD ¼ 9). Since the goal of                transitions excluding repetitions between states. This yielded 7  6
+this paper is to investigate transitions between different states, and             or 42 possible transitions. Raw frequencies of these states transitions
+not persistence in the same state, the data was recoded to eliminate               after summing over all participants are presented in the Appendix.
+repetitions between states. For example, the sequence                              Instead of focusing on all 42 transitions, signiﬁcance testing was
+X / Y / Y / Z was converted to X / Y / Z. This process reduced                     performed on the eight theoretically speciﬁed state transitions.
+the length of the time series to 1796 states with a mean of 64 states              These included four transitions that were hypothesized to occur
+per participant (SD ¼ 19). On average, there was a state transition                above chance (Engagement/Flow / Confusion, Confusion /
+every 32.4 s (SD ¼ 11.2). The recoding process did not alter the                   Engagement/Flow, Confusion / Frustration, and Frustration /
+distribution of the affective states.                                              Boredom) and four transitions whose occurrence was expected at
+                                                                                   chance levels (Engagement/Flow / Boredom, Engagement/Flow -
+4.1.4.2. Computing transition likelihoods. We developed a likeli-                  / Frustration, Confusion / Boredom, and Frustration / Engage-
+hood metric to compute the likelihood of a transition between any                  ment/Flow). We performed one-sample, t-tests to test whether
+two affective states in order to test the major hypotheses of the                  likelihoods were signiﬁcantly greater than or equivalent to zero (no
+model. The metric can be represented as L(Mt / Mtþ1), where Mt is                  relationship between immediate and next state).
+the state at time t (the current state), Mtþ1 is the next state at tþ1.                Descriptive statistics on the likelihood of the transitions and the
+We motivate the likelihood metric by contrasting it with the                       results of the t-tests are presented in Table 1. It should be noted that
+conditional probability of a transition to Mtþ1 given that the                     there is some variation in the degrees of freedom for each test re-
+immediate state is Mt (see Eq. (1)). Although conditional proba-                   ported in Table 1, because some of the learners did not report
+bilities are suitable for exploring the strength of association                    experiencing all the states. In particular, while all 28 learners
+between Mt and Mtþ1, they do so relative to Mt. However, if                        experienced at least one episode of confusion, this was not the case
+a particular Mtþ1, say boredom (B), is very frequent, the conditional              for the other states. Four learners never experienced engagement/
+probability (BjMt) will be high because (BjMt) is proportional to the              ﬂow, three did not report any episodes of frustration, and two
+frequency of boredom (also known as base rate).                                    learners never reported being bored during the task. Hence, it was
+                                                                                   not possible to compute transitions emerging from these states for
+                                                                                   those learners.
+                  PrðMtþ1 XMt Þ
+PrðMtþ1 jMt Þ ¼                                                         (1)
+                     PrðMt Þ
+                                                                                   4.2.1. Testing occurrence of predicted transitions
+                                                                                       Hypothesis 1, or the disequilibrium hypothesis, predicts the
+   The likelihood metric addresses the inﬂuence of base rate by
+                                                                                   existence of a transition from engagement/ﬂow to confusion but
+penalizing associations that are not greater than an expected
+                                                                                   not to boredom or frustration (i.e., this transition should not occur
+amount of association. Formally, the likelihood metric is deﬁned as:
+                                                                                   or should occur at chance rates). The results conﬁrmed this
+                    PrðMtþ1 jMt Þ  PrðMtþ1 Þ                                      hypothesis as the Engagement/Flow / Confusion was signiﬁcant
+LðMt /Mtþ1 Þ ¼                                                          (2)        with a medium to large effect size (Cohen, 1992), whereas the
+                         1  PrðMtþ1 Þ
+                                                                                   Engagement/Flow / Boredom and Engagement/Flow / Frustra-
+    The reader may note signiﬁcant similarity to Cohen’s k kappa for               tion transitions occurred at chance levels.
+agreement between raters (Cohen, 1960) and indeed the likelihood                       Hypotheses 2 and 3, the productive confusion and hopeless
+metric can be justiﬁed in a similar fashion. The deﬁnition of Cohen’s              confusion hypotheses, respectively, were also conﬁrmed by the
+k is listed in Eq. (3).                                                            fact that the Confusion / Engagement/Flow and Confusion /
+                                                                                   Frustration transitions signiﬁcantly occurred. Hence, engagement/
+      PrðAÞ  PrðEÞ                                                                ﬂow and frustration are the consequents of productive and hope-
+k ¼                                                                     (3)
+        1  PrðEÞ                                                                  less confusion, respectively. The results also conﬁrmed that the
+                                                                  Author's personal copy
+
+
+152                                                       S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+Table 1                                                                                        selected points plus some random points in the tutorial session
+Transition likelihoods for Study 1.                                                            (described below). This alternate aperiodic affect-polling schedule
+  Transition                    Descriptives          One-sample t-test                        was adopted in order to avoid concerns that the periodic nature of
+                                N     M        SD     t            df   p       d
+                                                                                               the affect sampling in Study 1 (every 20 s) inadvertently inﬂuenced
+                                                                                               the results. For example, these ﬁxed 20-s points might correspond
+  Excitatory
+  Flow / Confusion**            24     .175    .263       3.27     23   .003        .667       to instances where there is not much activity and other sampling
+  Confusion / Flow**            28     .147    .224       3.46     27   .002        .654       methods might yield a different distribution of affective states and
+  Confusion / Frustration**     28     .060    .133       2.37     27   .025        .447       alternate transitions between the states.
+  Frustration / Boredom         25     .098    .259       1.90     24   .070        .379
+
+  Inhibitory/baseline                                                                          5.1. Method
+  Flow / Boredom                24     .022    .212     .515       23   .612     .105
+  Flow / Frustration            24     .017    .102     .807       23   .428     .165
+                                                                                               5.1.1. Participants
+  Confusion / Boredom           28    .033    .147   1.18        27   .249    .223
+  Frustration / Flow            25     .022    .251     .435       24   .667     .087              The participants were 30 undergraduate students (13 male and
+                                                                                               17 female) from a mid-south university in the U.S. who participated
+  No prediction
+  Frustration / Confusion       25     .056    .293        .961    24   .346     .192
+                                                                                               for course credit. Prior coursework in computer literacy was not
+  Boredom / Confusion           26    .012    .175       .354    25   .726    .069          required.
+  Boredom / Flow                26     .062    .253       1.25     25   .224     .245
+  Boredom / Frustration**       26     .088    .181       2.47     25   .021     .485          5.1.2. Materials and equipment
+Notes. **p < .05. Flow refers to Engagement/Flow.                                              5.1.2.1. Sensory data recording. The setup in Study 2 was the same
+                                                                                               as Study 1 with the exception that participants used a set of
+                                                                                               headphones that included a microphone. The recorded video also
+Confusion / Boredom transition occurred at chance levels, which                                captured participants’ spoken responses to the tutor, so they could
+is in line with the predictions of the model.                                                  hear their speech, the tutor’s speech, and view videos of their faces
+    The marginally signiﬁcant transition between frustration and                               while making their affect judgments.
+boredom partially supports the disengagement hypothesis
+(Hypothesis 4), which states that persistent failure and the asso-                             5.1.3. Procedure
+ciated frustration will eventually transition into boredom.                                        Similar to Study 1, participants interacted with the spoken-input
+Furthermore, as expected, the frustration to engagement/ﬂow                                    AutoTutor for 35 min on one of three randomly assigned topics in
+transition was not signiﬁcant.                                                                 computer literacy (same topics as Study 1). Affect ratings were ob-
+                                                                                               tained at three speciﬁc types of judgment points: (1) a few seconds
+4.2.2. Additional patterns                                                                     after AutoTutor completed a dialog move (tutor move), (2) imme-
+    Although the model does not explicitly predict a Frus-                                     diately before the learner started expressing his or her spoken
+tration / Confusion transition and any transitions from boredom,                               response to the tutor (student move), and (3) other randomly
+we tested these transitions as well. As could be expected, the Bor-                            selected points in the dialog (random point). We focused on
+edom / Confusion transition occurred at chance levels. Hence,                                  obtaining judgments corresponding to student and tutor moves
+boredom is not a precursor to cognitive disequilibrium and                                     because these represent key instances in the tutorial session. Note
+confusion and some level of engaged concentration is needed for an                             that there is a gap between the completion of the tutor move and the
+impasse to be detected. But contrary to our expectations, the Bor-                             student’s response because the student needs to deliberate in order
+edom / Frustration transition was signiﬁcant, suggesting that                                  to respond to the tutor’s question. Random points were also selected
+bored learners might experience frustration from having to endure                              to ensure an even distribution across the session and to capture
+the learning session despite their ennui; this pattern is consistent                           those moments of student thought and deliberation (i.e., when
+with the forced-effort model of boredom (Larson & Richards, 1991).                             neither the student nor the tutor are speaking or preparing to speak).
+    The results also revealed that the Frustration / Confusion and                                 The observation sampling points were selected by ﬁrst obtain-
+Boredom / Engagement/Flow transitions, although not signiﬁ-                                    ing all available points corresponding to tutor and student moves
+cant, had likelihood scores that were consistent with small effects.                           and randomly selecting 33 judgment points each, thereby yielding
+Study 2 tested whether these unpredicted patterns were note-                                   66 affect judgment points corresponding to student and tutor
+worthy or spurious, and whether the predicted patterns were also                               moves. An additional 33 points were randomly selected from the
+observed.                                                                                      entire tutoring session; these points did not correspond to any
+                                                                                               particular tutor or student action. Participants provided affective
+5. Study 2                                                                                     ratings at these 99 judgment points. These constituted the ﬁxed
+                                                                                               judgment points. Similar to Study 1, the participants could stop the
+   The results from Study 1 supported the major hypotheses of the                              video at any time and make a spontaneous judgment.
+model. We attempted to replicate these ﬁndings in Study 2, which
+was similar to Study 1, but with two important differences. While                              5.1.4. Data treatment
+participants in Study 1 interacted with the traditional typed-input                            5.1.4.1. Preparing time series of affective responses. The retrospec-
+version of AutoTutor, Study 2 participants spoke their responses to                            tive affect judgment procedure yielded 2716 ﬁxed judgments and
+a new spoken-input AutoTutor. It should be noted that previous                                 383 spontaneous judgments, collectively yielding 3099 self-
+experiments comparing the typed- and spoken-input versions of                                  reported affect judgments for the 30 participants’ AutoTutor
+AutoTutor showed gains in deep learning for both conditions and                                sessions. On average there were 91 (SD ¼ 2) ﬁxed judgments and 17
+an equivalence in learning gains across conditions (D’Mello, King, &                           (SD ¼ 13) spontaneous judgments per participant. The average
+Graesser, 2010).                                                                               number of total judgments per participant was 103 (SD ¼ 14).
+   The second difference between the two studies pertains to the                                   There were 574 instances of boredom, 708 engagement/ﬂow,
+retrospective affect judgment protocol. While participants in Study                            596 confusion, 409 frustration, 583 neutral, 160 delight, and 69
+1 provided affect judgments every 20 s and in-between each 20-s                                surprise. A repeated measures ANOVA indicated that there was
+block, participants in Study 2 provided judgments at three pre-                                a signiﬁcant difference in the proportional distribution of affective
+                                                             Author's personal copy
+
+
+                                                          S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                    153
+
+
+states, F(6, 174) ¼ 10.94, Mse ¼ .017, p < .001, partial eta-                                  This transition was not signiﬁcant in Study 1, hence, its presence in
+square ¼ .274. Bonferroni post-hoc tests revealed that boredom                                 Study 2 could be attributed to some of the methodological changes.
+(M ¼ .190, SD ¼ .158), confusion (M ¼ .188, SD ¼ .097), engagement/                            We suspect that transitions from Frustration / Boredom are
+ﬂow (M ¼ .232, SD ¼ .199), frustration (M ¼ .129, SD ¼ .086), and                              a result of being unable to resolve an impasse after considerable
+neutral (M ¼ .189, SD ¼ .132) were the major states experienced;                               effort has been invested (consistent with the model). On the other
+delight (M ¼ .051, SD ¼ .068) and surprise (M ¼ .021, SD ¼ .023)                               hand, Frustration / Engagement/Flow transitions might occur
+were comparatively rare. The distribution of states was similar to                             when frustration is caused by temporary, yet irritating, speech
+Study 1.                                                                                       recognition problems; the learner reverts back into the engaged
+   Time series constructed for each participant’s data had a mean                              state once the system is able to comprehend his responses.
+length of 103 states (SD ¼ 14). Time series that were recoded to                               However, these speculations need to be conﬁrmed in future
+eliminate repetitions between states had a total of 1957 states with                           analyses.
+a mean of 64 states per participant (SD ¼ 15.2). On average, there
+was a state transition every 32.8 s (SD ¼ 9.58). This is equivalent to                         5.2.2. Additional patterns
+the 32.4 mean transition length obtained in Study 1. Recoding the                                  Out of the four transitions for which the model does not make
+time series did not alter the distribution of states. These results                            any explicit predictions, the Boredom / Frustration transition was
+indicate that despite the methodological changes in Study 2, the                               statistically signiﬁcant. This transition was also signiﬁcant in Study
+distribution of affective states, the length of the time series (with                          1, indicating that the link between boredom and frustration is quite
+and without repetitions), and the rate of state transitions were                               reliable (average d ¼ .43). Hence, persistent boredom begets
+similar across studies.                                                                        frustration.
+                                                                                                   One surprising ﬁnding was that the Boredom / Confusion
+5.2. Results and discussion                                                                    transition, although not signiﬁcant, occurred with some regularity
+                                                                                               in Study 2 but not Study 1. In contrast, the Boredom / Engage-
+   We repeated the likelihood analyses to determine whether the                                ment/Flow transition had a non-signiﬁcant but non-zero likelihood
+patterns detected in Study 1 were replicated in Study 2. Raw                                   in Study 1, but was substantially less prevalent in Study 2. This
+frequencies of the 42 transitions summed over all 30 participants                              pattern, which was not consistently observed in both studies, might
+are presented in the Appendix. The subsequent discussion focuses                               be attributed to methodological differences across studies or some
+on testing likelihoods associated with the predicted transitions.                              other spurious factor. Hence, we do not put too much stock in these
+                                                                                               transitions.
+5.2.1. Testing occurrence of predicted transitions                                                 It is interesting that the Frustration / Confusion transitions
+    The results indicated that, with one exception, the major                                  were not signiﬁcant in either study, but did show non-zero likeli-
+predictions of the model were supported in Study 2 (see Table 2). In                           hoods (M ¼ .045 for both studies). This pattern is intuitively plau-
+particular, the Engagement/Flow / Confusion transition signiﬁ-                                 sible because a frustrated learner might transition into confusion if
+cantly occurred, whereas the Engagement/Flow / Frustration and                                 an additional impasse is detected. It might be the case that the
+Engagement/Flow / Boredom transitions occurred at chance                                       small sample sizes in these studies did not yield the requisite power
+levels, thereby supporting the disequilibrium hypothesis                                       to detect this small effect, so replication with a larger sample is
+(Hypothesis 1). The Confusion / Engagement/Flow and Con-                                       warranted.
+fusion / Frustration transitions were also signiﬁcant, while the
+Confusion / Boredom transition occurred at chance levels, thereby                              6. General discussion
+conﬁrming the productive confusion and hopeless confusion
+hypotheses (Hypotheses 2 and 3, respectively).                                                     We have presented a model of affective dynamics that is theo-
+    The disengagement hypothesis (Hypothesis 4) was partially                                  retically grounded in perspectives highlighting the importance of
+supported in Study 2. As predicted, the Frustration / Boredom                                  goal appraisal, cognitive disequilibrium, and impasse resolution
+transition was signiﬁcant. However, although the model predicts                                during learning and problem solving. The model provides an
+that a Frustration / Engagement/Flow transition should not occur,                              analysis of the dynamics of affective states that learners experience
+this transition was signiﬁcant with a small to medium effect size.                             when they encounter novelty (surprise), experience impasses
+                                                                                               (confusion), diagnose what went wrong (confusion), make
+Table 2                                                                                        mistakes, get stuck (frustration), discover a relevant insight (with
+Transition likelihoods for Study 2.
+                                                                                               delight and possibly eureka), get re-engaged (possibly in an
+  Transition                    Descriptives          One-sample t-test                        engaged and ﬂow-like state), or simply give up and disengage
+                                N     M        SD     t            Df   p       d              (boredom). The major predictions of the model were veriﬁed in two
+  Excitatory
+                                                                                               studies that assessed the incidence and transition likelihoods of
+  Flow / Confusion**            28     .179    .277       3.41     27   .002        .645       naturally occurring affective states.
+  Confusion / Flow**            30     .103    .226       2.49     29   .019        .454           With the exception of delight and surprise, which were
+  Confusion / Frustration**     30     .076    .152       2.74     29   .010        .500       comparatively rare, an analysis of the distribution of affective states
+  Frustration / Boredom**       29     .078    .205       2.06     28   .049        .382
+                                                                                               across both studies indicated that complex learning was rife with
+  Inhibitory/baseline                                                                          experiences of engagement/ﬂow, confusion, boredom, and frus-
+  Flow / Boredom                28    .030    .158   1.00        27   .324    .190          tration. Speciﬁcally, although the neutral state was also reported
+  Flow / Frustration            28    .006    .158    .194       27   .848    .037
+  Confusion / Boredom           30     .030    .221     .734       29   .469     .134
+                                                                                               with non-zero frequencies, the six affective states comprised the
+  Frustration / Flow**          29     .111    .263    2.27        28   .031     .422          majority of the observations (71.2% and 81.1% in Study 1 and 2,
+                                                                                               respectively). Complex learning is indeed an emotionally charged
+  No prediction
+  Frustration / Confusion       29     .045    .218       1.10     28   .280        .205       experience.
+  Boredom / Confusion           30     .095    .296       1.75     29   .090        .320           In addition to the incidence of the affective states, our results
+  Boredom / Flow                30     .034    .283        .654    29   .518        .119       indicate that learners do not randomly shift between emotions. In
+  Boredom / Frustration**       30     .084    .222       2.06     29   .049        .376       stark contrast, there appears to be some systematicity in how
+Notes. **p < .05. Flow refers to Engagement/Flow.                                              learners transition between different affective states, and we
+                                                   Author's personal copy
+
+
+154                                          S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+
+proposed and evaluated a model aimed at capturing some of these                   physics concepts was rare when students did not reach an impasse,
+affective dynamics. Although the major predictions of the model                   irrespective of quality of the explanations provided by tutors.
+were conﬁrmed in two studies, the analyses also suggested that the                    It is important to note that learning is presumably not directly
+model needs to be expanded to include a Boredom / Frustration                     caused by confusion, but rather by the cognitive activities (e.g.,
+link and perhaps even a Frustration / Confusion link. The revised                 impasse resolution, causal reasoning) that accompany its experi-
+model is presented in Fig. 3.                                                     ence. We recently tested this hypothesis by conducting two
+    The revised model supports the assertion that students in the                 experiments in which confusion was induced while participants
+state of engagement/ﬂow are continuously being challenged within                  performed a device comprehension task (understanding how
+their zones of optimal learning (Brown, Ellery, & Campione, 1998;                 devices such as toasters and doorbells work from technical illus-
+Vygotsky, 1978) and are experiencing two-step episodes alter-                     trated texts) (D’Mello & Graesser, submitted for publication). The
+nating between confusion and insight (Hypotheses 1 and 2). In                     manipulation consisted of presenting participants with descrip-
+contrast to these presumably beneﬁcial engagement/ﬂow-                            tions of device malfunctions (e.g., “When a person rang the bell
+econfusioneengagement/ﬂow cycles, there are the harmful oscil-                    there was a short ding and then no sound was heard”) and asking
+lations between boredom and frustration (Hypothesis 4 augmented                   them to diagnose the problem. A second-by-second analysis of the
+to include a Boredom / Frustration transition). There are also                    dynamics of confusion yielded two characteristic trajectories that
+recurrent oscillations between confusion and frustration when                     successfully distinguished those individuals who partially resolved
+a confused learner gets stuck and experiences frustration, which can              their confusion over the course of diagnosing the breakdowns from
+trigger confusion if an additional impasse is detected (Hypothesis 3              those who remained confused. Importantly, individuals who
+augmented to include a Frustration / Confusion transition).                       partially resolved their confusion demonstrated signiﬁcantly better
+    The subsequent discussion focuses on some of the broader                      device comprehension from individuals who remained confused.
+issues stemming from this research. These include a discussion on
+the central role of confusion and cognitive disequilibrium during
+                                                                                  6.2. Pedagogical implications of results
+deep learning, implications of our results for pedagogical strategies,
+and a discussion of limitations and possible resolutions.
+                                                                                      A major assertion that emerges from the model is that learning
+                                                                                  environments need to substantially challenge students in order to
+                                                                                  elicit critical thought and deep inquiry. It is a somewhat counter-
+6.1. Central role of confusion and cognitive disequilibrium in deep               intuitive claim that pedagogical tactics that challenge, perplex, and
+learning                                                                          productively confuse learners are stimulating alternatives to the
+                                                                                  typical shallow information delivery systems that are comfortable to
+   A major assumption of the model is that impasses and the                       passive noncritical learners. Nevertheless, confusion is an affective
+resultant cognitive disequilibrium and confusion are precursors to                state that correlates with learning gains because it accompanies
+deep learning (Graesser, Lu, et al., 2005; Graesser & Olde, 2003;                 impasses and the resulting deep thinking. Students are in a low state
+VanLehn et al., 2003). Although this research did not explicitly                  of arousal and in cognitive equilibrium when they are in comfortable
+address learning gains, there is some evidence to support this                    learning environments involving passive reading and accumulating
+assumption. In particular, previous research has correlated confu-                shallow facts without challenges. However, this does not yield deep
+sion (and uncertainty) with positive learning outcomes in                         learning. In contrast, deep learning is much higher in conditions that
+computer and human tutoring contexts (Craig et al., 2004; D’Mello                 present challenges to inspire deep inquiry.
+& Graesser, in press; Forbes-Riley & Litman, 2010; Graesser, Chip-                    A tutor (human or artiﬁcial) that assumes that Engagement/
+man, King, McDaniel, & D’Mello, 2007; VanLehn et al., 2003). There                Flow 4 Confusion oscillations are beneﬁcial to learning can induce
+is also some evidence to suggest that deep learning cannot be                     confusion in order to jolt students out of their base state of
+satisfactorily achieved without impasses and confusion. For                       passively attending to the tutoring session. This will place learners
+example, VanLehn et al. (2003) reported that the learning of                      in a state of cognitive disequilibrium in which they will have to
+
+
+
+
+                                                        Fig. 3. Observed model of affect dynamics.
+                                                Author's personal copy
+
+
+                                             S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                     155
+
+
+stop, think, reason, and be active problem solvers. One indirect way              Zimmerman, 2000) are expected to play a role in how learners
+to induce confusion involves introducing new complex topics or                    regulate their confusion. Mastery orientated learners, academic risk
+concepts, which will hopefully cause the student to reengage with                 takers, and individuals with high self-efﬁcacy will presumably
+the material at a deeper level. Perhaps a more direct method to                   regulate their confusion through effortful problem solving and
+induce confusion would be to intentionally cause discrepancies that               cognitive deliberation. In contrast, cautious learners and learners
+challenge students’ existing mental models and prior knowledge.                   with low self-efﬁcacy might detect the impasses but be hesitant to
+For example, we have successfully induced confusion by presenting                 step up and confront their confusion because of self-doubt and the
+participants with descriptions of device malfunctions (D’Mello &                  threat of failure. These learners are also more likely to experience
+Graesser, submitted for publication) and by introducing contra-                   feelings of hopelessness and disengage when they get confused. In
+dictions in tutorial dialogs (Lehman et al., 2011).                               terms of motivation, performance-oriented students who lack
+    If these manipulations succeed and the student is confused,                   intrinsic motivation might show a tendency to ignore experiences of
+then the tutor needs to help the learner manage his confusion.                    confusion and simply forge ahead without directly confronting the
+Perhaps the most promising strategy to scaffold confusion is one                  underlying source of their perplexity (Pekrun, Elliot, & Maier, 2006).
+recommended by VanLehn in his research on impasses during                             The second limitation of this research is that the analyses did
+learning (VanLehn et al., 2003). This strategy takes effect when                  not consider the causes of some of the critical state transitions (i.e.
+confusion is detected and it entails: (a) prompting the student to                links in Fig. 1) by analyzing the tutor’s log ﬁles. There were two
+reason and arrive at a solution, (b) prompting the student to explain             complications with the present data that precluded a more
+their solution, and (c) providing the solution with an explanation                detailed evaluation of the model. One problem is that there are
+only if the student fails to arrive at an answer. This strategy places            substantially more affective state reports (approximately 3000)
+the onus on the shoulders of the students and capitalizes on the                  than dialog events. Hence, a majority of the transitions do not
+beneﬁts of impasses, confusion, and self-explanations.                            have an intervening dialog move which can be examined to
+    It is important, however, that the VanLehn strategy should be                 identify a causal link between affective transitions. A different
+tailored to the individual learner because these interventions might              challenge occurs for the few transitions that have a dialog event
+backﬁre and the learner might get frustrated and eventually                       that could serve as a potential trigger for the transition. The
+disengage. Successful learners might be allowed to work out their                 problem arises when two or more events occur in close succes-
+own confusion in a discovery learning environment (Bruner, 1961;                  sion, which is more the rule than the exception with AutoTutor.
+Vavik, 1993) that requires self-regulated cognitive activities. An                This is a problem because it is difﬁcult or impossible to determine
+alternative method would systematically scaffold the student out of               which event inﬂuenced the state transition. For example, consider
+the confused state. This method would presumably work better for                  a situation where a student in some affective state submits
+learners with lower domain knowledge and lower ability to self-                   a response, the tutor assesses this response, deems it to be of high
+regulate their learning activities.                                               quality, and provides positive feedback, followed by a hint to
+    Pedagogical interventions would also be required to help                      advance the dialog. The student then reports being in a different
+learners regulate negative states such as frustration and boredom.                affective state. This entire chain of events (original affective
+Frustration regulation is particularly important because there is                 state / student       answer / positive        feedback / hint / new
+evidence for oscillations between frustration and boredom. If the                 affective state) transpires over a few seconds, so it is difﬁcult to
+affective state of frustration is detected, then the tutor could                  attribute the transition to any one of the three intervening events.
+respond by changing its dialog strategies to include more direct                  It is possible to consider combinations of events as potential
+feedback, assertions, and corrections of detected misconceptions.                 causes of state transitions. However, the large number of possible
+The tutor might also convey a degree of empathy to alleviate                      combinations is incompatible with the available data in small
+frustration (Lepper & Woolverton, 2002; Woolf et al., 2009). If the               datasets that capture naturalistic tutorial interactions.
+learner is bored, then the tutor should engage the learner in a task                  The third limitation is that we did not systematically analyze
+that increases interest and cognitive arousal, provides options of                transitions involving the neutral state. To be clear, the neutral state
+choice to increase perceived control, or provides a challenge                     was included in the time series that we analyzed (see Appendix),
+(Csikszentmihalyi, 1975; Lepper & Woolverton, 2002; Pekrun,                       but we did not perform any additional statistical analyses on
+Goetz, Daniels, Stupnisky, & Raymond, 2010).                                      Affect / Neutral and Neutral / Affect transitions. Transitions
+                                                                                  involving neutral, particularly Affect / Neutral transitions, were
+6.3. Limitations and future work                                                  not considered because the presumably numerous causes for these
+                                                                                  transitions (e.g., the learner suppresses the emotion, the emotion is
+    It is important to acknowledge ﬁve limitations of this research.              reappraised, the emotion naturally dissipates, the emotion dissi-
+One limitation is that the current model and reported data do not                 pates because the student gets distracted by some event) are
+explicitly address individual differences in the manner in which                  beyond the scope of the present model. Reﬁning the model to
+learners experience and regulate their affective states. One                      include some of these causes is an important item for future work.
+important individual differences pertains to the causes that                          The fourth limitation pertains to potential concerns with the
+students attribute their emotions to (Jarvenoja & Jarvela, 2005).                 present methodology. Although this method has several advan-
+Attribution theory predicts that an impasse could be attributed to                tages (see Method of Study 1), it is limited by the learner’s ability
+either an external cause (e.g., a problem in the learning material) or            and sensitivity to his or her emotions, as well as by the learner’s
+an internal cause (e.g., lack of student knowledge and effort)                    desire to be honest. Social biases may also affect how learners
+(Heider, 1958; Weiner, 1986). Such attributions should have an                    report their affective states. For example, a learner might be
+impact on the manner in which learners attempt to regulate                        unwilling to report confusion or frustration, due to the obvious
+confusion and other emotions. Causal attributions of failure also                 negative connotations associated with these states. Another limi-
+play a role on how frustration is regulated. Some learners blame                  tation of this method is that it is restricted to consciously accessible
+themselves and go down a negative spiral. Others regard the failure               affective states, and overlooks unconscious feelings and back-
+as temporary and want to conquer the challenge.                                   ground moods.
+    Individual differences in academic risk taking, self-efﬁcacy, and                 The ﬁfth limitation pertains to the generalizability of our
+motivation (Bandura, 1997; Clifford, 1988; Meyer & Turner, 2006;                  ﬁndings. The proposed model was tested on the sample
+                                                            Author's personal copy
+
+
+156                                                   S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157
+
+
+population of students (undergraduate psychology majors from                               Appendix (continued)
+a southern University in the US), with similar methods, and with                             Current State      N        Next State
+one particular tutoring system, namely AutoTutor. This raises the                                                        Flow      Con      Fru     Bor      Del      Sur     Neu
+question of whether the model would be supported when
+                                                                                             Study 2
+different populations of students engage in alternate learning                               Flow               353      e         102      56       59      21       14       94
+contexts (e.g., reading textbook or interacting with other                                   Confusion          415       95       e        93       70      20       16      118
+computer-based learning systems), and when alternate methods                                 Frustration        296       60        80      e        82       9        8       55
+are used to track their emotions such as online emote-alouds                                 Boredom            327       59        73      78      e        22        6       82
+                                                                                             Delight            110       26        20      11       17      e         6       23
+(Craig et al., 2008) or observations by external judges (Rodrigo                             Surprise            64       12        19       7       10       8       e         8
+& Baker, 2011).                                                                              Neutral            392       97       111      51       87      30       12        e
+    In summary, the ﬁve limitations of this research are that we
+                                                                                           Note. Flow refers to Engagement/Flow.
+have not explicitly addressed individual differences, we have not
+linked the affect transitions to their causes (dialog moves) and
+effects (learning), transitions involving neutral were not consid-                         References
+ered, there were some methodological concern, and we have not
+                                                                                           Baker, R., D’Mello, S., Rodrigo, M., & Graesser, A. (2010). Better to be frustrated than
+assessed the generalizability of the ﬁndings. These issues will of                              bored: the incidence and persistence of affect during interactions with three
+course never be addressed in a single study and call for a larger                               different computer-based learning environments. International Journal of
+program of research, which we are currently pursuing. Ongoing                                   HumaneComputer Studies, 68(4), 223e241.
+                                                                                           Bandura, A. (1997). Self-efﬁcacy: The exercise of control. New York: Freeman.
+research plans along this front include: (a) developing an enhanced                        Barrett, L. F. (2009). Variety is the spice of life: a psychological construction approach
+model that speciﬁes how individual difference inﬂuences state                                   to understanding variability in emotion. Cognition & Emotion, 23(7), 1284e1306.
+transitions via testable hypotheses, (b) conducting experiments to                         Berlyne, D. (1978). Curiosity in learning. Motivation and Emotion, 2, 97e175.
+                                                                                           Brown, A., Ellery, S., & Campione, J. (1998). Creating zones of proximal devel-
+systematically induce affect transitions (e.g., repeatedly providing                            opment electronically in thinking practices in mathematics and science
+negative feedback or intentionally inducing confusion), (c)                                     learning. In J. Greeno, & S. Goldman (Eds.) (pp. 341e368). Mahawah, NJ:
+expanding the model to include transitions involving the neutral                                Lawrence Erlbaum.
+                                                                                           Bruner, J. (1961). The act of discovery. Harvard Educational Review, 31(1), 21e32.
+state, (d) empirically testing the enhanced model with longer                              Buff, A., Reusser, K., Rakoczy, K., & Pauli, C. (2011). Activating positive affective
+tutorial sessions so that deep learning gains can be accurately                                 experiences in the classroom: “Nice to have” or something more? Learning and
+measured, and (e) testing the model on new populations in                                       Instruction, 21(3), 452e466.
+                                                                                           Calvo, R., & D’Mello, S. (Eds.). (2011). New perspectives on affect and learning tech-
+different learning contexts and with alternate methodologies to
+                                                                                                nologies. New York: Springer.
+track affect.                                                                              Carroll, J., & Kay, D. (1988). Prompting, feedback and error correction in the design of
+                                                                                                a scenario machine. International Journal of Man-Machine Studies, 28(1), 11e27.
+                                                                                           Chinn, C., & Brewer, W. (1993). The role of anomalous data in knowledge acquisition
+                                                                                                e a theoretical framework and implications for science instruction. Review of
+                                                                                                Educational Research, 63(1), 1e49.
+Acknowledgments
+                                                                                           Clifford, M. (1988). Failure tolerance and academic risk-taking in ten- to twelve-
+                                                                                                year-old students. British Journal of Educational Psychology, 58, 15e27.
+   We thank our research colleagues in the Emotive Computing                               Clore, G. L., & Huntsinger, J. R. (2007). How emotions inform judgment and regulate
+                                                                                                thought. Trends in Cognitive Sciences, 11(9), 393e399.
+Group and the Tutoring Research Group (TRG) at the University
+                                                                                           Cohen, J. (1960). A coefﬁcient of agreement for nominal scales. Educational and
+of Memphis (http://emotion.autotutor.org). Special thanks to                                    Psychological Measurement, 20(1), 37e46.
+Patrick Chipman, Scotty Craig, Brandon King, Bethany McDaniel,                             Cohen, J. (1992). A power primer. Psychological Bulletin, 112(1), 155e159.
+Jeremiah Sullins, Kristy Tapp, and Amy Witherspoon for data                                Collins, A., Warnock, E. H., Aiello, N., & Miller, M. L. (1975). Reasoning from
+                                                                                                incomplete knowledge. In D. Bobrow, & A. Collins (Eds.), Representation and
+collection.                                                                                     understanding (pp. 383e415). New York: Academic Press.
+   This research was supported by the National Science Foun-                               Conati, C., & Maclaren, H. (2009). Empirically building and evaluating a probabilistic
+dation (NSF) (ITR 0325428, HCC 0834847), Institute of Education                                 model of user affect. User Modeling and User-adapted Interaction, 19(3),
+                                                                                                267e303.
+Sciences (IES), and U.S. Department of Education (DoE), through                            Craig, S., D’Mello, S., Witherspoon, A., & Graesser, A. (2008). Emote aloud during
+Grant R305A080594. Any opinions, ﬁndings and conclusions, or                                    learning with AutoTutor: applying the facial action coding system to cognitive-
+recommendations expressed in this paper are those of the                                        affective states during learning. Cognition & Emotion, 22(5), 777e788.
+                                                                                           Craig, S., Graesser, A., Sullins, J., & Gholson, J. (2004). Affect and learning: an
+authors and do not necessarily reﬂect the views of NSF, IES, or                                 exploratory look into the role of affect in learning. Journal of Educational Media,
+DoE.                                                                                            29, 241e250.
+                                                                                           Csikszentmihalyi, M. (1975). Beyond boredom and anxiety. San Francisco, CA: Jossey-
+                                                                                                Bass.
+                                                                                           Csikszentmihalyi, M. (1990). Flow: The psychology of optimal experience. New York:
+                                                                                                Harper and Row.
+                                                                                           Deci, E., & Ryan, R. (2002). The paradox of achievement: the harder you push, the
+Appendix                                                                                        worse it gets. In J. Aronson (Ed.), Improving academic achievement: Impact of
+                                                                                                psychological factors on education (pp. 61e87). Orlando, FL: Academic Press.
+Frequency of transitions between states for Studies 1 and 2. Observed frequencies of       D’Mello, S., Craig, S., Sullins, J., & Graesser, A. (2006). Predicting affective states
+                                                                                                expressed through an emote-aloud procedure from AutoTutor’s mixed-
+state transitions. The signiﬁcant transitions (after correcting for base rates) and
+                                                                                                initiative dialogue. International Journal of Artiﬁcial Intelligence in Education,
+which are discussed in the paper are bolded (see Tables 1 and 2).
+                                                                                                16(1), 3e28.
+ Current State     N        Next State                                                     D’Mello, S., & Graesser, A. (2010). Multimodal semi-automated affect detection from
+                                                                                                conversational cues, gross body language, and facial features. User Modeling and
+                            Flow     Con      Fru    Bor      Del     Sur     Neu               User-adapted Interaction, 20(2), 147e187.
+ Study 1                                                                                   D’Mello, S..Graesser, A. The half-life of cognitive-affective states during complex
+                                                                                                learning. Cognition & Emotion, in press.
+ Flow              373      e        120      61      72      22      21       72
+                                                                                           D’Mello, S., King, B., & Graesser, A. (2010). Towards spoken human-computer
+ Confusion         354      116      e        70      44      13      14       95
+                                                                                                tutorial dialogues. HumaneComputer Interaction, 25(4), 289e323.
+ Frustration       245       62       62      e       51       7       9       49
+                                                                                           D’Mello, S. K..Graesser, A. C. Inducing and tracking confusion and cognitive
+ Boredom           288       71       50      49     e         5       3      103               disequilibrium with breakdown scenarios, submitted for publication.
+ Delight            85       20       18       6       5      e        5       30          Dweck, C. (2002). Messages that motivate: how praise molds students’ beliefs,
+ Surprise           78       22       18       9       7       6      e        15               motivation, and performance (in surprising ways). In J. Aronson (Ed.), Improving
+ Neutral           373       75       83      49     107      31      21        e               academic achievement: Impact of psychological factors on education (pp. 61e87).
+                                                                                                Orlando, FL: Academic Press.
+                                                             Author's personal copy
+
+
+                                                          S. D’Mello, A. Graesser / Learning and Instruction 22 (2012) 145e157                                                       157
+
+Ekman, P. (1984). Expression and the nature of emotion. In K. Scherer, & P. Ekman              Mandler, G. (1976). Mind and emotion. New York: Wiley.
+     (Eds.), Approaches to emotion (pp. 319e344). Hillsdale, NJ: Erlbaum.                      Mandler, G. (1984). Mind and body: Psychology of emotion and stress. New York:
+Ekman, P. (1992). An argument for basic emotions. Cognition & Emotion, 6(3e4),                      W.W. Norton & Company.
+     169e200.                                                                                  Mandler, G. (1999). Emotion. In B. M. Bly, & D. E. Rumelhart (Eds.), Cognitive science.
+Festinger, L. (1957). A theory of cognitive dissonance. Stanford, CA: Stanford                      Handbook of perception and cognition (2nd ed.). (pp. 367e382) San Diego, CA:
+     University Press.                                                                              Academic Press.
+Fielder, K. (2001). Affective states trigger processes of assimilation and accommo-            Meyer, D., & Turner, J. (2006). Re-conceptualizing emotion and motivation to learn
+     dation. In K. Martin, & G. Clore (Eds.), Theories of mood and cognition: A user’s              in classroom contexts. Educational Psychology Review, 18(4), 377e390.
+     guidebook (pp. 85e98). Mahwah, NJ: Erlbaum.                                               Miyake, N., & Norman, D. (1979). To ask a question, one must know enough to know
+Forbes-Riley, K., & Litman, D. (2010). Designing and evaluating a wizarded                          what is not known. Journal of Verbal Learning and Verbal Behavior, 18(3),
+     uncertainty-adaptive spoken dialogue tutoring system. Computer Speech and                      357e364.
+     Language, 25(1), 105e126.                                                                 Morimoto, C., Koons, D., Amir, A., & Flickner, M. (1998). Pupil detection and tracking
+Fredrickson, B., & Branigan, C. (2005). Positive emotions broaden the scope of                      using multiple light sources. IBM: Almaden Research Center.
+     attention and thoughteaction repertoires. Cognition & Emotion, 19(3), 313e332.            Pekrun, R. (2006). The controlevalue theory of achievement emotions: assump-
+Frijda, N. H. (2009). Emotions, individual differences and time course: reﬂections.                 tions, corollaries, and implications for educational research and practice.
+     Cognition & Emotion, 23(7), 1444e1461.                                                         Educational Psychology Review, 18(4), 315e341.
+Graesser, A., Chipman, P., Haynes, B., & Olney, A. (2005). AutoTutor: an intelligent           Pekrun, R. (2010). Academic emotions. In T. Urdan (Ed.), APA educational psychology
+     tutoring system with mixed-initiative dialogue. IEEE Transactions on Education,                handbook, Vol. 2. Washington, DC: American Psychological Association.
+     48(4), 612e618.                                                                           Pekrun, R., Elliot, A., & Maier, M. (2006). Achievement goals and discrete achieve-
+Graesser, A., Chipman, P., King, B., McDaniel, B., & D’Mello, S. (2007). Emotions and               ment emotions: a theoretical model and prospective test. Journal of Educational
+     learning with AutoTutor. In R. Luckin, K. Koedinger, & J. Greer (Eds.), 13th                   Psychology, 98(3), 583e597.
+     International conference on artiﬁcial intelligence in education (pp. 569e571).            Pekrun, R., Goetz, T., Daniels, L., Stupnisky, R. H., & Raymond, P. (2010). Boredom in
+     Amsterdam: IOS Press.                                                                          achievement settings: exploring controlevalue antecedents and performance
+Graesser, A., Lu, S., Olde, B., Cooper-Pye, E., & Whitten, S. (2005). Question asking               outcomes of a neglected emotion. Journal of Educational Psychology, 102(3),
+     and eye tracking during cognitive disequilibrium: comprehending illustrated                    531e549.
+     texts on devices when the devices break down. Memory and Cognition, 33,                   Piaget, J. (1952). The origins of intelligence. New York: International University
+     1235e1247.                                                                                     Press.
+Graesser, A., Lu, S. L., Jackson, G., Mitchell, H., Ventura, M., Olney, A., et al. (2004).     Robinson, W. P. (1975). Boredom at school. British Journal of Educational Psychology,
+     AutoTutor: a tutor with dialogue in natural language. Behavioral Research                      45, 141e152.
+     Methods, Instruments, and Computers, 36, 180e193.                                         Rodrigo, M., & Baker, R. (2011). Comparing the incidence and persistence of
+Graesser, A., McDaniel, B., Chipman, P., Witherspoon, A., D’Mello, S., & Gholson, B.                learners’ affect during interactions with different educational software pack-
+     (2006). Detection of emotions during learning with AutoTutor. In R. Sun, &                     ages. In R. Calvo, & S. D’Mello (Eds.), New perspective on affect and learning
+     N. Miyake (Eds.), Proceedings of the 28th annual conference of the cognitive                   technologies (pp. 183e202). New York: Springer.
+     science society (pp. 285e290). Austin, TX: Cognitive Science Society.                     Rosenberg, E. (1998). Levels of analysis and the organization of affect. Review of
+Graesser, A., & Olde, B. (2003). How does one know whether a person understands                     General Psychology, 2(3), 247e270.
+     a device? The quality of the questions the person asks when the device breaks             Rosenberg, E., & Ekman, P. (1994). Coherence between expressive and experiential
+     down. Journal of Educational Psychology, 95(3), 524e536.                                       systems in emotion. Cognition & Emotion, 8(3), 201e229.
+Graesser, A., Ozuru, Y., & Sullins, J. (2010). What is a good question? In M. McKeown, &       Rozin, P., & Cohen, A. (2003). High frequency of facial expressions corresponding to
+     G. Kucan (Eds.), Bringing reading research to life (pp. 112e141) New York: Guilford.           confusion, concentration, and worry in an analysis of maturally occurring facial
+Heider, F. (1958). The psychology of interpersonal relations. New York: John Wiley &                expressions of Americans. Emotion, 3, 68e75.
+     Sons.                                                                                     Russell, J. (2003). Core affect and the psychological construction of emotion.
+Huk, T., & Ludwigs, S. (2009). Combining cognitive and affective support in order to                Psychological Review, 110, 145e172.
+     promote learning. Learning and Instruction, 19(6), 495e505.                               Schank, R. (1999). Dynamic memory revisited. Cambridge University Press.
+Immordino-Yang, M. H., & Damasio, A. R. (2007). We feel, therefore we learn: the               Scherer, K. R. (2009). The dynamic architecture of emotion: evidence for the
+     relevance of affective and social neuroscience to education. Mind, Brain and                   component process model. Cognition & Emotion, 23(7), 1307e1351.
+     Education, 1(1), 3e10.                                                                    Schutz, P., & Pekrun, R. (Eds.). (2007). Emotion in education. San Diego, CA: Academic
+Isen, A. (2008). Some ways in which positive affect inﬂuences decision making and                   Press.
+     problem solving. In M. Lewis, J. Haviland-Jones, & L. Barrett (Eds.), Handbook of         Schwarz, N. Feelings-as-information theory. In P. Van Lange, A. Kruglanski.T. Hig-
+     emotions (3rd ed.). (pp. 548e573) New York, NY: Guilford.                                      gins (Eds.), Handbook of theories of social psychology. Sage, in press.
+Izard, C. E. (2007). Basic emotions, natural kinds, emotion schemas, and a new                 Siegler, R., & Jenkins, E. (Eds.). (1989). Strategy discovery and strategy generalization.
+     paradigm. Perspectives on Psychological Science, 2(3), 260e280.                                Hillsdale, NJ: Lawrence Erlbaum Associates.
+Jarvenoja, H., & Jarvela, S. (2005). How students describe the sources of their                Silvia, P. J. (2009). Looking past pleasure: anger, confusion, disgust, pride, surprise,
+     emotional and motivational experiences during the learning process: a quali-                   and other unusual aesthetic emotions. Psychology of Aesthetics Creativity and the
+     tative approach. Learning and Instruction, 15(5), 465e480.                                     Arts, 3(1), 48e51.
+Jurafsky, D., & Martin, J. (2008). Speech and language processing: An introduction to          Stein, N., & Levine, L. (1991). Making sense out of emotion. In W. Kessen, A. Ortony,
+     natural language processing, computational linguistics, and speech recognition.                & F. Kraik (Eds.), Memories, thoughts, and emotions: Essays in honor of George
+     Upper Saddle River, NJ: Prentice-Hall.                                                         Mandler (pp. 295e322). Hillsdale, NJ: Erlbaum.
+Kapoor, A., Burleson, B., & Picard, R. (2007). Automatic prediction of frustration.            Tekscan. (1997). Body pressure measurement system user’s manual. South Boston,
+     International Journal of HumaneComputer Studies, 65(8), 724e736.                               MA: Tekscan Inc..
+Keltner, D., & Shiota, M. (2003). New displays and new emotions: a commentary on               VanLehn, K., Graesser, A., Jackson, G., Jordan, P., Olney, A., & Rose, C. P. (2007). When
+     Rozin and Cohen (2003). Emotion, 3, 86e91.                                                     are tutorial dialogues more effective than reading? Cognitive Science, 31(1),
+Laird, J. E., Newell, A., & Rosenbloom, P. S. (1987). Soar e an architecture for general            3e62.
+     intelligence. Artiﬁcial Intelligence, 33(1), 1e64.                                        VanLehn, K., Siler, S., Murray, C., Yamauchi, T., & Baggett, W. (2003). Why do only
+Larson, R. W., & Richards, M. H. (1991). Boredom in the middle school years e                       some events cause learning during human tutoring? Cognition and Instruction,
+     blaming schools versus blaming students. American Journal of Education, 99(4),                 21(3), 209e249.
+     418e443.                                                                                  Vavik, L. (1993). Facilitating discovery learning in computer-based simulation
+Lazarus, R. (1991). Emotion and adaptation. New York: Oxford University Press.                      learning environments. In R. Tennyson, & A. Baron (Eds.), Automating instruc-
+Lehman, B., D’Mello, S., Chauncey, A., Gross, M., Dobbins, A., Wallace, P., et al. (2011).          tional design: Computer-based development and delivery tools (pp. 403e449).
+     Inducing and tracking confusion with contradictions during critical thinking                   Berlin, Germany: Springer-Verlag.
+     and scientiﬁc reasoning. In S. Bull, & G. Biswas (Eds.), Proceedings of the 15th          Vygotsky, L. (1978). Mind in society: The development of higher psychological
+     international conference on artiﬁcial intelligence in education (pp. 171e178). New             processes. Cambridge, MA: Harvard University Press.
+     York/Heidelberg: Springer.                                                                Weiner, B. (1986). An attributional theory of motivation and emotion. New York:
+Lepper, M., & Woolverton, M. (2002). The wisdom of practice: lessons learned from                   Springer-Verlag.
+     the study of highly effective tutors. In J. Aronson (Ed.), Improving academic             Woolf, B., Burleson, W., Arroyo, I., Dragon, T., Cooper, D., & Picard, R. (2009). Affect-
+     achievement: Impact of psychological factors on education (pp. 135e158).                       aware tutors: recognizing and responding to student affect. International Jour-
+     Orlando, FL: Academic Press.                                                                   nal of Learning Technology, 4(3/4), 129e163.
+Linnenbrink, E. A. (2006). Emotion research in education: theoretical and meth-                Zimmerman, B. (2000). Attaining self-regulation: a social cognitive perspective. In
+     odological perspectives on the integration of affect, motivation, and cognition.               M. Boekaerts, P. Pintrich, & M. Zeodmer (Eds.), Handbook of self-regulation.
+     Educational Psychology Review, 18(4), 307e314.                                                 Academic Press.
+

@@ -1,0 +1,385 @@
+                  2019 IEEE International Symposium on Mixed and Augmented Reality Adjunct (ISMAR-Adjunct)
+
+
+
+
+          The effect of two different types of human-computer interactions on
+                   user’s emotion in virtual counseling environment
+                                Ziqi Tu*                            Dongdong Weng†                                Dewen Cheng‡
+                     MRAD of Beijing Institute of              MRAD of Beijing Institute of                  MRAD of Beijing Institute of
+                           Technology                                 Technology                                   Technology
+                                                             AICFVE of Beijing Film Academy
+                           Ruiying Shen§                                 Hui Fang¶                                   Yihua Bao||
+                     MRAD of Beijing Institute of               MRAD of Beijing Institute of                   AICFVE of Beijing Film
+                           Technology                                 Technology                                    Academy
+
+
+
+     A BSTRACT                                                                      explorations on its application in conversational scenarios.
+     Previous studies have suggested that different types of human-                    The aim of this study is to use virtual humans to train counselors
+     computer interactions (HCI) have different impact on use’s emo-                based on two HCI ways including controller-based interaction and
+     tional responses in virtual environment. In this study, we investigat          speech-based interaction and explore the corresponding emotional
+     the effects of two different types of HCI, including controller-based          responses induced by the two different interactions. We hypothesize
+     interaction and speech-based interaction, on user’s emotion in a vir-          that the speech-based interaction would induce stronger emotional
+     tual counseling environment. To achieve this end, we ﬁrst develop a            response because of its good and natural interaction.
+     virtual counseling environment which enable each participant acted
+     as a counselor to help a depressed virtual woman. We then assess               2   R ELATED W ORK
+     the emotional intensity of each participant after they experienced 20-
+                                                                                    There are many studies about the impact virtual humans may have on
+     30 minutes’ consultation in either controller-based or speech-based
+                                                                                    users’ emotions. Tsai [15] examined the existence of the emotional
+     interaction condition. Our results show that, although there is no
+                                                                                    transmission between virtual human and users through a series of
+     signiﬁcant difference in emotional intensity between two different
+                                                                                    experiments. By asking the subjects to see the images of faces with
+     interaction conditions, participants in speech-based condition show
+                                                                                    different expressions, they found that self-reported happiness of the
+     relatively stronger emotion than these in controller-based condition.
+                                                                                    subjects increased. The results were afﬁrmed in a Stag Hunt exper-
+     Index Terms:       Human-centered computing—Human com-                         iment. Melo [9] examined whether anger and pleasure of virtual
+     puter interaction (HCI)—Interaction paradigms—Virtual real-                    human have similar effects in multi-task interpersonal negotiations.
+     ity; Human-centered computing—Human computer interaction                       They conducted an experiment, allowing the subject to interact with
+     (HCI)—Interaction devices—Sound-based input Human-centered                     the virtual human, which presented various emotions. The results
+     computing—Human computer interaction (HCI)—HCI design and                      showed that interpersonal emotional impacts also occurred in the
+     evaluation methods—User studies                                                negotiations between people and virtual human, afﬁrming that vir-
+                                                                                    tual human can induce emotions in humans. Jackson [5] developed
+     1    I NTRODUCTION                                                             a specialized platform based on the FACS system, which allowed
+     For a counselor, professional skills and experience are important,             virtual characters to express different levels of feelings and emotions
+     which allows him or her to handle various situations and solve the             and could measure physiological responses. With the data collected,
+     problems of visitors, while an amateur might be less effective for             they found that people could identify the feelings of the virtual hu-
+     these tasks. Thus, training is of utmost signiﬁcance. Virtual reality          man, indicating that the virtual human was capable of simulating
+     (VR) based counseling is promising way to train counselors in a pro-           human expressions which could be noticed by humans.
+     fessional way. In this study, we developed a training apparatus based             There has been some research on utilizing virtual humans as
+     on VR technology that allowed us to train users in a professional              patients to train novice clinicians. Link [8] trained telephone inter-
+     model.                                                                         viewers to learn refusal avoidance skills with an application based
+        Interaction styles have impacts on the users’ efﬁciency and com-            on responsive virtual human technology. They test the acceptance
+     fort, especially for the virtual world, and the most popular mode              of the trainees for the virtual environment. The result showed that
+     is using a controller, or joystick. With the improvement of speech             the interviewers didn’t like the slow response of the system because
+     recognition technology, voice has been increasingly matured as an              of the low efﬁciency of speech recognition. The speech recognition
+     input for interaction. Speech is considered a more natural interac-            applied in this paper is reliable and the system can respond in less
+     tion style compared with controller-based interaction, especially in           than 1 second. USC ICT has used a virtual environment system
+     scenarios like a conversation, where the voice is a more accepted              for psychological training, and they constructed a virtual human
+     way of communication. In the case of virtual counseling, voice inter-          named “Justin” which derived from a military negotiation training
+     action is a good choice, and this paper has made some preliminary              tool into a virtual therapy patient for training novice clinicians [6].
+                                                                                    Novice clinicians can learn to confront a resistant client. The design
+         * e-mail: tzq1991@bit.edu.cn                                               of their virtual patient gave a lot of inspiration to other researchers.
+         † e-mail: crgj@bit.edu.cn                                                  Parsons [10] proposed an approach to help novice mental health clin-
+         ‡ e-mail: cdwlxk@bit.edu.cn                                                icians conduct an interview with the virtual patient. They utilized
+         § e-mail: 961775799@qq.com                                                 Virtual Human Agent technology to emulate an adolescent male with
+         ¶ e-mail: 510756678@qq.com                                                 conduct disorder. The study showed that the virtual patient ﬁt well
+         || e-mail: baoyihua@bfa.edu.cn                                             into usability testing and the clinicians had a positive response to the
+                                                                                    virtual patient, but some areas need to modify. These works are well
+                                                                                    designed and all shows that virtual patient has a good impact on the
+                                                                                    training procedure. And they all point out that speech recognition is
+                                                                                    very important. Schafer [14] discussed the basic issues in human-
+
+
+
+978-1-7281-4765-9/19/$31.00 ©2019 IEEE                                        217
+DOI 10.1109/ISMAR-Adjunct.2019.00-43
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:02 UTC from IEEE Xplore. Restrictions apply.
+                                                                                       The virtual human has basic movements, facial expressions, and
+                                                                                    human voice. The counseling system integrates the voice recognition
+                                                                                    plugin, which can identify the users’ utterances so that the user
+                                                                                    can interact with the virtual human just like talking with another
+                                                                                    real human. A head-mounted display (HMD) is used to display
+                                                                                    the virtual environment to users. The parameters of the HMD are:
+                                                                                    monocular resolution 1200 * 1080, the ﬁeld of view 110 °, and
+Figure 1: The experiment system: user sits on the chair with HMD and                refresh rate 90 fps. A microphone is used as the sound input device.
+feels like sitting on a sofa, and the virtual visitor is sitting on another            The Unity3D engine is used for system integration and real-time
+sofa. In the counseling scene, 1 is the sofa where virtual visitor sits, 2          rendering, and iFLYTEK Speech Recognizer for recognizing Chi-
+is the sofa user sits, 3 is the small desk and 4 is the door.                       nese speeches. The HMD is HTC VIVE, and the microphone is
+                                                                                    Logitech c920.
+
+computer interaction with voice. Some points are worth considering                  4     E XPERIMENT P ROCEDURE
+in applications.
+                                                                                    4.1    Research Question and Expected Outcomes
+   This paper states that in interacting with a virtual human, a more
+natural interactive mode enhances its inﬂuence on the users’ emotion.               The questions at issue are: whether counseling training in the immer-
+So far, many researchers have been exploring what is the most                       sive virtual environment has emotional impacts on users; whether
+natural way of human-computer interaction. Rautaray [13] discussed                  interaction styles have heterogenous emotional effects on users; and
+the technologies, software platforms, and frameworks for gestures as                whether a more natural interaction style is able to cause greater
+a natural interface in human-computer interaction, and they believed                emotional responses in users.
+that natural human-computer interaction to have positive impacts on                    The expected outcomes are: the process of interaction with vir-
+users. Qiu [11] proposed a method of interactive operation for virtual              tual human in the virtual world will have an impact on the users’
+human by establishing a virtual human real-time driving model and                   emotions, different interaction style lead to heterogeneous sense
+dynamic constraints. This method provides products and tools for                    of presence and thus the user will have emotional responses of
+virtual humans and a method with which virtual humans can interact                  various degrees, and the more natural voice-based interaction will
+with the environment. Radkowski [12] proposed an AR assembly                        cause stronger emotional responses compared to the controller-based
+system. With Kinect, the user could manipulate and assemble the                     mode.
+3D models of mechanical systems. Natural interactive modes were
+applied so as to enhance the experience of users. Lee [7] explored                  4.2    Participant
+a new natural way of interacting with data visualization. Natural
+human-computer interactions have been very widely used.                             In order to test these assumptions, between-subject conditions are
+   Speech makes a more natural interactive mode than conventional                   used, and two scenarios are designed. In one case, the users select
+alternatives and a number of applied researches. Uchiya [16] pro-                   with a controller (SE Group), while in the other, they need only to
+posed a system that could be used on mobile phones for open days                    read the guides they choose (SP Group). In both cases, but for the
+on campus, which included 3D cartoon characters equipped with                       interaction style, all other elements of the virtual counseling are kept
+speech interaction in place of human guides. The system has proved                  the same, including the animation and voice of the virtual human, the
+the positive roles of speech interactions. Aylett [1] argued that                   script that dictates the content of the conversation, and the alternative
+speech was a natural way of interacting and was not constrained by                  options. Each subject is asked to play the role of a counselor for
+ergonomics considerations concerning screen size and controller. On                 the virtual visitor, whose speeches and actions are determined by
+the contrary, Carter [3] believed that speech was a more ”unnatural”                the subject’s choice. All the nineteen subjects are undergraduate or
+and ”uncomfortable” mode of interaction in actual use. Albeit the                   graduate students of a university in Beijing, aged 22-28, including
+fact many game platforms have equipped the capacity of speech                       8 females and 11 males. They are randomly designated into two
+recognition, researches on speech interaction remain an ongoing                     groups. SE Group has nine subjects (5 Male, 4 Female), and SP
+enterprise.                                                                         Group has ten (6 Male, 4 Female).
+
+3   E XPERIMENT S IMULATION AND S ETUP                                              4.3    Methodology
+The virtual counseling environment is developed based on a real rep-                As a beginning, subjects are asked to read a card, which tells the
+resentative counseling scene, with two sofas, a small table, paintings,             subjects that the system is a counseling simulation, and the subjects
+plants, a small desk, books, and decorations in it. (ﬁgure) There is                will play the role of a counselor to help the virtual visitor. And then
+a door near the sofa, making the counseling environment a closed                    is the training session, when subjects put on the HMD and adjust
+privacy place. A physical chair is put on the place of the sofa so that             the headband, inter-pupillary distance, among others, to the most
+when the user sits on this chair, she or he feels like sitting on the               comfortable state. Then the subjects enter the visual counseling room
+virtual sofa (see Fig. 1).                                                          and are given some time for looking around and getting familiar with
+   In order to develop a professional model to train users, we design               the room. Later, the subjects are asked to take off the headset and ﬁll
+a standard counseling scene with the assistance of an experience                    an information form, including gender and age, and questionnaires,
+counselor. In the virtual counseling environment, a virtual human                   which are primarily concerned about their mental status at the time,
+acts as a visitor with feelings of frustration and the user acts as a               including the PANAS and the DES. When the forms are ﬁlled, the
+counselor trying to help her. The counseling script includes the entire             counseling simulation begins, and the subjects are asked to put on the
+process of the counseling, from the virtual visitor coming into the                 HMD again while the researchers explain how to use the controller
+counseling room to the visitor leaving the room. The script includes                and make choices. The virtual visitor shows up after all subjects are
+the reactions and statements of the visitor and the therapeutic model               assured to understand the situation. After the end of the simulation,
+the user chooses to provide the visitor a useful counsel. In the                    the subjects are asked to take off the HMD and ﬁll questionnaires
+interaction part, the user chooses the therapeutic options either by                again, which includes the PANAS, the DES scale, and the SPS. Now
+manipulating a controller or speaking. The emotional response of                    the experiment ends. See Fig. 2 for the procedure diagram of this
+the visitor changes according to the choice of the user.                            experiment.
+
+
+
+
+                                                                              218
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:02 UTC from IEEE Xplore. Restrictions apply.
+ Figure 2: The experiment procedure and duration of each session.
+
+
+4.4 Measures                                                                                    (a)                                (b)
+The Positive and Negative Affect Schedule was presented in 1988 by
+David Watson and Lee Anna Clark [17] for measuring the two basic                Figure 3: Changes in positive emotions and negative emotions and
+components of emotion - positive and negative effects, and it proves            ANOVA for PANAS. (a) is the changes of positive emotion, (b) is the
+to be highly stable and credible. The scale contains 20 items, 10 for           changes of negative emotion.
+positive emotions, and the rest for negative emotions. Subjects need
+to read and understand each item and rank their current emotional
+states (1-5, 1 for no feeling at all, 5 for extreme feeling).
+   The Differential Emotion Survey was developed by Izard Carroll
+in 1974 [4], which has been used to measure various emotional
+differentiation. The DES covers 10 emotions, each of which contains
+three components, that is, a total of 30 words expressing emotions.
+Subjects need to rate each word according to their current states
+(0-9), 0 for no feeling at all and 9 for extremely feeling.
+   Given that interaction styles may have an inﬂuence on users’
+perception of whether the virtual human is real, and in turn inﬂuence
+the users’ emotion, Social Presence Survey [2] is applied. It contains
+ﬁve questions that describe the users’ perceptions of a virtual human.
+The Subjects are asked to state the degree to which they agree with
+each question (1-5).1 means strongly disagree, and 5 means strongly
+agree.
+
+5 R ESULTS
+                                                                                             Figure 4: Changes in differential emotions.
+For the existence of interpersonal variations in understanding of the
+scales, the scoring standards may be different among subjects. Thus
+the subjects are asked to ﬁll the questionnaires before the experiment,
+                                                                                    As for emotion like anger, disgust, and distress,the increase in
+whose results are taken as baselines for results of questionnaires
+                                                                                scores may be due to the fact that participants were bothered by the
+ﬁlled after the experiment. The impacts on subjects are reﬂected in
+                                                                                interaction process, but SP Group had less increase demonstrate that
+the difference between the results before and after the experiment.
+                                                                                interact with speech is much more comfortable.
+Because the subject in the training session is not interacting with the
+virtual human, the SPS is not applicable, and its results are analyzed              The changes of the surprise emotion of the SE Group are less
+without the baseline.                                                           than SP Group, this probably because the more interactive nature
+                                                                                of the voice-based choice, so that the subjects get familiar with the
+5.1 Result of PANAS                                                             system faster and in turn shows a large decline in surprise during the
+                                                                                experiment.
+The positive and negative emotions of the subjects in the two groups
+are analyzed statistically. Fig. 3 shows the differences in positive                Fig. 4 shows that joy has undergone signiﬁcant change. This may
+emotions, negative emotions and their sum. In SE Group, scores for              be due to sympathy towards the virtual human, or the boredom of
+positive emotions witness an obvious reduction, while the results of            the experimental procedure. The reduction the SP Group is lower
+SP Group are not uniform. Overall, there is no signiﬁcant difference            than that of the SE Group, probably because voice-based interaction
+in the positive emotional change between the SE Group and the SP                is relatively natural, alleviating the boredom.
+Group. As for the negative emotions, the ﬁgure shows that SE Group                  Table 1 is the complete result of ANOVA for all differential
+witnesses a slight increase, and SP Group slight decrease. Again,               emotions, which shows that there are no signiﬁcant inter-subject
+the inter-group differences are not signiﬁcant. To reﬂect the overall           differences in all the emotions.
+changes, a sum term is calculated as the sum of the absolute values
+of changes in positive and negative emotions. As the ﬁgure shows,                        Table 1: ANOVA for DES: 10 differential emotions.
+SE Group experiences less overall emotional changes than the SP
+Group.                                                                                                   Group      F.     Sig.
+   Analysis of Variance (ANOVA) is conducted for emotional
+                                                                                                          anger    0.642   0.434
+changes in the two groups, the result shows no signiﬁcant differences                                  surprise    0.356   0.559
+for positive, negative and the sum changes. However, a trend can                                        interest   0.002   0.965
+be identiﬁed that emotional changes of the SE Group are slightly                                      contempt     1.340   0.263
+smaller than the SP Group.                                                                                  fear   0.086   0.773
+                                                                                                           guilt   3.994   0.062
+5.2 Result of DES                                                                                      shyness     0.578   0.457
+Because of the scenario and script of this experiment, not all dif-                                          joy   0.552   0.468
+ferential emotions are prone to be inﬂuenced. Therefore, all the                                        distress   0.306   0.587
+differential emotional changes are presented in the bar chart of                                        disgust    0.224   0.642
+Fig. 4 and some of the emotions without obvious changes.
+
+
+
+                                                                          219
+
+   Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:02 UTC from IEEE Xplore. Restrictions apply.
+Table 2: ANOVA for SPS: ANOVA for every questions of the SPS and                  shows slightly greater changes in SP Group. Though the results are
+the total of all questions. Q1 represents the question 1, Q2 represents           not statistically signiﬁcant, the trend is identiﬁable.
+the question 2 and so on. SPS represents the sum of all the questions.               The results of the DES show that three of the ten emotions are
+                                                                                  signiﬁcantly impacted during the experiment, or surprise, interest,
+                          Group      F.      Sig.                                 and joy. The rates of surprise and interest are obviously reduced
+                             Q1    1.904    0.186                                 after interacting with the virtual human. A plausible explanation is
+                             Q2    2.678    0.120                                 that the subjects are interested in the VR system and the unknown
+                             Q3    0.584    0.455                                 experimental contents. These emotions are in turn calmed down
+                             Q4    2.556    0.128                                 after the virtual human talks about her experience and difﬁculties.
+                             Q5    0.962    0.340                                 The subjects experienced reduced joy as well, and this may be be-
+                            SPS    0.985    0.335                                 cause that subjects feel relaxed and happy at the beginning of the
+                                                                                  counseling, and are affected by the virtual visitors’ sad experiences.
+                                                                                  As empathy is aroused, it is not surprising that the participant can
+                                                                                  hardly keep joyful. The statistical results show no signiﬁcant dif-
+                                                                                  ference between the interaction styles, but still reveal something
+                                                                                  interesting, such that SE Group witnesses lower emotional changes
+                                                                                  in surprise and interest than SP Group. The reason may be that the
+                                                                                  voice-based mode is more interactive, and the subjects get familiar
+                                                                                  with the system more quickly, which causes a greater reduction in
+                                                                                  the two emotions. As for joy, SP Group experiences less reduction
+                                                                                  than SE Group, which may be caused by the fact that voice-based
+                   (a)                              (b)
+                                                                                  interaction is more natural, and the controller-mode tends to bore
+                                                                                  the subjects.
+                                                                                     SPS is used to evaluate the subjects’ perception of the virtual vis-
+                                                                                  itor, and its results show that the subjects’ perception and evaluation
+                                                                                  of the virtual visitor’s authenticity are slightly higher in SP Group,
+                                                                                  but the differences are hardly signiﬁcant. The results also consistent
+                                                                                  with the researchers’ expectations, because the voice-based interac-
+                                                                                  tion is more engaging, thus inducing a greater sense of the virtual
+                                                                                  visitor’s social presence and authenticity.
+                                                                                     In general, some trends concerning inter-group differences are
+                                                                                  identiﬁable, yet insigniﬁcant. Thus the researchers’ hypotheses are
+                   (c)                              (d)                           only weakly supported. Here are several possible explanations:
+                                                                                     • The script sets a forked storyline with different endings, which
+Figure 5: The distribution for the scores for the sum of all questions
+                                                                                       in turn cause different emotional reactions in the subjects.
+and question 1, 2 and 4. (a) is the sum of all questions, (b) is question
+1, (c) is question 2, (d) is question 4.                                             • There is only one counseling session, and signiﬁcant emotional
+                                                                                       changes may have occurred during the session, which is not
+                                                                                       able to be measured given the current setting.
+5.3     Result of SPS
+                                                                                     • The self-report questionnaires may not be objective.
+The sum scores are presented in Fig. 5(a), showing that the distri-
+bution of social presence of SE Group is more concentrated, while                    • The subjects may feel exhausted when uttering long sentences,
+that of SP Group is more scattered. The results of ANOVA show no                       as the experiment requires.
+signiﬁcant differences between the two groups. Table 2 reports the
+ANOVA results for each question, indicating some differences in                      • All subjects are students instead of professionals.
+Question 1, 2 and 4, yet still insigniﬁcant. The distribution of the
+scores for questions 1, 2 and 4 is shown in Fig. 5(b) (c) (d). Question           7 C ONCLUSION
+1 is ”I perceive that I am in the presence of another person in the               This paper aims to discover whether interaction styles have different
+room with me.” Question 2 is ”I feel that the person is watching me               emotional effects on subjects in immersive simulated environments,
+and is aware of my presence.” Question 4 is ”The person appears to                and is the ﬁrst experimental research to explore this issue in counsel-
+be sentient, conscious, and alive to me.” SP Group shows a higher                 ing scenarios. An immersion virtual counseling training system is
+awareness of the virtual human’s sense of presence and authenticity               set up, in which a virtual human plays a frustrated visitor, while the
+than the SE Group. The ﬁnding is in line with the hypothesis, but                 subject acts as a counselor. In this process, the system will give the
+again, not signiﬁcant.                                                            subjects tips about what to say to the virtual visitor, and they will
+                                                                                  make choices in the way as they are assigned to. However selected,
+6     D ISCUSSION                                                                 the choices will arouse reactions in the virtual visitor, whose prob-
+The aim of this study is to explore the impact of two different HCI               lems may or may not be solved accordingly. PANAS and DES are
+modes on emotional changes of the user when she/he acts as a                      used to evaluate the emotional changes before and after using the
+counselor in a virtual counseling environment. Our results show that              system. The results show that voice-based interaction has a greater
+there is no signiﬁcant difference between the two interaction styles              effect, but the differences are not signiﬁcant. Potential reasons in-
+either for positive or negative emotions. This may be the results of              clude: 1) different outcomes cause heterogenous emotional changes
+different ﬁnals dictated in the script. In other words, a subject may             in subjects, and 2) emotional changes are not measured in the mid-
+make the right choices and manage to help the visitor, or fail and see            dle of counseling when signiﬁcant changes might have occurred but
+the visitor leave depressed. Certainly, the subject will experience               diminished towards the end. The Social Presence Scale is used to
+different emotions in one case or another. Summing up the absolute                evaluate the degree to which subject perceive the virtual human as
+values of emotional changes somehow gets around the issue, and                    real, and members of SP Group demonstrate higher perception of
+
+
+
+
+                                                                            220
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:02 UTC from IEEE Xplore. Restrictions apply.
+authenticity, showing that the voice-based mode is more interactive                  [11] S. Qiu, X. Fan, D. Wu, Q. He, and D. Zhou. Virtual human mod-
+and engaging. Yet again, the differences are not signiﬁcant.                              eling for interactive assembly and disassembly operation in virtual
+   Albeit the disappointing insigniﬁcant results found in this paper,                     reality environment. International Journal of Advanced Manufacturing
+certain trends are revealed pointing to future researches. This pa-                       Technology, 69(9-12):2355–2372, 2013.
+per attempts to conduct counseling training in immersive virtual                     [12] R. Radkowski and C. Stritzke. Interactive hand gesture-based assembly
+                                                                                          for augmented reality applications. pp. 303–308, 2012.
+environments, providing a precedent for similar training programs
+                                                                                     [13] S. S. Rautaray and A. Agrawal. Vision based hand gesture recogni-
+in the virtual world. Another contribution of this paper lies in its
+                                                                                          tion for human computer interaction: a survey. Kluwer Academic
+exploration of voice-based interaction style, and the ﬁnding that                         Publishers, 2015.
+this mode is more interactive, resulting in greater emotional effects.               [14] R. W. Schafer. Scientiﬁc bases of human-machine communication by
+Finally, this paper is helpful for similar applied scenarios involving                    voice. Proceedings of the National Academy of Sciences of the United
+voice-based interactions.                                                                 States of America, 92(22):9914–20, 1995.
+                                                                                     [15] J. Tsai, E. Bowring, S. Marsella, W. Wood, and M. Tambe. A study of
+8   F UTURE WORK                                                                          emotional contagion with virtual characters. Lecture Notes in Computer
+                                                                                          Science, 7502:81–88, 2012.
+First, given that the unsound script is the main reason for the unex-
+                                                                                     [16] T. Uchiya, M. Yoshida, D. Yamamoto, R. Nishimura, and I. Takumi.
+pected results, so designing a simpler and more appropriate script,
+                                                                                          Design and implementation of open-campus event system with voice
+which embodies different options leading to the same ending, is a                         interaction agent. 2015.
+reasonable step to go for further studies. Second, devices that detect               [17] D. Watson, L. A. Clark, and A. Tellegen. Development and validation
+skin conductance or other physiological signals may be used to en-                        of brief measures of positive and negative affect: the panas scales.
+large the available dataset. Third, instead of one, multiple sessions                     Journal of Personality and Social Psychology, 54(6):1063–70, 1988.
+can make the measurement of subjects’ emotional changes easier,
+and enhance the credibility of results from questionnaires. Finally,
+other interaction styles may also be worth considering.
+
+ACKNOWLEDGMENTS
+This work was supported by the National Key Research and Devel-
+opment Program of China (No.2018YFF0300802) and the National
+Natural Science Foundation of China (No.61661146002) and the
+111 Project (B18005).
+
+R EFERENCES
+ [1] M. P. Aylett, P. O. Kristensson, S. Whittaker, and Y. Vazquez-Alvarez.
+     None of a chind:relationship counselling for hci and speech technol-
+     ogy. In CHI ’14 Extended Abstracts on Human Factors in Computing
+     Systems, pp. 749–760, 2014.
+ [2] J. N. Bailenson, J. Blascovich, A. C. Beall, and J. M. Loomis. Inter-
+     personal distance in immersive virtual environments. Personality and
+     Social Psychology Bulletin, 29(7):819, 2003.
+ [3] M. Carter, F. Allison, J. Downs, and M. Gibbs. Player identity disso-
+     nance and voice interaction in games. In Symposium on Computer-
+     Human Interaction in Play, pp. 265–269, 2015.
+ [4] I. C. Ellis, F. Dougherty, B. Bloxom, and N. Kotsch. The differential
+     emotion scale: A method of measuring the meaning of subjective
+     experience of discrete emotions. Nashville, TN: Vanderbilt University,
+     Department of Psychology, 1974.
+ [5] P. L. Jackson, P. E. Michon, E. Geslin, M. Carignan, and D. Beaudoin.
+     Eevee: the empathy-enhancing virtual evolving environment. Frontiers
+     in Human Neuroscience, 9(112):112, 2015.
+ [6] P. Kenny, A. A. Rizzo, T. D. Parsons, J. Gratch, and W. Swartout. A
+     virtual human agent for training novice therapist clinical interviewing
+     skills. Annual Review of Cybertherapy and Telemedicine, 5:81–89,
+     2007.
+ [7] B. Lee, P. Isenberg, N. H. Riche, and S. Carpendale. Beyond mouse
+     and keyboard: Expanding design considerations for information visual-
+     ization interactions. IEEE Transactions on Visualization and Computer
+     Graphics, 18(12):2689–98, 2012.
+ [8] M. W. Link, P. P. Armsby, R. C. Hubal, and C. I. Guinn. Accessibility
+     and acceptance of responsive virtual human technology as a survey
+     interviewer training tool. Computers in Human Behavior, 22(3):412–
+     426, 2006.
+ [9] C. M. D. Melo, P. Carnevale, and J. Gratch. The effect of expression of
+     anger and happiness in computer agents on negotiations with humans.
+     In The International Conference on Autonomous Agents and Multiagent
+     Systems, pp. 937–944, 2011.
+[10] T. D. Parsons, P. Kenny, C. A. Ntuen, C. S. Pataki, M. T. Pato, A. A.
+     Rizzo, C. St-George, and J. Sugar. Objective structured clinical in-
+     terview training using a virtual human patient. Studies in Health
+     Technology and Informatics, 132(1):357–62, 2008.
+
+
+
+
+                                                                               221
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:02 UTC from IEEE Xplore. Restrictions apply.
+

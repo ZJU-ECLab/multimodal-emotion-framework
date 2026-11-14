@@ -1,0 +1,620 @@
+                                                    Computers and Electrical Engineering 93 (2021) 107280
+
+
+                                                            Contents lists available at ScienceDirect
+
+
+                                            Computers and Electrical Engineering
+                                             journal homepage: www.elsevier.com/locate/compeleceng
+
+
+
+
+A Human–Computer Interaction framework for emotion
+recognition through time-series thermal video sequences✩
+Satyajit Nayak a ,∗, Bingi Nagesh b , Aurobinda Routray b , Monalisa Sarma a
+a Subir Chowdhury School of Quality and Reliability, IIT, Kharagpur, India
+b Department of Electrical Engineering, IIT, Kharagpur, India
+
+
+
+
+ARTICLE                INFO                               ABSTRACT
+
+Keywords:                                                 Infrared-Thermal Imaging is a non-contact mechanism for psychophysiological research and
+DTW                                                       application in Human–Computer Interaction (HCI). Real-time detection of the face and tracking
+Emotion Recognition                                       the Regions of Interest (ROI) in the thermal video during HCI is challenging due to head motion
+Faster R-CNN
+                                                          artifacts. This paper proposes a three-stage HCI framework for computing the multivariate
+MIL
+                                                          time-series thermal video sequences to recognize human emotion and provides distraction
+HCI
+Kalman Filter
+                                                          suggestions. The first stage comprises of face, eye, and nose detection using a Faster R-CNN
+MTS                                                       (region-based convolutional neural network) architecture and used Multiple Instance Learning
+                                                          (MIL) algorithm for tracking the face ROIs across the thermal video. The mean intensity of
+                                                          ROIs is calculated which forms a multivariate time series (MTS) data. In the second stage, the
+                                                          smoothed MTS data are passed to the Dynamic Time Warping (DTW) algorithm to classify
+                                                          emotional states elicited by video stimulus. During HCI, our proposed framework provides
+                                                          relevant suggestions from a psychological and physical distraction perspective in the third stage.
+                                                          Our proposed approach signifies better accuracy in comparison with other classification methods
+                                                          and thermal data-sets.
+
+
+
+1. Introduction
+
+    In the study of Human–Computer Interaction (HCI) and psychology, emotion recognition has a wide range of prospective
+applications. Emotion is a psycho-physiological process triggered by the conscious and unconscious perception of a situation or an
+object and is often associated with mood, temperament, personality, disposition, and motivation [1]. The emotion of an individual
+plays a central role in everyday decisions and well-being. Developing systems for identifying and managing human emotion becomes
+an integral domain in HCI research [2]. However, identifying human emotion during HCI addresses several challenges such as natural
+experimental setup, the non-contact user interface for interactive interaction, induce real feeling, and real-time recommendation
+system. Automatically recognizing and responding to a user’s emotion during interactions with a computer can enhance the quality
+of the communication to maximize the user’s well-being. Furthermore, the methods, models, and frameworks developed in the
+field of HCI used to sense human psychological states can supply specific valuable references to human emotion. Humans react
+emotionally to specific situations provoking some physiological changes that can be recognized using various modality such as
+facial expressions, facial blood flow, speech, behavior (gesture/posture), and physiological signals. Emotions can trigger some small
+changes in facial blood flow with an impact on skin temperature. The facial blood flow rate, variations in body temperature, and
+muscle are immensely emotion-specific. In previous studies infrared thermal face localization, feature extraction methods for emotion
+
+
+ ✩ This paper is for special section VSI-hci. Reviews processed and recommended for publication by Guest Editor Dr. Shengzong Zhou.
+ ∗ Corresponding author.
+     E-mail address: satyajit.nayak@iitkgp.ac.in (S. Nayak).
+
+https://doi.org/10.1016/j.compeleceng.2021.107280
+Received 3 July 2020; Received in revised form 4 April 2021; Accepted 14 June 2021
+Available online 29 June 2021
+0045-7906/© 2021 Elsevier Ltd. All rights reserved.
+S. Nayak et al.                                                                            Computers and Electrical Engineering 93 (2021) 107280
+
+
+elicitation can be divided into two types: static image based methods and dynamic image sequence (e.g. video) based methods [3].
+Human emotion is a dynamic process. There are various feature extraction methods used in dynamic image sequences such as
+: dense motion field based method [4], key feature point based method [5], shallow structure methods [6], and deep structure
+methods [7,8], However, the dullness of the image makes it difficult to exploit the facial geometry; the temporal information are
+also essential for emotion recognition. Therefore, in this paper, we developed a deep learning-based architecture for face registration
+and used a MIL algorithm for tracking the thermal facial ROIs in real-time HCI. The ROIs, where most of the variations observed
+are forehead, eyes, right-cheek, nose, left-cheek, and mouth regions.
+   Rest of this article organized as follows. Related work is detailed in Section 2, methods and materials is described in Section 3.
+Section 4 represented the proposed work. Experimental results analysis, conclusion and future works are represented in Sections 5
+and 6 respectively.
+
+
+1.1. Research objective
+
+
+   In this research work, the principal objective of this work is to develop a framework for computing the multivariate time series
+thermal video sequences to recognize human emotion and provide relevant psychological suggestions. We achieved this objective
+using a three-stage framework.
+Stage I : Detection and tracking of face ROIs in thermal video.
+Stage II: Applied the Dynamic Time Warping (DTW) algorithm to classify the dominant emotional states.
+Stage III : Recommend the relevant psychological suggestions.
+
+
+2. Literature review
+
+
+    In an intelligent HCI system, accurately recognizing the human emotional states in real-time is the prime concern. So that the
+interaction between the human and computer should be more intelligent and suggest the relevant distraction. Human emotion
+can be recognized either using verbal (explicit channel) or non-verbal (implicit channel) cues [9,10]. The non-verbal approach
+divided broadly into three categories according to a different modality of signal: (1) Audio–visual [11,12], (2) Physiological, and
+(3) Multimodal. Physiological signal based on contact or invasive approach needs pasting or binding sensors in the human body,
+which makes the human comfort limited and restricted due to the external factors such as movement. But the non-contact or non-
+invasive process of emotion recognition employing audio–visual signal (facial expression, facial temperature, and speech or audio)
+aims to increase the accuracy irrespective of low computational complexity, low computational cost, and medium robustness [13].
+Significant progress has been made for automatic facial expression recognition in the visible domain [14,15]. Due to the misleading
+of human facial expression, the visual image fails to recognize the real emotion. In real-life scenario, the facial movements do
+not always match with how human express and to perceive facial emotions. So, the researchers have recently started studying the
+thermal modality for real emotion recognition. The facial temperature variation devised through face accumulation branches is not
+understanding to lighting conditions in infrared thermal images. Thus, identification of emotional states through thermal modality
+is an essential harmonious to emotion recognition using the visible modality [16,17]. However, for this work the important aspects
+of emotion recognition using thermal video sequences in a real-time HCI framework are thermal face and ROIs registration, tracking
+of facial ROIs, real emotion recognition, and relevant distraction suggestions.
+
+
+2.1. Thermal face registration and facial ROIs tracking
+
+
+    In a dynamic image sequence-based method, there are various machine learning and deep learning architecture used for detecting
+the thermal face and facial ROIs [18]. Faster R-CNN architecture is considered for thermal face and ROIs registration after certain
+comparison concerning the test time per thermal image, computational speed, and other limitations of CNN, R-CNN, Fast R-CNN,
+and Faster R-CNN. This approach is popular in deep learning where pre-trained models used faster_rcnn_inception_v2_coco [18]. To
+identify the region proposals on the feature map, a dedicated network is used to predict the region called Region Proposal Network
+(RPN), instead of using selective search algorithms. The possibility of a bounding box being background or foreground, and refine
+the bounding boxes are predicted by RPN. The recent advances in face detection stimulated several successful real-time tracking
+algorithms [19]. In previous studies of object detection and object locations are unknown difficult which are often not discussed.
+However, by using traditional methods, Viola et al. object detection has inherent ambiguities that make it more complex to train a
+classifier. We suggested using a Multiple Instance Learning (MIL) [20] approach for object tracking. The face detector trained with
+weaker labeling (just the center of the face) and this approach outperforms a state of the supervised art algorithm trained with
+explicit bounding boxes is stated in the pioneering study of Boris Babenko et al.
+
+                                                                  2
+S. Nayak et al.                                                                            Computers and Electrical Engineering 93 (2021) 107280
+
+
+2.2. Real emotion recognition and relevant distraction suggestions
+
+    In current studies of emotion recognition, the outer facial expression or inner affective detection using thermal images has drawn
+the attention [21]. During HCI, automatic emotion recognition has very realistic and great significance for harmonious and natural
+as compared with posed facial expression recognition [9]. The temporal knowledge in infrared thermal images is an essential cue for
+real expression recognition, which is not considered by Khan et al. studies. Abhiram Kolli et al. proposed an emotion identification
+approach using fused features of radon transform, wavelet transforms, Histogram of Oriented Gradient (HOG) features, and K-Nearest
+Neighbors (KNN). In some of the previous studies suggested a method to classify emotion based on Facial Thermal Feature Points
+(FTFPs) by analyzing segment-wise temperature variation using Principal Component Analysis (PCA). Also, Stephanos Ioanno et al.
+addressed that, thermal imagery seems to provide new avenues for the study of emotions. Spontaneous facial patch detection can
+closely match with human manual interpretation in recent deep learning approaches [22]. While these approaches are well-validated
+on high-fidelity, application to thermal imagery and full-color facial images has been mostly unexplored.
+    Negative emotions heightened a common response to upsetting thoughts and images, which stimulus the cognition and traps us
+in distressing cycles that can be hard to break [23]. Distraction can serve two purposes such as breaking unhelpful cycles of thoughts
+or images that might otherwise result in negative moods and changing attitudes toward negative cognition. Distraction has shown
+to have direct therapeutic benefits, both physically and psychologically [24]. Various distraction techniques, which include physical
+exercise, refocusing, mental exercise, and counting cognition used in previous studies [23]. But for this paper research scope, we used
+our customized software module designed using python and integrated with our proposed framework. After the classification result
+obtained from stage-II, our customized application will provide some relevant psychological suggestions like breathing exercise,
+kriya yoga meditation, and attending counseling center, which described in stage-III.
+
+3. Methods and materials
+
+    Real emotion recognition is merely confined to the control environment and discretionary participation of subjects in the
+experiment. A sample of 67 participants was engaged from the student population of IIT, Kharagpur, out of which 2 were removed
+due to incomplete data. In sum, data from 65 participants were analyzed 𝜇 = 24.18, 𝜎 = 2.73, out of which 35 males and 30
+females. Exclusion criteria included any ongoing physical or mental health problems and or use of medications. All the participants
+signed an informed consent form before taking part in the study in a separate room prior to watch the video stimuli and filled
+the General Health Questionnaire (GHQ)-28 on the same day of the experiment. The participants were informed that they had to
+involve in an experiment for the assessment of the emotional content and intensity of the video clips. For the accurate assessment of
+their emotion, the participants had undergone a viewing and experiencing the emotions. At the end of each video clip, participants
+were informed to fill a Self Assessment Manikin (SAM), which is a categorical feedback form on self-experienced emotion, that the
+video clip communicated and the intensity with which they felt them on a scale of zero (0) to five (5). The self-evaluation report
+confers insight into the expressiveness of the subjects to different emotion categories which is provided in Fig. 3. As per the recorded
+statistics of the emotional intensity of six emotions of 65 participants, the anger videos were the intensity with 0.56, disgust with
+4.28, fear with 1.43, joy with 4.72, sad with 4.19, and surprise with 1.67 respectively. Therefore, we considered the thermal facial
+recording of disgust, joy, and sad emotion for further experimental analysis. A baseline recording preceded each video recording for
+a stimuli-driven case and the participants were also informed that they had the right to quit the experiment at any point in time.
+They were debriefed about the purpose of the study at the end of the experiment. The Institutional Ethics Committee (IEC) of IIT,
+Kharagpur approved the experimental methods and materials along with the video stimulus shown to the participants.
+
+3.1. Design of experiment and data synchronization
+
+    As shown in Fig. 1, a made-to-order wooden box was designed along with other peripherals. A dedicated room with the controlled
+temperature and illumination at 22 ◦ C and 150 lux respectively was used. For recording the visual videos, one web camera with
+specifications 30 fps at 1280 × 720 is used. The recorded videos have been stored in the .mp4 format with x264 codec. With
+fixed focal length, 80 × 60 resolution, and 9 fps, one infrared camera is utilized to record the thermal videos. One customized
+software application (Python script) is utilized to record both the visual and thermal facial data of a participant’s concurrently.
+Considering the different frame rates of cameras, we maintain a log file to match the timestamps. As per the assessment guideline
+of the counseling center of IIT, Kharagpur, the emotional states present in the recorded visual videos were extracted by screening
+more than 60 prospective decoders. Out of which, six decoders, three of each gender, were selected on the basis of their experience
+to detect emotions, Micro Expression Training Tool and Subtle Expression Training Tool [25]. We have considered thermal video
+clips of the same timestamp maintained in the case of visual video through a log file.
+
+3.2. Selection of video stimuli
+
+   The video clips for inducing the emotions were (5 to 8 min in duration) identified, based on our pilot studies as well as from the
+video clips used in previous studies [26,27]. The selected video clips were rated on a scale of 1–5 (1: Not suitable 5: Most suitable)
+by ten volunteers and accordingly contemplate in our experimental process. Videos eliciting multiple emotions were rejected, which
+may lead to a mixed emotional expression. The videos were included for six discrete emotions such as Anger, Disgust, Fear, Joy,
+Sad, and Surprise followed by a neutral video of one minute. The sample synchronized thermal and visual videos of participants
+are shown in Fig. 2.
+
+                                                                     3
+S. Nayak et al.                                                                                  Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                                                    Fig. 1. The experimental setup.
+
+
+
+
+                  Fig. 2. Sample synchronized thermal and visual videos of (a) Joy, (b) Disgust, and (c) Sad emotion.
+
+
+
+
+                                  Fig. 3. Expressivity of the subjects to different emotion categories.
+
+
+
+
+                                                                   4
+S. Nayak et al.                                                                                             Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+Fig. 4. Three-stage (Stage-I, Stage-II, and Stage-III) HCI framework for computing the multivariate time-series thermal video sequences to recognize human
+emotion and provides distraction suggestions.
+
+
+
+
+                                         Fig. 5. Flowchart for Stage-I (Detection of facial RoIs and it is tracking).
+
+
+
+
+4. Proposed work
+
+   We described our proposed framework, as shown in Fig. 4. It includes three stages, where stage-I takes the thermal video as
+input and provides the smoothed MTS as output to stage-II shown in Fig. 5. The used DTW algorithm classifies the emotion from
+the level of emotion similarities in stage-II displayed in Fig. 11. Stage-III suggested the relevant physical and psychological distraction
+techniques through a pop-up window shown in Fig. 14.
+
+4.1. Stage I : Detection and tracking of face ROIs in thermal video
+
+4.1.1. Faster R-CNN model: Face detection
+    In Section 2, previous studies on thermal face detection methods are discussed. Region Proposal Network (RPN) used instead of
+a selective search algorithm on the feature map to identify the region proposals. The RPN predicts the possibility of a bounding box
+being a background or to predict the region proposal called foreground, and refine the bounding box [28].
+
+                                                                              5
+S. Nayak et al.                                                                                     Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                                 Fig. 6. Experimental thermal video (A) Baseline, and (B) Detected face and ROIs.
+
+
+
+
+                                     Fig. 7. NVIE thermal video (A) Baseline, and (B) Detected face and ROIs.
+
+
+
+
+                                   Fig. 8. Sample tracked frames of thermal video of our experimental data-set.
+
+
+
+
+4.1.2. Multiple instance learning algorithm: Facial ROI tracking
+   We tracked the detected ROIs across the frames of both our prepared and NVIE data-sets (8, 9) to obtain the variation of
+temperature of thermal facial patches by using the MIL tracking algorithm [20] The exact object locations are unknown in a thermal
+video. MIL algorithm contains three components: image representation, appearance model, and motion model. Image representation
+consists of Haar-like features that computed for each image patch. The appearance model consists of a discriminative classifier that
+can return 𝑝(𝑦 = 1|𝑥), where 𝑥 is an image patch, and 𝑦 is the binary variable indicating the presence of the object of interest in
+that image patch. Let 𝑙(𝑥) denote the location of image patch. At every time step 𝑡, the tracker maintains the object location (𝑙𝑡∗ ),
+              (                  )
+where 𝑙𝑡∗ = 𝑙 𝑎𝑟𝑔𝑚𝑎𝑥𝑥𝜖𝑋 𝑠 𝑝(𝑦|𝑥) . It is not required to keep the distribution of each frame of the target’s location; rather use a motion
+model where the tracker location at time 𝑡 is probably to appear the tracker location at time (𝑡 − 1) within a radius 𝑠
+                    {
+         (∗ ∗ )       1, i𝑓 ‖𝑙𝑡∗ − 𝑙𝑡−1
+                                    ∗ ‖<𝑠
+       𝑝 𝑙𝑡 |𝑙𝑡−1 𝛼                                                                                                                    (1)
+                      0, otherwise
+
+                                                                        6
+S. Nayak et al.                                                                                     Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                                         Fig. 9. Sample tracked frames of thermal video of NVIE data-set.
+
+
+
+
+After the updation of tracker location, we progressed to update the appearance model and crop out a set of patches 𝑋 𝑟 =
+{              }
+  𝑥|𝑟 > ‖ 𝑙𝑡∗ ‖ , where 𝑟 < 𝑠 is an integer radius and label this bag positive. In MIL, we trained the algorithm with labeled bags.
+There are two options: set 𝑟 = 1 or set 𝑟 > 1, used as a single positive instance or label all these instances positive respectively.
+                                                      {                       }
+We crop out patches from an annular region 𝑋 𝑟,𝛽 = 𝑥|𝛽 > ‖ 𝑙 (𝑥) − 𝑙𝑡∗ ‖ > 𝑟 for negative instance, where 𝑟 is the same as before,
+and 𝛽 is another scalar. We considered the random subset of aforesaid image patches and label them negative though it causes a
+prospect large set. Also We keep every negative example into respective negative bag. and then use a greedy method to update the
+tracker location.
+
+Algorithm 1 Multiple Instance Learning Tracking
+Input: k number of new video frames
+Output: Multi variate time series data
+                                    {                      }
+ 1: Crop the image patches, 𝑋 𝑠 = 𝑥|𝑠 > ||𝑙 (𝑥) − 𝑙∗ 𝑡−1 || and execute the feature vectors.
+ 2: MIL classifier is used to estimate 𝑝(𝑦 = 1|𝑥) for 𝑥𝜖𝑋 𝑠 .
+                                       (                    )
+ 3: Tracker location is updated 𝑙𝑡∗ = 𝑙 𝑎𝑟𝑔𝑚𝑎𝑥𝑥𝜖𝑋 𝑠 𝑝 (𝑦|𝑥) .
+                                           {                   }           {                          }
+ 4: Crop two sets of image patches 𝑋 𝑟 = 𝑥|𝑟 > ||𝑙 (𝑥) − 𝑙𝑡∗ || 𝑎𝑛𝑑 𝑋 𝑟,𝛽 = 𝑥|𝛽 > ||𝑙 (𝑥) − 𝑙𝑡∗ || > 𝑟 .
+ 5: Update the appearance model of MIL with one positive bag 𝑋 and |𝑋 | negative bags, each consisting a single image patch
+                                                                     𝑟        𝑟,𝛽
+
+    from the set 𝑋 𝑟,𝛽 .
+
+
+4.1.3. Multivariate time series sequence extraction
+    The temperature of the object encoded as the intensity ranging from 0 to 255 in the thermal image. The mean intensity variation
+of facial patches shown in 10, implies the mean temperature variation across the frames. The Facial ROIs tracked and their mean
+intensity variation stored in a .csv format for future analysis. The mean intensity variation of all six ROIs considered as a multivariate
+time series (MTS) data. A time series is a sequence of analytical data points in successive order. If only one variable is varying over
+time, then it is called a uni-variate time series. In contrast, if more than one variable is changing over time, it is called a multivariate
+time series.
+
+4.1.4. Kalman filtering of MTS sequences
+   The Kalman filter uses dynamic systems modeling and multiple sequential computations to form a view of the system’s varying
+quantities that is better than the estimation obtained by using only one measurement alone [29]. The algorithm works in a two-step
+process. In the prediction step, the Kalman filter produced the estimates of the current state variables, along with their uncertainties.
+Once the outcome of the next measurement observed, these estimates are updated. It handled the unpredictability due to the noisy
+data. We used the Kalman filter to smooth the multivariate time series sequences and stored the data in a .csv file format for further
+use.
+
+4.2. Stage II : Dynamic time warping (DTW) algorithm to classify the dominant emotional states
+
+    DTW is a popular approach for measuring similarity between temporal time-dependent series sequences 𝑆1 and 𝑆2 of dimensions
+𝑚1 × n and 𝑚2 × n [30]. Two sequences 𝑆1 and 𝑆2 are similar to each other if the aligned path cost is small and otherwise if aligned
+path cost is large. It may vary in speed and gives a nonlinear alignment between two-time series. Fig. 13 shows the nonlinear
+alignment of two-time series sequences 𝑆1 and 𝑆2 . The similarity or dissimilarity of two-time series data is typically calculated by
+converting the data into vectors and calculating the Euclidean distance between those points in vector space. 𝑋 ∶= (𝑥1 , 𝑥2 , … , 𝑥𝑛 )
+of length 𝑁 ∈ N and 𝑌 ∶= (𝑦1 , 𝑦2 , … , 𝑦𝑀 ) of length 𝑀 ∈ N are two time-dependent sequences . These sequences may be time-series
+signal or feature sequences sampled at equidistant points in time. We fix a feature space said 𝐹 , then 𝑥𝑛 , 𝑦𝑚 ∈ 𝐹 for 𝑛 ∈ [1 ∶ 𝑁]
+
+                                                                        7
+S. Nayak et al.                                                                                                Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                  Fig. 10. Mean intensity variations of facial ROIs (A) forehead, (B) eyes, (C) right-cheek, (D) nose, (E) left-cheek, and (F) mouth.
+
+
+
+
+                                                 Fig. 11. Flowchart for Stage-II (Emotion classification using DTW).
+
+
+
+
+and 𝑚 ∈ [1 ∶ 𝑀]. The local cost measure, sometimes also referred to as local distance measure, which is defined as a function to
+compare two different features. 𝑥, 𝑦 ∈ 𝐹 , and 𝑐 ∶ 𝐹 × 𝐹 √ → R ≥ 0. Typically, if 𝑥 and 𝑦 are similar to each other, it refers 𝑐(𝑥, 𝑦) is a
+                                                            ∑𝑛 (         )2
+low cost; otherwise, 𝑐(𝑥, 𝑦) is a high cost. Let 𝑑(𝑥, 𝑦) =    𝑖=1 𝑥𝑖 − 𝑦𝑖 , where 𝑥𝑖 , 𝑦𝑖 = n × 1 vectors. According to the emotional
+intensity displayed in Fig. 3, we considered 32 in disgust, 40 in Joy, and 18 in Sad thermal clips. The classification is first done by
+selecting one sequence (test sequence) at a time and comparing it with other sequences (train sequences) using DTW. Here S1 =
+
+                                                                                  8
+S. Nayak et al.                                                                                    Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                          Fig. 12. (a) Euclidean matrix and (b) DTW matrix of time dependent series sequences S1 and S2.
+
+
+                    Table 1
+                    Leave out one cross-validation without Kalman filtering.
+                                           Predicted label                                                           Total
+                                                              Disgust          Joy                Sad
+
+                     True label            Disgust            71.88%           18.72%             9.40%              71.11%
+                                           Joy                20%              72.50%             7.50%
+                                           Sad                11.11%           22.22%             66.67%
+
+
+
+
+[1,2,3,4,4,5,6,7,7] and S2 = [9,9,10,12,13,16,14] be two uni-variate time series. S1 is placed along 𝑥-axis and S2 along 𝑦-axis. Each
+cell value in Euclidean matrix is calculated by taking corresponding S1 and S2 values. Each cell value in DTW matrix is calculated
+by this formula (DTW [i, j] ∶= cost + min (DTW[i-1, j], DTW [i, j-1], DTW [i-1, j-1]). To find the aligned path, we started from last
+cell and move in direction of minimum DTW value. Both the metrics with respect to S1 and S2 has shown in Fig. 12.
+Algorithm 2 Dynamic Time Warping (DTW)
+Input : Two multivariate time series sequences: 𝑇1 and 𝑇2
+Output: Optimal alignment between two given (time-dependent) sequences
+int DTW Distance (S1 , S2);
+DTW := array [m1, m2];
+for i := 1 to m1 do
+    for j := 1 to m2 do
+        DTW [i, j] := ∞;
+        DTW [0,0] := 0;
+        for i := 1 to m1 do
+            for j := 1 to m2 do
+                cost := d (S1[i], S2 [j])
+                DTW [i, j] := cost + min (DTW[i-1, j], DTW [i, j-1], DTW [i-1, j-1]
+            end
+        end
+    end
+    return DTW[m1, m2]
+end
+   The test sequence provides the label, which has the highest similarity or lowest aligned path distance. We have randomly divided
+the sample sequences into train sequences and test sequences five times equally.
+
+
+4.3. Stage III : Recommend the relevant psychological suggestions
+
+    As shown in Fig. 14, the DTW algorithms provide the emotion classification as per the level of emotion similarities in stage-II. We
+considered three emotions such as disgust, joy, and sadness only due to the emotional intensity observation. Our designed python
+module provided the relevant psychological suggestions to the concerned subject after the interaction with our proposed framework.
+If the classification result is disgust or sad, then the customized software module recommended the designed psychological
+
+                                                                           9
+S. Nayak et al.                                                                                              Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                                              Fig. 13. Non-linear alignment of two time varying amplitude signal.
+
+
+                         Table 2
+                         Leave out one cross-validation with Kalman filtering.
+                                                 Predicted label                                                                  Total
+                                                                         Disgust           Joy              Sad
+
+                           True label            Disgust                 78.12%            15.63%           6.25%                 80.00%
+                                                 Joy                     12.5%             82.50%           5%
+                                                 Sad                     11.11%            11.11%           77.78%
+
+
+                  Table 3
+                  Performance evaluation metrics without Kalman filtering.
+                                    Predicted label
+                                                  Disgust          Joy             Sad      Recall   Precision         F1-score           Accuracy
+
+                   True label       Disgust       75               18.75           6.25     0.75     0.68              0.71
+                                    Joy           25               45              30       0.45     0.54              0.49               64.07%
+                                    Sad           9.26             18.52           72.22    0.72     0.66              0.68
+
+
+                  Table 4
+                  Performance evaluation metrics with Kalman filtering.
+                                    Predicted label
+                                                  Disgust          Joy             Sad      Recall   Precision         F1-score           Accuracy
+
+                   True label       Disgust       69               18.75           12.25    0.69     0.69              0.69
+                                    Joy           25               65              10       0.65     0.64              0.64               70.59%
+                                    Sad           5.6              16.62           77.78    0.77     0.77              0.77
+
+
+
+
+suggestions such as breathing exercise for 2 to 5 min or kriya yoga meditation for 5 to 7 min or attending the counseling center for
+positive distraction. Otherwise, it seemed that subject is healthy through a pop-up window, which will be displayed automatically.
+
+
+
+5. Experimental results analysis
+
+
+    As we discussed in Section 4.1, the real-time detection and ROIs of thermal face by using a Faster R-CNN model with the accuracy
+of 99% is shown in Fig. 6 for our experimental data-set and Fig. 7 for NVIE data-set respectively. The detected ROIs are tracked using
+Algorithm 1 for both NVIE and our experimental data-set. Fig. 12 shows the mean intensities variations of tracked ROIs, and Kalman
+filtering is used for smoothing the MTS sequences. Algorithm 2 is used for emotion classification on highest similarities and lowest
+aligned path distance of smoothed MTS data, which is shown in Fig. 12. Tables 1 and 2 described the leave out of cross validation
+of true label and predicted label without and with Kalman filtering with total accuracy of 71.11% and 80.00% respectively. The
+performance evaluation metrics (recall, precision, F1 score, and accuracy) of classification without and with Kalman filtering with
+accuracy 64.07% and 70.59% manifested in Tables 3 and 4 sequentially. We noticed that from Tables 1, 2, 3, and 4, the prediction
+accuracy increases if the time series sequences smoothed using Kalman filtering. Table 5 shown the corresponding average accuracy
+of all the methods along with our proposed methods for Disgust, Joy, and Sad emotion. The accuracy is better by using our proposed
+method in both the data-sets (NVIE, and Our Data-set).
+
+                                                                                     10
+S. Nayak et al.                                                                                            Computers and Electrical Engineering 93 (2021) 107280
+
+
+
+
+                                    Fig. 14. Flowchart for Stage-III (Psychological suggestions for positive distraction).
+
+
+                    Table 5
+                    Comparative analysis with other classification methods and data-sets for disgust, joy, and sad emotion.
+                     Data-set                        Modality                     Classification method                 Avg. accuracy
+                                                                                  PCA+KNN                               42.54%
+                     NVIE                            Thermal                      DBM                                   51.33%
+                                                                                  Proposed method                       64.13%
+                                                                                  PCA+KNN                               44.59%
+                     Our data-set                    Thermal                      DBM                                   55.23%
+                                                                                  Proposed method                       70.59%
+
+
+
+
+6. Conclusion and future work
+
+    In this work, we presented real-time HCI framework for recognizing the emotion of a human by using the multivariate time-
+series thermal video sequences. This research contribution incorporates three stages. In stage-I, we proposed that Faster R-CNN
+architecture provides 99% accuracy in our developed data-set and NVIE data-set. The detected facial ROIs were tracked across the
+frames by using the MIL algorithm, and the mean intensity was found out which represents the multivariate time series (MTS)
+sequences. The classification of MTS data is done by measuring how similar two MTS data sequences are. The Kalman filtering
+process is used to smoothing the MTS sequences data. The DTW algorithm is used for similarity measurement of two MTS sequences
+and to classify the emotion with accuracy of 64.07% and 70.59% in both non-smoothed and smoothed data. We observed that the
+average classification accuracy yielded higher when compared to the other start-of-art methods in stage-II. Our designed, customized
+python module suggested some relevant physical and psychological distraction techniques through a pop-up window in stage-III.
+The proposed system is useful in many psychological applications, useful for automated counseling, as an aid to psychologists.
+    This work can be extended in the further directions. The classification accuracy can improve by using other time series analysis
+algorithms. The clustering of sequences for recognition stress, anxiety, and depression levels in real-time HCI framework is not the
+scope of this work, which may focus on our future work. A critical restriction of this study is the limited number of subjects, which
+restricts to illustrate a generalized inference about human emotion. A more significant number of participants is desirable for future
+study, with interpersonal variations in psychological health disorders.
+
+CRediT authorship contribution statement
+
+   Satyajit Nayak: Methodology, Validation, Formal analysis, Investigation, Data curation, Writing - original draft, Writing - review
+& editing. Bingi Nagesh: Software, Resources, Validation. Aurobinda Routray: Conceptualization, Funding acquisition, Project
+administration. Monalisa Sarma: Supervision, Visualization.
+
+Declaration of competing interest
+
+    The authors declare that they have no known competing financial interests or personal relationships that could have appeared
+to influence the work reported in this paper.
+
+                                                                             11
+S. Nayak et al.                                                                                             Computers and Electrical Engineering 93 (2021) 107280
+
+
+References
+
+ [1] Koelstra Sander, Muhl Christian, Soleymani Mohammad, Lee Jong-Seok, Yazdani Ashkan, Ebrahimi Touradj, Pun Thierry, Nijholt Anton, Patras Ioannis.
+     Deap: A database for emotion analysis; using physiological signals. IEEE Trans Affect Comput 2011;3(1):18–31.
+ [2] Sanches Pedro, Janson Axel, Karpashevich Pavel, Nadal Camille, Qu Chengcheng, Daudén Roquet Claudia, Umair Muhammad, Windlin Charles,
+     Doherty Gavin, Höök Kristina, et al. HCI and affective health: Taking stock of a decade of studies and charting future research directions. In: Proceedings
+     of the 2019 CHI conference on human factors in computing systems. ACM; 2019, p. 245.
+ [3] Corneanu Ciprian Adrian, Simón Marc Oliu, Cohn Jeffrey F, Guerrero Sergio Escalera. Survey on rgb, 3d, thermal, and multimodal approaches for facial
+     expression recognition: History, trends, and affect-related applications. IEEE Trans Pattern Anal Mach Intell 2016;38(8):1548–68.
+ [4] Psaltis A. Optical flow for dynamic facial expression recognition (Master’s thesis), 2013.
+ [5] Yurtkan Kamil, Soyel Hamit, Demirel Hasan. Feature selection for enhanced 3D facial expression recognition based on varying feature point distances. In:
+     Information sciences and systems 2013. Springer; 2013, p. 209–17.
+ [6] Liang Jinglian, Xu Chao, Feng Zhiyong, Ma Xirong. Hidden Markov model decision forest for dynamic facial expression recognition. Int J Pattern Recognit
+     Artif Intell 2015;29(07):1556010.
+ [7] Liu Ping, Han Shizhong, Meng Zibo, Tong Yan. Facial expression recognition via a boosted deep belief network. In: Proceedings of the IEEE conference
+     on computer vision and pattern recognition. 2014; p. 1805–12.
+ [8] Elboushaki Abdessamad, Hannane Rachida, Afdel Karim, Koutti Lahcen. MultiD-CNN: A multi-dimensional feature learning approach based on deep
+     convolutional networks for gesture recognition in RGB-D image sequences. Expert Syst Appl 2020;139:112829.
+ [9] Zhang Jianhua, Yin Zhong, Chen Peng, Nichele Stefano. Emotion recognition using multi-modal data and machine learning techniques: A tutorial and
+     review. Inf Fusion 2020;59:103–26.
+[10] Zhang Shiqing, Zhang Shiliang, Huang Tiejun, Gao Wen. Speech emotion recognition using deep convolutional neural network and discriminant temporal
+     pyramid matching. IEEE Trans Multimed 2017;20(6):1576–90.
+[11] Vryzas Nikolaos, Vrysis Lazaros, Matsiola Maria, Kotsakis Rigas, Dimoulas Charalampos, Kalliris George. Continuous speech emotion recognition with
+     convolutional neural networks. J Audio Eng Soc 2020;68(1/2):14–24.
+[12] Swain Monorama, Routray Aurobinda, Kabisatpathy Prithviraj. Databases, features and classifiers for speech emotion recognition: a review. Int J Speech
+     Technol 2018;21(1):93–120.
+[13] Rao Tianrong, Li Xiaoxu, Xu Min. Learning multi-level deep representations for image emotion classification. Neural Process Lett 2019;1–19.
+[14] Yang Jufeng, She Dongyu, Sun Ming, Cheng Ming-Ming, Rosin Paul L, Wang Liang. Visual sentiment prediction based on automatic discovery of affective
+     regions. IEEE Trans Multimed 2018;20(9):2513–25.
+[15] Muszynski Michal, Tian Leimin, Lai Catherine, Moore Johanna, Kostoulas Theodoros, Lombardo Patrizia, Pun Thierry, Chanel Guillaume. Recognizing
+     induced emotions of movie audiences from multimodal information. IEEE Trans Affect Comput 2019.
+[16] Zeng Zhihong, Pantic Maja, Roisman Glenn I, Huang Thomas S. A survey of affect recognition methods: Audio, visual, and spontaneous expressions. IEEE
+     Trans Pattern Anal Mach Intell 2008;31(1):39–58.
+[17] Naqvi Rizwan Ali, Arsalan Muhammad, Rehman Abdul, Rehman Ateeq Ur, Loh Woong-Kee, Paul Anand. Deep learning-based drivers emotion classification
+     system in time series data for remote applications. Remote Sens 2020;12(3):587.
+[18] Phon-Amnuaisuk Somnuk, Murata Ken T, Pavarangkoon Praphan, Yamamoto Kazunori, Mizuhara Takamichi. Exploring the applications of faster R-CNN
+     and single-shot multi-box detection in a smart nursery domain. 2018, arxiv preprint arXiv:1808.08675.
+[19] Liu Xiaoming, Yu Ting. Gradient feature selection for online boosting. In: 2007 IEEE 11th international conference on computer vision. IEEE; 2007, p.
+     1–8.
+[20] Fu Changhong, Duan Ran, Kayacan Erdal. Visual tracking with online structural similarity-based weighted multiple instance learning. Inform Sci
+     2019;481:292–310.
+[21] Jiang Yingying, Li Wei, Hossain M Shamim, Chen Min, Alelaiwi Abdulhameed, Al-Hammadi Muneer. A snapshot research and implementation of multimodal
+     information fusion for data-driven emotion recognition. Inf Fusion 2020;53:209–21.
+[22] He Shan, Wang Shangfei, Lan Wuwei, Fu Huan, Ji Qiang. Facial expression recognition using deep Boltzmann machine from thermal infrared images. In:
+     2013 humaine association conference on affective computing and intelligent interaction. IEEE; 2013, p. 239–44.
+[23] Reynolds Gillian. Gendered journeys, mobile emotions. Routledge; 2016.
+[24] Koller Donna, Goldman Ran D. Distraction techniques for children undergoing procedures: a critical review of pediatric research. J Pediatr Nurs
+     2012;27(6):652–81.
+[25] Ekman Paul. FACE training. Paul Ekman Group; 2011, [Online]. Available: http://www.paulekman.com/productcategory/face-training.
+[26] Carvalho Sandra, Leite Jorge, Galdo-Álvarez Santiago, Gonçalves Oscar F. The emotional movie database (EMDB): A self-report and psychophysiological
+     study. Appl Psychophysiol Biofeedback 2012;37(4):279–94.
+[27] Happy SL, Patnaik Priyadarshi, Routray Aurobinda, Guha Rajlakshmi. The indian spontaneous expression database for emotion recognition. IEEE Trans
+     Affect Comput 2015;8(1):131–42.
+[28] Ren Shaoqing, He Kaiming, Girshick Ross, Sun Jian. Faster r-cnn: Towards real-time object detection with region proposal networks. In: Advances in neural
+     information processing systems. 2015, p. 91–9.
+[29] Brown Robert Grover, Hwang Patrick YC, et al. Introduction to random signals and applied Kalman filtering, Vol. 3. New York: Wiley; 1992.
+[30] Müller Meinard. Information retrieval for music and motion, Vol. 2. Springer; 2007.
+
+
+
+Satyajit Nayak has completed his B.Tech and M.Tech in Comp. Sc. and Engg. Odisha, India. Currently pursuing his Ph.D. from IIT, Kharagpur.
+
+
+Bingi Nagesh has completed his B.Tech in Electrical Engg. from NIT, Agartala, Tripura, India and M.Tech in Electrical Engg. from IIT, Kharagpur.
+
+
+Aurobinda Routray is a Professor in the Department of Electrical Engineering, Indian Institute of Technology Kharagpur.
+
+
+Monalisa Sarma is an Assistant Professor in Subir Chowdhury School of Quality and Reliability (SCSQR), IIT Kharagpur, India.
+
+
+
+
+                                                                              12
+

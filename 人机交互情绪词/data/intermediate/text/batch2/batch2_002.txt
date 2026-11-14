@@ -1,0 +1,406 @@
+          A Cloud-based Voting System for Emotion
+         Recognition in Human–Computer Interaction
+                                          Ján Magyar∗ , Gergely Magyar† and Peter Sinčák‡
+                                        Department of Cybernetics and Artiﬁcial Intelligence
+                                                  Technical University of Košice
+                                                         Košice, Slovakia
+                           Email: ∗ jan.magyar@tuke.sk, † gergely.magyar@tuke.sk, ‡ peter.sincak@tuke.sk
+
+
+   Abstract—The growing number of computer systems directly                   in machines provides additional information that can be used
+interacting with users led to a desire to equip these systems                 to enhance interaction with users.
+with the capability to understand human social input such                        A modern branch of computer science, affective computing,
+as emotions. Research in affective computing deﬁned different
+representations of human emotional states for machines and in                 enabled the development of systems that take into considera-
+recent years cloud-based emotion recognition services emerged                 tion the emotions of their users. The study of human affect in
+that make the process of system development easier. In this                   HMI originated with Rosalind Picard’s paper [7]. She deﬁned
+paper, we provide an overview of the current state of emotion                 affective systems that can recognize, interpret, process, and
+recognition in human–machine interaction and describe a voting-               stimulate human affect. She also described two major areas
+based cloud system that uses commercial services to give accurate
+emotion recognition results. To train the model, we used images               of emotion-based human-computer interaction: detection and
+from the Karolinska Directed Emotional Faces and Radboud                      recognition of emotional information, and machine emotions.
+Faces Database datasets. The results were processed in Microsoft                 In HMI, the communication channels are clearly stated and
+Azure’s Machine Learning Studio using a multiclass neural                     easy to control for the machine. In human interaction, two
+network. During the evaluation of our system, we observed a                   channels have been distinguished: explicit and implicit. The
+nearly 20% improvement in overall accuracy in comparison to
+commercial emotion recognition services.                                      explicit channel is the information channel of the interaction,
+   Index Terms—affective computing, cloud computing, cloud                    while the implicit channel transmits information about the
+service, emotion recognition, human–machine interaction, voting               speakers. Understanding the other party’s emotions is one of
+system                                                                        the key tasks associated with the implicit channel [7] [8].
+                                                                              It often heavily inﬂuences human communication by means
+                        I. I NTRODUCTION                                      of emotional state changes which can result in unexpected
+                                                                              or even inappropriate responses. Therefore, for successful
+   Emotions play an integral role in human communication.                     human–machine interaction the implicit information should be
+They induce topic changes, support response formulation and                   considered, with facial emotion recognition as its fundamental
+decision making [1] [2] [3] [4]. Emotion recognition is innate                part.
+for humans, and as machines become more indispensable to                         In this paper we present a cloud-based emotion recognition
+everyday life, equipping them with similar capabilities has                   system for HMI which combines the outputs of commercially
+become increasingly desirable.                                                available services and creates a more accurate facial emotion
+   Emotion recognition depends on multiple factors and uses                   assessment. Section II covers an overview of emotion models
+many modalities. Humans can perceive these together, but                      used in HMI, Section III describes the tools and voting system
+machines must split the task into easier subtasks, for example                used in this work, Sections IV and V explain the architecture
+based on the transmission channel of the expressed emotion                    of our system and the results achieved. Section VI concludes
+e.g. speech, gestures or facial expressions (which are one of                 the paper and outlines our future work.
+the most widely used because they provide universality across
+cultures [5]).                                                                                       II. E MOTION MODELS
+   In the last years, facial emotion recognition has appeared                    The word emotion generally refers to the affective aspect
+in almost every ﬁeld of research and business involving                       of consciousness, a state or feeling, or a conscious mental
+human–machine interaction (HMI, often referred to as human–                   reaction towards an object accompanied by behavioral and
+computer interaction) [6], which studies the process of in-                   physical changes [7]. The ﬁeld of affective neuroscience
+formation exchange between humans and machines [6], and                       differentiates a number of further expressions when talking
+its goal is to ﬁnd methods to simulate the natural human                      about emotions [8]:
+perception of interactions in machines. In HMI, emotion                          • feeling is a subjective representation of emotions, unique
+recognition and emotion assessment are used interchangeably,                       to the individual;
+however, we must emphasize that machines only estimate the                       • mood is a diffuse affective state that lasts longer than
+emotions of the observed human. Facial emotion assessment                          emotions and is usually less intense;
+
+
+
+
+                                                                          109
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+  •  affect is an encompassing term, used to describe emo-
+     tions, feelings, and moods together. It is commonly used
+     interchangeably with emotions.
+   Of the above-mentioned three concepts, affect is the most
+suited for machine processing, because it has a general
+meaning and the best application potential in human–centered
+systems, such as the ones used in human–machine and human–
+robot interaction.                                                             Fig. 1. Emotion ontology for the six Ekman emotions (plus ’Love’). Solid
+   In general, emotions (or affects) consist of three main                     lines indicate inheritance, dashed lines indicate opposites [13]
+components [9]:
+   • cognitive, the inner impression of what we experience;
+   • physiological, not easily controllable bodily changes oc-
+     curring in response to a person’s internal state change;
+   • behavioral, external manifestations of our experience:
+     attitude, facial expressions, human instincts.
+   In our work, we focus on the behavioral component of
+emotions, more speciﬁcally on facial expression. The repre-
+sentation of recognized affects has been a subject of research
+for a long time, with a number of different emotion models
+emerging to enable affect representation in machines.
+A. Emotion models                                                              Fig. 2. A graphical representation of the 2D circumplex model of affect with
+                                                                               the horizontal axis representing the valence dimension and the vertical axis
+   Humans can clearly recognize the emotions of others. This                   representing the arousal or activation dimension [20]
+apparent ease of recognition has led to the identiﬁcation of
+a number of basic emotions, which are thought to be uni-
+versal among all cultures. Some experts have questioned this                   C. Dimensional emotion models
+understanding of emotions, and over the years, new aspects of                     The discrete emotion theory was heavily criticized through-
+affects have been deﬁned [10].                                                 out the years because of the lack of correspondence between
+   We can divide emotional models into three groups:                           emotions and brain activity, variability in facial expressions
+   1) discrete emotion models                                                  and behavior [14]. Newer theories suggest that emotions are
+   2) dimensional emotion models                                               highly intercorrelated [15] [16]. An extensive and detailed
+   3) hybrid emotion models                                                    study of the intercorrelations among emotional experiences
+                                                                               has yielded two-dimensional models of affective experience
+B. Discrete emotion models
+                                                                               [17]. One of the more widely used representations of such 2D
+   In discrete emotion theory, all humans are thought to                       models is the circumplex model of affect (see Fig. 2) which
+have an innate set of basic emotions that are cross-culturally                 suggests that all affective states arise from two independent
+recognizable. These basic emotions are described as “discrete”                 neurophysiological systems: valence and arousal [18]. They
+because they are believed to be distinguishable by an individ-                 represent the model’s axes and refer to connotation (negative
+ual’s facial expression and biological processes. This means                   or positive) and intensity (low or high) of the felt emotion
+that we should be able to tell what emotion a person is feeling                [19]. According to this model, every affective experience is the
+by looking at his or her brain activity and/or physiology,                     consequence of a linear combination of these two independent
+without knowledge of the larger context of the eliciting event                 systems.
+[11].
+   A popular example of a discrete emotion model is Paul                       D. Hybrid emotion models
+Ekman and his colleagues’ cross-cultural study [11], in which                     Other theories combine discrete and dimensional models, in
+they concluded that the six basic emotions are anger, dis-                     their large variety, it is worth mentioning two of them [9]. The
+gust, fear, happiness, sadness, and surprise. Ekman argued                     Diener-Smith-Fujite model distinguishes among discrete emo-
+that there are particular characteristics attached to each of                  tions after having discerned between two groups characterized
+these emotions, allowing them to be expressed in varying                       by positive and negative valence [21]. Another broadly used
+degrees [12]. Each emotion acts as a discrete category rather                  example is Plutchik’s model, a three-dimensional model that
+than an individual emotional state. Moreover, with additional                  is a hybrid of both basic-complex categories and dimensional
+ontologies, it is possible to extend the existing model with                   theories [22]. It arranges emotions in concentric circles where
+simple relations to further reﬁne the available information (see               inner circles contain basic emotions and other circles contain
+Fig. 1). The emotion recognition services used in this study                   more complex emotions. These complex emotions can be
+all use this model to describe the emotion recognized on a                     acquired by a mixing of emotions inspired by the theory of
+human face.                                                                    colors as explained in [23].
+
+
+
+
+                                                                           110
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+              III. U SED T OOLS AND M ETHODS                                     The Affectiva SDK [27] and Affectiva Emotion as a
+                                                                              Service [28] detect seven emotions: anger, contempt, disgust,
+   Our study’s aim was to create a cloud service providing
+                                                                              fear, joy, sadness, and surprise. The API is not available
+more accurate emotion recognition than free commercial so-
+                                                                              for free, an academic license can be acquired for research
+lutions. The service is based on a voting system that uses the
+                                                                              purposes, while the SDK can be used for free for a limited
+results of commercial emotion recognition APIs to calculate a
+                                                                              period of time. For evaluating the performance of Affectiva’s
+weighted probability for the presence of various emotions. We
+                                                                              emotion recognition over our image database, we used the
+focused on the recognition of anger, contempt, disgust, fear,
+                                                                              Affectiva SDK.
+happiness, neutral, sadness, and surprise. To train the voting
+                                                                                 Amazon’s Rekognition [29] is capable of detecting seven
+system model, a database of 2,581 images was created. On
+                                                                              emotions (anger, calmness, confusion, disgust, happiness, sad-
+this sample, we evaluated the performance of some emotion
+                                                                              ness, and surprise). The category Unknown is returned if the
+recognition APIs, and selected four to use in our service. The
+                                                                              API fails to detect any of the emotions listed. Unlike other
+voting system was implemented as a multiclass neural network
+                                                                              APIs, Rekognition provides results only for the emotions with
+model in Microsoft Azure Machine Learning Studio (ML
+                                                                              the three highest conﬁdence values.
+Studio) [24]. In this section, we describe the image database
+                                                                                 Face++ Cognitive Services’ Emotion Recognition [30]
+that was used, provide a short overview of the emotion
+                                                                              is currently in beta with support for the detection of anger,
+recognition APIs we evaluated, and explain the concept of
+                                                                              disgust, fear, happiness, neutral, sadness, and surprise. The
+a voting system.
+                                                                              free API key can be used forever with a limitation of one call
+A. Image database                                                             per second.
+                                                                                 Google Vision [31] can detect four emotional states on the
+   For evaluating commercial emotion recognition APIs and to                  face, namely anger, jow, sorrow, and surprise. The probability
+train our model, we selected images from two freely available                 values for each emotion aren’t from the range 0–1, they are
+datasets: the Karolinska Directed Emotional Faces (KDEF)                      the discrete values unknown, very unlikely, unlikely, possible,
+[25] and the Radboud Faces Database (RaFD) [26].                              likely, very likely. In our tests, we converted these values to
+   The KDEF was developed in 1998 at Karolinska Institutet                    numeric values in equal intervals with very unlikely being 0
+and it contains 4,900 images of 70 individuals displaying 7                   and very likely 1 (the value unknown was represented with
+emotional expressions (anger, disgust, fear, happiness, neutral,              NULL). The service is free of charge for up to 1,000 calls per
+sadness, surprise), each expression photographed twice from 5                 month.
+different angles. We selected only frontal images, two per each                  The Kairos API [32] detects anger, disgust, fear, joy,
+emotion per individual, except for one individual for whom                    sadness, and surprise. The service is available for free with
+only one set of images was used.                                              limited usage: 25 API transactions/minute are possible with a
+   For the development of RaFD, pictures of 67 models were                    daily cap of 1,500.
+taken. The models expressed eight emotions, contempt in                          The Microsoft Face API [33] is available as part of the
+addition to the ones present in KDEF. Photographs were taken                  company’s cognitive services. It can detect eight emotions:
+simultaneously from ﬁve different angles for three different                  anger, contempt, disgust, fear, happiness, neutral, sadness, and
+gaze directions of the model. We selected frontal images for                  surprise. In its free version, the API key can be used for 30,000
+each emotion expression of every model for all gaze directions.               transactions with 20 per minute.
+This resulted in a dataset of a total 2,581 images: 973 from                     The F.A.C.E. API [34] by Sightcorp detects anger, disgust,
+KDEF and 1,608 from RaFD.                                                     fear, happiness, sadness, and surprise. The API is available for
+                                                                              a two-week long free trial with a maximum of 5,000 calls and
+B. Emotion recognition APIs
+                                                                              a 1 call/second cap.
+   In recent years, a number of emotion recognition services                     The Sighthound Cloud API [35] detects anger, disgust,
+were made publicly available. Due to the complexity of                        fear, happiness, neutral, sadness, and surprise. The API can
+emotion recognition, these services make the development                      be used for a trial period with 5,000 calls.
+of systems incorporating emotion recognition easier, and are
+capable of exploring additional features of faces, not only                   C. Voting system
+emotion. After the user uploads an image or provides an                          The above-mentioned emotion recognition APIs show a
+URL address to it, the services return information about                      reasonably good accuracy for the recognition of common emo-
+the detected features; the results of emotion recognition are                 tions, but their performance drops for more complex emotions.
+usually provided in the form of number values which represent                 This might be due to the lower level of expressiveness of
+the probability of the given emotion’s presence in the image.                 some emotions, or the nature of the dataset that was used to
+For this study, we selected emotion recognition APIs based on                 train the API’s model which can show a bias towards common
+two criteria: 1) the API must be freely available (with a limited             emotions (e.g. more images depict happiness than contempt).
+number of calls or for a limited period of time), and 2) the                  If an application is expected to perform at the same level
+API must use a discrete emotion model to assess emotions. We                  of accuracy across all emotions, alternative solutions must be
+selected eight services meeting these requirements for testing.               used.
+
+
+
+
+                                                                          111
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+                                  Fig. 3. User interface of web application with uploaded image and results displayed
+
+
+
+   To tackle this problem, multiple emotion recognition APIs
+can be consulted. This raises a further problem when there
+is a discrepancy between the emotion recognition results.
+For example, if one API detects sadness and the other one
+contempt, which result should be considered to be correct?
+A voting system solves this problem by taking the output of
+APIs and assigning weights to them that reﬂect the level of
+expertise of APIs in the recognition of the given emotion. A
+weighted sum of the probabilities of emotions’ presence can
+provide a higher accuracy.
+   IV. C LOUD -BASED E MOTION R ECOGNITION VOTING
+                       S YSTEM
+                                                                                                      Fig. 4. System architecture
+   We designed and implemented a web application hosted
+on Microsoft Azure. The web application has a simple user
+interface offering ﬁle upload (see Fig. 3). After the image                                       Face++ API call
+
+is uploaded, the application sends it to emotion recognition
+                                                                                                Google Vision API
+cloud services and gathers their output. This output is then sent                                     call
+                                                                                 File                                      Voting system         Weighted
+to a voting system cloud service deployed through Microsoft                     upload                                        API call            sum
+                                                                                                Microsoft Face API
+Azure Machine Learning Studio that evaluates these results                                             call
+and provides a weighted output for them. The results of the
+voting system, along with the partial emotion recognition                                        Sighthound Cloud
+                                                                                                      API call
+results from the used APIs are then displayed to the user in a
+key–value pair format. The results are saved in a database and                                 Fig. 5. Workﬂow of emotion recognition
+can be used for further training of our emotion recognition
+voting system. The web application’s system architecture is
+shown in Fig. 4, its workﬂow is depicted in Fig. 5.                           two weeks. Amazon Rekognition returned probability values
+   From the APIs mentioned in section III-B, we used Face++                   only for the three most probable emotions, which made it
+Cognitive Services’ Emotion Recognition, Google Vision, Mi-                   unsuited for use in a voting system, while the Kairos API
+crosoft Face, and Sighthound Cloud API. Affectiva’s Emotion                   not always detected faces on the images from the KDEF and
+as a Service was omitted due to a lack of free subscription,                  RaFD datasets, and its accuracy was lower compared to other
+while the F.A.C.E. API’s free trial version is available only for             APIs (see Table II).
+
+
+
+
+                                                                          112
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+                                                             TABLE I
+C ONFUSION MATRIX FOR THE PERFORMANCE OF THE VOTING SYSTEM MODEL (A – ANGER , C – CONTEMPT, D – DIGUST, F – FEAR , H – HAPPINESS , N
+                                            – NEUTRAL , S A – SADNESS , S U – SURPRISE )
+
+                                                                                 Actual class
+                                                                                                                       Precision (%)
+                                                         A       C         D       F        H     N      Sa     Su
+                                    A                   303      0         3       3        0     0      6       0        96.19
+                                    C                    3      188        0       0        0     0      1       0        97.92
+
+
+
+                             Predicted class
+                                    D                    7       0        327      5        0     0      3       0        95.61
+                                    F                    4       0         2      298       0     0      7       6        94.01
+                                    H                    0       0         0       1       340    0      0       0        99.71
+                                    N                   10      13         0       1        0    340     7       2        91.15
+                                    Sa                  13       0         8      12        0     0     316      0        90.54
+                                    Su                   0       0         0      20        0     0      0      332       94.32
+                             Recall (%)                89.12   93.53     96.18   87.65     100   100   92.94   97.65
+
+
+
+                         TABLE II                                                         performance of the model, showing the percentage of correct
+     ACCURACY OF EMOTION RECOGNITION API S ( VALUES IN %)                                 classiﬁcation within a predicted class. Recall describes the
+                  API                          KDEF    RaFD    Overall                    classiﬁcation performance and represents the percentage of
+               Affectiva                       54.57   64.68    60.87                     correctly classiﬁed data for any class.
+               F.A.C.E.                        63.21   61.32    62.03                        The voting-system based model showed the lowest precision
+                 Kairos                        45.74   26.99    34.06
+              Rekognition                      52.62   39.74     44.6
+                                                                                          in recognizing the emotions sadness, neutral, fear, and surprise.
+                Face++                         77.08   71.33     73.5                     This is due both to the low level of expressiveness of these
+                Google                         43.47   36.63    39.21                     emotions and also their similarity to each other (neutral–
+               MS Face                         75.33   76.24     75.9                     sadness, fear–surprise). It is important to note that the voting
+              Sighthound                       62.18   72.33     68.5
+             Voting system                     90.75   97.08    94.69                     system’s results were still considerably better for each emotion
+                                                                                          than any individual API’s, a more detailed emotion-wise
+                                                                                          comparison of API performance will be the subject of a
+   The voting system model was implemented in Microsoft                                   follow-up paper.
+Azure Machine Learning Studio (ML Studio) which is a free                                    The overall accuracy (number of correct classiﬁcations over
+tool for creating, training and deploying models as APIs. We                              the size of the dataset) is presented in percentages in Table II
+created a ﬁle containing results from all four used APIs for                              for the two individual image datasets and for the combined
+all the images in our dataset and the emotion present in the                              dataset. We ﬁrst include the APIs that were not used for
+images. This ﬁle was uploaded to ML Studio and was used                                   our model, then the four APIs used, and ﬁnally our model
+to train a multiclass neural network with 100 hidden nodes.                               aggregating their results.
+For possible learning rates, we set 0.01, 0.02, and 0.04, from                               Table II shows that our voting system aggregating the
+which ML Studio selected the most appropriate during training                             results from four APIs performs signiﬁcantly better than each
+the model. The number of iterations was set similarly to be                               individual API and the APIs that were not included in the
+from the interval 164–500 with number of points of 3. The                                 aggregagtion process. The low accuracy of the Kairos API
+initial learning weight was 0.1, the momentum 0, and the Min-                             is due to the API not detecting a face in 348 images, while
+Max normalizer was used. The neural network had 26 input                                  the Google API performed badly because of its use of fewer
+nodes for the probability of each recognized emotion from                                 emotion categories. Compared to the best-performing single
+four APIs, and had eight output nodes for the weighted sum                                emotion recognition API – Microsoft Face API – our voting
+of probabilities for the detected emotions (anger, contempt,                              system showed an almost 20% overall improvement.
+disgust, fear, happiness, neutral, sadness, surprise). The data
+about the images was split randomly into a 75% training set                                                      VI. C ONCLUSION
+and a 25% testing set for evaluation. The dataset splitting was                              This paper describes a cloud-based facial emotion assess-
+not stratiﬁed, not enforcing a proportional representation of                             ment system which uses the outputs of different publicly avail-
+emotions in the training and testing sets. The performance                                able emotion recognition services. These data are processed
+of the voting-system model over the combined dataset is                                   using the Machine Learning Studio developed by Microsoft.
+described in the next section.                                                            The system was tested using a combined dataset of the KDEF
+                                                                                          and RaFD facial expression databases. The results showed that
+                V. E VALUATION AND R ESULTS
+                                                                                          our system outperformed the existing recognition services. The
+   To evaluate the performance of the APIs mentioned in sec-                              main advantage of our system is that it can be deployed and
+tion III-B as well as our voting-system based model, we tested                            used for free in a small-scale scenario, since all the used APIs
+them on the dataset containing images from KDEF and RaFD.                                 have a free-tier usage. To use it in a larger scale and send
+The performance of the classiﬁcation system is presented in a                             several images in a small amount of time, users must subscribe
+confusion matrix in Table I. Precision describes the predictive                           to the given services.
+
+
+
+
+                                                                                      113
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+   The next steps in the development of the system involve                       [20] P. A. Abhang and B. W. Gawali, “Correlation of eeg images and speech
+creating a public API so other researchers could call our                             signals for emotion analysis,” British Journal of Applied Science &
+                                                                                      Technology, vol. 10, no. 5, pp. 1–13, 2015.
+service and get more accurate emotion recognition results                        [21] E. Diener, H. Smith, and F. Fujita, “The personality structure of affect.”
+than the ones from the tested services. This way the resulting                        Journal of personality and social psychology, vol. 69, no. 1, p. 130,
+system could be used in various applications of affective                             1995.
+                                                                                 [22] R. Pluchik, “A general psychoevolutionary theory of emotions,” Emo-
+computing, such as human–robot interaction. By labeling the                           tion: Theory, research and experience, vol. 1, pp. 3–33, 1980.
+uploaded images we can create training datasets to improve                       [23] R. Plutchik and H. Kellerman, Emotion, psychopathology, and psy-
+the accuracy of our model. The voting system based service                            chotherapy. Academic press, 2013, vol. 5.
+                                                                                 [24] “Microsoft Azure Machine Learning Studio,” https://studio.azureml.net,
+described in this paper also needs to be tested in real human–                        accessed: 2018-04-22.
+machine interaction, which will be the subject of further                        [25] D. Lundqvist, A. Flykt, and A. Öhman, “The Karolinska directed
+research.                                                                             emotional faces (KDEF),” CD ROM from Department of Clinical
+                                                                                      Neuroscience, Psychology section, Karolinska Institutet, no. 1998, 1998.
+                                                                                 [26] O. Langner, R. Dotsch, G. Bijlstra, D. H. Wigboldus, S. T. Hawk, and
+                         ACKNOWLEDGMENT                                               A. Van Knippenberg, “Presentation and validation of the Radboud Faces
+  This research work was supported by the Slovak Research                             Database,” Cognition and emotion, vol. 24, no. 8, pp. 1377–1388, 2010.
+                                                                                 [27] “Affectiva SDK,” https://www.affectiva.com/product/emotion-sdk/, ac-
+and Development Agency under the contract No. APVV-015-                               cessed: 2018-04-22.
+0731 and research project is supported from 07-2016 to 06-                       [28] “Affectiva           Emotion             as            a           Service,”
+2019.                                                                                 https://www.affectiva.com/product/emotion-as-a-service/,          accessed:
+                                                                                      2018-04-22.
+                                                                                 [29] “Amazon Rekognition,” https://aws.amazon.com/rekognition/, accessed:
+                              R EFERENCES                                             2018-04-22.
+ [1] S. R. Fussell, The verbal communication of emotions: interdisciplinary      [30] “Face++      Cognitive      Services      -      Emotion      Recognition,”
+     perspectives. Psychology Press, 2002.                                            https://www.faceplusplus.com/emotion-recognition/, accessed: 2018-04-
+ [2] K. Oatley, “Two movements in emotions: Communication and reﬂec-                  22.
+     tion,” Emotion Review, vol. 2, no. 1, pp. 29–35, 2010.                      [31] “Google Vision API,” https://cloud.google.com/vision/, accessed: 2018-
+ [3] E. Altenmüller, S. Schmidt, and E. Zimmermann, The evolution of                 04-22.
+     emotional communication: From sounds in nonhuman mammals to                 [32] “Kairos API,” https://www.kairos.com/docs/api/, accessed: 2018-04-22.
+     speech and music in man. OUP Oxford, 2013.                                  [33] “Microsoft        Face       API,”          https://azure.microsoft.com/en-
+ [4] T. Lanciano and A. Curci, “Does emotions communication ability affect            us/services/cognitive-services/face/, accessed: 2018-04-22.
+     psychological well-being? a study with the mayer–salovey–caruso emo-        [34] “F.A.C.E. API by Sightcorp,” https://face-api.sightcorp.com, accessed:
+     tional intelligence test (msceit) v2. 0,” Health communication, vol. 30,         2018-04-22.
+     no. 11, pp. 1112–1121, 2015.                                                [35] “Sighthound Cloud API,” https://www.sighthound.com/products/cloud,
+ [5] L. De Sonneville, C. Verschoor, C. Njiokiktjien, V. Op het Veld,                 accessed: 2018-04-22.
+     N. Toorenaar, and M. Vranken, “Facial identity and facial emotions:
+     speed, accuracy, and processing strategies in children and adults,”
+     Journal of Clinical and experimental neuropsychology, vol. 24, no. 2,
+     pp. 200–213, 2002.
+ [6] G. Johannsen, “Human-machine interaction,” Control Systems, Robotics
+     and Automation, vol. 21, pp. 132–62, 2009.
+ [7] R. W. Picard et al., “Affective computing,” 1995.
+ [8] E. Fox, Emotion science: An integration of cognitive and neuroscience
+     approaches. Palgrave Macmillan, 2008.
+ [9] K. Lochner, “Affect, mood, and emotions,” pp. 43–67, 2016.
+[10] M. Gendron and L. Feldman Barrett, “Reconstructing the past: A century
+     of ideas about emotion in psychology,” Emotion review, vol. 1, no. 4,
+     pp. 316–339, 2009.
+[11] P. Ekman, “An argument for basic emotions,” Cognition & emotion,
+     vol. 6, no. 3-4, pp. 169–200, 1992.
+[12] P. Ekman and W. V. Friesen, Facial Action Coding System: Investigatoris
+     Guide. Consulting Psychologists Press, 1978.
+[13] K. Roberts, M. A. Roach, J. Johnson, J. Guthrie, and S. M. Harabagiu,
+     “Empatweet: Annotating and detecting emotions on twitter.” in LREC,
+     vol. 12. Citeseer, 2012, pp. 3806–3813.
+[14] L. F. Barrett, “Variety is the spice of life: A psychological construc-
+     tion approach to understanding variability in emotion,” Cognition and
+     Emotion, vol. 23, no. 7, pp. 1284–1306, 2009.
+[15] J. A. Russell and J. M. Carroll, “On the bipolarity of positive and
+     negative affect.” Psychological bulletin, vol. 125, no. 1, p. 3, 1999.
+[16] D. Watson, D. Wiese, J. Vaidya, and A. Tellegen, “The two general
+     activation systems of affect: Structural ﬁndings, evolutionary considera-
+     tions, and psychobiological evidence.” Journal of personality and social
+     psychology, vol. 76, no. 5, p. 820, 1999.
+[17] R. J. Larsen and E. Diener, “Promises and problems with the circumplex
+     model of emotion.” 1992.
+[18] J. Posner, J. A. Russell, and B. S. Peterson, “The circumplex model
+     of affect: An integrative approach to affective neuroscience, cognitive
+     development, and psychopathology,” Development and psychopathology,
+     vol. 17, no. 3, pp. 715–734, 2005.
+[19] J. A. Russell, “A circumplex model of affect.” Journal of personality
+     and social psychology, vol. 39, no. 6, p. 1161, 1980.
+
+
+
+
+                                                                             114
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 12:01:37 UTC from IEEE Xplore. Restrictions apply.
+

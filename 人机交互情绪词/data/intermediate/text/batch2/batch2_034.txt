@@ -1,0 +1,615 @@
+                                                                     (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                              Vol. 12, No. 6, 2021
+
+
+           Emotional Evocative User Interface Design for
+            Lifestyle Intervention in Non-communicable
+                        Diseases using Kansei
+                        Noor Afiza Mat Razali1, Normaizeerah Mohd Noor2, Norulzahrah Mohd Zainudin3
+                              Nur Atiqah Malizan4, Nor Asiakin Hasbullah5, Khairul Khalil Ishak6
+                                  National Defence University of Malaysia, Kuala Lumpur, Malaysia1, 2, 3, 4, 5
+                                          Management and Science University, Selangor, Malaysia6
+
+
+    Abstract—The advancement of technology has led to the                       emotionally evocative[5]. This creates a gap in the user
+development of an artificial intelligence-based healthcare-related              interface design that could lead to the ineffectiveness of
+application that can be easily accessed and used to assist people               content delivery by the personal healthcare application.
+in lifestyle intervention for preventing the development of non-
+communicable diseases (NCDs). Previous research suggested that                      Assessment of emotion related to UID is vital for the
+users are demanding a more emotional evocative user interface                   utmost user experience and effectiveness in using the
+design. However, most of the time, it has been ignored due to lack              application to achieve the desired usage objectives.
+of a model that could be referred in developing emotional                       Researchers are focusing mainly on how to design and
+evocative user interface design. This creates a gap in the user                 redesign UID by examining the possible UID cognitive
+interface design that could lead to the ineffectiveness of content              features such as design colour, characteristic, size, contents
+delivery in the NCD domain. This paper aims to investigate                      and messages [6]. The process of redesigning UID has been
+emotion traits and their relationship with user interface design                however carried out on a trial-and-error basis, which led to
+for lifestyle intervention. Kansei Engineering method was applied               difficulties in selecting the most suitable design that can
+to determine the dimensions for constructing emotional evocative                increase usage efficiency. Although the emotional embedded
+user interface design. Data analysis was done using SPSS statistic              design is preferable by users, there are inadequate studies done
+tool and the result showed the emotional concepts that are                      on this topic.
+significant and impactful towards user interface design for
+lifestyle intervention in NCD domain. The outcome of this                           To improve the human factor in interacting with a
+research shall create new research fields that incorporate multi                machine, the existing methodology namely Kansei
+research domain including user interface design and emotions.                   Engineering (KE) is capable of guiding UID designers in
+                                                                                developing UID that is in line with the complexity of
+    Keywords—Emotion; Kansei; non-communicable diseases;                        dimension in a lifestyle intervention and user experience-
+lifestyle intervention; user-interface design                                   based application design. Thus, in the UID context, various
+                            I.   INTRODUCTION                                   dimensions in a lifestyle intervention can be mapped to
+                                                                                establish a joint representation of an optimum function of
+    Most technologies in the healthcare domain user interface                   lifestyle intervention. Since KE is effective enough in
+design are equipped with a clear and simple interaction                         addressing all dimensions needed for the user interface design,
+approach that includes a text and button. However, the new                      this paper proposed Emotional Evocative User Interface
+display technology paradigm has shifted to touch-screen or                      Design for Lifestyle Intervention in Non-communicable
+semi-transparent display, allowing a new approach for visual                    diseases (NCDs) domain using KE.
+human-machine interaction which more complex and
+efficient. The emergence of the new display technologies and                        This paper is organized as follows: In Section II we
+artificial intelligence (AI) resulted in the adaptation of devices              present a brief overview of our research including advice and
+interface navigation that depending on the user's behaviour                     recommendation in avoiding the development of NCDs, the
+[1]. Recently, the chatbot has seemed to be a potential tool in                 criteria of chatbot UID in smartphone and an overview of
+communicating the context of healthcare effectively and                         Kansei Engineering. Section III follows with details of our
+improved patient education and treatment compliance[2] with                     pilot study that utilize chatbot interfaces to evaluate the
+an abundance of technologies that have been developed to                        relationship between chatbot UID and user’s emotion trait.
+assist people on a daily basis. However, affective interaction                  Finally, we conclude in Section IV with a discussion on the
+principles are not able to be realized yet [3]. Previous research               result investigation and determined the significant emotions
+showed that users are demanding for more emotional                              for the lifestyle intervention for NCDs development.
+evocative user interface design [4]. Nevertheless, most of the
+time, it has been ignored due to the lack of a model that could
+be referred to in developing user interface design (UID) that is
+     This research is fully supported by the National Defence University of
+Malaysia (UPNM) under Short Grant UPNM/2020/GPJP/ICT/6. The authors
+fully acknowledged UPNM and Ministry of Higher Education Malaysia
+(MOHE) for the approved fund, which made this research viable and
+effective.
+                                                                                                                                    360 | P a g e
+                                                                        www.ijacsa.thesai.org
+                                                         (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                  Vol. 12, No. 6, 2021
+
+                      II. RELATED WORK                              level of compliance to the instruction given [22] due to the
+                                                                    patient’s satisfaction and adherence to treatment influenced by
+A. Non-Communicable Diseases                                        the level of understanding towards the instruction of lifestyle
+    Non-communicable disease (NCD) cases are a global               interventions. Anger, frustration and irritation due to negative
+health problem that continues to rise globally. The pandemic        experience caused by inappropriate health service providers
+Covid-19 that is forcing people to be at home when there is no      will lead to non-adherence behaviour by the patients[23].
+need to go out contributed to less exercise and overeating,         Legg et al. also emphasized that anxious emotions (worry and
+causing the increase of NCD developments[7]. The                    nervousness) trigger difficulty for individuals to understand
+development of NCDs do not result from germs and viruses,           instruction given by health providers and impede people’s
+but individual risky behaviours such as tobacco use, alcohol        decision making[22].
+consumption, unhealthy diet and inactive lifestyle [8],[9],[10].
+Therefore, it is important to undergo a regular health screening        Emotional issues cannot be ignored and should be taken
+to help to identify any early signs of chronic disease to reduce    into consideration while implementing any type of lifestyle
+the socio-economic burden on an individual [11] and turn it to      intervention and more research is needed in this area [22]. In
+reduce morbidity and mortality as well as improve health and        addition, Lockner & Bonnardel also highlighted the
+prevent disease [12], [11], [13].                                   importance of studying emotions especially in the context of
+                                                                    UID [24]. Therefore, it is vital to determine the emotional
+    A healthy lifestyle is classified into two categories [14],     expression of an individual before implementing any lifestyle
+which are non-modified (age, family history) and modified           intervention to avoid the development of NCD effectively. As
+(no obesity, healthy diet, physical activity and no smoking)        a result, people will be able to comply with instruction
+variables that contribute to having a longer life with good         provided by the healthcare provider and lead a healthy
+health [13], [15]. This study utilised modified variables to        lifestyle [23].
+measure user’s emotion for lifestyle intervention compliance
+including food and nutrition intake. According to the previous      C. Kansei Methodology
+research, healthy eating is based on the right amount of                Kansei Engineering is the combination of technology
+nutrients (protein, fat, carbohydrate, vitamins and minerals)       between Kansei and engineering realms, which is frequently
+and proportions of foods recommended by the food pyramid            used for product development that includes components such
+for daily requirement [16]. Meanwhile, the best amount of           as desired need, emotion or sense [25]. Kansei can be utilised
+food serving depends on the types of exercise done by an            to establish a new product design based on users’ evaluation
+individual. For instance, higher intensity activity increases       of a product emotionally. Kansei integrates the product based
+energy expenditure and fuel for muscles. Besides, physical          on knowledge of what the users feel. Thus, Kansei is useful in
+activity can balance energy by changing appetite and cutting        influencing implicit users’ insight related to the product design
+food intake [17]. According to WHO, adults aged between 18          element and incorporating these insights with a new
+to 24 should do at least 150 minutes per week for mild              product[26]. Recently, people have shown interest in the
+physical exercise or at least 75 minutes per week for intense       application of Kansei in various fields such as industrial
+physical activity or both physical activities[18].                  products, healthcare, education and e-commerce[27]–[29].
+                                                                    Furthermore, Kansei has been proven successful in measuring
+    With the advancement of technology, lifestyle intervention      human emotions toward services and products such as in
+can be done using the application to assist the users in their      designs of eyewear, popup box and e-commerce websites
+lifestyle. Nowadays, technology is widely used as a healthcare      desired by users[30], [31]. In the realm of information
+tool in spreading awareness and promoting health since it is        security, Kansei is utilised to design information security-
+effective, convenient, and cost-effective. Recently, several        related UID [32].
+chatbots such as Quro, Shihbot and Mandy have been used in
+public health to reduce the burden of low and middle-income             Kansei expresses human’s feeling towards artefact,
+countries[19]. Since a decade ago, smartphones have been            situation, or environment. Kansei refers to an external process
+gaining popularity with mobile health (mHealth) applications        that is tacit or known as a function of the brain at a higher
+used to conduct lifestyle interventions in gaining better health    level. This means that Kansei cannot be measured directly but
+at a lower cost [20]. However, most of the applications are not     can be measured partially or indirectly through a quantitative
+considering the user’s emotion during the designing and             method using a self-reporting system like Semantic
+development phase that creates a gap in the established UID.        Differential (SD) scale, Different Emotional Scale (DES) or
+Therefore, an emotional embedded user interface design for          free labelling system. The measurement is done using Kansei
+lifestyle intervention to prevent NCDs development should be        Checklist, a form of a questionnaire that includes emotional
+developed to ensure the effectiveness of the applications.          keywords or known as Kansei Words (KW). KW is a word
+                                                                    representing a user's emotions [6]. Commonly, the selection of
+B. Significance of Emotion in Lifestyle Intervention                KW is done based on the literature review and experts’ advice.
+    Compliance                                                      Normally, Kansei is used to measure the emotion of a user
+    Emotions are one of the essential properties of human-to-       towards a product design. In this study, Kansei was applied
+human interaction and complex process that consists of              using a quantitative method with KW, a form of
+feeling, behaviour and psychology influenced by                     questionnaires distributed to participants to evaluate related
+surrounding[21]. According to Legg et al., physicians ability       evocative user interface design based on users’ insight towards
+in determining the current patient’s emotion will improve the       artefact.
+
+
+
+
+                                                                                                                        361 | P a g e
+                                                           www.ijacsa.thesai.org
+                                                         (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                  Vol. 12, No. 6, 2021
+
+    In this work, we proposed that Kansei can be utilised as a      (OCR) was more identified as a machine in a chat, rather than
+methodology to measure users’ emotion in a chatbot design           script typefaces (Bradley). Typefaces (Bradley) were less
+where the result can serve as a guideline on how to design a        perceived as human in a chat. These show that script typefaces
+UID that can be associated with emotional evocative user            give an impression of more human alike emotional
+interface design focusing on a lifestyle intervention for NCD.
+                                                                    conversation and have higher ratings of trust than robot-like
+In this study, a chatbot was used as the UID. Generally, a
+chatbot can be used to spread awareness, promote health and         speech.[37] Besides, the author suggested, designers can select
+act as a medium of interaction in lifestyle intervention to         different typefaces based on target users' familiarity with
+ensure a healthy lifestyle practice towards preventing the          chatbots to give a favourable first impression. People who
+development of NCD.                                                 have had less experience with chatbots need additional
+                                                                    elements or content reinforcement in order to view chatbots as
+D. Emotion Evocative User Interface Design (UID)
+                                                                    less emotionless machines and designers’ role in decreasing
+    The most important factors in designing chatbot UID for         the typeface bias are vital.
+lifestyle intervention are: 1) to make sure that the chatbot
+interaction with the target user is pleasant and comfortable to         Typeface 1: A robot-like typeface (OCR-A neutral typefaces such as
+                                                                                              Helvetica and Georgia)
+be used emotionally, 2) the chatbot could use a similar
+approach in understanding the target user like the one used by
+the health provider and 3) to create a relationship with target
+user to use the chatbot continuously. The dependency on
+technology has increased in people’s daily activities whether
+in education, entertainment, business, or healthcare. Hence,                        Typeface 2: Mimics handwriting (Bradley)
+the use of technology in assisting individuals in lifestyle
+modification for NCD intervention is convenient and
+accessible as smartphones are easily acquired today. Previous
+studies have shown the significance of technology in lifestyle
+intervention, which can help people with lifestyle modification
+and motivation [33], [34].
+                                                                                         Fig. 1. Type of Typeface [37].
+    To increase emotional evocative user interface design in
+chatbot, user preferences are used as a guideline in designing
+                                                                         2) Colour: Colours are also associated with other feelings
+UID and are the main concern of designers [35], [36].
+Researchers have suggested that gender, age preference and          and emotions. Colours not only affect our attitudes and
+emotion factors have to be included in the technology that          perceptions toward a product but are also correlated with
+addresses user’s feelings, process and behaviour [37].              variations in UI trusting behaviour. Most studies agree that
+Moreover, embedded culture in UID affects product                   blue is perceived as a cold colour, while red is perceived as a
+development [38], [39]. Thus, the influence in designing the        warm colour. The author in [38] believes that the warmth of
+users’ interface and understanding attraction depends on how        the user interface has a positive effect on trusting behaviour.
+the users use the technology.                                       However, pleasant colours and a joyful atmosphere in a
+    Before starting to develop the chatbot UID, it is important     chatbot should be surrounded by cheerful and lively design
+to decide the personality of the bot. According to Pricilla et      settings for a more positive effect. The colours design and
+al., the personality should be developed based on the bot’s         atmosphere of a chatbot can result in a positive effect on user's
+function, target audience, and type of task that the bot must       attitudes toward it, which in turn influences compliance to the
+complete [35]. Creating the right personality for the bot will      advice given by the chatbot in having a healthy lifestyle.
+boost the user experience and interaction. Besides, female-              3) Emoticon and Gifs: Emojis are defined as the
+gendered chatbots have a huge effect on gaining trust for both      typographic display of a facial representation that used to
+women and men because female bots are perceived to be               express communication feelings and emotions[39]. Emojis
+friendlier and trustworthy [36].
+                                                                    have the ability to change the tone of a message. Furthermore,
+    To provide a good user experience, the bot may also need        emojis are added with text and other platforms such as stickers
+to support rich interactions such as audio, pictures, and maps.     and GIFs to expand and complement the text's expressive
+Suggestion criteria in designing chatbot followed by user           message. Unlike plain text, which is informative and brings
+preference, gender, age and culture preferences include             the meaning of a message within the text, emojis are richer in
+typefaces[37], colour [38], emoticon[1], avatar[5], tone[5] and     terms of meaning that show stronger emotional behaviour. For
+voice[5].
+                                                                    example, the text "That not funny" and "That not
+    1) Typefaces: People's impressions of books, packages,          funny☹💔" convey different meanings. The first sentence
+signs, and screen interfaces are affected by typeface elements.     sounds serious whereas the second one looks sad and
+The typefaces used have a huge impact on how users view a           heartbroken[1].
+chatbot and appreciate the emotion evoked while reading the              4) Avatar: An avatar may incorporate "joy-of-use" into
+contents. Fig. 1 shows two types of typefaces based on the          the conversation and inspire the user with friendly
+finding by Candello et al. that stated, a robot-like typeface       encouragement and the right answers to promote a positive
+
+
+
+                                                                                                                               362 | P a g e
+                                                          www.ijacsa.thesai.org
+                                                          (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                   Vol. 12, No. 6, 2021
+
+work climate. A character's trustworthiness is also important        determine the reliability of the research methods and test the
+in natural communication. As a result, each character's              subject recruitment strategy.
+exterior appearance, speech characteristics, gesture, and                For this study, the process for determining emotion
+general movement can vary. Fig. 2 shows alarm messages               assessment for chatbot interface for NCDs lifestyle
+which require immediate actions. The red colour and the              intervention is shown in Fig. 3. The first phase was the
+fireman avatar was representing the warning and alert towards        process of identifying the artefact of the chatbot application
+the situation[5].                                                    interface from the Google App store and journals. The chatbot
+                                                                     UID is defined as a visual layout design of artefacts that can
+                                                                     interact with users [41].
+                                                                         Based on the findings, 8 out of 15 chatbots were selected
+                                                                     using a matrix approach. The matrix approach is used to
+                                                                     validate a specimen by checking the features of design and
+                                                                     values that make up the appearance of each specimen [31].
+                                                                     Table I show the extraction of chatbot UID with the
+                                                                     corresponding category, item and value, respectively.
+                                                                     A. Methodology
+                                                                          In the second phase, 71 KW was synthesised from a
+                                                                     literature review and models including Panas-X that connected
+                                                                     to the lifestyle intervention domain. In addition, a Kansei
+                Fig. 2. Avatar for Alarm Message [5].
+                                                                     Affinity Cluster (KAC) was adopted for the process of
+                                                                     synthesising KW and the confirmatory phase of KW. It was
+    This criterion is a significant element in measuring users’      recommended that the researcher choose and pick only certain
+emotional trait towards interaction with a chatbot using all the     words that are important to the study [42]. Therefore, based on
+senses of vision, hearing, sensitivity and scent that resulted in    the 71 KW discovered, the words were filtered and selected
+a reaction established and stored in the human brain by              based on the KAC model since KAC words are very suitable
+experiencing all the impressions. Thus, this created a reaction      for representing emotions in chatbot UID. The result of this
+of human behaviour towards the design of a chatbot. In this          selected process was 16 KW. Finding from this process is as
+study, we proved that the data gathered using Kansei                 shown in Fig. 4.
+Engineering methodology are capable of providing a guideline             After the KW was determined, Kansei Checklist was
+to UID designers in developing UID that is able to address the       developed to evaluate emotions and was represented as a form
+emotion complexity dimension for NCDs lifestyle intervention         of a questionnaire that consists of KW. The developed Kansei
+and user experience-based application design. Thus, in the           Checklist is shown in Fig. 5.
+UID context, various dimensions in NCDs can be mapped to
+establish a joint representation of an optimum function of
+                                                                             Identify Instrument
+NCDs lifestyle intervention from the perspective of chatbot                                                        Chatbot Artefact
+design.
+   III. EMOTIONAL EVOCATIVE USER INTERFACE DESIGN FOR
+LIFESTYLE INTERVENTION IN NON-COMMUNICABLE DISEASES                        Emotion Measurement                  Kansei             Extraction of
+                                                                                                               Checklist               User
+    Emotional evocative UID can be realized if there are                                                                            Interface
+                                                                                                                                       (UID
+enough data gathered to explain the relationship between
+design and how it will affect user emotion in a particular                      Emotional
+domain. Emotion embedded UID will enable the optimum                         Conceptualization                    PCA                      FA
+joint representation for lifestyle intervention to avoid NCDs
+development. Communication using chatbot has the potential
+to deliver message according to user’s need if the chatbot                  Design Requirement                  Implementation Emotion level of
+                                                                                                                Design Requirement For Chatbot
+design considers the emotion that capable to increase the                     Formulization
+positive effect on user's attitudes. This study adopted a model
+proposed by [40] to determine the emotional trait that will
+                                                                     Fig. 3. Process for Emotion Assessment for Chatbot Interface using KE [40].
+increase the adherence to instructions related to lifestyle
+intervention to prevent the development of NCDs. However,
+in this study, some modifications were made to this model to                   Frustration, Disgusting, Irritating, Annoying,
+the suitability of the study scope. This study was conducted in                Concern, Painful, Stressful, Joyful, Cheerful,
+four phases, which were 1) Identifying instrument of lifestyle                 Energetic, Satisfaction, Exciting, Exhausting,
+intervention in NCD 2) Emotional measurement 3) Emotional                                 Hopeful, Panic, Lively
+Conceptualisation and 4) Design Requirement Formulation.                                  Fig. 4. The Kansei Words [42].
+This paper reports the result of a pilot study performed to
+
+
+
+
+                                                                                                                                 363 | P a g e
+                                                            www.ijacsa.thesai.org
+                                                        (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                 Vol. 12, No. 6, 2021
+
+                                                                     according to the literature review obtained. However, not all
+                                                                     categories and items were included in this pilot evaluation
+                                                                     process due to the limitation on the allocation of timeframe
+                                                                     and process delivery.
+                                                                         This evaluation was made by the selected participants with
+                                                                     interest in lifestyle intervention using chatbot to prevent
+                                                                     development of NCDs. The process was conducted in a close
+                                                                     environment to prevent the emotion changes of the
+                                                                     participants between five to six hours.
+                                                                        In this study, the demographic factors included sex, race
+                                                                     and age in between 18 and 30. In this study, 10 smartphones
+                                                                     were given to all subjects to show the artefacts simultaneously
+                                                                     by the facilitator. The participants were asked to give a score
+                                                                     based on their feelings on the Kansei Checklist for each
+                                                                     sample product chatbots (artefacts).
+                                                                     B. Result
+                                                                         Result analysis started by determining the Cronbach's
+                                                                     alpha of Kansei Checklist. Cronbach’s alpha is a convenient
+                                                                     test used to reach a reasonable reliability standard [50].
+                                                                     Cronbach’s alpha reliability commonly ranges from 0 (very
+                                                                     unreliable) to 1.0 (perfect reliability). The nearer the
+                  Fig. 5. The Kansei Checklist.                      Cronbach’s alpha to 1.0, the higher is the internal consistency
+                                                                     of the scale item. Based on Cronbach’s alpha rules of thumb
+    To conduct the evaluation experiment, KW was assembled           recommended value; above 0.9 is excellent, above 0.8 is
+into a 5-point Semantic Differential (SD) scale to form a            good and above 0.7 is acceptable[51]. This value also relies on
+checklist. Ten participants were recruited based on different        the number of items that affect whether the scale reliability
+demographic factors to evaluate KW appeal for eight artefacts        will be higher or lower. Therefore, in this study, Cronbach's
+that were selected in Phase 1. The samples of the artefact are       alpha was performed in SPSS Statistics using Reliability
+as shown in Fig. 6. The artefacts’ categories were made              Analysis.
+
+
+
+
+                                                    Fig. 6. The Kansei Checklist.
+
+
+
+
+                                                                                                                       364 | P a g e
+                                                          www.ijacsa.thesai.org
+                                                                       (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                Vol. 12, No. 6, 2021
+
+                 TABLE I.       EXTRACTION OF CHATBOT UID
+
+Category               Item                    Value
+                       Appear of
+Timing [40],[43]                               Seconds, Minutes, Hours
+                       notification
+                       Speed of reply          Fast, Medium, Slow
+                       Appear of location      Above, Below, Centre,
+                       box                     Right, Left
+Typography[37]         Font Type               Regular, Italic, Bold
+                       Font Size               Small, Medium, Large
+                                               Red, Blue, Green, White,
+                       Font Colour Reply
+                                               Black, Grey, Others
+Emoticon[39],[44]      Type of emoticon        Unicode, Graphic
+                                               Red, Blue, Green, White,
+Colour[45]             Colour of header
+                                               Black, Grey, Others
+Size[46]               Size of screen box      Half, Full
+                                                                                                   Fig. 7. PC Loading for Pilot Study.
+Button [47]            Size of button reply    Small, medium, large
+                       Colour of button                                               From Fig. 7 above we observed that a good distribution of
+                                               Light, Dark
+                       reply intensity                                            KW existed on both axes, which indicates an efficient
+                                               Round, Rectangle, Oval,            evaluation. Based on a previous study, the loading can range -
+                       Shape of button reply
+                                               Square                             1.0 to 1.0. Furthermore, loading closer to -1 or 1 means that
+                       Location of button      Centre, Right, Left, Down,         the component is highly influenced by the variable. While
+                       reply appear            Up                                 loading close to 0 means that the variable has a lower
+Profile Picture [5]
+                                                                                  influence on the component [54].
+                       Frame of Avatar         Oval, Round, Square,
+                                                                                      In this loading, plot “Concern", “Hopeful", and “Exciting"
+                       Type of Avatar          Robot, Human, others               have a large positive PC loading on component 1 (x-axis),
+Media[48]              Image                    Less, More                        whereas "Exhausting" has a moderate negative loading,
+                                                                                  making this component to be marked as an "Attractiveness".
+                       Gif                     Yes, No
+                                                                                  This study assumed that chatbots with a high score on
+                                               Appear, Fade, Fly-in, Float        component 1 of the PC axis would have a greater sense of
+Animation [49]         Motion path of text
+                                               in, Wipe                           attraction and vice versa.
+Voice tone             Type of conversation    Robotic, Natural
+                                                                                      Meanwhile, "Stressful" and "Disgusting" have a large
+                                                                                  positive PC Loading on component 2 (y-axis) near to 0; so,
+                 TABLE II.      EXTRACTION OF CHATBOT UID
+                                                                                  this component was marked as a "Hostility". This study
+                             Cronbach's Alpha for                                 assumed that chatbots with a higher score on component 2 of
+Cronbach's Alpha                                    Number of Items(N)
+                             Standardized Items                                   the PC axis would tend to feel hostility and vice versa.
+0.771                        0.757                  128                               Then, Factor Analysis (FA) was conducted to identify
+                                                                                  significant KW variables for the chatbots that reflect
+    Based on Table II, the alpha coefficient for 128 items was                    adherence of people in the chatbot features in a lifestyle
+0.771, which indicated that the items have high internal                          intervention. The result was used to refine the outcome of
+consistency. Meanwhile, the Cronbach’s Alpha standard was                         PCA. FA is a technique of data reduction to describe
+0.757. Alpha coefficient values between 0.60 and 0.70 have                        ambiguity in terms of unobserved explanatory variables
+been shown to be acceptable in exploratory research, whereas                      named factors [55]. Table III shows the result of FA after
+range values between 0.70 and 0.95 are known to be                                varimax rotation.
+satisfactory to a good degree of reliability [52]. Thus, it can be
+concluded that the reliability of the Kansei checklist was                            Based on this table, the first factor indicates the majority
+verified.                                                                         contribution with 28.109%, followed by the second factor with
+                                                                                  24.216%. The majority of factors represented both variables.
+    Then, the analysis was performed using principle loading                      Therefore, as can be observed in this table, both Factor 1 and
+analysis (PCA). PCA is an exploratory data analysis method                        Factor 2 have a dominant KW affect, representing 28.109%
+that requires a technique to reduce a large dataset to a small                    and 52.325% = of the variability. Meanwhile, the third and
+set, but still maintains the amount of information in a large                     fourth-factor contributions were 19.36% and 15.243%,
+set[53]. There are three types of PCA namely PC Loading, PC                       respectively. Thus, Factor 2, Factor 3 and Factor 4 were seen
+Score and PC Vector. In this study, PC Loading was used,                          with 52.325%, 71.693% and 86.936% of variability,
+which represented the evaluation of how KW affects                                respectively.
+specimens. Fig. 7 shows the result of PC Loading for
+Component 1 and Component 2.
+
+
+
+
+                                                                                                                                         365 | P a g e
+                                                                        www.ijacsa.thesai.org
+                                                                       (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                Vol. 12, No. 6, 2021
+
+        TABLE III.      CONTRIBUTION AN ACCUMULATED CONTRIBUTION                  52.325% of data variance. Thus, to obtain an optimal
+                                                                                  outcome, two factors were used namely Hostility and High-
+Factor         Contribution (%)             Accumulated Contribution (%)          spirited, which were very significant emotion concepts.
+1              28.109                       28.109                                Whereas the other two factors were also significant, which
+                                                                                  were Complicated and Hyperactive, but have a poor impact to
+2              24.216                       52.325                                be used in designing the chatbots that include targeted
+3              19.368                       71.693                                emotions as supporting elements.
+4              15.243                       86.936                                C. Discussion
+    The results of factor loading after rotation of the varimax                       This paper has described our research to establish
+are shown in Table IV. In chatbot design, variables with a                        emotions evocative chatbot UID in the healthcare domain.
+higher score are considered as important factors. This study                      This finding will be useful in future research concerning the
+defined 0.7 as the standard score. However, a slightly lower                      use of KE in the measurement of emotion, which integrates
+score can be also known as a significant concept[56].                             the user's subjective perception in a UID. In this study, we had
+                                                                                  extracted 16 KW related to lifestyle intervention from
+    Factor 1 consisted of “Disgusting”, “Painful",                                previous studies and eight chatbots artefacts have been
+“Frustration", “Stressful", “Panic", and “Irritating". These                      identified using multilinear techniques. For this pilot study,
+variables were labelled as the concept of “Hostility". Factor 2                   the significant KW has been chosen using FA. Participants
+consisted of “Satisfaction", “Hopeful", “Concern" and                             were recruited from different demographic factors that include
+“Lively". These variables were labelled as the concept of                         a variety of analysis and a more precise relationship to reflect
+“High-spirited". Factor 3 comprised “Cheerful", “Exhausting"                      the specific regional field of NCDs. FA revealed more detailed
+and “Concern”, which were labelled as the concept of                              findings compared to PCA. However, PCA illustrated a larger
+“Complicated". Factor 4 consisted of “Energetic", “Annoying"                      picture of the emotion structure, where it is shown that
+and “Exciting”. These variables were labelled as the concept                      emotion was strongly affected by the first PC, which was
+of “Hyperactive”. This study reflected the common procedure                       “Attractiveness”, whereas the second main component
+in KE using representative terms for naming each factor                           “Hostility” has a poorer effect. From this pilot study, it has
+group, the one that could effectively define the factor group.                    been determined that the significant emotions for designing
+There is nothing right or wrong in naming group factors,                          UID chatbot for the lifestyle intervention in NCDs domain are
+except that the name must match the variables in factors.                         hostility and high-spirited. These emotions will be the pillars
+                                                                                  in guiding the chatbots' design requirement that could
+                     TABLE IV.     FACTOR LOADING FOR KW                          influence emotion level for NCDs lifestyle interventions.
+Variable                Factor 1   Factor 2      Factor 3     Factor 4                Based on the extraction of chatbot UID that has been
+Disgusting              0.908      0.125         -0.209                           chosen, the results show that evaluation using the Kansei
+                                                                                  Engineering method have revealed that two significant factors
+Painful                 0.896
+                                                                                  which are “Hostility and “High-spirited” as likely to have
+Frustration             0.796                    -0.414       -0.324              strong healthcare awareness and influences to individual’s
+Stressful               0.794      -0.1          -0.116       0.439               behaviour in using a chatbot. An individual is comfortable,
+                                                                                  pleasant and confident to comply with the chatbot guidance
+Panic                   0.68       -0.381        0.32         0.156
+                                                                                  and instruction when supported with these two emotional
+Irritating              0.668      -0.602        -0.356       0.124               factors. In this study, we selected UID from the applications in
+Satisfaction                       0.923         0.101                            the Google App store as our artefacts since many applications
+                                                                                  are related to the healthcare domain and free to access.
+Hopeful                 -0.204     0.847         0.408
+Concern                 -0.158     0.748         0.226        0.485                              IV. CONCLUSION AND FUTURE WORK
+Lively                  0.43       0.697         0.228        0.27                    As a conclusion, this paper has conceptualised emotion
+Cheerful                0.206      0.295         0.835
+                                                                                  assessment in UID for lifestyle intervention especially NCDs
+                                                                                  domain using KE methodology. The results were presented as
+Exhausting              0.387      -0.117        -0.816                           a pilot study to determine the reliability of its data collection
+Joyful                  -0.34      0.336         0.792                            towards a small number of participants.
+Energetic               0.238      0.297         0.134        0.842                   The next step is to perform activities with a larger group of
+Annoying                0.209      -0.41         -0.431       0.754               participants to obtain more comprehensive data to determine
+                                                                                  emotion assessment in the NCDs domain for lifestyle
+Exciting                -0.177     0.471         0.405        0.704
+                                                                                  intervention using Kansei Engineering method. The result
+    From the experiment results, we determine that the                            could be utilised to create the guidelines on the representation
+concept of emotion in Chatbot UID is structured by four                           of emotions towards the design of chatbot in the lifestyle
+variables as evident from the outcome of FA, which was                            intervention for NCDs domain. The guideline can be used by
+Hostility, High-Spirited, Complicated and Hyperactive.                            developers and software designers in designing emotionally
+However, it can be concluded that Factor 1 and Factor 2 were                      evocative chatbot to guide lifestyle intervention and contribute
+more relevant concepts of Kansei for Chatbot due to the                           to reducing the risk factor in developing NCDs. The most
+
+
+
+                                                                                                                                      366 | P a g e
+                                                                         www.ijacsa.thesai.org
+                                                                       (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                Vol. 12, No. 6, 2021
+
+important factor in designing a chatbot for lifestyle                                  Tertiary Health Facility in Calabar, Cross River State, Nigeria,” Glob. J.
+intervention is to make sure that chatbot interaction is pleasant                      Health Sci., vol. 12, no. 8, pp. 27–37, 2020, doi: 10.5539/gjhs.v12n8p27.
+and comfortable to be used emotionally and users have a                           [12] A. B. AL-Kahil, R. A. Khawaja, A. Y. Kadri, S. M. Abbarh, J. T.
+                                                                                       Alakhras, and P. P. Jaganathan, “Knowledge and Practices Toward
+tendency to share and follow the instructions guided by the                            Routine Medical Checkup Among Middle-Aged and Elderly People of
+chatbot to prevent the development of NCDs. This is to ensure                          Riyadh,” J. Patient Exp., p. 237437351985100, 2019, doi:
+that the users are comfortable and willing to cooperate upon                           10.1177/2374373519851003.
+receiving instructions of any lifestyle intervention in NCDs.                     [13] A. V. Khera et al., “Genetic risk, adherence to a healthy lifestyle, and
+                                                                                       coronary disease,” N. Engl. J. Med., vol. 375, no. 24, pp. 2349–2358,
+     This research was able to offer insight into people's                             2016, doi: 10.1056/NEJMoa1605086.
+attitudes, sensitivity, and knowledge of lifestyle interventions                  [14] B. Ghosn, S. Benisi-Kohansal, S. Ebrahimpour-Koujan, L. Azadbakht,
+for preventing NCD development issues. As a result, the                                and A. Esmaillzadeh, “Association between healthy lifestyle score and
+findings of this study are recommended to be used as a                                 breast cancer,” Nutr. J., vol. 19, no. 1, pp. 1–11, 2020, doi:
+foundation for future research into the relationship between                           10.1186/s12937-020-0520-9.
+emotion and UID using a chatbot or other conversation agent                       [15] A. Marques, M. Peralta, J. Martins, V. Loureiro, P. C. Almanzar, and M.
+                                                                                       G. de Matos, “Few European Adults are Living a Healthy Lifestyle,”
+interfaces as an artefact. Nevertheless, a thorough                                    Am. J. Heal. Promot., vol. 33, no. 3, pp. 391–398, 2019, doi:
+investigation involving comprehensive evaluation and                                   10.1177/0890117118787078.
+measurement of emotion is needed to expand the research                           [16] C. Report et al., “INTERNATIONAL JOURNAL OF NUTRITION
+findings and to extend more promising results.                                         ISSN NO : 2379 - 7835 Rising Interest Interactions Between the Water ,
+                                                                                       Energy and Food Security Sectors Energy Mix,” no. 3, pp. 17–21, 2020,
+                          ACKNOWLEDGMENT                                               doi: 10.14302/issn.2379.
+   This research is fully supported by the National Defence                       [17] N. Zhang and S. Bi, “Effects of physical exercise on food intake and
+                                                                                       body weight: Role of dorsomedial hypothalamic signaling,” Physiol.
+University of Malaysia (UPNM) under Short Grant                                        Behav., vol. 192, no. March, pp. 59–63, 2018, doi:
+UPNM/2020/GPJP/ICT/6. The authors fully acknowledged                                   10.1016/j.physbeh.2018.03.018.
+UPNM and the Ministry of Higher Education Malaysia                                [18] Y. J. Yang, “An Overview of Current Physical Activity
+(MOHE) for the approved fund which makes this research                                 Recommendations in Primary Care,” Korean J. Fam. Med., vol. 40, no.
+viable and effective.                                                                  3, pp. 135–142, May 2019, doi: 10.4082/kjfm.19.0038.
+                                                                                  [19] C. Huang, M. Yang, C. Huang, Y. Chen, M. Wu, and K. Chen, “A
+                                 REFERENCES                                            Chatbot-supported Smart Wireless Interactive Healthcare System for
+[1]  A. Fadhil, G. Schiavo, Y. Wang, and B. Yilma, The Effect of Emojis                Weight Control and Health Promotion,” in Conference: 2018 IEEE
+     when interacting with Conversational Interface Assisted Health                    International Conference on Industrial Engineering and Engineering
+     Coaching & Information Tracking. 2018.                                            Management (IEEM), 2018, pp. 1791–1795.
+[2] A. Palanica, P. Flaschner, A. Thommandram, M. Li, and Y. Fossat,              [20] S. E. Bonn, M. Löf, C. G. Östenson, and Y. Trolle Lagerros, “App-
+     “Physicians’ Perceptions of Chatbots in Health Care: Cross-Sectional              technology to improve lifestyle behaviors among working adults - The
+     Web-Based Survey,” J. Med. Internet Res., vol. 21, Nov. 2018, doi:                Health Integrator study, a randomized controlled trial,” BMC Public
+     10.2196/12887.                                                                    Health, vol. 19, no. 1, pp. 1–8, 2019, doi: 10.1186/s12889-019-6595-6.
+[3] S. A. Crossley and D. S. McNamara, “Adaptive educational                      [21] F. Agrafioti, D. Hatzinakos, S. Member, and A. K. Anderson, “ECG
+     technologies for literacy instruction,” Adapt. Educ. Technol. Lit. Instr.,        Pattern Analysis for Emotion Detection,” vol. 3, no. 1, pp. 102–115,
+     pp. 1–310, 2016, doi: 10.4324/9781315647500.                                      2012.
+[4] K. Lin, F. Xia, W. Wang, D. Tian, and J. Song, “System Design for Big         [22] A. M. Legg, S. E. Andrews, H. Huynh, A. Ghane, A. Tabuenca, and K.
+     Data Application in Emotion-Aware Healthcare,” IEEE Access, vol. 4,               Sweeny, “Patients’ anxiety and hope: Predictors and adherence
+     pp. 6901–6909, 2016, doi: 10.1109/ACCESS.2016.2616643.                            intentions in an acute care context,” Heal. Expect., vol. 18, no. 6, pp.
+[5] D. Ziegeler and D. Zuehlke, “EMOTIONAL USER INTERFACES                             3034–3043, 2015, doi: 10.1111/hex.12288.
+     AND         HUMANOID            AVATARS          IN      INDUSTRIAL          [23] J. Heyhoe, Y. Birks, R. Harrison, J. K. O’Hara, A. Cracknell, and R.
+     ENVIRONMENTS,” IFAC Proc. Vol., vol. 38, no. 1, pp. 106–111,                      Lawton, “The role of emotion in patient safety: Are we brave enough to
+     2005, doi: https://doi.org/10.3182/20050703-6-CZ-1902.01420.                      scratch beneath the surface?,” J. R. Soc. Med., vol. 109, no. 2, pp. 52–
+[6] N. A. M. Razali, N. J. A. M. Saad, K. K. Ishak, and N. A. Hasbullah,               58, 2016, doi: 10.1177/0141076815620614.
+     “Fear Appeal Inducement in Pop up Design for IS Procedure                    [24] D. Lockner and N. Bonnardel, “Emotion and Interface Design How to
+     Compliance,” in 2019 2nd International Conference on Communication                measure interface design emotional effect?,” Int. Conf. KANSEI Eng.
+     Engineering and Technology (ICCET), 2019, pp. 17–22.                              Emot. Res. Emot., no. June 2015, pp. 10–25, 2014.
+[7] The Lancet, “COVID-19: a new lens for non-communicable diseases,”             [25] A. M. Lokman, A. A. Awang, A. R. Omar, and N. A. S. Abdullah, “The
+     Lancet, vol. 396, no. 10252, p. 649, 2020, doi: 10.1016/S0140-                    integration of quality function deployment and Kansei Engineering: An
+     6736(20)31856-0.                                                                  overview of application,” AIP Conf. Proc., vol. 1705, no. 1, pp. 20004–
+[8] M. P. Kelly and F. Russo, “Causal narratives in public health: the                 20012, 2016, doi: 10.1063/1.4940252.
+     difference between mechanisms of aetiology and mechanisms of                 [26] A. Lokman, “KE as affective design methodology,” Proceeding - 2013
+     prevention in non-communicable diseases,” Sociol. Heal. Illn., vol. 40,           Int. Conf. Comput. Control. Informatics Its Appl. “Recent Challenges
+     no. 1, pp. 82–99, 2018, doi: 10.1111/1467-9566.12621.                             Comput. Control Informatics,” pp. 7–13, Nov. 2013, doi:
+[9] W.-Y. Low, Y.-K. Lee, and A. L. Samy, “Non-communicable diseases                   10.1109/IC3INA.2013.6819139.
+     in the Asia-Pacific region: Prevalence, risk factors and community-          [27] F. Shi, N. Dey, A. S. Ashour, D. Sifaki-Pistolla, and R. S. Sherratt,
+     based prevention,” Int. J. Occup. Med. Environ. Health, vol. 28, no. 1,           “Meta-KANSEI Modeling with Valence-Arousal fMRI Dataset of
+     pp. 20–26, 2015, doi: 10.2478/s13382-014-0326-0.                                  Brain,” Cognit. Comput., vol. 11, no. 2, pp. 227–240, 2019, doi:
+[10] J. Baird et al., “Developmental Origins of Health and Disease: A                  10.1007/s12559-018-9614-5.
+     Lifecourse Approach to the Prevention of Non-Communicable                    [28] Z. Li et al., “Rule-based back propagation neural networks for various
+     Diseases,” Healthcare, vol. 5, no. 1, pp. 1–14, 2017, doi:                        precision rough set presented KANSEI knowledge prediction: a case
+     10.3390/healthcare5010014.                                                        study on shoe product form features extraction,” Neural Comput. Appl.,
+[11] I. N. Ojong, A. D. Nsemo, and P. Aji, “Routine Medical Checkup                    vol. 28, no. 3, pp. 613–630, 2017, doi: 10.1007/s00521-016-2707-8.
+     Knowledge, Attitude and Practice among Health Care Workers in a
+
+
+
+
+                                                                                                                                                367 | P a g e
+                                                                         www.ijacsa.thesai.org
+                                                                           (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                    Vol. 12, No. 6, 2021
+
+[29] H.-C. Shen and K.-C. Wang, “Affective product form design using                  [42] A. M. Lokman and K. A. Kamaruddin, “Kansei affinity cluster for
+     fuzzy Kansei engineering and creativity,” J. Ambient Intell. Humaniz.                 affective product design,” Proc. - 2010 Int. Conf. User Sci. Eng. i-USEr
+     Comput., vol. 7, no. 6, pp. 875–888, 2016, doi: 10.1007/s12652-016-                   2010, no. January, pp. 38–43, 2010, doi: 10.1109/IUSER.2010.5716719.
+     0402-3.                                                                          [43] Q. V. Liao, M. Davis, W. Geyer, M. Muller, and N. S. Shami, “What
+[30] N. Afiza and M. Razali, “Fear Appeal Inducement in Pop up Design for                  can you do? Studying social-agent orientation and agent proactive
+     IS Procedure Compliance,” pp. 17–22, 2019.                                            interactions with an agent for employees,” in DIS 2016 - Proceedings of
+[31] N. K. Chuan, A. Sivaji, M. M. Shahimin, and N. Saad, “Kansei                          the 2016 ACM Conference on Designing Interactive Systems: Fuse, Jun.
+     Engineering for e-commerce Sunglasses Selection in Malaysia,”                         2016, pp. 264–275, doi: 10.1145/2901790.2901842.
+     Procedia - Soc. Behav. Sci., vol. 97, no. November, pp. 707–714, 2013,           [44] Y. Tang and K. F. Hew, “Emoticon, emoji, and sticker use in computer-
+     doi: 10.1016/j.sbspro.2013.10.291.                                                    mediated communication: A review of theories and research findings,”
+[32] A. M. Lokman, “Design and emotion : The Kansei Engineering the                        Int. J. Commun., vol. 13, no. May, pp. 2457–2483, 2019.
+     Definition of Kansei,” vol. 1, no. 1, pp. 1–14, 2010.                            [45] M. Sillic, “Improving warning messages adherence: can Maya Security
+[33] S. Reddy, J. Fox, and M. Purohit, “Artificial intelligence-enabled                    Bot advisor help?,” Secur. J., vol. 33, no. 2, pp. 293–310, 2020, doi:
+     healthcare delivery,” Artif. Intell. Healthc. Deliv., vol. 112, p.                    10.1057/s41284-019-00185-7.
+     014107681881551, Dec. 2018, doi: 10.1177/0141076818815510.                       [46] Restyandito and E. Kurniawan, “The effect of screen size and interaction
+[34] B. Liu and S. S. Sundar, “Should Machines Express Sympathy and                        style on mobile device usability,” Eng. Lett., vol. 25, no. 4, pp. 354–359,
+     Empathy? Experiments with a Health Advice Chatbot,”                                   2017.
+     Cyberpsychology, Behav. Soc. Netw., vol. 21, no. 10, pp. 625–636, Oct.           [47] A. Følstad and P. Brandtzaeg, “Chatbots and the new world of HCI,”
+     2018, doi: 10.1089/cyber.2018.0110.                                                   interactions, vol. 24, no. 4, pp. 38–42, Jun. 2017, doi: 10.1145/3085558.
+[35] C. Pricilla, D. P. Lestari, and D. Dharma, “Designing Interaction for            [48] S. Djamasbi, T. Tullis, J. Hsu, E. Mazuera, K. Osberg, and J. Bosch,
+     Chatbot-Based Conversational Commerce with User-Centered Design,”                     Gender Preferences in Web Design: Usability Testing through Eye
+     ICAICTA 2018 - 5th Int. Conf. Adv. Informatics Concepts Theory                        Tracking., vol. 7. 2007.
+     Appl., pp. 244–249, 2018, doi: 10.1109/ICAICTA.2018.8541320.                     [49] J. Huhtala, A. H. Sarjanoja, J. Mäntyjärvi, M. Isomursu, and J. Häkkilä,
+[36] D. C. Toader et al., “The effect of social presence and chatbot errors on             “Animated UI transitions and perception of time: A user study on
+     trust,” Sustain., vol. 12, no. 1, pp. 1–24, 2020, doi:                                animated effects on a mobile screen,” Conf. Hum. Factors Comput. Syst.
+     10.3390/SU12010256.                                                                   - Proc., vol. 2, no. January, pp. 1339–1342, 2010, doi:
+[37] H. Candello, C. Pinhanez, and F. Figueiredo, “Typefaces and the                       10.1145/1753326.1753527.
+     perception of humanness in natural language chatbots,” in Conference             [50] N. F. Habidin, A. F. M. Zubir, N. M. Fuzi, N. A. M. Latip, and M. N. A.
+     on Human Factors in Computing Systems - Proceedings, May 2017, vol.                   Azman, “Sustainable Performance Measures for Malaysian Automotive
+     2017-May, pp. 3476–3487, doi: 10.1145/3025453.3025919.                                Industry,” World Appl. Sci. J., vol. 33, no. 6, pp. 1017–1024, 2015, doi:
+[38] F. Hawlitschek, L.-E. Jansen, E. Lux, T. Teubner, and C. Weinhardt,                   10.5829/idosi.wasj.2015.33.06.257.
+     Colors and Trust: The Influence of User Interface Design on Trust and            [51] K. S. Taber, “The Use of Cronbach’s Alpha When Developing and
+     Reciprocity. 2016.                                                                    Reporting Research Instruments in Science Education,” Res. Sci. Educ.,
+[39] M. Shahbaz, T. Razzaq, and M. R. Gohar, “Emoji Usage by Android                       vol. 48, no. 6, pp. 1273–1296, 2018, doi: 10.1007/s11165-016-9602-2.
+     Consumers : A Gender-Based Inquiry Keywords : Gender , Kikaboard ,               [52] A. Md Ramli, M. S. Mohd Zahari, M. Z. Suhaimi, and S. Abdul Talib,
+     Consumerand Emoji Introduction Every researcher has a purpose behind                  “Determinants of Food Heritage towards Food Identity,” Environ. Proc.
+     choosing an area for research work or investigation . For carrying out                J., vol. 1, no. 1, p. 207, 2016, doi: 10.21834/e-bpj.v1i1.217.
+     this study , researcher h,” Orient Res. J. Soc. Sci., vol. 2, no. 1, pp. 1–26,   [53] I. T. Jolliffe and J. Cadima, “Principal component analysis: a review and
+     2017.                                                                                 recent developments,” Philos. Trans. R. Soc. A Math. Phys. Eng. Sci.,
+[40] N. A. M. Razali, K. K. Ishak, N. J. A. MdSaad, N. M. Zainudin, N.                     vol. 374, no. 2065, p. 20150202, Apr. 2016, doi:
+     Hasbullah, and M. F. M. Amran, “Conceptualization of User’s Rage                      10.1098/rsta.2015.0202.
+     Assessment Using Chatbot Interface by Implementing Kansei                        [54] C. Syms, “Principal components analysis,” Encycl. Ecol., vol. 3, no. 1,
+     Engineering Methodology for Information Security BT - Proceedings of                  pp. 566–573, 2018, doi: 10.1016/B978-0-12-409548-9.11152-2.
+     the 8th International Conference on Kansei Engineering and Emotion
+     Research,” vol. 1256, pp. 184–193, 2020.                                         [55] A. G. Yong and S. Pearce, “A Beginner ’ s Guide to Factor Analysis :
+                                                                                           Focusing on Exploratory Factor Analysis,” vol. 9, no. 2, pp. 79–94,
+[41] S. Durrani and Q. S. Durrani, “Applying Cognitive Psychology to User                  2013.
+     Interfaces,” in Proceedings of the First International Conference on
+                                                                                      [56] S. A. Kadir, A. M. Lokman, T. Tsuchiya, and S. M. Shuhidan,
+     Intelligent Human Computer Interaction, Springer India, 2009, pp. 156–
+     168.                                                                                  “Analysing Implicit Emotion and Unity in Propaganda Videos Posted in
+                                                                                           Social Network,” J. Phys. Conf. Ser., vol. 1529, no. 2, pp. 25–27, 2020,
+                                                                                           doi: 10.1088/1742-6596/1529/2/022018.
+
+
+
+
+                                                                                                                                                     368 | P a g e
+                                                                             www.ijacsa.thesai.org
+                    © 2021. This work is licensed under
+https://creativecommons.org/licenses/by/4.0/ (the “License”). Notwithstanding
+the ProQuest Terms and Conditions, you may use this content in accordance
+                       with the terms of the License.
+

@@ -1,0 +1,783 @@
+                                                                                         SPECIAL SECTION ON EMOTION-AWARE MOBILE COMPUTING
+
+
+Received November 21, 2016, accepted December 2, 2016, date of publication December 19, 2016,
+date of current version February 25, 2017.
+Digital Object Identifier 10.1109/ACCESS.2016.2641480
+
+
+
+
+   INVITED PAPER
+
+
+Emotion Communication System
+MIN CHEN1 , PING ZHOU1 , AND GIANCARLO FORTINO2
+1 School of Computer Science and Technology, Huazhong University of Science and Technology, Wuhan 430074, China
+2 Department of Informatics, Modeling, Electronics, and Systems, University of Calabria, 87036 Rende, Italy
+
+Corresponding author: M. Chen (minchen2012@hust.edu.cn)
+
+
+  ABSTRACT In today’s increasingly rich material life, people are shifting their focus from the physical
+  world to the spiritual world. In order to identify and care for people’s emotions, human–machine interaction
+  systems have been created. The currently available human–machine interaction systems often support the
+  interaction between human and robot under the line-of-sight (LOS) propagation environment, while most
+  communications in terms of human-to-human and human-to-machine are non-LOS (NLOS). In order to
+  break the limitation of the traditional human–machine interaction system, we propose the emotion commu-
+  nication system based on NLOS mode. Specifically, we first define the emotion as a kind of multimedia
+  which is similar to voice and video. The information of emotion can not only be recognized, but can also be
+  transmitted over a long distance. Then, considering the real-time requirement of the communications between
+  the involved parties, we propose an emotion communication protocol, which provides a reliable support
+  for the realization of emotion communications. We design a pillow robot speech emotion communication
+  system, where the pillow robot acts as a medium for user emotion mapping. Finally, we analyze the real-time
+  performance of the whole communication process in the scene of a long distance communication between a
+  mother–child users’ pair, to evaluate the feasibility and effectiveness of emotion communications.
+
+
+  INDEX TERMS Emotion communications, emotion communication protocol, Markov state transfer.
+
+
+I. INTRODUCTION                                                                                        Anagnostopoulos et al. [7] survey statistics from
+In our world, interconnected through the Internet, mobile                                              2000 to 2011 with different characteristics and classi-
+phones and countless things, the seamless integration of                                               fiers of emotional verbal communication system. This
+physical world and information world has become the future                                             system simply aims to improve the accuracy of emo-
+development trend of the network [1]–[3]. In the increasingly                                          tion recognition, without taking the level of emotional
+rich material life today, people are transferring the attention                                        interaction into account. The non-verbal communication
+from the physical world to the spiritual world, and human                                              system in [8] identifies human emotions with high accu-
+emotions will represent a direct reference to the spiritual                                            racy by non-verbal cues such as expression recognition
+world. Therefore, a variety of methods and technology for                                              and head movement, but the mobility and freedom of
+human emotion recognition are emerging and human-robot                                                 users are greatly limited.
+interaction also has come into being as a new research                                               • Physiological signals based emotional HMI system
+hotspot [4].                                                                                           research [9] collects some of the user’s representative
+   There are a lot of research results in the human-machine                                            physiological signals, such as ECG, body temperature
+interaction (HMI) system, mainly based on the machine to                                               and heart rate, but it requires binding or pasting sensors
+identify human emotions. They can be divided into four                                                 in the human body which makes the human comfort
+categories [5], [6] according to different emotion recognition                                         limited. Kim et al. [10] solved the above-mentioned
+types: audio-visual information-based, physiological signals-                                          comfort problem by integrating all kinds of sensors into
+based, tactile perception-based, and multi-modal form-based.                                           a portable device. However, the particularity of this kind
+   • The study of emotional HMI system based on audio                                                  of sensor device makes the freedom of human being
+     visual information mainly uses machine learning                                                   restricted and the accuracy of emotion recognition low.
+     algorithms to analyze the human voice, facial expres-                                             For instance, when the user carries such equipment on
+     sion or body posture to recognize human’s emotions.                                               the stairs, the emotional recognition would be interfered
+                                             2169-3536 2016 IEEE. Translations and content mining are permitted for academic research only.
+326                                                Personal use is also permitted, but republication/redistribution requires IEEE permission.        VOLUME 5, 2017
+                                            See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+M. Chen et al.: Emotion Communication System
+
+
+
+
+TABLE 1. A Comparison of emotion recognition method for HMI.
+
+
+
+
+     owing to the influence of physiological signals caused       posed system using a markov state transition-based model.
+     by external factors such as movement. There is also a        An effective example of emotion communications is
+     class of research using bioelectric technology to replace    proposed and evaluated in Section VII. Finally, conclusions
+     sensor-based devices directly, such as EQ-Radio sys-         are drawn and future work is anticipated.
+     tems [11] that employ RF (radio frequency) based identi-
+     fication to collect user information for emotion recogni-    II. TAXONOMY OF EMOTION COMMUNICATIONS
+     tion. The system collects the user’s breathing and heart-    Table 1 summarizes the representative research of traditional
+     beat signals without the use of sensors, but this approach   HMI systems based on the five features of emotion recogni-
+     makes the user’s mobility and the user’s range of motion     tion method, that is, emotion recognition accuracy, computa-
+     greatly restricted.                                          tional complexity, practical cost, convenience and robustness:
+   • The research of emotional HMI system based on tactile
+                                                                    • In terms of the accuracy of recognition methods,
+     perception is mainly divided into two types. One is that
+                                                                      the haptic-based and multimodal-based approach have
+     the robot feels the user’s own touch, so as to analyze the
+                                                                      higher accuracy owing to that the haptic-based approach
+     user’s emotion [12]. In this kind of system, the tactile
+                                                                      has real physical sensations, and multimodal-based
+     perception would be strong only when the user’s tactile
+                                                                      approaches can take several performance factors into
+     performance is exaggerated. Its sensitivity is low, and
+                                                                      account. In contrast, methods based on physiological
+     the robot itself is limited by the interactive function.
+                                                                      signals are generally medium, whereas the method that
+     The other is through wearing feedback device, remotely
+                                                                      bind sensors directly on the human body are slightly
+     triggering action for tactile comfort [13]. Such devices
+                                                                      higher, and the physiological signal based feedback
+     are more comprehensive considered the emotional com-
+                                                                      device and the radio frequency based identification is
+     fort for users, but do not involve emotion recognition
+                                                                      relatively low.
+     and communication, and the user’s degree of freedom
+                                                                    • In terms of the computational complexity of recogni-
+     is limited by the tactile comfort device.
+                                                                      tion methods, the audiovisual-based and physiological
+   • The multi-modal based emotional HMI system [14], [15]
+                                                                      signal based methods are computationally less complex
+     is a combination of audiovisual information, physio-
+                                                                      because their data dimensions are usually small.
+     logical signals or tactile perception information. The
+                                                                    • In terms of the cost in practical, the widespread use
+     computational overhead of this kind of multimodal
+                                                                      of audiovisual sensors makes the cost of audiovisual-
+     identification is very high, and the delay of the robot
+                                                                      based methods lower than the other three, whereas
+     feedback is long.
+                                                                      physiologic-based methods tend to be costly because of
+   In summary, the above four types of systems focus on the           the required number and accuracy of the sensors.
+identification of human emotions, as much as possible to            • In terms of the convenience for use, physiological signal
+
+improve the accuracy of emotion recognition, but rarely even          based and haptic-based methods are less convenient than
+never consider the degree of human-machine interaction. The           audiovisual-based, multimodal-based methods because
+simple feedback of robot is the same to all users. It cannot          of the need for body participation of user.
+achieve the emotion communications between human beings             • In terms of the robustness, the certainty of audiovisual
+
+and robots, nor do they regard the emotion as a mutual trans-         information and multimodal forms make them more
+ferring information between two (or multi) parties. Emotion           robust to external factors.
+communications should be aimed at the individual and need            The current research on human-machine emotional inter-
+personalized treatment. Different people having the same          action system is aimed at improving the accuracy of
+emotion need different communications, the same person            human emotion recognition. In this paper, the difference
+feeling a different emotion also needs different communica-       between the existing HMI systems and the emotion com-
+tions.                                                            munication system proposed is considered from the per-
+   The rest of paper is organized as follows. Section II pro-     spective of communication, as shown in Table 2. From
+poses a taxonomy for emotion communications. In Section III       the two modes of LOS communications and NLOS com-
+the key technologies used are detailed. Section IV presents       munications, the differences between the existing HMI
+the emotion communication system architecture whereas in          system in the aspects of synchronization, user mobility,
+Section V the communication protocol enabling emotion             user freedom, feedback effect and communication QoS are
+communications is defined. Section VI analyzes the pro-           compared.
+
+VOLUME 5, 2017                                                                                                              327
+                                                                                                  M. Chen et al.: Emotion Communication System
+
+
+
+
+TABLE 2. A comparison of HMI system from the communication perspective.
+
+
+
+
+  •  In terms of the synchronization of feedback and emotion                  multimedia information, which will affect the expres-
+     recognition, high synchronization of feedback and                        sion of other information, and the expression of other
+     emotion recognition means low latency. In the LOS                        information can also reflect emotions.
+     mode, methods [7], [8], [10], [12] have low synchroniza-               • We define the generation of emotion from three
+     tion, which takes much time from signal collection, data                 categories: physiological information, environmental
+     storage and data analysis.                                               information and social network information, respec-
+   • In terms of the degree of user mobility, in the LOS                      tively. The physiological information is mainly the body
+     mode, the distance limits the capture of face or voice                   signal data of the user. Environmental information refers
+     information in [7], [8], [14], the binding of sensors on                 to the surrounding information of the user. And social
+     human body in [9], and the RF signal transmitting device                 network information refers to social networks personal
+     needs to align the human chest in [11] so making low                     posted data of the user.
+     mobility of user.                                                      • We define two modes of emotion communications:
+   • In terms of the degree of user freedom, in the LOS mode,                 solo-mode and mutual-mode, respectively. Improving
+     the limitation of the methods [7]–[9], [14] mentioned                    the existing HMI system based on their advantages.
+     above also makes the freedom of the user low. And                        Under the Solo-Mode, the user communicates with the
+     the constraints of wearing Haptic Jacket in [13] limited                 robot. The robot has its own emotions and interacts with
+     user’s freedom.                                                          the user. And under the Mutual-Mode, the robot itself
+   • In terms of the effect of feedback, in the LOS mode, all                 does not have emotion, only acts as the medium of the
+     methods involved less interaction triggered by robot and                 emotion mapping. The robot incarnates the emotion of
+     the feedback effect is not satisfactory.                                 the far-end user and realizes the emotion communica-
+   • In terms of communication QoS, in the LOS mode,                          tions between the remote users.
+     due to restrictions of delay, user mobility, user freedom,              The real sense of emotion communications between users
+     feedback effect, all methods have low QoS for user.                  can be realized through the definition, generation and
+   The goal of the current HMI system is often the interac-               transmission of emotion. But the realization of emotion
+tion between the human and the robot in the near distance,                communications is facing great challenges. As the traditional
+namely the interaction under the sight distance. The NLOS                 telephone communications and social media communica-
+model proposed in this paper is to remove the restrictions                tions, emotion is transmitted as information between users,
+of traditional HMI, not just to identify people’s emotions                but the generation of emotions is complex and time-
+and simple robot feedback, but the emotion as a kind of                   consuming for its particularly nature. The transmission of
+information that can be transmitted over a long distance.                 emotion also faces the challenge of required communication
+Robots are not only an interactive tool, but also a medium                quality of service of user. Therefore, this paper first gives the
+for end-user communications. Based on this, we propose the                key technology of the generation and analysis of emotion,
+emotion communications, and put forward solutions from                    and then puts forward the emotion communication protocol
+three aspects of emotion definition, generation and delivery              to solve the communication synchronization challenge of the
+to achieve emotion communications. In particular:                         two sides in the communication process.
+   • We define emotion as a kind of information that is
+     similar to multimedia: emotions can be produced, elab-               III. KEY TECHNOLOGY
+     orated, transmitted, shared and stored. Emotion could                We define an emotion communication system as: a cognitive
+     affect the expression of other information [16]. For                 system, which can collect human’s emotion data, understand
+     example, a person is happy, his/her mouth should be                  human’s emotion, care human’s emotion and interact with
+     rising, the tone of voice should be high, the person                 users emotionally. In order to accomplish the three tasks of
+     even expresses the happiness by dancing with increased               gathering human emotion data, understanding human emo-
+     heart rate. We define emotion as a kind of special                   tions and achieving emotion interaction, the key technolo-
+
+328                                                                                                                             VOLUME 5, 2017
+M. Chen et al.: Emotion Communication System
+
+
+
+
+gies involved in the system include: smart clothing, robot,           to solve the problem of the emotion care for children,
+machine learning and mobile communication technology                  young people and elderly. We make communications
+(5G) throughout the whole system.                                     and emotion care between children and distant parents,
+   Smart Clothing: Carrier for collecting data. We proposed           young people and distant friends, the elderly and distant
+Wearable 2.0 [17]–[19], which is based on Smart Clothing              relatives possible.
+as the carrier, a variety of sensors integrated in the clothes,     • Communication: Just like telephone communications
+the user cannot feel the presence of wearable equipment,              and social media communications, the emotion commu-
+achieves the physiological data collection. The Smart Cloth-          nications discussed in this paper is concerned with the
+ing is proposed to solve the traditional wearable devices with        communication between two sides. Not only the simple
+low comfort, the user needs to carry, inconvenient operation,         static expression of text, voice and video, but from the
+a single function, as well as the need for users to participate       forms of touch and sense to give users a real sense of
+in the operation and maintenance of equipment and other               feelings and experiences. At the same time, the two sides
+shortcomings. At the same time, the physiological signals             of the emotion communication, as well as other commu-
+of the wearer can be uploaded to the intelligent device or            nication methods, should follow the established protocol
+the cloud in real time, and provide the monitoring of mobile          to ensure the authenticity, validity and integrity of the
+health or exercise management at any time and any place in            system. Emotion communication can be integrated with
+daily life [20]–[22].                                                 other human decision based communication systems,
+   Robot: Media for environmental perception and intelli-             such as cooperative networks [31], to enhance specific
+gent interaction. As an emerging communication medium,                content-aware applications.
+the rapid development of artificial intelligence has brought
+endless possibilities and advantages to robots, from the early    IV. ARCHITECTURE
+entertainment function to the replacement of manual labor
+                                                                  As an emotion communication system, the communica-
+and then to today’s care and perception. The robot we pro-
+                                                                  tions between the two sides need to perform the following
+posed is a new generation of intelligent perception and inter-
+                                                                  tasks: the collection of emotional signals, the transmission
+active robot [23]. Its advantages are: on the one hand, the
+                                                                  of emotional signals, the recognition of emotional signals
+humanoid appearance, the use of cute cartoon image gives
+                                                                  and emotional feedback. Emotion is a kind of personal
+users endless goodwill. On the other hand, it has the function
+                                                                  and private information, and its privacy protection is also
+of environmental perception and intelligent interaction: its
+                                                                  very important in the whole communication process [32].
+integration of multiple sensors can sense the environment
+                                                                  According to the tasks that need to be done, the system
+information and user information such as voice, facial expres-
+                                                                  is divided into four layers, namely, data collection layer,
+sion, movement. Meanwhile, it can take emotion care for
+                                                                  emotion communication layer, cloud analysis layer and emo-
+people in turn.
+                                                                  tional feedback layer. The specific tasks for each layer are as
+   Machine Learning: Key for emotion analysis. In the emo-
+                                                                  follows:
+tion communication system proposed in this paper, the key of
+emotion communications is to understand and analyze each            • Data collection layer: The first step of emotion com-
+other’s emotions, which is inseparable from the tools and             munications is to get the data that can express emotion.
+methods of emotion analysis. Based on cloud platform, we              The depth and breadth of data acquisition is the key
+use machine learning and deep learning algorithms to build            to identify the correct emotion. Therefore, in order to
+self-learning mechanism and model in the cloud, and analyze           collect multi-dimensional user data, we collected user
+the current status and emotion in real-time according to the          data from the perspective of physiology, environment
+user’s data [24].                                                     and social networks simultaneously. Smart clothing can
+   5G: Support for network communication. 5G mobile com-              collect user’s physiological indicators, including ECG,
+munication technology, including some vehicular telemat-              heart rate, body temperature, blood pressure and other
+ics oriented communication technology [25], makes long-               parameters. Robot can capture the user’s voice, facial
+distance and low-delay communication possible [26]–[28].              features and some of the surrounding environment infor-
+User’s emotion is subject to the impact of subjec-                    mation, including the user’s current location, ambient
+tive and objective factors and very easily to instanta-               temperature, noise and so on. The user’s mobile smart-
+neous change, so timely analysis of the user’s emo-                   phone can extract the user’s recent social information,
+tion has become the evaluation criteria of emotion com-               including phone logs, SMS logs and social networking.
+munication accuracy. 5G is the support of the whole                 • Emotion communication layer: Considering the key
+communication process of the emotion communication                    to the emotion communication system is accurately
+system [29], [30].                                                    and timely understanding the user’s current emotions,
+   The characteristics of emotion communication system                we use 5G to support more computing tasks, only a
+mainly include two aspects:                                           small amount of work offloaded to the terminal to
+   • Emotion: We have interconnected the physical world               complete [26]. By using 5G mobile communication
+      with the spiritual world and focus on people’s emotions,        technology, the communication protocol between user
+
+VOLUME 5, 2017                                                                                                               329
+                                                                                            M. Chen et al.: Emotion Communication System
+
+
+
+
+    and robot, robot and cloud, cloud feedback to robot and
+    robot feedback to user is proposed to improve user’s
+    QoS [33]–[35] and QoE [36]–[38].
+  • Cloud analysis layer: We use a powerful cloud platform
+    to analyze and deal with the various data transmitted
+    by the communication layer [39]. In the cloud analysis
+    layer, firstly the data should be filtered to remove unnec-
+    essary data; secondly data aggregation, i.e. time-space
+    label based integration of physiological data, environ-
+    mental data and social networks data, to obtain multi-
+    dimensional fusion data results is carried out [40], [41];
+    thirdly, the emotion analysis model is established, and
+    the emotion of the users is analyzed according to the
+    multi-dimensional emotion data.
+  • Emotional feedback layer: The key that users can truly
+    feel their emotions in communications is to get real
+    emotional feedback, in addition to including text, voice,
+    video and other visual and auditory comfort, but also
+    including the real comfort of sense and touch. In this
+    layer, we design a humanoid robot. Through robot’s
+    soft features and perceptual characteristics to reflect
+    the other party’s true feelings from the cloud, and then
+    present the features of the other party and comfort the
+    current user through their feedback actions.
+   The architecture of emotion communication system is
+                                                                  FIGURE 1. The architecture of emotion communication system.
+shown in Fig. 1. From the architectural point of view, support
+for the emotion communication layer and cloud analysis layer
+can have different concrete forms, that is the various modali-
+ties to support emotion communication layer and cloud anal-         •   Emotion Communications. Long-distance transmission
+ysis layer based on network < N > and cloud platform                    of the real emotion in accordance with the specific
+< CP >. The < Network, Cloud > is considered as the                     emotion communication protocol.
+abstract level, that means the type of network and cloud are
+determined by related real platforms where to implement the       V. EMOTION COMMUNICATION PROTOCOL
+abstract level. Based on the abstract level, the concrete level   Like telephone communications and social media communi-
+could have various modalities, such as:                           cations, both sides of emotion communication also need to
+   • Mode 1: < Internet, Cloud >, the general Internet and        follow specific communication protocols, that is, the behavior
+      cloud platform to support general communication and         obeyed throughout the whole communication process from
+      tasks.                                                      communication link establishment, emotional data collec-
+   • Mode 2: < 4G LTE, Cloud >, 4G LTE and cloud                  tion, emotion analysis, emotion push to emotional feedback.
+      platform currently support high-speed computing tasks.      In the layer of emotion communication, it can be re-layered
+   • Mode 3: < 5G, Mobile Cloud >, 5G and mobile                  according to the different behavior modules, namely:
+      could platform to support long-distance but low-delay          • Object initialization layer: Complete the initialization
+      communication and complex computational tasks in the              work of all the objects in the emotion communication.
+      future.                                                        • Communication layer: Conduct emotion communica-
+  The three major advantages of the emotion communication               tions after the establishment of communication link
+system we created are:                                                  between two sides.
+                                                                     • Emotional feedback layer: Take feedback mutually to
+  • Sensing and Analysis of Expressed Emotions. With
+                                                                        the two communicating parties after the end of a
+    the smart clothing, 5G communication network
+                                                                        communication.
+    and the powerful processing power of the cloud,
+    this system can collect user data and analyze user               The flow chart of emotion communications is shown
+    emotion timely.                                               in Fig. 2. Emotion communication protocol is introduced
+  • Robot-based Emotional Feedback. With the help of              in detail below from the perspective of objects, param-
+    robot media for perception and intelligent interaction,       eters, communication command set, and communication
+    users can truly feel emotions and comfort of the other        process.
+    communication side.
+
+330                                                                                                                       VOLUME 5, 2017
+M. Chen et al.: Emotion Communication System
+
+
+
+
+   FIGURE 2. The flow chart of emotion communications.
+
+
+
+
+A. OBJECTS                                                          The instruction prototype is ECTDInitiate( ) and
+The objects in this protocol, i.e., entities involved in the        applicable to ECTD.
+emotion communication, include:                                  3) DataCollect for user data collection: collect the
+   User: Users involved in emotion communication.                   physiological signal and data of the user after the ini-
+   Emotion Communication Terminal Device (ECTD): Robot              tialization of robot terminal. The instruction prototype
+terminals that collect user data, receive emotions and perform      is DataCollect(User) and applicable to ECTD.
+emotional feedback.                                              4) DataToCloud for data transmission to the cloud: trans-
+   Cloud: Cloud platform that inputs user data, for emotion         fer the collected data to the cloud. The instruction
+analysis, and outputs emotions.                                     prototype is DataToCloud(UserData) and applicable to
+                                                                    ECTD.
+B. PARAMETERS
+                                                                 5) EmotionDetection for emotion Analysis in the cloud:
+The parameters involved in the communication process are as         analyze the emotion in the cloud when receiving
+follows:                                                            user data. The instruction prototype is EmotionDetec-
+   Data set of user: UserData = { ECG signals, voice, loca-         tion(UserData) and applicable to cloud.
+tion, call logs, application logs, social networks personal      6) EmotionPush for emotion push: push a certain result
+posted data };                                                      of emotion set to the robot terminal after a comprehen-
+   Emotion set of user: Emotion = { anger , boredom,                sive analysis by the cloud. The instruction prototype is
+sadness, calm, surprise, happiness, fear };                         EmotionPush(Emotion) and applicable to ECTD.
+   Feedback action set of ECTD: Action = { embrace force,        7) ActionInference for action inference: infer the mapping
+temperature, heartbeat, music, voice };                             through robot’s own emotion-action inference engine
+   The elements in the parameter set can be defined according       according to the emotion pushed by the cloud. The
+to the different applications, and the robot terminal takes         instruction prototype is ActionInference(Emotion) and
+different levels of feedback action in accordance with the          applicable to ECTD.
+emotion level.                                                   8) EmotionFeedback for feedback execution: take the
+C. COMMAND SET                                                      feedback action according to the mapping result of the
+   1) CommunicationConnect for communication link estab-            inference engine. The instruction prototype is Emotion-
+      lishment: the two parties establish a communication           Feedback(Action) and applicable to ECTD.
+      link. The instruction prototype is Communications-         9) CommunicationBreak for communication link break:
+      Connect( ) and applicable to user.                            the two parties disconnect the communication link. The
+   2) ECTDInitiate for robot terminal initialization:               instruction prototype is CommunicationBreak( ) and
+      initialize the parameters of the robot terminal itself.       applicable to user.
+
+VOLUME 5, 2017                                                                                                          331
+                                                                                                     M. Chen et al.: Emotion Communication System
+
+
+
+
+TABLE 3. A summary of the command set of the emotion communication protocol.
+
+
+
+
+   The summary of communication command set is shown                    as the support of the reliability of emotion transfer in the
+in Table 3.                                                             system.
+                                                                           Suppose the current state (i.e., the emotion, here called the
+D. COMMUNICATION PROCESS                                                state) of User-A is Ea (Ea ∈, where Emotion is the set of the
+First, a communication link is initiated by either of the two           considered emotions). After receiving the state Eb of the User-
+communicating parties, so as to establish a Communica-                  B pushed from the cloud, the terminal ECTD-A deduces the
+tionConnect. A communication module of one of the robot                 corresponding feedback action according to its own emotion-
+terminals initiates a link signal to the opposite robot terminal        action inference engine, and changes the state of User-A after
+and waits until a reply is received to indicate that the commu-         performing the action from Ea → Ei , where Ei ∈ Emotion.
+nication link has been established.                                     That is, after the action feedback, User-A can arrive at any
+   User-A and User-B embrace their respective robot termi-              of the state of the emotion set with the probability pi from
+nals ECTD-A and ECTD-B, and the robot terminal performs                 the initial state. For any kind of feedback action Action =
+its own initialization operation ECTDInitiate.                          {x1 , x2 , x3 , . . . , xn }, the state transition matrix is as follows:
+   After its initialization is complete, the terminal ECTD-A
+                                                                                               Ea         Eb        Ec        ···         En
+through the DataCollect collects the data UserData-A of the                                                                                  
+User-A, and the terminal ECTD-B through the DataCollect                            Ea          paa        pab       pac       ···         pan
+collects the data UserData-B of the User-B.                                        Eb 
+                                                                                              pba        pbb       pbc       ···         pbn 
+                                                                                                                                              
+   After collecting the data, terminal ECTD-A and ECTD-B                    P = Ec 
+                                                                                              pca        pcb       pcc       ···         pcn 
+                                                                                   ..          ..         ..        ..                    .. 
+                                                                                                                                              
+                                                                         action(i)
+transmit UserData-A and UserData-B to the cloud through                             .           .          .         .       ···           . 
+DataToCloud respectively.                                                          En          pna        pnb       pnc       ···         pnn
+   After receiving the UserData-A and UserData-B, the                                                                                          (1)
+Cloud performs the emotion analysis for both sides through
+EmotionDetection, including data preprocessing, feature                    Where n is the number of elements of the emotion set, and
+extraction, emotion recognition and emotion fusion.                     the constraint condition of the probability matrix
+                                                                                                                       P is that the
+   After the emotion fusion in the cloud, pushing the cer-              sum of each row of the matrix is 1, namely,        pij = 1.
+                                                                                                                              j∈Emotion
+tain emotion result of emotion set to the other party’s robot
+                                                                           It can be seen from the transition matrix that any
+terminal through EmotionPush, that is, the emotion analysis
+                                                                        state can be reached from the current state, whereas the
+result Emotion-A of UserData-A is pushed to ECTD-B, and
+                                                                        emotion communication is a process of continuous state tran-
+Emotion-B of UserData-B is pushed to ECTD-A.
+                                                                        sition between link establishment and termination. The newly
+   After knowing the emotion level of User-A, ECTD-B
+                                                                        arrived state will again arrive at the next state with the new
+completes the mapping of emotion Emotion-A to action set
+                                                                        probability according to the feedback, but also get the new
+Action-B according to its own inference engine.
+                                                                        state transition matrix. Taking the seven states of emotion set
+   According to its own reasoning results, ETCD-B takes
+                                                                        as an example, the state transition diagram is shown in Fig. 4.
+corresponding feedback action through EmotionFeedback, to
+                                                                        The state S1 in the graph may reach any state of the emotion
+simulate human-like action, including the embrace, heartbeat,
+                                                                        set after the execution of the feedback, the same is true for the
+body temperature, play music and comfort of voice, etc.
+                                                                        states S2-S7. Then in an emotion communication process, the
+   An illustration of execution sequence of communication
+                                                                        state transition law is as follows:
+events between users, terminals, and cloud is shown in Fig. 3.
+                                                                                        Action(x1 , x2 , x3 , . . . , xn ) → P1
+VI. THEORETICAL SUPPORT FOR EMOTION
+                                                                                        Action(x1 , x2 , x3 , . . . , xn ) → P2
+COMMUNICATION PROCESS
+                                                                                                                              ..
+In this paper, the law of user’s state transition is analyzed from                                                             .
+the perspective of Markov state transition theory, that is, the                                                                ..
+state transfer rule of the terminal user from the beginning of                                                                  .
+communication to the end of receiving feedback is defined,                              Action(x1 , x2 , x3 , . . . , xn ) → Pn                (2)
+
+332                                                                                                                                 VOLUME 5, 2017
+M. Chen et al.: Emotion Communication System
+
+
+
+
+    FIGURE 3. The execution sequence of emotion command set.
+
+
+
+
+                                                                         to a final state with the influence of external factors. The
+                                                                         Markov state transition model is the theoretically support
+                                                                         for the feasibility of our emotion communication system: the
+                                                                         initial state of the user entering the emotion communication
+                                                                         system is to arrive at any of the states of the emotion set
+                                                                         with an uncertain probability under the feedback of the other
+                                                                         side. Multiple times of feedback in a communication process
+                                                                         can stabilize the user’s state, that is, such a cycle process
+                                                                         of analyzing user’s emotion and taking emotion feedback
+                                                                         possesses the theoretical basis, which also proves that the
+                                                                         emotion communications of our research is reasonable.
+
+
+                                                                         VII. SPEECH EMOTION COMMUNICATION
+                                                                         SYSTEM FOR PILLOW ROBOTS
+                                                                         We use the pillow robot [42] to carry out emotion com-
+FIGURE 4. The illustration of state transition.
+                                                                         munications, as for the two advantages of comfort and
+                                                                         convenience. As can be seen in the Markov state transition
+   We establish the mapping from Action = {x1 , x2 , x3 , . . . , xn }
+                                                                         law mentioned above, the user’s emotions are in a dynamic
+to the probability matrix, that is:
+                                                                         change, high-delay emotion communications will give users
+                 f (Action(x1 , x2 , x3 , . . . , xn )) → P        (3)   a very bad experience. Considering a series of operations
+                                                                         of user data collection, user data transmission, cloud plat-
+   According to the above derivation, the user’s final status is:        form emotion analysis and robot feedback during the whole
+                                                        n
+                                                        Y                communication process, this system regards real-time as an
+           pT (n) = pT (0)P1 P2 · · · Pn = pT (0)             Pi   (4)   important reference index of the communication quality in
+                                                        i=1              order to guarantee the communication QoS [43]. The smart
+  The above mentioned Markov state transition model indi-                clothing, robot and cloud platform used in this system are all
+cates that the initial state in the system will be stabilized            from the EPIC laboratory, and the cloud platform adopted is
+
+VOLUME 5, 2017                                                                                                                     333
+                                                                                             M. Chen et al.: Emotion Communication System
+
+
+
+
+   FIGURE 5. The two modes of emotion communication system.
+
+
+
+
+Inspur SmartData Appliance [44] with the computing power          complete the establishment of communication link, and pil-
+of 84-core CPU and 336G RAM.                                      low robot begins to collect the user’s voice data, and real-time
+                                                                  transmission to the cloud platform. The cloud platform learns
+TABLE 4. Scenes for voice database recording.                     the voice database through the machine learning model [42]
+                                                                  and analyzes emotions based on the user’s real-time voice
+                                                                  data. The child’s emotion Emotion-A is sent to the mother’s
+                                                                  pillow robot ECTD-B. When the mother understands the cur-
+                                                                  rent emotion of the child, she usually adopts the positive voice
+                                                                  content and tone to cheer the child up. The same mother’s
+                                                                  emotions through the cloud platform analysis are pushed to
+                                                                  the child pillow robot ECTD-A, then ECTD-A triggers its
+                                                                  own feedback behavior. Through the mapping of emotion to
+                                                                  feedback, ECTD-A achieves comfort for the child. The spe-
+                                                                  cific comfort behavior in the action set is the simulation of
+                                                                  the embrace, heart rate, body temperature and play music, etc.
+                                                                  When the communication is completed, the communication
+A. VOICE DATABASE
+                                                                  process is interrupted by releasing the pillow robot. The scene
+Voice data can well reflect the user’s current emotional state,   in the two modes of the emotion communication system
+the speech feature extraction based on specific speech emo-       is shown in Fig. 5, in which the small solid line encloses
+tion database can effectively identify the user’s emotional       the communication closed-loop in Solo-Mode mode, and the
+state. In this system, the accuracy of user emotion recognition   large solid line encloses the communication closed-loop in
+becomes the premise of emotion communication. Based on            Mutual mode.
+this, we built our own voice database. The basic situation of
+the voice database is, a total of 24 volunteers were selected     TABLE 5. The process of emotion transition of child.
+from laboratory to participate in the voice recording, includ-
+ing 13 males, 11 females, aged between 20 to 30 years
+old. Based on seven states in the given set of emotion (see
+Section IV), recording was done in twelve scenes as shown in
+Table 4, each volunteer expresses each scene with seven kinds
+of emotions. The total database has 1176 voice recordings, the
+average voice length is 3s.
+B. TESTING SCENARIOS                                              C. REAL-TIME ANALYSIS
+We designed an application scenario where the emotion             We carried out experiments based on the above mentioned
+communications between the child User-A at home and the           test scenarios, in which the pillow robot is equipped with a
+mother User-B on business. The mother is away on business,        4G LTE enabled communication module, to achieve the com-
+the child at home misses his mother very much, and he             munication among the current user’s robot and the remote
+wants to get as mother-like comfort by hugging pillow robot.      user’s robot and the cloud platform [45] by renting the
+By hugging their pillow robot respectively, the two sides         LTE service of the telecom operator. The communication
+
+334                                                                                                                        VOLUME 5, 2017
+M. Chen et al.: Emotion Communication System
+
+
+
+
+TABLE 6. Average communication delay in two modes.
+
+
+
+
+bandwidth is 20Mbps. The first experiment is an emotion
+care process between child and robot with distance of 1 m.
+The second experiment conducts emotion communications
+between a mother and her remote child. In the second case,
+the emotion transfer results of the child being comforted is
+shown in Table 5.
+   We consider communication delay of the two modes in
+emotion communication system, that is, the communication
+delay in the Solo-Mode and the Mutual-Mode. Specifically,
+in the Solo-Mode, the closed-loop communication delay
+between a single user and the robot is counted. In the Mutual-
+Mode, the closed-loop communication delay between the
+two users is counted. Comparison of data volume and time-
+consuming in each stage in two modes, as shown in Table 6.
+The first column attribute in the table is the communication
+mode; The second column attribute is voice data volume
+collected by the pillow robot; The third column attribute
+is voice duration, where Solo-Mode corresponds to the a          FIGURE 6. Time delay in Solo-Mode.
+segment delay in Fig. 5, and Mutual-Mode corresponds to the
+a+e segment delay in Fig. 5; The fourth column attribute is
+the transmission delay of the data during the whole communi-
+cation process, where Solo-Mode corresponds to the b1+b4
+segment delay in Fig. 5, and Mutual-Mode corresponds to the
+b1+b2+b3+b4 segment delay in Fig. 5; The fifth column
+attribute is the delay of cloud emotion analysis, where Solo-
+Mode corresponds to the c1 segment delay in Fig. 5, and
+Mutual-Mode corresponds to the c1+c2 segment delay in
+Fig. 5; The sixth column attribute is the time in which the
+cloud sends command to the pillow robot, corresponding to
+the f segment delay in Fig. 5; The seventh column counts
+the sum delay of transmission, cloud analysis and command
+sending; The last column is the total delay of the communi-
+cation process.
+   We carried out 30 experiments in two modes. The time
+delay in Solo-Mode is shown in Fig. 6, and the time delay
+in Mutual-Mode is shown in Fig. 7. From the two figures
+we can see that, the transmission delay, cloud analysis delay    FIGURE 7. Time delay in Mutual-Mode.
+and the sum delay of transmission, cloud analysis and com-
+mand sending are changed steadily in two modes. Analysis of      Solo-Mode and 27ms in Mutual-Mode, which shows the
+average communication delay in Table 6 shows that the main       feasibility and validity of the real emotion communication
+factor that affect the real-time performance of the system       between two parties in Mutual-Mode.
+communication is cloud analysis delay, which is 256ms in the
+Solo-Mode, and 220 + 274 = 494ms in the Mutual-Mode.             VIII. CONCLUSION
+However, the overall communication link delay (T+A+S)            In this paper, the current HMI system is summarized accord-
+remains in the order of 102 ms, which is 370ms in Solo-Mode      ing to the different methods of emotion recognition. At the
+and 823ms in Mutual-Mode. And the standard deviation             same time, the gap between the existing HMI system and
+of overall communication link delay (T+A+S) is 24ms in           the emotion communication system proposed in this paper
+
+VOLUME 5, 2017                                                                                                           335
+                                                                                                                   M. Chen et al.: Emotion Communication System
+
+
+
+
+is compared from the communication point of view. Then,                               [13] S. K. A. Hossain, A. S. M. M. Rahman, and A. E. Saddik, ‘‘Haptic
+this paper defines the emotion communication system, and                                   based emotional communication system in second life,’’ in Proc. IEEE
+                                                                                           Int. Symp. Haptic Audio-Vis. Environ. Games, Oct. 2010, p. 1.
+the key technologies needed in the system are summarized.                             [14] C. Busso et al., ‘‘Analysis of emotion recognition using facial expressions,
+Based on the four tasks: collection, communication, analysis                               speech and multimodal information,’’ in Proc. 6th Int. Conf. Multimodal
+and feedback of emotion that need to be done in the emotion                                Interfaces, 2004, pp. 205–211.
+                                                                                      [15] Z.-T. Liu et al., ‘‘A multimodal emotional communication based humans-
+communication system, this paper puts forward the archi-                                   robots interaction system,’’ in Proc. 35th Chin. Control Conf. (CCC),
+tecture of the emotion communication system. At the same                                   Jul. 2016, pp. 6363–6368.
+time, in order to meet the synchronization requirements of                            [16] Z. Yang and S. S. Narayanan, ‘‘Analysis of emotional effect on speech-
+                                                                                           body gesture interplay,’’ in Proc. INTERSPEECH, 2014, pp. 1934–1938.
+the communication for both the two sides when the emo-                                [17] M. Chen, Y. Ma, J. Song, C.-F. Lai, and B. Hu, ‘‘Smart clothing: Connect-
+tion is transmitted as a kind of multimedia information, this                              ing human with clouds and big data for sustainable health monitoring,’’
+paper proposes an emotion communication protocol, which                                    Mobile Netw. Appl., vol. 21, no. 5, pp. 825–845, Oct. 2016.
+                                                                                      [18] M. Chen, Y. Ma, Y. Li, D. Wu, Y. Zhang, and C. Youn, ‘‘Wearable 2.0:
+provides a high-level reliable support for the realization of                              Enable human-cloud integration in next generation healthcare system,’’
+emotion communications. Finally, this paper analyzes the                                   IEEE Commun., vol. 55, no. 1, pp. 54–61, Jan. 2017.
+real-time performance of a speech emotion communication                               [19] G. Fortino, R. Giannantonio, R. Gravina, P. Kuryloski, and R. Jafari,
+                                                                                           ‘‘Enabling effective programming and flexible management of efficient
+system based on the pillow robot, and highlights the feasi-                                body sensor network applications,’’ IEEE Trans. Human-Mach. Syst.,
+bility and effectiveness of realizing the emotion communica-                               vol. 43, no. 1, pp. 115–133, Jan. 2013.
+tions. In the future, we would consider the case of multi-party                       [20] G. Fortino, S. Galzarano, R. Gravina, and W. Li, ‘‘A framework for
+                                                                                           collaborative computing and multi-sensor data fusion in body sensor
+emotion communications in our system.                                                      networks,’’ Inf. Fusion, vol. 22, pp. 50–70, Mar. 2015.
+                                                                                      [21] H. Ghasemzadeh, P. Panuccio, S. Trovato, G. Fortino, and R. Jafari,
+Acknowledgment                                                                             ‘‘Power-aware activity monitoring using distributed wearable sensors,’’
+                                                                                           IEEE Trans. HumanŰMach. Syst., vol. 44, no. 4, pp. 537–544, Aug. 2014.
+This work was supported by the National Science Foundation                            [22] S. Galzarano, R. Giannantonio, A. Liotta, and G. Fortino, ‘‘A task-
+of China under Grant 61572220.                                                             oriented framework for networked wearable computing,’’ IEEE Trans.
+                                                                                           Autom. Sci. Eng., vol. 13, no. 2, pp. 621–638, Apr. 2016.
+                                                                                      [23] Y. Ma, C. H. Liu, M. Alhussein, Y. Zhang, and M. Chen, ‘‘LTE-based
+REFERENCES                                                                                 humanoid robotics system,’’ Microprocess. Microsyst., vol. 39, no. 8,
+ [1] Y. Li, W. Dai, M. Qiu, and Z. Ming, ‘‘Privacy protection for preventing               pp. 1279–1284, Nov. 2015.
+     data over-collection in smart city,’’ IEEE Trans. Comput., vol. 65, no. 5,       [24] L. Lei, Z. Zhong, K. Zheng, J. Chen, and H. Meng, ‘‘Challenges on
+     pp. 1339–1350, May 2016.                                                              wireless heterogeneous networks for mobile cloud computing,’’ IEEE
+ [2] K. Gai, M. Qiu, H. Zhao, L. Tao, and Z. Zong, ‘‘Dynamic energy-aware                  Wireless Commun., vol. 20, no. 3, pp. 34–44, Jun. 2013.
+     cloudlet-based mobile cloud computing model for green computing,’’               [25] D. Tian, J. Zhou, Y. Wang, Y. Lu, H. Xia, and Z. Yi, ‘‘A dynamic and
+     J. Netw. Comput. Appl., vol. 59, pp. 46–54, Jan. 2016.                                self-adaptive network selection method for multimode communications
+                                                                                           in heterogeneous vehicular telematics,’’ IEEE Trans. Intell. Transp. Syst.,
+ [3] K. He, J. Chen, R. Du, Q. Wu, G. Xue, and X. Zhang, ‘‘DeyPoS:
+                                                                                           vol. 16, no. 6, pp. 3033–3049, Dec. 2015.
+     Deduplicatable dynamic proof of storage for multi-user environments,’’
+     IEEE Trans. Comput., vol. 65, no. 12, pp. 3631–3645, Dec. 2016, doi:             [26] M. Chen, Y. Hao, M. Qiu, J. Song, D. Wu, and I. Humar, ‘‘Mobility-aware
+     10.1109/TC.2016.2560812.                                                              caching and computation offloading in 5G ultradense cellular networks,’’
+                                                                                           Sensors, vol. 16, no. 7, pp. 974–987, 2016.
+ [4] M. A. Goodrich and A. C. Schultz, ‘‘Human-robot interaction: A survey,’’
+                                                                                      [27] J. He, D. Wu, X. Xie, M. Chen, Y. Li, and G. Zhang, ‘‘Efficient upstream
+     Found. Trends Human-Comput. Interaction, vol. 1, no. 3, pp. 203–275,
+                                                                                           bandwidth multiplexing for cloud video recording services,’’ IEEE Trans.
+     Feb. 2007.
+                                                                                           Circuits Syst. Video Technol., vol. 26, no. 10, pp. 1893–1906, Oct. 2016.
+ [5] H. Yan, J. M. H. Ang, Jr., and A. N. Poo, ‘‘A survey on perception methods
+                                                                                      [28] Y. Zhang, M. Chen, D. Huang, D. Wu, and Y. Li, ‘‘iDoctor: Personalized
+     for human–robot interaction in social robots,’’ Int. J. Social Robot., vol. 6,
+                                                                                           and Professionalized Medical Recommendations Based on Hybrid Matrix
+     no. 1, pp. 85–119, Jan. 2014.
+                                                                                           Factorization,’’ Future Generat. Comput. Syst., vol. 66, pp. 30–35, Jan.
+ [6] D. Mccoll, A. Hong, N. Hatakeyama, G. Nejat, and B. Benhabib,                         2017.
+     ‘‘A survey of autonomous human affect detection methods for social               [29] Y. Xu, G. Yue, and S. Mao, ‘‘User grouping for massive MIMO in FDD
+     robots engaged in natural HRI,’’ J. Intell. Robot. Syst., vol. 82, no. 1,             systems: New design methods and analysis,’’ IEEE Access, vol. 2, no. 1,
+     pp. 101–133, Apr. 2016.                                                               pp. 947–959, Sep. 2014.
+ [7] C.-N. Anagnostopoulos, T. Iliou, and I. Giannoukos, ‘‘Features and               [30] K. Zheng, L. Zhao, J. Mei, B. Shao, W. Xiang, and L. Hanzo, ‘‘Survey of
+     classifiers for emotion recognition from speech: A survey from                        large-scale MIMO systems,’’ IEEE Commun. Surveys Tut., vol. 17, no. 3,
+     2000 to 2011,’’ Artif. Intell. Rev., vol. 43, no. 2, pp. 155–177,                     pp. 1738–1760, 3rd Quart., 2015.
+     Feb. 2015.                                                                       [31] D. Tian, J. Zhou, Z. Sheng, and Q. Ni, ‘‘Learning to be energy-
+ [8] T. Williams, P. Briggs, N. Pelz, and M. Scheutz, ‘‘Is robot telepathy                 efficient in cooperative networks,’’ IEEE Commun. Lett., vol. 20, no. 12,
+     acceptable? investigating effects of nonverbal robot-robot communication              pp. 2518–2521, Dec. 2016.
+     on human-robot interaction,’’ in Proc. 23rd IEEE Int. Symp. Robot Human          [32] M. Chen, Y. Qian, S. Mao, W. Tang, and X. Yang, ‘‘Software-
+     Interactive Commun., 2014, pp. 886–891.                                               defined mobile networks security,’’ Mobile Netw. Appl., vol. 21, no. 5,
+ [9] F. Agrafioti, D. Hatzinakos, and A. K. Anderson, ‘‘ECG pattern analy-                 pp. 729–743, Oct. 2016.
+     sis for emotion detection,’’ IEEE Trans. Affect. Comput., vol. 3, no. 1,         [33] M. Qiu, Z. Ming, J. Li, K. Gai, and Z. Zong, ‘‘Phase-change memory opti-
+     pp. 102–115, Jan./Mar. 2012.                                                          mization for green cloud with genetic algorithm,’’ IEEE Trans. Comput.,
+[10] D. K. Kim, J. Kim, E. C. Lee, M. Whang, and Y. Cho, ‘‘Interac-                        vol. 64, no. 12, pp. 3528–3540, Dec. 2015.
+     tive emotional content communications system using portable wireless             [34] S. Mao and S. S. Panwar, ‘‘A survey of envelope processes and their
+     biofeedback device,’’ IEEE Trans. Consum. Electron., vol. 57, no. 4,                  applications in quality of service provisioning,’’ IEEE Commun. Surveys
+     pp. 1929–1936, Nov. 2011.                                                             Tut., vol. 8, no. 3, pp. 2–19, 3rd Quart., 2006.
+[11] M. Zhao, F. Adib, and D. Katabi, ‘‘Emotion recognition using wireless            [35] M. Gong, S. E. Midkiff, and S. Mao, ‘‘Design principles for distributed
+     signals,’’ in Proc. 22nd Annu. Int. Conf. Mobile Comput. Netw., 2016,                 channel assignment in wireless ad hoc networks,’’ in Proc. IEEE Int. Conf.
+     pp. 95–108.                                                                           Commun., Seoul, South Korea, May 2005, pp. 3401–3406.
+[12] S. Yohanan and K. E. MacLean, ‘‘Design and assessment of the haptic              [36] M. Chen, Y. Hao, S. Mao, D. Wu, and Y. Zhou, ‘‘User intent-oriented
+     creature’s affect display,’’ in Proc. Int. Conf. Human Robot Interaction,             video QoE with emotion detection networking,’’ in Proc. IEEE Globel-
+     Mar. 2011, pp. 473–480.                                                               com, Washington, DC, USA, Dec. 2016, pp. 1552–1559.
+
+336                                                                                                                                                    VOLUME 5, 2017
+M. Chen et al.: Emotion Communication System
+
+
+
+
+ [37] Z. He, S. Mao, and T. Jiang, ‘‘A survey of QoE-driven video streaming                                    PING ZHOU received the B.S. degree in com-
+      over cognitive radio networks,’’ IEEE Netw., vol. 29, no. 6, pp. 20–25,                                  puter science and technology from the Univer-
+      Nov./Dec. 2015.                                                                                          sity of Jinan, China, in 2015. And she recom-
+ [38] K. Zheng, X. Zhang, Q. Zheng, W. Xiang, and L. Hanzo, ‘‘Quality-                                         mended for admission to the Huazhong University
+      of-experience assessment and its application to video services in LTE                                    of Science and Technology as a master candidate
+      networks,’’ IEEE Wireless Commun., vol. 22, no. 1, pp. 70–78, Feb. 2015.                                 in September of the same year. Learning more
+ [39] Y. Xu and S. Mao, ‘‘A survey of mobile cloud computing for rich                                          than seven months later, she applied for pursuing
+      media applications,’’ IEEE Wireless Commun., vol. 20, no. 3, pp. 46–53,
+                                                                                                               Ph.D. degree in June 2016. She is currently a 1st
+      Jun. 2013.
+                                                                                                               year Ph.D. student of the Embedded and Pervasive
+ [40] M. Chen, Y. Zhang, Y. Li, M. M. Hassan, and A. Alamri, ‘‘AIWAC:
+      Affective interaction through wearable computing and cloud technology,’’                                 Computing Laboratory for learning and scientific
+      IEEE Wireless Commun., vol. 22, no. 1, pp. 20–27, Feb. 2015.                    research. Her research interests include: emotional cognitive computing,
+ [41] R. Gravina, P. Alinia, H. Ghasemzadeh, and G. Fortino, ‘‘Multi-sensor           multimedia communication.
+      fusion in body sensor networks: State-of-the-art and research challenges,’’
+      Inf. Fusion, vol. 35, pp. 68–80, May 2017.
+ [42] M. Chen et al., ‘‘CP-robot: Cloud-assisted pillow robot for emotion
+      sensing and interaction,’’ in Proc. Int. Conf. Ind. IoT Technol. Appl., 2016,
+      pp. 81–93.
+ [43] J. Chen, K. He, Q. Yuan, G. Xue, R. Du, and L. Wang, ‘‘Batch
+      identification game model for invalid signatures in wireless mobile
+      networks,’’ IEEE Trans. Mobile Comput., to be published, doi:
+      10.1109/TMC.2016.2604820.
+ [44] M. Liu et al., ‘‘Mobile cloud platform: Architecture, deployment and big
+      data applications,’’ in Proc. Cloudcomp, 2016.
+ [45] X. Deng, D. Wu, J. Shen, and J. He, ‘‘Eco-aware online power manage-
+      ment and load scheduling for green cloud datacenters,’’ IEEE Syst. J.,
+      vol. 10, no. 1, pp. 78–87, Mar. 2016.
+
+
+
+
+                          MIN CHEN (M’08–SM’09) was an Assistant
+                          Professor with the School of Computer
+                          Science and Engineering, Seoul National Uni-
+                          versity (SNU), from 2009 to 2012. He was a
+                          Post-Doctoral Fellow with SNU. He was a Post-
+                          Doctoral Fellow with the Department of Electrical                                      GIANCARLO FORTINO (SM’12) received the
+                          and Computer Engineering, University of British                                        Laurea (B.S. and M.S.) and Ph.D. degrees in
+                          Columbia. He is currently a Professor with the                                         computer engineering from the University of
+                          School of Computer Science and Technology,                                             Calabria, Rende, Italy, in 1995 and 2000,
+                          Huazhong University of Science and Technol-                                            respectively. He has been with the Department of
+ogy (HUST). He is also the Director of the Embedded and Pervasive                                                Informatics, Modeling, Electronics, and Systems,
+Computing Laboratory. He has authored over 260 paper publications,                                               University of Calabria, since 2006, where he is
+including over 120 SCI papers, over 50 IEEE Transactions/Journal papers,                                         currently an Associate Professor of Computer
+six ISI highly cited papers and one hot paper. He has authored a book                                            Engineering. He holds the Scientific National
+on IoT, OPNET IoT Simulation (HUST Press, 2015), a book on 5G,                                                   Italian Habilitation for Full Professor, and is also
+Software Defined 5G Networks (HUST Press, 2016) and a book on big                     an Adjunct Full Professor of Computer Engineering with the Wuhan Uni-
+data, Big Data Related Technologies (2014) with Springer Series in Com-               versity of Technology, Wuhan, China, in the framework of high-end foreign
+puter Science. His Google Scholars Citations reached over 8200 with an                experts in China and an Adjunct Senior Researcher with the Italian National
+h-index of 45. His top paper was cited over 900 times. His research focuses           Research Council. He is the Co-Founder and the CEO of SenSysCal S.r.l.,
+on Internet of Things, mobile cloud, body area networks, emotion-aware                a spin-off of the University of Calabria, where he is involved in the advanced
+computing, healthcare big data, cyber physical systems, and robotics. He              applied Research and Development of IoT systems. He has authored over
+received the Best Paper Award from the IEEE ICC 2012 and the Best Paper               300 publications in journals, conferences, body area networks and books.
+Runner-up Award from QShine 2008. He is currently a Guest Editor of the               His current research interests include distributed computing, wireless sen-
+IEEE NETWORK and the IEEE Wireless Communications Magazine. He is the                 sor networks, software agents, IoT technology, and cloud computing. He
+Co-Chair of the IEEE ICC 2012-Communications Theory Symposium and                     is currently an Associate Editor of the IEEE TRANSACTIONS ON AFFECTIVE
+the Co-Chair of the IEEE ICC 2013-Wireless Networks Symposium. He                     COMPUTING, the IEEE TRANSACTIONS ON Human-Machine, IEEE Sensors Jour-
+is the General Co-Chair of the 12th IEEE International Conference on                  nal, IEEE Access, Information Fusion, Engineering Application of Artificial
+Computer and Information Technology and the Mobimedia 2015. He is the                 Intelligence, the Journal of Network, and Computer Applications. He is the
+General Vice Chair of the Tridentcom 2014. He is a Keynote Speaker of                 chair of the Italian Chapter of the IEEE SMC society.
+CyberC 2012, Mobiquitous 2012, and Cloudcomp 2015.
+
+
+
+
+VOLUME 5, 2017                                                                                                                                                   337
+

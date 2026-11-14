@@ -1,0 +1,736 @@
+IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021                                                               6111
+
+
+
+
+            Design and Analysis of a Human–Machine
+           Interaction System for Researching Human’s
+                        Dynamic Emotion
+    Xiao Sun , Member, IEEE, Zhengmeng Pei, Chen Zhang, Guoqiang Li , Member, IEEE, and Jianhua Tao
+
+
+
+   Abstract—Dynamic emotion is typically used to facilitate                      guidance, which can be further used to build chat robots, intel-
+human–machine interactions. Conversational data from social                      ligent assistants, and human–machine interaction systems. The
+media contain a considerable amount of useful information,                       models can also be used for emotional induction and enhance the
+and such data are the foundation for researching dynamic and                     feel-good or feel-terrible factor in human–machine communica-
+artificial emotion. At present, most human–machine interaction                   tion applications, such as medical treatment of mental diseases,
+systems focus on the complexity and accuracy of the dialog but                   interrogation, and psychological attack and defense.
+neglect the emotional characteristics of the speaker. When gen-
+erating a dialog considering the emotional personality of the                      Index Terms—Emotional guidance, emotional transfer,
+interlocutor, controlling, and guiding the dialog to a specified                 human–machine interaction, Markov chain Monte Carlo.
+direction are essential. This article presents a system for study-
+ing dynamic emotions in human-computer interaction from the
+                                                                                                            I. I NTRODUCTION
+perspective of emotional transfer and guidance. Based on the
+                                                                                        OWADAYS, people spend much time on social networks,
+emotional state of the interlocutor and the distribution of emo-
+tional transfer, the process of emotional transfer is simulated and
+sampled, and the sequence of emotional guidance is generated. In
+                                                                                 N      and they share everyday life, mood, comment on clothes,
+                                                                                 dishes, movies, and so on. A most basic part of a person in
+this system, two algorithms are proposed. A generative Markov
+chain Monte Carlo (GEN-MCMC) algorithm is proposed to gen-                       social life is chatting, that is a social conversation, also known
+erate a variety of emotional transfer sequences that fit the talke’s             as spoken dialog, is a very important aspect in people’s lives
+personality dynamically based on the real-world dialog. Further,                 and feelings. People’s conversations and interactions with oth-
+a guiding MCMC (GUI-MCMC) algorithm-based GEN-MCMC                               ers include a large amount of valuable information that can
+is proposed to generate the emotional guiding sequences. The                     indicate the characteristics of the people’s personality. By ana-
+generated emotional sequences by GEN-MCMC were evaluated
+in two aspects: 1) consistency and 2) diversity. The experimental                lyzing the social conversation, a considerable amount of useful
+results show that the GEN-MCMC algorithm performs better                         information can be obtained, including information regard-
+than the general sequence generation algorithm in terms of                       ing emotional transitions and emotional guidance. Describing
+consistency and diversity in generating emotional states. The                    dynamic emotional processes is the basis of modeling peo-
+GUI-MCMC was able to generate a proper stimulus sequence                         ple’s characteristics, emotion prediction, emotional guidance,
+when given the first and target emotions. An emotional stimulus
+sequence can simulate the emotional transfer of the interlocutor                 and the basis of friendly human–machine interactions [1].
+in the process of dialogue, and give the observer appropriate                    Completely describing emotions in human–machine interac-
+reference to guide and control the emotions of dialogue. The                     tions using only static descriptions is difficult, the synchronous
+experimental results show that the proposed system can effec-                    dynamic processes of internal affective states [2] and external
+tively model the dynamic emotion in emotional transfer and                       stimuli should be considered comprehensively.
+                                                                                    Dynamic emotional modeling can be used in the dialog
+                                                                                 system. Today’s dialog systems are becoming increasingly
+   Manuscript received September 22, 2019; accepted November 24,                 more intelligent and can be applied to complex tasks, such as
+2019. Date of publication December 25, 2019; date of current version
+September 16, 2021. This work was supported in part by the State Program of      health-care, security, and intelligent environments. The appli-
+the National Natural Science Foundation of China under Grant 61976078 and        cations of emotion modeling in healthcare include psycho-
+Grant 61732013, in part by the China Postdoctoral Science Foundation under       logical evaluations [3], psychological counseling [4], autism
+Grant 2017T100447, in part by the Open Project Program of the National
+Laboratory of Pattern Recognition, and in part by the National Key Research      diagnosis, and specific psychological modeling and evalua-
+and Development Program of China under Grant 2019YFA0706203. This arti-          tion. The security applications of emotion modeling include
+cle was recommended by Associate Editor X. You. (Corresponding author:           depression detection [5], anomaly detection [6], public opinion
+Guoqiang Li.)
+   X. Sun, Z. Pei, and C. Zhang are with the School of Computer and              monitoring, public sentiment analysis [7], and emotional polar-
+Information, Hefei University of Technology, Hefei 230601, China (e-mail:        ity classification [8]. The applications of emotion modeling in
+sunx@hfut.edu.cn; peiz@hfut.edu.cn; zhangc@hfut.edu.cn).                         intelligent environments [9] include human–machine interac-
+   G. Li is with the School of Software, Shanghai Jiao Tong University,
+Shanghai 200240, China (e-mail: li.g@sjtu.edu.cn).                               tions [10], vehicle-mounted systems [11], smart homes [12],
+   J. Tao is with the National Laboratory of Pattern Recognition, Institute of   and chatbots [13], such as “Siri” from Apple, “Xiaoice” and
+Automation, Chinese Academy of Sciences, Beijing 100190, China.                  “Cortana” from Microsoft, and “Baby Q” from Tencent and
+   Color versions of one or more figures in this article are available at
+https://doi.org/10.1109/TSMC.2019.2958094.                                       Google Assistant. These chat robots typically grab information
+   Digital Object Identifier 10.1109/TSMC.2019.2958094                           that comes from a corpus of Web-based knowledge; thus, the
+                                  2019 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+                       2168-2216 c
+                                     See https://www.ieee.org/publications/rights/index.html for more information.
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+6112                                                IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021
+
+
+
+                                                                                   for dynamic emotion, which includes the E-MCMC,
+                                                                                   GEN-MCMC, and GUI-MCMC algorithms. The system
+                                                                                   performance analysis is presented in Section IV. Section V
+                                                                                   presents the conclusion and future work of this article.
+
+
+                                                                                                            II. R ELATED W ORK
+                                                                                      Dynamic emotion modeling in human–machine interaction
+                                                                                   is a complex problem to solve, which is known to influence
+                                                                                   people’s behavior, health, and decisions [16]. It includes emo-
+Fig. 1.   Proposed system for human’s dynamic emotion.                             tional transfer and emotional guidance, which are often used
+                                                                                   in uncertain resources and scenes, such as economic policy
+                                                                                   formulation, product marketing, and robot action. Numerous
+answer is accurate enough but is not flexible and always lacks                     studies have investigated emotional transfer and guidance in
+emotion.                                                                           the dialog.
+   With the development of artificial intelligence, request-                          Traditional models, such as the Gross cognitive reappraisal
+answering systems should deliver not only results based on                         strategy and the finite state machine (FSM), are often used
+the question but also reflect appropriate emotions. This capa-                     to describe dynamic emotion processes. Xiaolan et al. [17]
+bility requires the system to record the user’s behavior, habits                   based on Gross’s emotional regulation, applied the FSM model
+and even characteristics to analyze search engine results and                      to study emotional state transitions and people’s characteris-
+unstructured data using the cloud and to read and learn about                      tics; Xu et al. [18] applied Gross and FSM to describe the
+the user from a number of sources, including mobile phone                          emotional state transition process; then, according to the dif-
+text files, emails, pictures, video, and other data to understand                  ferent times of external stimuli, and emotional enhancement
+the user’s context and semantics. Ahmad [14] has proposed                          factor was introduced. In Xu’s work, the external stimulus
+“effective transfer by metaphor,” which is common in conver-                       time is correlated with the state transition matrix to deter-
+sations. Poria et al. [15] have also mentioned the emotional                       mine the influence of different stimulus time on emotional
+impact in conversation“emotion expressed by a person can                           state transition. Jing et al. [19] proposed a cognitive emotion
+impact other persons in that conversation,” which is in line                       interaction model according to arousal valence stance (AVS)
+with our point of view. The study of emotional transitions                         emotion space and FSM. Finally, the spatial positions of the
+in social conversation can be used to control the emotional                        robot’s emotional state are derived with emotional state tran-
+transition of the robot, avoid abnormal emotions, and make                         sition probability and the space coordinates of seven basic
+human–machine interactions more accurate and intelligent.                          emotions. Chen et al. [20] proposed a two-layer fuzzy sup-
+   Fig. 1 is the overall dynamic emotional transfer model                          port vector regression-Takagi–Sugeno (TLFSVR-TS) model
+framework of this system. The talker’s dialog is at the center                     for emotion understanding in human–robot interaction (HRI),
+of the model and is used as the input. After classification and                    where the real-time dynamic emotion is recognized according
+annotation, the emotional label can be obtained. And through                       to facial expression, and emotional intention understanding
+the statistic method, transfer probabilities of the talker are                     is obtained mainly based on human emotions and identifi-
+acquired. Three MCMC algorithms are proposed based on the                          cation information. Chen et al. [21] proposed a three-layer
+emotional transition distribution in this article. E-MCMC is                       weighted fuzzy support vector regression (TLWFSVR) model
+applied to sample the talker’s emotional sequence; then, gen-                      for understanding the human intention, and it is based on the
+erative Markov chain Monte Carlo (GEN-MCMC) is proposed                            emotion-identification information in HRI. Chen et al. [22]
+to generate the talker’s emotion transfer sequences. Finally,                      proposed a Softmax regression-based deep sparse autoencoder
+guiding MCMC (GUI-MCMC) is implemented to obtain the                               network (SRDSAN) to recognize facial emotion in HRI, which
+stimulating path for a talker when the initial and target emo-                     aims to handle extensive data in the output of deep learning
+tions are given. Based on this dynamic and interacted model, a                     by using SR to overcome local extrema and gradient diffusion
+human-computer interaction system can be built on the talker’s                     problems in the training process. Kefeng [23] used RLC and
+dialog, and the emotions can transfer to a more accurate and                       RC circuit models of dynamic circuitry to describe the pro-
+personalized direction.                                                            cess of excitation, release, and transfer of emotional energy,
+   In this article, the main contributions are as follows.                         which was an innovation in emotional transfer. Yang et al. [24]
+   1) An emotional transition matrix of the talker in conver-                      proposed an emotional transition formula to study the patterns
+       sation is constructed based on the stimulus model.                          of emotional transition and found that emotion tends to move
+   2) Our system is designed to generate dynamic emotional                         toward the emotion itself. Liu et al. [25] applied a temporal
+       sequences that fit the talker’s personality.                                restricted Boltzmann machine-based model of emotional facial
+   3) The GEN-MCMC and GUI-MCMC algorithms are                                     expression transition that could encode a complex nonlinear
+       proposed for this system.                                                   mapping from the motion of one neutral facial expression
+   The remainder of this article is organized as follows.                          to another emotional facial expression and that captures the
+Section II presents a review of previous work. Section III                         facial geometry and dynamics of both neutral states and emo-
+introduces the proposed human–machine interaction system                           tional states. Godfrey et al. [16] presented the dynamics and
+
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+SUN et al.: DESIGN AND ANALYSIS OF HUMAN–MACHINE INTERACTION SYSTEM FOR RESEARCHING HUMAN’S DYNAMIC EMOTION                                             6113
+
+
+
+workings of a multiagent emotion generation system, and three                   that were appropriate not only at the content level (relevant and
+basic emotions were used to generate an internal mood for a                     grammatical) but also at the emotion level (consistent emotion
+machine or a robot whose state depends on the immediate past.                   expression).
+Lee-Johnson [26] developed and implemented a three-layered                         The models mentioned above can describe the transition of
+reactive/deliberative controller, resulting in several contribu-                emotions between different states to a certain degree, but these
+tions to the field of mobile robot control. The emotion of the                  methods generally tend to describe static emotional transition:
+robot in the process of task execution can bring more positive                  emotion can only be transferred to another type of emotion;
+human–machine interaction experience. Kim and Kwon [27]                         however, in the real-world, the emotional transition is a prob-
+implemented the algorithm of cognitive appraisal theory, and                    ability distribution. Besides, many researchers only consider
+they applied the model to an interactive task sample based on                   the emotional state at a particular moment rather than treat
+the probability description of the world.                                       emotion as a dynamic process for modeling. Additionally, the
+   In recent years, more methods and models of deep learning                    current systems tend to capture facial expression, voice, and
+are used in dynamic emotional modeling. Teoh and Cho [28]                       even gesture to research personality emotion in HRI; there are
+used a hidden Markov model (HMM) to model high-level                            barely researches based on the social conversation. In this arti-
+emotions (such as encouraging, interest, unsure, disagreeing,                   cle, we collect a large number of social conversation data with
+and discouraging) through low-level facial expressions (such                    emotional tagging. Based on these data, we consider the model
+as happy, sad, surprise, and neutral) to develop an emotion                     of continuous emotional transition and the dynamic process
+indexer that acted as a higher-level analysis for interpreting                  of emotional state transition in conversation. We propose a
+more advanced emotional states using the basic emotions.                        GEN-MCMC model to generate a variety of emotional trans-
+Ryan et al. [29] presented a novel approach to natural language                 fer sequences that fit the talker’s personality dynamics. We
+understanding that utilized context-free grammars (CFGs) in                     also propose the GUI-MCMC model to generate the emotional
+conjunction with sequence-to-sequence (seq2seq) deep learn-                     guiding sequences.
+ing. Specifically, they took a CFG authored to generate dialog
+for their target application. Jaques et al. [30] adopted multi-                      III. H UMAN –M ACHINE I NTERACTION S YSTEM FOR
+task learning (MTL) and domain adaptation (DA) approaches                                          DYNAMIC E MOTION
+to learn a model that is customized for each person, provid-                    A. Emotional Markov Chain
+ing substantial performance enhancements in the automatic
+                                                                                   People’s dynamic emotion in dialog is a nondeterministic
+prediction of continuous levels of tomorrow’s reported mood,
+                                                                                pattern [38], and the Markov state chain is appropriate for
+stress, and physical health based on data from today, but
+                                                                                modeling this pattern. Human emotion changes with an exter-
+this method was difficult to implement due to the data
+                                                                                nal stimulus, and mental state such that it is always dependent
+collection tasks. Sun et al. [31] developed a personalized
+                                                                                on the previous emotional state, and the current event will end
+recommendation system based on new deep learning tech-
+                                                                                up as the current emotional state [28]. In traditional emotional
+nologies, which was capable of learning how to interact with
+                                                                                transition systems, as long as the transfer probability between
+users, answer user questions, what was the next question to
+                                                                                any two emotional states is determined, a Markov chain [39]
+ask, and what to recommend when chatting with a human.
+                                                                                is established, where it is assumed that the probability of a
+Feng et al. [32] proposed an emotion-based natural language
+                                                                                state transition at a certain time depends only on its previous
+responding model (ERM) to address the challenging issue in
+                                                                                state, as in equation
+conversation. ERM encodes the emotion state of the conver-
+sation as distributed embedding into the process of response                                P(Et+1 |Et , Et−1 , Et−2 , . . .) = P(Et+1 |Et ).           (1)
+generation, redefines an objective function that jointly trains
+                                                                                  However, in the real-world, people’s emotions are complex
+our model, and introduces a novel rerank function to select
+                                                                                and depend not only on the previous state but also on some
+the appropriate response. Li et al. [33] proposed a multimodal,
+                                                                                other factors
+multitask deep learning framework to infer the user’s emotive
+states and emotive state changes simultaneously. El-Nasr and                          P(Et+1 |Et , Et−1 , . . . , St , St−1 , . . .)
+Skubic [34] proposed a fuzzy logic model that captures the                                = P(Et+1 |Et , Et−1 , . . .) ∗ P(Et+1 |St , St−1 , . . .)
+inherent uncertainty of emotions; the model is used to gener-                                P(Et+1 Et Et−1 , . . .) P(Et+1 St St−1 , . . .)
+ate decisions based on both internal and external states, and it                          =                              ∗                          (2)
+                                                                                               P(Et Et−1 , . . .)              P(St St−1 , . . .)
+incorporates the use of sensory information to extract environ-                       P(Et+1 |St , Et , St−1 , Et−1 , . . .)
+mental conditions. Wu et al. [35] proposed a weight-adapted
+convolution neural network (WACNN) to extract discrimi-                                   = P(Et+1 |St , Et )
+native expression representations for recognizing the facial                                 P(Et+1 St Et )
+                                                                                          =                   .                                     (3)
+expression, they applied the model on the emotional, social                                    P(St Et )
+robot system, which performed well on deep and global emo-                         Equation (2) describes the Bayesian model [40] of the
+tion understanding in HRI. Sun et al. [36] proposed a dynamic                   emotional transfer sequence in the conversation, Et+1 can be
+emotion modeling approach using the MCMC method, but                            viewed as an emotion generated at time t + 1, and St can be
+they did not combine it with a practical application, such                      viewed as the stimulus at time t. In this formula, probabilities
+as emotional guidance. Zhou et al. [37] proposed an emo-                        at many states are needed for the probability of the generated
+tional chatting machine (ECM), which generated responses                        emotion, which is unrealistic in practice.
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+6114                                                IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021
+
+
+                                                                                   Algorithm 1 E-MCMC
+                                                                                    Input: p(x), initial probability distribution of emotions.
+                                                                                   Q(i, j), transition matrix of emotional states.
+                                                                                   conLimit, limit of convergence; process is convergent if the
+                                                                                   sample continues unchanged for conLimit times.
+                                                                                   initlen, sample length.
+                                                                                    Output: X[initlen], sample list of the distribution, and each
+                                                                                   value represents the state of this random variable.
+                                                                                     1: Initialize the initial state of Markov chain X0 = x0
+                                                                                     2: conCount = 0, sampleCount=0
+                                                                                     3: for time t=0,1,2... do
+                                                                                     4:     Xt = xt , sampling y ∼ q(xt , x)
+                                                                                     5:     sampleCount += 1
+                                                                                     6:     Sampling u ∼ Uniform[0,        1]          
+                                                                                                                      p(y)q(y,xt )
+Fig. 2.   Emotional memory sequence model.                                           7:     if u < α(xt , y) = min p(x   t )q(xt ,y)
+                                                                                                                                     , 1 then
+                                                                                     8:          if conCount ≥ conLimit then
+                                                                                     9:              X.append(y)
+   Equation (3) is what we propose in this emotional transfer                       10:          else
+modeling system. We ignore the context of a very long history                       11:              conCount += 1
+in the dialog, and fully consider the influence of the latest                       12:     else
+initial emotion Et and stimulus emotion St on the generation                        13:          Xt+1 = xt
+of emotion. The probability can be obtained through statistics                      14:          conCount = 0
+on the real-world dialog. In this article, two talkers, A and B                     15: return X[initlen]
+are assigned, and the emotional memory sequence model can
+be described as follows.
+   Fig. 2 shows a talker’s interactive and emotional transi-
+                                                                                   emotional distribution p(x), but to the emotional transfer
+tion process with the interlocutor. Ea0 to Ean and Eb0 to Ebn ,
+                                                                                   matrix Q, which can be calculated from a large number of
+respectively, represent the emotions of talkers A and B from
+                                                                                   conversational corpus. Sampling can start from any initial state
+time = 0 to time = n, and “sti” on the arrow represents the
+                                                                                   x0 and jump along the transfer matrix Q, then a transition
+stimulation from another talker. The emotional transition prob-
+                                                                                   sequence [x0 , x1 , . . . , xn , xn+1 . . . ] that is distributed in π(x)
+ability can be described as pt = P(Et+1 |Es , Et ), in which Et is
+                                                                                   (a stable distribution) will be obtained. If the Markov chain
+the initial emotion of speaker A, Es is the stimulus emotion of
+                                                                                   has converged at step n, [xn , xn+1 . . . ] are the samples of π(x).
+speaker B, and Et+1 is the transitioned emotion of speaker A.
+                                                                                      Algorithm 1 is the proposed basic MCMC algorithm-
+In a coherent long conversation, assuming that there are M
+                                                                                   based emotional transfer distribution for emotional sampling
+types of emotion, where Et , Es , Et+1 can be one of any M
+                                                                                   sequence, denoted as E-MCMC. The E-MCMC algorithm is
+emotions, then there are M 3 probabilities, and the values of pt
+                                                                                   the basis of GEN-MCMC and GUI-MCMC algorithms. The
+constitute a discrete and stable probability distribution π(x).
+                                                                                   initial probability distribution of emotional transfer p(x) in
+                                                                                   the algorithm is randomly generated and does not affect the
+B. Emotional Transfer Model                                                        results, Q is the transition matrix [the corresponding element
+   MCMC techniques are applied to solve integration and                            is q(i, j)], which is calculated from the conversation corpora
+optimization problems in large-dimensional spaces [41]. The                        and obeys detailed, balanced condition. x0 is the initial state,
+MCMC sampling [42] algorithm is based on the parameters                            and xt represents the state at times t, α(xt , y) is the acceptance
+of the polynomial distribution [43] of the random variables to                     rate [47] of the transfer from state xt to y. The acceptance rate
+generate the sampling list of the random variables. Common                         in the basic MCMC algorithm is p(y)q(y, xt ), which is too
+probability distributions, whether continuous or discrete, can                     small and will take a long time for Markov chain to traverse
+be generated based on uniform (0, 1) [44] samples. In real life,                   the entire state space, the Metropolis–Hastings (MH) [48]
+the form of π(x) is complex with a high-dimensional distribu-                      algorithm increased the acceptance rate.
+tion, and the generation of samples can be difficult. MCMC                            The proposed E-MCMC algorithm not only accelerate the
+can sample from emotional probability distributions π(x) and                       convergent time but also improves the accuracy and stability
+cope well with the growth of the sample space. This means                          of the results. Variables, such as conCount and sampleCount
+that one sample is generated for each transition in the chain                      are introduced in the loop, cause one unchanged state does
+after a stationary state of the chain has been reached, which                      not mean that the state is stable, conCount is used to com-
+occurs after a so-called “burn-in period” that eliminates the                      pare with the conLimit (set by system), if the current state y is
+influence of the initialization parameters [45].                                   unchanged for conLimit times, the state is added to the sam-
+   A Markov process includes the states, initial probability                       ple, otherwise, conCount will be increased by 1 to continue
+distribution p(x) and state transition matrix Q. The conver-                       sampling. Besides, a global counting variable sampleCount is
+gence [46] of Markov chain is not related to the initial                           used to count the number of times required to complete the
+
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+SUN et al.: DESIGN AND ANALYSIS OF HUMAN–MACHINE INTERACTION SYSTEM FOR RESEARCHING HUMAN’S DYNAMIC EMOTION                                             6115
+
+
+Algorithm 2 GEN-MCMC Algorithm                                                  Algorithm 3 GUI-MCMC Algorithm
+ Input: QA , emotional transition matrix of talker A.                            Input: QA , emotional transition matrix of talker A.
+QB , emotional transition matrix of talker B.                                   QB , emotional transition matrix of talker B.
+lenState, length of the generated sequence.                                     n, numbers of loop.
+ Output: newState, sample that fits the specific talkers’ emo-                  Ea0 , initial emotion of talker A, set by system
+tional transition distribution.                                                 targetEmo, target emotion of talker A, set by system
+  1: time t=0, random sampling two states Ea0 , Eb0 as initial                   Output: newState, sample that fits the specific talker’s emo-
+     and stimulus emotions.                                                     tional transition distribution.
+  2: initSti.append(Ea0 ), initSti.append(Eb0 )                                   1: time t=0, Sampling a stimulus Eb0
+  3: newState = initSti                                                           2: initSti.append(Ea0 )
+  4: for i=0;i≤ lenState;i++ do                                                   3: initSti.append(Eb0 )
+  5:     if i mod 2==0 then                                                       4: newState = initSti
+  6:          π(x) = QA (Eai , Ebi )                                              5: for i=0;i≤ n;i++ do
+  7:          conState = mcmc(π(x))                                               6:     if i mod 2==0 then
+  8:          newState = newState.append(conState)                                7:          π(x) = QA (Eai , Ebi )
+  9:          initSti = newState[-2]                                              8:          conState = mcmc(π(x))
+ 10:     else                                                                     9:          newState = newState.append(conState)
+ 11:          π(x) = QB (Eai , Ebi )                                             10:          initSti = newState [-2]
+ 12:          conState = mcmc(π(x))                                              11:     else
+ 13:          newState = newState.append(conState)                               12:          π(x) = QB (Eai , Ebi )
+ 14:          initSti = newState[-2]                                             13:          conState = mcmc(π(x))
+ 15: return newState                                                             14:          newState = newState .append(conState )
+                                                                                 15:          initSti = newState [-2]
+                                                                                 16:          if newState [-1] == targetEmo then
+sampling. From the above method, we can obtain mutually                          17:              break
+independent sampling sequences that conform to the original                      18: return newState
+probability distribution.
+   E-MCMC only samples through the emotional transfer
+matrix of the whole conversation, but could not achieve the                     dynamic environment, that is when any primary emotion is
+personality sampling of a talker. Algorithm GEN-MCMC                            given, the system can guide the talker to the target emotion.
+Algorithm 2 is proposed based on algorithm E-MCMC. In                           So the algorithm is needed to further improved to obtain the
+GEN-MCMC, the convergent length of the sequence is set                          desired stimulus emotional sequence.
+as 1, and every time the MCMC function is invoked, only one                        The above Algorithm 3 is the proposed GUI-MCMC algo-
+convergent state can be obtained, denoted as conState. The                      rithm for the emotional guidance, which is still based on
+process of the entire algorithm can be described as follows.                    the emotional transfer matrix of users A and B. Emotions of
+   First, the initial and stimulus states are randomly sampled,                 talker B is used as the stimuli of talker A. GUI-MCMC only
+denoted as initSti, which is a variable list and changes with the               makes minor changes based on GEN-MCMC algorithm. GEN-
+sampling process. Then, according to index i (the initial value                 MCMC limits the length of the generated sequence, while
+is 0), assign the stable distribution of talker A or B to sample;               GUI-MCMC sets the initial emotion and target emotion. Every
+for example, if initSti = [1, 0], i = 0, then the algorithm                     time after sampling of talker B is finished, the last emotion of
+will find the probability distribution π(x) that the initial and                the newstate is judged. If it is equal to the targetEmo, the loop
+stimulus emotional states are, respectively, happy and neutral                  is stopped. Finally, the emotional guiding sequences that are
+of talker A. After executing mcmc(π(x)), the conState will be                   in line with user A’s emotional personality can be obtained.
+generated and pushed into the list of newState. When i = 1,
+the last two elements of newState are used like new initSti to                               IV. S YSTEM P ERFORMANCE A NALYSIS
+specify talker B’s related probability transition distribution to               A. Data Set
+sample. Continue the above loop until i reaches lenState, and
+the obtained newState is a sequence that consistent with the                       The changeable semantics of social dialog and different
+personalities of talkers A and B.                                               platforms, speech types [49], interlocutors, and emotional
+                                                                                stimuli will affect the emotional transitions in conversation.
+                                                                                Considering this problem, four representative data sets are
+C. Emotional Guidance Model                                                     selected in this experiment: 1) chatterbot (human–robot dia-
+   GEN-MCMC algorithm can dynamically specify the user’s                        log); 2) daily dialog; 3) English website dialog; and 4) Cornell
+probability distribution according to the user’s response, and                  movie dialog [50]. As shown in Table I.
+then generate the emotional sequences according to the user’s                      Among these corpora, the number of the first three corpora
+personality characteristics. In practical applications of human–                are relatively balanced and are used to do comparative exper-
+machine interactions, it is more important to build an emo-                     iments of GEN-MCMC; Cornell movie data set is relatively
+tional guidance model based on people’s personality in a                        large, which is used to do the emotional guidance experiment
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+6116                                             IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021
+
+
+                                                                       TABLE I
+                                                               C ORPORA IN T HIS A RTICLE
+
+
+
+
+                                                                     TABLE II
+                                                    P OST AND R ESPONSE F ORMAT OF THE C ORPORA
+
+
+
+
+                                                                    TABLE III
+                                          E MOTIONAL T RANSITION P ROBABILITY (H UMAN -ROBOT D IALOG )
+
+
+
+
+                                                                    TABLE IV
+                                               E MOTIONAL T RANSITION P ROBABILITY (DAILY D IALOG )
+
+
+
+
+and the evaluation experiments of consistency and diversity of                  where the data in orange have the largest probabilities, fol-
+generated results.                                                              lowed by the data in yellow, and the data in gray have the
+   Table II shows the format of the corpora, and these dialogs                  smallest probabilities. The common sense of emotion trans-
+are tagged with five types of emotions: 0: neutral; 1: happy;                   fer in the three corpora is that when the initial emotion is
+2: surprised; 3: sad; and 4: angry. Since each sentence is                      neutral, ir-respective of what the stimulus is, the probability
+not only the initial emotion but also the stimulus of the                       of transferring to neutral emotion is the largest, followed by
+next sentence, in a continuous dialog, every three continu-                     the happiness and surprise. The result is due to the question-
+ous sentences with the emotion labels can be viewed as a                        answer format in these corpora, which leads to more neutral
+triple, such as [neutral, happy, happy] ([0, 1, 1]). Each triple                and surprised emotion labels.
+is divided by the total number of triples, and then the prob-
+ability of the emotion transition distribution [51] can be
+obtained.                                                                       B. Emotional Transfer and Guidance
+   Tables VI–IV are the transition probabilities of human–robot                   According to the emotional transfer probabilities in
+dialog, daily dialog, and English dialog, respectively. These                   Tables VI–IV, the personalized dynamic emotional transfer
+probabilities are calculated in the condition that “neutral” is as              sequences are generated by the proposed GEN-MCMC.
+the initial emotion and five different emotions are as the stim-                  Table V shows the emotional transfer sequences generated
+uli. Three colors are used to mark the vertical total probability,              by GEN-MCMC on three different corpora, in which “init”
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+SUN et al.: DESIGN AND ANALYSIS OF HUMAN–MACHINE INTERACTION SYSTEM FOR RESEARCHING HUMAN’S DYNAMIC EMOTION                                             6117
+
+
+                                                                    TABLE V
+                                         E MOTIONAL T RANSITION P ROBABILITY (E NGLISH W EBSITE D IALOG )
+
+
+
+
+                             TABLE VI                                                                      TABLE VII
+            E MOTIONAL T RANSFER S EQUENCES ON T HREE                           E MOTIONAL G UIDING S EQUENCES ON C ORNELL M OVIE BY GUI-MCMC
+               D IFFERENT C ORPORA BY GEN-MCMC
+
+
+
+
+represents the initial emotion and sti represents the stimulus                  neutral, happiness, surprise, sadness, and anger, each group
+emotion. The length of each dialog is six and the numbers                       has six data points, representing that the length of each dialog
+(0, 1, 2, 3, 4) represent the emotions. Assume that there are                   is 6; the coordinates represent different emotions. As shown
+two talkers, A and B. As shown in the table, the generated                      in these subfigures, the generated results of daily dialog and
+emotional sequences are different on different dialog plat-                     English dialog are very similar, while the human–robot dialog
+forms. First, the sequences generated by human–robot dialog                     presents different trends, which is related to the characteris-
+frequently appear as 0 and 2 (neutral and surprised emotions)                   tics of the different corpora. Additionally, the generated results
+because the original corpus is full of question and answer                      are largely influenced by the initial emotion and are similar to
+dialog, which tend to be labeled as surprised and neutral emo-                  the initial emotion. However, when the initial emotion is the
+tions. Second, sequences of daily dialog and English dialog                     same, different stimuli will also change the trend. There are
+rarely present “sadness,” but the “angry” emotion appears                       few emotions of sadness and anger according to the results,
+more times than that in the human–robot dialog. Third, the                      but when the stimulating emotions are sadness and anger
+results of the sequences have a strong relationship with the rare               ([*, 3], [*, 4]), the results will present more emotions of
+emotions, such as sadness and “anger,” when these emotions                      sadness and anger.
+are used as the initial and stimulus emotions, a large probabil-                   The emotional guidance experiment of the GUI-MCMC
+ity of these emotional sequences will also appear; however, in                  algorithm is carried on Cornell movie corpus, which con-
+other cases, the probability of these emotions seldom appear.                   tains a large metadata-rich collection of fictional conversations
+   In order to show the emotional sequences more intuitively,                   extracted from raw movies, involving 220 579 conversational
+data in Table V are drawn in line charts in Fig. 3. The whole                   exchanges between 10 292 pairs of movie characters.
+figure shows the emotional fluctuation of talkers A and B in                       Table VII lists all possible combinations of initial and target
+the dialog in different initial emotions. Fig. 3 consists of five               emotions. It indicates the path from which a user moves from
+subfigures are drawn, the abscissa of each subfigure is divided                 the current emotional state to the target emotional state through
+into five groups, representing five different stimulus emotions:                a series of emotions. From the table, first, the stimulating
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+6118                                              IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021
+
+
+
+
+                                                                                 Fig. 4.   Consistency of the generated sequences of different methods.
+
+
+
+                                                                                 shorter. Third, when the target emotion is neutral or happy, the
+                                                                                 stimulus emotions are tend to 0, 1, when the target emotion is
+                                                                                 sad and angry, the stimulus emotions are tend to 3, 4, which
+                                                                                 coincides with the real-world dialogue scene.
+
+                                                                                 C. System Performance Evaluation
+                                                                                   The performance of the proposed system is evaluated from
+                                                                                 two perspectives: 1) consistency and 2) diversity.
+                                                                                   1) Consistency: Measuring whether it meets the “emotional
+                                                                                      personality.” Since the E-MCMC sampling method is
+                                                                                      strictly sampled according to the probability distribu-
+                                                                                      tion, when a sufficiently large convergent limit is set,
+                                                                                      the results are always subject to the probability distribu-
+                                                                                      tion of the source data such that the result sampled from
+                                                                                      E-MCMC is a standard measurement in this experiment.
+                                                                                      The distribution deviation of the sequence generated by
+                                                                                      the seq2seq [52] and GEN-MCMC methods with the
+                                                                                      standard results are compared. As shown 4, X and Y
+                                                                                      represent the sampling sequences generated by the same
+                                                                                      initial and stimulating emotions under different data sets,
+                                                                                      respectively.
+                                                                                   2) Diversity: Measuring the diversity of the generated
+                                                                                      sequences of different methods, comparing the num-
+                                                                                      ber of different emotions under the same initial emotion
+                                                                                      and stimulus (“intiSti”).We use heat maps to judge the
+                                                                                      diversity of different methods
+                                                                                                                   N
+                                                                                                                      i=1 (xi ∗ yi )
+                                                                                             consistency =                                . (4)
+                                                                                                                N                  N
+                                                                                                                i=1 (xi ) ∗        i=1 (yi )
+                                                                                                                         2                  2
+
+                                                                                    The experiment is carried on the Cornell movie corpus. As
+                                                                                 shown in Fig. 4, there are five different initial emotions with
+                                                                                 the same stimulus emotion of sadness. Sadness can stimulate
+                                                                                 emotional transfer better, because we can see from the gen-
+Fig. 3. Dynamic emotion transfer. (a) Initial emotion = neutral. (b) Initial
+emotion = happiness. (c) Initial emotion = surprise. (d) Initial emo-
+                                                                                 erated sequence of Table V, the generation sequence using
+tion = sadness. (e) Initial emotion = anger.                                     sadness as a stimulus is more diverse, making it easy for
+                                                                                 dialog generation experiments. Each method is sampled with
+                                                                                 length 8, and to avoid contingency, each method is sampled
+steps to guide emotions from happiness and surprise to other                     or predicted five times under the same “initSti” to obtain the
+emotional are shorter, followed by neutral and sad emotions,                     average similarity. Because the sequence length generated by
+and the stimulating steps to guide emotions from anger to                        GUI-MCMC is not fixed, no comparative experiment has been
+other emotions are the longest. Second, when the polarity of                     done in this article. We chose the sequence generation model
+the initial and the target emotion are quite different, which                    seq2seq as the comparison model. Because its unique encoding
+means that there is a large polarity gap in the emotional state,                 and decoding module can remember the previous emotional
+such as ([0, 3], [1, 2], [1, 3], [1, 4], [3, 0], [4, 0], [4, 1], [4, 3])         state and predict the next emotional state. As shown in the
+are quite different, all of them need a long stimulus path to                    figure, the E-MCMC sampling results are the baseline, the
+achieve the target emotion, otherwise the guiding process is                     emotion of the sequence generated by seq2seq is less similar
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+SUN et al.: DESIGN AND ANALYSIS OF HUMAN–MACHINE INTERACTION SYSTEM FOR RESEARCHING HUMAN’S DYNAMIC EMOTION                                                6119
+
+
+
+
+                                                                                   Fig. 6.   Average stimulating path length.
+
+
+
+Fig. 5.   Diversity of the generated sequences of different methods.
+
+                           TABLE VIII
+   S TIMULUS S EQUENCE G ENERATED BY SEQ 2 SEQ AND GUI-MCMC
+
+
+
+
+                                                                                   Fig. 7.   Average emotional types.
+
+
+
+                                                                                   path. The stimulating sequence generated by seq2seq is more
+                                                                                   direct, but it is easy to cause emotional collapse, the stimu-
+to the E-MCMC method than the GEN-MCMC method, fur-                                lating sequence generated by GUI-MCMC is more smoothly
+ther showing that the proposed method has better consistency                       and euphemistic, which can lead people’s emotions in a given
+in emotion generation. Using the same sequences, we provide                        direction naturally. From Fig. 7, GUI-MCMC obtain more
+the diversity experiment.                                                          diverse emotions than seq2seq, which is more useful and
+   Fig. 5 is a heat map, which is an analysis method that anno-                    practical in the real conversation scenes.
+tates and presents the area according to the degree of result.
+The method of annotation usually uses the depth of block color
+and the density of the points to present the proportion. In this                                               V. C ONCLUSION
+experiment, the darker color of the square represents a higher                        In this article, we attempt to design a human–machine
+diversity, such as the sign in the right, the darkest color is                     interaction system for researching talker’s dynamic emotion
+shown in 1, the lightest color shown in 0, indicating the lowest                   in conversation through the emotional transition probability
+diversity. The horizontal coordinate represents different loca-                    distribution of real-world dialog. First, a 5 × 5 × 5 emotional
+tions (each column represents the same initial emotion), and                       transition probability matrix is obtained through statistics, and
+the vertical coordinate represents different methods (each row                     an E-MCMC algorithm based on the emotional transfer proba-
+represents a method). The coordinates of X and Y form a unit                       bility is used to sample talker’s emotional sequences. Second,
+of each small box, the darker the unit is, the more types of                       a GEN-MCMC algorithm based on E-MCMC is proposed to
+emotions that appear at this place. Using the E-MCMC method                        generate the emotional sequences that fit a talker’s personal-
+as a benchmark, we can see that the color at coordinates (2, 3)                    ity dynamically. Although the generated emotional sequences
+is the darkest, but the color of the E-MCMC method is lighter                      are random and different each time, the larger the convergent
+in other places. The seq2seq method (the second line) shows                        limit, the closer the sequence is to the probability distribu-
+light color in most areas, and the emotional diversity is not                      tion in a certain range, and the method performs better in the
+high, while the GEN-MCMC method shows better diversity                             consistency and diversity compared to the baseline method
+in the five locations, which indicates better performance in                       (E-MCMC). Finally, a GUI-MCMC algorithm based on GEN-
+general.                                                                           MCMC is proposed to obtain the stimulating path when given
+   In order to evaluate the performance of GUI-MCMC in                             the initial and target emotions, which is used to guide the
+emotional guidance, this article compares seq2seq and GUI-                         emotion to a desired direction by human. Compared with tra-
+MCMC methods, the experiment is carried on the same initial                        ditional generation algorithms, the algorithm proposed in this
+and target emotions with large polarity differences. As can                        article pays more attention to sampling and dynamic genera-
+be seen from the Table VIII and Fig. 6, seq2seq requires                           tion rather than building a sequence generation model. While
+shorter steps to achieve emotional guidance than GUI-MCMC                          the algorithm guarantees convergence to the probability dis-
+method, while GUI-MCMC generates a longer stimulating                              tribution, the randomness of the generated emotional state is
+
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+6120                                              IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS: SYSTEMS, VOL. 51, NO. 10, OCTOBER 2021
+
+
+
+also greater, which is more in line with the actual dialogue                     [20] L. Chen, M. Wu, M. Zhou, Z. Liu, J. She, and K. Hirota, “Dynamic
+situation.                                                                            emotion understanding in human–robot interaction based on two-layer
+                                                                                      fuzzy SVR-TS model,” IEEE Trans. Syst., Man, Cybern., Syst., to be
+   The proposed system can be used to model emotional                                 published.
+transfer and guidance in human–machine interaction, medi-                        [21] L. Chen et al., “Three-layer weighted fuzzy support vector regression
+cal treatment of psychological diseases (such as autism [53]                          for emotional intention understanding in human–robot interaction,” IEEE
+                                                                                      Trans. Fuzzy Syst., vol. 26, no. 5, pp. 2524–2538, Oct. 2018.
+or PTSD [54]), interrogation strategies, and psychological                       [22] L. Chen, M. Zhou, W. Su, M. Wu, J. She, and K. Hirota, “Softmax
+attack and defense, among other applications, it can also                             regression based deep sparse autoencoder network for facial emotion
+be combined with intelligent conversation systems, personal                           recognition in human–robot interaction,” Inf. Sci., vol. 428, pp. 49–61,
+                                                                                      Feb. 2018.
+assistants, emotional support robots, and chat robots to predict
+                                                                                 [23] X. Kefeng, “Research on the affective computing and the control
+the transitioned emotion, thereby making the machine behave                           model of the emotional state transformation,” Ph.D. dissertation, School
+more naturally. In the future, we will combine the personal-                          Comput., Beijing Univ. Posts Telecommun., Beijing, China, 2008.
+ized emotional sequence with dialog generation technology                        [24] L. Yang, H. F. Lin, and W. Guo, “Text-based emotion transformation
+                                                                                      analysis,” Comput. Eng. Sci., vol. 33, no. 9, pp. 123–129, 2011.
+in human–machine interaction scenarios to complete more                          [25] S. Liu, D.-Y. Huang, W. Lin, M. Dong, H. Li, and E. P. Ong,
+intelligent answers and tasks.                                                        “Emotional facial expression transfer based on temporal restricted
+                                                                                      Boltzmann machines,” in Proc. Asia–Pac. Signal Inf. Process. Assoc.
+                                                                                      Summit Conf., 2014, pp. 1–7.
+                              R EFERENCES                                        [26] C. P. Lee-Johnson, Emotion-Based Parameter Modulation for a Mobile
+ [1] C. Jiang, Z. Ni, Y. Guo, and H. He, “Learning human–robot interaction            Robot Planning and Control System, Victoria Univ. Wellington,
+     for robot-assisted pedestrian flow optimization,” IEEE Trans. Syst., Man,        Wellington, New Zealand, pp. 2839–2844, 2008.
+     Cybern., Syst., vol. 49, no. 4, pp. 797–813, Apr. 2019.                     [27] H.-R. Kim and D.-S. Kwon, “Computational model of emotion gen-
+ [2] R. A. Calvo and S. D’Mello, “Affect detection: An interdisciplinary              eration for human–robot interaction based on the cognitive appraisal
+     review of models, methods, and their applications,” IEEE Trans.                  theory,” J. Intell. Robot. Syst., vol. 60, pp. 263–283, Nov. 2010.
+     Affective Comput., vol. 1, no. 1, pp. 18–37, Jan. 2010.                     [28] T. T. Teoh and S. Y. Cho, “Notice of retraction human emotional
+ [3] T. Bickmore and T. Giorgino, “Health dialog systems for patients and             states modeling by hidden Markov model,” in Proc. 7th Int. Conf. Nat.
+     consumers,” J. Biomed. Informat., vol. 39, no. 5, pp. 556–571, 2006.             Comput., vol. 2, Jul. 2011, pp. 908–912.
+ [4] K. G. Ghanem, H. E. Hutton, J. M. Zenilman, R. Zimba, and                   [29] J. Ryan, A. J. Summerville, M. Mateas, and N. Wardrip-Fruin,
+     E. J. Erbelding, “Audio computer assisted self interview and face to face        “Translating player dialogue into meaning representations using
+     interview modes in assessing response bias among STD clinic patients,”           LSTMs,” in Proc. IVA, 2016, pp. 383–386.
+     Sexually Transmitted Infections, vol. 81, no. 5, p. 421, 2005.              [30] N. Jaques, O. O. Rudovic, S. Taylor, A. Sano, and R. Picard, “Predicting
+ [5] Z. Liu et al., “Detection of depression in speech,” in Proc. Int. Conf.          tomorrow’s mood, health, and stress level using personalized multi-
+     Affective Comput. Intell. Interact., 2015, pp. 743–747.                          task learning and domain adaptation,” J. Mach. Learn. Res., vol. 60,
+ [6] H. Liu, X. Li, J. Li, and S. Zhang, “Efficient outlier detection for             pp. 17–33, Aug. 2017.
+     high-dimensional data,” IEEE Trans. Syst., Man, Cybern., Syst., vol. 48,    [31] Y. Sun, Z. Yi, Y. Chen, and R. Jin, “Conversational recommendation
+     no. 12, pp. 2451–2461, Dec. 2018.                                                system with unsupervised learning,” in Proc. RecSys, 2016, pp. 397–398.
+ [7] S. Wen et al., “Memristive LSTM network for sentiment analysis,” IEEE       [32] L. Feng, Q. Mao, L. Wang, N. Ruwa, J. Gou, and Y. Zhan, “An emotion-
+     Trans. Syst., Man, Cybern., Syst., to be published.                              based responding model for natural language conversation,” World Wide
+ [8] Q. H. Vuong and A. Takasu, “Transfer learning for emotional polarity             Web, vol. 22, no. 9, pp. 1–19, 2018.
+     classification,” in Proc. IEEE/WIC/ACM Int. Joint Conf. Web Intell.,        [33] R. Li, Z. Wu, J. Jia, J. Li, W. Chen, and H. Meng, “Inferring user emotive
+     2014, pp. 94–101.                                                                state changes in realistic human–computer conversational dialogs,” in
+ [9] T. Heinroth and W. Minker, Introducing Spoken Dialogue Systems Into              Proc. 26th ACM Int. Conf. Multimedia, 2018, pp. 136–144.
+     Intelligent Environments. New York, NY, USA: Springer, 2012.                [34] M. S. El-Nasr and M. Skubic, “A fuzzy emotional agent for decision-
+[10] M. E. Foster, M. Giuliani, and A. Isard, “Task-based evaluation of               making in a mobile robot,” in Proc. IEEE Int. Conf. Fuzzy Syst. IEEE
+     context-sensitive referring expressions in human–robot dialogue,” Lang.          World Congr. Comput. Intell., vol. 1, 2007, pp. 135–140.
+     Cogn. Neurosci., vol. 29, no. 8, pp. 1018–1034, 2014.                       [35] M. Wu, W. Su, L. Chen, Z. Liu, W. Cao, and K. Hirota, “Weight-
+[11] P. Geutner, F. Steffens, and D. Manstetten, “Design of the VICO spo-             adapted convolution neural network for facial expression recognition in
+     ken dialogue system: Evaluation of user expectations by Wizard-of-Oz             human–robot interaction,” IEEE Trans. Syst., Man, Cybern., Syst., to be
+     experiments,” in Proc. 3rd Int. Conf. Lang. Resources Eval. (LREC),              published.
+     2002.                                                                       [36] X. Sun, C. Zhang, and L. Li, “Dynamic emotion modelling and anomaly
+[12] J. Krebber, S. Moller, R. Pegam, U. Jekosch, M. Melichar, and                    detection in conversation based on emotional transition tensor,” Inf.
+     M. Rajman, “Wizard-of-Oz tests for a dialog system in smart homes,”              Fusion, vol. 46, pp. 11–22, Mar. 2019.
+     in Proc. CFA-AGA, 2004, pp. 1149–1150.                                      [37] H. Zhou, M. Huang, T. Zhang, X. Zhu, and B. Liu, “Emotional chatting
+[13] H. Minami, H. Kawanami, M. Kanbara, and N. Hagita, “Chat robot                   machine: Emotional conversation generation with internal and external
+     coupling machine responses and social media comments for continuous              memory,” in Proc. 32nd AAAI Conf. Artif. Intell., 2017.
+     conversation,” in Proc. IEEE Int. Conf. Multimedia Expo Workshops,
+                                                                                 [38] D. Sacca and C. Zaniolo, “Deterministic and non-deterministic stable
+     2016, pp. 1–6.
+                                                                                      models,” J. Logic Comput., vol. 7, no. 5, pp. 555–579, Oct. 1997.
+[14] K. Ahmad, Affective Computing and Sentiment Analysis. Dordrecht,
+                                                                                 [39] S. E. Ahmed, “Markov chain Monte Carlo: Stochastic simulation for
+     The Netherlands: Springer, 2011.
+                                                                                      Bayesian inference,” Technometrics, vol. 50, no. 1, pp. 97–97, 2006.
+[15] S. Poria, E. Cambria, R. Bajpai, and A. Hussain, “A review of affective
+     computing: From unimodal analysis to multimodal fusion,” Inf. Fusion,       [40] T. Ohba, S. Arakawa, and M. Murata, “Bayesian-based virtual network
+     vol. 37, pp. 98–125, Sep. 2017.                                                  reconfiguration for dynamic optical networks,” IEEE/OSA J. Opt.
+[16] W. W. Godfrey, S. B. Nair, and K. D. Hwa, “Towards a dynamic                     Commun. Netw., vol. 10, no. 4, pp. 440–450, Apr. 2018.
+     emotional model,” in Proc. IEEE Int. Symp. Ind. Electron., Jul. 2009,       [41] C. Andrieu, N. D. Freitas, A. Doucet, and M. I. Jordan, “An introduc-
+     pp. 1932–1936.                                                                   tion to MCMC for machine learning,” Mach. Learn., vol. 50, nos. 1–2,
+[17] P. Xiaolan, X. Lun, L. Xin, and W. Zhiliang, “Emotional state tran-              pp. 5–43, 2003.
+     sition model based on stimulus and personality characteristics,” China      [42] A. Doucet and C. Andrieu, “Robust Bayesian spectral analysis via
+     Commun., vol. 10, no. 6, pp. 146–155, 2013.                                      MCMC sampling,” in Proc. Signal Process. Conf., 2015, pp. 1–4.
+[18] S.-M. Xu, L. Xie, J. Han, X. Liu, and Z.-L. Wang, “Impact analysis of       [43] M. Belkin and K. Sinha, “Polynomial learning of distribution families,”
+     external stimuli based on the emotional state transfer model,” Chin. J.          in Proc. Found. Comput. Sci. Annu. Symp., vol. 44, 2010, pp. 103–112.
+     Eng., vol. 37, no. 11, pp. 1528–1534, 2015.                                 [44] S. Zelditch, “Uniform distribution of eigenfunctions on compact hyper-
+[19] H. Jing, X. Lun, L. Xin, S. Xu, and Z. Wang, “Cognitive emotion                  bolic surfaces,” Duke Math. J., vol. 55, no. 4, pp. 919–941, 2016.
+     interaction model of robot based on gross cognitive reappraisal,” J.        [45] G. Heinrich, “Parameter estimation for text analysis,” University of
+     Southeast Univ., vol. 45, no. 2, pp. 270–274, 2015.                              Leipzig, Leipzig, Germany, Rep., 2008.
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+SUN et al.: DESIGN AND ANALYSIS OF HUMAN–MACHINE INTERACTION SYSTEM FOR RESEARCHING HUMAN’S DYNAMIC EMOTION                                                6121
+
+
+
+[46] Q. Wei, F. L. Lewis, D. Liu, R. Song, and H. Lin, “Discrete-time local                               Chen Zhang was born in 1993. She received the
+     value iteration adaptive dynamic programming: Convergence analysis,”                                 bachelor’s degree from the Hefei University of
+     IEEE Trans. Syst., Man, Cybern., Syst., vol. 48, no. 6, pp. 875–891,                                 Technology, Hefei, China, in 2016, where she is cur-
+     Jun. 2018.                                                                                           rently pursuing the master’s degree with the School
+[47] F. Al-Awadhi, M. Hurn, and C. Jennison, “Improving the acceptance                                    of Computer and Information.
+     rate of reversible jump MCMC proposals,” Stat. Probab. Lett., vol. 69,                                 Her research interests include natural language
+     no. 2, pp. 189–198, 2004.                                                                            processing, sentiment analysis, and neural networks.
+[48] T. Ghirmai, “Applying metropolis-hastings-within-Gibbs algorithms for
+     data detection in relay-based communication systems,” in Proc. Signal
+     Process. Signal Process. Educ. Workshop, 2016, pp. 167–171.
+[49] H. Jiang et al., “Investigation of different speech types and emotions
+     for detecting depression using different classifiers,” Speech Commun.,
+     vol. 90, pp. 39–46, Jun. 2017.
+[50] C. Danescu-Niculescu-Mizil and L. Lee, “Chameleons in imagined con-                                   Guoqiang Li (M’13) received the B.S. degree
+     versations: A new approach to understanding coordination of linguistic                                from the Taiyuan University of Technology, Taiyuan,
+     style in dialogs,” in Proc. Workshop Cogn. Model. Comput. Linguist.                                   China, in 2001, the M.S. degree from Shanghai
+     (ACL), 2011, pp. 76–87.                                                                               Jiao Tong University, Shanghai, China, in 2005,
+[51] N. S. S. Singh, N. H. Hamid, V. S. Asirvadam, U. Khalid, and J. Anwer,                                and the Ph.D. degree from the Japan Advanced
+     “Sensitivity analysis of probability transfer matrix (PTM) on same func-                              Institute of Science and Technology, Nomi, Japan,
+     tionality circuit architectures,” in Proc. IEEE Int. Colloquium Signal                                in 2008.
+     Process. Appl., 2012, pp. 250–254.                                                                       He is currently an Associate Professor with
+[52] O. Vinyals and Q. Le, “A neural conversational model,” Computer                                       the School of Software, Shanghai Jiao Tong
+     Science, 2015.                                                                                        University and a Guest Associate Professor with
+[53] A. Gillott, F. Furniss, and A. Walter, “Anxiety in high-functioning chil-                             Kyushu University, Fukuoka, Japan. He worked as
+     dren with autism,” Autism Int. J. Res. Pract., vol. 5, no. 3, p. 277,       a Postdoctoral Research Fellow with the Graduate School of Information
+     2001.                                                                       Science, Nagoya University, Nagoya, Japan, from 2008 to 2009, an Assistant
+[54] E. B. Blanchard, J. Jones-Alexander, T. C. Buckley, and C. A. Forneris,     Professor with the School of Software, Shanghai Jiao Tong University from
+     “Psychometric properties of the PTSD checklist (PCL),” Behav. Res.          2009 to 2013, and an Academic Visitor with the Department of Computer
+     Therapy, vol. 34, no. 8, pp. 669–673, 1996.                                 Science, University of Oxford, Oxford, U.K., from 2015 to 2016. He published
+                                                                                 more than 40 researches papers in the international journals and mainstream
+                                                                                 conferences, including the IEEE T RANSACTIONS ON D EPENDABLE AND
+                                                                                 S ECURE C OMPUTING, SPE, ACM Transactions on Embedded Computing
+                                                                                 Systems, International Journal of Foundations of Computer Science, Science
+                        Xiao Sun (M’11) was born in 1980. He received            China Information Sciences, CSCW, ICSE, FORMATS, and ATVA. His
+                        the M.E. degree from the Department of Computer          research interests include formal verification, programming language theory,
+                        Sciences and Engineering, Dalian University of           and data analytics and intelligence. His field of study is formal verification.
+                        Technology, Dalian, China, in 2004, and the dual
+                        Doctoral degrees from the University of Tokushima,
+                        Tokushima, Japan, in 2009 and the Dalian University
+                        of Technology, in 2010.
+                           He is currently working as an Associate Professor
+                        with the Anhui Province Key Laboratory of
+                                                                                                           Jianhua Tao received the M.S. degree from
+                        Affective Computing and Advanced Intelligent
+                                                                                                           Nanjing University, Nanjing, China, in 1996, and
+                        Machines, Hefei University of Technology, Hefei,
+                                                                                                           the Ph.D. degree from Tsinghua University, Beijing,
+China. His research interests include affective computing, natural language
+                                                                                                           China, in 2001.
+processing, machine learning, and human–machine interactions. His field of
+                                                                                                              He is currently a Professor with the National
+study was natural language processing.
+                                                                                                           Laboratory of Pattern Recognition, Institute of
+                                                                                                           Automation, Chinese Academy of Sciences,
+                                                                                                           Beijing. He has authored over 60 papers in
+                                                                                                           major journals and proceedings, such as the
+                                                                                                           IEEE T RANSACTIONS ON AUDIO , S PEECH , AND
+                         Zhengmeng Pei was born in 1995. He received
+                                                                                                           L ANGUAGE P ROCESSING, ICASSP, Interspeech,
+                         the bachelor’s degree from the Hefei University of
+                                                                                 ICME, ICPR, ICCV, and ICIP. His current research interests include speech
+                         Technology, Hefei, China, in 2017, where he is cur-
+                                                                                 synthesis and recognition, human–computer interactions, and emotional
+                         rently pursuing the master’s degree with the School
+                                                                                 information processing. His field of study is speech signal processing.
+                         of Computer and Information.
+                                                                                    Prof. Tao was elected as the Vice Chairperson of the ISCA Special Interest
+                            His research interests include natural lan-
+                                                                                 Group of Chinese Spoken Language Processing, in 2006, and an Executive
+                         guage processing, sentiment analysis, and pattern
+                                                                                 Committee Member of the HUMAINE Association. He is the Editorial Board
+                         recognition.
+                                                                                 Member of the Journal on Multimodal User Interfaces and International
+                                                                                 Journal of Synthetic Emotions. He is a Steering Committee Member of the
+                                                                                 IEEE T RANSACTIONS ON A FFECTIVE C OMPUTING.
+
+
+
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:43:52 UTC from IEEE Xplore. Restrictions apply.
+

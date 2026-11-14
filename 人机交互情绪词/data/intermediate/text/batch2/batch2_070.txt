@@ -1,0 +1,379 @@
+           Proceedings of the 2018 IEEE
+International Conference on Cyborg and Bionic Systems
+      Shenzhen, China, October 25-27, 2018
+
+         Track Your Emotional Perception of 3-D Virtual Talking Head in
+                        Human-computer Interaction
+                                 Hu Ni, Jianying Wang, Lan Wang and Nan Yan, Member, IEEE
+
+
+                                                                               that in the naturalistic scenes of human-computer interaction,
+
+
+
+
+
+   Abstract—To investigate how emotions are identified from
+the avatar character in the natural scene during                               which were including not only dynamic expressions but also
+human-computer interaction. In current paper, a novel 3-D                      speech communications. Magalie et al. [10] explored the
+virtual talking head system with dynamic emotional facial                      suitable experiments to test the ability of virtual characters
+expression for applying to human-robot communication was                       considering two different levels: context-free level and
+developed. Furthermore, eye tracking experiment and                            in-context level, .They emphasized the actual scene should be
+subjective evaluation experiment were utilized to explore the                  the importance cue for human-robot commination. In addition,
+emotional perception of the 3-D virtual talking head. The results              Hortensius and his colleges investigated how the appearance
+showed that there was no significant difference of observation                 of the agent affected the perception of humans [11]. They
+mode between audio-visual animation of 3-D virtual talking                     implied that the lower recognition accuracy of virtual agent
+head videos (AV3D) and audio-visual human face videos
+                                                                               emotion expression compared to human was correlated that
+(AVHF). Besides, the recognition accuracy of HF was higher
+                                                                               the quality of the agent facial.
+than 3D and almost all the accuracy of emotions had been
+improved when adding audio to videos. Finally, the results                        Although there have many agent facial synthesis methods,
+demonstrated that happiness was identified the best whether                    the facial emotion expression of 3-D animation might be an
+watching 3-D virtual talking head videos (3D) or human face                    acceptable model for human perception. To date, there are
+videos (HF). These results implied that the 3-D talking head has               varies techniques has been proposed to synthesize naturalistic
+potentially been as a suitable natural communication form in                   emotion expression from 3-D facial animation. Blanz et al.
+human-computer interaction.                                                    [13] presented a novel technique to transfer mouth movements
+                          I. INTRODUCTION                                      and expressions across individuals, based a common
+                                                                               representation of different identities and facial expressions in a
+   Recently, affective computing in anthropomorphic robot                      vector space of 3D shapes and textures. This method handled
+becomes a core research topic for natural human-computer                       with both speech and expression, but it only considered a few
+interaction. Computers or robots are allowed to recognize                      static expressive gestures which were not sufficient to
+emotions [1-3], express emotions [4-5] and communicate with                    synthesize naturalistic dynamic expressive movements. Tao et
+humans naturally and harmoniously. However, it is a                            al. [14] also developed an emotional Chinese talking head
+challenge to understand users’ emotional perception if an                      system that triggered basic facial expressions. This talking
+anthropomorphic robot communicates with them in                                head also can generate an emotional speech when inputting
+human-computer interaction.                                                    was the emotional function words. However, this method just
+   As defined by Erik C. Nook et al. [6], emotional perceptions                simulated the facial emotions corresponding to a given text
+are recognizing and identifying others’ emotions from their                    roughly, but unable to express different facial emotions for the
+social cues, such as facial expression, voice and body gesture.                same utterance in real time. Deng et al. [15, 16] created an
+A great deal of researches conducted on emotional perception                   expressive facial animation by generated a dynamic
+revolved around human face rather than robots [7, 8].                          expression signal from the PIEES mode which was
+Nowadays, the robot has come into the life of ordinary people                  concatenated to synthesize neutral visual speech according to
+and the perception of emotional expression of the robot has                    novel speech input. This method required more speech
+gained growing concern. Kätsyri et al. [9] compared and                        samples and more detailed features of facial expression.
+investigated identification of dynamic synthetic and natural                   Recently， some machine learning technologies were also
+emotional facial expressions. They found that the recognition                  utilized in synthesis of avatar facial expression for achieving
+accuracy of dynamic synthetic expressions worse than natural                   more naturalistic expression. For example, Terissi et al. [17]
+expressions. However, the above literature did not consider                    proposed a speech-driven 3-D facial animation system. This
+                                                                               method was more suitable for synthesizing 3-D mouth
+                                                                               animation, but it could not synthesize rich 3-D facial
+   This work is supported by National Natural Science Foundation of China      expression animation. And also, other three-dimensional
+(NSFC U1736203, 6177146), Shenzhen Fundamental Research Program                animation synthesis methods [18-20] were investigated the
+JCY20160429184226930，KQJSCX20170731163308665.                                  relationship of phonemes, sentences, and emotions to the
+   H. Ni is with the Shenzhen Institutes of Advanced Technology, Shenzhen,
+                                                                               synthesis of monotonous expressions of expression animation
+China, and Key Laboratory of Fiber Optic Sensing Technology and
+Information Processing Wuhan University of Technology School of                or expression animation without actual interactive meaning.
+Information Engineering Wuhan, China (e-mail: hongkernh@163.com ).             Most of the 3-D expression synthesis were only the synthesis
+   L. Wang, J. Wang and N. Yan are with the CAS Key Laboratory of              of few static expressions, but ignored the dynamic expression
+Human-Machine Intelligence-Synergy Systems, Shenzhen Institutes of             with integrating among facial expression, sound information
+Advanced Technology, Shenzhen, China (phone: (+86) 755 8639 2171; fax:         and content expressed.
+(+86) 755 8639 2299; e-mail: lan.wang@siat.ac.cn, jy.wang1@siat.ac.cn,
+nan.yan@siat.ac.cn).
+
+978-1-5386-7355-3/18/$31.00 ©2018 IEEE                                    298
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+   The current study proposed a novel method for a 3-D virtual                   The process of the 3-D virtual talking head system is mainly
+talking head system which can be presented natural basic                      divided into the following two parts. On the one hand, control
+emotions. This designed system hoped to fill in gap in                        points were set at the virtual 3-D face feature locations, and
+human-robot emotional interaction by using synchronous                        then control grids were obtained by Delaunay triangulation.
+speech and facial expressions. Further, to explore the users’                 On the other hand, the collected head motion data and the
+emotional perception from our 3-D virtual talking head, eye                   facial motion data were respectively assigned to the control
+tracking experiment and subjective evaluation experiment                      points corresponding to the 3-D virtual human face, and then
+were used to detect whether the subjects displayed the                        the head posture and the expression motion of the 3-D virtual
+similarity and differences of perceiving the emotions of 3-D                  human face were obtained using the DFFD algorithm. Facial
+virtual talking head videos (3D) and human face videos (HF).                  movement data collection and DFFD algorithm are described
+On the other hand, the naturalness, human-likeness and                        later in this paper. The application of Delaunay triangulation
+fluency of audio-visual animation of 3-D virtual talking head                 in 3-D human face can be referred to literature [21].
+videos (AV3D) were evaluated with the audio-visual human
+face videos (AVHF) were used as the comparing standard in                     A. Data Collection
+subject evaluation experiment.                                                   OptiTrack’s facial capture system [22] with six high-speed
+                                                                              infrared cameras was used to capture high-precision facial
+   The remainder of this paper is organized as follows: Section               motion data. The acquisition speed was 100 frames per second.
+II describes the dynamic 3-D virtual talking head system with                 According to the definition of expression feature points and
+speech communication, including the structure of the system,                  the observation of facial expression changed in the MPEG-4
+data collection, texture mapping and expressive animation. In                 standard, facial expression movements were mainly
+section III, the eye tracking experiment the emotional                        concentrated in feature areas such as eyebrows, eyes, and
+perception of the 3-D talking head video and subject                          mouth. Combining the geometric features of the neutral face
+evaluation experiment with audio-visual animation of 3-D                      model, 41 marker points were placed on the main features of
+virtual talking head video is introduced. Section VI shows the                the actor’s face, among which 4 feature points of the head
+experiments results and data analysis. Finally, a conclusion                  were used to capture the rigid body motion of the head, and 37
+will be pointed out in section V.                                             feature points on the face were used to capture facial
+                                                                              expression movements. The distribution of these feature
+   II. DYNAMIC 3-D VIRTUAL TALKING HEAD SYSTEM WITH SPEECH                    points was: 8 points on the lips, 4 points on the head, 12 points
+                           COMMUNICATION                                      on the eyes, 8 points on the cheeks, 6 points on the nose and 3
+  The structure of the 3-D virtual talking head system with                   points on the chin.
+speech communication and dynamic emotional facial
+expression is shown in Fig. 1.                                                  Meanwhile, a normal camera was used to capture the
+                                                                              performance of the actor for subsequent comparison with the
+                                                                              synthesized expression animation. During data collection, the
+                                                                              actor was asked to read a given emotional scene dialogue with
+                                                                              an expression.
+                                                                              B. Texture Mapping
+                                                                                 In order to generate a good looking virtual face, the
+                                                                              cylindrical projection method [23] was adopted to map the 2D
+                                                                              image texture to the 3-D face model. The 2D image applied
+                                                                              for texture mapping has been processed and beautified. In this
+                                                                              case, when the processed 2D texture image was mapped onto
+                                                                              the 3-D virtual talking head, the 3-D virtual talking head was
+                                                                              particularly realistic as a whole. And in the process of 3-D
+                                                                              virtual talking head animation, the texture was dynamically
+                                                                              adjusted as the model changes. The 3-D virtual talking head
+                                                                              after texture mapping has the advantage of easy acceptance
+                                                                              and high affinity in the process of human-computer
+                                                                              interaction. When it was used as an object of
+                                                                              human-computer interaction, it could enhance the
+                                                                              communication between the real user and the virtual person,
+                                                                              and even improve the user experience. Therefore, this texture
+                                                                              image not only had a nice appearance but also had a high
+                                                                              practical value.
+                                                                              C. Expression Animation
+                                                                                 The principle of the DFFD [24] algorithm is as follows: For
+                                                                              a set of control points Pn where n represents the number of
+                                                                              control points and a point p in the space area, it is necessary
+ Fig. 1. The structure of 3-D dynamic facial expression synthesis system      to find the Sibson [25] neighbor set Pn .The relationship
+                                                                              between Pn and p n is as follows:
+
+                                                                           299
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+                    Pn  pi | 0  i  n or pn  Pn                     drop. Conversely, if the control point was set too less, the
+                                                                                deformation effect would be poor. For example, there are only
+   From the above expression, the Sibson coordinate is a local                  12 feature points in the eye, but the control point of the eye
+coordinate system, and the point p is only affected by the                      increases to 24 in the program, and the lips have 8 feature
+control points around it that can affect it. Therefore, the set of              points, but the control point of the lips is increased to 16 in the
+control points that affect p could be all the points in set Pn , or             program. In other words, collected facial motion data were
+it could be a subset of p n .                                                   mapped as control points to the locations corresponding to 3-D
+   Then, the Sibson local coordinate x of point p relative to                   virtual talking head. Thus, the purpose of deformation was
+points Pn is calculated. When the position of control point Pn                  achieved. Fig. 2 shows the key frame picture of four basic
+changes, Sibson local coordinates of point p in this area will                  dynamic expressions.
+not change with respect to Pn . If the control point coordinates
+change as follows: Pi  Pi  Pi (0  i  n) , then the coordinate                                       III. EXPERIMENT
+position of a point p in the spatial domain of these control                    A. Participants
+points will also change accordingly. Finally, the formula for
+                                                                                   23 participants (9 females, 14 males), aged from 22 to 47
+calculating the change point is as follows:                                     (age mean (M) = 25, standard deviation (SD) = 4.76) were
+                                                                                recruited in this study. All participants were native speakers of
+                                    x P 
+                                      n
+                           p              i   i                          Chinese and had either normal or corrected vision. All
+                                      i 0
+                                                                                participants were college students or the teachers in our
+                               p  p  p                               institute and recruited through leaflet.
+   Therefore, the change of the coordinate position of the                      B. Apparatus
+control points is applied to affect the change of other points in                  Eye gaze data were recorded using a Tobii T120 eye tracker
+the control area, and finally reach the local deformation of the                (Tobii Technology, Danderyd, Sweden). The Tobii T120 eye
+control area.                                                                   tracker was used the pupil central corneal reflexology (PCCR).
+                                                                                The sampling rate was 120Hz and the accuracy was 0.5ºof
+                                                                                visual angle.
+                                                                                   Before the experiment, participants sat in front of the
+                                                                                display PC and the distance from participants to the screen
+                                                                                was adjusted to about 60cm. The horizontal line of the eyes
+                                                                                keeps in the center of the screen to ensure that participants had
+                                                                                the best view of the screen and the eye tracker could capture
+                                                                                the eye movement data of participants as much as possible.
+        (a) Happiness                                (b) Surprise               During the experiment, participants were asked to swing the
+                                                                                head as small as possible to make sure that data collection was
+                                                                                not lost.
+                                                                                C. Materials
+                                                                                   Four types of emotional stimuli were used in the study: (1)
+                                                                                25 videos clips of 3D including five dynamic expressions of
+                                                                                happiness, surprise, neutral, sadness and anger with five
+                                                                                videos each; (2) 25 videos clips of HF including five dynamic
+                                                                                expressions as above with five videos each; (3) 25 videos clips
+         (c) Anger                                   (d) Sadness                of AV3D including five dynamic expressions as above with
+                                                                                five videos each; (4) 25 videos clips of AVHF including five
+      Fig. 2. The key frame picture of four basic dynamic expressions.
+                                                                                dynamic expressions as above with five videos each. The
+                                                                                duration of these videos was ranging from 5.40 seconds to
+   These feature points as control points were used to control
+                                                                                11.93 seconds and the average duration was 7.39 seconds.
+the motion of the 3-D virtual talking head, and control the
+movement of each area of the 3-D face area according to the                     D. Procedures
+position of the feature points. According to the principle of the                  In the beginning of the preliminary experiment, participants
+DFFD algorithm introduced above, when the control point                         were asked to watch the videos and answer a questionnaire
+changed, those control points would drive other points around                   about which emotion expressed by the 3D or HF above, and
+them together to achieve the purpose of deformation. It was                     then the participants made the choice between 5 emotions
+not enough to realize the deformation of the face by only 41                    (happiness, surprise, neutral, sadness and anger).The purpose
+control points. Therefore, in the algorithm, some other points                  of the pre-experiment was to understand the experimental
+                                                                                procedures and to count the eye movement data collection
+were added to assist deformation, making the deformation
+                                                                                rates of the participants. When the collection rate was greater
+more realistic and natural. Only a proper number of control                     than 90%, the eye movement data of the participants were
+points can achieve the best deformation effect. If the control                  basically not lost.
+point was set too much, the efficiency of the algorithm will
+
+
+                                                                            300
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+   The formal experiment was completed in two days. On the                    emotions, the multi-way ANOVA (Emotion* Type*
+first day, the participants were asked to watch 25 3D and 25                  Condition) was conducted on recognition accuracy of
+the corresponding HF, the videos in 3D or HF were randomly                    dynamic expressions.
+appearing. The next day, the same batch of participants
+watched the same 25 AV3D and 25 the corresponding AVHF                          The recognition accuracy of HF was higher than 3D in
+corresponding and the videos in AV3D and AVHF were                            happiness (F(1,110) = 16.358, p < 0.001), sadness (F(1,110) =
+randomly appearing. The purpose was to weaken the                             16.358, p < 0.001) and anger (F(1,110) = 21.869, p < 0.001).
+participant's memory for the same video.                                      But the recognition accuracy of 3D was higher than HF in
+                                                                              neutral (F(1,110) = 85.128, p < 0.001).
+   After the eye tracking experiment, a subject evaluation was
+investigated. Participants evaluated the AV3D in terms of                        When the audios were added to the videos, Besides, the
+naturalness, human-likeness, and fluency. The AVHF were                       recognition accuracy of the videos added audios is higher
+used as the comparing standard. Subjects rate the performance                 than the video without audio in anger (F(1,110) = 161.756, p
+from 1-5, where “1” corresponds to very poor and “5”                          < 0.001) , sadness (F(1,110) = 69.459, p < 0.001) and surprise
+corresponds to excellent followed Likert scale [26].                          (F(1,110) = 118.841, p < 0.001).
+
+         IV. RESULTS AND STATISTICAL ANALYSIS                                 C. Statistical Analysis of gaze data
+                                                                                 The areas of interests for eyes and mouth were selected as
+A. Subjective Evaluation                                                      shown in Fig.4. The gaze data were analyzed using
+   The results of subjective evaluation of AV3D revolved                      ANOVA(Emotion* Type* Condition) to examine type and
+around naturalness, human-likeness and fluency are shown in                   condition differences and interactions for each area of interest.
+Table.1. The average score of five emotions was more than
+3.8 (3.92 in naturalness, 3.85 in human-likeness and 4.28 in
+fluency).
+
+   TABLE I.        RESULTS OF SUBJECTIVE EVALUATION OF AV3D
+
+                        Subjective Evaluation Criteria
+    Emotions
+                 Naturalness    Human-likeness        Fluency
+    happiness         3.95                3.97              4.36
+                                                                                            Fig. 4. The areas of interest in 3D and human face.
+    surprise          4.14                3.98              4.40
+     neutral          3.86                3.83              4.25                Fixation duration percentages in the eye region of each
+     sadness          3.71                3.64              4.17              emotion in 3D, AV3D, HF and AVHF are showed in Fig .5.
+      anger           3.94                3.83              4.23              The fixation duration of 3D was longer than HF in anger
+     average          3.92                3.85              4.28              (F(1,110) = 4.719, p = 0.032 < 0.05), happiness (F(1,110) =
+                                                                              12.626, p = 0.001 < 0.05), neutral (F(1,110) = 7.098, p = 0.009
+                                                                              < 0.05) and surprise (F(1,110) = 14.088, p = 0.006 < 0.05).
+   From Table.1, the scores of the naturalness and
+human-likeness were approaching to 4 and even the score of
+fluency was more than 4. The results of subjective evaluation
+illustrated that AV3D remained roughly the same as AVHF in
+terms of emotional expression.
+B. Recognition Accuracy of Dynamic Expressions
+  The total recognition accuracy of five dynamic expressions
+was shown in Fig.3.
+
+
+
+
+                                                                                Fig. 5. Fixation duration percentage for the mouth for each emotion in 3D,
+                                                                                                             AV3D, HF and AVHF.
+
+                                                                                 When the audios were added to the videos, the fixation
+                                                                              duration in eye region of the surprise videos with voice was
+                                                                              more than the surprise videos without audio (F(1,110) = 4.488,
+                                                                              p= 0.036 < 0.05). But there were no significant differences of
+                                                                              fixation duration between the other emotions videos added
+                                                                              audio and the other emotions videos without audio in eye
+         Fig. 3. Recognition Accuracy of Dynamic Expressions.                 region.
+                                                                                Fixation duration percentages in the mouth region of each
+   To determine whether the types (3D and HF) and                             emotion in 3D, AV3D, HF and AVHF are showed in Fig .6.
+conditions (audio and without audio) differed on different                    The fixation duration of 3D was longer than HF in anger
+
+                                                                         301
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+(F(1,110) = 18.790, p < 0.001) and sadness (F(1,110) = 4.147,                                                REFERENCES
+p = 0.044 < 0.05).                                                             [1] Cowie. R, Douglas-Cowie. E, Tsapatsoulis. N, Votsis. G, Kollias,
+   When the audios were added to the videos, there was no                           S.Fellenz, W. Fellenz and Taylor, J.G. "Emotion recognition in
+                                                                                    human-computer interaction." IEEE Signal Processing Magazine, 2001,
+significant difference of fixation duration the videos added                        pp. 32-80.
+audio and the videos without audio in mouth region.                            [2] Cohen. Iris, R. Looije, and M. A. Neerincx. "Child's recognition of
+                                                                                    emotions in robot's face and body." ACM/IEEE International
+                                                                                    Conference on Human-Robot Interaction IEEE, 2011, pp. 123-124.
+                                                                               [3] Ghayoumi. Mehdi, and A. K. Bansal. "Emotion in Robots Using
+                                                                                    Convolutional Neural Networks Social Robotics." Springer
+                                                                                    International Publishing, 2016, pp. 285-295.
+                                                                               [4] Kim. Dong Hwa, P. Baranyi, and Nair. "Emotion dynamic express by
+                                                                                    fuzzy function for emotion robot." International Conference on
+                                                                                    Cognitive Infocommunications IEEE, 2011, pp.1-4.
+                                                                               [5] Izui. Takamune, Milleville. Isabelle, Sophie. Sakka and Venture,
+                                                                                    Gentiance. "Expressing emotions using gait of humanoid robot." IEEE
+                                                                                    International Symposium on Robot and Human Interactive
+                                                                                    Communication IEEE, 2015, pp. 241-245..
+                                                                               [6] Nook. Erik C, Lindquist. Kristen A, and Zaki. Jamil. "A new look at
+                                                                                    emotion perception: Concepts speed and shape facial emotion
+                                                                                    recognition." Emotion, vol.15, no. 5, 2015, pp.569-578.
+                                                                               [7] Biele, Cezary, and Anna Grabowska. "Sex differences in perception of
+   Fig. 6. Fixation duration percentage of the eye for each emotion in 3D,          emotion intensity in dynamic and static facial expressions."
+                               AV3D, HF and AVHF.                                   Experimental Brain Research, vol.171, no.1, 2006, pp. 1-6.
+                                                                               [8] Sabatinelli. Dean, Fortune. Erica E, Li. Qingyang, Siddiqui. Aisha,
+                           V. CONCLUSION                                            Krafft. Cynthia, Oliver. William T, Beck. Stefanie and Jeffries. Joshua.
+                                                                                    "Emotional perception: meta-analyses of face and natural scene
+   In this paper, a 3-D virtual talking head system with                            processing." Neuroimage, vol.54, no.3, 2011, pp. 2524-2533..
+dynamic emotional facial expression for applying to                            [9] Kätsyri, Jari, Klucharev V, Frydrych M and Sams M. "Identification of
+human-robot communication was developed. Compared with                              synthetic and natural emotional facial expressions." In Proc. of
+                                                                                    International Conference on Audio-Visual Speech Processing, 2003,
+the 2D video data-driven method in literature [27], our                             pp.239-244.
+method was 3-D coordinate data-driven, which focused more                      [10] Ochs. Magalie, Radoslaw. Niewiadomski and Catherine. Pelachaud.
+on the simulation of facial expression movements, which                             "Facial Expressions of Emotions for Virtual Characters." The Oxford
+could capture the detailed motion of the face. In addition, our                     Handbook of Affective Computing, 2015, pp.261-272.
+                                                                               [11] Hortensius. Ruud, F. Hekele, and E. S. Crossy. "The perception of
+DFFD-based data-driven algorithm had excellent portability                          emotion in artificial agents." IEEE Transactions on Cognitive &
+and universality. As long as the human face motion data of                          Developmental Systems, 2017, pp. 1-1.
+ordinary adults were collected, a 3D virtual universal speaker                 [12] Wan. X, and X. Jin. "Realistic 3D facial expression synthesis: A
+head could be driven to produce the same realistic facial                           survey." Journal of Computer-Aided Design & Computer Graphics
+                                                                                    vol.26, no.2, 2014, pp.167-178.
+animation as the real person.                                                  [13] Blan. V, Basso. C, Poggio. T and Vetter. T. "Reanimating Faces in
+   Further, there were some similarities and differences of                         Images and Video." Computer Graphics Forum, vol.22, no.3, 2003,
+perceiving the emotion of 3-D talking head and human face.                          pp.641-650.
+According to the recognition accuracy, happiness was                           [14] Tao. Jianhua, and Tieniu. Tan. "Emotional Chinese talking head
+                                                                                    system." International Conference on Multimodal Interfaces ACM,
+identified the best whether it was 3D or HF. Although the                           2004, pp. 273-280.
+recognition accuracy of HF was higher than 3D in happiness,                    [15] Deng. Zhigang, Lewis. J. P and Lim. Tae-Yong. "Expressive facial
+sadness and angry, almost all the emotions had been                                 animation synthesis by learning speech coarticulation and expression
+                                                                                    spaces." IEEE transactions on visualization and computer graphics,
+improved when adding audio to videos. The reason is that                            vol.12, no.6, 2006, pp.1523-1534.
+visual information dominates facial expression recognition,                    [16] Deng. Zhigang, and U. Neumann. "eFASE:expressive facial animation
+and audio information complements and enhances visual                               synthesis and editing with phoneme-isomap controls." ACM
+                                                                                    Siggraph/eurographics Symposium on Computer Animation
+information. From the results of statistical analysis of gaze                       Eurographics Association, 2006, pp.251-260.
+data, in general, the fixation duration in the areas of interest of            [17] Terissi. Lucas D, Cerda Mauricio, Gomez. Juan C, Hitschfeld-Kahler
+3D was longer in HF. But there were almost no significant                           Nancy and Girau. Bernard. "A comprehensive system for facial
+differences of fixation duration in the areas of interests                          animation of generic 3D head models driven by speech." EURASIP
+                                                                                    Journal on Audio, Speech, and Music Processing, vol.1, no. 2013, 2013:
+whether the audios were added to the videos.                                        pp. 1-18.
+   In summary, the fixation duration in the areas of interest of               [18] Zhang.Yongmian, Ji. Qiang, Zhu. Zhiwei and Yi. Beifang. "Dynamic
+3D was longer in HF implied that the 3-D talking head has                           facial expression analysis and synthesis with MPEG-4 facial animation
+                                                                                    parameters." IEEE Transactions on Circuits and Systems for Video
+potentially to a suitable naturally communicating method in
+                                                                                    Technology, vol. 18, no. 10, 2008, pp. 1383-1396.
+human-computer interaction. Our future work will focus on                      [19] Deng. Zhigang, Murtaza. Bulut, Neumann. Ulrich, Narayanan. Shri.
+the optimization of 3-D talking head model with high lifelike                       "Automatic dynamic expression synthesis for speech animation." Proc.
+texture design, in addition to build a database which including                     of IEEE Computer Animation and Social Agents 2004, Geneva,
+                                                                                    Switzerland, Jul. 2004, pp.267-274.
+all the phonemes audio and database with the corresponding                     [20] Chan. Choong Seng and Tsai. Flora S. "Computer Animation of Facial
+facial expressions of movement.                                                     Emotions." International Conference on Cyberworlds IEEE Computer
+                                                                                    Society, 2010, pp.425-429.
+
+
+                                                                             302
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+[21] R. Hassanpour and V. Atalay, “Delaunay triangulation based 3d human
+     face modeling from uncalibrated images,” in Computer Vision and
+     Pattern Recognition Workshop, Conference on IEEE, 2004, pp. 75–75.
+[22] Point, Natural. "Optitrack”, https://www.optitrack.com/.
+[23] Zhang. Junyi, and S. Luo. "image-Based Texture Mapping Method in
+     3D Face Modeling." Ieee/icme International Conference on Complex
+     Medical Engineering IEEE, 2007, pp.147-150
+[24] Moccozet. L, and N. M. Thalmann. "Dirichlet free-form deformations
+     and their application to hand simulation." Computer Animation IEEE,
+     1997, pp. 93-102.
+[25] Sibson. Robin. "A vector identity for the Dirichlet tessellation."
+     Mathematical Proceedings of the Cambridge Philosophical Society. vol.
+     87, no. 1, 1980, pp. 151-155.
+[26] Macedonia. Manuela. "A bizarre virtual trainer outperforms a human
+     trainer in foreign language word learning." International Journal of
+     Computer Science and Artificial Intelligence vol.4, no.2. 2014, pp.
+     24-34.
+[27] Yu Jun, Jiang Chen, Li Rui, Luo Changwei and Wang Zengfu.
+     "Real-Time 3-D Facial Animation: From Appearance to Internal
+     Articulators". IEEE Transactions on Circuits & Systems for Video
+     Technology, vol.28, no.2, 2018, pp.920-932.
+
+
+
+
+                                                                          303
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:51 UTC from IEEE Xplore. Restrictions apply.
+

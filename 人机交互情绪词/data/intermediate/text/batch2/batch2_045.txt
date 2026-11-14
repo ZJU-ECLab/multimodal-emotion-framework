@@ -1,0 +1,199 @@
+UBICOMP/ISWC ’17 ADJUNCT, SEPTEMBER 11-15, 2017, MAUI, HAWAII, USA
+
+
+
+
+                                                            Facial Temperature Sensing on Smart
+                                                            Eyewear for Affective Computing
+
+                            Benjamin Tag                                                                      Abstract
+                            Keio University Graduate School of Media Design                                   We present a system for tracking positive cognitive and
+                            Yokohama, Japan                                                                   emotional states for affective computing, which uses
+                            tagbenja@kmd.keio.ac.jp
+                                                                                                              contactless temperature sensors on eye glasses to monitor
+                                                                                                              changes in facial temperature. First user tests show
+                                                                                                              promising results for identifying different likability of video
+                            George Chernyshov                                                                 content reﬂected in changes of facial temperature. In
+                            Keio University Graduate School of Media Design                                   contrast to the related works that focuses on detecting
+                            Yokohama, Japan                                                                   negative states, our approach aims at identifying positive
+                            chernyshov@kmd.keio.ac.jp                                                         affects. In combination with additional physiological sensor
+                                                                                                              readings our proposed system allows the maintenance and
+                                                                                                              retention of highly enjoyable and productive states.
+                            Kai Kunze
+                            Keio University Graduate School of Media Design                                   ACM Classiﬁcation Keywords
+                            Yokohama, Japan                                                                   H.5.1 [Information interfaces and presentation (e.g., HCI)]:
+                            kai@kmd.keio.ac.jp
+                                                                                                              Author Keywords
+                                                                                                              Ubiquitous Computing; Affective Computing; Sensing;
+                                                                                                              Productivity; Pleasure
+
+                            Permission to make digital or hard copies of all or part of this work for
+                            personal or classroom use is granted without fee provided that copies are
+                                                                                                              Introduction and Motivation
+                            not made or distributed for profit or commercial advantage and that copies        One of the major steps in the evolution of human-computer
+                            bear this notice and the full citation on the first page. Copyrights for          interaction (HCI) is the introduction of physiological
+                            components of this work owned by others than ACM must be honored.
+                            Abstracting with credit is permitted. To copy otherwise, or republish, to         computing. Real-time measurements and analysis of
+                            post on servers or to redistribute to lists, requires prior specific permission
+                                                                                                              physiological signals through sensors help opening up an
+                            and/or a fee. Request permissions from Permissions@acm.org.
+                            UbiComp/ISWC'17 Adjunct, September 11–15, 2017, Maui, HI, USA                     implicit communication channel between computers and
+                            © 2017 Association for Computing Machinery.
+                            ACM ISBN 978-1-4503-5190-4/17/09...$15.00
+                                                                                                              their users. Awareness of the user’s emotional and
+                            https://doi.org/10.1145/3123024.3123084
+
+
+
+
+                                                                                                209
+                                                                                                    UBICOMP/ISWC ’17 ADJUNCT, SEPTEMBER 11-15, 2017, MAUI, HAWAII, USA
+
+
+
+
+                                  cognitive state allows computers to react and adapt in real         levels are high [4]. Even though many studies limit HCI and
+                                  time, and therefore maximize HCI performance efﬁciency              affective computing to the recognition of negative emotions,
+                                  and communication. Ubiquitous computing enables us to               research has shown that also positive affect has a direct
+                                  make use of computational power in everyday situations              inﬂuence on our performance, especially when it comes to
+                                  and liberate experiments and application scenarios from the         learning [2]. The pinnacle combination of high performance
+                                  necessity for heavy stationary devices in controlled                and positive feeling is described by Csikszentimihalyi as the
+                                  laboratory environments.                                            ﬂow state. It is therefore the optimal state affective
+                                                                                                      computing could induce, or help to retain for the user, in an
+                                  So far, most affective computing systems aim at boosting            HCI scenario [3].
+                                  the performance efﬁciency by identifying negative states
+                                  and intervening, e.g. when frustration builds up due to a           Recent studies on sensing of emotional responses in
+                                  boring task. In contrary to this we aim at identifying positive     everyday scenarios mainly focus on electro-dermal activity,
+                                  affects and pleasure through physiological sensing on the           which requires sensors in contact with the skin of a user
+                                  face. We are utilizing J!NS Meme smart glasses (Figure 1)           [6]. Our concept of using facial temperature is justiﬁed by its
+Figure 1: J!NS MEME and closeup   customized with contactless infrared temperature sensors            relatively easy implementation and the possibility of
+on the EOG electrodes
+                                  to measure changes in facial temperature in the nose and            contactless sensing capabilities. It is a well established fact
+                                  forehead region.                                                    that cognitive activity relates to cerebral blood ﬂow and heat
+                                                                                                      exchange[8]. During higher cognitive loads (e.g. studying)
+                                  We are aware that interventions to tackle negative states           cerebral neurons are more active than in resting states,
+                                  such as frustration and loss of attention are the current           producing more energy that is released as heat through the
+                                  "gold standard" in affective computing, but believe that the        vascular system in the face. Studies investigating facial
+                                  recognition and retention of positive affects offers an             temperature changes have already been done [9], but so
+                                  alternative way to maximize productivity and pleasure,              far none of them has approached a mobile, unobtrusive
+                                  which is one of the main goals of physiological computing in        solution for everyday usage.
+                                  HCI [4]. We hereby focus especially on maintaining
+                                  extremely productive and enjoyable periods, such as the             Our Approach
+                                  volatile ﬂow state described by Csikszentimihalyi.                  We are aware of the fact that the literature describes facial
+                                                                                                      temperature changes mainly as an indicator for cognitive
+                                  Related Works                                                       workload. Nevertheless, during a former set of studies
+                                  Physiological computing has two goals: (1) the increase of          where we used a thermal camera, we recognized trends
+                                  efﬁciency of performance, and (2) improving the pleasure            between enjoyed movie trailers and changes in facial
+                                  derived from interacting with computers through monitoring          temperature readings using a thermal IR camera. We have
+                                  and processing physical sensor data from the system user.           used movies, because related works revealed that they are
+                                  Consequently, data describing negative and/or positive              effective in psychophysiological experiments [5, 6]. Our
+                                  affects are used as input modalities that trigger speciﬁc           former study aimed at identifying regions of interest (ROI)
+                                  reactions of the system, e.g. intervention when frustration         on the face that on the one hand present temperature
+
+
+
+
+                                                                                        210
+    POSTERS
+
+
+
+
+                                     changes related to cognitive activity. The pivotal regions on   bridge of the glasses. We then compared the ranking to
+                                     the human face are located on the forehead right between        logged temperature readings. The missing robustness of
+                                     the eyebrows, on the sides of the nose, and on the nasal        our system did not allow for a longer user study, but the
+                                     bridge. Therefore, most eyeglass frames constitute the ideal    graphs from the ﬁrst three candidates reﬂect the different
+                                     means to carry contactless temperature sensors [7].             preferences of video content, cf. Graph 4 - Graph 6. As an
+                                                                                                     example, the temperature difference between forehead and
+                                     We attached contactless IR sensors to the bridge of J!NS        nose increases by 0.6◦ C for the most enjoyed video,
+                                     Meme smart glasses, which are natively equipped with            whereas the second ranked video causes a 0.6◦ C
+                                     electrooculography (EOG) sensors around the nose for            decrease, followed by another 0.8◦ C decrease for the video
+Figure 2: Prototype 1: Contactless
+                                     measuring eye movements, blink, and head postures, in           on the third rank. A one-way ANOVA for the ﬁrst three
+Infrared Sensors on J!NS Meme
+                                     addition to motion sensors (accelerator and gyroscope) and      candidates was still insigniﬁcant. Therefore, it is necessary
+smart wear
+                                     a Bluetooth LE (low energy) module [1]. The development         to conduct a bigger user study with a robust setup, which
+                                     of our prototypes can be seen in Figures 2 and 3. After an      we are building right now.
+                                     initial setup with rather obtrusive sensor installations, we
+                                     achieved a small, unobtrusive solution for temperature          Application and Future Work
+                                     sensing. Picture 3 shows the bridge carrying the sensor for     Work Environments
+                                     the forehead region. Our setup consists of a Laptop and         When the system (glasses connected to mobile device or
+                                     J!NS MEME glasses extended by the heat sensor module.           computer) recognizes that the user is entering the highly
+                                     We use sensor modules with TI TMP006 IR contactless             productive and pleasurable ﬂow state, it can block
+                                     thermopile sensors.                                             notiﬁcations and possible distractions in order to avoid that
+                                                                                                     the user is being pulled out of the experience. Similarly,
+                                     User Test and Results                                           environmental settings such as screen brightness and
+                                     In order to avoid any interferences with our temperature        played background music can be stored and reset when it
+Figure 3: Prototype 2: Small         sensors, we decided to run the pre-tests without using          becomes obvious that the user is drifting out of a productive
+Contactless IR temperature           neither of the other sensors installed in the glasses. It is    and enjoyable state.
+sensors on J!NS Meme bridge          clear that facial temperature changes alone are not
+                                     sufﬁcient to identify affective states, but because of their    Interactive Learning Environments
+                                     direct relation to cognitive activity, they become crucial      The system also enables teachers to react to the classroom
+                                     when describing performance and affect.                         and study climate by giving real time feedback from
+                                                                                                     students wearing the glasses. Special tasks, physical
+                                     We used the ﬁrst of our two prototypes for the pre-test. We     activities, or topic changes can be utilized by the teacher to
+                                     presented the wearers with two blocks of four mainstream        keep students in a positive and productive state. An
+                                     ﬁlm trailers and asked them to rank the videos according to     automated system enables more efﬁcient studying at home
+                                     their liking after watching each block. During the whole        due to the possibility for the system to identify higher
+                                     experiment we logged temperature changes on the lateral         engagement levels during preferred learning styles (reading,
+                                     sidewalls of the nose as well as on the forehead above the      listening, watching, writing, etc.) and repeating this favored
+
+
+
+
+                                                                                            211
+                                                                                                 UBICOMP/ISWC ’17 ADJUNCT, SEPTEMBER 11-15, 2017, MAUI, HAWAII, USA
+
+
+
+
+                                   form when a decrease in performance is identiﬁed.                5. Christine Lætitia Lisetti and Fatma Nasoz. 2004. Using
+                                                                                                       Noninvasive Wearable Computers to Recognize
+                                   Entertainment                                                       Human Emotions from Physiological Signals. EURASIP
+                                   Especially with virtual reality in sight, sensing on                Journal on Advances in Signal Processing 2004, 11
+                                   head-mounted devices has the potential to enable physical           (2004), 929414. DOI:
+                                   signals as implicit input modalities for ﬁlm or game                http://dx.doi.org/10.1155/S1110865704406192
+                                   experiences. Identiﬁed higher pleasure with a certain scene
+                                   or atmosphere can be used in adaptive storytelling models.       6. Fernando Silveira, Brian Eriksson, Anmol Sheth, and
+Figure 4: Difference in facial                                                                         Adam Sheppard. 2013. Predicting Audience
+temperature between forehead and   Prospective                                                         Responses to Movie Content from Electro-dermal
+nose averages for candidate 2      The temperature data will be extended by EOG readings               Activity Signals. In Proceedings of the 2013 ACM
+while watching video ranked most   and can be completed with galvanic skin response                    International Joint Conference on Pervasive and
+enjoyable                          measurements. A ﬁrst test of the J!NS sensors showed that           Ubiquitous Computing (UbiComp ’13). ACM, New York,
+                                   they can be used for Galvanic Skin Response                         NY, USA, 707–716. DOI:
+                                   measurements (GSR), and therefore allow us to render an             http://dx.doi.org/10.1145/2493432.2493508
+                                   even more accurate image of users’ affective state.
+                                                                                                    7. Benjamin Tag, Ryan Mannschreck, Kazunori Sugiura,
+                                                                                                       George Chernyshov, Naohisa Ohta, and Kai Kunze.
+                                   Acknowledgements
+                                                                                                       2017. Facial Thermography for Attention Tracking on
+                                   This work is supported by JST Presto.
+                                                                                                       Smart Eyewear: An Initial Study. In Proceedings of the
+                                   REFERENCES                                                          2017 CHI Conference Extended Abstracts on Human
+                                    1. O. Amft, F. Wahl, S. Ishimaru, and K. Kunze. 2015.              Factors in Computing Systems (CHI EA ’17). ACM,
+                                       Making Regular Eyeglasses Smart. IEEE Pervasive                 New York, NY, USA, 2959–2966. DOI:
+Figure 5: Difference in facial
+temperature between forehead and       Computing 14, 3 (2015), 32–43.                                  http://dx.doi.org/10.1145/3027063.3053243
+nose averages for candidate 2                                                                       8. Huan Wang, Bonnie Wang, Kieran P Normoyle, Kevin
+while watching video ranked 2nd
+                                    2. F Gregory Ashby, Alice M Isen, and others. 1999. A
+                                       neuropsychological theory of positive affect and its            Jackson, Kevin Spitler, Matthew F Sharrock, Claire M
+                                       inﬂuence on cognition. Psychological review 106, 3              Miller, Catherine Best, Daniel Llano, and Rose Du.
+                                       (1999), 529.                                                    2014. Brain temperature and its fundamental
+                                                                                                       properties: a review for clinical neuroscientists.
+                                    3. Mihaly Csikszentmihalyi. 1991. Flow: The Psychology             Frontiers in Neuroscience 8 (2014), 307. DOI:
+                                       of Optimal Experience. Harper Perennial.                        http://dx.doi.org/10.3389/fnins.2014.00307
+                                    4. Stephen H. Fairclough. 2009. Fundamentals of                 9. Robert B. Zajonc, Stephanie Murphy, and Marita
+                                       physiological computing. Interacting with Computers             Inglehart. 1989. Feeling and facial efference:
+                                       21, 1-2 (2009), 133. DOI:                                       implications of the vascular theory of emotion. Journal
+                                       http://dx.doi.org/10.1016/j.intcom.2008.10.011                  of Applied Physiology 96, 3 (1989), 395–416.
+Figure 6: Difference in facial
+temperature between forehead and
+nose averages for C2 while
+watching video C2 ranked 3rd
+
+
+
+                                                                                       212
+

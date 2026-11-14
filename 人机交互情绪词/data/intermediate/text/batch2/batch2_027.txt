@@ -1,0 +1,334 @@
+Design and Emotional Evaluation of Pepe Jr: A Cost-
+  Effective Platform For Human Robot Interaction
+                      Studies
+                               Shanker, Nidhin Sugunan, Alekh V, Sooraj Krishna, Sooraj K Babu, Rao R. Bhavani
+                                                              AMMACHI Labs
+                                                        Amrita Vishwa Vidyapeetham
+                                                          Amritapuri, India- 690525
+                                                     shanker.ramesh@ammachilabs.org
+
+
+
+    Abstract— This paper introduces Pepe Jr, a 4 DOF robotic
+lamp, designed as a cost-effective platform for Human Robot
+Interaction research. We discuss the mechanical and electronic
+design aspects of the robot, and the design of the motion patterns
+associated with each emotion expressed by the robot. We also
+discuss results from a battery of surveys to gauge user perception
+of these expressed emotions, which validate the design objectives
+of the robot.
+
+  Keywords—Sociable robots, Robotics, Robotic Technology,
+Human robot interaction, Robotic desk Lamp, Emotion; Expression
+
+                         I. INTRODUCTION
+    Recent advents in robotics, sensing and actuation
+                                                                                                      Fig. 1. Pepe Jr; Robotic Desk Lamp
+technologies and machine learning algorithms have enabled
+researchers to design uniquely intimate solutions for users.
+Enabling interactivity, with behaviours customized to age and                                 II. DESIGN AND IMPLEMENTATION
+gender groups enable robots for personalized applications.
+    Interaction with human or anthropomorphic behaviour has                       A. The system architecture
+become an essential functionality of a robot. Research projects                       The main four functional units of Pepe Jr. are emotional
+like Kismet [1], Eddie [2], Mask Bot [3] use facial expressions                   cues, electronics module, power unit, and control unit Fig. 2.
+to convey emotions. While Kismet and Eddie use animation of                       The sensors attached to the robot interacts with the
+mechanical parts, where the Mask bot uses a projection on a                       environment and takes inputs. The inputs are then processed in
+semi-transparent face mask acting as a screen, for expression.                    the control unit to give motion patterns through actuators and
+Beyond facial expressions, body language plays a vital role in                    lights. The end effector emits different shades of light as a
+interactivity. KOBIAN [4], Nao [5], WABIAN-2 [6] and AUR                          reflection of the emotion towards the environment.
+Robotic Lamp [7] are some of the robots, that demonstrate
+body language based emotion expression. While these research                      B. The hardware
+projects have been guiding pillars for Pepe Jr, we have tried to                      The mechanical structure and parts of Pepe Jr were
+demonstrate a frugal and unique approach to emotional                             modelled using SOLIDWORKS 2017. The parts were made
+expression. As will be further discussed in this paper, Pepe Jr.                  out of MDF using the laser cutter. An important design
+is a robotic lamp that expresses emotions via movement across                     criterion was to make the assembling and disassembling of the
+4 degrees, and via adaptive lighting. We took our inspiration                     robot simple and quick. Pepe Jr is driven by four MG995
+from Pixar’s “Luxo Jr” for this project and based on our                          High-Speed Metal Gear Dual Ball Bearing. It can rotate
+analysis, we are confident that this robot is a stepping stone for                approximately 120 degrees (60 in each direction) and can
+research activities in the domain of Human Robot Interaction.                     withstand a load of 8.5 kgf.cm. To make the robot functional
+   Section II of this paper, details Pepe Jr.’s system                            and to get the desired performance sensors are attached which
+architecture and hardware design. Section III details human                       includes HC-SR501 PIR sensor, TCS3200 colour sensor and a
+robot interaction studies conducted with Pepe Jr.                                 pair of IR sensors. Sensitivity range of the PIR sensor is up to
+
+
+
+
+978-1-5386-5323-4/18/$31.00 ©2018 IEEE                                       76
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+                                                                 Fig. 2. System architecture
+
+detection at 38KHz. Arduino ATmega328P is the control                             which is an important body language of a human when they are
+center where all the required computations are carried out. The                   sadness whereas an obtuse angle between the links will elevate
+actuators and sensors are connected to the board and controlled                   the body which is a sign of happiness.
+by Arduino language which is a set of C/C++ functions. For
+making the assembly easier for children and semi-skilled                              Emotions and feelings are closely associated with colors
+person, the links are directly attached to the servo motors. The                  and it has a high impact which is broadly recognized. Also,
+diagrammatic representation of the robot is shown in Fig. 3.                      there is a strong relationship that ties color and emotion with its
+                                                                                  color preference [16]. The connection between color and
+                                                                                  emotions is developed from a young age and its investigation
+III. INVESTIGATING HUMAN ROBOT INTERACTION                                        has been done by Boyatzis and Varghese in 1994 [17]. The
+                                                                                  outcome of the research highlights light colors are linked to
+A. Motion pattern description for each emotion                                    positive emotions i.e. joy and dark colors are linked to negative
+    Discrete emotional states: The literature research of                         emotions i.e. sadness.
+Fridlund, Ekman, and Oster in 1987 states in different cultural
+groups, the six basic emotions are identified in abundance [8].                      Pepe Jr. expresses himself using both body language and
+Hence it can be assured that reality of universal emotions is                     colors. It is evident from the above researchers that the
+entitled and understood equally around the world.                                 amalgamation of both works best. Table I is the description of
+                                                                                  Pepe Jr.’s emotional cues in details. Each expression has got its
+     Most researchers on the emotional expression of humans                       unique set of motion patterns and colors, adding a unique
+were focused on the six emotions which should be expressed                        character to Pepe Jr. Fig. 4 and Fig. 1 shows Pepe Jr.’s default
+by Pepe Jr. Investigation done by Darwin [9] states how the                       position i.e. the idle state.
+emotions are being expressed by humans with their bodies and
+it states that when a human being is happy the emotion will be
+expressed by laughter or some random motions like jumping                         B. Emotional Evaluation of Pepe Jr. through video
+and at that time the body will be elevated and the face will be                       To evaluate the emotional expressiveness of the robot the
+lifted from the normal state. Whereas, when the body is flexed                    survey was conducted based on video based survey technique
+towards the chest slowly, thus expressing sadness.                                developed by Cynthia Breazeal [1]. This video screening and
+    In a research, Beck et al [5] proved that the position of the                 survey was meant to be a preliminary phase of evaluation [10].
+head is paramount in expressing an emotion. It was                                A sample of 18 participants was included in the survey
+experimentally proved that the head is raised while expressing                    consisting of 6 female participants and 12 male participants of
+happiness and the head is dropped while expressing the                            age ranging from 20 to 35. A software platform was created to
+emotions like sadness and anger. In a robot which looks like a                    collect the response from the participants and to maintain a
+desk lamp, this research outputs are really important while                       local database.
+developing its motion patterns because the head of the lamp is                        The questionnaire contained 6 video clips, each expressing
+considered as the head of a human. The links which connect the                    six types of emotions namely sadness, joy, anger, surprise,
+lamp head and the base are recognized as the robot’s body.                        disgust and fear. These video clips were recorded while the
+Change of the angle between the links will also contribute                        robot expressed the 6 above mentioned emotions. After
+heavily in expressing the emotions, when the angle between the                    showing each video, the participants were provided with six
+links are acute then the chest of the robot will be contracted                    options for the above-mentioned emotions to choose [1].
+
+
+
+
+                                                                             77
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+                                                                                  D. Evaluation of perspective survey
+                                                                                  To assess the perception of our robot - Pepe Jr., we presented
+                                                                                  the widely accepted Godspeed survey to 30 participants. The
+                                                                                  survey contains various aspects of anthropomorphism,
+                                                                                  animation, likeability and perceived safety. Participants of the
+                                                                                  survey were asked to rate Pepe Jr. on a scale of 1-5 for the
+                                                                                  aforementioned aspects with 1 being worst and 5 being best.
+                                                                                  Condition formatting color grade is used to represent the data
+                                                                                  in the table 4 and table 5, where green is of highest proportion
+                                                                                  and red being the least proportion.
+                                                                                      The results were overwhelmingly positive with like-ability
+                                                                                  having the highest score of 3.9 and anthropomorphism,
+                                                                                  animation and perceived safety having scores of 3.4, 3.5 and
+                                                                                  3.5 respectively. The detailed result of the survey is shown in
+                                                                                  table 4 and table 5.
+             Fig. 3. Diagrammatic representation of Pepe Jr
+                                                                                            IV. CONCLUSION AND FUTURE SCOPE
+                                                                                      This paper is an introduction to Pepe Jr. a robotic desk lamp
+    The compiled results are shown in Table II. The positive                      that can express emotional cues and interact with the user by
+response from the participants ranged from 50 % to 92.4 %.                        body language.
+From the survey, it is noted that few participants matched                           This paper discusses a study on identification of the six
+sadness to disgust as both conveyed negative valence. Similar                     emotions shown by Pepe Jr. On our surveys for determining the
+negative valence like fear was also misclassified with disgust.                   accuracy of emotion expressions, sadness and fear were most
+Expression of joy was sometimes marked as a surprise and also                     accurately recognized whereas disgust was recognized least
+as angry. Such a mixing uptrend with positive and negative                        accurately. Results of this survey and Godspeed framework
+valence was also observed in case of angry and surprise.                          confirm the usability of Pepe Jr for practical applications.
+Disgust seemed to be the expression that participants found
+difficult to recognize, having mapped it to rest of the emotions.                 For the future we envision Pepe Jr. to be a 5 DOF system, with
+                                                                                  a rotation at the base to improve the interactivity. On our
+                                                                                  mechanical design, we have also conceptualized accident
+C. Evaluating the emotional expressiveness of Pepe Jr. in
+                                                                                  avoidance mechanisms for the robot [19]. Also, based on
+    real time
+                                                                                  feedback on our project, we have conceptualized solutions to
+    The preliminary test gave an insight into the performance of                  accommodate audio feedback mechanisms for more realistic
+Pepe Jr in expressing the emotions. The evaluation was then                       expressions [14].
+extended to real-time interaction setup between the bot and
+participants. A new sample of 12 new subjects was readied,
+comprising of 2 female participants and 10 male participants of
+age ranging from 20 to 28. Similar survey procedure as that of
+the preliminary test was followed for the new setup. The
+participants were allowed to interact with the bot and asked to
+identify the expressed emotions. Identified emotions were
+noted in the offline software platform and the response was
+stored in the database.
+     The compiled results from the survey are shown in Table
+III. The result shows a positive response from the participants
+ranged from 75% to 100 %. It is seen that the survey from real-
+time interaction and preliminary phase survey show similarities
+in the overlap between various emotions. Expressions like joy
+were labeled as the surprise by few participants, also the similar
+observations were found between fear and disgust. Anger was
+marked as surprise in some case. Surprise emotion was mixed
+up with fear and disgust. A mix of positive and negative
+valence is also observed especially in case of angry, surprise,                    Fig. 4. Emotional state of Pepe Jr. from top left to lower right: Joy, disgust,
+                                                                                                            sadness, fear, anger and surpris
+disgust.
+
+
+
+
+                                                                             78
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+           TABLE I.        MOTION PATTERNS FOR EMOTIONS                               will open doors to more engaging ways to introduce 21st-
+                                                                                      century skills to rural schools in India [13,18].
+ Emotions      Motion patterns for each emotion
+                                                                                                                      ACKNOWLEDGMENT
+ Joy           At first, there is up and down bouncing of the head followed
+               by random up and down body movements and the light colour                        We wish to extend our sincere gratitude to Mata
+               code used to express joy is vanilla white, yellow together to          Amritanandamayi Devi, Chancellor, Amrita Vishwa
+               provide a bright yellow shade.                                         Vidyapeetham for being an everlasting source of inspiration for
+                                                                                      our efforts. We wholeheartedly thank our team at AMMACHI
+ Surprise      Whenever the bot detects an object, it moves towards the               labs for all their support.
+               object and cautiously gazes at it then immediately pulls back
+               up straight. The light colour code used to express surprise is             TABLE II.          RESULTS OF EMOTIONAL EXPRESSIVENESS
+               white and vanilla white                                                                           THROUGH VIDEO
+
+
+
+ Anger         The light colour changes to red looks at the user and moves                       Sadness Joy Fear Angry Surprise Disgust                                % Correct
+               towards him/her then show a strong sign of disapproval by
+               shaking the head sideways.
+                                                                                      Sadness      88.8      0        0          0           0            11.2             88.8
+
+ Disgust       The bot takes a peek at the object and immediately the light
+                                                                                        Joy         0       72.2      0         11.1        16.6           0               72.2
+               colour changes to green The bot pulls back by lowering its
+               body and looking away from the object. Then it looks at the
+               user and shows sign of dislike by shaking bot’s head sideways           Fear         0        0       92.4        0           0            7.2              92.4
+               slowly.
+                                                                                       Angry        0       0.05      0         66.6        11.1         16.67             66.6
+ Sadness       The body starts dropping and the head descends further while
+               the light colour changes to blue.
+                                                                                      Surprise     0.05     0.05 0.05            0          66.6          22.2             66.6
+
+
+                                                                                      Disgust      11.1     11.1 0.05           11.1        11.1          50               50
+ Fear          The bot scans its surroundings and when it finds something
+               scary, the body contracts quickly looking away from the
+               object and then bot drops its head and the light colour used is
+               pale yellow.
+
+                                                                                      TABLE III.          RESULTS OF EMOTIONAL EXPRESSIVENESS IN REAL
+                                                                                                                    TIME ROBOT
+    Our roadmap for further research on with Pepe Jr, include
+the development of systems that closely interact with humans
+to enhance fundamental aspects of life with very high-value
+                                                                                                                                                                               %
+impact. This includes systems for enhancing the learning                                           Sadness Joy Fear Angry Surprise                               Disgust
+                                                                                                                                                                             Correct
+experience, healthcare, and many more.
+          The major question we want to address is how Pepe
+Jr. will impact and contribute to humanity. One specific area
+                                                                                      Sadness        100         0          0          0            0              0              100
+that we would like to focus is rapid robot prototyping
+environment [12] for children from grade 8 to grade 10. Pepe
+Jr. is easy to assemble and disassemble and by integrating                              Joy             0        75         0          0           25              0              75
+scratch programming environment to the current software,
+which enables students to learn programming in an effective                             Fear            0        0        91.6         0            0              8.4          91.6
+way. Result of which prominent schools and major universities
+consider scratch as a preliminary environment for coding [11].                         Angry            0        0          0        91.6          8.4             0            91.6
+It could bring out a new approach to the 21st-century learning
+process where children could build their own companion from
+                                                                                      Surprise          0        0        8.33         0           83.3           8.33          83.3
+conceptualizing to programming the behavioral characteristic
+of the robots and even gamify the entire process. Further, we
+                                                                                       Disgust          0        25         0          0            0              75             75
+wish to collaborate with rural schools. An initial collaboration
+
+
+
+
+                                                                                 79
+           Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+                                                          TABLE IV.       RESULTS OF GODSPEED SURVEY
+
+                                             Anthropomorphism                                                                Animation
+
+
+
+ Score         Fake to        Machinelike      Unconscious       Artificial        Moving       Dead       Stagnant      Mechanical         Inert to     Artificial
+               Natural       to Humanlike      to Conscious     to Lifelike       Rigidly to     to        to Lively     to Organic       Interactive       to
+                                                                                   Moving       Alive                                                    Lifelike
+                                                                                  Elegantly
+
+      1           7%             0%                3%               3%               0%           0%          0%              7%               0%              0%
+
+      2          13%             23%               10%              17%             10%           7%          3%             20%               20%             7%
+
+
+      3          33%             47%               40%              33%             37%          27%         40%             47%               37%             40%
+
+      4          33%             20%               27%              30%             20%          47%         33%             13%               27%             30%
+
+      5          13%             10%               20%              17%             33%          20%         23%             13%               13%             23%
+
+
+
+
+                                                          TABLE V.        RESULTS OF GODSPEED SURVEY
+
+                                                      Likeability                                                               Perceived Safety
+
+
+
+ Score          Dislike to       Unfriendly to          Unkind to         Unpleasant to        Awful to         Anxious to          Calm to          Quiescent to
+                  Like             Friendly               Kind              Pleasant            Nice             Relaxed            Agitated          Surprised
+
+
+      1            3%                  3%                  3%                  3%                 0%                0%                 7%                 0%
+
+      2            3%                  7%                  7%                  3%                 7%               13%                20%                 0%
+
+      3            13%                 27%                43%                 27%                13%               33%                37%                40%
+
+      4            43%                 33%                23%                 40%                40%               37%                30%                30%
+
+      5            37%                 30%                23%                 27%                40%               17%                 7%                30%
+
+
+
+
+                                                                                                International Symposium on Robot and Human Interactive
+                                  REFERENCES                                                    Communication, Sept. 12-15 2010, pp. 491–496.
+[1]       C. Breazeal, “Designing Sociable Robots” , ser. Intelligent Robotics             [6] Yu Ogura, Hiroyuki Aikawa, Kazushi Shimomura, Hideki Kondo,
+          and Autonomous Agents. MIT Press, 2004.                                               and Akitoshi Morishima, “Development of a New Humanoid Robot
+                                                                                                WABIAN-2,” in Proceedings of the 2006 IEEE International
+[2]       S. Sosnowski, A. Bittermann, K. Kuhnlenz, and M. Buss, “Design                        Conference on Robotics and Automation Orlando, Florida - May 2006
+          and evaluation of emotion-display eddie,” Proc IEEE/RSJ Int
+          Intelligent Robots and Systems Conf, pp. 3113–3118, 2006.                        [7] Hoffman, Guy, and Cynthia Breazeal. "Effects of anticipatory
+                                                                                                perceptual simulation on practiced human-robot tasks." Autonomous
+[3]       T. Kuratate, B. Pierce, and G. Cheng, “Mask-bot - a life-size talking                 Robots 28.4 (2010): 403-423.
+          head animated robot for av speech and human-robot communication
+          research,” in AVSP-2011, 2011, pp. 111–116.                                      [8] Altarriba, Jeanette, Dana M. Basnight, and Tina M. Canary. "Emotion
+                                                                                                representation and perception across cultures." Online Readings in
+[4]       M. Zecca, Y. Mizoguchi, K. Endo, F. Iida, Y. Kawabata, N. Endo, K.                    Psychology and Culture 4.1 (2003): 4.
+          Itoh, and A. Takanishi, “Whole body emotion expressions for kobian
+          humanoid robot – preliminary experiments with different emotional                [9] Darwin, Charles, and Phillip Prodger. The expression of the emotions
+          patterns,” Evaluation, pp. 381–386, 2009.                                             in man and animals. Oxford University Press, USA, 1998.
+[5]       A. Beck, L. Canamero, and K. Bard, “Towards an affect space for                  [10] Breazeal,     Cynthia.    "Emotion     and    sociable    humanoid
+          robots to display emotional body language,” in 19th IEEE                              robots." International Journal of Human-Computer Studies 59.1-2
+                                                                                                (2003): 119-155.
+
+
+
+
+                                                                                     80
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+[11] Resnick, Mitchel, et al. "Scratch: programming for all."                         [16] Naz Kaya, and Helena Epps. "Relationship between color and
+     Communications of the ACM 52.11 (2009): 60-67.                                        emotion: A study of college students." College Student J 38.3 (2004):
+[12] Nakagaki, Ken, et al. "ChainFORM: A Linear Integrated Modular                         396.
+     Hardware System for Shape Changing Interfaces." Proceedings of the               [17] Boyatzis, Chris J., and Reenu Varghese. "Children's emotional
+     29th Annual Symposium on User Interface Software and Technology.                      associations with colors." The Journal of genetic psychology 155.1
+     ACM, 2016.                                                                            (1994): 77-85.
+[13] Bhavani, B., Srividya Sheshadri, and R. Unnikrishnan. "Vocational                [18] Sreelakshmi, R., et al. "Gamification to enhance Learning using
+     education technology: rural India." Proceedings of the 1st Amrita                     Gagne's learning model." Computing, Communication and
+     ACM-W Celebration on Women in Computing in India. ACM, 2010.                          Networking Technologies (ICCCNT), 2015 6th International
+[14] Häring, Markus, Nikolaus Bee, and Elisabeth André. "Creation and                      Conference on. IEEE, 2015.
+     evaluation of emotion expression with body movement, sound and                   [19] Alekh, V., E. S. Rahul, and R. Bhavani Rao. "Comparative Study of
+     eye color for humanoid robots." Ro-Man, 2011 Ieee. IEEE, 2011.                        Potential Field and Sampling Algorithms for Manipulator Obstacle
+[15] Adams, Francis M., and Charles E. Osgood. "A cross-cultural study of                  Avoidance." International Journal of Control Theory and Applications
+     the affective meanings of color." Journal of cross-cultural psychology                9: 71-78
+     4.2 (1973): 135-156.
+
+
+
+
+                                                                               81
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:30:24 UTC from IEEE Xplore. Restrictions apply.
+

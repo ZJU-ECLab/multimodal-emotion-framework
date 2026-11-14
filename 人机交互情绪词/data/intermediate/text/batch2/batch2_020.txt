@@ -1,0 +1,1077 @@
+Automatic Assessment of Depression and Anxiety through
+Encoding Pupil-wave from HCI in VR Scenes
+
+MI LI, Faculty of Information Technology, Beijing University of Technology, Beijing International
+Collaboration Base on Brain Informatics and Wisdom Services, Engineering Research Center of Intelligent
+Perception and Autonomous Control, Ministry of Education, Engineering Research Center of Digital
+Community, Ministry of Education, China
+WEI ZHANG, Faculty of Information Technology, Beijing University of Technology, China
+BIN HU, Institute of Engineering Medicine, Beijing Institute of Technology, Beijing, Gansu Provincial Key
+Laboratory of Wearable Computing, School of Information Science and Engineering, Lanzhou University,
+Lanzhou, China
+JIAMING KANG and YUQI WANG, Faculty of Information Technology, Beijing University
+of Technology, China
+SHENGFU LU, Faculty of Information Technology, Beijing University of Technology, Beijing International
+Collaboration Base on Brain Informatics and Wisdom Services, Engineering Research Center of Intelligent
+Perception and Autonomous Control, Ministry of Education, China
+
+
+At present, there have been many studies on the methods of using the deep learning regression model to assess
+                                                                                                                                  42
+depression level based on behavioral signals (facial expression, speech, and language); however, the research
+on the assessment method of anxiety level using deep learning is absent. In this article, pupil-wave, a physio-
+logical signal collected by Human Computer Interaction (HCI) that can directly represent the emotional state,
+is developed to assess the level of depression and anxiety for the first time. In order to distinguish between dif-
+ferent depression and anxiety levels, we use the HCI method to induce the participants’ emotional experience
+through three virtual reality (VR) emotional scenes of joyful, sad, and calm, and construct two differential
+pupil-waves of joyful and sad with the calm pupil-wave as the baseline. Correspondingly, a dual-channel
+fusion depression and anxiety level assessment model is constructed using the improved multi-scale con-
+volution module and our proposed width-channel attention module for one-dimensional signal processing.
+
+
+This work was supported in part by the National Key Research and Development Program of China (Grant No.
+2019YFA0706200), in part by the National Natural Science Foundation of China (Grant No. 61602017, No. 61632014,
+No. 61627808), and in part by the National Basic Research Programme of China (2014CB744600).
+Authors’ addresses: M. Li, Faculty of Information Technology, Beijing University of Technology, Beijing International Col-
+laboration Base on Brain Informatics and Wisdom Services, Engineering Research Center of Intelligent Perception and
+Autonomous Control, Ministry of Education, Engineering Research Center of Digital Community, Ministry of Education,
+China; email: limi@bjut.edu.cn; W. Zhang, J. Kang, and Y. Wang, Faculty of Information Technology, Beijing University
+of Technology, China; emails: {ZhangW, kangjiaming, WangYuqi}@emails.bjut.edu.cn; B. Hu (corresponding author), In-
+stitute of Engineering Medicine, Beijing Institute of Technology, Beijing, Gansu Provincial Key Laboratory of Wearable
+Computing, School of Information Science and Engineering, Lanzhou University, Lanzhou, China; email: bh@bit.edu.cn;
+S. Lu, Faculty of Information Technology, Beijing University of Technology, Beijing International Collaboration Base on
+Brain Informatics and Wisdom Services, Engineering Research Center of Intelligent Perception and Autonomous Control,
+Ministry of Education, China; email: lusf@bjut.edu.cn.
+Permission to make digital or hard copies of all or part of this work for personal or classroom use is granted without fee
+provided that copies are not made or distributed for profit or commercial advantage and that copies bear this notice and
+the full citation on the first page. Copyrights for components of this work owned by others than ACM must be honored.
+Abstracting with credit is permitted. To copy otherwise, or republish, to post on servers or to redistribute to lists, requires
+prior specific permission and/or a fee. Request permissions from permissions@acm.org.
+© 2023 Association for Computing Machinery.
+1551-6857/2023/09-ART42 $15.00
+https://doi.org/10.1145/3513263
+
+           ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:2                                                                                                   M. Li et al.
+
+The test results show that the MAE/RMSE of the depression and anxiety level assessment method proposed
+in this article is 3.05/4.11 and 2.49/1.85, respectively, which has better assessment performance than other
+related research methods. This study provides an automatic assessment technique based on human computer
+interaction and virtual reality for mental health physical examination.
+CCS Concepts: • Human-centered computing → Human computer interaction (HCI); Empirical studies in
+HCI ;
+Additional Key Words and Phrases: Deep learning, Virtual reality (VR), Human computer interaction (HCI),
+pupil-wave, width-channel attention module
+ACM Reference format:
+Mi Li, Wei Zhang, Bin Hu, Jiaming Kang, Yuqi Wang, and Shengfu Lu. 2023. Automatic Assessment of De-
+pression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes. ACM Trans. Multimedia Comput.
+Commun. Appl. 20, 2, Article 42 (September 2023), 22 pages.
+https://doi.org/10.1145/3513263
+
+
+1   INTRODUCTION
+Psychological disorders mainly include depression and anxiety, which affect daily work and life
+and bring a heavy burden to family and society [1]. According to the study, it is estimated that
+more than 350 million people worldwide suffer from depression, and the trend is still rising [2, 3].
+   Generalized anxiety disorder (GAD) is a typical anxiety disorder with persistent excessive
+and inappropriate worries that are not limited to specific situations, and its common symptoms
+are fatigue and difficulty in concentrating [4, 5].
+   From a social point of view, sudden disaster events, such as the earthquake and the worldwide
+prevalence of coronavirus, will significantly increase the risk of depression, anxiety, and other
+psychological abnormalities. Therefore, to reduce the incidence of depression and prevent people
+at risk of depression and anxiety from turning into having depression and anxiety, timely screening
+and assessment of the level of depression and anxiety and early psychological intervention are
+essential.
+   The mental state assessment of depression and anxiety can be determined by the scores obtained
+by self-assessment of the self-rating scale (BDI-2 [6] or PHQ-8/9 [7, 8] for depression, Generalized
+Anxiety Disorder-7 (GAD-7) for anxiety [9]). They often rely on self-reports as implicit indica-
+tors of mental states, which suffer from recall bias and add to the participant’s cognitive burden.
+Therefore, the automatic assessment method of depression and anxiety levels based on human
+computer interaction and deep learning is expected to provide objective and rapid assessment,
+which is beneficial for depression and anxiety screening and early prevention and control.
+   Depression and anxiety recognition based on deep learning can be modeled as classification and
+regression problems. At present, a large number of studies have been conducted on the classifica-
+tion and assessment of depression. However, anxiety recognition is mainly based on classification
+methods, and there is a lack of assessment methods based on regression in deep learning.
+   Human computer interaction (HCI) refers to the process of information exchange between
+people and computers in a certain way to complete certain tasks. It is widely used such as in
+industrial design, sports physiology, physiological psychology, psychological and behavioral sci-
+ence, and so on [10]. Virtual reality (VR), as one of the important practical ways of HCI, provides
+participants with rich interaction and a strong sense of environmental immersion by simulating
+the real environment [11]. In order to provide the participants with vivid and more immersive
+emotional stimulation, this article is based on the HCI technology of VR for the first time, which
+induces the participants’ emotional experience more deeply through the three virtual reality scenes
+
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                    42:3
+
+of calm, joyful, and sad, and collects the changes of pupil diameter during the virtual reality scenes
+as the physiological signal for the assessment of depression and anxiety level. Specifically, the main
+contributions of this article include the following:
+
+    (1) Pupil-wave signal collected by HCI based on VR emotional scenes is developed to assess
+        the level of depression for the first time. In previous studies, the most frequently used
+        signals for depression level assessment are behavioral signals induced by traditional in-
+        teraction methods such as self-statements, music, emotional expression, autobiographical
+        recall, and films [12, 13]; these signals mainly include video and audio signals [14–23].
+        The traditional interaction methods can’t provide the participants with a strong emotional
+        stimulation experience with a strong sense of immersion, and the behavioral signals are
+        the indirect expression of emotion, which is easy to camouflage and disguise, so it is not
+        enough to use these behavioral signals to assess emotional state [24]. As a physiological
+        index, pupil diameter change is closely related to emotion [25, 26]. Compared with be-
+        havioral signals such as facial expression, speech, and language, pupil-wave can directly
+        reflect the most instinctive and undisguised emotional expressions. Therefore, it can be
+        used as an objective signal to assess mental state. In particular, compared with emotion-
+        inducing methods based on traditional interaction methods, HCI based on VR technology
+        can be used to simulate the real emotional environment, allowing participants to partici-
+        pate, and helping to produce a continuous and more real emotional experience [27, 28].
+    (2) The deep learning regression method is used to assess the level of anxiety for the first
+        time. In previous studies, the identification of anxiety is mainly based on the classification
+        method [29–31], and there is a lack of research on anxiety level assessment based on the
+        regression method. Depression and generalized anxiety have common emotional expres-
+        sions [32]. Depression is often accompanied by anxiety, and there is a high correlation
+        between them.
+    (3) A deep convolution neural network suitable for one-dimensional signal processing is con-
+        structed. First, we improve the multi-scale convolution neural network architecture and
+        introduce more multi-scale features into the model through multiple cascade parallel con-
+        volution kernels with different sizes. In the task of depression and anxiety level assess-
+        ment, there are significant differences in emotional accumulation time, reaction intensity,
+        and duration among participants in different states of depression and anxiety when re-
+        ceiving emotional stimulation. Therefore, capturing pupil-wave features from different
+        scales will help learn more multi-scale features related to depression or anxiety and help
+        the efficiency of mental state assessment.
+
+   Meanwhile, based on self-attention, we propose a width-channel attention module, which cal-
+culates the similarity between feature points in the two dimensions of width and channel. Giving
+higher weight to areas with more substantial similarities and more apparent features can improve
+feature learning because the ruminant thinking unique to the state of depression and anxiety will
+lead to similar emotional representations in the process of emotional experience [33, 34]. At the
+same time, time-series signals generally have the problem of information redundancy [35]. There-
+fore, the regions with richer representation of depression and anxiety states and the feature points
+with stronger similarity can be given a higher weight, so the performance of the model in depres-
+sion and anxiety level assessment will be effectively improved.
+   Finally, considering that people at risk of depression or anxiety have processing obstacles in
+both positive and negative emotional attention, a dual-channel deep network structure for joyful
+and sad differential pupil-waves is constructed by using a multi-scale residual convolution module
+
+         ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:4                                                                                                   M. Li et al.
+
+and width-channel attention module. The dual-channel model can better learn and integrate the
+joyful and sad pupil-wave features.
+   The rest of this article is organized as follows: Section 2 shows related work, which introduces
+the research status of depression and anxiety level assessment and multi-scale convolution and
+attention module. Section 3 provides more details about the structure of the deep learning model
+proposed in this article. Section 4 introduces the data collection, preprocessing, training process,
+and experimental results of HCI based on VR emotional scenes. The conclusion will be discussed
+in Section 5.
+
+2 RELATED WORK
+2.1 Assessment of Depression Level
+Based on behavioral signals such as facial expression, speech, and language, depression assess-
+ment methods using traditional machine learning (such as SVM) and deep convolution neural
+network (DCNN) have been extensively studied [36].
+   The AVEC 2013/2014 [37, 38] and AVEC 2016/2017 [39, 40] depression recognition challenge
+based on video and audio datasets greatly promoted the study of depression recognition methods.
+Moreover, with the development of deep learning, the research of regression models based on facial
+expression and audio using a deep learning model has achieved encouraging results [41–45].
+   However, most of the signals used in these assessment methods are behavioral signals, mainly
+facial expressions, speech, and language (transcribed text). Although eye images [18, 43] are used
+in depression assessment, there is a lack of research on the use of physiological signals that are
+more closely related to emotion, which are pupil diameter changes, to assess mental state, including
+depression and anxiety. Studies have shown that the change of pupil diameter reflects the change
+of emotion [25, 26] and has a significant difference between samples with depression and ordinary
+people under external emotional stimulation [46, 47].
+   At present, the video and audio signals collected in the mental state assessment are collected
+through interviews. Interviews use social situations to arouse specific emotions by communicating
+with participants or asking participants to describe personal events with emotional color [48].
+Interviews can be conducted by human or virtual characters or through the guidance of a computer
+screen [49]. This kind of interview is conducted in a state close to natural communication, and the
+emotional performance of the participants’ voice, language, and expression is closer to the daily
+performance, so there are two problems: First, compared with the emotional stimulation based
+on the film, the interview takes longer [50]. Second, there is no obvious abnormality in the daily
+performance of people with mild and mild mental disorders, which leads to a significant decrease
+in recognition accuracy (e.g., expression-based: mild depression and moderately severe depression
+are 65.71% and 84.48%, with an average of 72.59%; based on voice: mild depression and moderately
+severe depression are 8.57% and 70.69%, with an average of 44.44%; head movement: mild and
+moderately severe 54.29% and 79.31%, with an average of 65.25%) [51].
+   Studies have shown that the emotional disorders of patients with depression are characterized
+by insufficient experience of joyful emotions and excessive experience of sadness or restlessness,
+which can be stimulated by external emotions, especially the virtual reality technology that sim-
+ulates the natural emotional environment and can enable participants to produce continuous and
+vivid emotional experiences during the process of human computer interaction, which can im-
+prove the performance of mental state assessment.
+   Many studies have shown that emotional attention bias occurs in emotionally impaired people,
+which is characterized by reduced attention to positive emotional information and excessive atten-
+tion to negative emotional information, that is, negative attention bias. With the direct expression
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                    42:5
+
+on the physiological level, the visual stimulation of positive emotional information will cause the
+participants to have a joyful emotional experience, which will cause the pupil diameter to become
+larger; the visual stimulation of negative emotional information will cause the participants to have
+sad emotional experience, which is directly represented by the decrease of pupil diameter [25, 26,
+46, 47]. Based on the above research, we propose a physiological index that can directly represent
+the emotional experience, which actively induces the emotional experience through the process of
+HCI in the VR emotional scenes and collects the one-dimensional time-series signal that the pupil
+diameter changes with the stimulation process of emotional scenes. We name this dynamic phys-
+iological signal as pupil-wave. Compared with behavioral signals, pupil-wave can directly reflect
+the most instinctive emotional changes.
+
+2.2 Assessment of Anxiety Level
+Anxiety disorder is one of the most common mental disorders, which mainly includes GAD, So-
+cial Anxiety Disorder (SAD), Posttraumatic Stress Disorder (PTSD), Panic Disorder (PD),
+and agoraphobia. GAD is characterized by excessive and inappropriate worry, which is persistent
+and not limited to specific situations [5]. Some common symptoms are fatigue and difficulty in
+concentration. SAD is a chronic and crippling disorder associated with low quality of life, severe
+malfunction (serious malfunction), and psychiatric comorbidities [52]. PTSD is a common anxi-
+ety disorder and is often associated with multiple traumas, which usually lasts for many years.
+Anxiety disorder seriously affects quality of life and is closely related to individual emotional fac-
+tors, which are highly complex. Anxiety, especially anxiety levels, should be assessed, for early
+psychological intervention and treatment to prevent further anxiety disorder or depression.
+   At present, the assessment method of anxiety based on machine learning is the main classi-
+fied method, and the research on the classification of anxiety is based on the traditional machine
+learning method [29–31]. There is even less research on the assessment of anxiety levels. The as-
+sessment of the anxiety level of GAD still depends on the GAD-7 scale (0–21 points: 0–4 minimal,
+5–9 mild, 10–14 moderate, 15–21 severe) [9].
+
+2.3 Assessment Method
+With the continuous breakthrough of deep learning technology, more and more depression as-
+sessment studies use deep learning methods [15–18]. The pupil-wave data used in this article is
+one-dimensional time-series data collected by human computer interaction based on virtual reality
+emotional scenes. The deep learning model for one-dimensional time series data includes a cyclic
+neural network (including RNN, LSTM, etc.) and a one-dimensional convolution neural network
+(1D-CNN). Among them, RNN (cyclic neural network) is recursive in the evolution direction of the
+sequence, and a chain connects all recurrent nodes. It can capture the correlation of information
+before and after the time-series signal, so it is often used in natural language processing. 1D-CNN
+has the distinct advantages of convolution neural network-local connection and weight sharing,
+so it is better at extracting pattern features. At the same time, 1D-CNN also has the advantages
+of low computational overhead, lightweight, and strong fitting ability [53]. In this study, we hope
+that the deep learning model can extract the pupil-wave patterns of participants during emotional
+stimulation. At the same time, the lightweight feature of 1D-CNN will allow us to build a model
+with a more robust representation under the condition of limited computing resources. Therefore,
+there is no doubt that 1D-CNN is more suitable for the backbone structure of this study.
+   An effective CNN model structure will significantly improve the performance of the model.
+In recent years, as an essential idea of CNN modeling, the multi-scale structure has been widely
+studied, and state-of-art performance has been obtained in many fields [54–58]. The multi-scale
+method requires the model to extract features from multiple receptive fields to describe objects at
+
+         ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:6                                                                                                   M. Li et al.
+
+different scales. In AlexNet [54], VGGNet [55], and other Backbone CNNs, the feature gradually
+changes from coarse to fine with the deepening of the network, and the receptive field increases
+with the increase of model depth so it already has the basic multi-scale representation ability.
+   Further, for example, Inception [56] uses the parallel connection of multiple convolution ker-
+nels of different sizes to enhance the scale representation ability of the model. Res2Net [57] uses
+smaller filters and connects different filter groups in a hierarchical residual style, which can rep-
+resent multi-scale features on a finer scale. HS-ResNet [58] uses the idea of similar order residual
+connection to perform split and concatenation in multiple different paths, which constitutes the
+multi-scale feature extraction of the block. In the above research, effective multi-scale feature ex-
+traction methods are proposed in cascade, parallel, hierarchical, and other perspectives.
+   For 1D-CNN deep learning based on pupil-wave data, this article combines the perspective of
+cascade and parallel. While using convolution kernels of different sizes in parallel, convolution ker-
+nels of each size are constructed respectively to reduce the size of convolution kernels in the cas-
+cade direction. The combination of cascade and parallel multi-scale structure will help the model
+to obtain more abundant multi-scale information.
+   The attention mechanism is another essential part of the current deep learning structure, ini-
+tially used in machine translation [59]. After much research, it has become an essential concept in
+the field of deep learning and has a large number of applications in many fields, such as natural
+language processing [60], computer vision [61–64], scene segmentation [65], and so on. The atten-
+tion mechanism in the CNN model is mainly carried out in the space and channel dimensions of
+the feature: SENet [61] uses global average pooling to squeeze the convolution feature map to get
+the global features of the channel domain, and then excitation of the global features to learn the
+relationship between the channels. ECA-Net [62] uses one-dimensional convolution instead of the
+total connection layer based on SENet to obtain a more efficient channel domain attention model.
+CBAM [63] aggregates channel dimension features using max pooling and average pooling, cal-
+culates spatial attention using 2D convolution, and then combines it with channel attention. The
+above attention methods all use the pooling method to locally aggregate features and generate
+the attention matrix according to the feature intensity of each feature point, which is missing for
+the calculation of long-distance dependence between feature points. However, many studies have
+shown that people with higher depression risk have stronger ruminant thinking tendency [33, 34],
+which is shown in that the subjects repeatedly reflect similar emotional experiences in the process
+of stimulation. The self-attention method can effectively capture long-distance similarity [64, 65].
+Therefore, to effectively capture these emotional representations with high similarity, we design
+a width-channel attention module based on the self-attention method, which calculates the simi-
+larity between feature points in the two dimensions of width and channel. Higher weight is given
+to the areas with more substantial similarity and more distinct characteristics, and the model’s
+performance of depression and anxiety level assessment is further improved.
+
+3 PROPOSED METHOD
+In this section, we will first show the dual-channel one-dimensional CNN assessment model based
+on joyful and sad differential pupil-waves collected by human computer interaction in virtual
+reality emotional scenes for depression and anxiety level assessment. Then, we will introduce the
+basic network structure and principle of the two main components of the network, the serial-
+parallel multi-scale convolution residual module and the width-channel attention module.
+
+3.1 Dual-channel 1D-CNN Model
+In this study, joyful and sad differential pupil-waves were used as the original signals of depres-
+sion and anxiety level assessment. We build two channels for each signal and then use the full
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                    42:7
+
+
+
+
+           Fig. 1. Dual-channel 1D-CNN model for depression and anxiety level assessment.
+
+connection layer to fuse the features of two channels, as shown in Figure 1. Each channel is com-
+posed of a three-stage structural network, and each stage is connected by a cascade-parallel multi-
+scale residual convolution module and a width-channel attention module.
+
+3.2   Cascade Parallel Multi-scale Convolution Residual Block
+In assessing the level of depression and anxiety, the subjects in different states of emotional dam-
+age had significant differences in emotional accumulation time, emotional response intensity, and
+emotional duration during the process of human computer interaction when receiving virtual re-
+ality emotional stimulation. Capturing pupil-wave features from different scales will be beneficial
+for deep learning models to learn more multi-scale features related to depression and will Extract
+and learn the features of depression more effectively. This article will explore the multi-scale im-
+plementation of the model in convolutional neural networks’ cascade and parallel dimensions.
+Figure 2 shows the fundamental backbone of the one-dimensional convolution neural network
+proposed in this article: Cascade Parallel Multi-scale Convolution Residual Block (CP-MSC
+ResBlock). The module is placed in the stage of each channel and used to extract multi-scale
+features from the input of the stage.
+    First of all, a 1 × 3 size convolution layer is used for spatial dimension fusion and channel
+dimension abstract upgrading of the feature map entering the module; then, the Cascade Parallel
+Multi-scale Convolution Layer, which is the core layer of this module, will extract multi-scale
+features; finally, the 1 × 1 size convolution layer is used to align the dimensions of multi-scale
+features and further increase the non-linear transformation of the network. At the same time, to
+alleviate the gradient dispersion problem caused by the promotion of depth in the deep learning
+network, we introduce residual connection to the module. The residual connection will further
+introduce multi-scale information between layers for the module.
+    The Cascade Parallel Multi-scale Convolution Layer consists of six channels: the three channels
+on the left are parallel multi-scale channels with the size of 1 × 3, 1 × 5, and 1 × 7, and the three
+channels on the proper use cascade multi-scale convolution are based on the three channels on
+the left to extract more fine-grained visual field features. The success of Inception [56] shows that
+it is more effective to use convolution kernels of different sizes for multi-scale feature extraction
+
+         ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:8                                                                                                   M. Li et al.
+
+
+
+
+            Fig. 2. Cascade parallel multi-scale convolution residual block (CP-MSC ResBlock).
+
+in parallel. Therefore, we use three convolution kernels with sizes of 1 × 3, 1 × 5, and 1 × 7 in
+the left three channels to extract features with different scales and receptive field sizes that enter
+this layer in parallel. In particular, the study of Pyramidal Convolution [66] shows that compared
+with using a single-size convolution kernel, diminishing convolution kernel size in the cascade
+direction enables the model to obtain stronger multi-scale representation ability. Therefore, we
+construct a decreasing convolution channel with a convolution kernel size of 1 × 3, 1 × 5, and
+1 × 7, respectively, on the right side of the three channels, and carry out cascade multi-scale fea-
+ture extraction; that is, the convolution kernel sizes of the three channels are 1 × 3, 1 × 1 cascade,
+1 × 5, 1 × 3, 1 × 1 cascade, 1 × 7, 1 × 5, 1 × 3, 1 × 1 cascade, respectively. Using the cas-
+cade multi-scale channel with decreasing convolution kernel size, the features can be refined
+layer by layer, and the receptive field can be further increased. The addition of cascade convo-
+lution with decreasing kernel size channel introduces more abundant multi-scale features to the
+model.
+   Given a set of feature representations as input, the one-dimensional convolution layer uses lo-
+cal receptive fields to aggregate the features of the input space domain and the channel domain
+and outputs a new set of feature representations. We define a set of one-dimensional convolu-
+                                                                                   
+tion transformations as follows: Y = Conv1D (X ,W1×N ), X ∈ RW ×C , Y ∈ RW ×C , where X is the
+feature map of the input, W and C are the width and number of channels of the input, Y is the
+feature map of the output, and W and C  are the width and number of channels of the output.
+Conv1D (..) represents a one-dimensional convolution operation. W1×N represents a group of con-
+volution kernels of size 1 × N , and convolution kernels of different sizes have different receptive
+fields.
+   Specifically, a one-dimensional convolution operation can be expressed as
+
+                                         
+                                         C       
+                              YC ,i =                     WC ,ci ,δ j +[ N ]X ci ,i+δ j + βC  ,              (1)
+                                                                          2
+                                         c i =0 δ j ∈Δ N
+
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                     42:9
+
+where YC ,i denotes the i output vector with the number of channels C , WC ,ci ,δ j +[K /2] represents
+the scalar values of convolution kernels at a specific location, N denotes the size of convolution
+kernels, βC  denotes bias vector, and Δ N ∈ Z denotes the set of all scalar values of a set of convo-
+lution kernels of 1 × N size.
+   The feature map X , which enters the cascade parallel multi-scale residual convolution module,
+will first enter the convolution kernel with a convolution kernel size of 1 × 3 for width feature
+aggregation and channel dimensionality enhancement:
+                                          Y1 = Conv1D (X ,W1×3 ) .                                              (2)
+   Subsequently, the cascade parallel multi-scale convolution layer will be in the six channels
+Y1i , (i ∈ 1, 2, . . . , 6) and the multi-scale feature of cascade parallel combination is extracted from
+Y1 . Among them, the left three channels use convolution layers with different convolution kernel
+sizes to extract multi-scale features in cascade:
+                                             Y11 = Conv1D (Y1 ,W1×3 )
+                                            Y12 = Conv1D (Y1 ,W1×5 )                                   (3)
+                                            Y13 = Conv1D (Y1 ,W1×7 ) .
+   On the basis of the left three channels, the right three channels successively use the convolution
+layer with decreasing cascade convolution kernel size to extract the features with richer scale
+information:                         
+                                       Y14 = Conv1D (Y1 ,W1×3 )
+                                      Y14 = Conv1D (Y14 ,W1×1 )
+                                     ⎧
+                                     ⎪
+                                     ⎪ Y15 = Conv1D (Y1 ,W1×5 )
+                                     ⎨Y15 = Conv1D (Y15 ,W1×3 )
+                                     ⎪
+                                     ⎪Y = Conv1D (Y ,W )
+                                     ⎩ 15                 15    1×1                                (4)
+                                     ⎧
+                                     ⎪ Y 16 = Conv1D    (Y 1 ,W1×7 )
+                                     ⎪
+                                     ⎪
+                                     ⎪
+                                     ⎨ Y16 = Conv1D (Y16 ,W1×5 )
+                                     ⎪
+                                     ⎪
+                                     ⎪ Y = Conv1D (Y16 ,W1×3 )
+                                     ⎪ 16
+                                     ⎩ Y16 = Conv1D (Y16 ,W1×1 ).
+   Then, the feature of six channels will be concatenated in channel dimension:
+                                 Y2 = Concaternation (Y11 , Y12 , . . . , Y16 ).                                (5)
+  Finally, the 1 × 1 convolution layer is used to align the channel dimensions of the features, and
+the residual connection is introduced to alleviate the problems of gradient dispersion and gradient
+explosion and accelerate the fitting of the network simultaneously:
+                                       Y3 = Conv1D (Y2 ,W1×1 ) + Y1 .                                           (6)
+
+3.3   Width-channel Attention Module
+The ruminant thinking characteristic of people with high risk of depression will lead to similar
+emotional representations in the process of stimulation [33, 34], especially the process of human
+computer interaction in the virtual reality scenes with strong emotional experience. At the same
+time, there is widespread information redundancy in time-series signals [36]. Therefore, giving
+higher weight to the regions with richer representation of depression and anxiety, the feature
+points with more substantial similarities between feature points will effectively improve the effi-
+ciency and performance of the model in depression and anxiety level assessment. Figure 3 shows
+the width-channel attention module, which aims to introduce the self-attention mechanism into
+the task of assessing the level of depression, capture context dependencies in width and channel di-
+mensions, and give higher weights to more context-sensitive data points. For the one-dimensional
+
+          ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:10                                                                                                  M. Li et al.
+
+
+
+
+                         Fig. 3. The structure of the width-channel attention module.
+
+convolution neural network, the spatial dimension only contains width, so the width specially
+refers to the spatial dimension in the one-dimensional convolution neural network.
+   In the width attention module, for an input feature A ∈ RW ×C , we transpose it and multiply the
+original feature matrix with its transpose matrix to calculate the correlation matrix of the width
+dimension. Then the matrix is sent into a 1 × 1 convolution layer for nonlinear transformation.
+Get the correlation matrix of the width dimension B ∈ RW ×W :
+                                                             
+                                    B = Conv1D A · AT ,W1×1                                      (7)
+
+where Conv1D (..) represents a one-dimensional convolution operation, and W1×1 represents a
+set of one-dimensional convolution kernels of size 1 × 1 and represents the matrix production
+operation.
+   Then, we used SoftMax to calculate the width attention matrix C ∈ RW×W for B:
+                                                     exp(Bi j )
+                                          Ci j = W W                ,                                         (8)
+                                                  i=1 j=1 exp(B i j )
+
+where Ci j measures the correlation between the position of i and the position of j in the width
+dimension of characteristic matrix A. The larger the Ci j , the stronger the correlation between the
+position of i and the position of j.
+   Finally, the matrix multiplication operation is used for C and A to give attention weight to
+the original feature map. Because the range of the attention matrix is between 0 and 1, repeated
+stacking of the attention model will cause the feature points to be reduced by multiplying the
+values less than one many times, making it difficult to train the model because the feature maps
+are too small. In order to solve this problem, we introduce residual connection. At last, the matrix
+addition operation is carried out on An, and the matrix with attention weight and the final output
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                   42:11
+
+feature map D ∈ RW ×C are obtained:
+                                                D = C · A + A.                                                  (9)
+    Similarly, in the channel attention module, for the input feature D ∈ R (W ×C ) , we transpose it
+and perform matrix point multiplication with the original feature matrix to calculate the corre-
+lation matrix of the channel dimension and send it into a 1 × 1 convolution layer for nonlinear
+transformation to obtain the correlation matrix of the channel dimension E ∈ RC×C :
+                                                           
+                                   E = Conv1D DT · D, N 1×1 .                               (10)
+    Then, we used SoftMax to calculate the width attention matrix F ∈ R (C×C ) :
+                                               exp(Ei j )
+                                    Fi j = C C                ,                                              (11)
+                                            i=1 j=1 exp(E i j )
+
+where Fi j measures the correlation between the ith position and the jth position in the channel
+dimension of the characteristic matrix D. The larger the Fi j , the stronger the correlation between
+the ith channel and the jth channel.
+   F and G perform the matrix multiplication operation and add residual connection to get the final
+attention module output G ∈ RW ×C :
+                                          G = D · F + F.                                         (12)
+
+3.4    Fully Connected Layers
+After the dual-channel feature fusion layer, we connected two fully connected layers with de-
+creasing number of neurons (128 neurons and 64 neurons, respectively) to product channel-fusion
+evaluation. The fully connected layers with decreasing number of neurons can improve the fitting
+ability of the model.
+   At the same time, in order to test the evaluation ability of each single-channel model, two
+fully connected layers (64 neurons and 32 neurons, respectively) are connected after each channel
+model, which can be evaluated respectively. During the training, the two channel models will be
+trained separately, then the weight of the convolution layers of the two channels will be fixed, and
+only the fully connected layers of the fusion model will be fine-tuned. In order to prevent model
+overfitting, we use L2 regularization and Dropout techniques at all fully connected layers.
+
+4     DATA COLLECTION AND EXPERIMENT
+4.1 Data Collection
+   4.1.1 Sample. In this study, 295 valid samples were collected from Beijing Anding Hospital
+Capital Medical University, Beijing University of Technology, military region 1, and military region
+2 (71 in Anding Hospital, 38 in Beijing University of Technology, 92 in military region 1, and 96
+in military region 2). PHQ-9 was used to assess the level of depression, while 224 subjects from
+Beijing University of Technology and the two military regions were assessed with the GAD-7. All
+study participants provided signed informed consent, and this study was approved by the Ethics
+Committee at Beijing Anding Hospital, Capital Medical University, Beijing, China.
+   4.1.2 Assessment Based on Self-rating Scale. The relationship between PHQ-9 score and depres-
+sion level and the relationship between GAD-7 score and anxiety level are shown in Table 1. The
+distribution of PHQ-9 score and GAD-7 score of all collected samples is shown in Figure 4.
+   In this article, the three correlation coefficients were used to analyze the correlation between
+PHQ-9 score and GAD-7 score of 224 subjects who participated in both depression level assess-
+ment and anxiety level assessment. (Pearson is a common index to describe the degree of linear
+
+          ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:12                                                                                                  M. Li et al.
+
+                                       Table 1. PHQ-9/GAD-7 Scale Score
+
+                 PHQ-9 Score         Depression Level         GAD-7 Score         Anxiety Level
+                    0–4             Minimal                      0–4              Minimal
+                    5–9             Mild                         5–9              Mild
+                   10–14            Moderate                    10–14             Moderate
+                   15–19            Moderately Severe           15–21             Severe
+                   20–27            Severe
+
+
+
+
+                       Fig. 4. Distribution of PHQ-9 score and GAD-7 score of samples.
+
+
+
+
+             Fig. 5. PHQ-9 and GAD-7 score distribution and correlation coefficient of samples.
+
+correlation. Spearman is a non-parametric statistical method, which uses the rank of two variables
+to do linear correlation analysis. Kendall’s is used to reflect the correlation of classified variables.)
+As shown in Figure 5, there is a high positive correlation between depression and anxiety, which
+shows that depression is often accompanied by anxiety, so it can tell that depression and anxiety
+have common emotional performance.
+   4.1.3 Collection of Pupil-wave Data. As shown in Figure 6, in order to make the subjects expe-
+rience more immersive emotional stimulation and automate the data collection process, we have
+developed an automatic pupil diameter collection and processing system based on virtual real-
+ity, which consists of a high-performance notebook computer, a high-resolution CMOS camera
+(surrounded by 8 infrared LED lighting at 850 nm wavelength), and an automatic pupil diame-
+ter collection and processing system. The subjects wore virtual reality eye movement helmets to
+watch three-dimensional virtual reality emotional scenes with strictly controlled brightness for
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                  42:13
+
+
+
+
+                    Fig. 6. Data collection schematic diagram based on virtual reality.
+
+
+
+
+                    Fig. 7. The process of extracting pupil diameter from pupil images.
+
+emotionally induced calm, sadness, and joy. The playing time of each virtual display scene was
+90 seconds, and the whole time of the experiment was 4 minutes and 30 seconds. Under the co-
+stimulation of visual and auditory information, the camera captures the eye images of the subjects
+in real time with the acquisition frequency of 25 Hz and the pixel resolution of 1280 × 720.
+   While collecting the eye image, the acquisition system extracts the pupil diameter of each frame
+of the eye image in the background in real time. As shown in Figure 7, the specific steps are as
+follows: First, the pupil region is located and clipped [67, 68]. The pupil area was morphologically
+dilated and corroded to eliminate the Pulchin spot formed by the light entering the pupil reflected
+on the outer surface of the cornea, and then smooth filtering [69–71]. On this basis, the seed filling
+method is used to extract the pupil region [72]. Finally, the least square method is used to fit the
+pupil ellipse region [73].
+   The one-dimensional time-series data formed by pupil diameter in chronological order is called
+pupil-wave, which can be divided into joyful, sad, and calm pupil-wave according to the type
+of virtual reality emotional stimulation the subjects are in. Pupil-wave is the basic physiological
+signal used in this study. Due to the switching process between virtual reality scenes, the pupil
+
+         ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:14                                                                                                  M. Li et al.
+
+
+
+
+                               Fig. 8. Diagram of different types of pupil-waves.
+
+diameter of the subjects fluctuated greatly during the scene switching, so we eliminated the first
+200 data points of each pupil-wave, and there were 2,048 points in the remaining pupil-wave.
+
+4.2     Data Preprocessing
+   4.2.1 Abnormal Data Processing. In the collection process of human computer interaction, due
+to the inevitable blinking or closing of eyes, the pupil diameter is equal to zero or significantly
+lower than the average pupil diameter. For these abnormal data points, the mean interpolation
+method is used for smoothing. We set a certain threshold (the threshold is set to 50 pixels) and
+smooth the data whose pupil diameter pixel value is less than the threshold using the mean inter-
+polation method:
+                                              (Pt −1 + Pt +1 )
+                                              Pt =             ,                                 (13)
+                                                     2
+where Pt is the interpolation of the missing pupil diameter and Pt-1 and Pt-2 are the values of pupil
+diameter on the left and right at t time, respectively.
+
+   4.2.2 Emotional Differential Pupil-wave. In order to eliminate the natural difference of pupil
+diameter between different individuals, we use the difference method, using the average pupil di-
+ameter difference under calm VR stimulation and the pupil diameter difference under joyful VR
+stimulation, and the difference between the average pupil diameter under calm VR stimulation and
+sad VR stimulation to form joyful difference wave and sad difference wave, respectively. Differen-
+tial waves can remove pupil diameter differences between individuals and retain only the different
+information caused by VR emotional stimulation. Pupil-waves of different types are shown in
+Figure 8.
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                  42:15
+
+   4.2.3 Data Normalization. The pupil-wave data after differential may still have the problem of
+inconsistent data dimension. Dimensional inconsistency will lead to an increase in the weight of
+feature distribution with a wide range of data, which will interfere with the follow-up work such
+as model training and testing [74]. Feature normalization is to process the data in terms of features
+and convert each feature to a common range, so as to solve the problem of inconsistent distribution
+among multiple features. At the same time, feature normalization maps the eigenvalue range to
+a smaller range, which can reduce the computing load of the computer and improve the training
+speed of the model. In this study, the Min-max conversion function [75] is used to normalize the
+pupil-wave data:
+                                          x (i ) − min (x )
+                            x N(i )orm =                     , i = 1, 2, . . . , n,              (14)
+                                         max (x ) − min (x )
+where x (i ) represents the i data point of the pupil-wave, x N(i )orm represents the normalized value
+of x (i ) , and n is the number of data points of a single pupil-wave.
+
+4.3 Training Process
+In the task of depression level assessment, there were 295 samples, which were divided into train-
+ing set (n = 177), validation set (n = 59), and test set (n = 59) according to 6:2:2. In the task
+of anxiety level assessment, there were 224 valid samples, which were divided into training set
+(n = 158), validation set (n = 33), and test set (n = 33) according to 6:2:2.
+   All the models in this article are coded by Python3.6 and deep learning platform Keras, and the
+training and testing are run on Windows 10 operating system and GTX2060 6G GPU. Because
+the depression level assessment task is a regression task, the model uses the Mean Square Error
+(MSE) as the loss function.
+   Training strategy: The model uses Adam as the model optimizer, the model hyperparameters
+are optimized by grid search multiple times, and finally the initial learning rate is set to 0.003,
+and the learning rate decreases gradually with the training; the Dropout probability is 0.6, the L2
+regularization parameter is 1 × 10−6 , epoch adopts the Early Stopping strategy, and the training is
+stopped when the loss changes of the validation set in the epoch are less than 0.1. The initialization
+parameters in the model are generated by the normal distribution.
+   Finally, mean absolute value error (MAE) and root mean square error (RMSE) were used
+for method performance evaluation. The experimental results in Section 4.4 are the mean values
+of the 10 tests and the standard deviations are given:
+                                                1 
+                                                    m
+                                       MSE =           (yi − ŷi ) 2                              (15)
+                                                m i=1
+
+                                               1 
+                                                        m
+                                          MAE =      yi − ŷi 
+                                              m i=1 
+                                                                                                              (16)
+                                             
+                                              m
+                                                1 
+                                      RMSE =          (yi − ŷi ) 2 ,                                         (17)
+                                               m i=1
+where m represents the number of samples,yi represents the true label value of ith sample,ŷi rep-
+resents the model predict value of ith sample.
+
+4.4 Experiment
+  4.4.1 Assessment Performance of Dual-channel 1D-CNN. In this section, we show the perfor-
+mance of dual-channel 1DCNN in the two tasks of depression level assessment and anxiety level
+
+         ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:16                                                                                                  M. Li et al.
+
+              Table 2. Performance for Depression and Anxiety Level Assessment (Mean ± SD)
+
+                                      Channel 1                    Channel 2                      Fusion
+                                 RMSE          MAE            RMSE          MAE            RMSE          MAE
+  Depression Assessment       4.21 ± 0.22 3.20 ± 0.13      4.25 ± 0.14 3.13 ± 0.11      4.11 ± 0.16 3.05 ± 0.12
+  Anxiety Assessment          2.59 ± 0.25 1.92 ± 0.14      2.52 ± 0.09 1.90 ± 0.14      2.49 ± 0.03 1.85 ± 0.03
+
+
+
+
+Fig. 9. The training curves of dual-channel 1D-CNN model. (a) Loss curve of depression level assess-
+ment. (b) Evaluation index curve of depression level assessment. (c) Loss curve of anxiety level assessment.
+(d) Evaluation index curve of anxiety level assessment.
+
+assessment, as shown in Table 2. In the dual-channel model, we obtained the depression level
+assessment error of RMSE = 4.11 and MAE = 3.05, and the anxiety level assessment error of
+RMSE = 2.49 and MAE = 1.85. The evaluation errors obtained by using the dual-channel fusion
+model in depression and anxiety level assessment are lower than those of the single-channel model,
+which indicates that the dual-channel fusion model can make full use of the joyful and sad emo-
+tional features extracted by the two channels, respectively, and further improve the performance
+of the model. Figure 9 shows the training curves of depression and anxiety level assessment of the
+dual-channel model.
+   4.4.2 Comparison between Cascade Parallel Multi-scale Convolution Residual Block and Other
+Multi-scale Modules. In this section, we tested the performance of a variety of multi-scale modules
+in depression level assessment tasks and anxiety level assessment. As shown in Table 3, compared
+with cascade network VGGNet13, parallel multi-scale module Inception, HS-ResNet, and Res2Net,
+the cascade parallel multi-scale residual module proposed in this article has better assessment
+performance, indicating that this module can introduce richer multi-scale information into the
+model and help the model learn more features related to the representation of depression and
+anxiety state.
+  4.4.3 Width-channel Attention Module Ablation Experiment. In this section, we conducted an
+ablation experiment for the width-channel attention module. In this experiment, the multi-scale
+modules are fixed in the network; only the attention module was ablated. As shown in Table 4,
+both the width attention model and channel attention model can effectively improve model per-
+formance, indicating that the attention module can effectively capture feature points with strong
+correlation between width dimension and channel dimension and assign high weight to feature
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                         42:17
+
+                Table 3. Results of Various Multi-scale Modules for Assessment of Depression
+                                        and Anxiety Level (Mean ± SD)
+
+                  Multi-scale              Channel 1                      Channel 2                     Fusion
+                   Module          RMSE                MAE          RMSE              MAE        RMSE            MAE
+                VGGNet-13 [55]     5.01 ± 0.15     3.91 ± 0.13    4.86 ± 0.10   3.82 ± 0.17   5.04 ± 0.23    3.79 ± 0.19
+                Inception [56]     4.49 ± 0.20     3.66 ± 0.14    4.44 ± 0.24   3.61 ± 0.16   4.55 ± 0.19    3.59 ± 0.11
+ Depression     Res2Net [57]       4.57 ± 0.21     3.58 ± 0.22    4.59 ± 0.18   3.62 ± 0.20   4.75 ± 0.17    3.55 ± 0.12
+ Assessment     HS-ResNet [58]     4.78 ± 0.21     3.72 ± 0.10    4.86 ± 0.12   3.69 ± 0.14   4.72 ± 0.13    3.75 ± 0.17
+                Our Proposed       4.41 ± 0.17     3.40 ± 0.18    4.39 ± 0.22   3.44 ± 0.16   4.30 ± 0.13    3.37 ± 0.12
+                VGGNet-13 [55]     3.07 ± 0.10     2.38 ± 0.10    3.04 ± 0.11   2.33 ± 0.10   3.00 ± 0.11    2.26 ± 0.11
+                Inception [56]     2.88 ± 0.10     2.15 ± 0.07    3.04 ± 0.11   2.33 ± 0.10   2.85 ± 0.04    2.09 ± 0.04
+ Anxiety        Res2Net [57]       2.95 ± 0.06     2.19 ± 0.03    2.97 ± 0.06   2.23 ± 0.04   2.89 ± 0.08    2.15 ± 0.07
+ Assessment     HS-ResNet [58]     2.98 ± 0.13     2.20 ± 0.15    3.00 ± 0.12   2.32 ± 0.09   2.90 ± 0.18    2.07 ± 0.15
+                Our Proposed       2.75 ± 0.21     2.15 ± 0.15    2.72 ± 0.12   2.16 ± 0.13   2.62 ± 0.14    2.01 ± 0.22
+
+
+                   Table 4. Ablation Study of Width-channel Attention Module (Mean ± SD)
+
+                     Attention              Channel 1                     Channel 2                     Fusion
+                      Module           RMSE            MAE          RMSE              MAE       RMSE             MAE
+                  No Attention       4.41 ± 0.17    3.40 ± 0.18   4.39 ± 0.22   3.44 ± 0.16   4.30 ± 0.13   3.37 ± 0.12
+  Depression      Width              4.38 ± 0.11    3.45 ± 0.20   4.29 ± 0.29   3.36 ± 0.28   4.26 ± 0.16   3.25 ± 0.14
+  Assessment      Channel            4.30 ± 0.25    3.28 ± 0.26   4.36 ± 0.24   3.25 ± 0.28   4.31 ± 0.17   3.23 ± 0.21
+                  Width-channel      4.21 ± 0.22    3.20 ± 0.13   4.25 ± 0.14   3.13 ± 0.11   4.11 ± 0.16   3.05 ± 0.12
+                  No Attention       2.75 ± 0.21    2.15 ± 0.15   2.72 ± 0.12   2.16 ± 0.13   2.62 ± 0.14   2.01 ± 0.22
+  Anxiety         Width              2.61 ± 0.10    1.95 ± 0.12   2.78 ± 0.54   2.11 ± 0.63   2.56 ± 0.06   1.93 ± 0.14
+  Assessment      Channel            2.70 ± 0.16    1.96 ± 0.23   2.62 ± 0.30   1.99 ± 0.12   2.52 ± 0.09   1.90 ± 0.14
+                  Width-channel      2.59 ± 0.25    1.92 ± 0.14   2.52 ± 0.09   1.90 ± 0.14   2.49 ± 0.03   1.85 ± 0.03
+
+
+points with strong correlation. Among them, tandem use of the width attention module and chan-
+nel attention model significantly improved the performance of the model, and the RMSE and MAE
+of the two channels were significantly reduced.
+   4.4.4 Comparison between Width-channel Attention Module and Other Attention Modules. In
+this section, we compare the performance of multiple attention modules in depression and anxiety
+level assessment tasks. As shown in Table 5, all the attention modules have a certain improvement
+on assessment performance. Among them, the performance of our width-channel attention mod-
+ules is significantly better than that of other attention modules using local feature aggregation.
+According to the experimental results, compared with the attention module with local feature ag-
+gregation, our proposed attention mechanism can capture the correlation globally, so it can make
+the model pay attention to the feature points with stronger correlation and improve the perfor-
+mance of the model in depression and anxiety level assessment.
+   4.4.5 Comparison with Other Methods. Table 6 shows the comparison of depression level as-
+sessment performance of emotional pupil-wave physiological signals during the process of human
+computer interaction in virtual reality emotional scenes and the two-channel deep learning model
+with that of other depression level assessments using behavioral signals.
+   It can be seen that the performance of our proposed assessment method on RMSE and MAE is
+significantly better than that of other depression assessment studies using multimodal information
+
+            ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:18                                                                                                                        M. Li et al.
+
+                           Table 5. Comparison with Other Attention Module (Mean ± SD)
+
+                                                     Channel 1                     Channel 2                             Fusion
+                        Attention
+                         Module                  RMSE            MAE         RMSE              MAE               RMSE              MAE
+                SENet [61]                   4.38 ± 0.25    3.35 ± 0.24    4.41 ± 0.13       3.28 ± 0.20       4.28 ± 0.27    3.24 ± 0.23
+                ECA-Net [62]                 4.26 ± 0.22    3.23 ± 0.14    4.30 ± 0.28       3.27 ± 0.20       4.18 ± 0.26    3.19 ± 0.18
+ Depression     CBAM [63]                    4.43 ± 0.19    3.47 ± 0.16    4.45 ± 0.18       3.40 ± 0.14       4.35 ± 0.15    3.39 ± 0.12
+ Assessment     CoordAttention [76]          4.55 ± 0.15    3.40 ± 0.12    4.48 ± 0.23       3.42 ± 0.19       4.41 ± 0.13    3.35 ± 0.16
+                SKNet [77]                   4.51 ± 0.25    3.46 ± 0.22    4.43 ± 0.17       3.44 ± 0.14       4.36 ± 0.08    3.20 ± 0.10
+                Our Proposed                4.21 ± 0.22     3.20 ± 0.13    4.25 ± 0.14    3.13 ± 0.11          4.11 ± 0.16    3.05 ± 0.12
+                SENet [61]                   2.61 ± 0.12    1.96 ± 0.21    2.72 ± 0.10       1.96 ± 0.09       2.53 ± 0.09    1.89 ± 0.06
+                ECA-Net [62]                 2.53 ± 0.10    1.88 ± 0.09    2.55 ± 0.02       1.91 ± 0.02       2.52 ± 0.03    1.86 ± 0.02
+ Anxiety        CBAM [63]                    2.60 ± 0.04    1.93 ± 0.02    2.59 ± 0.08       1.92 ± 0.05       2.56 ± 0.04    1.90 ± 0.03
+ Assessment     CoordAttention [76]          2.62 ± 0.08    1.99 ± 0.04    2.62 ± 0.16       1.98 ± 0.12       2.60 ± 0.10    1.96 ± 0.12
+                SKNet [77]                   2.75 ± 0.22    2.01 ± 0.20    2.76 ± 0.08       1.97 ± 0.08       2.54 ± 0.05    1.91 ± 0.04
+                Our Proposed                2.59 ± 0.25     1.92 ± 0.14    2.52 ± 0.09    1.90 ± 0.14          2.49 ± 0.03    1.85 ± 0.03
+
+
+                           Table 6. Comparison with Other Depression Assessment Methods
+
+     References                     Modalities                                                    Classifier         RMSE         MAE
+     Valstar et al. [39]            Audio (Interview)                                             Linear SVM         7.78         5.72
+                                    Video (Face)                                                  Linear SVM         6.97         6.12
+                                    Audio (Interview) + Video (Face)                              Linear SVM         7.05         5.66
+     Williamson et al. [19]         Audio (Interview)                                             SVR                6.38         5.32
+                                    Video (Face)                                                  SVR                6.45         5.33
+                                    Semantic (Interview)                                          SVR                4.46         3.34
+                                    Audio (Interview) + Video (Face) + Semantic (Interview)       SVR                5.31         4.18
+     Gong et al. [23]               Audio (Interview) + Video (Face) + Text (Interview)           SVR                4.99         3.96
+     Yang et al. [78]               Audio (Interview) + Video (Face)                              DCNN               5.97         5.16
+     Hanai et al. [18]              Audio (Interview) + Text (Interview)                          LSTM               6.27         4.97
+     Haque et al. [17]              Audio (Interview) + Text (Interview) + 3D Facial Scans        Causal-CNN         -            3.67
+     Our Proposed
+     Channel 1 (Joyful)             Pupil-wave                                                    DCNN               4.21         3.20
+     Channel 2 (Sad)                Pupil-wave                                                    DCNN               4.25         3.13
+     Fusion                         Pupil-wave                                                    DCNN               4.11         3.05
+
+
+such as voice, facial expression, and text. Specifically, in both single-channel and dual-channel
+fusion, the evaluation error of pupil-wave was significantly lower than that of other methods using
+single-modal or multi-modal behavioral signals, indicating that pupil-wave signal is optimal for
+assessing unpleasant emotions compared with behavioral signals. At present, there is no literature
+about anxiety level assessment, so there is no comparison.
+
+5 CONCLUSION
+Depression and anxiety have a significant impact on both society and individuals. The existing
+depression assessment studies are mainly based on behavioral signals such as facial expression,
+voice, language, and so on. At the same time, the research on anxiety assessment is missing. In this
+study, we proposed a physiological signal of eye movement collected by human computer inter-
+action of virtual reality emotional scenes, pupil-wave, which can directly represent the emotional
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                            42:19
+
+state. Based on pupil-waves, a dual-channel one-dimensional convolution neural network using
+a cascade parallel multi-scale convolution residual block and width-channel attention module is
+proposed for depression level assessment and anxiety level assessment tasks. In the model, the
+cascade parallel multi-scale convolution residual block introduces more multi-scale features to the
+model through multiple cascade parallel convolution kernels with different sizes and shows signif-
+icant advantages compared with other advanced multi-scale modules. Through the self-attention
+mechanism, the width-channel attention module calculates the correlation between the feature
+points in the two dimensions of the width of the one-dimensional signal and the channel and
+gives higher weight to the regions with stronger similarity and more obvious features to improve
+the feature learning ability of the model. Through the ablation experiment, we verify that the
+attention module plays a significant role in improving the performance of the model in depres-
+sion and anxiety level assessment tasks. At the same time, it also shows significant advantages
+compared with other advanced attention modules. Based on this model, this article obtains the as-
+sessment error of MAE = 3.05, RMSE = 4.11 in depression level assessment task and MAE = 1.85,
+RMSE = 2.49 in anxiety level assessment task. By comparison, the error of depression assessment
+task in this article is significantly better than the existing depression assessment methods. Since the
+task of anxiety assessment is proposed for the first time in this article, this result is not compared
+with other methods. Meanwhile, our proposed depression and anxiety level assessment method
+can also be used in clinical depressive symptom assessment.
+   One of the important factors leading to depression and anxiety is the stress from life, work,
+and study, especially chronic stress. How to use the pupil-wave collected by human computer
+interaction in virtual reality emotional scenes for stress assessment will become the next step
+of work, especially how to use the heart rate specificity and multi-modal signals of pupil-wave
+induced by virtual reality emotional scenes to assess depression, anxiety, and stress.
+
+REFERENCES
+ [1] Paul E. Greenberg, Andree-Anne Fournier, Tammy Sisitsky, Crystal T. Pike, and Ronald C. Kessler. 2015. The economic
+     burden of adults with major depressive disorder in the United States (2005 and 2010). Journal of Clinical Psychiatry
+     76, 2 (2015), 155–162.
+ [2] Theo Vos, Ryan M. Barber, Brad Bell, Amelia Bertozzi-Villa, Stan Biryukov, Ian Bolliger, Fiona Charlson, Adrian
+     Davis, Louisa Degenhardt, Daniel Dicker et al. 2015. Global, regional, and national incidence, prevalence, and years
+     lived with disability for 301 acute and chronic diseases and injuries in 188 countries, 1990-2013: A systematic analysis
+     for the global burden of disease study 2013. The Lancet 386, 9995 (2015), 743–800.
+ [3] C. Mathers, D. M. Fat, and J. T. Boerma. 2008. The Global Burden of Disease: 2004 Update. Geneva, Switzerland: World
+     Health Organization.
+ [4] Ronald C. Kessler, Hanna M. van Loo, Klaas J. Wardenaar, and Robert M. Bossarte. 2017. Using patient self-reports
+     to study heterogeneity of treatment effects in major depressive disorder. Epidemiology and Psychiatric Sciences 26, 1
+     (2017), 22–36.
+ [5] Malcolm Lader. 2015. Generalized anxiety disorder. In Encyclopedia of Psychopharmacology. Berlin, Germany,
+     Springer, 699–702.
+ [6] Aaron T. Beck, Robert A. Steer, Roberta Ball, and William F. Ranieri. 1996. Comparison of beck depression inventories-
+     I and-Ⅱ in psychiatric outpatients. Journal of Personality Assessment 67, 3 (1996), 588–597.
+ [7] Kurt Kroenke, Tara W. Strine, Robert L. Spitzer, Janet B. W. Williams, Joyce T. Berry, and Ali H. Mokdad. 2009. The
+     PHQ-8 as a measure of current depression in the general population. Journal of Affective Disorders 114, 1–3 (2009),
+     163–173.
+ [8] Kurt Kroenke and Robert L. Spitzer. 2002. The PHQ-9: A new depression diagnostic and severity measure. Psychiatric
+     Annals 32, 9 (2002), 509–521.
+ [9] Robert L. Spitzer, Kurt Kroenke, Janet B. W. Williams, and Bernd Löwe. 2006. A brief measure for assessing generalized
+     anxiety disorder. Archives of Internal Medicine 166, 10 (2006), 1092–1097.
+[10] Stuart K. Card and Moran P. Thomas. 2008. The Psychology of Human Computer Interaction. CRC Press.
+[11] Steuer Jonathan. 2010. Defining virtual reality: Dimensions determining telepresence. Journal of Communication 42,
+     4 (2010).
+
+           ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:20                                                                                                           M. Li et al.
+
+[12] Johanna M. Baas, Monique Nugent, Shmuel Lissek, Daniel S. Pine, and Christian Grillon. 2004. Fear conditioning in
+     virtual reality contexts: A new tool for the study of anxiety. Biological Psychiatry 55, 11 (2004), 1056–1060.
+[13] Kyle E. Madsen. 2016. The differential effects of agency on fear induction using a horror-themed video game. Com-
+     puters in Human Behavior 56, (2016), 142–146.
+[14] Le Yang, Dongmei Jiang, and Lang He. 2016. Decision tree based depression classification from audio video and
+     language information. In Proceedings of the ACM Multimedia Conference Amsterdam the Netherlands. 89–96.
+[15] Yu Zhu, Yuanyuan Shang, Zhuhong Shao, and Guodong Guo. 2018. Automated depression diagnosis based on deep
+     networks to encode facial appearance and dynamics. IEEE Transactions on Affective Computing 9, 4 (2018), 578–584.
+[16] Lang He and Cui Cao. 2018. Automated depression analysis using convolutional neural networks from speech. Journal
+     of Biomedical Informatics 83, (2018), 103–111.
+[17] Albert Haque, Michelle Guo, Adam S. Mine, and Li Fei-Fei. 2018. Measuring depression symptom severity from spoken
+     language and 3D facial expressions. arXiv preprint arXiv:1811.08592 (2018).
+[18] Tuka Al Hanai, Mohammad Ghassemi, and James R. Glass. 2018. Detecting depression with audio/text sequence
+     modeling of interviews. In Proceedings of the Interspeech 2018. 1716–1720.
+[19] James R. Williamson, Elizabeth Godoy, Miriam Cha, Adrianne Schwarzentruber, Pooya Khorrami, Youngjune Gwon,
+     Hsiang-Tsung Kung, Charlie Dagli, and Thomas F. Quatieri. 2016. Detecting depression using vocal, facial and se-
+     mantic communication cues. In Proceedings of the 6th International Workshop on Audio/Visual Emotion Challenge.
+     11–18.
+[20] Le Yang, Dongmei Jiang, and Hichem Sahli. 2018. Integrating deep and shallow models for multi-modal depression
+     analysis-hybrid architectures. IEEE Transactions on Affective Computing 12, 1 (2018), 239–253.
+[21] Ziping Zhao, Zhongtian Bao, Zixing Zhang, Jun Deng, Nicholas Cummins, Haishuai Wang, Jianhua Tao, and Björn
+     Schuller. 2020. Automatic assessment of depression from speech via a hierarchical attention transfer network and
+     attention autoencoders. IEEE Journal of Selected Topics in Signal Processing 14, 2 (2020), 423–434.
+[22] Wheidima Carneiro de Melo, Eric Granger, and Abdenour Hadid. 2019. Combining global and local convolutional 3D
+     networks for detecting depression from facial expressions. In Proceedings of the 2019 14th IEEE International Conference
+     on Automatic Face & Gesture Recognition. 1–8.
+[23] Yuan Gong and Christian Poellabauer. Combining Global and Local Convolutional 3D Networks for Detecting De-
+     pression from Facial Expressions.
+[24] Pieter Desmet. 2018. Measuring emotion: Development and application of an instrument to measure emotional re-
+     sponses to products. In Funology. Berlin, Germany, Springer, 111–123.
+[25] Manon Mulckhuyse. 2018. The influence of emotional stimuli on the oculomotor system: A review of the literature.
+     Cognitive Affective & Behavioral Neuroscience 18, 2 (2018), 411–415.
+[26] Margaret M. Bradley, Laura Miccoli, Miguel A. Escrig, and Peter J. Lang. 2008. The pupil as a measure of emotional
+     arousal and autonomic activation. Psychophysiology 45, 4 (2008), 602–607.
+[27] Rosa M. Baños, Cristina Botella, Isabel Rubió, Soledad Quero, Azucena García-Palacios, and Mariano Alcañiz. 2008.
+     Presence and emotions in virtual environments: The influence of stereoscopy. Cyberpsychology & Behavior 11, 1
+     (2008), 1–8.
+[28] Rosa María Baños, Víctor Liaño, Cristina Botella, Mariano Alcañiz, Cristina Botella, and Beatriz Rey. 2006. Changing
+     induced moods via virtual reality. In Proceedings of the 1st International Conference on Persuasive Technology for Human
+     Well-being. 7–15.
+[29] Christos D. Katsis, Nikolaos S. Katertsidis, and Dimitrios I. Fotiadis. 2011. An integrated system based on physiological
+     signals for the assessment of affective states in patients with anxiety disorders. Biomedical Signal Processing and
+     Control 6, 3 (2011), 261–268.
+[30] Moitreya Chatterjee, Giota Stratou, Stefan Scherer, and Louis-Philippe Morency. 2014. Context-based signal descrip-
+     tors of heart-rate variability for anxiety assessment. In Proceedings of the 2014 IEEE International Conference on Acous-
+     tics, Speech and Signal Processing (ICASSP’14). 3631–3635.
+[31] Wahidah Husain, Lee Ker Xin, Nur’Aini Abdul Rashid, and Neesha Jothi. 2016. Predicting generalized anxiety disorder
+     among women using random forest approach. In Proceedings of the 2016 3rd International Conference on Computer
+     and Information Sciences (ICCOINS’16). 37–42.
+[32] Kevin Hilbert, Ulrike Lueken, Markus Muehlhan, and Katja Beesdo-Baum. 2017. Separating generalized anxiety disor-
+     der from major depression using clinical. Hormonal, and structural MRI data: A multimodal machine learning study.
+     Brain and Behavior 12, 3 (2017), e00633.
+[33] Susan Nolen-Hoeksema. 2000. The role of rumination in depressive disorders and mixed anxiety/depressive symp-
+     toms. Journal of Abnormal Psychology 109, 3 (2000), 504–511.
+[34] Catherine Donaldson, Dominic Lam, and Andrew Mathews. 2007. Rumination and attention in major depression.
+     Behaviour Research and Therapy 45, 11 (2007), 2664–2678.
+[35] Maximilian Christ, Andreas W. Kempa-Liehr, and Michael Feindt. 2016. Distributed and parallel time series feature
+     extraction for industrial big data applications. arXiv preprint arXiv:1610.07717 (2016).
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave                                           42:21
+
+[36] Anastasia Pampouchidou, Panagiotis G. Simos, Kostas Marias, Fabrice Meriaudeau, Fan Yang, Matthew Pediaditis,
+     and Manolis Tsiknakis. 2019. Automatic assessment of depression based on visual cues: A systematic review. IEEE
+     Transactions on Affective Computing 10, 4 (2019), 445–470.
+[37] Michel Valstar, Björn Schuller, Kirsty Smith, Florian Eyben, Bihan Jiang, Sanjay Bilakhia, Sebastian Schnieder, Roddy
+     Cowie, and Maja Pantic. 2013. AVEC 2013: The continuous audio/visual emotion and depression recognition chal-
+     lenge. In Proceedings of the 3rd ACM International Workshop on Audio/Visual Emotion Challenge (AVEC’13). 3–10.
+[38] Michel Valstar, Björn Schuller, Kirsty Smith, Timur Almaev, Florian Eyben, Jarek Krajewski, Roddy Cowie, and Maja
+     Pantic. 2014. AVEC 2014: 3D dimensional affect and depression recognition challenge. In Proceedings of the 4th Inter-
+     national Workshop on Audio/Visual Emotion Challenge (AVEC’14). 3–10.
+[39] Michel Valstar, Jonathan Gratch, Björn Schuller, Fabien Ringeval, Denis Lalanne, Mercedes Torres Torres, Stefan
+     Scherer, Giota Stratou, Roddy Cowie, and Maja Pantic. 2016. AVEC 2016: Depression, mood, and emotion recogni-
+     tion workshop and challenge. In Proceedings of the 6th International Workshop on Audio/Visual Emotion Challenge
+     (AVEC’16). 3–10.
+[40] Fabien Ringeval, Björn Schuller, Michel Valstar, Jonathan Gratch, Roddy Cowie, Stefan Scherer, Sharon Mozgai,
+     Nicholas Cummins, Maximilian Schmitt, and Maja Pantic. 2017. AVEC 2017: Real-life depression, and affect recogni-
+     tion workshop and challenge. In Proceedings of the 7th Annual Workshop on Audio/Visual Emotion Challenge (AVEC’17).
+     3–9.
+[41] Asim Jan, Hongying Meng, Yona Falinie Binti A. Gaus, and Fan Zhang. 2018. Artificial intelligent system for automatic
+     depression level analysis through visual and vocal expressions. IEEE Transactions on Cognitive and Developmental
+     Systems 10, 3 (2018), 668–680.
+[42] Mohamad Al Jazaery and Guodong Guo. 2021. Video-based depression level analysis by encoding deep spatiotemporal
+     features. IEEE Transactions on Affective Computing 12, 1 (2018), 262–268.
+[43] Xiuzhuang Zhou, Kai Jin, Yuanyuan Shang, and Guodong Guo. 2020. Visually interpretable representation learning
+     for depression recognition from facial images. IEEE Transactions on Affective Computing 11, 3 (2020), 542–552.
+[44] Muhammad Muzammel, Hanan Salam, Yann Hoffmann, Mohamed Chetouani, and Alice Othmani. 2020. AudVow-
+     elConsNet: A phoneme-level based deep CNN architecture for clinical depression diagnosis. Machine Learning with
+     Applications 2, (2020), 100005.
+[45] Lang Hea and Cui Caob. 2018. Automated depression analysis using convolutional neural networks from speech.
+     Journal of Biomedical Informatics 83, (2018), 103–111.
+[46] Mi Li, Shengfu Lu, Gang Wang, Lei Feng, Bingbing Fu, and Ning Zhong. 2016. Emotion, working memory, and cogni-
+     tive control in patients with first-onset and previously untreated minor depressive disorders. Journal of International
+     Medical Research 44, 3 (2016), 529–541.
+[47] Mi Li, Shengfu Lu, Lei Feng, Bingbing Fu, Gang Wang, Ning Zhong, and Bin Hu. 2016. Emotional experience and
+     the mood-congruent working memory effect in first-onset and untreated depressive disorder patients. Journal of
+     Psychiatry 19, 4 (2016), 1000379.
+[48] Nicholas Cummins, Stefan Scherer, Jarek Krajewski, Sebastian Schnieder, Julien Epps, and Thomas F. Quatieri. 2015.
+     A review of depression and suicide risk assessment using speech analysis. Speech Communication 71, (2015), 10–49.
+[49] Jeffrey M. Girard and Jeffrey F. Cohn. 2015. Automated audiovisual depression analysis. Current Opinion in Psychology
+     4, (2015), 75–79.
+[50] Anastasia Pampouchidou, Panagiotis G. Simos, Kostas Marias, Fabrice Meriaudeau, Fan Yang, Matthew Pediaditis,
+     and Manolis Tsiknakis. 2019. Automatic assessment of depression based on visual cues: A systematic review. IEEE
+     Transactions on Affective Computing 10, 4 (2019), 445–470.
+[51] Hamdi Dibeklioglu, Zakia Hammal, and Jeffrey F. Cohn. 2018. Dynamic multimodal measurement of depression
+     severity using deep autoencoding. IEEE Journal of Biomedical and Health Informatics 22, 2 (2018), 525–536.
+[52] Oliver Doehrmann, Satrajit S. Ghosh, Frida E. Polli, Gretchen O. Reynolds, Franziska Horn, Anisha Keshavan,
+     Christina Triantafyllou, Zeynep M. Saygin, Susan Whitfield-Gabrieli, Stefan G. Hofmann, Mark Pollack, and John
+     D. Gabrieli. 2013. Predicting treatment response in social anxiety disorder from functional magnetic resonance imag-
+     ing. JAMA Psychiatry 70, 1 (2013), 87–97.
+[53] S. Kiranyaz, O. Avci, O. Abdeljaber, T. Ince, M. Gabbouj, and D. J. Inman. 2021. 1D convolutional neural networks and
+     applications: A survey. Mechanical Systems and Signal Processing 151 (2021), 107398.
+[54] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. 2012. ImageNet classification with deep convolutional neu-
+     ral networks. In Proceedings of the 25th International Conference on Neural Information Processing Systems-Volume 1
+     (NIPS’12). 1097–1105.
+[55] Karen Simonyan and Andrew Zisserman. 2014. Very deep convolutional networks for large-scale image recognition.
+     arXiv preprint arXiv:1409.1556 (2014).
+[56] Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir Anguelo, Dumitru Erhan, Vincent
+     Vanhoucke, and Andrew Rabinovich. 2015. Going deeper with convolutions. In Proceedings of the 2015 IEEE Conference
+     on Computer Vision and Pattern Recognition (CVPR’15). 1–9.
+
+           ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+42:22                                                                                                        M. Li et al.
+
+[57] Shang-Hua Gao, Ming-Ming Cheng, Kai Zhao, Xin-Yu Zhang, Ming-Hsuan Yang, and Philip Torr. 2021. Res2Net: A
+     new multi-scale backbone architecture. IEEE Transactions on Pattern Analysis and Machine Intelligence 43, 2 (2021),
+     652–662.
+[58] Pengcheng Yuan, Shufei Lin, Cheng Cui, Yuning Du, Ruoyu Guo, Dongliang He, Errui Ding, and Shumin Han. 2020.
+     HS-ResNet: Hierarchical-split block on convolutional neural network. arXiv preprint arXiv:2010.07621 (2020).
+[59] Dzmitry Bahdanau, Jan Chorowski, Dmitriy Serdyuk, Philémon Brakel, and Yoshua Bengio. 2016. End-to-end
+     attention-based large vocabulary speech recognition. In Proceedings of the 2016 IEEE International Conference on
+     Acoustics, Speech and Signal Processing (ICASSP’16). 4945–4949.
+[60] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia
+     Polosukhin. 2017. Attention is all you need. In Proceedings of the 31st International Conference on Neural Information
+     Processing Systems (NIPS’17). 6000–6010.
+[61] Jie Hu, Li Shen, Samuel Albanie, Gang Sun, and Enhua Wu. 2020. Squeeze-and-excitation networks. IEEE Transactions
+     on Pattern Analysis and Machine Intelligence 42, 8 (2020), 2011–2023.
+[62] Qilong Wang, Banggu Wu, Pengfei Zhu, Peihua Li, Wangmeng Zuo, and Qinghua Hu. 2019. ECA-Net: Efficient chan-
+     nel attention for deep convolutional neural networks. arXiv preprint arXiv:1910.03151 (2019).
+[63] Sanghyun Woo, Jongchan Park, Joon-Young Lee, and In So Kweon. 2018. CBAM: Convolutional block attention mod-
+     ule. In Proceedings of the 2018 European Conference on Computer Vision. 3–19.
+[64] Xiaolong Wang, Ross Girshick, and Harikrishna Mulam. 2018. Non-local neural networks. In Proceedings of the IEEE
+     Conference on Computer Vision and Pattern Recognition. 7794–7803.
+[65] Jun Fu, Jing Liu, Haijie Tian, Yong Li, Yongjun Bao, Zhiwei Fang, and Hanqing Lu. 2019. Dual attention network for
+     scene segmentation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 3146–3154.
+[66] Ionut Cosmin Duta, Li Liu, Fan Zhu, and Ling Shao. 2020. Pyramidal convolution: Rethinking convolutional neural
+     networks for visual recognition. arXiv preprint arXiv:2006.11538 (2020).
+[67] Farmanullah Jan. 2018. Pupil localization in image data acquired with near-infrared or visible wavelength illumina-
+     tion. Multimedia Tools and Applications 77, 1 (2018), 1041–1067.
+[68] A. R. Kiruthiga and R. Arumuganathan. 2017. Smoothening of iris images and pupil segmentation using fractional
+     derivative and wavelet transform. In Proceedings of the 2017 4th International Conference on Signal Processing, Com-
+     munication and Networking (ICSCN’17). 1–6.
+[69] Thiago Santini, Wolfgang Fuhl, and Enkelejda Kasneci. 2018. PuRe: Robust pupil detection for real-time pervasive
+     eye tracking. Computer Vision and Image Understanding 170, 4 (2018), 40–50.
+[70] Danjie Zhu, Steven T. Moore, and Theodore Raphan. 1999. Robust pupil center detection using a curvature algorithm.
+     Computer Methods and Programs in Biomedicine 59, 3 (1999), 145–157.
+[71] Andrew T. Duchowski. 2007. Eye tracking methodology. Theory and Practice 328, 614 (2007), 2–3.
+[72] Hazim G. Daway, Hana H. Kareem, and Ahmed Rafid Hashim. 2018. Pupil detection based on color difference and
+     circular though transform. International Journal of Electrical and Computer Engineering 8, 5 (2018), 3278–3284.
+[73] Ashwaq T. Hashim and Duaa A. Noori. 2016. An approach of noisy color iris segmentation based on hybrid image
+     processing techniques. In Proceedings of the 2016 International Conference on Cyberworlds (CW’16). 183–188.
+[74] Chen Junfen and Yan Li. 2015. Refining Width Parameter of Gaussian Kernel Function for Tuning Coherent Point
+     Drift (CPD) Registration. (2015).
+[75] S. Gopal Krishna Patro and Kishore Kumar Sahu. 2015. Normalization: A preprocessing stage. International Advanced
+     Research Journal in Science, Engineering and Technology 2, 3 (2015), 20–22.
+[76] Qibin Hou, Daquan Zhou, and Jiashi Feng. 2021. Coordinate attention for efficient mobile network design. arXiv
+     preprint arXiv:2103.02907 (2021).
+[77] Xiang Li, Wenhai Wang, Xiaolin Hu, and Jian Yang. 2019. Selective kernel networks. In Proceedings of the IEEE/CVF
+     Conference on Computer Vision and Pattern Recognition. 510–519.
+[78] Le Yang, Dongmei Jiang, Xiaohan Xia, and Ercheng Pei. 2017. Multimodal measurement of depression using deep
+     learning models. In Proceedings of the 7th Annual Workshop on Audio/Visual Emotion Challenge.
+
+Received 15 October 2021; revised 21 December 2021; accepted 22 January 2022
+
+
+
+
+ACM Trans. Multimedia Comput. Commun. Appl., Vol. 20, No. 2, Article 42. Publication date: September 2023.
+

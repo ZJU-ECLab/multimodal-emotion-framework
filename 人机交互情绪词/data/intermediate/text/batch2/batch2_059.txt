@@ -1,0 +1,1993 @@
+Cognitive Science 42 (2018) 771–819
+Copyright © 2017 Cognitive Science Society, Inc. All rights reserved.
+ISSN: 0364-0213 print / 1551-6709 online
+DOI: 10.1111/cogs.12557
+
+
+
+
+Reading Emotion From Mouse Cursor Motions: Affective
+                Computing Approach
+                             Takashi Yamauchi, Kunchen Xiao
+                  Department of Psychological and Brain Science, Texas A&M University
+          Received 1 March 2016; received in revised form 5 July 2017; accepted 22 August 2017
+
+
+Abstract
+   Affective computing research has advanced emotion recognition systems using facial expres-
+sions, voices, gaits, and physiological signals, yet these methods are often impractical. This study
+integrates mouse cursor motion analysis into affective computing and investigates the idea that
+movements of the computer cursor can provide information about emotion of the computer user.
+We extracted 16–26 trajectory features during a choice-reaching task and examined the link
+between emotion and cursor motions. Participants were induced for positive or negative emotions
+by music, film clips, or emotional pictures, and they indicated their emotions with questionnaires.
+Our 10-fold cross-validation analysis shows that statistical models formed from “known” partici-
+pants (training data) could predict nearly 10%–20% of the variance of positive affect and atten-
+tiveness ratings of “unknown” participants, suggesting that cursor movement patterns such as the
+area under curve and direction change help infer emotions of computer users.
+
+Keywords: Mouse cursor motion analysis; Affective computing; Choice reaching trajectory;
+Emotion and motor control
+
+
+
+1. Introduction
+
+   As the face conveys information about a person’s emotions, do movements of the com-
+puter cursor inform her emotions? Affective computing research—interdisciplinary
+research arenas for the design of systems that can recognize, interpret, and simulate
+human emotions (http://www.acii2015.org/)—has advanced emotion recognition technolo-
+gies using facial expressions, voices, gaits, and physiological signals (Calvo, D’Mello,
+Gratch, & Kappas, 2015); yet these methods are costly and cumbersome (e.g., wearing a
+head gear for an electroencephalography [EEG] measure but see Yamauchi, Xiao,
+
+
+  Correspondence should be sent to Takashi Yamauchi, Department of Psychology and Brain Science, Texas
+A&M University, College Station, TX 77843. E-mail: takashi-yamauchi@tamu.edu
+                                                                                              15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+772                      T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Bowman, & Mueen, 2015), making them difficult for everyday applications (Calvo &
+D’Mello, 2010). By integrating the mouse cursor motion analysis method developed by
+Spivey, Dale, Freeman, and others into affective computing (Dale, Kehoe, & Spivey,
+2007; Freeman, Ambady, Midgley, & Holcomb, 2011; Spivey, Grosjean, & Knoblich,
+2005; Xiao & Yamauchi, 2014, 2015; Yamauchi, Kohn, & Yu, 2007), this article reports
+findings from four experiments that suggest that movements of the computer cursor can
+provide information about emotions of the user.
+
+
+1.1. Theoretical background
+
+   Choice-reaching—reaching a target object by hand or with a relevant tool (the com-
+puter pointer in this study)—is a dynamic decision-making process. It involves continuous
+assimilations of the desired location of the hand, relevant motor commands, and feedback
+signaling the discrepancy between the actual and the desired states (Song & Nakayama,
+2009; Spivey, 2007; Wolpert & Ghahramani, 2000). In this process, higher cortical sys-
+tems make a coarse action plan, and sensorimotor subsystems coordinate the hand move-
+ment by processing contextual information in real time through three internal models: the
+forward model, the inverse model, and the forward feedback model (Glover, 2004; The-
+len, 1995; Wolpert & Ghahramani, 2000; Wolpert, Ghahramani, & Jordan, 1995). Our
+hypothesis is that emotion influences this coordination process and the interaction
+between emotion and hand motion can be analyzed in trajectories of the computer cursor
+in a choice-reaching task.
+   Research in embodied cognition suggests that people’s cognitive, attitudinal, and affec-
+tive states are expressed in their bodily actions, which in turn invoke affective states
+(Barsalou, 1999; Barsalou, Niedenthal, Barbey, & Ruppert, 2003). Barsalou’s (1999) per-
+ceptual symbol systems hypothesis states that off-line cognition arises from a reenactment
+of sensory and perceptual modules.
+   Neurological motor disorders, such as Parkinson’s disease, support the idea that human
+emotion can be reflected in cursor motions in a choice-reaching task. The basal ganglia,
+which play a pivotal role in voluntary goal-directed motor control, also aid cognitive and
+affective coordination through topographically organized neural circuits connecting the
+cortex and the thalamus (i.e., cortico-basao ganglia-thalamocortical circuits, Wichmann &
+DeLong, 2013). These circuits encompass motor-related areas (e.g., primary motor, sup-
+plementary motor and primary somatosensory cortices) and the regions that control emo-
+tion, motivation, and decision making (e.g., orbital and mesial frontal cortices, the
+anterior cingulate gyrus, the hypothalamsus, and the basolateral amygdala) (Mendoza &
+Foundas, 2008; Mink, 2008; Wichmann & DeLong, 2013).
+   These circuits are interactive partly due to the involvement of the dopamine system,
+which influences affective, motor, and cognitive activities by modulating neurons in the
+basal ganglia, the limbic system, and the cerebral cortex (Bj€orklund & Dunnett, 2007;
+Mendoza & Foundas, 2008). As a result, an imbalance in dopamine in these areas causes
+many behavioral aberrations of learning and memory, cognitive and motivational
+                                                                                                  15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                  773
+
+processing, and decision making. Neurological movement disorders such as Parkinson’s
+disease and Tourette syndrome are known to be linked to an imbalance in dopamine in
+the basal ganglia; these motor disorders often accompany cognitive and emotional disrup-
+tions such as depression, apathy, and obsessive-compulsive disorder (OCD) (Mink, 2008;
+Rabey, 2007; Weintraub & Stern, 2007). More than 40% of the people suffering from
+Tourette syndrome experience symptoms of OCD (Mink, 2008); nearly 60% of patients
+with Parkinson’s disease suffer from depression, and about 40% of patients have apathy
+—“a decrease in goal-directed behavior, thinking, and mood” (Weintraub & Stern, 2007).
+Interestingly, depression often precedes motor symptoms of Parkinson’s disease (Rabey,
+2007).
+   Given that a considerable amount of integration of emotion, motion, and cognitive con-
+trol takes place in the neural circuits that link the cortex, the basal ganglia, and the thala-
+mus (Wichmann & DeLong, 2013), it is likely that subtle disruptions in emotion can be
+reflected in cursor motions in a choice-reaching task.
+
+
+1.2. Mouse cursor motion analysis in affective computing and cognitive science
+
+1.2.1. Affective computing
+
+   In human–computer interaction research, mouse cursor motion analysis originated in
+the late 1970s when researchers started to compare the performance of different input
+devices (Accot & Zhai, 1997, 1999; Card, English, & Burr, 1978; MacKenzie,
+Kauppinen, & Silfverberg, 2001). In the last 15 years, researchers have studied activities
+of the computer cursor for emotion recognition. Zimmermann et al. (Zimmermann, Gut-
+tormsen, Danuser, & Gomez, 2003) used a film-based emotion elicitation technique and
+investigated the impact of arousal and valence on cursor motion in an online shopping
+task (N = 76). The study showed that the total duration of cursor movement and the num-
+ber of velocity changes were related to arousal. However, no evidence linking valence
+(e.g., positive and negative affects) and cursor activities was corroborated. Kapoor et al.
+(Kapoor, Burleson, & Picard, 2007) integrated a pressure-sensitive mouse into their multi-
+channel automatic affect detection system. The researchers measured mean, variance, and
+skewness of mouse pressure while subjects (middle school students, N = 24) learned to
+solve a Tower of Hanoi puzzle. The mouse pressure was as discriminable as skin conduc-
+tance measures for the detection of frustration. Azcarraga and Suarez (2012) evaluated
+EEG signals and mouse activities (the number of mouse clicks, distance traveled, click
+duration) during algebra learning using an intelligent tutoring system (N = 25). Emotion
+prediction rates based solely on EEG were 54%–88%. When mouse activity data were
+augmented to the EEG data, accuracy rates increased up to 92%, indicating that mouse
+activity can supply useful information for emotion recognition on top of EEG data.
+Grimes et al. (Grimes, Jenkins, & Valacich, 2013) used pictures for emotion elicitation
+and measured mouse cursor motion patterns such as traveled distance, speed, and
+direction change when participants indicated their valence and arousal with the
+                                                                                                  15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+774                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Self-Assessment Manikin (SAM) (Bradley & Lang, 1994). They found that high and low
+arousal as well as positive and negative valence influenced cursor movements such as trav-
+eled distance and direction change. Hibbeln et al. (Hibbeln, Jenkins, Schneider, Valacich,
+& Weinmann, 2017) and Sun et al. (Sun, Paredes, & Canny, 2014) employed task-based
+emotion elicitation and showed that users’ stress and frustration felt in a simple interface
+manipulation task (e.g., pointing and dragging icons) could be reflected in cursor activities
+such as traveled distance and direction change (e.g., controlling oscillation of the cursor).
+   Beyond these studies, clear evidence that links cursor activities and emotions is sparse.
+Scheirer et al. investigated subjects’ mouse clicking patterns (N = 24) during a computer
+game and showed an association between mouse clicking and frustration (Scheirer, Fer-
+nandez, Klein, & Picard, 2002). In their study, frustrating events were created by disrupt-
+ing the activity of the mouse and subjects were required to click a specific grid location
+to play the puzzle. For this reason, interpreting their results as evidence linking emotion
+and cursor motion is not straightforward. Yamauchi and colleagues present several cursor
+motion studies with a large number of subjects (Yamauchi, 2013; Yamauchi & Bowman,
+2014; Yamauchi, Seo, Jett, Parks, & Bowman, 2015). These studies show that cursor
+motion analysis has the capacity to predict emotional experience of the computer users.
+However, these studies were correlational and did not employ any emotion elicitation
+measures.
+   Kaklauskas et al. (Kaklauskas, Krutinis, & Seniut, 2009; Kaklauskas et al., 2011)
+developed a comprehensive mouse sensor system that evaluates users’ psychological,
+physiological, and behavioral input for the detection of stress. The system records the
+location, speed and distance, hand shaking, and force pressure from motions of a mouse.
+Kaklauskas et al. describe a hypothetical situation in which the system could be applied
+(hotel management); however, no empirical results linking cursor activities and stress
+levels have been reported to date.
+   Maehr discusses the relationship between cursor movement and positive/negative emo-
+tions in his book “eMotion” (Maehr, 2008). Subjects’ (N = 40) cursor movement patterns
+(precision, click number, movement efficiency, overshot, speed, and clicking duration)
+were measured while they filled an electronic questionnaire given shortly after subjects
+viewing movie clips eliciting different emotional states (positive, negative, and neutral
+states). Unfortunately, the book was also marred with numerous statistical errors (this
+study was not published at a refereed journal or conference proceeding). In the Mueller
+and Lockerd (2001), subjects (N = 17) carried out online shopping tasks while their cur-
+sor activities were tracked. The recorded cursor activities were later reproduced for obser-
+vational analysis, and the researchers reported “similarities” of cursor activities relative to
+users’ interest. Guo and Agichtein (2008) assessed users’ intention in queries from their
+cursor movement patterns. The researchers judged the “intent of a user” manually and
+suggested that the average trajectory length of navigational queries was shorter than that
+of informational queries. However, no statistical analysis was presented in these studies.
+   In summary, these studies all suggest an important link between emotion and cursor
+motion; yet there are still several critical problems to be clarified. The evidence linking
+cursor activities and emotion is still flimsy because (1) most studies employ a small
+                                                                                                15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                775
+
+number of subjects (mostly N = 15–40), (2) the relationship between cursor motion and
+emotion is mainly correlational, (3) in some cases no adequate statistical analysis is
+applied, and (4) in other cases, experiments are simply confounded with other external
+factors. For example, to examine the relationship between mouse activities and frustra-
+tion, a frustrating event was generated temporally (e.g., the mouse stopped working prop-
+erly or the computer took longer to load a wave page; see Hibbeln et al., Scheirer et al.,
+2002) and the relationship between affects and mouse activities were studied only in this
+specific task situation. Furthermore, (5) almost all studies investigated broad dimensions
+of emotion (high/low arousal and positive/negative affect) but no other emotional states
+(e.g., attentiveness, self-assurance, fear, joviality) have been investigated; (6) the impact
+of emotion on cursor motion has been studied nearly exclusively in within-
+subjects conditions (see Hibbeln et al., 2017; Yamauchi & Bowman, 2014, for
+exceptions).
+
+1.2.2. Cognitive science
+
+   In cognitive science, the theoretical foundation of the mouse cursor motion research
+originated from Michael Spivey’s conceptualization of human cognitive processing (Spi-
+vey, 2007; Spivey & Dale, 2004). Traditionally, cognitive functions such as reasoning,
+decision making, and problem solving were characterized as an end result of symbol
+manipulations (Anderson, 1990; Newell, 1980; Simon, 1990). In this view, computational
+algorithms for perception, decision, and action are denoted as procedures transforming
+one representational state to another (Marr, 1981). However, Spivey conceptualizes cogni-
+tive functions as a fluid process where probabilistically weighted perceptual-cognitive
+processing units interact continuously (p. 88, Spivey & Dale, 2004).
+   Instrumental in Spivey’s continuous cognition theory is a series of experiments that
+measure goal-directed action and decision making (i.e., a choice reaching task). In a typi-
+cal choice reaching task, two competing options are pitted against each other (i.e., two
+alternative forced choice task, 2AFC) and participants are instructed to select one of the
+choices by clicking a button by the computer mouse. Unlike a traditional 2AFC task
+where response time and performance accuracy are key-dependent measures, a choice
+reaching task requires the subject to navigate the computer cursor to select a button. By
+analyzing the navigational path of the cursor from the initial starting position to the end
+position, researchers found that a number of trajectory features reveal a continuous inter-
+action between decision (selecting an option) and action (moving the cursor). In particu-
+lar, the cursor trajectory features such as AUC (area under the curve) and maximum
+deviation (the degree of deviations from the straight line connecting the starting position
+to the end position) have been shown to reflect the observer’s perceptual, cognitive, and
+social uncertainty and ambivalence in the decision process (for other motion features, see
+Hehman, Stolier, & Freeman, 2015).
+   The findings in support of this principle come from a broad range, including perceptual
+and numerical judgment tasks (Chapman et al., 2010; Song & Nakayama, 2008; Xiao &
+Yamauchi, 2015, 2017), semantic categorization (Dale, Kehoe, & Spivey, 2007),
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+776                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+linguistic judgment (Farmer, Anderson, & Spivey, 2007; Spivey et al., 2005), racial and
+gender judgment of morphed face pictures (Freeman & Ambady, 2009; Freeman, Pauker,
+Apfelbaum, & Ambady, 2009), attitudinal ambivalence toward certain topics (e.g., abor-
+tion) (Schneider et al., 2015; Wojnowicz, Ferguson, Dale, & Spivey, 2009), uncertainty
+in economic choices (Calluso, Committeri, Pezzulo, Lepora, & Tosoni, 2015), among
+others. Lately, a number of studies have analyzed psychological parameters that influence
+cursor trajectories (e.g., inattention reduces AUC and see Xiao & Yamauchi, 2015,
+2017).
+
+
+1.3. Linking emotion to cursor motion
+
+   In a typical choice reaching task, the subject is to choose an option by navigating the
+computer cursor from a starting position to an end position (Fig. 1). To perform this task,
+both sensorimotor (navigating the mouse) and cognitive (making a choice) components of
+processing should be integrated. We think that emotion influences these two components
+and attention modulates this process.
+   It is known that goal-directed reaching behavior requires continuous sensorimotor deci-
+sion making, where costs and rewards for motor commands are assessed and remedied
+(K€ording & Wolpert, 2004, 2006; Wolpert & Landy, 2012; Wolpert et al., 1995). As in
+many decision-making problems, sensorimotor “decision making” is influenced by uncer-
+tainty arising from internal (interoception) and external (extraoception) signals (Orban &
+Wolpert, 2011). To cope with sensorimotor uncertainties, the system adopts motor strate-
+gies such as increasing smoothness in a trajectory (Harris & Wolpert, 1998). Interestingly,
+
+
+
+
+Fig. 1. Screen shots of the choice-reaching task. The task was to select which choice figure, left or right,
+was more similar to the bottom figure. A cursor trajectory is shown on the right panel for an illustrative
+purpose.
+                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)               777
+
+cognitive factors—working memory, attention, and cognitive load—mitigate motor strate-
+gies (e.g., restructuring motor plans in a target-directed reaching task, and see Gallivan,
+Bowman, Chapman, Wolpert, & Flanagan, 2016; Mattek, Whalen, Berkowitz, & Freeman,
+2016; Xiao & Yamauchi, 2015), and emotion intervenes in these sensorimotor coordination
+processes (Coombes, Janelle, & Duley, 2005).
+   It is well known that emotion influences attention (Dominguez Borras & Vuilleumier,
+2013). In visual search experiments, emotional targets are detected faster than neutral tar-
+gets (Flykt & Caldara, 2006). Attention blink—failure to detect a second target (T2)
+(e.g., a digit) when a first target (T1) is detected in a stimulus sequence—is attenuated
+when the second target (T2) is emotionally salient (T1 ? emotional T2) (Anderson &
+Phelps, 2001; De Martino, Kalisch, Rees, & Dolan, 2009; Schwabe et al., 2011). The
+attenuation of attention blink occurs when the second target (T2) conveys positive as well
+as negative meanings, suggesting that both positive and negative emotions influence
+attention. Emotion also consumes attention resources. When the second target (T2) fol-
+lows an emotionally salient first target (emotional T1 ? T2), attention blink increases
+(Schwabe et al., 2011), indicating that the attention allocated for the emotional target
+(T1) reduces the attention resource for the second target. Positively valued stimuli (erot-
+ica, happy voices, smiling faces) also influence attention and decision making (Schmitz,
+De Rosa, & Anderson, 2009). Research suggests that positive affects modify styles of
+information processing such as decision flexibility (e.g., more inclusive categorization)
+and creative problem solving (Isen & Daubman, 1984; Isen, Daubman, & Nowicki,
+1987).
+   These observations suggest that emotion directs, enhances, and consumes attention
+resources; emotion also alters information processing in decision making (Gallivan et al.,
+2016). Given that attention plays a critical role in sensorimotor (navigating the mouse)
+and cognitive (making a choice) components of choice-reaching, we hypothesize that
+individual differences underlying emotion processing can be inferred by trajectories of
+the computer cursor in a choice-reaching task. We tested this hypothesis in four experi-
+ments.
+
+
+1.4. Overview of the experiments
+
+   In our choice-reaching task, participants were presented with a triad of geometric fig-
+ures on a computer monitor and judged which choice figure, shown at the top-left or
+top-right corner of the monitor, was more similar to the base figure shown at the bot-
+tom (Fig. 1). Participants indicated their choice by clicking a “left” or “right” button
+placed at the top of each choice figure (Gasper & Clore, 2002; Kimchi & Palmer,
+1982; Yamauchi, 2013; Yu, Yamauchi, Yang, Chen, & Gutierrez-Osuna, 2010). In each
+trial, our program recorded the x-y coordinate locations of the cursor position every
+~20 ms from the onset of a trial (participants pressing the “Next” button) until the end
+of the trial (participants pressing an either left- or right-choice button) (Dale et al.,
+2007; Spivey et al., 2005).
+                                                                                                15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+778                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+   We selected this choice-reaching task because the perception of similarity is one of the
+most fundamental psychological functions that affect decision making, memory, general-
+ization, impression formation, and problem solving (Hahn & Ramscar, 2001; Shepard,
+1987; Yu et al., 2010). Thus, the basic cognitive properties underlying our choice-
+reaching task are likely to speak to more complex and realistic tasks, such as comparing
+and selecting consumer products at an online shopping site.
+   Experiment 1 is a correlation study. Participants conducted the choice-reaching task in
+96 trials and reported the level of anxiety (state-anxiety) with a questionnaire. We investi-
+gated how well cursor trajectories extracted in the choice-reaching task were correlated
+with participants’ self-reported anxiety scores. In Experiments 2–4, we assessed the extent
+to which our cursor motion analysis could infer participants’ emotions. In Experiment 2,
+we employed a music-based emotion elicitation method (Eich, Ng, Macaulay, Percy, &
+Grebneva, 2007) and investigated the extent to which positive or negative feelings
+induced by music could be predicted by cursor motions. In Experiments 3 and 4, we
+employed a film clip (Gross & Levenson, 1995; Rottenberg, Ray, & Gross, 2007) and
+pictures (Lang, Bradley, & Cuthbert, 2008), respectively, for emotion elicitation and
+examined how well cursor trajectory features could predict participants’ emotions (two
+broad categories of positive and negative affects and their six subcategories—joviality,
+self-assurance, attentiveness, sadness, fear, and hostility—in Experiment 3, and valence
+and arousal in Experiment 4).
+
+1.4.1. Measuring emotions
+
+   Emotion theorists disagree in the ontological status of emotion: a small number of dis-
+crete emotions (Ekman & Cordaro, 2011; Panksepp & Watt, 2011), two dimensions of
+core affect (valence and arousal), appraisal of goal-related changes in the environment
+(Moors, Ellsworth, Scherer, & Frijda, 2013), and/or motivated action (e.g., approaching
+or avoiding) (Elliot, Eder, & Harmon-Jones, 2013; Lang & Bradley, 2010) are said
+to result in a variety of different emotion experiences. Other theorists (Barrett, 2014;
+Lindquist, 2013; Russell, 2003) suggest that emotions are constructed dynamically from
+domain-general systems of categorization and predictive inference (Yamauchi, 2009;
+Yamauchi & Markman, 2000; Yu, Yamauchi, & Schumacher, 2008).
+   In this study, we are agnostic about the ontological status of emotion. However, in
+examining the relationship between emotion and cursor motion, we take the view of con-
+structivists’ conceptualization of emotions (Barrett, 2014; Lindquist, 2013; Russell, 2003).
+We assume that experiences and perceptions of emotion are constructed continuously
+from multiple physiological, cognitive, and behavioral sources, and that self-report,
+despite its obvious drawbacks, offers one of the most reliable and economical means of
+measuring emotions (Russell, 2003).
+   The question of “what is emotion” is controversial and there is “little agreement on
+where emotion stops and its causes and consequences begin” (p. 145, Russell, 2003). In
+this study, we define “emotions” as affective states, phenomena, and experiences that are
+derived from a variety of the aforementioned “emotion primitives” (e.g., core affect
+                                                                                                    15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                        T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                   779
+
+comprising of feeling good/bad and/or being energized or enervated and/or basic emo-
+tions such as fear, surprise, sadness, disgust, contempt, happiness; and see Ekman &
+Cordaro, 2011; Russell, 2003). Thus, in this study we refer to “emotions” broadly as
+commonly described by everyday language, such as surprise, fear, sad, anxious, excited,
+etc.
+    In Experiment 1, we used the State-Trait anxiety inventory (STAI) (Spielberger, Gor-
+such, Lushene, Vagg, & Jacobs, 1983) to measure state anxiety. Fear and anxiety are root
+causes of many mental disorders (e.g., depression, schizophrenia, borderline personality
+disorder, autism, and eating and addictive disorders) (LeDoux, 2015); physiological fac-
+tors that produce individual differences in state-trait anxiety are relatively well known
+and STAI has been the major assessment instrument for anxiety (Bishop, Duncan, Brett,
+& Lawrence, 2004; Bishop, Duncan, & Lawrence, 2004; Bishop & Forster, 2013; Etkin
+et al., 2004).1 In Experiments 2 and 3, we measured positive and negative affects with
+the Positive and Negative Affect Schedule-Extended (PANAS-X) (Watson & Clark,
+1999). Along with two broad dimensions of positive and negative affects, PANAS-X
+measures affective states with smaller granularity (e.g., fear, sadness, surprise, joviality,
+self-assurance, attentiveness, and serenity).2 This model assumes a hierarchical character-
+istic of emotion: Broad positive and negative affects represent valence and the lower level
+(e.g., joviality, attentiveness, self-assurance, fear, hostility) represents specific contents of
+the valence (Watson & Clark, 1999). We selected PANAS-X to capture hierarchical char-
+acteristics of emotion. Panksepp and Watt (2011) suggest that emotions are stratified as
+they emerge in evolutionary history of the brain-mind development. Emotions in mature
+adults are said to exist in mostly secondary and tertiary processes (neocortical interactions
+with paralimbic and limbic structures), and basic-emotion and dimensional-constructivist
+approaches can be deemed as different levels of analysis as one considers emotions from
+this hierarchical perspective. In Experiment 4, we employed the SAM (Bradley & Lang,
+1994). This is a classic dimensional aspect of emotion measure. We selected SAM
+because many publicly available emotion elicitation stimuli (Lang et al., 2008) have been
+normed by this instrument.
+
+1.4.2. Measuring cursor trajectories
+
+   One of the major functions of emotion is to guide action; emotion in this sense is clo-
+sely related to motor behavior (Ekman & Cordaro, 2011; Elliot et al., 2013; Lang &
+Bradley, 2010; Moors et al., 2013). Empirical studies suggest that emotion influences two
+separate systems of motor behavior, preparation and control (Glover, 2004). For example,
+induced emotion influences both preparation for force production and force control
+(Coombes, Cauraugh, & Janelle, 2007a,b; Coombes et al., 2005); force initiation is also
+shown to be related to trait anxiety; high trait anxiety participants took longer to initiate
+finger force (pinching a force transducer) as compared to low trait anxiety participants
+(Coombes, Higgins, Gamble, Cauraugh, & Janelle, 2009). Mouse cursor movement stud-
+ies suggest that two trajectory features are associated with emotion—trajectory distance
+and direction change (Grimes et al., 2013; Hibbeln et al., 2017; Sun et al., 2014;
+                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+780                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Yamauchi, 2013; Yamauchi & Bowman, 2014; Zimmermann, 2008). For example, in the
+Sun et al. study, participants performed three quintessential mouse motion tasks (point-
+and-click, drag-and-drop, steering), and Sun et al. found that motion control features
+(controlling motion oscillation) were significantly different in the stressful situation and
+non-stressful situation. Salmeron-Majadas et al. (Salmeron-Majadas, Santos, & Boticario,
+2014) examined mouse movement patterns and valence. Participants solved a math prob-
+lem and indicated their emotion using SAM. They found that the standard deviation of
+the difference between the traveled distance and the shortest distance between two
+consecutive button press events was significantly correlated with participants’ valence
+ratings.
+   On the basis of these studies, this study focused on two trajectory features—attraction
+(AUC) and zigzag (direction change). Attraction is defined as the area of departure from
+the straight line connecting the starting position to the end position; zigzag is the number
+of direction changes with respect to the straight line (Fig. 3). These trajectory features
+were selected because they have been shown to be significant in cognitive decision mak-
+ing and motor control (Hehman et al., 2015; Spivey, 2007; Yamauchi, 2013).
+
+
+2. Experiment 13
+
+2.1. Method
+
+2.1.1. Participant
+   Participants (N = 133; female = 75, male = 58) were undergraduate students partici-
+pating for course credit.
+
+2.1.2. Materials and procedure
+   The stimuli for the choice-reaching task were 32 triads of geometric figures—two
+choice figures placed at the two top-corners of the screen and a base figure placed at the
+bottom-center of the screen (Figs. 1 and 2). Each figure shows an overall shape (either a
+square or a triangle) with smaller squares or triangles.
+   In each triad, two choice figures placed at the upper two corners of a stimulus frame
+were similar to the base figure either in their overall shape or local shapes. In total, 16
+basic triads were produced by varying the number of local shapes—figures made of 3–4
+(level 1), 9–10 (level 2), 15–16 (level 3), or 36 (level 4) local shapes (Fig. 2). In the
+experiment, 32 triads were produced from the 16 basic triads by swapping the locations
+of the choice figures and the 32 triads were shown three times, yielding 96 trials of
+choice reaching for each participant.
+   To start each trial, participants had to press the “Next” button to get a triad stimulus.
+Participants indicated their responses by pressing the “left” or “right” button (Fig. 1).
+After their response, the “Next” button appeared again. This cycle repeated 96 times.
+Note that there were no correct/incorrect answers in this task, and participants were
+instructed to make a selection based on their personal preference. After completing the
+                                                                                                                  15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                              781
+
+
+
+
+Fig. 2. Illustration of stimuli used in the choice-reaching task. Sixteen basic triads were produced by varying
+the number of local shapes—3 or 4 (level 1), 9 or 10 (level 2), 15 or 16 (level 3), and 36 (level 4) shapes.
+The task was to judge which choice figure, shown at the top-left or top-right corner of the monitor, was more
+similar to the base figure shown at the bottom. Choice figures were similar to the base figures in terms of
+their local shapes or global configuration.
+
+
+choice-reaching experiment, participants received the state anxiety questionnaire
+(Spielberger et al., 1983) and reported their state-anxiety.
+
+2.1.3. Data analysis
+   By applying the linear interpolation algorithm, cursor trajectories of individual trials
+were standardized into 100 equally spaced time-steps starting from the onset of the first
+cursor move to the time slice of the final move (at which the choice button, either left
+or right, was pressed (Dale et al., 2007; Freeman et al., 2009; Spivey et al., 2005;
+Yamauchi, 2013). For each trajectory, we divided the 100 time-steps into four equal seg-
+ments and extracted two features—attraction and zigzag (direction change)—separately in
+each segment (Fig. 3). This segmentation was introduced because evidence suggests that
+motor planning and motor control are served by separate representation systems and are
+manifested in the time course of motor behavior: The module for motor planning operates
+earlier, whereas the module for motor control works later (Glover, 2004).
+   For individual participants, the mean and standard deviations of these features were
+calculated over 96 trials, yielding 16 predictors (2 features 9 4 segments 9 2 statistical
+properties (mean, standard deviation). The mean of the trajectory features provides an
+                                                                                                                     15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+782                             T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 3. Illustrations of (a) attraction and (b) zigzags. For each trial, a single trajectory was standardized into
+100 time-steps, which were grouped to four quadrants. Attraction and zigzag were extracted from each quad-
+rant, and mean and standard deviation of each feature value were calculated over 96 trials (1 subject: 2 fea-
+tures 9 4 quadrants 9 2 statistical moments = 16 data points).
+
+
+unbiased estimate of the central tendency of the population in question. Standard devia-
+tions of the motion features were also calculated because research in sport psychology
+suggests that maintaining stable and fluid motor performance across trials in changing
+contexts is a major characteristic of expertise in motor performance (Hodges, Huys, &
+Starkes, 2007); in this process, emotions work as signals for attention resource allocation
+(Abernethy, Maxwell, Masters, van der Kamp, & Jackson, 2007; Hanin, 2007). In this
+regard, variability in cursor trajectories across trials is likely to reveal individual differ-
+ences in emotion processing. In human-computer interaction research, standard deviations
+of cursor trajectory features (travelled distance, directional change) were shown to be cor-
+related with arousal and valence (Salmeron-Majadas et al., 2014; Zimmermann, 2008).
+D’Mello et al. (D’Mello, Dale, & Graesser, 2012) also demonstrated that variability in
+body motion reflects students’ frustration, anxiety, and confusion during problem solving.
+   We employed linear regression with anxiety scores as the dependent variable and 16
+cursor trajectory features as the independent variables (Fig. 3). The values of independent
+variables (i.e., extracted cursor trajectory properties) and the dependent variable (i.e.,
+observed anxiety scores) were z-normalized so that the mean and standard deviation of
+each variable were 0 and 1, respectively. For the cursor trajectory analysis, the trials that
+took more than 6 s were not analyzed and the data of the participants who had less than
+85 trials were not included in our analysis. Thus, a total of 11,555 trials (90.1% of the
+entire trials) were analyzed.
+
+2.1.4. Apparatus
+   We used six desktop computers (HP de 7900 systems with an E8400 Core 2 Duo 3.0
+GHZ processor) and monitors (19-inch wide flat panel display; HP L1908wi) for data col-
+lection. All participants used the same Dell Optical Mouse with USB connection (Dell
+0C8639 USB 2 Button Scrollwheel Optical Mouse). The pointer speed of the mice was
+set as medium and the resolution of the monitor was fixed as 1,440 9 900.
+                                                                                                             15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                          T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                          783
+
+2.2. Results
+
+2.2.1. Anxiety questionnaire data
+   The state-anxiety questionnaire asked participants to indicate their levels of anxiety on
+a 1–4 scale (20 questions). Our questionnaire results showed that female participants
+reported a higher level of anxiety (M = 2.0, SD = 0.56) than male participants (M = 1.8,
+SD = 0.46), t(132) = 2.36, p = .02, d = 0.3, 95% CId [ 0.04, 0.64].
+
+2.2.2. Linking cursor trajectories to state-anxiety
+   To investigate the relationship between cursor trajectories and self-reported anxiety
+scores, we applied stepwise regression analysis separately to female (n = 75) and male
+(n = 58) participants because research shows significant sex differences in cursor move-
+ments and emotion processing (Bradley & Lang, 2007; Cahill, 2006; Yamauchi, Seo,
+Choe, et al., 2015; Yamauchi, Seo, Jett, et al., 2015; Yamauchi, Xiao, et al., 2015). For
+this analysis, the 16 predictors were submitted to a stepwise linear regression with the
+Akaike Information Criterion for the predictor selection criterion.
+   Cursor trajectory patterns obtained from female participants were moderately correlated
+with their self-reported anxiety scores; F(2, 72) = 4.81, p = .01, R2 = 0.12 (adjusted
+R2 = 0.09), Spearman’s q = 0.29; 12% of the variance observed in female participants’
+anxiety scores was explained by two predictors. Given male participants, 47% of the vari-
+ance was explained by seven predictors; F(7, 50) = 6.22, p < .001, R2 = 0.47 (adjusted
+R2 = 0.39), Spearman’s q = 0.57 (Fig. 4).
+   Overall, two trajectory properties, attraction and zigzag, extracted in the midsections
+(26–50 & 51–75 time-slices) were particularly important. For male participants, zigzags
+extracted from 51 to 75th time-steps and 76–100th time-steps were correlated with
+
+
+
+
+Fig. 4. Graphical summaries of two regression analyses. The units of the x-y coordinates of the graphs are
+standardized “z-scores.” Spearman’s rank correlations (q) between predicted and observed values are shown
+as a performance index.
+                                                                                                             15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+784                             T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+self-reported anxiety scores (Table 1). Given female participants, attraction taken in the
+middle section (51–75th time-steps) was critical (Table 1).
+
+2.2.2.1. Assessing the validity of the regression result: To rule out possible over-fitting,
+we applied a permutation test and estimated how well our step-wise search algorithm
+would explain random relationships between dependent and independent variables.
+Specifically, we permutated individual anxiety scores (dependent variable) and tallied
+how well our predictors (16 cursor trajectory features) could explain randomly shuffled
+pseudo dependent measures in 1,000 simulation trials. In each trial, our program created
+“pseudo anxiety scores” by random permutation, carried out the same stepwise regression
+procedure as described earlier, and calculated rank correlations (q) between predicted and
+“observed” pseudo anxiety scores.
+   Given the female participants, pseudo q outperformed actual q in only six of 1,000
+cases (p = .006). Given the male participants, we found no case in which pseudo q out-
+performed actual q. Thus, it is unlikely that the observed relationships between cursor tra-
+jectories and anxiety ratings were due to random over-fitting (Fig. 5).
+
+2.3. Discussion
+
+   Cursor trajectory features accounted for about 47% of the variance of the self-reported
+anxiety scores in male participants. For female participants, the same predictors
+accounted for about 12% of the variance. The permutation test suggests that it is unlikely
+that the observed associations between cursor trajectory features and self-reported anxiety
+scores emerged due to random chance alone.
+   To clarify the relationship between cursor trajectories and emotion further, several
+problems should be addressed. First, a causal link between emotion and cursor motion
+should be investigated. The conventional regression analysis employed in Experiment 1
+only suggests how well the model can mimic observed data; thus, a causal link between
+emotion and cursor motion is unknown. Second, Experiment 1 dealt with state-anxiety
+
+Table 1
+Coefficients selected by the step-wise regression analysis
+                                                     Female                                   Male
+                     Segments                  M                 SD                   M               SD
+Attract             76–100
+                    51–75                   .34**
+                    26–50                                                                            .51**
+                      1–25                                                           .29*
+Zigzag              76–100                  .16#                                     .81***          .39*
+                    51–75                                                            .77***
+                    26–50                                                            .23#            .24#
+                      1–25
+   Note. p*** < .001, .001 ≤ p** < .01, .01 ≤ p* < .05, .05 ≤ p#.
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                           785
+
+
+
+
+Fig. 5. Histograms from permutation tests applied to (a) female and (b) male participants. The values of the
+dependent variables were randomly permutated and the same statistical analysis (step-wise regression) was
+applied 1,000 times to calculate rank correlations (Spearman’s q) between predicted and “observed” pseudo
+anxiety scores. The dashed black lines represent the rank correlations obtained from the actual experiment.
+
+
+only. It is unclear if the cursor motion analysis could be applied to other emotions (e.g.,
+fear, sadness, joviality). Third, the assumption of linearity in the linear regression analysis
+is unwarranted. There is no a priori reason to postulate that the relationship between tra-
+jectory features and anxiety scores is linear and we do not know how these features
+interact.
+   In the next three experiments, we employed music-, film-, and picture-based emotion
+elicitation methods and investigated the relationship between emotions and cursor
+motions further with non-parametric regression models (random forest and support vector
+machine).
+
+
+3. Experiment 2: Music-based emotion elicitation
+
+   Experiment 2 consisted of three parts (Fig. 6). In Part 1, participants listened to happy
+or sad music while performing the choice-reaching task. In Part 2, participants performed
+the choice-reaching task without any background music. In Part 3, participants listened to
+sad or happy music while performing the choice-reaching task. The participants who lis-
+tened to happy music in Part 1 received sad music in Part 3, and vice versa. Parts 1 and
+3 were designed to elicit positive or negative emotions while performing the choice-
+reaching task. At the end of each part, participants filled the PANAS-X (Watson & Clark,
+1999) to report their emotional states during the choice-reaching task.
+   To examine the relationship between cursor motions and emotion, we employed non-
+parametric regression models (random forest and support vector machine) and evaluated
+how well cursor trajectory features extracted from the choice-reaching task could predict
+                                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+786                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 6. (a) The design of Experiment 2. Subjects listened to sad or happy music while performing the choice
+reaching task (within-subjects design). At the end of each part, they indicated their feelings. Those who lis-
+tened sad music in Part 1 listened to happy music in Part 3 (and vice versa). (b) Dependent variables were
+emotion ratings observed in the happy condition minus sad condition, and independent variables were trajec-
+tory features obtained in the happy condition minus those obtained in the sad condition.
+
+
+elicited emotions with a repeated 10-fold cross-validation method (Kuhn & Johnson,
+2013).
+
+3.1. Method
+
+3.1.1. Participants
+   A total of 198 undergraduate students participated in Experiment 2 for course credit.
+Among them, 21 participants did not complete the experiment; thus, the data from 177
+participants (female = 111, male = 66; estimated age rage = 19–22) were analyzed. No
+participants participated in both Experiment 1 and Experiment 2.
+
+3.1.2. Materials and procedure
+   The stimuli and procedure for the choice-reaching task were identical to those
+described in Experiment 1. Participants conducted the same choice-reaching task three
+                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                         T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)               787
+
+times in Parts 1–3 while listening to happy/sad (Part 1) or sad/happy (Part 3) music, or
+without any background music (Part 2) (Fig. 6).
+   At the beginning of the experiment, all participants were instructed to wear headsets
+(JVC Flats stereo headphones) and adjust the volume as they liked. In the happy
+condition, happy music was played through a headset while participants performed the
+choice-reaching task. In the sad condition, sad music was played throughout the task. In
+the control condition, no music was given (Table 2). The happy and sad conditions were
+given in either Part 1 or Part 3. Those who received happy music in Part 1 received sad
+music in Part 3, and vice versa. The assignment of the order of happy and sad conditions
+was made randomly for each participant. The control condition was always in Part 2 for
+all participants.
+   After completing the choice-reaching task in each part, participants reported their emo-
+tional states (i.e., how they felt when they were conducting the choice-reaching task) with
+the Positive and Negative Affect Schedule-Expanded (PANAS-X) (Watson & Clark,
+1999). The PANAS-X measures two broad classes of positive and negative affects along
+with 11 subcategories of emotions (fear, sadness, guilt, hostility, shyness, fatigue, sur-
+prise, joviality, self-assurance, attentiveness, and serenity). In our analysis, we focused on
+two large categories of positive and negative affects and their six subcategories (joviality,
+self-assurance, attentiveness, sadness, fear, and hostility) that are directly relevant to our
+study.
+
+3.1.3. Design
+   The experiment was designed with one between-subjects factor, gender (male,
+female), and one within-subjects factor, music (happy, sad, control) (Fig. 6). Dependent
+variables were “changes” in emotion ratings made in the happy condition relative to
+those made in the sad condition; independent variables were “changes” in the 16 cursor
+trajectory features collected in the happy condition relative to those in the sad condition
+(Fig. 6). For example, “changes” in emotion ratings for joviality were calculated by
+participants’ joviality scores made in the happy condition minus their joviality scores
+made in the sad condition. Similarly, “changes” in a cursor trajectory feature (e.g.,
+mean attraction values in the 2nd quadrant) were calculated by the value of the feature
+obtained in the happy condition minus the value of the same feature obtained in the
+sad condition.
+
+Table 2
+Happy and sad music used in Experiment 2
+Song Title                                 Composer                    Length         Emotion
+Waltz of the Flowers                    Tchaikovsky                      6:36          Happy
+Trepak                                  Tchaikovsky                      1:07          Happy
+Dance of the Flutes                     Tchaikovsky                      2:24          Happy
+Prelude #4 in E minor                   Chopin                           2:32          Sad
+Lullaby                                 Stravinsky                       3:54          Sad
+Symphony No. 9 Largo                    Dvorak                          11:51          Sad
+                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+788                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+3.1.4. Data pre-processing and statistical procedure
+   In extracting cursor trajectory features, we adopted the same data processing procedure
+as described in Experiment 1. For our regression analysis, random forest (Breiman, 2001)
+and support vector machine (Boser, Guyon, & Vapnik, 1992; Cortes & Vapnik, 1995)
+were employed. To obtain conservative estimates of our model performance, no parame-
+ter tuning was applied (the same default parameters set by R package randomForest
+[Liaw & Wiener, 2002] and e1071 [Meyer, Dimitriadou, Hornik, Weingessel, & Leisch,
+2015] were applied in all analyses). For random forest, the numbers of decision trees
+were set to a default value of 500; for support vector machine, we employed a radial
+basis kernel with cost and gamma parameters of 1 and 0.0625 (1/the number of features),
+respectively.
+   To estimate the efficacy of our statistical models, we applied a repeated 10-fold cross-
+validation method with Spearman’s rank correlations between predicted and observed val-
+ues as the performance index. Specifically, we first divided individual data obtained from
+n participants into 10 disjoint subsets of approximately equal size (about n/10 data points
+for each subset); nine subsets were used for model training and the remaining subset was
+used for test. This training-testing operation was implemented for all 10 subsets to esti-
+mate predicted values for the dataset obtained from the entire participants. We then
+repeated this cross-validation procedure 10 times with different random partitions to esti-
+mate model performance. In this manner, we estimated the extent to which our regression
+models could predict emotion ratings of “unknown” participants from the data obtained
+from “known” participants (Kuhn & Johnson, 2013).
+
+3.2. Result
+
+3.2.1. Manipulation check
+   To check the validity of our music-based emotion elicitation method, we first exam-
+ined the differences in PANAS-X ratings in the happy and sad conditions (Fig. 7).
+   As Fig. 7 shows, our music-based emotion elicitation technique was effective for posi-
+tive emotions but not for negative emotions. Both female and male participants rated pos-
+itive affect, joviality, self-assurance, and attentiveness significantly higher in the happy
+condition than in the sad condition; for all positive emotions, t’s > 2.67, p’s < .01. How-
+ever, this was not the case for negative emotions. Although sadness was rated higher in
+the sad condition than in the happy music condition (female, t(110) = 3.70, p < .001;
+male, t(65) = 2.47, p < .05), ratings made to negative affect (female, t(110) = 1.75,
+p = .08; male, t(65) = 0.71, p = .48), fear (female, t(110) = 0.04, p = .97; male, t
+(65) = 0.36, p = .72), and hostility (female, t(110) = 1.89, p = .06; male, t(65) = 1.36,
+p = .18) were not clearly distinguishable between the happy and sad conditions.
+
+3.2.2. Behavioral analysis
+   Although past research indicated that happy mood promotes a “holistic” mode of infor-
+mation processing (i.e., selecting a globally similar figure over a locally similar figure;
+Gasper & Clore, 2002), we found no impact of music on the proportions of holistic
+                                                                                                           15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                          T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                        789
+
+
+
+
+Fig. 7. Emotion ratings (PANAS-X) obtained in the happy, control, and sad music conditions in (a) female
+and (b) male participants. p*** < .001, .001 ≤ p** < .01 .01 ≤ p* < .05.
+
+
+
+choices both in female and male participants: female, F < 1.0; male, F(2, 130) = 1.70,
+MSE = 0.06, p = .19, g2p = 0.03. Music influenced overall response latency in female par-
+ticipants; F(2, 14) = 10.0, MSE = 293,800.1, p < .01, g2p = 0.08 (Fig. 8), but not in male
+participants; F(2, 130) = 1.45, MSE = 729,296.8, p = .23, g2p = 0.02. This influence came
+from the presence/absence of music (control vs. happy or sad condition) rather than the
+affective property of the music (happy vs. sad conditions). We found no statistical differ-
+ences in response latency between the sad and happy music conditions: F < 1.0.
+
+3.2.3. Cursor motion analysis
+   Both random forest (RF) and support vector machine (SVM) were able to predict indi-
+vidual differences in positive emotions elicited by happy music relative to sad music. Our
+cursor motion analysis was particularly strong for attentiveness and positive affect in both
+male and female participants (Table 3).
+   The 16 cursor features predicted nearly 25% of the variance of the attentiveness ratings
+(female, q = 0.52 [RF], 0.45 [SVM]; male, q = 0.49 [RF], 0.48 [SVM]). Our trajectory
+features were also capable of predicting the changes in positive affect ratings (female,
+q = 0.38 [RF], 0.38 [SVM]; male, q = 0.43 [RF], 0.35 [SVM]). Overall negative emo-
+tions were not predicted by the trajectory features (Table 3).
+
+3.2.3.1. Assessing the validity of the prediction performance: How much of these results
+can be attributed to chance? To address this question, we created pseudo emotion rating
+scores by randomly shuffling ratings give to positive affect, applied a 10-fold cross vali-
+dation, and calculated rank correlation (q) between predicted and “observed” pseudo
+emotion scores in 1,000 simulation trials. This analysis indicates that it is unlikely that
+the observed relationships between cursor trajectories and emotion ratings emerged by
+                                                                                                                   15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+790                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 8. Summaries of choice patterns (proportions of trials in which participants selected globally similar fig-
+ures over locally similar figures) in (a) female and (b) male participants and mean response times in (c)
+female and (d) male participants in Experiment 2.
+
+
+chance alone. Given the female participants, we found no cases in which pseudo q out-
+performed actual q; given the male participants, pseudo q outperformed actual q only
+three of 1,000 cases (p = .003) (Fig. 9).
+
+3.2.3.2. Additional analysis: Overall negative emotions were not predicted well by our
+cursor motion analysis. One reason for this shortcoming could be that our features, focus-
+ing exclusively on spatial characteristics of trajectories, were simply inappropriate. To
+investigate this possibility, we added 10 temporal features and examined the extent to
+which these additional features would improve prediction performance of our statistical
+models. These 10 additional features were means and standard deviations of initiation
+time (the elapsed time before the first move) and attraction time in the four segments (cu-
+mulative durations in milliseconds spent away from the straight line). Adding these tem-
+poral features improved prediction performance for positive emotions in female
+participants (Table 4). In positive affect, self-assurance, and attentiveness, q increased by
+                                                                                                                    15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                                791
+
+Table 3
+Summary of prediction performance in Experiment 2 (16 features)
+                                  RF                       p                    SVM                       p
+Female
+   Positive affect             0.38 (0.03)          6.7 9 10 5               0.38 (0.04)             5.2 9 10 5
+   Joviality                   0.25 (0.03)          .01                      0.34 (0.05)             6.2 9 10 4
+   Self-assurance              0.16 (0.03)          .1                       0.22 (0.03)             .02
+   Attentiveness               0.52 (0.01)          9.6 9 10 9               0.45 (0.02)             9.2 9 10 7
+   Negative affect             0.20 (0.05)          .06                      0.21 (0.05)             .04
+   Sadness                     0.04 (0.04)          .62                      0.05 (0.04)             .62
+   Fear                        0.04 (0.05)          .62                      0.01 (0.04)             .73
+   Hostility                   0.04 (0.05)          .62                      0.16 (0.05)             .12
+Male
+   Positive affect             0.43 (0.03)          5.7 9 10 4               0.35 (0.04)             6.4 9 10 3
+   Joviality                   0.30 (0.04)          .02                      0.12 (0.05)             .38
+   Self-assurance              0.46 (0.02)          1.5 9 10 4               0.34 (0.03)             6.6 9 10 3
+   Attentiveness               0.49 (0.03)          6.4 9 10 5               0.48 (0.02)             6.4 9 10 5
+   Negative affect             0.03 (0.05)          .77                      0.01 (0.04)             .82
+   Sadness                     0.03 (0.09)          .54                      0.15 (0.08)             .31
+   Fear                        0.10 (0.06)          .48                      0.03 (0.06)             .63
+   Hostility                   0.13 (0.06)          .36                      0.03 (0.05)             .67
+    Note. The numbers in the second and fourth columns represent means of Spearman’s rank correlations
+between predicted and observed values and those in the third and fifth columns are their corresponding mean
+p-values obtained from 10-fold cross validation repeated 10 times. Those enclosed in parentheses are standard
+deviations of correlation scores. The scores with bold type face represent statistically significant correlations
+after controlling the false discovery rate at q = 0.05 (Benjamini & Hochberg, 1995). RF, random forest;
+SVM, support vector machine.
+
+0.05 to 0.1 points. In male participants, these additional features did not improve overall
+prediction performance. Even after adding these temporal features, negative emotions
+were still not predicted by our models.
+
+3.3. Discussion
+
+   Results show strong links between emotion and cursor trajectory features for positive
+emotions. One potential problem with Experiment 2 is that the observed link between
+emotion and cursor motion could have been specific to the music-based emotion elicita-
+tion method. In Experiment 3, we employed a film-based emotion elicitation method and
+examined the relationship between emotions and cursor motions further.
+
+
+4. Experiment 3: Film-based emotion elicitation
+
+  The design and structure of Experiment 3 were analogous to those described in Experi-
+ment 2, except that we used film clips for emotion elicitation. As in Experiment 2, Exper-
+iment 3 consisted of three parts. In each part, participants first saw a film clip for 2 min,
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+792                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 9. Histograms from permutation tests applied to (a) female and (b) male participants. The values of the
+dependent variable (positive affect ratings) were randomly permutated and the same statistical analysis
+(random forest) was applied 1,000 times to calculate rank correlations (Spearman’s q) between predicted and
+“observed” values. The dashed black lines represent the rank correlations obtained from the actual
+experiment.
+
+
+
+rated their feelings afterward, and carried out the choice-reaching task (96 trials) as
+described in Experiment 1. This cycle was repeated three times with participants viewing
+different film clips (funny, fearful, or neutral clips) (Fig. 10). At the end of each part,
+participants reported their feelings with PANAS-X. Unlike Experiment 2, our emotion
+elicitation was concerned with funny and fearful feelings because a film clip (within
+5 min) that evokes sadness in a short period was unavailable.
+
+4.1. Method
+
+4.1.1. Participants
+   A total of 372 undergraduate students participated in the experiment for course credit.
+Thirteen participants did not complete the experiment, and the data from 369 participants
+(female = 237; male = 132) were analyzed. No participants who participated in Experi-
+ments 1 or 2 participated in Experiment 3.
+
+4.1.2. Material and procedure
+   For the film clips, we selected excerpts of three films, When Harry Met Sally
+(1998), The Grudge (2004), and a mundane winter scene taken from YouTube
+(https://www.youtube.com/watch?v=-kpEOQWN39s) (Rottenberg et al., 2007) (Table 5).
+Each clip lasted approximately 2 min. These movie clips were selected from
+movieclips.com. This website classifies movie clips in terms of related moods, such as
+                                                                                                                   15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                               793
+
+Table 4
+Summary of prediction performance in Experiment 2 (26 features)
+                                 RF                       p                     SVM                      p
+Female
+   Positive affect              0.44 (0.02)           2.7 9 10 6             0.40 (0.02)            1.9 9 10 5
+   Joviality                    0.26 (0.03)           .008                   0.32 (0.02)            .001
+   Self-assurance               0.35 (0.03)           2.9 9 10 4             0.30 (0.02)            .002
+   Attentiveness                0.57 (0.03)           4.4 9 10 10            0.53 (0.02)            7.9 9 10 9
+   Negative affect              0.01 (0.05)           .69                    0.07 (0.03)            .51
+   Sadness                      0.01 (0.06)           .68                    0.06 (0.05)            .53
+   Fear                         0.01 (0.02)           .85                    0.02 (0.03)            .79
+   Hostility                    0.15 (0.04)           .16                    0.02 (0.04)            .64
+Male
+   Positive affect              0.40 (0.03)           .002                   0.37 (0.03)            .003
+   Joviality                    0.27 (0.03)           .05                    0.11 (0.03)            .4
+   Self-assurance               0.46 (0.02)           9.7 9 10 5             0.41 (0.01)            7.4 9 10 4
+   Attentiveness                0.50 (0.03)           2.8 9 10 5             0.50 (0.04)            3.3 9 10 5
+   Negative affect              0.01 (0.04)           .83                    0.02 (0.03)            .8
+   Sadness                     0.001 (0.03)           .87                    0.20 (0.05)            .14
+   Fear                         0.01 (0.03)           .68                    0.07 (0.08)            .49
+   Hostility                    0.25 (0.03)           .05                    0.17 (0.02)            .18
+    Note. The numbers in the second and fourth columns represent means of Spearman’s rank correlations
+between predicted and observed values and those in the third and fifth columns are their corresponding mean
+p-values obtained from 10-fold cross validation repeated 10 times. Those enclosed in parentheses are standard
+deviations of correlation scores. The scores with bold typeface represent statistically significant correlations
+after controlling the false discovery rate at q = 0.05. RF, random forest; SVM, support vector machine.
+
+
+fearful, angry, brainy, funny, and sentimental. Shortly after viewing a film, participants
+rated how they felt when they watched the film using PANAS-X. After reporting their
+feelings, participants carried out the choice-reaching task in the same way described
+in Experiment 1.
+
+4.1.3. Data pre-processing and analysis procedure
+   We employed the same data pre-processing and analysis procedure as described in
+Experiment 2.
+
+4.2. Results
+
+4.2.1. Manipulation check
+   Our film-based emotion elicitation technique was effective in eliciting positive and
+negative emotions (Fig. 11). Both female and male participants rated positive affect, jovi-
+ality, self-assurance, and attentiveness significantly higher in the funny condition than in
+the fearful condition; female, t’s > 3.10, p’s < .01; male t’s > 2.30, p’s < .05. Negative
+affect, sadness, hostility, and fear were rated higher in the fearful condition than in the
+funny condition; female, t’s > 5.17, p’s < .001; male, t’s > 4.69, p’s < .001.
+15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                                                                                                                                                                                                                                                                                                                                                                 Portions in the Film
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                        0:45:21–0:47:25
+                                                                                                                                                                                                                                                                                                                                                                                        0:05:35–0:07:35
+                                                                                                                                                                                                                                                                                                                                                                                         0:1:01–0:03:03
+                      T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                 Length
+                                                                                                                                                                                                                                                                                                                                                                                        2:06
+                                                                                                                                                                                                                                                                                                                                                                                        2:00
+                                                                                                                                                                                                                                                                                                                                                                                        2:02
+                                                                                                                                                                                                                                                      Fig. 10. A schematic illustration of the design of Experiment 3.
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                                                                        When Harry Met Sally
+                                                                                                                                                                                                                                                                                                                                                                 Name                   The Grudge
+                                                                                                                                                                                                                                                                                                                         Table 5
+                                                                                                                                                                                                                                                                                                                                                                                        Winter scene
+                                                                                                                                                                                                                                                                                                                         Three film clips used in Experiment 3
+                                                                                                                                                                                                                                                                                                                                                                 Category
+                                                                                                                                                                                                                                                                                                                                                                                        Funny
+                                                                                                                                                                                                                                                                                                                                                                                        Fearful
+                      794                                                                                                                                                                                                                                                                                                                                                               Neutral
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                           795
+
+
+
+
+Fig. 11. Emotion ratings (PANAS-X) obtained in the funny, control, and fearful film conditions in (a) female
+and (b) male participants in Experiment 3. p*** < .001, .001 ≤ p** < .01 .01 ≤ p* < .05.
+
+
+4.2.2. Behavioral analysis
+    Viewing a funny or fearful film clip did not influence overall response patterns both
+for female and male participants: female, F < 1.0; male, F(2, 262) = 1.01, MSE = 0.04,
+p = .37, g2p = 0.008 (Fig. 12). Film viewing influenced response latency: female, F(2,
+472) = 15.45, MSE = 370,237.6, p < .001, g2p = 0.06; male, F(2, 262) = 4.29,
+MSE = 337,088.7, p < .02, g2p = 0.03; but response times in the funny and fearful condi-
+tions were not statistically different; female, F(1, 238) = 1.50, MSE = 660,993.1, p = .22,
+g2p = 0.006; male, F < 1.0.
+
+4.2.3. Cursor motion analysis
+   Table 6 shows the results from cursor motion analysis. In female participants, cursor
+trajectory features were effective in predicting attentiveness and positive affect. In male
+participants, changes in cursor trajectories could predict self-assurance to some extent.
+
+4.2.4. Assessing the validity of the prediction performance
+   We assessed the validity of our cursor trajectory analysis in a permutation test as
+described in Experiment 2. This simulation analysis suggests that it is unlikely that the
+observed relationships between cursor trajectory features and emotion ratings were due to
+random error. Given female participants, pseudo q outperformed actual q (positive affect)
+in only one of 1,000 cases (p = .001). Given male participants, pseudo q outperformed
+actual q (self-assurance) in only three of 1,000 cases (p = .003) (Fig. 13).
+
+4.2.5. Additional analysis
+   As in Experiments 2, we added 10 temporal features to our models and examined if
+the models could predict negative emotions. An addition of temporal features improved
+                                                                                                                15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+796                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 12. Summaries of choice patterns (proportions of trials in which participants selecting globally similar
+figures over locally similar figures) in (a) female and (b) male participants and mean response times in (c)
+female and (d) male participants in Experiment 3.
+
+
+predictions of positive affect, self-assurance, attentiveness, and sadness in female partici-
+pants by 0.1–0.15 points (Table 7).
+
+4.3. Discussion
+
+   Using emotional film clips (either funny or scary clips), Experiment 3 investigated the
+impact of induced emotions on cursor motion in the choice reaching task. Unlike Experi-
+ment 2 where happy or sad music was played throughout the test task, participants in this
+experiment viewed a film clip for 2 min before the choice reaching task. Even in this
+subtle condition, we found that 16–24 trajectory features extracted from the choice reach-
+ing task were able to predict positive affect and attentiveness in female participants in
+reasonable accuracy, and self-assurance in male participants to some degree. Together
+with results from Experiment 2, these findings are consistent with the idea that induced
+emotion influences movements of the computer cursor in an emotion-neutral judgment
+task and that by analyzing movements of the computer cursor it is possible to assess
+                                                                                                                    15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                                797
+
+Table 6
+Summary of prediction performance in Experiment 3 (16 features)
+                                  RF                       p                     SVM                      p
+Female
+   Positive affect               0.25 (0.01)           1.3 9 10 4             0.24 (0.02)            2.7 9 10 4
+   Joviality                     0.14 (0.03)           .05                    0.07 (0.02)            .32
+   Self-assurance                0.09 (0.04)           .25                    0.11 (0.03)            .14
+   Attentiveness                 0.38 (0.02)           3.6 9 10 9             0.32 (0.03)            1.5 9 10 6
+   Negative affect               0.04 (0.03)           .56                   0.004 (0.02)            .83
+   Sadness                       0.16 (0.02)           .01                    0.09 (0.04)            .23
+   Fear                          0.02 (0.03)           .68                    0.01 (0.01)            .85
+   Hostility                    0.002 (0.03)           .68                    0.08 (0.03)            .83
+Male
+   Positive affect               0.07 (0.04)           .4                     0.15 (0.04)            .13
+   Joviality                     0.08 (0.03)           .38                    0.04 (0.04)            .61
+   Self-assurance                0.25 (0.02)           5.7 9 10 3             0.27 (0.03)            3.0 9 10 3
+   Attentiveness                 0.08 (0.03)           .4                     0.16 (0.04)            .09
+   Negative affect               0.06 (0.06)           .47                    0.03 (0.06)            .62
+   Sadness                       0.15 (0.03)           .11                    0.03 (0.05)            .65
+   Fear                         0.006 (0.04)           .73                    0.01 (0.04)            .71
+   Hostility                     0.06 (0.04)           .46                    0.03 (0.03)            .66
+    Note. The numbers in the second and fourth columns represent means of Spearman’s rank correlations
+between predicted and observed values and those in the third and fifth columns are their corresponding mean
+p-values obtained from 10-fold cross validation repeated 10 times. Those enclosed in parentheses are standard
+deviations of correlation scores. The scores with bold type face represent statistically significant correlations
+after controlling the false discovery rate at q = 0.05. RF, random forest; SVM, support vector machine.
+
+
+
+
+Fig. 13. Histograms from permutation tests applied to (a) female and (b) male participants. The values of the
+dependent variables were randomly permutated and the same statistical analysis (random forest) was applied
+1,000 times to calculate rank correlations (Spearman’s q) between predicted and “observed” values. The
+dashed black lines represent the rank correlations obtained from the actual experiment.
+                                                                                                                    15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+798                             T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+emotion of the computer user. To clarify the relationship between cursor motion and
+emotion further, Experiment 4 examined what emotion, valence or arousal, influences
+cursor movement.
+
+
+5. Experiment 4: Valence and arousal
+
+   Several theories of emotion suggest that various emotions, such as frustration, anxiety,
+or confidence, stem from two fundamental “dimensions”—valence (positive/negative
+states) and arousal (high/low energized states). An important question is which dimen-
+sion, valence or arousal, influences cursor motion. One plausible explanation is that arou-
+sal is the main source. The music and film clips we used for emotion elicitation made
+people more alert and engaging, and this “alertness” influenced the mobility of the cursor
+in the choice reaching task. It is also possible that cursor motion and emotion were linked
+both by arousal and valence. Positive and negative valence is known to influence atten-
+tion and cognitive control (Dominguez Borras & Vuilleumier, 2013). Although identify-
+ing the precise mechanism by which emotion influences cursor motion is beyond the
+scope of this study, it is important to clarify the extent to which our cursor motion analy-
+sis is responsive to valence and/or arousal.
+Table 7
+Summary of prediction performance in Experiment 3 (26 features)
+                                  RF                       p                    SVM                       p
+Female
+   Positive affect               0.33 (0.02)          9.1 9 10 7             0.28 (0.01)            2.9 9 10 5
+   Joviality                     0.09 (0.01)          .2                     0.08 (0.01)            .26
+   Self-assurance                0.21 (0.02)          .002                   0.19 (0.02)            .005
+   Attentiveness                 0.45 (0.01)          3.5 9 10 13            0.41 (0.01)            1.8 9 10 10
+   Negative affect               0.06 (0.03)          .41                    0.05 (0.04)            .51
+   Sadness                       0.19 (0.02)          .005                   0.12 (0.03)            .1
+   Fear                          0.08 (0.03)          .68                    0.05 (0.04)            .63
+   Hostility                     0.03 (0.03)          .68                    0.06 (0.03)            .54
+Male
+   Positive affect               0.15 (0.03)          .4                     0.10 (0.03)            .3
+   Joviality                     0.10 (0.03)          .38                    0.16 (0.04)            .09
+   Self-assurance                0.24 (0.02)          .007                   0.30 (0.03)            8.0 9 10 4
+   Attentiveness                 0.20 (0.03)          .03                    0.18 (0.04)            .05
+   Negative affect               0.16 (0.04)          .47                    0.08 (0.06)            .39
+   Sadness                      0.004 (0.03)          .11                    0.04 (0.03)            .63
+   Fear                          0.08 (0.03)          .73                    0.05 (0.04)            .64
+   Hostility                     0.03 (0.03)          .46                    0.06 (0.03)            .54
+    Note. The numbers in the second and fourth columns represent means of Spearman’s rank correlations
+between predicted and observed values and those in the third and fifth columns are their corresponding mean
+p-values obtained from 10-fold cross validation repeated 10 times. Those enclosed in parentheses are standard
+deviations of correlation scores. The scores with bold type face represent statistically significant correlations
+after controlling the false discovery rate at q = 0.05. RF, random forest; SVM, support vector machine.
+                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)               799
+
+   In Experiment 4, we employed the International Affective Picture System (IAPS)
+(Lang et al., 2008) as emotion-elicitation stimuli and addressed this question. The IAPS
+consists of 1,195 emotionally evocative color photographs and their emotion ratings on
+three dimensions (arousal, valence, and dominance). Using IAPS’s normed rating scores,
+we selected 192 pictures (96 stimuli each separately for female and male participants)
+and induced valence and arousal in different degrees before every choice reaching trial.
+Participants reported their levels of valence (positive/negative) and arousal (high/low)
+using the Self-Assessment Manikin (Bradley & Lang, 1994). Immediately after rating,
+participants conducted a choice reaching trial as described in Experiment 1. This process
+was repeated 96 times with different IAPS stimuli for emotion elicitation. Using the cur-
+sor motion patterns extracted from individual choice-reaching trials, we examined the
+extent to which individual participants’ self-reported valence and arousal (obtained after
+viewing IAPS pictures) could be predicted from their cursor motion patterns extracted
+from individual choice reaching trials.
+
+5.1. Method
+
+5.1.1. Participants
+   A total of 194 undergraduate students in Texas A&M University participated in the
+experiment for course credit. Three participants did not complete the experiment and the
+data from 191 participants (female = 106; male = 85; estimated age rage = 19–22) were
+analyzed.
+
+5.1.2. Material
+    The materials used for the choice reaching task were identical to those described in
+Experiment 1. For emotion elicitation, we selected 192 stimuli from the IAPS separately
+for female (96 stimuli) and male (96 stimuli) participants according to the normed data
+published in the manual (see Supplementary Material). Some of the emotion elicitation
+stimuli selected for female and male participants were not identical.
+    In selecting IAPS pictures, the following procedure was applied. First, we normalized
+(M = 0, SD = 1) all normed rating data taken separately from female and male respon-
+dents listed in the manual. on the basis of the z-transformed rating scores, we classified
+individual pictures as high valence and high arousal (HH), high valence and low arousal
+(HL), low valence and low arousal (LL), low valence and high arousal (LH), low valence
+and low arousal (LL), and neutral (N) (Fig. 14). Those in high categories (H) had z-trans-
+formed rating scores of 0.5 or higher and those in the low categories (L) had z-trans-
+formed rating scores of 0.5 or lower (Fig. 14). Those in the neutral category (N) had
+valence and arousal scores between 0.5 and 0.5 (] 0.5, 0.5[). We selected 16 stimuli
+pseudo-randomly from each of HH, HL, LL, and LH categories with the restrictions that
+stimuli in each emotion category were statistically consistent with their designated cate-
+gories. For example, IAPS stimuli that were selected for HH and LH categories were sta-
+tistically different in their valence ratings (HH vs. LH), but equivalent in arousal ratings
+(HH vs. LH). Similarly, stimuli that were selected for HH and HL categories were
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+800                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 14. The distribution of 1,195 International Affective Picture System (IAPS) stimuli in the valence-
+arousal space. Individual dots represent individual IAPS pictures, and z-transformed valence-arousal rating
+scores are shown in the x-y axes. Sixty-four emotional stimuli were selected pseudo-randomly from those
+enclosed in the red dashed squares (in a clockwise, high valence and high arousal—HH, high valence and
+low arousal—HL, low valence and low arousal—LL, and low valence and high arousal—LH), and neutral
+stimuli were selected randomly from those in the black rectangular box. Rating scores shown here are aggre-
+gates of female and male respondents. In our actual selection, rating scores made by female and male respon-
+dents were assessed separately.
+
+
+statistically different in their arousal ratings (HH vs. HL), but equivalent in valence rat-
+ings (HH vs. HL) (Fig. 14 and Table 8). Table 8 shows rating values of individual cate-
+gories. For neutral stimuli, 32 neutral stimuli were selected randomly from the neutral
+category (N).
+   For emotion elicitation, 96 IAPS stimuli were divided into four blocks of 24 stimuli
+each (4 blocks 9 24 stimuli = 96 IAPS stimuli). Each block consisted of 16 stimuli taken
+from four emotion categories (HH, HL, LH, and LL; 4 9 4 = 16) and eight stimuli from
+the neutral category (1 block = 24 stimuli = 16 emotional stimuli + 8 neutral stimuli).
+Each block was further divided into four subblocks of six stimuli each (1 block = 24
+stimuli = 4 subblocks 9 6 stimuli); each subblock had four emotional stimuli and two
+                                                                                                                   15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                              T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                            801
+
+Table 8
+Z-transformed valence and arousal ratings of the normed data for four emotional (HH, HL, LH, LL) and one
+neutral (N) categories
+                         HH                    HL                 LH                   LL                   N
+Female
+  Valence               0.92                 0.96                 1.02                0.89                 0.05
+  Arousal               0.94                 0.85                 1.06                0.83                 0.08
+Male
+  Valence               1.07                 0.98                 0.82                0.81                 0.02
+  Arousal               1.06                 0.94                 0.96                0.86                 0.07
+   Note. All between-category comparisons are significantly different (e.g., HH vs. LH in valence rating) in
+p’s < 1.0 9 10 10, and all within-category comparisons (e.g., HH vs. LH) were statistically indistinguishable in
+p’s > .23. The numbers represent Z-transformed (M = 0, SD = 1) rating scores. HH, high valence, high arousal;
+HL, high valence, low arousal; LH, low valence, high arousal; LL, low valence, low arousal; N, neutral.
+
+Table 9
+Allocation of IAPS stimuli
+
+                                 HH                  HL                  LH                   LL
+ 16 sub blocks     neutral        2   2    2   2     2    2   2   2       2   2    2   2      2    2   2   2
+                  emotional       4   4    4   4      4   4   4   4       4   4    4   4       4   4   4   4
+
+
+           4       block 1        2                   2                   2                    2
+        blocks                    4                   4                   4                    4
+                   block 2            2                   2                   2                    2
+                                      4                   4                   4                    4
+                   block 3                 2                  2                    2                   2
+                                           4                  4                    4                   4
+                   block 4                     2                  2                    2                   2
+                                               4                  4                    4                   4
+
+    Note. 96 IAPS stimuli (16 9 4 = 64 emotional pictures and 2 9 4 9 4 = 32 neutral pictures) are divided
+into four blocks, and each block is divided further into four subblocks (a total of 16 subblocks). One subblock
+had two neutral pictures and four emotional pictures. One block had 16 emotional pictures that were taken from
+four emotional categories (HH, HL, LH, LL) and eight neutral pictures. Within each subblock, the order of pre-
+senting stimuli was randomly determined, and within each block, the order of presenting four subblocks was
+randomly determined. The order of presenting the four blocks was randomly determined for each participant.
+
+neutral stimuli (1 subblock = 4 emotional stimuli + 2 neutral stimuli) (Table 9). For
+example, subblock HH in Block 1 contained four high-valence-high-arousal stimuli and
+two neutral stimuli, and subblock LL in Block 1 contained four low-valence-low-arousal
+stimuli and two neutral stimuli (see Supplementary Material).
+
+5.1.3. Procedure
+   The choice reaching task employed in this experiment was identical to that described
+in Experiment 1. Unlike Experiment 1, each choice-reaching trial was preceded by an
+                                                                                                                   15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+802                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 15. An illustration of a stimulus presentation cycle. In one cycle, an International Affective Picture Sys-
+tem picture was shown for 3 s followed by a Self-Assessment Manikin (SAM) rating frame and a choice-
+reaching trial frame. This cycle was repeated 96 times with different stimuli.
+
+IAPS-based emotion elicitation and rating trial (Fig. 15). In one cycle, the participant first
+viewed an IAPS picture for 3 s; soon after the picture disappeared from the screen, the
+participant rated her feeling (valence and arousal) using the SAM. Immediately after the
+rating trial, a choice-reaching trial was presented, in which the participant judged the sim-
+ilarity of geometric figures, as described in Experiment 1. This cycle was repeated 96
+times with different IAPS stimuli and choice reaching stimuli. Each rating trial and
+choice reaching trial remained on the screen until the participant made a response.
+   The order of presenting the four blocks of IAPS stimuli was randomly determined for
+individual participants. Within each block, the order of presenting subblocks (HH, HL,
+LH, or LL subblock) was determined randomly for individual participants. Within each
+subblock, the order of presenting elicitation stimuli was fixed across participants: Two
+neutral stimuli were presented first and four emotional stimuli followed. We adopted this
+presentation cycle to minimize possible contamination of one emotion category to
+another. Individual IAPS stimuli (96 in total) were paired with individual choice-reaching
+trial (96 in total) randomly for each participant.
+
+5.1.4. Design
+   The experiment had a four (elicitation category; HH, HL, LH, LL; within-subjects) x
+two (elicitation stimuli; emotional, neutral; within-subjects) factorial design. For our
+actual data analysis, we collapsed the second factor, elicitation stimuli, by subtracting
+performance for neutral stimuli from that for emotional stimuli. In this manner, one-way
+ANOVAs (emotion elicitation category; HH, HL, LH, LL) were applied for our behavioral
+analysis (manipulation check and response pattern).
+   As in Experiments 2 and 3, dependent variables were “changes” in emotion ratings
+(valence or arousal). For example, “change” in valence ratings was calculated by the par-
+ticipant’s valence rating for an emotional IAPS picture (e.g., an erotic picture with high
+valence and high arousal value) minus her valence rating for a neutral IAPS picture in
+the same subblock (e.g., a mundane park scene). Similarly independent variables were
+                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                 803
+
+“change” in a cursor trajectory feature. For example, “change” in a cursor trajectory fea-
+ture (e.g., AUC) was calculated by the difference in trajectories made immediately after
+viewing an emotional IAPS picture (e.g., erotic picture) and viewing neutral IAPS picture
+(e.g., a mundane park scene) in the same subblock.
+   To examine the prediction performance of our cursor analysis, we calculated AUC and
+zigzag (direction change) in the four temporal segments in each trial. Thus we had eight
+features (4 AUC scores and 4 zigzag scores obtained from the four segments in each
+trial). The prediction capability of these extracted features was tested for individual
+participants separately by applying repeated 10-fold cross validation 10 times for each
+participant.
+
+5.2. Results
+
+5.2.1. Manipulation check
+   Our IAPS-based emotion elicitation was successful for valence; female,
+F(3, 315) = 293.3, MSE = 1.25, p < .001, partial g2p = 0.74; male, F(3, 252) = 234.2,
+MSE = 1.04, p < .001, partial g2p = 0.74; and arousal, female, F(3, 315) = 99.6,
+MSE = 1.17. p < .001, partial g2p = 0.49; male, F(3, 252) = 92.5, MSE = 1.4. p < .001,
+partial g2p = 0.52. Relative to neutral stimuli, significantly higher valence ratings were
+obtained in the high valence stimuli (HH and HL) than in low valence stimuli (LH and
+LL) (for all pair-wise comparisons between (HH, HL) and (LH, LL), t’s > 15.0,
+p’s < 2.0 9 10 33); significantly higher arousal ratings were obtained in high arousal
+stimuli (HH and LH) than in low arousal stimuli (HL and LL) (for all pair-wise compar-
+isons between (HH, LH) and (HL, LL), t’s > 8.5, p’s < 3.1 9 10 14 (Fig. 16 and
+Table 10).
+   Our rating data also revealed that valence and arousal ratings were not completely
+independent. In female participants, participants made significantly higher valence ratings
+to high arousal stimuli (HH) than low arousal stimuli (HL); valence ratings for HH ver-
+sus HL stimuli, t(105) = 4.3, p < 4.4 9 10 5. Similarly, our female participants made
+higher arousal ratings to low valence stimuli (LH) than to high valence stimuli (HH);
+arousal ratings for LH versus HH, t(105) = 4.3, p < 3.5 9 10 5. In contrast, male partic-
+ipants gave higher arousal ratings to high valence stimuli (HH) than to low valence stim-
+uli (LH); t (84) = 2.8, p < .007.
+   These results suggest that our emotion elicitation method was generally effective, but
+valence and arousal ratings were not completely independent and female and male partic-
+ipants were influenced differently by arousal.
+
+5.2.2. Response patterns
+   As in Experiments 2 and 3, we found no impact of emotion on the degree of holistic
+responses in choice-reaching trials. The proportion of holistic responses (proportion of tri-
+als participants selecting globally similar figure over locally similar figure) were statisti-
+cally indistinguishable among the four emotion conditions both in female and male
+participants; F < 1.0 (Fig. 17).
+                                                                                                                  15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+804                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 16. Mean valence and arousal rating scores in Experiment 4. Rating scores are shown separately for
+emotion and neutral elicitation stimuli in each emotion category (HH, high valence/high arousal; HL, high
+valence/low arousal; LH, low valence/high arousal; LL, low valence/low arousal). In our actual data analysis,
+we calculated “relative” rating scores by subtracting ratings made to neutral elicitation stimuli from those to
+emotion elicitation stimuli. (a) and (b) show mean valence ratings by female and male participants, respec-
+tively, and (c) and (d) show mean arousal ratings by female and male participants, respectively. The error
+bars represent two standard error units.
+
+
+   For response latency, we found significant impacts of emotion on response times in
+choice reaching trials in both female and male participants; female; F(3, 315) = 5.83,
+MSE = 297,643.5, p < .01, partial g2p = 0.05; male, F(3, 252) = 3.71, MSE = 251,281.3,
+p < .05, partial g2p = 0.04 (Fig. 17). Relative to the neutral condition, choice-reaching tri-
+als made after HL, LH, LH, and LL stimuli were significantly shorter than those made
+after the HH elicitation stimuli; female participants for all pair-wise comparisons [HH vs.
+                          Table 10
+                          Relative ratings given to emotionally loaded IASP stimuli
+                                                                                                       Valence                                                                                                                                         Arousal
+                                                          HH                          HL                               LH                                LL                                                HH                          HL                              LH                              LL
+                          Female
+                            M (SD)     1.9 (1.3)   1.4 (0.9)         1.7 (1)             1.5 (0.9)      M (SD)         1 (1.1)     0.6 (1.2)      1.2 (1.3)          0.9 (0.9)
+                            t-score    HH          HL              LH                  LL                           HH           HL               LH               LL
+                              HH                   4.3              17.8               19.0             HH                       8.8              4.3              11.7
+                              HL                                    18.8               21.5             HL                                        9.5              4.8
+                              LH                                                       1.4              LH                                                         15.2
+                            p-value    HH          HL              LH                  LL                           HH           HL               LH               LL
+                              HH                   4.4 9 10 5        2.0 9 10 33       9.2 9 10 36      HH                       3.1 9 10 14      3.5 9 10 5       9.1 9 10 21
+                              HL                                     2.3 9 10 35       3.0 9 10 40      HL                                        8.3 9 10 16      5.3 9 10 6
+                              LH                                                       0.16             LH                                                         2.3 9 10 28
+                          Male
+                            M (SD)     1.4 (1.0)   1.5 (1.0)         1.7 (1.1)           1.2 (0.8)      M (SD)       1.5 (1.0)     0.9 (1.2)      1.1 (1.3)          0.7 (0.9)
+                            t-score    HH          HL              LH                  LL                           HH           HL               LH               LL
+                              HH                   1.0              15.8               16.8             HH                       13.4             2.8              12.8
+                              HL                                    16.6               18.4             HL                                        8.6              0.9
+                              LH                                                       3.8              LH                                                         10.1
+                                                                                                                                                                                                                                                                                                                              T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+                            p-value    HH          HL              LH                  LL                           HH           HL               LH               LL
+                              HH                   0.33              6.7 9 10 27       1.3 9 10 28      HH                       1.8 9 10 22      0.007            1.9 9 10 21
+                              HL                                     2.9 9 10 28       3.2 9 10 31      HL                                        4.1 9 10 13      0.38
+                              LH                                                       0.0003           LH                                                         3.0 9 10 16
+                             Note. Mean (M), standard deviation (SD), t-scores, and p-values of “relative” rating scores. For example, “relative mean valence rating scores” in
+                          the HH categories were calculated by the mean ratings given to emotional stimuli minus the mean ratings given to neutral stimuli presented in the
+                          same subblock.
+
+
+
+
+                                                                                                                                                                                                                                                                                                                              805
+
+
+15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                                                                                                              15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+806                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 17. Proportions of holistic responses for (a) female and (b) male participants and mean response times
+for (c) female and (d) male participants. The error bars represent two standard error units.
+
+
+(HL, LH, LH)], t(105) > 2.80, p < .006; male participants for all pair-wise comparisons
+[HH vs. (HL, LH, LH)], for all comparisons, t(85) > 2.70, p < .009. These discrepancies
+in response times were largely due to long response times observed after the neutral stim-
+uli in the HL, LH, and LL elicitation stimuli as compared to HH elicitation stimuli
+(Fig. 17). Given female participants, emotion elicitation stimuli in the HH condition
+(emotion-HH) resulted in significantly shorter response times in subsequent choice reach-
+ing trials following emotion elicitation stimuli in the LL (emotion-LL) condition;
+                                                                                             15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                      T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)               807
+
+t(105) = 3.01, p < .02 (Bonferonni). For male participants, this comparison was not sig-
+nificant; t(84) = 1.35, p > .15. These results suggest that emotion elicitation stimuli
+impacted response latency and the impact of emotion elicitation lasted longer than we
+estimated.
+
+5.2.2.1. Cursor motion analysis: As in Experiments 1–3, the trials that took more than
+6 s were not analyzed and the data of the participants who had less than 85 trials (90%
+of the trials) were not included in our analysis. Thus, we analyzed the data from 100
+female and 80 male participants (94.1% of the entire participants).
+   We applied random forest and support vector machine for individual participants sepa-
+rately, and we examined the prediction performance of our cursor motion analysis for
+each participant (Fig. 18). This analysis revealed that valence was predicted by random
+forest regression quite well both in female and male participants (female, median rank
+correlation = 0.33, p = .009; male, median rank correlation = 0.31, p = .01) (Table 11).
+   A random permutation test (10-fold cross validation were repeated 100 times for each
+participant with randomly permutated dependent variables) indicated that the pseudo pre-
+diction performance exceeded the actual prediction performance of 0.33 only 1.2% of the
+cases (119 of 10,000 cases exceeded the median rank correlation of 0.33) in female par-
+ticipants and 2.0% of the cases (163 of 8,000 cases exceeded the median rank correlation
+of 0.31) in male participants (Table 11).
+   Support vector machine (SVM) was not very effective in this analysis (female, median
+rank correlation = 0.17, p = .17; male, median rank correlation = 0.12, p = .21). We sus-
+pect that SVM suffered because there were not enough cases (64/participant), and SVM
+is known to be susceptible to small sample size and subtle parameter changes as com-
+pared to random forest (Breiman, 2001). Note that we did not apply any parameter tuning
+in our analysis to obtain conservative estimates for the validity of our analysis.
+   Prediction performance for arousal ratings was reasonably well in female participants
+(median rank correlation = 0.24, p = .06) and male participants (median rank correla-
+tion = 0.27, p = .03). Random permutation analyses showed that the pseudo prediction
+performance exceeded the actual prediction performance of 0.24 only 4.4% of the cases
+(442 of 10,000 cases exceeded the median rank correlation of 0.24) in female participants
+and 2.9% of the cases (229 of 8,000 cases exceeded the median rank correlation of 0.27)
+in male participants.
+   As in valence, support vector machine did not show good performance for arousal (fe-
+male, median rank correlation = 0.10, p = .28; male, median rank correlation = 0.13,
+p = .13).
+
+5.2.2.2. Additional analysis: As in Experiments 2 and 3, we added five temporal features
+(initiation time and attraction time in the four segments) to our models and reanalyzed
+the data. Adding temporal features did not improve prediction performance of random
+forest for valence (female, median rank correlation = 0.32, p = .01; male, median rank
+correlation = 0.31, p = .01) and arousal (female, median rank correlation = 0.25, p = .05;
+male, median rank correlation = 0.25, p = .05). Prediction performance of support vector
+                                                                                                            15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+808                          T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+
+
+
+Fig. 18. Spearman’s rank correlations between observed and predicted ratings for valence (a) and arousal
+(b). Each bar represents individual participants’ prediction performance obtained from a repeated 10-fold
+cross validation. Predicted ratings were generated by random forest.
+
+
+
+machine improved slightly for valence (female, median rank correlation = 0.21, p = .10;
+male, median rank correlation = 0.18, p = .12) and arousal (female, median rank correla-
+tion = 0.15, p = .18; male, median rank correlation = 0.16, p = .16).
+
+5.3. Discussion
+
+   Cursor motion analysis applied to individual participants suggests that individual par-
+ticipants’ valence ratings can be predicted well by random forest regression, and their
+arousal ratings can also be predicted by random forest to some extent. Because valence
+                                                                                                                       15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                             T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                                 809
+
+Table 11
+Prediction performance
+                                                     RF                   p                 SVM                  p
+Female
+  Valence                8 features                  0.33               .009                 0.17               .17
+                         13 features                 0.32               .01                  0.21               .1
+                         Random                      0.05               .34                  0.05               .32
+  Arousal                8 features                  0.24               .06                  0.1                .28
+                         13 features                 0.25               .05                  0.15               .18
+                         Random                      0.05               .35                  0.05               .32
+Male
+ Valence                 8 features                   0.31               .01                  0.12               .21
+                         13 features                  0.31               .01                  0.18               .12
+                         Random                       0.05               .33                  0.05               .32
+   Arousal               8 features                   0.27               .03                  0.13               .19
+                         13 features                  0.25               .05                  0.16               .16
+                         Random                       0.05               .34                  0.05               .32
+    Note. Prediction performance for female and male participants with eight features (attraction (1, 2, 3, 4),
+zigzag (1, 2, 3, 4)), 13 features (attraction (1, 2, 3, 4), zigzag (1, 2, 3, 4), inception time, attraction time (1,
+2, 3, 4)). All the numbers are median values. For the random entry, the dependent variables (i.e., normalized
+valence and arousal scores) were randomly permuted, and a 10-fold cross validation were repeated 100 times
+for each participant. Random permutation was made in each iteration (100 times for each participant).
+
+
+and arousal ratings were not completely independent, it is still unclear whether cursor
+motion and emotion were linked primarily by valence or arousal. Nonetheless, results
+from Experiment 4 make it clear that the link between emotion and cursor motion cannot
+be explained solely by arousal.
+
+
+6. General discussion
+
+   Results from four experiments suggest that mouse/cursor motion trajectories extracted
+from choice reaching trials provide information about emotion, and fine-tuned analyses of
+motion trajectories can help infer emotions of computer users.
+   In Experiment 1, participants conducted the choice-reaching task in 96 trials and indi-
+cated their emotion on the STAI. We analyzed how well cursor trajectories extracted
+from the choice-reaching task were correlated with participants’ self-reported state anxi-
+ety scores. Results revealed significant associations between trajectory features and state
+anxiety. Experiment 2 examined the direct link between emotion and cursor motion using
+a music-based emotion elicitation method. Participants performed the similarity judgment
+task (96 trials) in three separate segments while listening to happy/sad (Segment 1) or
+sad/happy (Segment 3) music, or without any background music (Segment 2). Using a
+repeated 10-fold cross-validation method, we estimated how well statistical models
+formed from “known” participants (training data) could predict emotions of “unknown”
+participants (test data). Results indicated that changes in emotion induced by happy and
+                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+810                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+sad music could be inferred from changes in cursor motions collected in the happy and
+sad music conditions. In Experiment 3, we employed a film-based emotion elicitation
+method. Participants watched a funny or scary film clip before conducting the choice-
+reaching task; we examined how well our cursor motion analysis could predict emotions
+elicited by funny and fearful film clips. In Experiment 4, we induced two dimensions of
+emotion—valence and arousal—using the IAPS, and we investigated how well our cursor
+trajectory analysis could estimate individual participants’ valence and arousal ratings col-
+lected in each choice-reaching trial. Even with this subtle manipulation, our cursor
+motion analysis was able to predict individual participants’ valence arousal ratings well.
+   Note that our cursor motion analysis method was quite robust. Our analysis method
+was able to detect emotions elicited in different modalities—music (Experiment 2), film
+clips (Experiment 3), and pictures (Experiment 4); the method was also sensitive to emo-
+tions that were induced continuously (Experiment 2), a few seconds earlier (Experiment
+4), or a few minutes before (Experiment 3). Positive emotions as well as levels of atten-
+tion can be estimated across individual participants; two fundamental dimensions of emo-
+tion—valence and arousal—can also be assessed for individual participants. Taken
+together, these results suggest that cursor trajectory analysis in choice reaching trials pro-
+vides information about the computer user.
+   We tentatively suggest that attention modulates the link between emotion and cursor
+motion—elicited emotion influences attention, and modified attention impacts both cog-
+nitive (making a selection) and sensorimotor (navigating the mouse) components of
+choice reaching. Goal-directed reaching behavior involves dynamic sensorimotor feed-
+back (Wolpert & Ghahramani, 2000; Wolpert & Landy, 2012). Attention influences this
+sensorimotor “decision making” process (Orban & Wolpert, 2011), and emotion is
+likely to modulate attention. Consistent with this proposal, we found in Experiments 2
+and 3 that attentiveness ratings were predicted by our cursor motion analysis
+accurately.
+   Since the advent of Spivey’s continuous cognition theory (Spivey, 2007; Spivey &
+Dale, 2004) and Freeman’s methodological innovation (Freeman & Ambady, 2010), many
+productive research projects have flourished. Two major findings in this line of research
+are that (1) decision making (e.g., evaluating options) and action (making a choice)
+unfold continuously in parallel, and (2) psychological uncertainty underlying perceptual,
+cognitive, and social judgment can be captured in spatial and temporal properties of
+motion paths. Our results extend these findings with new information that cursor motion
+trajectories in choice reaching reveal not only decision uncertainty but also individual
+variability in emotional experiences and mouse cursor motion analysis provides a tool for
+deciphering individual differences in emotion processing.
+
+6.1. Individual differences in emotion processing
+
+   We propose that the mouse cursor tracking method is particularly suited for decipher-
+ing individual differences, as individual differences in emotion processing stem from
+many different sources, including physiological (Bishop & Forster, 2013; Bishop,
+                                                                                              15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                      T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)               811
+
+Duncan, Brett, et al., 2004; Bishop, Duncan, & Lawrence, 2004; Etkin et al., 2004;
+Hariri, 2013), cognitive (Mukherjee, 2010; Paulus & Angela, 2012), social, and cultural
+factors (Aldao, Nolen-Hoeksema, & Schweizer, 2010; Gross & John, 2003).
+   According to Barrett’s situated conceptualization of emotion, emotions and their
+regulation occur continuously as an ongoing process of giving meaning to sensory,
+motor, affective, and social information that the brain receives. In this view, emotion
+“sad,” for example, corresponds to a dynamically processed distributed brain state and
+its changes over time (Barrett & Simmons, 2015; Barrett, Wilson-Mendenhall, &
+Barsalou, 2013). In this approach, the mind is a dynamic prediction machine, in
+which an inference is made by continuously updating incoming sensory inputs with
+top down expectations; here, inputs not only come from the external sources (extero-
+ceptive sensations) but also from one’s own body (heart rate, inflammation, muscle
+contraction) (Barrett & Simmons, 2015; Clark, 2013). To capture this dynamic interac-
+tions among interaception and extraception, we think that a mouse cursor motion anal-
+ysis offer unique windows in untangling individual variability underlying emotion
+processing as it reflects dynamic interactions between action and decision (Spivey,
+2007; Wolpert & Landy, 2012).
+
+6.2. Mouse cursor motion analysis for affective computing
+
+   The idea that emotion influences bodily motions, such as gesture, posture, and key
+strokes, has been investigated in the affective computing arena (D’Mello & Graesser,
+2010; Epp, Lippold, & Mandryk, 2011; Glowinski & Mancini, 2011; Thrasher, Van der
+Zwaag, Bianchi-Berthouze, & Westerink, 2011). Other studies examined the relationship
+between cursor motions and emotion. This study extends these findings by showing that
+people’s emotional states can be revealed in the subtle movements of computer cursors in
+a simple choice-reaching task and fine-tuned cursor trajectory analysis provides a tool for
+emotion recognition. We employed a large number of participants (n > 130), extracted
+16–26 cursor trajectory features that involve space and time of cursor locations during a
+choice-reaching task, and demonstrated that induced emotions give rise to altered cursor
+trajectory patterns—statistical models constructed from one group of subjects can be
+applied to estimate positive feelings and attentiveness of different subjects with reason-
+able accuracy.
+   One advantage of cursor trajectory analysis in affective computing is its versatility.
+Because cursor motions are subtle, unobtrusive, inexpensive, and ubiquitous, this tech-
+nique can be integrated into existing multimodal user interfaces relatively easily. Because
+cursor motions are subtle, it is less likely to trigger motion-based noise in physiological
+measures (e.g., EEG); because the processing cost of cursor motion is minimal, it can be
+fused into more computationally intensive methods, for example, face- or voice-based
+affective computing. In addition, because cursor motions are ubiquitous, it can be scaled
+up in the mass market where the adoption of extraneous gears, such as EEG headsets, is
+an obstacle (e.g., computer-assisted on-line learning).
+                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+812                       T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+6.3. Limitations and future directions
+
+   It should be noted that our cursor motion analysis can be specific to the task employed
+in this study. The generality of our method should be vetted in different contexts. It is
+also unknown how much additional information can be gained from cursor motion analy-
+sis in emotion recognition on top of other well-established methods, for example, facial
+expressions and physiological measures. In our experiments, a relatively large number of
+trials were used (96 trials) to identify relevant trajectory features (e.g., mean and standard
+deviations of features). In a future study, it is critical to identify the minimum number of
+trials necessary for the identification of these features.
+   Although our cursor motion analysis was effective in assessing positive emotions (e.g.,
+positive affect, attentiveness, self-assurance), our procedure did not respond to negative
+emotions (e.g., negative affect, sadness, hostility) in Experiments 2 and 3. We do not
+have a clear explanation for this limitation. Future studies should shed light on this issue.
+
+
+7. Conclusion
+
+   Since Spivey and colleagues (Spivey et al., 2005) introduced mouse cursor motion
+analysis for dynamic decision-making process underlying lexical judgment, this research
+tool proved to be extremely effective to study the continuous nature of semantic, social,
+and cognitive decision making (Yamauchi, Leontyev, & Wolfe, 2017). Lately, cursor
+motion analysis is shown to be effective for uncovering subliminal processing underlying
+semantic priming (Xiao & Yamauchi, 2014, 2015, 2017). This study adds another impor-
+tant capacity to mouse cursor motion analysis as an affective computing tool. Cursor
+motion not only reveals dynamic information processing pertaining to cognitively,
+socially, and semantically discordant choices, but it also reflects subtle emotional states
+of computer users. We suggest that fine-tuned mouse cursor analysis helps uncover the
+intervention of emotion, motion, and attention.
+
+
+Notes
+
+  1. Test-retest reliability for state-anxiety scales for college students in a 20 days inter-
+     val was r = .54 (male, n = 38) and r = .27 (female, n = 75), and alpha coefficients
+     for state-anxiety scales for college students were 0.91 (male, n = 324) and 0.93 (fe-
+     male, n = 531).
+  2. The medians of the alpha coefficients for positive and negative scales are .87,
+     respectively, and the median of the intercorrelations of the two scales are .17.
+     The median test-retest reliabilities obtained from two broad affects and 11 specific
+     affects measured by correlations of scale scores measured in a 2-month retest inter-
+     val with 399 subjects is .59.
+                                                                                                                    15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                               813
+
+   3. Part of the data described in Experiment 1 were presented at the annual conference
+      of the Cognitive Science Society (CogSci’15) (Yamauchi, Seo, Choe, Bowman, &
+      Xiao, 2015).
+
+
+References
+
+Abernethy, B., Maxwell, J. P., Masters, R. S., van der Kamp, J., & Jackson, R. C. (2007). Attentional
+   processes in skill learning and expert performance. Handbook of Sport Psychology, 3, 245–263.
+Accot, J., & Zhai, S. (1997). Beyond Fitts’ law: Models for trajectory-based HCI tasks. In S. Pemberton
+   (Ed.), Proceedings of the SIGCHI conference on Human factors in computing systems (CHI 1997) (pp.
+   295–302). New York, NY: ACM.
+Accot, J., & Zhai, S. (1999). Performance evaluation of input devices in trajectory-based tasks: An
+   application of the steering law. In M. G. Williams & M. W. Altom (Ed.), Proceedings of the SIGCHI
+   conference on Human factors in computing systems (CHI 1999) (pp. 446–472). New York: ACM.
+Aldao, A., Nolen-Hoeksema, S., & Schweizer, S. (2010). Emotion-regulation strategies across
+   psychopathology: A meta-analytic review. Clinical Psychology Review, 30(2), 217–237.
+Anderson, J. R. (1990). The adaptive character of thought. Hillsdale, NJ: Lawrence Erlbaum.
+Anderson, A. K., & Phelps, E. A. (2001). Lesions of the human amygdala impair enhanced perception of
+   emotionally salient events. Nature, 411(6835), 305–309. http://www.nature.com/nature/journal/v411/
+   n6835/suppinfo/411305a0_S1.html
+Azcarraga, J., & Suarez, M. (2012). Predicting academic emotions based on brainwaves, mouse behaviour
+   and personality profile. In P. Anthony, M. Ishizuka & D. Lukose (Eds.), PRICAI 2012: Trends in artificial
+   intelligence (Vol. 7458, pp. 728–733). Berlin: Springer.
+Barrett, L. F. (2014). The conceptual act theory: A precis. Emotion Review, 6(4), 292–297.
+Barrett, L. F., & Simmons, W. K. (2015). Interoceptive predictions in the brain. Nature Reviews
+   Neuroscience, 16(7), 419–429.
+Barrett, L. F., Wilson-Mendenhall, C. D., & Barsalou, L. W. (2013). A psychological construction account of
+   emotion regulation and dysregulation: The role of situated conceptualizations. In J. J. Gross (Ed.),
+   Handbook of emotion regulation (pp. 447–465). New York: The Guilford Press.
+Barsalou, L. W. (1999). Perceptual symbol systems. Behavioral Brain Sciences, 22, 577–660.
+Barsalou, L. W., Niedenthal, P. M., Barbey, A. K., & Ruppert, J. A. (2003). Social embodiment. In B. Ross
+   (Ed.), The psychology of learning and motivation (Vol. 43, pp. 43–92). Boston: Academic Press.
+Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful
+   approach to multiple testing. Journal of the Royal Statistical Society. Series B (Methodological), 57, 289–
+   300.
+Bishop, S. J., Duncan, J., Brett, M., & Lawrence, A. D. (2004). Prefrontal cortical function and anxiety:
+   Controlling attention to threat-related stimuli. Nature Neuroscience, 7(2), 184–188.
+Bishop, S. J., Duncan, J., & Lawrence, A. D. (2004). State anxiety modulation of the amygdala response to
+   unattended threat-related stimuli. The Journal of Neuroscience, 24(46), 10364–10368.
+Bishop, S. J., & Forster, S. (2013). Trait anxiety, neuroticism and the brain basis of vulnerability to affective
+   disorder. In The Cambridge handbook of human affective neuroscience (pp. 553–574). New York:
+   Cambridge University Press.
+Bj€
+  orklund, A., & Dunnett, S. B. (2007). Dopamine neuron systems in the brain: An update. Trends in
+   Neurosciences, 30(5), 194–202. https://doi.org/10.1016/j.tins.2007.03.006.
+Boser, B. E., Guyon, I., & Vapnik, V. (1992). A training algorithm for optimal margin classifiers. Paper
+   presented at the fifth annual workshop on Computational learning, COLT ‘92, New York.
+Bradley, M. M., & Lang, P. J. (1994). Measuring emotion: The self-assessment manikin and the semantic
+   differential. Journal of Behavior Therapy and Experimental Psychiatry, 25(1), 49–59.
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+814                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Bradley, M. M., & Lang, P. J. (2007). The International Affective Picture Systems (IAPS) in the study of
+   emotion and attention. In J. A. Coan & J. J. B. Allen (Eds.), Handbook of emotion elicitation and
+   assessment (pp. 29–46). New York: Oxford University Press.
+Breiman, L. (2001). Random forests. Machine Learning, 45(1), 5–32. https://doi.org/10.1023/A:
+   1010933404324.
+Cahill, L. (2006). Why sex matters for neuroscience. Nature Reviews Neuroscience, 7, 477–484.
+Calluso, C., Committeri, G., Pezzulo, G., Lepora, N., & Tosoni, A. (2015). Analysis of hand kinematics
+   reveals inter-individual differences in intertemporal decision dynamics. Experimental Brain Research, 233
+   (12), 3597–3611. https://doi.org/10.1007/s00221-015-4427-1.
+Calvo, R. A., & D’Mello, S. (2010). Affect detection: An interdisciplinary review of models, methods, and
+   their applications. IEEE Transactions on Affective Computing, 1(1), 18–37.
+Calvo, R. A., D’Mello, S., Gratch, J., & Kappas, A. (2015). Introduction to affective computing. In R. A.
+   Calvo, S. D’Mello, J. Gratch, & A. Kappas (Eds.), The Oxford handbook of affective computing (pp. 1–8).
+   New York: Oxford University Press.
+Card, S. K., English, W. K., & Burr, B. J. (1978). Evaluation of mouse, rate-controlled isometric joystick,
+   step keys, and text keys for text selection on a CRT. Ergonomics, 21(8), 601–613.
+Chapman, C. S., Gallivan, J. P., Wood, D. K., Milne, J. L., Culham, J. C., & Goodale, M. A. (2010).
+   Reaching for the unknown: Multiple target encoding and real-time decision-making in a rapid reach task.
+   Cognition, 116(2), 168–176. https://doi.org/10.1016/j.cognition.2010.04.008.
+Clark, A. (2013). Whatever next? Predictive brains, situated agents, and the future of cognitive science.
+   Behavioral and Brain Sciences, 36(03), 181–204.
+Coombes, S. A., Cauraugh, J. H., & Janelle, C. M. (2007a). Dissociating motivational direction and affective
+   valence specific emotions alter central motor processes. Psychological Science, 18(11), 938–942.
+Coombes, S. A., Cauraugh, J. H., & Janelle, C. M. (2007b). Emotional state and initiating cue alter central
+   and peripheral motor processes. Emotion, 7(2), 275.
+Coombes, S. A., Higgins, T., Gamble, K. M., Cauraugh, J. H., & Janelle, C. M. (2009). Attentional control
+   theory: Anxiety, emotion, and motor planning. Journal of Anxiety Disorders, 23(8), 1072–1079.
+Coombes, S. A., Janelle, C. M., & Duley, A. R. (2005). Emotion and motor control: Movement attributes
+   following affective picture processing. Journal of Motor Behavior, 37(6), 425–436.
+Cortes, C., & Vapnik, V. (1995). Support-vector networks. Machine Learning, 20(3), 273–297.
+Dale, R., Kehoe, C., & Spivey, M. J. (2007). Graded motor responses in the time course of categorizing
+   atypical exemplars. Memory & Cognition, 35(1), 15–28.
+De Martino, B., Kalisch, R., Rees, G., & Dolan, R. J. (2009). Enhanced processing of threat stimuli under
+   limited attentional resources. Cerebral Cortex, 19(1), 127–133.
+D’Mello, S., Dale, R., & Graesser, A. (2012). Disequilibrium in the mind, disharmony in the body. Cognition
+   & Emotion, 26(2), 362–374.
+D’Mello, S., & Graesser, A. C. (2010). Multimodal semi-automated affect detection from conversational cues,
+   gross body language, and facial features. User Modeling and User-Adapted Interaction, 20(2), 147–187.
+Dominguez Borras, J., & Vuilleumier, P. (2013). Affective biases in attention and perception. In J. L.
+   Armony & P. Vuilleumier (Eds.), Cambridge handbook of human affective neuroscience (pp. 331–356).
+   New York: Cambridge University Press.
+Eich, E., Ng, J. T., Macaulay, D., Percy, A. D., & Grebneva, I. (2007). Combining music with thought to
+   change mood. In J. A. Coan & J. J. B. Allen (Eds.), Handbook of emotion elicitation and assessment (pp.
+   124–136). New York: Oxford University Press.
+Ekman, P., & Cordaro, D. (2011). What is meant by calling emotions basic. Emotion Review, 3(4), 364–370.
+Elliot, A. J., Eder, A. B., & Harmon-Jones, E. (2013). Approach–avoidance motivation and emotion:
+   Convergence and divergence. Emotion Review, 5(3), 308–311.
+Epp, C., Lippold, M., & Mandryk, R. L. (2011). Identifying emotional states using keystroke dynamics. In D.
+   Tan (Ed.), Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI 2011)
+   (pp. 715–724). New York, NY: ACM.
+                                                                                                                   15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                              815
+
+Etkin, A., Klemenhagen, K. C., Dudman, J. T., Rogan, M. T., Hen, R., Kandel, E. R., & Hirsch, J. (2004).
+   Individual differences in trait anxiety predict the response of the basolateral amygdala to unconsciously
+   processed fearful faces. Neuron, 44(6), 1043–1055.
+Farmer, T. A., Anderson, S. E., & Spivey, M. J. (2007). Gradiency and visual context in syntactic garden-
+   paths. Journal of Memory and Language, 57(4), 570–595.
+Flykt, A., & Caldara, R. (2006). Tracking fear in snake and spider fearful participants during visual search:
+   A multi-response domain study. Cognition & Emotion, 20(8), 1075–1091. https://doi.org/10.1080/
+   02699930500381405.
+Freeman, J. B., & Ambady, N. (2009). Motions of the hand expose the partial and parallel activation of
+   stereotypes. Psychological Science, 20(10), 1183–1188.
+Freeman, J. B., & Ambady, N. (2010). MouseTracker: Software for studying real-time mental processing
+   using a computer mouse-tracking method. Behavior Research Methods, 42(1), 226–241.
+Freeman, J. B., Ambady, N., Midgley, K. J., & Holcomb, P. J. (2011). The real-time link between person
+   perception and action: Brain potential evidence for dynamic continuity. Social Neuroscience, 6(2), 139–155.
+Freeman, J. B., Pauker, K., Apfelbaum, E. P., & Ambady, N. (2009). Continuous dynamics in the real-time
+   perception of race. Journal of Experimental Social Psychology, 46, 179–185.
+Gallivan, J. P., Bowman, N. A., Chapman, C. S., Wolpert, D. M., & Flanagan, J. R. (2016). The sequential
+   encoding of competing action goals involves dynamic restructuring of motor plans in working memory.
+   Journal of Neurophysiology, 115, 3113–3122. https://doi.org/10.1152/jn.00951.2015.
+Gasper, K., & Clore, G. L. (2002). Attending to the big picture: Mood and global versus local processing of
+   visual information. Psychological Science, 13(1), 34–40.
+Glover, S. (2004). Separate visual representations in the planning and control of action. Behavioral and Brain
+   Sciences, 27(01), 3–24.
+Glowinski, D., & Mancini, M. (2011). Towards real-time affect detection based on sample entropy analysis
+   of expressive gesture. In S. D’Mello, S. Graesser, B. Schuller, J-C. Martin, (Eds.), Affective Computing
+   and Intelligent Interaction (ACII 2011, LNCS 6974), (pp. 527–537). New York, NY: Springer-Verlag.
+Grimes, M., Jenkins, J., & Valacich, J. (2013). Exploring the effect of arousal and valence on mouse
+   interaction.
+Gross, J. J., & John, O. P. (2003). Individual differences in two emotion regulation processes: Implications
+   for affect, relationships, and well-being. Journal of Personality and Social Psychology, 85(2), 348.
+Gross, J. J., & Levenson, R. W. (1995). Emotion elicitation using films. Cognition and Emotion, 9(1), 87–108.
+Guo, Q., & Agichtein, E. (2008, July). Exploring mouse movements for inferring query intent. In T-S. Chua
+   & M-K. Leong (Eds.), Proceedings of the 31st annual international ACM SIGIR conference on Research
+   and development in information retrieval (pp. 707–708). New York: ACM.
+Hahn, U., & Ramscar, M. (2001). Similarity and categorization. Oxford, UK: Oxford University Press.
+Hanin, Y. L. (2007). Emotions in sport: Current issues and perspectives. Handbook of Sport Psychology, 3, 31–58.
+Hariri, A. R. (2013). Mapping neurogenetic mechanisms of individual differences in affect. In J. Armony, &
+   P. Vuilleumier (Eds.), The Cambridge handbook of human affective neuroscience (pp. 575–590). New
+   York: Cambridge University Press.
+Harris, C. M., & Wolpert, D. M. (1998). Signal-dependent noise determines motor planning. Nature, 394
+   (6695), 780–784.
+Hehman, E., Stolier, R. M., & Freeman, J. B. (2015). Advanced mouse-tracking analytic techniques for
+   enhancing psychological science. Group Processes & Intergroup Relations, 18(3), 384–401.
+Hibbeln, M., Jenkins, J. L., Schneider, C., Valacich, J. S., & Weinmann, M. (2017). How is your user
+   feeling? Inferring emotion through human-computer interaction devices. Management Information Systems
+   Quarterly, 41(1), 1–21.
+Hodges, N. J., Huys, R., & Starkes, J. L. (2007). Methodological review and evaluation of research in expert
+   performance in sport. In G. Tenenbaum & R. C. Eklund (Eds.), Handbook of sport psychology (3rd ed.,
+   pp. 159–183). Hoboken, NJ: Wiley.
+                                                                                                               15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+816                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Isen, A. M., & Daubman, K. A. (1984). The influence of affect on categorization. Journal of Personality and
+   Social Psychology, 47, 1206–1217.
+Isen, A. M., Daubman, K. A., & Nowicki, G. P. (1987). Positive affect facilitates creative problem solving.
+   Journal of Personality and Social Psychology, 52, 1122–1131.
+Kaklauskas, A., Krutinis, M., & Seniut, M. (2009, July). Biometric mouse intelligent system for student’s
+   emotional and examination process analysis. In 2009 Ninth IEEE International Conference on Advanced
+   Learning Technologies (pp. 189–193). IEEE.
+Kaklauskas, A., Zavadskas, E. K., Seniut, M., Dzemyda, G., Stankevic, V., Simkevicius, C., Stankevic, T.,
+   Paliskiene, R., Matuliuskaite, A., & Kildiene, S. (2011). Web-based biometric computer mouse advisory
+   system to analyze a user’s emotions and work productivity. Engineering Applications of Artificial
+   Intelligence, 24(6), 928–945.
+Kapoor, A., Burleson, W., & Picard, R. W. (2007). Automatic prediction of frustration. International Journal
+   of Human-Computer Studies, 65(8), 724–736.
+Kimchi, R., & Palmer, S. E. (1982). Form and texture in hierarchically constructed patterns. Journal of
+   Experimental Psychology: Human Perception and Performance, 8, 521–535.
+K€ording, K. P., & Wolpert, D. M. (2004). Bayesian integration in sensorimotor learning. Nature, 427(6971),
+   244–247.
+K€ording, K. P., & Wolpert, D. M. (2006). Bayesian decision theory in sensorimotor control. Trends in
+   Cognitive Sciences, 10(7), 319–326.
+Kuhn, M., & Johnson, K. (2013). Applied predictive modeling. New York: Springer.
+Lang, Peter. J., & Bradley, M. M. (2010). Emotion and the motivational brain. Biological Psychology, 84(3),
+   437–450.
+Lang, P. J., Bradley, M. M., & Cuthbert, B. N. (2008). International affective picture system (IAPS):
+   Affective ratings of pictures and instructional manual. Gainesville, FL: Technical Report A-8, University
+   of Florida, Gainesville, FL.
+LeDoux, J. (2015). Anxious: Using the brain to understand and treat fear and anxiety. New York: Penguin.
+Liaw, A., & Wiener, M. (2002). Classification and regression by randomForest. R News, 2(3), 18–22.
+Lindquist, K. A. (2013). Emotions emerge from more basic psychological ingredients: A modern
+   psychological constructionist model. Emotion Review, 5(4), 356–368.
+MacKenzie, I. S., Kauppinen, T., & Silfverberg, M. (2001, March). Accuracy measures for evaluating
+   computer pointing devices. In M. Tremaine (Ed.), Proceedings of the SIGCHI conference on Human
+   factors in computing systems (pp. 9–16). New York: ACM.
+Maehr, W. (2008). eMotion: Estimation of user’s emotional state by mouse motions. Saarbrucken, Germany:
+   VDM Verlag Dr. Muller.
+Marr, D. (1981). Vision. New York: Freeman.
+Mattek, A. M., Whalen, P. J., Berkowitz, J. L., & Freeman, J. B. (2016). Differential effects of cognitive
+   load on subjective versus motor responses to ambiguously valenced facial expressions. Emotion, 16(6),
+   929–936. https://doi.org/10.1037/emo0000148.
+Mendoza, J. E., & Foundas, A. L. (2008). Clinical neuroanatomy: A neurobehavioral approach. New York:
+   Springer.
+Meyer, D., Dimitriadou, E., Hornik, K., Weingessel, A., & Leisch, F. (2015). Package ‘e1071’ [accessed on
+   Ocotber 6, 2017]. Available at https://cran.r-project.org/web/packages/e1071/e1071.pdf
+Mink, J. W. (2008). The basal ganglia. In L. Squire (Ed.), Fundamental neuroscience (3rd ed., pp. 725–750).
+   San Diego, CA: Academic Press.
+Moors, A., Ellsworth, P. C., Scherer, K. R., & Frijda, N. H. (2013). Appraisal theories of emotion: State of
+   the art and future development. Emotion Review, 5(2), 119–124.
+Mueller, F., & Lockerd, A. (2001, March). Cheese: Tracking mouse movement activity on websites, a tool
+   for user modeling. In M. Tremaine (Ed.), CHI’01 extended abstracts on human factors in computing
+   systems (pp. 279–280). New York: ACM.
+Mukherjee, K. (2010). A dual system model of preferences under risk. Psychological Review, 117(1), 243–255.
+                                                                                                                  15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                           T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                              817
+
+Newell, A. (1980). Physical symbol systems. Cognitive Science, 4(2), 135–183.
+Orban, G., & Wolpert, D. M. (2011). Representations of uncertainty in sensorimotor control. Current Opinion
+   in Neurobiology, 21(4), 629–635.
+Panksepp, J., & Watt, D. (2011). What is basic about basic emotions? Lasting lessons from affective
+   neuroscience. Emotion Review, 3(4), 387–396.
+Paulus, M. P., & Angela, J. Y. (2012). Emotion and decision-making: Affect-driven belief systems in anxiety
+   and depression. Trends in Cognitive Sciences, 16(9), 476–483.
+Rabey, J. M. (2007). Neurobehavioral disorders in Parkinson’s disease. Handbook of Clinical Neurology, 83,
+   435–455.
+Rottenberg, J., Ray, R. D., & Gross, J. J. (2007). Emotion elicitation using films. In J. A. Coan & J. J. B.
+   Allen (Eds.), Handbook of emotion elicitation and assessment (pp. 9–28). New York: Oxford University
+   Press.
+Russell, J. A. (2003). Core affect and the psychological construction of emotion. Psychological Review, 110
+   (1), 145.
+Salmeron-Majadas, S., Santos, O. C., & Boticario, J. G. (2014). An evaluation of mouse and keyboard
+   interaction indicators towards non-intrusive and low cost affective modeling in an educational context.
+   Procedia Computer Science, 35, 691–700.
+Scheirer, J., Fernandez, R., Klein, J., & Picard, R. W. (2002). Frustrating the user on purpose: A step toward
+   building an affective computer. Interacting With Computers, 14(2), 93–118.
+Schmitz, T. W., De Rosa, E., & Anderson, A. K. (2009). Opposing influences of affective state valence on
+   visual cortical encoding. The Journal of Neuroscience, 29(22), 7199.
+Schneider, I. K., van Harreveld, F., Rotteveel, M., Topolinski, S., van der Pligt, J., Schwarz, N., & Koole, S.
+   L. (2015). The path of ambivalence: Tracing the pull of opposing evaluations using mouse trajectories.
+   Frontiers in Psychology, 6, 1–12.
+Schwabe, L., Merz, C. J., Walter, B., Vaitl, D., Wolf, O. T., & Stark, R. (2011). Emotional modulation of
+   the attentional blink: The neural structures involved in capturing and holding attention. Neuropsychologia,
+   49(3), 416–425. https://doi.org/10.1016/j.neuropsychologia.2010.12.037.
+Shepard, R. N. (1987). Toward a universal law of generalization for psychological science. Science, 237,
+   1317–1323.
+Simon, H. A. (1990). Invariants of human behavior. Annual Review of Psychology, 41, 1–19.
+Song, J.-H., & Nakayama, K. (2008). Numeric comparison in a visually-guided manual reaching task.
+   Cognition, 106(2), 994–1003.
+Song, J.-H., & Nakayama, K. (2009). Hidden cognitive states revealed in choice reaching tasks. Trends in
+   Cognitive Sciences, 13(8), 360–366.
+Spielberger, C. D., Gorsuch, R. L., Lushene, R., Vagg, P. R., & Jacobs, G. A. (1983). Manual for the state–
+   trait anxiety inventory. Palo Alto, CA: Consulting Psychologists Press.
+Spivey, M. J. (2007). The continuity of mind. Oxford, UK: Oxford University Press.
+Spivey, M. J., & Dale, R. (2004). On the continuity of mind: Toward a dynamical account of cognition.
+   Psychology of Learning and Motivation, 45, 87–142.
+Spivey, M. J., Grosjean, M., & Knoblich, G. (2005). Continuous attraction toward phonological competitors.
+   Proceedings of National Academy of Sciences of the USA, 102(29), 10393–10398.
+Sun, D., Paredes, P., & Canny, J. (2014). MouStress: Detecting stress from mouse motion. In M. Jones & P.
+   Palanque (Eds.), Proceedings of the SIGCHI conference on Human factors in computing systems (CHI
+   2014) (pp. 61–70). New York: ACM.
+Thelen, E. (1995). Motor development: A new synthesis. American Psychologist, 50(2), 79–95.
+Thrasher, M., Van der Zwaag, M. D., Bianchi-Berthouze, N., & Westerink, J. H. D. M. (2011). Mood
+   recognition based on upper body posture and movement features. In S. D’Mello, S. Graesser, B. Schuller,
+   J-C. Martin, (Eds.), Affective Computing and Intelligent Interaction (ACII 2011, LNCS 6974), (pp. 377–
+   386). New York: Springer-Verlag.
+                                                                                                                 15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+818                            T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)
+
+Watson, D., & Clark, L. A. (1999). The PANAS-X: Manual for the positive and negative affect schedule-
+   expanded form. Iowa City, Iowa: University of Iowa, Psychology Publications (http://ir.uiowa.edu/psyc
+   hology pubs/11).
+Weintraub, D., & Stern, M. B. (2007). Disorders of mood and affect in Parkinson’s disease. Handbook of
+   Clinical Neurology, 83, 421–433.
+Wichmann, T., & DeLong, T. (2013). The basal ganglia. In E. R. Kandel, J. H. Schwartz, T. M. Jessell, S.
+   A. Siegelbaum, & A. J. Hudspeth (Eds.), Principles of neural sciences (4th ed, pp. 982–998). New York:
+   The McGraw-Hill Company.
+Wojnowicz, M. T., Ferguson, M. J., Dale, R., & Spivey, M. J. (2009). The self-organization of explicit
+   attitudes. Psychological Science, 20(11), 1428–1435.
+Wolpert, D. M., & Ghahramani, Z. (2000). Computational principles of movement neuroscience. Nature
+   Neuroscience, 3, 1212–1217.
+Wolpert, D. M., Ghahramani, Z., & Jordan, M. I. (1995). An internal model for sensorimotor integration.
+   Science, 269(5232), 1880.
+Wolpert, D. M., & Landy, M. S. (2012). Motor control is decision-making. Current Opinion in Neurobiology,
+   22(6), 996–1003.
+Xiao, K., & Yamauchi, T. (2014). Semantic priming revealed by mouse movement trajectories.
+   Consciousness and Cognition, 27, 42–52.
+Xiao, K., & Yamauchi, T. (2015). Subliminal semantic priming in near absence of attention: A cursor motion
+   study. Consciousness and Cognition, 38, 88–98.
+Xiao, K., & Yamauchi, T. (2017). The role of attention in subliminal semantic processing: A mouse tracking
+   study. PLoS ONE, 12(6), e0178740.
+Yamauchi, T. (2009). Finding abstract commonalties of category members. Journal of Experimental and
+   Theoretical Artificial Intelligence, 21(3), 155–180.
+Yamauchi, T. (2013). Mouse trajectories and state anxiety: Feature selection with random forest. In T. Pun, C.
+   Pelachaud, N. Sebu, (Eds.), Proceedings of the Humaine Association Conference on Affective Computing
+   and Intelligent Interaction, (ACII 2013) (pp. 399–404). Los Alamitos, CA: IEEE Computer Society.
+Yamauchi, T., & Bowman, C. (2014). Mining cursor motions to find the gender, experience and feelings of
+   computer users. In P. S. Yu (Ed.), Proceedings of the IEEE International Conference on Data Mining
+   (ICDM 2014): Workshop on Domain Driven Data Mining (pp. 221–230). Los Alamitos, CA: IEEE
+   Computer Society.
+Yamauchi, T., Kohn, N., & Yu, N. (2007). Tracking mouse movement in feature inference: Category labels
+   are different from feature labels. Memory & Cognition, 35(5), 852–863.
+Yamauchi, T., Leontyev, T., & Wolfe, W. (2017). Choice reaching trajectory analysis as essential behavioral
+   measures for psychological science. Insights in Psychology, 1(4), 1.
+Yamauchi, T., & Markman, A. B. (2000). Inference using categories. Journal of Experimental Psychology:
+   Learning, Memory and Cognition, 26(3), 776–795.
+Yamauchi, T., Seo, J. H., Choe, Y., Bowman, C., & Xiao, K. I. E. (2015). Assessing emotions by cursor
+   motions: An affective computing approach. In D. C. Noelle, R. Dale, A. S. Warlaumont, J. Yoshimi, T.
+   Matlock, C. D. Jennings, & P. P. Maglio, (Eds.), Proceedings of the 37th Annual Conference of the
+   Cognitive Science Society (pp. 2721–2726). Austin, TX: Cognitive Science Society.
+Yamauchi, T., Seo, J. H., Jett, N., Parks, G., & Bowman, C. (2015). Gender differences in mouse and cursor
+   movements. International Journal of Human-Computer Interaction, 31(12), 911–921.
+Yamauchi, T., Xiao, K., Bowman, C., & Mueen, A. (2015). Dynamic time warping: A single dry electrode
+   EEG study in a self-paced learning task. In R. Cowie, Q. Ji, & J. Tao (Eds.), Proceedings of the Affective
+   Computing and Intelligent Interaction (ACII 2015) (pp. 56–62). IEEE Computer Society.
+Yu, N. Y., Yamauchi, T., & Schumacher, J. (2008). Rediscovering symbols: The role of category labels in
+   similarity judgment. Journal of Cognitive Science, 9, 89–100.
+Yu, N. Y., Yamauchi, T., Yang, H., Chen, Y., & Gutierrez-Osuna, R. (2010). Feature selection for inductive
+   generalization. Cognitive Science, 34, 1574–1593.
+                                                                                                            15516709, 2018, 3, Downloaded from https://onlinelibrary.wiley.com/doi/10.1111/cogs.12557 by Zhejiang University, Wiley Online Library on [25/09/2026]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License
+                          T. Yamauchi, K. Xiao / Cognitive Science 42 (2018)                         819
+
+Zimmermann, P. G. (2008). Beyond usability–measuring aspects of user experience. (Doctoral dissertation).
+  Retrieved from ETH BIBLIOTHEK, (Call No. Diss ETH 17901).
+Zimmermann, P. G., Guttormsen, S., Danuser, B., & Gomez, P. (2003). Affective computing–a rationale for
+  measuring mood with mouse and keyboard. International Journal of Occupational Safety and Ergonomics,
+  9(4), 539–551.
+
+
+                                     Supporting Information
+
+                    Additional Supporting Information may be found
+                  online in the supporting information tab for this article:
+                    Supplementary Material. Identification numbers and
+                  descriptions of IAPS stimuli used in Experiment 4.
+

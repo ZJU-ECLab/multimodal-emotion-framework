@@ -1,0 +1,453 @@
+              A Design for Smooth Transition of Robotic Emotional States
+
+                                 Meng-Ju Han, Chia-How Lin and Kai-Tai Song, IEEE Member
+
+   Abstract—A two-dimensional (2-D) emotional model is                       human beings. Duhaut [9] presented a generic computational
+proposed to represent the emotional state of a sociable robot. We            model to include emotion and personality in the behavior of a
+present a novel design of autonomous robotic emotional state                 robot. Itoh et al. [10] proposed a mood-transition-based
+transition based on a fuzzy-neuro network. By using fuzzy                    emotion generation model to represent a kind of robot
+Kohonen clustering network (FKCN), a smooth transition of the
+robotic emotional states is obtained to generate continuous
+                                                                             personality. Their model can assess the robot’s individuality
+emotional behaviors. Moreover, the robotic emotional character               through mood transition. Banik et al. [11] demonstrated an
+can be specified in this design by assigning weights to the FKCN.            emotion-based task sharing approach to a cooperative
+In this study, four emotional characters and five primitive                  multi-agent robotic system. Their approach can give a robot a
+emotional behaviors (boring, smiling, crying, angry and relaxed)             kind of personality through accumulation of past emotional
+have been designed for a robotic face. The method has been                   experience. Park et al. [12] developed a hybrid emotion
+tested by a graphical simulator to verify the robotic responses to
+the user’s emotional intensity (neutral, happiness, anger and
+                                                                             generation architecture. The personality model based on
+sadness). Computer simulations show that the proposed                        personality factors is adopted to generate the various emotions
+emotional state transition scheme effectively responds to user’s             and action in psychology. In order to let a robot express
+emotional intensity in a continuous manner. Practical                        complex emotion, Lee et al. [13] proposed a general behavior
+experiments on a 16-DOF robotic face validate the proposed                   generation module for emotional robots. It generated behavior
+design.                                                                      combination to express complex and phased emotions. In the
+                                                                             authors’ previous work [14], a design of autonomous robotic
+                         I. INTRODUCTION
+                                                                             facial expression generation is presented. The previous related
+
+I  n the near future, there will be many different types of
+   robots installed in our society for various service
+applications. These robots will feature intelligent interaction
+                                                                             works show abundant of powerful tools for designing
+                                                                             emotional robots.
+                                                                                Through the literature survey, we observed that a proper
+with their users, in addition to the task-execution functions.               emotional model plays an important role in robotic behavior
+Methodologies for developing sociable robots have drawn                      generation. We would argue that to generate emotional states
+much attention in the robotic research community [1-8].                      or the mood of a robot, it would be better to adopt a
+Breazeal et al. [2] presented the robot Leonardo, which shows                continuous model rather than finite states. The transition
+an expressive face capable of near human-level expression                    between states will therefore become smoother and allow
+based on a binocular vision system to recognize human facial                 robot behave continuous actions. Furthermore, the relation
+features. The humanoid robot Nexi [3] demonstrated a wide                    between emotional states and robot behavior should not be a
+range of facial expressions to communicate with people.                      fixed, one-to-one function. Instead, a more flexible model
+Miwa et al. proposed a mental model to build the robotic                     would provide more general ways to fuse the behaviors of the
+emotional state from external sensor inputs [4-5]. Hashimoto                 robot according to its current emotional states. It can also
+et al. [6-7] developed a reception robot SAYA to realize a                   represent the emotional characteristics of a robot.
+realistic speaking and natural interactive behavior with six                    In this paper, we will investigate the methodology to
+typical facial expressions. In [8], a singer robot EveR-2 is                 generate smooth transition among robotic emotional states in
+capable to acquire visual and speech information, while                      responding to various user’s emotional conditions. In order to
+express facial emotion during performing robotic singing.                    demonstrate the effectiveness of the proposed method, a
+   There are also increasing interests in the study of robotic               graphic robotic face and a self-designed robotic head were
+emotion generation schemes in order to give a robot more                     utilized in the experiments to generate facial expressions
+human-like behaviors [9-14]. These studies often adopt                       based on five primitive emotional behaviors namely, boring,
+results from psychology to design robot behaves to mimic                     smiling, crying, angry and relaxed.
+
+   Manuscript received August 24, 2010. This work was partly supported by           II. EMOTIONAL BEHAVIOR GENERATION SYSTEM
+the Ministry      of    Economic     Affairs,   Taiwan under grant
+96-EC-17-A-04-S1-054 and National Science Council, Taiwan under grant
+                                                                                Figure 1 shows the block diagram of the developed
+NSC-96-2628-E-009-162-MY3.                                                   autonomous emotional expression generation system for a
+   Meng-Ju Han, Chia-How Lin and Kai-Tai Song are with Department of         robotic face. There are four major blocks in this system,
+Electrical Engineering, National Chiao Tung University, Hsinchu 300,
+                                                                             including user emotional state recognizer, robotic emotional
+Taiwan, ROC. (email: {menlo.ece92g@; jotarun.ece87@; ktsong@mail.}
+nctu.edu.tw).                                                                state generator, behavior fusion unit and a robotic face
+
+
+
+                                                978-1-4244-9123-0/10/$26.00 ©2010 IEEE
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+                                              α′k , β′k
+
+
+
+
+                                    Fig. 1. Architecture of the autonomous emotional expression generation system.
+
+simulator. In the user emotion state recognizing unit, a camera
+is equipped to capture the user’s face in front of the robot. The                      III. PROPOSED ROBOTIC EMOTIONAL MODEL
+acquired images are sent to the image processing stage for                      In order to develop intelligent robotic behaviors that can
+emotional state recognition. A couple of methods of face                     interact with people, it is desirable for a robot to show its own
+detection and emotional state recognition can be found in the                emotion. However, it is very difficult to model the emotional
+authors’ previous work [15]. The user’s emotional state is                   expression of a human. In this study, we express the robotic
+extracted and represented as a combination of four emotional                 emotional state by using a 2-D emotional model [16]. Figure 2
+intensities, including neutral intensity, happy intensity, angry             illustrates the four quadrants of the designed 2-D robotic
+intensity and sad intensity (UEk). These intensities are                     emotional model. In the figure, α and β axis represent the
+determined and sent to the robotic emotional state generator.                variation of valence and arousal respectively. As the user’s
+In the emotional state generation unit, a robotic emotional                  emotional intensity is given, the current robotic emotional
+model is utilized to locate the robotic emotional state (REk) in             variable α ′k and β′k can be defined such that:
+the 2-D emotional model (see Section III). The 2-D emotional
+model takes into account robotic emotional variables ( α ′k , β′k )                                  α′k = UH − (UA + US ) / 2 ,                     (1)
+and previous robotic emotional state (REk-1) to determinate the
+                                                                                                     β′k = 1 − UN ,                                  (2)
+next robotic emotional state.
+   After obtaining the current emotional state, a behavior                   where UN, UH, UA and US represent the four user’s
+fusion scheme is employed to autonomously generate suitable                  emotional intensities as shown in (3).
+robot behaviors in response to the acquired facial information.                                           ⎡UN ⎤ ⎡ Neutral Intensity⎤
+Furthermore, the emotional character of the robot can be                                                  ⎢ ⎥ ⎢                    ⎥
+                                                                                                           UH      Happy Intensity ⎥ .               (3)
+                                                                                                    UEk = ⎢ ⎥ = ⎢
+assigned by setting parameters in the given rule table. For                                               ⎢ UA ⎥ ⎢ Angry Intensity ⎥
+                                                                                                          ⎢ ⎥ ⎢                    ⎥
+example, by setting the rule tables, the emotional character of                                           ⎣ US ⎦ ⎣ Sad Intensity ⎦
+a robot can be designed to be an optimistic tendency or in a                 In this study, the robotic emotional state transition shifts
+pessimistic mood. In this work, we design five emotional                     gradually from one mood to another. The manifested
+behaviors for the robotic face, including boring, smiling,                   emotional state is determined not only by current robotic
+crying, angry and relaxed behaviors. More subtle emotional
+behaviors can be added to the structure as desired. In response
+                                                                                   
+to the estimated emotional intensity, a set of fusion weights
+(FWi, i=1~5) corresponding to each emotional behavior are
+generated by a fuzzy Kohonen clustering network (FKCN)
+(see Section IV) and sent to behavior fusion stage to generate
+the actual behaviors (facial expressions in this case). The
+actual facial expression of the robot is generated by
+summation of each behavior output multiplied by its
+corresponding fusion weight. In Fig. 1, a robotic facial
+simulator is designed to produce a responsive behavior for the
+desired human-robot interaction. Detailed design of the
+proposed robotic emotional model, emotional behavior fusion
+and robotic facial simulator will be described in the following
+sections.                                                                                    Fig. 2. The 2-D robotic emotional model.
+
+
+
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                                          c
+emotional variable but also by previous robotic emotional
+                                                                                                                                 FWi = ∑ w ji u ij                            (8)
+states. The manifested robotic emotional state of instant k                                                                               j =1
+
+(REk) is calculated such that:                                                                              where w ji represents the prototype weight of ith output
+                         RE k ≡ ( α k , β k )                                                               behavior. The prototype weights in the rule table define the
+                                                                                     ,                (4)   basic primitive emotional behaviors corresponding to some
+                          = RE k −1 + Δt ⋅ (α 'k , β 'k )                                                   chosen input states. FKCN has the capacity to generalize these
+where Δt represents a scaling parameter to control the                                                      prototype patterns to all situations that may happen to the
+variation speed of robotic emotional state transition.                                                      robot by calculating the proper fusion weights.
+   The concept of pattern recognition was adopted for the                                                      In this design, the emotional character of a robot can be
+robotic behavior fusion design. Pattern recognition technique                                               designed into the emotional model through proper assigning
+is utilized to map the user’s emotional state intensity, obtained                                           the prototype patterns to FKCN. In the current design, four
+from the image recognition module, to the fusion weights of                                                 emotional characters of a robot are employed, including
+individual robotic behavior. In this design, FKCN was applied                                               Happy mood, Sad mood, Angry mood and Relaxed mood.
+to determine the fusion weights of each emotional behavior                                                  Therefore, four rule tables were built with corresponding
+[14, 17]. Figure 3 illustrates the structure of the fuzzy-neuro                                             fusion weights rule tables fwH, fwS, fwA and fwR. Based on Eq.
+network for fusion weight generation. In the first layer of the                                             (4), the robotic emotional state will transit gradually on the
+network, the intensities of user’s emotional state UEk are                                                  2-D robotic emotional plane (see Fig.2) as the user’s
+regarded as inputs of FKCN. In the second layer, the distance                                               emotional intensities vary. Each point on the 2-D plane
+between input pattern and each prototype pattern is calculated                                              indicates a robot mood associated with the current emotional
+such that:                                                                                                  state. Therefore, the rule table corresponding to the current
+                                                                                                            robot mood will be selected and used in the FKCN fusion
+                  d ij = X i − W j
+                                          2
+                                                   (
+                                               = X i −Wj     ) (X − W ) ,
+                                                              T
+                                                                      i         j
+                                                                                                      (5)
+                                                                                                            weight calculation. Hence the fusion weight of output
+where X i denotes the input pattern and Wj denotes the jth                                                  behavior FWK is calculated such that:
+prototype pattern. In the second layer, the degree of difference
+                                                                                                                             ⎧ β k ⋅ α k ⋅ fwH       for α k ≥ 0, β k ≥ 0.5
+between the current user’s emotional state and the prototype                                                                 ⎪β ⋅ (−α ) ⋅ fw
+                                                                                                                             ⎪                       for α k < 0, β k < 0.5   (9)
+pattern is calculated. If the user’s emotional state is not similar                                                    FWk = ⎨ k         k       S
+
+
+to the prototype pattern, then the degree of difference                                                                      ⎪β k ⋅ (−α k ) ⋅ fw A   for α k < 0, β k ≥ 0.5
+                                                                                                                             ⎪⎩ β k ⋅ α k ⋅ fwR      for α k ≥ 0, β k < 0.5
+becomes large. The third layer calculates the similarity degree
+between the input pattern and the prototype patterns. The
+similarity is represented by a membership value. The                                                                  IV. EMOTIONAL BEHAVIOR FUSION UNIT
+determination of the membership value is given such that:                                                      In order to emphasize that the emotional character of a
+                                                                                                            robot can be designed arbitrarily, a robotic emotional
+                         ⎧1       if d ij = 0
+                  u ij = ⎨                                                                       , (6)      character, happy tendency is presented as an example. Table I
+                         ⎩0       if d jk = 0            (k ≠ 0, k ≥ 0, j ≤ c − 1)
+                                                                                                            shows the assigned behavior fusion weight corresponding to
+where c denotes the number of prototype patterns, otherwise,                                                the prototype pattern while the robot is in happy mood. In the
+                                          −1
+                                                                                                            left part of Table I, we define the observed user’s emotional
+                          ⎡ c d ij ⎤                                                                        intensity in prototype patterns as a value from 0 to 1 (0
+                   u ij = ⎢∑          ⎥        .                                                      (7)
+                          ⎣ i =1 d il ⎦                                                                     represents no corresponding emotional state intensity; 1
+Using the rule table and the obtained membership values, the                                                represents that the corresponding emotional intensity is
+current fusion weights (FWi, i=1~5) are determined such that:                                               maximum). In the right part of Table I, five fusion weights are
+                                                                                                            assigned based on the corresponding character (happy
+                                                                                                            tendency) that we want the robot to behave. In the design
+                                                                                       Robotic
+                                                         Rule             REk                               phase, one needs to assign default fusion weights in the FKCN
+                                                                                      emotional
+                                                         table                      state variable
+                                                                                                            in order to give desired robotic emotional character as shown
+                                               d0            u0
+                         W0                                                                                 in Table I. In practical applications, as the robot obtains
+    User                                                                                                    current user’s emotional state, the FKCN generates the fusion
+  emotional
+    state                                                                                Behavior           weights in response to the user’s emotional inputs.
+                                                                                          fusion
+     ⎡UE1 ⎤                                                                              weights               For example, the weight of boring behavior is assigned as 1
+     ⎢UE ⎥
+     ⎢ 2⎥
+                                                                                          ⎡ FW1 ⎤
+                                                                                                            in the first row of Table I, as the intensities of the user’s input
+     ⎢UE3 ⎥
+     ⎢ ⎥                                       di(c-1)      ui(c-1)                       ⎢ FW ⎥            emotional states are all equal to 0 except the 0.5 of the neutral
+     ⎣UE4 ⎦                Wc-1                                                           ⎢ 2⎥
+                                                                                    FWk = ⎢ FW3 ⎥
+                 Input        Distance             Membership                             ⎢       ⎥         intensity. If the highest happy intensity is detected (as shown
+                                                                                          ⎢ FW4 ⎥
+                 layer          layer                layer                                ⎢⎣ FW5 ⎥⎦         in the second row of Table I), the robot expresses the
+              Fig. 3. The FKCN for fusion weight generation.                                                maximum intensity of smiling behavior in responding. These
+                                                                                                            settings of prototype patterns and weights are based on the
+
+
+
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+                                        TABLE I
+                         RULE TABLE FOR HAPPY MOOD CHARACTER
+                             If – part                                                             Then – part
+                        prototype patterns                                                        Fusion weights
+
+
+
+
+                           Happiness (UH)
+                                                                         Boredom (wj1)                                           Relaxation (wj5)
+         Neutral (UN)                        Anger (UA)   Sadness (US)
+ #j                                                                                      Smile (wj2)   Cry (wj3)   Anger (wj4)
+
+
+
+  1       0.5                    0                0             0               1              0            0            0                0
+  2       0                      1             0            0                   0              1            0            0                0
+  3      0.45                    1             0            0                   0              1            0            0                0                          Fig. 4. The robotic facial simulator.
+  4       0                      1            0.9          0.9                  0              1            0            0                0
+                                                                                                                                                    robotic face is designed in order to show the variation of
+  5      0.45                    1            0.8          0.8              0.5            0.5              0            0                0
+                                                                                                                                                    output facial expression behavior. The boring behavior is
+  6      0.3                     1            0.9          0.9              0.5            0.5              0            0                0
+  7       1                      0             1            1                0              0               1            0                0
+                                                                                                                                                    designed as a basic facial expression without any emotional
+ 8       0.55                    0                1         1               0.3                0         0.7             0                0
+                                                                                                                                                    expression. The smiling behavior is designed as a variation of
+ 9        1                      0                0        0.2              0.3                0         0.7             0                0         facial expression that looks like a happy face. The control
+ 10      0.7                     0                0        0.2              0.8                0         0.2             0                0         points for generating facial expressions were adopted from the
+ 11      0.55                    0                0        0.4              0.8                0         0.2          0                   0         Ekman action units [18]. As a user’s facial expression appears
+ 12       0                      0                1         1                0                 0          0           1                   0         in front of the robot, the proposed emotional expression
+ 13      0.45                    0                1         1               0.3                0          0          0.7                  0         generation system will present a suitable facial expression
+ 14       0                      0            0.4               0           0.3                0            0        0.7                  0         behavior to interact with the user.
+ 15      0.45                    0            0.4               0           0.8                0            0        0.2                  0            In the current design, there are four robotic emotional
+ 16      0.3                     0            0.2               0           0.8                0            0        0.2                  0         moods to demonstrate the robot’s happy, sad, angry and
+ 17       1                      1             0            0                0                 0            0            0           1              relaxed facial expressions respectively. As shown in Table I,
+ 18      0.55                    1             0            0               0.3                0            0            0          0.7             we have assigned the prototype patterns and rule tables of a
+ 19       1                      1            0.9          0.9              0.3                0            0            0          0.7             happy mood. Even though we do not emphasize which kind of
+ 20      0.55                    1            0.8          0.8              0.8                0            0            0          0.2             interaction model is the best, the performance of proposed
+ 21      0.7                     1            0.9          0.9              0.8                0            0            0          0.2             autonomous emotional expression generation system can be
+ 22      0.5                     1             1            1                1                 0            0            0           0              verified by observing five fusion weights of output behaviors.
+                                                                                                                                                       In this simulation, we check the variation of five fusion
+robot with a kind of happy mood. For other emotional moods,                                                                                         weights, while the input intensities of happiness and anger are
+different rule tables will be given.                                                                                                                varying. After obtaining the fusion weights, the robotic
+   As shown in Fig. 1, the user’s emotion state recognizer                                                                                          behaviors (facial expressions) are fused and manifested
+calculates the intensity of emotional state UEk from acquired                                                                                       concurrently. The variations of robotic facial expression occur
+image data. After obtaining the fusion weights of output                                                                                            mainly for smiling behavior, when the varying input emotion
+behaviors from FKCN, the robot’s behavior is determined                                                                                             intensity is happiness. We can see from this simulation that to
+from five behaviors multiplied by their corresponding fusion                                                                                        what extent the proposed emotional behavior generation
+weights (FWK, k=1~5) such that:                                                                                                                     system can achieve. Moreover, it can be seen that the fusion
+Current output behavior of facial expression                                                                                                        weights vary gradually and are not very sensitive to the change
+      = Boring behavior ∗ FW1 + Smiling behavior ∗ FW 2 (10)                                                                                        of use’s emotional intensity. This kind of expression
+                                                                                                                                                    generation mimics that of human beings. A video clip of this
+         + Crying behavior ∗ FW 3 + Angry behavior ∗ FW 4
+                                                                                                                                                    simulation results can be found in [19].
+         + Re laxed behavior ∗ FW 5
+                                                                                                                                                      A. Variation of Five Fusion Weights under Single Input
+                                            V. SIMULATION RESULTS                                                                                      Figure 5 shows the variation of five fusion weights under
+   To evaluate the effectiveness of the proposed emotional                                                                                          different initial robotic emotional state REinitial as we only vary
+expression generation scheme, we have conducted computer                                                                                            the happy intensity. Based on the designed rule table (Table I),
+simulation by using a graphical simulator as shown in Fig. 4.                                                                                       the fusion weights of boring and smiling behavior should
+Let the user’s emotional state be represented by adjusting a                                                                                        decrease and increase respectively while the input happy
+track bar. Through moving track bars at the upper-right of Fig.                                                                                     intensity increases gradually. Figure 5(a) shows the variation
+4, the input emotional intensities are presented in the                                                                                             of five fusion weights for an initial robotic emotional state (0,
+simulator. The output fusion weights of robotic emotional                                                                                           0.5). Referring to Fig. 2, it reveals that the initial robotic
+behaviors will be computed by the proposed emotional model                                                                                          emotional state locates within the central region (boring). We
+and shown at the lower right of the figure. The simulated                                                                                           see that the fusion weights of boring and smiling behavior
+
+
+
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+                                     Weight variavtion of 5 kinds of output behavior.
+                                                                                            initial robotic emotional state is (0, 0.5) and the scaling
+                                                                                            parameter Δt = 0.002 . Compare with Fig. 7(b), the smiling
+        Boredom.
+                               1
+                             0.5
+                               0
+                                                                                            weight distributions of these two figures are almost the same.
+                                0     0.2            0.4           0.6           0.8    1
+                               1                                                            Furthermore, the maximum smiling weights are both close to 1.
+        Smile.               0.5                                                            This is due to the scaling parameter Δt . Because the scaling
+                               0
+                               1
+                                0     0.2            0.4           0.6           0.8    1   parameter Δt is large enough, the robotic emotional state will
+        Cry.                 0.5                                                            tend towards saturation very fast.
+                               0
+                                0     0.2            0.4           0.6           0.8    1
+                               1
+
+
+
+
+        Relaxation. Anger.
+                             0.5                                                                        VI. PRACTICAL EXPERIMENTAL RESULTS
+                               0
+                                0     0.2            0.4           0.6           0.8    1      An anthropomorphic robot head has been design and
+                               1
+                             0.5                                                            constructed in the lab to study emotional human-robot
+                              0
+                               0      0.2            0.4           0.6           0.8    1
+                                                                                            interaction. The robot head has 16 degrees of freedom
+                                                 Intensity of happy input.
+                                                                                            distributed in lip, eye, eyebrow and neck for expression
+                                            (a) REinitial = (0,0.5)                         generation. A CMOS image sensor was installed on the right
+                                    W eight variavtion of 5 kinds of output behavior.       eye to capture the user facial images. The proposed emotional
+
+
+      Smile. Boredom.
+                               1
+                             0.5                                                            expression generation algorithm has been implemented on a
+                               0
+                                0     0.2            0.4           0.6           0.8    1   DSP-based embedded imaging system [20]. The vision system
+                               1
+                             0.5
+                                                                                            was deployed at the back of the robot head. Figure 8 shows the
+                               0
+                                0     0.2            0.4           0.6           0.8    1
+                                                                                            interaction scenario of a user and robot head.
+                               1                                                               In this practical experiment, a user’s face will appear in
+      Cry.                   0.5
+                               0                                                            front of the robot head. After facial expression recognition,
+                                0     0.2            0.4           0.6           0.8    1
+                               1                                                            the robot head will show 3 emotional state transitions of facial
+
+
+      Relaxation. Anger.
+                             0.5
+                               0
+                                                                                            expressions (strong, middle and weak) in responding to
+                                0     0.2            0.4           0.6           0.8    1
+                               1                                                            various degrees of the user’s emotional input (facial
+                             0.5                                                            expressions). A video clip of the experimental results can be
+                              0
+                               0      0.2            0.4          0.6            0.8    1   found in [21].
+                                                 Intensity of happy input.
+
+                                            (b) REinitial = (−1,0)
+                                                                                                                      VII. CONCLUSION
+  Fig. 5. Variations of five fusion weights under different initial robotic
+  emotional state ( Δt = 0.02 ).                                                               In this paper, a method of smooth transition of emotional
+                                                                                            states for a robotic face has been developed. The proposed
+decreases and increases respectively as happy intensity                                     system can generate emotional behavior of a robot in a more
+increases. This result conforms to our design. In Fig. 5(b), the                            natural manner based on the 2-D emotional model.
+initial robotic state is (-1, 0). So the robotic emotion state                              Experimental results reveal that the autonomous emotional
+locates in the lower-left region (crying) of Fig. 2. Although the                           expression generation algorithm gives proper facial behaviors
+fusion weight of smiling behavior increases a little in Fig. 5(b),                          and responses to various facial expression intensities. In the
+it does not give a strong smiling behavior due to the initial                               future, we will further investigate different mathematical
+emotional state is crying.                                                                  models for robotic emotion generation and evaluate their
+                                                                                            effectiveness with practical experiments.
+  B. Mixing of Happy and Neutral Emotional State Intensity
+   Figures 6-7 show that the fusion weight variation of smiling                                                          REFERENCES
+behavior, as the input happy and neutral intensity varies. In the                           [1]   C. Breazeal, “Emotion and sociable humanoid robots,” International
+designed prototype patterns, the fusion weight of smiling                                         Journal of Human-Computer Studies, Vol. 59, pp.119-155, 2003.
+behavior should increase while the input happy intensity                                    [2]   C. Breazeal, D. Buchsbaum, J. Gray, D. Gatenby and B. Blumberg
+                                                                                                  “Learning From and About Others: Towards Using Imitation to
+increases. Figure 6(a) shows the variation of smiling weight                                      Bootstrap the Social Understanding of Others by Robots,” Journal of
+while initial robotic emotional state is (0, 0.5) and the scaling                                 Artificial Life, Vol. 11, pp.1-32, 2005.
+parameter Δt = 0.0002 . Similarly, it reveals that the initial                              [3]   http://robotic.media.mit.edu/projects/robots/mds/headface/headface.ht
+                                                                                                  ml
+robotic emotional state locates within the boring region. It can                            [4]   H. Miwa, T. Okuchi, K. Itoh, H. Takanobu and A. Takanishi, “A New
+be seen that the maximum smiling weight is 0.45. In Fig. 6(b),                                    Mental Model for Humanoid Robots for Human Friendly
+the initial robotic emotional state is (-1, 0). The initial robotic                               Communication,” in Proc. of IEEE International Conference on
+                                                                                                  Robotics and Automation, Taipei, Taiwan, 2003, pp. 3588-3593.
+emotional state locates within the crying region. The                                       [5]   H. Miwa, K. Itoh, M. Matsumoto, M. Zecca, H. Takanobu, S.
+maximum smiling weight in Fig. 6(b) is 0.25. We see that the                                      Rocella, M.C. Carrozza, P. Dario and A. Takanishi, “Effective
+initial robotic emotional state affect the output fusion weight                                   Emotional Expressions with Emotion Expression Humanoid Robot
+                                                                                                  WE-4RII,” in Proceedings of the 2004 IEEE/RSJ International
+substantially.
+                                                                                                  Conference on Intelligent Robots and Systems, Sendai, Japan, 2004,
+   Figure 7(a) shows the variation of smiling weight while                                        pp.2203-2208.
+
+
+
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+                                           (a) REinitial = (0,0.5)                            (b) RE           = (−1,0)
+                                                                                                     initial
+
+                   Fig. 6. Variation of smiling weight under varying happy and neutral intensity with the scaling parameter Δt = 0.0002 .
+
+
+
+
+                                           (a) REinitial = (0,0.5)                            (b) RE           = (−1,0)
+                                                                                                     initial
+
+                   Fig. 7. Variation of smiling weight under varying happy and neutral intensity with the scaling parameter Δt = 0.002 .
+
+                                                                               [11] S. C. Banik, K. Watanabe, M. K. Habib and K. Izumi, “An
+                                                                                    Emotion-Based Task Sharing Approach for a Cooperative Multiagent
+                                                                                    Robotic System,” in Proc. of IEEE International Conference on
+                                                                                    Mechatronics and Automation, Kagawa, Japan, 2008, pp. 77-82.
+                                                                               [12] J. C. Park, H. R. Kim, Y. M. Kim and D. S. Kwon, “Robot’s Individual
+                                                                                    Emotion Generation Model and Action Coloring According to the
+                                                                                    Robot’s Personality,” in Proc. of IEEE International Symposium on
+                                                                                    Robot and Human Interactive Communication, Toyama, Japan, 2009,
+                                                                                    pp. 257-262.
+                                                                               [13] D. Lee, H. S. Ahn and J. Y. Choi, “A General Behavior Generation
+                                                                                    Module for Emotional Robots Using Unit Behavior Combination
+                                                                                    Method,” in Proc. of IEEE International Symposium on Robot and
+                                                                                    Human Interactive Communication, Toyama, Japan, 2009, pp.
+                                                                                    375-380.
+                                                                               [14] M. J. Han, C. H. Lin and K. T. Song, “Autonomous Emotional
+                                                                                    Expression Generation of a Robotic Face,” in Proc. of IEEE
+             Fig. 8. Interaction scenario of a user and robotic head.
+                                                                                    International Conference on Systems, Man and Cybernetics, St
+[6]  T. Hashimoto, S. Hiramatsu, T. Tsuji and H. Kobayashi, “Realization            Antonio, TX, USA, 2009, pp. 2501-2506.
+     and Evaluation of Realistic Nod with Receptionist robot SAYA,” in         [15] M. J. Han, J. H. Hsu, K. T. Song and F. Y. Chang, “A New Information
+     Proceedings of the 16th IEEE International Symposium on Robot and              Fusion Method for Bimodal Robotic Emotion Recognition,” Journal of
+     Human interactive Communication (RO-MAN 2007), Jeju Island,                    Computers, Vol. 3. No. 7, pp. 39-47, 2008.
+     Korea, 2007, pp.326-331.                                                  [16] J. A. Russell and M. Bullock, “Multidimensional scaling of emotional
+[7] T. Hashimoto, S. Hiramatsu, T. Tsuji and H. Kobayashi, “Development             facial expressions: Similarity from preschoolers to adults,ϙ Journal of
+     of the Face Robot SAYA for Rich Facial Expressions,” in Proc. of               Personality and Social Psychology, Volume 48, 1290Ω1298, 1985.
+     International Joint Conference on SICE-ICASE, Busan, Korea, 2006,         [17] K. T. Song and J. Y. Lin, “Behavior Fusion of Robot Navigation Using
+     pp. 5423-5428.                                                                 a Fuzzy Neural Network,” in Proc. of IEEE International Conference
+[8] D. W. Lee, T. G. Lee, B. So, M. Choi, E. C. Shin, K. W. Yang, M. H.             on Systems, Man and Cybernetics, Taipei, Taiwan, 2006, pp.
+     Back, H. S. Kim and H. G. Lee, “Development of an Android for                  4910-4915.
+     Emotional Expression and Human Interaction,” in Proc. of                  [18] P. Ekman and W. V. Friesen, The Facial Action Coding System: A
+     International Federation of Automatic Control, Seoul, Korea, 2008, pp.         Technique for The Measurement of Facial Movement, San Francisco,
+     4336-4337.                                                                     Consulting Psychologists Press, 1978.
+[9] D. Duhaut, “A Generic Architecture for Emotion and Persionality,” in       [19] http://isci.cn.nctu.edu.tw/video/ARSO2010/1/
+     Proc. of IEEE International Conference on Advanced Intelligent            [20] H. Andrian and K. T. Song, “Embedded CMOS Imaging System for
+     Mechatronics, Xi’an, China, 2008, pp. 188-193.                                 Real-Time Robotic Vision,” in Proc. of IEEE/RSJ International
+[10] C. Itoh, S. kato and H. Itoh, “Mood-transition-based Emotion                   Conference on Intelligent Robots and Systems, Edmonton, Alberta,
+     Generation Model for the Robot’s Personality,” in Proc. of IEEE                Canada, 2005, pp. 3694-3699.
+     International Conference on Systems, Man and Cybernetics, St              [21] http://isci.cn.nctu.edu.tw/video/ARSO2010/2/
+     Antonio, TX, USA, 2009, pp. 2957-2962.
+
+
+
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:16:26 UTC from IEEE Xplore. Restrictions apply.
+

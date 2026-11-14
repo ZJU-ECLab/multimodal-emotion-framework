@@ -1,0 +1,1814 @@
+How Is Your User Feeling? Inferring Emotion Through Human–Computer Interaction
+Devices
+Author(s): Martin Hibbeln, Jeffrey L. Jenkins, Christoph Schneider, Joseph S. Valacich
+and Markus Weinmann
+Source: MIS Quarterly , March 2017, Vol. 41, No. 1 (March 2017), pp. 1-22
+Published by: Management Information Systems Research Center, University of Minnesota
+
+Stable URL: https://www.jstor.org/stable/10.2307/26629634
+
+JSTOR is a not-for-profit service that helps scholars, researchers, and students discover, use, and build upon a wide
+range of content in a trusted digital archive. We use information technology and tools to increase productivity and
+facilitate new forms of scholarship. For more information about JSTOR, please contact support@jstor.org.
+
+Your use of the JSTOR archive indicates your acceptance of the Terms & Conditions of Use, available at
+https://about.jstor.org/terms
+
+
+
+
+            Management Information Systems Research Center, University of Minnesota is collaborating with
+            JSTOR to digitize, preserve and extend access to MIS Quarterly
+
+
+
+
+                                                      This content downloaded from
+                                    222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                              All use subject to https://about.jstor.org/terms
+                                                                                                                                RESEARCH ARTICLE
+
+
+
+
+       HOW IS YOUR USER FEELING? INFERRING EMOTION
+       THROUGH HUMAN–COMPUTER INTERACTION DEVICES1
+                                                                   Martin Hibbeln
+                                 Mercator School of Management, University of Duisburg-Essen, Lotharstrasse 65,
+                                            47057 Duisburg, GERMANY {martin.hibbeln@uni-due.de}
+
+
+                                                                 Jeffrey L. Jenkins
+                                     Information Systems Department, Brigham Young University, 790 TNRB,
+                                                  Provo, UT 84602 U.S.A. {jjenkins@byu.edu}
+
+
+                                                               Christoph Schneider
+                               Department of Information Systems, City University of Hong Kong, Tat Chee Avenue,
+                                          Kowloon, HONG KONG {christoph.schneider@cityu.edu.hk}
+
+
+                                                                Joseph S. Valacich
+                             Management Information Systems, University of Arizona, McClelland Hall Room 430CC,
+                                             Tucson, AZ 85721 U.S.A. {valacich@arizona.edu}
+
+
+                                                                Markus Weinmann
+                             Information Systems Department, University of Liechtenstein, Fürst-Franz-Josef-Strasse,
+                                            9490 Vaduz, LIECHTENSTEIN {markus.weimann@uni.li}
+
+
+1
+           Emotion can influence important user behaviors, including purchasing decisions, technology use, and customer
+           loyalty. The ability to easily assess users’ emotion during live system use therefore has practical significance
+           for the design and improvement of information systems. In this paper, we discuss using human–computer
+           interaction input devices to infer emotion. Specifically, we utilize attentional control theory to explain how
+           movement captured via a computer mouse (i.e., mouse cursor movements) can be a real-time indicator of
+           negative emotion. We report three studies. In Study 1, an experiment with 65 participants from Amazon’s
+           Mechanical Turk, we randomly manipulated negative emotion and then monitored participants’ mouse cursor
+           movements as they completed a number-ordering task. We found that negative emotion increases the distance
+           and reduces the speed of mouse cursor movements during the task. In Study 2, an experiment with 126
+           participants from a U.S. university, we randomly manipulated negative emotion and then monitored
+           participants’ mouse cursor movements while they interacted with a mock e-commerce site. We found that
+           mouse cursor distance and speed can be used to infer the presence of negative emotion with an overall
+           accuracy rate of 81.7 percent. In Study 3, an observational study with 80 participants from universities in
+           Germany and Hong Kong, we monitored mouse cursor movements while participants interacted with an online
+           product configurator. Participants reported their level of emotion after each step in the configuration process.
+           We found that mouse cursor distance and speed can be used to infer the level of negative emotion with an out-
+
+
+1
+ Viswanath Venkatesh was the accepting senior editor for this paper. Shuk Ying Ho served as the associate editor. Authors are listed alphabetically.
+
+The appendices for this paper are located in the “Online Supplements” section of the MIS Quarterly’s website (http://www.misq.org).
+
+
+
+                                                                                               MIS Quarterly Vol. 41 No. 1, pp. 1-21/March 2017        1
+
+
+
+                                                              This content downloaded from
+                                            222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                      All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+         of-sample R2 of 0.17. The results enable researchers to assess negative emotional reactions during live system
+         use, examine emotional reactions with more temporal precision, conduct multimethod emotion research, and
+         create more unobtrusive affective and adaptive systems.
+
+         Keywords: Negative emotion, attentional control theory (ACT), mouse cursor distance, mouse cursor speed,
+         mouse tracking, human–computer interaction
+
+
+
+Introduction                                                                microsecond precision (Hehman et al. 2014). Likewise,
+                                                                            mobile phones can not only capture precise motor-movement
+System design can influence users’ emotions and thereby                     information when people touch the screen, but also position
+impact important user behavior. For example, human–                         and motion information captured through the device’s accel-
+computer interaction (HCI) research has found that a system’s               erometer and gyroscope (Kim and Choi 2012). This informa-
+aesthetic appearance and consistency (Tractinsky et al. 2006),              tion can indicate emotional and cognitive states of users
+as well as atmospheric cues, such as interactivity or vividness,            (Freeman et al. 2011; Kim and Choi 2012).
+may impact users’ emotions (Sheng and Joginapelly 2012).
+From a practitioners’ perspective, Microsoft’s Usability                    In this paper, we specifically examine the efficacy of using
+Guidelines explicitly acknowledge the role of interface design              mouse cursor movements to infer negative emotion, providing
+in evoking users’ emotions (Keeker 1997). While the rela-                   a method for unobtrusive and mass-deployable emotion
+tive impact of emotion on users’ assessments and behaviors                  assessment. For example, one can record mouse cursor
+is dependent on the task and the medium (Agarwal and                        movements as users interact with a website without inter-
+Venkatesh 2002; Venkatesh et al. 2003; Venkatesh and                        fering with their interaction. System designers can then
+Ramesh 2006), both the design of and the interaction with a                 identify segments of the interaction that are inducing negative
+system influence emotions in various contexts (Zhang 2013).                 emotion by analyzing these mouse cursor movements.
+Positive emotion induced through system design has been                     Designers can use this information to better understand where
+shown to influence the acceptance and use of technology                     to make system improvements. Further, if mouse cursor
+(e.g., Agarwal and Karahanna 2000). In contrast, negative                   movements can be used to infer negative emotion, a system
+emotion induced through system design adversely influences                  can automatically detect when one is likely experiencing a
+ease-of-use and thereby intentions to use a system (Venkatesh               negative emotional reaction and intervene to alleviate the
+and Davis 2000), technology use (Beaudry and Pinsonneault                   negative reaction, such as by providing users opportunities to
+2010), disclosure of information (Anderson and Agarwal                      express their concerns (Klein et al. 2002), apologetic state-
+2011), online purchasing decisions (Huang 2003), and                        ments (Tzeng 2004), compensation (Smith et al. 1999), or
+customer loyalty (Lin and Wang 2006). For example, online
+                                                                            explanations (Kuo et al. 2011).
+shoppers who experience negative emotion are more likely to
+leave (Tax and Brown 1998) and not return (Mulpuru et al.
+                                                                            To explain how negative emotion influences mouse cursor
+2010) to e-commerce websites. Users who experience
+                                                                            movements, we draw on attentional control theory (ACT)
+negative emotion are also more likely to spread negative word
+                                                                            (Eysenck et al. 2007). ACT explains that negative emotion
+of mouth (Gelbrich 2010), which may hurt the profitability
+                                                                            decreases people’s ability to control their attention. Merging
+and success of online companies (e.g., Haywood 1989). The
+ability to easily assess users’ negative emotion during live                ACT with research demonstrating that attention influences
+system use has practical significance for the design, evalua-               mouse movements (Welsh and Elliott 2004), we explain how
+tion, and continuous improvement of information systems.                    negative emotion influences mouse cursor movements, speci-
+                                                                            fically mouse cursor distance and speed. Although past litera-
+One potential methodology for inferring users’ emotions is                  ture has empirically suggested that emotion influences mouse
+through analyzing data collected from HCI user-input devices.               cursor movements (e.g., Salmeron-Majadas et al. 2014), our
+Users interact with technology using various input devices,                 research provides a theoretical foundation explaining why
+including the computer mouse, touch screens, and other                      negative emotion influences mouse cursor distance and speed.
+devices. In addition to enabling interaction with technology,
+these devices are also high-fidelity sensors that gather valu-              In summary, our research is guided by two research questions:
+able information about the user (Google 2015). For example,
+tracking the mouse cursor provides precise information about                RQ1:       Does negative emotion influence mouse cursor
+a person’s motor movements with millisecond and sometimes                              distance and speed?
+
+
+
+2     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                              Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+RQ2:     Can the tracking and analysis of mouse cursor                     and Bradley 2007; Russell and Mehrabian 1977). Pleasure
+         distance and speed be used to infer negative                      ranges from extreme unhappiness to extreme happiness.
+         emotion?                                                          Arousal ranges from sleep to excitement, with intermediate
+                                                                           states of drowsiness to alertness. Dominance ranges from
+In answering these questions, we contribute to research and                feelings of a total lack of control to extreme feelings of
+practice in HCI. As an initial step, we hypothesize and empi-              influence and control (Russell and Mehrabian 1977). Our
+rically test the effects of negative emotion on mouse cursor               research focuses on how the pleasure dimension—specifically
+movements. This lays the foundation for future research to                 negative emotion—influences mouse cursor movements. We
+examine the influence of other emotions on mouse cursor                    chose to focus on how this dimension of emotion influences
+movements and the influence of emotion on the usage of other               mouse cursor movements because past research has robustly
+HCI user-input devices. In particular, we contribute to                    shown that negative emotions deter users’ adoption and use
+research by explaining why negative emotion (1) decreases                  of e-commerce sites (e.g., Anderson and Agarwal 2011;
+the precision of users’ movements, resulting in greater move-              Beaudry and Pinsonneault 2010; Deng and Poole 2010;
+ment distance, and (2) consumes cognitive resources,                       Gelbrich 2010; Huang 2003; Mulpuru et al. 2010).
+resulting in slower movement speed. We empirically demon-
+strate that mouse cursor distance and speed can be used to                 Neurological research suggests that “negative emotions have
+infer negative emotion. Thus, we respond to calls in the                   selective, direct connections to brain structures that mediate
+information systems literature to utilize psychophysiological              motor responses,” including movements in the arm and hand
+tools that provide new methodological approaches for investi-              (Coelho et al. 2010, p. 135). Further research suggests that
+gating the development and use of systems (see Dimoka et al.               negative emotion influences motor track excitability—the
+2012). Further, we provide a methodology for assessing                     electrical stimulation in the nerves that initiate movement
+users’ negative emotions in real time, enabling both academic              (e.g., Tanaka et al. 2012)—and elicit motor evoked potentials,
+and practitioner research that cannot be easily conducted                  that is, electrical stimulation recorded on the muscles indi-
+using traditional assessments. These opportunities in HCI                  cating potential movement (Coelho et al. 2010). Furthermore,
+research include gauging negative emotional reactions during               negative emotion can influence motor movement reaction
+live system use, examining emotional reactions with more                   times, and the amount of muscle force that is produced
+temporal precision, conducting multimethod emotion                         (Coombes et al. 2008; Coombes, Tandonnet, et al. 2009;
+research, and creating more unobtrusive affective and                      Naugle et al. 2012).
+adaptive systems.
+
+                                                                           Attentional Control Theory
+Background                                                                 We draw on attentional control theory (ACT) (Eysenck et al.
+                                                                           2007) to explain how negative emotion influences mouse
+Emotion and Motor Responses                                                cursor distance and speed. ACT explains that when experi-
+                                                                           encing negative emotion, people’s attention shifts from being
+Emotion is typically characterized as relatively brief experi-             goal-directed to being stimulus-driven, increasing awareness
+ences that are associated with the cognitive appraisal of an               of distracting stimuli in the environment (e.g., stimuli causing
+external stimulus or situation (Lazarus 1991), such as an ap-              negative emotion). In neurological terms, negative emotion
+praisal of a website or online vendor (Sun and Zhang 2006).                suppresses the brain’s attentional inhibition and shifting
+Emotion has been defined as                                                functions. Attentional inhibition refers to the function of the
+                                                                           brain that prevents stimuli unrelated to a task from capturing
+    a mental state of readiness that arises from cognitive                 attention. Attentional shifting allocates attention to stimuli
+    appraisals of events or thoughts; has a phenome-                       that are most relevant to a task. ACT further posits that pro-
+    nological tone; is accompanied by physiological                        cessing more stimuli when experiencing negative emotion
+    processes; is often expressed physically (e.g., in ges-                reduces the processing capacity of working memory, which
+    tures, posture, facial features); and may result in                    decreases task performance (Eysenck et al. 2007).
+    specific actions to affirm or cope with the emotion
+    (Bagozzi et al. 1999, p. 184).                                         ACT has been widely validated (Eysenck and Derakshan
+                                                                           2011). The theory was originally used to describe how
+Emotion can be classified based on three independent and                   anxiety influences attentional control; however, since its
+bipolar dimensions: pleasure, arousal, and dominance (Lang                 inception, it has been extended to explain how other negative
+
+
+                                                                                                  MIS Quarterly Vol. 41 No. 1/March 2017   3
+
+
+
+                                                       This content downloaded from
+                                     222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                               All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+emotional responses, including frustration, sadness, fear, and              repetition, and performance pressure. Their results indicated
+depression, decrease attentional control (Bishop et al. 2007;               that muscle stiffness from stress influences users’ mouse
+Sarter and Paolone 2011). ACT also has been utilized to                     movements. Salmeron-Majadas et al. (2014) monitored
+explain the influence of emotional states on motor movement                 mouse movements as students completed math problems and
+planning, and therefore has relevance for understanding                     then correlated 96 mouse indicators with self-reported plea-
+mouse cursor movements. For example, based on ACT,                          sure and arousal. Finally, Weinmann et al. (2013) described
+research has explained how trait anxiety influences motor                   the functional requirements for designing a system capable of
+efficiency in the hand and fingers (Coombes, Higgins, et al.                inferring emotion through analyzing mouse movements in
+2009), how physiological pressure influences visuomotor                     online stores. Table 1 summarizes how emotions may
+control—that is, using visual feedback to guide hand move-                  influence hand and mouse cursor movements.
+ments (Vine and Wilson 2011), and how physiological
+pressure influences corticospinal motor tract excitability and              We address two gaps in this research. First, much of the prior
+performance of finger movements (Tanaka et al. 2012).                       research is exploratory and observational, void of theory
+                                                                            explaining why emotion influences mouse movements.
+                                                                            Drawing on and extending ACT, we explain why negative
+                                                                            emotion will influence users’ mouse cursor movements.
+Negative Emotion and Mouse                                                  Second, prior results are mostly based on single studies; thus,
+Cursor Movements                                                            the generalizability of the observations is likely limited.
+                                                                            Here, we conduct three independent studies utilizing different
+In HCI research, emotions have been primarily assessed using                contexts and populations to cross-validate that negative emo-
+either self-report measures or psychophysiological tools (e.g.,             tion consistently influences mouse cursor movements. In
+Sheng and Joginapelly 2012). Using these measures and tools                 Study 1, we examine whether negative emotion influences
+has both advantages and shortcomings (see Dimoka et al.                     users’ mouse cursor movements; in Study 2, we examine
+2012). Whereas self-report measures are relatively easy to                  whether mouse cursor movements can be used to infer the
+administer, their use is typically limited to academic research,            presence of negative emotion; and in Study 3, we examine
+and the responses are subject to various biases. Psycho-                    whether mouse cursor movements can be used to infer the
+physiological tools (such as facial electromyography) can                   level of negative emotion that users experience. Taken
+allow assessing emotions with high temporal precision, but                  together, we demonstrate that mouse cursor movements can
+their application is typically limited to studies conducted in a            be used to infer negative emotion in realistic e-commerce
+laboratory. In contrast, mouse cursor movements can be                      settings.
+recorded unobtrusively during live interactions with a system.
+Prior HCI research provides preliminary support that emotion
+may influence mouse cursor movements. For example, Maehr
+(2008) elicited emotional states through three film clips in an
+                                                                            Theory
+experiment: a neutral video, a video provoking sadness, and
+                                                                            Drawing on ACT, we hypothesize how negative emotion will
+a video promoting happiness. After watching each video,
+                                                                            decrease attentional control and thereby influence two
+participants answered a questionnaire about their feelings
+                                                                            characteristics of users’ mouse cursor movements: movement
+while mouse cursor movements were being logged and                          distance and speed. As ACT explains how negative emotion
+analyzed. The results suggest that emotional changes influ-                 “impairs efficient functioning of the goal-directed attentional
+ence the precision, smoothness, speed, and acceleration of                  system” (Eysenck et al. 2007, p. 336), the scope of our
+mouse movements. Grimes et al. (2013) manipulated arousal                   hypotheses is to explain the relationship between negative
+(high versus low) and pleasure (positive versus negative)                   emotion and movements in goal-directed tasks. Goal-directed
+through images from the International Affect Picture System                 tasks refer to activities that are motivated by goal attainment
+(Lang and Bradley 2007), finding that negative emotion                      rather than the interaction itself, and the user’s reward is
+increased direction changes and distance, as well as decreased              primarily realized by efficiently accomplishing the goal,
+the speed of people’s mouse movements. Zimmerman and his                    rather than the journey of accomplishing the goal. Searching
+colleagues (Zimmerman et al. 2006; Zimmerman et al. 2003)                   for specific information, paying a bill, or navigating through
+manipulated mood through film clips, finding that mood state                a checkout process are examples of online goal-directed tasks
+was correlated with mouse cursor movements.                                 (Wells et al. 2005). In goal-directed tasks, mouse cursor
+                                                                            movements are characterized by structured, efficient, linear
+Further, Sun et al. (2014) examined how mouse movements                     search patterns (e.g., moving the mouse cursor from a starting
+could be used to detect muscle stiffness associated with stress.            point to a specific target in an effort to accomplish a goal as
+They induced stress through social pressure, time pressure,                 efficiently as possible).
+
+
+
+4     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                               Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Table 1. Examples of Relevant Literature Linking Emotions to Hand and Mouse Cursor Movements
+                                         Key Findings                                                                 Reference
+ Negative emotion induced by pictures results in greater motor evoked potentials                              Coelho et al. 2010
+ (neuroelectrical signals on the muscles) than emotion induced by neutral and pleasant
+ pictures. No differences were found between pleasant and neutral pictures.
+ People viewing emotional images subconsciously produce greater force in the hand                             Coombes et al. 2008
+ compared to people viewing neutral images.
+ People with high behavioral inhibition display a relative increase in unconscious force                      Coombes et al. 2011
+ production during exposure to attack and mutilation images.
+ People viewing negative-emotion inducing images display greater direction changes,                           Grimes et al. 2013
+ distance, and slower mouse cursor speed while self-reporting their emotional state. Arousal
+ further elevates direction changes and distance.
+ Emotional changes can be inferred from mouse cursor movements, including changes in                          Maehr 2008
+ precision, smoothness, speed, and acceleration.
+ People viewing emotional images subconsciously produce greater force in the hand                             Naugle et al. 2012
+ compared to people viewing neutral images. However, emotional images do not increase
+ variability of force production compared to neutral images.
+ Ninety-six mouse indicators are correlated with self-reported emotional valance and arousal.                 Salmeron-Majadas et al.
+                                                                                                              2014
+ Stiffness resulting from stress influences mouse movements.                                                  Sun et al. 2014
+ Stress increases the amplitude and decreases the latency of motor evoked potentials and                      Tanaka et al. 2012
+ increases the ratio of motor evoked potentials to background electromyography. From a
+ behavioral perspective, the level of corticospinal motor tract excitability under stress is
+ correlated with a decrease in performance of fine motor skills.
+ The amplitudes of motor evoked potentials are typically increased when viewing negatively                    van Loon et al. 2010
+ valenced images.
+ Systems should monitor mouse movement deviations to infer negative emotion.                                  Weinmann et al. 2013
+ Mood states are correlated with the number and duration of clicks, distance of movements,                    Zimmermann et al. 2006
+ pauses, direction changes, speed, and keystroke dynamics.                                                    Zimmermann et al. 2003
+
+
+
+Negative Emotion and Mouse                                                  response to the stimulus, and then making the movement can
+Cursor Distance                                                             take several hundreds of milliseconds or longer for the brain
+                                                                            to execute (Thorpe et al. 1996). To facilitate more efficient
+We propose that negative emotion will decrease the precision                movements, the brain anticipatorily programs movements to
+of users’ movements and thereby increase the distance users                 stimuli that capture a user’s attention during movement. This
+travel with the mouse cursor to accomplish a goal-directed                  preprograming of movements occurs in the brain automati-
+task. As discussed, ACT explains that negative emotion                      cally, subconsciously, and simultaneously in response to all
+deters the attentional shifting and inhibition functions of the             stimuli that capture a person’s attention, even if only briefly
+brain. People are less able to focus their attention on the most            (Welsh and Elliott 2004). This way, if a user does decide to
+relevant stimuli (i.e., the destination of the movement), and               move toward a stimulus, programing is already underway to
+focus their attention more broadly on stimuli in the environ-               facilitate a more efficient movement (Welsh and Elliott 2004).
+ment (Eysenck et al. 2007). As a result, distracting stimuli
+not related to one’s intended movement are more likely to                   The actual hand movement that occurs is a function of both
+catch one’s attention (Eysenck et al. 2007).                                one’s consciously intended movement and the subconscious
+                                                                            programed movements toward other stimuli. For example, if
+These distracting stimuli will influence the precision of                   one intends to move the mouse straight to a target, and the
+movements because “attention and action are intimately                      brain has subconsciously programed movements toward other
+linked” (Welsh and Elliott 2004, p. 1054). Visually pro-                    distracting stimuli, these primed subconscious movements
+cessing a stimulus, consciously programing a movement                       will influence the actual movement, and the resulting move-
+
+
+
+                                                                                                   MIS Quarterly Vol. 41 No. 1/March 2017   5
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+    Figure 1. Example Mouse Cursor Trajectory Under the Influence of Negative Emotion
+
+
+ment will deviate from one’s intended trajectory. One’s fine                performance to complete tasks in suboptimal conditions
+motor movements—movement of the fingers or hands—are                        (Eysenck et al. 2007, p. 340). One common compensatory
+especially vulnerable to these actions that are primed by                   strategy for lower working memory is to respond more
+negative emotion (Tanaka et al. 2012). As deviations occur,                 slowly, allowing the brain a longer period of time to execute
+one’s mouse cursor is likely to travel a greater distance, as the           the task (Eysenck et al. 2007). From a neurological perspec-
+movement deviates from the most direct path when experi-                    tive, when working memory is low because several stimuli are
+encing negative emotion (see Figure 1). Thus, we propose                    competing for attention, the brain gives each stimulus a
+our first hypothesis:                                                       portion of working memory for a short period of time (much
+                                                                            like multithreading on computers) (Pashler 1994). However,
+H1: Experiencing negative emotion will increase overall                     because the brain must switch cognitive resources among
+    mouse cursor distance.                                                  multiple competing stimuli, it will take longer to complete
+                                                                            tasks and slow reaction time for tasks.
+
+Negative Emotion and Mouse                                                  Reaction time influences mouse cursor speed. When
+Cursor Speed                                                                directing the mouse cursor to a destination, the brain pro-
+                                                                            cesses corrections to the movement trajectory based on con-
+We also propose that negative emotion will decrease the                     tinuous visual input to ultimately reach the destination (Meyer
+average speed of users’ mouse cursor movements in goal-                     et al. 1988; Meyer et al. 1990). These corrective movements
+directed tasks. Recall that negative emotion causes people to               are dependent on hand-eye coordination reaction time (i.e.,
+distribute their attention more broadly (Eysenck et al. 2007).              processing visual inputs and making adjustments to reach the
+ACT explains that this broader attentional focus reduces the                target) (Lin et al. 2011). Slower reaction time (i.e., taking
+processing and storage capacity of working memory. Uns-                     longer to process visual inputs and program adjustments)
+worth and Spillers (2010, pp. 392-393) explain that “attention              inhibits one’s ability to make corrections that will ultimately
+and working memory are intimately related....attention control              reach the target. Because the user must nonetheless reach the
+and the scope or size of the focus of attention are important               target, the body subconsciously compensates for slower
+components of working memory.” Lower attentional control                    reaction time by reducing movement speed. Doing so gives
+under conditions of negative emotion allows more stimuli to                 the brain more time to perceive and program needed adjust-
+capture attention, which utilizes more working memory,                      ments (Meyer et al. 1988; Meyer et al. 1990). In other words,
+leaving less for the primary task (Eysenck et al. 2007).                    under conditions of low attentional control and thereby slower
+                                                                            reaction times (due to experiencing negative emotion), the
+Decreased working memory capacity due to negative emotion                   brain requires additional time to perceptually guide mouse
+has been robustly shown to influence people’s reaction time                 cursor movements to a target, which will result in slower
+(Eysenck et al. 2007; Kannape et al. 2014). When working                    speed (see Figure 2). Thus, we propose our second hypothesis:
+memory is consumed or split between multiple tasks, people
+must engage in “compensatory strategies” to complete their                  H2: Experiencing negative emotion will decrease average
+active tasks—that is, alterations in resource allocation and                    mouse cursor speed.
+
+
+
+6      MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                             Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Figure 2. Relationship Between Negative Emotion, Reaction Time, and Mouse Cursor Speed
+
+
+
+Methodology                                                               After the treatment, all participants completed an identical
+                                                                          follow-up task as we recorded and analyzed mouse cursor
+We conducted three studies. Study 1 is an experiment that                 movements to test our hypotheses.
+tested our hypotheses to answer RQ1 (Does negative emotion
+influence mouse cursor distance and speed?). Study 2 is an                Negative-emotion condition: We induced negative emotion
+experiment to answer RQ2 (Can the tracking and analysis of                through an intelligence test designed to be unfair (Zuckerman
+mouse cursor distance and speed be used to infer negative                 1955). The instructions explained that the test was timed, and
+emotion?) for a dichotomous outcome variable (whether or                  the score would be computed based on how many questions
+not participants received a negative emotion manipulation).               participants answered correctly within the allotted time.
+Finally, Study 3 is an observational study that further exam-             While participants read the instructions, a timer in the upper
+ined RQ2 by investigating the efficacy of inferring the level             right hand corner of the screen began to increment. Before
+of negative emotion (a continuous variable) rather than only              loading the first question, a sequence of three 8-second mes-
+a dichotomous outcome (as in Study 2). Table 2 summarizes                 sages stating that the question was being loaded was shown
+the three studies, their purposes, and the key findings.                  (Figure 3); during this time, the timer incremented. Finally,
+                                                                          the system showed the question, giving participants 15
+                                                                          seconds to answer the question before the page automatically
+Study 1                                                                   advanced. The question was difficult, requiring longer than
+                                                                          15 seconds to answer. After the page automatically advanced,
+In Study 1, we answered RQ1 (Does negative emotion                        the cycle repeated; that is, the system again displayed the
+influence mouse cursor distance and speed?). We mani-                     sequence of three 8-second loading messages, while the timer
+pulated negative emotion in a single factor experimental                  incremented (see Figure 3). This was followed by the second
+design (negative emotion condition versus baseline condition)             difficult question that also took longer than 15 seconds to
+to examine the influence of negative emotion on mouse cursor              complete. After the second question automatically advanced,
+movements.                                                                the system told participants that the time had expired. The
+                                                                          system also gave participants feedback that they had only
+                                                                          been given two out of three questions because they had taken
+Procedure and Manipulation                                                too long to answer. Participants were then told that because
+                                                                          of their slow reaction time and incorrect answers, their score
+We randomly assigned participants to either a negative-                   indicated a lower intelligence level than that of most people
+emotion or a baseline (i.e., nonnegative-emotion) condition.              who had taken the test.
+
+
+
+                                                                                                 MIS Quarterly Vol. 41 No. 1/March 2017   7
+
+
+
+                                                      This content downloaded from
+                                    222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                              All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+    Table 2. Summary of Studies
+    Study        Methodology              Purpose                    Sample                                  Findings
+      1      Experiment               Answer RQ1                 65 Amazon                Negative emotion influences mouse cursor
+             manipulating                                        Mechanical               distance and speed.
+             negative emotion                                    Turk Workers
+      2      Experiment               Answer RQ2 in              126 U.S.                 Mouse cursor distance and speed can infer
+             manipulating             inferring the pres-        Students                 whether participants received the negative emo-
+             negative emotion         ence of emotion                                     tion manipulation with an 81.7% accuracy rate.
+      3      Observational study      Answer RQ2 in              80 German/               Mouse cursor distance and speed can infer the
+             allowing emotion to      inferring the level of     Hong Kong                level of self-reported emotion with an out-of-
+             vary naturally across    emotion.                   Students                 sample R2 up to .17.
+             tasks
+
+
+
+Following the above steps induced negative emotion in three                 Participants
+ways. First, we implemented a loading delay under time
+pressure. Loading delays have been shown to induce negative                 We recruited participants for the experiment from Ama-
+emotion (Ceaparu et al. 2004; Galletta et al. 2004); moreover,              zon.com’s Mechanical Turk (MTurk).2 We required all
+having the timer increment during loading delays in a timed                 participants to have an Amazon Masters certification
+test causes a feeling of being treated unfairly and negative                (awarded to people who have demonstrated quality across a
+emotion. Second, the questions were unduly difficult and                    wide variety of tasks), and paid them US$0.40 for a 4-minute
+impossible to process during the given time. Finally, parti-                task.3 Given that our study focused on mouse cursor
+cipants were told that they achieved a poor score, even though              movements, we further captured the type of device used, and
+the score was outside of their control. After the experiment,               removed data points from mobile devices. This resulted in a
+we debriefed all participants, informing them that the test did             final sample size of 65 participants. Forty-seven percent of
+not actually assess intelligence, but that it was a task designed           the participants were from the U.S., 44 percent from India,
+to induce negative emotion to examine its influence on mouse                and 9 percent from other locations. Table 3 presents the
+cursor movements.                                                           sample sizes and demographics of each condition.
+
+Baseline condition: As in the negative emotion condition, the
+instructions of the baseline condition explained to participants            Measures
+that they would take an intelligence test. The delivery of the
+questions in this condition was similar to the negative-                    Using a publicly available JavaScript library (JQuery), the
+emotion condition, except that we did not implement the                     webpage containing the follow-up task captured the mouse
+negative-emotion-inducing mechanisms (i.e., the test was not                cursor’s x/y position and timestamp at a millisecond precision
+timed; the sequence of loading messages was not shown; the                  rate while the participants completed the follow-up task. Once
+three questions could easily be answered; and, at the conclu-
+sion, the system congratulated participants for answering the
+questions correctly). Thus, the task was not designed to
+induce negative emotion.
+
+Follow-up task: Following the manipulation and before the
+debriefing, all participants engaged in an identical goal-                  2
+                                                                              Using MTurk to recruit participants has been deemed appropriate for
+directed task, during which we recorded and analyzed mouse                  random sample populations (Berinsky et al. 2012). Social scientists are
+cursor movements. We added this follow-up task to test the                  increasingly using MTurk as the diversity of the participant pool is larger
+influence of negative emotion (induced by the negative-                     than that of typical undergraduate college samples, and the data are as reliable
+emotion condition) on mouse movements. By using an iden-                    as those collected using other methods (Buhrmester et al. 2011). In a U.S.
+tical follow-up task, we can attribute the difference in mouse              context, Steelman et al. (2014) found that studies using MTurk yield similar
+cursor movements to negative emotion, and not differences in                statistical conclusions as both student and consumer panels. Further, Mason
+                                                                            and Suri (2012) found that the behavior of MTurk respondents closely
+the task. The task required participants to drag six 4-digit
+                                                                            resembled that of participants in traditional laboratory experiments.
+numbers from a box on the left side of the screen to a box on
+the right side of the screen, and to arrange them in ascending              3
+                                                                             Note that research has found that data quality is not affected by com-
+order.                                                                      pensation rate on MTurk (Mason and Suri 2012).
+
+
+
+8      MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                                                          Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+    Figure 3. Sequence of Messages Displayed in the Negative-Emotion Condition
+
+
+    Table 3. Participant Demographics of Study 1
+                                                                         Baseline Condition                                   Negative Emotion Condition
+    Total Participants                                                            33                                                       32
+    Men                                                                          48%                                                      46%
+    Average Age                                                            34.5 (SD = 5.1)                                          33.8 (SD = 4.6)
+
+
+
+    Table 4. Descriptive Statistics for Study 1
+                                                                                Mean             Median             Std. Dev.               Min              Max
+    Distance (px)
+         Baseline Condition                                                     8,337              8,171                  2,879            4,075            13,716
+         Negative-Emotion Condition                                             10,872             9,939                  4,321            6,467            21,986
+    Speed (px/ms)
+         Baseline Condition                                                         .18             .17                   .067              .09               .38
+         Negative-Emotion Condition                                                 .15             .14                   .048              .06               .25
+    SAM Pleasure
+         Baseline Condition                                                      7.76                9                    1.50               5                 9
+         Negative-Emotion Condition                                              3.31                3                    2.33               1                 9
+
+
+
+completed, the webpage calculated total distance and average                                        manikin (SAM) scale—a nine-point pictorial scale of emotion
+cursor speed.4 As a manipulation check in a post survey, we                                         (Bradley and Lang 1994).
+also assessed pleasure and arousal through the self-assessment
+
+                                                                                                    Results
+4
+ The data were sent to a server via an AJAX call. The server calculated the
+cursor distance for each participant using the Euclidean distance between two                       The manipulation check showed that the participants in the
+x/y positions ai and ai + 1:                                                                        negative-emotion condition reported significantly more nega-
+                                                                                                    tive emotion than did those in the baseline condition (t(63) =
+                                 (a ( ) − a ( ) ) + ( a ( ) − a ( ) )
+                                                         2                      2
+            d (ai , ai +1 ) =      i
+                                       s            x
+                                                  i +1           i
+                                                                     y     y
+                                                                         i +1                       9.162, p < .001), indicating that our manipulations were
+leading to a total distance of
+                                                                                                    successful. No significant difference was observed in arousal
+                                                                                                    between the conditions (t(63) = 1.525, p > .05). We then
+                            D =  i =1 d (ai , ai +1 )
+                                           n −1
+                                                                                                    conducted a t-test to test the hypothesized relationships
+between the recorded points a1, a2, ..., an. Cursor speed was calculated as a                       between negative emotion and mouse cursor movements and
+function of cursor distance D and movement time t during the task, measured                         found that participants in the negative-emotion condition had
+in pixels per millisecond: v = D/t.
+
+
+
+                                                                                                                             MIS Quarterly Vol. 41 No. 1/March 2017   9
+
+
+
+                                                                               This content downloaded from
+                                                             222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                                       All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+significantly greater cursor distance (t(63) = 2.774, p < .01, η2           to the second page. On the second page, users had to click on
+= .109) and slower mouse cursor speed (t(63) = 2.257, p <                   the “J. Crew Abingdon Laptop Bag” that accompanied the
+.05, η2 = .091) than did participants in the baseline condition.            picture shown earlier to advance to the next page. On the
+Thus, our results support both hypotheses H1 and H2 (see                    third page, users had to select their laptop’s “screen size” and
+Table 4 for the summary statistics).                                        click on “submit” to advance to the fourth page. On the
+                                                                            fourth page, users could review the product and click
+                                                                            “purchase.” After clicking on “purchase” the task was com-
+Study 2                                                                     pleted and the participants were automatically redirected to a
+                                                                            post-survey. Figure 4 shows the four webpages. While
+In Study 2, we answered RQ2: Can the tracking and analysis                  participants interacted with the webpages, mouse cursor
+of mouse cursor distance and speed be used to infer negative                movements were recorded and stored in a database for
+emotion? In a realistic e-commerce scenario, we manipulated                 analysis (see Study 1).
+negative emotion in a single factor experimental design
+(negative emotion condition versus baseline condition); we                  Negative-emotion condition: We randomly assigned half of
+then specified a model to infer whether participants were in                the participants to the negative-emotion condition. We mani-
+the negative emotion condition (a dichotomous outcome)                      pulated download delay (i.e., webpage loading speed) and
+based on mouse cursor distance and speed.                                   error messages to induce negative emotion (Ceaparu et al.
+                                                                            2004; Galletta et al. 2004). When participants clicked on a
+                                                                            link to advance the page (from page 1 to 2, page 2 to 3, and
+Procedure and Manipulation                                                  page 3 to 4), the webpage stopped recording mouse cursor
+                                                                            movements, dimmed the screen, disabled the links, and
+We asked participants to complete a goal-directed task on an                showed a sequence of three 8-second messages stating that
+e-commerce website. The website was developed for this                      the page was being loaded (see Figure 5). After the manipu-
+experiment to ensure no one had previous experience with it.                lation, users re-clicked on the link, which acted as an anchor
+Before interacting with the website, a system gave parti-                   for the mouse cursor so that participants (regardless of the
+cipants the following instructions:                                         condition) would have approximately the same starting
+                                                                            position on the next page.
+     After clicking next, you will be directed to a
+     computer store website. Your task is to navigate the                   Baseline condition: The other half of participants were
+     website and pretend to purchase the following                          randomly assigned to the baseline condition. In this condi-
+     product:                                                               tion, pages were loaded without delay. The system recorded
+                                                                            mouse cursor movements after loading each page. Hence, the
+     J. Crew Abingdon Laptop Bag for a 17 inch laptop                       scope of the mouse cursor movement analysis had the same
+                                                                            beginning and ending points regardless of condition (and
+                                                                            excluded the negative emotion manipulation that was unique
+                                                                            to the negative-emotion condition).
+
+
+                                                                            Participants
+
+                                                                            A total of 126 students5 from a management school at a large
+     Please write down these details so you remember                        U.S. university participated in the experiment (see Table 5).
+     what product to find. After clicking on purchase,                      As compensation, students earned .25 percent extra credit
+     you will be guided to a survey.                                        applied to a participating management course of their choice.
+
+After clicking “next,” the system led all participants to the               5
+                                                                             Students represent an age group and demographic that commonly uses the
+homepage of the website. We designed the website such that                  Internet; 97% of student-aged people (18–29) use the Internet in the United
+there was only one obvious link on each page that would lead                States, and 97% of people with a college degree use the Internet, which is
+the user closer to goal attainment (finding the correct laptop              significantly more than most other age groups and educational levels (Pew
+bag). On the first page (the home page), users had to click on              Research Center 2014); thus, this population represents an important Internet
+                                                                            demographic. Furthermore, students have been argued to be an appropriate
+the “shop laptop cases” link (the only link on the page
+                                                                            population to establish the relationships among constructs (Compeau et al.
+relevant to finding laptop bags) in the left sidebar to advance             2012).
+
+
+
+10     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                       Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+                     Page 1                                                                       Page 2
+
+
+
+
+                     Page 3                                                                       Page 4
+
+
+
+
+Figure 4. Website Designed for Study 2
+
+
+
+
+                                                                                           MIS Quarterly Vol. 41 No. 1/March 2017   11
+
+
+
+                                                This content downloaded from
+                              222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                        All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+                                                                          After clicking on the link to reach the next page, recording of
+                                                                          mouse cursor movements stopped, the window was
+                                                                          dimmed, all links were disabled, and this loading message
+                                                                          was displayed.
+
+                                                                          After eight seconds of seeing the first message, this
+                                                                          message was shown.
+
+                                                                          Finally, after eight seconds of the second message, this
+                                                                          prompt was shown. The user then was required to click on
+                                                                          the link again (to anchor the mouse in this position). After
+                                                                          clicking on the link the second time, the page progressed,
+                                                                          and recording of mouse cursor movements resumed.
+
+
+ Figure 5. Sequence of Messages Displayed in the Negative-Emotion Condition
+
+
+
+Measures                                                                    Results
+
+The website collected and analyzed mouse cursor movements                   Table 6 presents summary statistics for distance, speed, and
+using the same embedded JavaScript library and process as                   pleasure. The model results indicate a significantly positive
+described in Study 1. After clicking on the “purchase” link,                coefficient for mouse cursor distance6 (β = .08, p < .001),
+the webpage redirected participants to an online survey. In                 consistent with H1 (indicating that greater distance is
+the survey, participants reported their emotion using the SAM               correlated with being in the negative-emotion condition).
+scale (Bradley and Lang 1994).                                              Further, consistent with H2, the coefficient of the average
+                                                                            cursor speed7 was significantly negative (β = -7.84, p < .001)
+                                                                            (indicating that slower speed is correlated with being in the
+Model Specification                                                         negative-emotion condition). We assessed the model using a
+                                                                            10-fold cross validation technique and achieved an overall
+To answer research question 2, we created a model to infer                  accuracy rate of 81.7 percent. Thus, affirming RQ2, our
+whether participants were in the negative-emotion condition                 results suggest that mouse cursor distance and speed can be
+based on their mouse cursor movements. Prior to specifying                  used to infer the presence of negative emotion. The detailed
+the model, we performed manipulation checks comparing the                   accuracy rates are shown in Table 7.
+means for pleasure and arousal between the conditions. Parti-
+cipants in the negative-emotion condition reported signifi-
+cantly more negative emotion (t(124) = 10.845, p < .001) and
+                                                                            Study 3
+significantly higher arousal (t(124) = 5.440, p < .05) than
+participants in the baseline condition, a combination indi-
+                                                                            In Study 3, we examined the efficacy of inferring the level of
+cating that the manipulation resulted in the negative emotion
+                                                                            negative emotion (a continuous variable) as opposed to a
+of frustration (characterized by both low pleasure and high
+                                                                            dichotomous variable (as done in Study 2) to further answer
+arousal). Thus, our manipulation appeared to be successful.
+                                                                            RQ2. Study 3 was an observational study, allowing parti-
+                                                                            cipants’ emotion to vary naturally without direct manipulation
+Based on these results, we specified a simple logistic regres-
+                                                                            while completing goal-directed tasks. After each task, partici-
+sion model to infer whether participants were in the negative-
+                                                                            pants self-reported their level of negative emotion. We then
+emotion condition based on their average mouse cursor
+                                                                            examined the efficacy of using participants’ mouse cursor
+distance and speed. The model is
+                                                                            distance and speed to infer their level of self-reported
+                                                                            negative emotion.
+           negative emotion treatment (binary)i =
+      a + β2 A cursor distancei + β2 A cursor speedi + gi
+                                                                            6
+                                                                             Unit: Pixels in 000’s.
+where i indexes the individuals.
+                                                                            7
+                                                                             Unit: px/ms.
+
+
+
+12     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                              Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Table 5. Participant Demographics of Study 2
+                                                      Baseline Condition                                  Negative-Emotion Condition
+ Total Participants                                           62                                                      64
+ Men                                                         60%                                                     63%
+ Average Age                                            22 (SD = 6.2)                                            23 (SD = 5.8)
+
+
+
+ Table 6. Descriptive Statistics for Study 2
+                                                     Mean               Median              Std. Dev.               Min.                 Max.
+ Distance (px)
+      Baseline Condition                            6,540               6,284                     2,830            2,047                13,108
+      Negative-Emotion Condition                    12,131              10,317                    7,298            3,894                33,623
+ Speed (px/ms)
+      Baseline Condition                             .173                 .159                    .063              .089                 .403
+      Negative-Emotion Condition                     .120                 .115                    .038              .031                 .209
+ SAM Pleasure
+      Baseline Condition                             7.45                      8                  1.62                3                    9
+      Negative-Emotion Condition                     3.82                      3                  2.11                1                    9
+
+
+
+ Table 7. Detailed Model Accuracy Results for Study 2
+                                    True              False
+         Condition              Positive Rate      Positive Rate           Precision               Recall          F-Value            ROC Area
+ Baseline                           .823               .188                  .810                   .823             .816               .891
+ Negative-Emotion                   .813               .177                  .825                   .813             .819               .891
+ Weighted Average                   .817               .182                  .818                   .817             .817               .891
+
+
+
+Task and Stimuli Materials                                                 assessed participants’ emotions to verify adequate variation in
+                                                                           emotion among people. In addition, we ensured that the tasks
+We created five goal-directed tasks to be completed on one of              were comparable in terms of length and difficulty. The tasks
+two different websites (see Appendix B, Figures B1 and B2).                included selecting a product model, selecting different pro-
+These tasks required participants to configure a laptop com-               duct attributes, and completing the configuration of the
+puter (at dell.com) or a car (at volkswagen.co.uk). We chose               product (see Appendix C).
+to use product configuration systems for three primary
+reasons. First, product configurators are widely used by
+organizations for selling complex products. Second, product                Procedure
+configurators require the use of the mouse when used on a
+desktop computer. Third, product configuration typically                   After collecting demographic information, we randomly
+involves multiple, sometimes complex, steps, and thus has the              assigned participants to either the Dell or the Volkswagen
+potential to elicit a range of emotional reactions depending on            configuration website, and asked each participant to complete
+various factors, including participants’ experience with the               the five different tasks using the configurator (see Appendix
+product category or configuration system, goal commitment,                 C).8 During each task, we recorded each participant’s mouse
+and so on (Campbell and Gingrich 1980; Nadkarni and Gupta                  cursor movements. After each task, we asked participants to
+2007). We used configurators of two products to control for                self-report their emotional state. Given that emotion may be
+potential product-familiarity effects.
+                                                                           8
+                                                                            If a participant was unable to complete a particular task, the experimenter
+We pretested and fine-tuned the tasks using the think aloud
+                                                                           completed the task at the end of the allotted time. This ensured that every
+method (Jorgensen 1990; van Someren et al. 1994), and                      participant had the same starting point for each subsequent task.
+
+
+
+                                                                                                    MIS Quarterly Vol. 41 No. 1/March 2017          13
+
+
+
+                                                       This content downloaded from
+                                     222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                               All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+appraised differently if there is a time lag between experience                               emotionsit = αi + β1 A cursor speedit
+and appraisal (Gross and Thompson 2007), we chose to assess                               + γ' A additional mouse variablesit + λt + git
+emotional states immediately after each task. Further,
+measuring emotion after each task provided a within-subject                    where i indexes the individuals, t the task number, λt repre-
+design, allowing us to control for individual and task-related                 sents task-specific effects, and αi refers to individual fixed
+differences. After completing the final survey, we debriefed                   effects.
+all participants. On average, each session lasted approxi-
+mately one hour.
+                                                                               Results
+
+Participants                                                                   Table 9 presents summary statistics for distance, speed, and
+                                                                               pleasure. The model results indicate a significantly positive
+We recruited 80 participants from two universities in                          coefficient for mouse cursor distance10 (β = .13, p < .001),
+Germany and Hong Kong. Each participant received a                             consistent with H1 (indicating that greater distance is corre-
+modest honorarium of €5/HK$50 as compensation for their                        lated with lower ratings of pleasure). Further, consistent with
+time. As each participant completed five tasks, we collected                   H2, the coefficient of the average cursor speed11 was signifi-
+200 observations for each configurator (for 400 total obser-                   cantly negative (β = -10.30, p < .01) (indicating that slower
+vations). Table 8 presents the participants’ demographics.                     speed is correlated with lower ratings of pleasure). As shown
+                                                                               in Appendix D, Table D3, these results were highly robust
+                                                                               with respect to alternative model specifications (i.e., fixed
+Measures                                                                       effects versus random effects versus pooled regression
+                                                                               models).
+We recorded participants’ mouse cursor movements using
+Mouse Recorder Pro (Version 2.0.6). This mouse monitoring                      To address RQ2, we analyzed the efficacy of inferring the
+software ran in the background on a computer, allowing us to                   level of negative emotion using our model. We first split the
+capture mouse cursor movements on a real third-party website                   data set into training and validation data by drawing 60
+for which we did not have access to the source code (as                        random participants, providing us with 300 (60 × 5 tasks)
+opposed to inserting the mouse movement JavaScript code as                     observations in the training data set. We used the remaining
+in the previous studies). From this data, we calculated each                   100 observations as validation data to test the predictive
+participant’s mouse cursor distance and speed, analogous to                    power for unknown participants (Sample Definition 1). In
+the previous studies. Immediately after participants com-                      addition, we implemented an alternative definition of these
+pleted each task, we assessed emotional pleasure using the                     data sets by using data from all participants, but only the
+SAM scale as our dependent variable (Bradley and                               observations of Tasks 1, 2, and 3, providing us with 240 (80
+Lang 1994).                                                                    × 3) observations in the training data set, whereas the 160
+                                                                               observations of Tasks 4 and 5 were validation data (Sample
+                                                                               Definition 2). This sample definition reflects a situation
+Model Specification                                                            where the model is applied to unknown tasks instead of
+                                                                               unknown participants. For both of these definitions, we esti-
+We specified a linear fixed-effects regression model to                        mated a model using cursor distance and cursor speed from
+estimate the relationship between mouse cursor distance/                       the training data to infer negative emotion (i.e., the values of
+speed and negative emotion using the SAM pleasure score.9                      SAM pleasure scale) on the validation data. We evaluated the
+The fixed-effects model accounts for the repeated-                             accuracy of these models with the out-of-sample R2
+measurement nature of the data by allowing each participant                    (Campbell and Thompson 2008), which is defined as
+to have his/her own intercept in the model. As such, the
+model accounts for unobserved between-subject heterogeneity                                                 M                   M
+
+                                                                                                                                 (y − y )
+                                                                                                                                                2
+                                                                                                            ( yi − yi )
+                                                                                                                            2
+(e.g., individual expertise, experience, etc.) in addition to                    Out-of-sample R2 = 1 −                                i   IS
+                                                                                                            i =1                i =1
+observed heterogeneity (e.g., which configurator the parti-
+cipant interacted with). The model is
+
+
+
+
+9                                                                              10
+ We also assessed arousal using the arousal scale of SAM but found no            Unit: px in 000’s.
+statistically significant connection between mouse movement data and
+                                                                               11
+arousal (results are available upon request).                                    Unit: px/ms.
+
+
+
+14     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                           This content downloaded from
+                                         222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                   All use subject to https://about.jstor.org/terms
+                                                                  Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Table 8. Participant Demographics of Study 3
+                                Germany:                         Germany:                        Hong Kong:                      Hong Kong:
+                                  Dell                          Volkswagen                          Dell                         Volkswagen
+ Total Participants                 20                                20                                 20                           20
+ Men                               60%                               55%                                45%                          35%
+ Average Age                 26.40 (SD = 3.32)              27.65 (SD = 5.72)                 22.40 (SD = 2.63)                22.60 (SD = 2.53)
+
+
+
+ Table 9. Descriptive Statistics for Study 3
+                                                         Mean               Median              Std. Dev.              Min.                Max.
+ Distance (px)
+       Panel A. Dell Configurator                       12,602              11,588                    7,989             276                49,205
+       Panel B. Volkswagen Configurator                 12,864              11,516                    7,515            1,437               40,217
+ Speed (px/ms)
+       Panel A. Dell Configurator                         .14                  .12                     .06              .04                 .39
+       Panel B. Volkswagen Configurator                   .12                  .12                     .05              .02                 .27
+ SAM Pleasure
+       Panel A. Dell Configurator                        4.33                   4                     2.28               1                   9
+       Panel B. Volkswagen Configurator                  4.31                   5                     2.19               1                   9
+
+
+
+
+ Table 10. Out-of-Sample Analyses in Study 3
+ Sample Definition 1
+       In-Sample R2                                               .15
+       Out-of-Sample R2                                           .17
+ Sample Definition 2
+       In-Sample R2                                               .23
+                         2
+       Out-of-Sample R                                            .05
+
+
+
+where ȳIS is the average emotion in the training data, y^ i is the            Discussion
+inferred emotion in the validation data, and yi is the assessed
+emotion of the validation data. The out-of-sample R2 mea-                      We introduced a ubiquitous noninvasive method to assess
+sures the reduction of the mean-square prediction error                        negative emotion: mouse cursor movements. The results of
+relative to the average emotion in the in-sample data. If this                 three studies support that negative emotion influences mouse
+statistic is greater than 0, the model performs better than the                cursor distance and speed (Study 1) and that these mouse
+in-sample average, and a value of 1 corresponds to a perfect                   characteristics can be used to infer the presence (Study 2) and
+accuracy in inferring negative emotion. Table 10 presents the                  level (Study 3) of negative emotion. The findings have impli-
+results of the in-sample and out-of-sample R2. We found out-                   cations for several research disciplines, including studying the
+of-sample R2 values between .17 (unknown participants) and                     usability of systems in users’ natural environments with fine-
+.05 (unknown tasks) depending on the definition of the                         grained temporal precision; designing affective computing
+training and validation data. These results show not only that                 systems capable of perceiving and responding to human
+information on cursor distance and speed can explain a                         emotion; and studying how to improve e-commerce inter-
+relevant share of the variation of emotion in the training data                actions through adapting to users’ emotional states (e.g.,
+set, but also that mouse cursor data can infer the level of                    website morphing). Below, we further elaborate on the
+negative emotion.                                                              theoretical and practical implications.
+
+
+
+                                                                                                        MIS Quarterly Vol. 41 No. 1/March 2017      15
+
+
+
+                                                           This content downloaded from
+                                         222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                   All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+Implications for Research                                                   current mixed-method research design—gathering qualitative
+                                                                            and quantitative data during the same stage (Venkatesh et al.
+We contribute to research by theoretically explaining and                   2013, Venkatesh et al. 2016)—as mouse cursor movements
+empirically validating how negative emotion influences                      can be captured as people naturally interact with a computer
+mouse cursor movements in goal-directed tasks. First, we                    without interfering with other research data collection
+extend attentional control theory (ACT) to explain how                      activities.
+negative emotion influences mouse cursor distance. ACT
+explains that negative emotion decreases attentional control                Third, we extend affective computer literature by introducing
+(Eysenck et al. 2007), which can cause users to distribute their            mouse cursor tracking as a way to assess negative emotion.
+attention more broadly, rather than primarily focusing on the               Affective computing is a research discipline that studies the
+task at hand. We extend ACT by explaining how this broader                  development of systems and devices that can recognize,
+distribution of attention will result in deviations from one’s              interpret, process, and simulate human affect (Picard 2000).
+intended mouse cursor movement trajectory, resulting in                     Researchers have examined technologies to recognize emo-
+increased distance as the cursor travels less directly to its               tion such as analyzing vocalics and speech (Breazeal and
+intended destination.                                                       Aryananda 2002), facial expressions (Caridakis et al. 2006),
+                                                                            and blood volume pressure (Picard 2000), to name a few.
+Second, we extend ACT by explaining how decreased atten-                    Specialized hardware is typically needed to assess users’
+tional control will also influence mouse cursor speed. ACT                  emotions (for a list of projects, see Tao and Tan 2005). Our
+explains that reduced attentional control decreases one’s                   research suggests that affective computing researchers could
+available working memory and therefore slows reaction times                 also consider utilizing mouse cursor tracking to infer emotion.
+(Eysenck et al. 2007). We extend ACT by explaining how                      Mouse cursor tracking offers several benefits as it does not
+slower reaction time will result in slower mouse cursor speed.              require attaching sensors to a person’s body, nor does it
+Namely, users subconsciously compensate for slower reaction                 require the monitoring of the user’s private environment (e.g.,
+times by slowing movements to allow the brain more time to                  using cameras or microphones that record the environment
+program needed movement adjustments (Meyer et al. 1990).                    away from the computer).
+
+These theoretical extensions have potential to extend and                   Fourth, our research sets the foundation for future HCI
+contribute to several research disciplines. Some studies, most              research to explore (1) how other emotions influence mouse
+exploratory in nature, have begun investigating the influence               cursor movements and (2) how emotions influence the use of
+of emotion on mouse cursor movements (e.g., Grimes et al.                   other devices. Although our study was limited to the use of
+2013; Maehr 2008; Salmeron-Majadas et al. 2014; Sun et al.                  the computer mouse, the theories utilized in this paper apply
+2014; Zimmermann et al. 2006; Zimmermann et al. 2003).                      to motor movements in general, and thus may apply to other
+We contribute to this research by theoretically explaining and              devices including touch screens, sketch pads, in-air sensors
+deriving hypotheses of why negative emotion will influence                  (e.g., the Microsoft Kinect®), accelerometers, and gyro-
+mouse cursor distance and speed. Further, our research                      scopes. Further, some of these devices provide more sophisti-
+validates that negative emotions influence distance and speed               cated data than mouse-cursor tracking (e.g., z-location, touch
+in three different studies, with differing contexts and popula-             pressure, motion data, etc.), and thus may provide more in-
+tions. Thus, our research contributes to the literature by sug-             depth information about emotions. We suggest future
+gesting that distance and speed are robust indicators of                    research in each of these areas to better understand how
+emotion in different scenarios.                                             emotion influences the use of HCI computer input devices.
+
+Second, we respond to calls for utilizing psychophysiological               Fifth, we provide a methodology for emotion assessment that
+tools that provide new methodological approaches for investi-               enables design science research that cannot be easily con-
+gating the development and use of systems (see Dimoka et al.                ducted using traditional assessments. Design science “ad-
+2012). Namely, our research provides a methodology to aid                   dresses research through the building and evaluation of
+HCI and usability researchers in assessing negative emotional               artifacts” (Hevner et al. 2004, p. 79). Assessing users’
+responses in users’ natural settings. Mouse cursor data can be              reactions (e.g., emotion) to artifacts is one type of evaluation.
+collected without any additional user action and even                       In some situations, however, assessing emotional responses
+unbeknownst to users (via JavaScript embedded in websites).                 to artifacts using traditional measures can be difficult without
+Mouse cursor tracking, therefore, has potential to provide an               biasing the result. For example, when testing a system with
+unobtrusive indicator of emotion in users’ natural settings                 live users—a stage of design science research (Nunamaker
+with fine-grained temporal precision. Further, our research                 and Briggs 2011)—it is sometimes not ideal to interrupt the
+provides a validated method for multimethod research.                       user interaction with a questionnaire. Doing so may annoy
+Mouse cursor tracking is particularly appropriate for a con-                the user or yield an ineffective response rate. Likewise, in
+
+
+
+16     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                               Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+live interactions, it is often not feasible to attach psycho-               testing to examine how different design choices influence
+physiological devices (e.g., facial electromyography elec-                  users’ negative emotions. For example, using the method-
+trodes) to the user to observe the emotions as they occur.                  ology described in Study 2 or 3, system designers could
+While such techniques yield valuable information in many                    randomly present users with different versions of a similarly
+situations, they may be invasive and decrease ecological                    structured webpage (known as A/B testing). Through moni-
+validity in others. Mouse-cursor movement, however, can be                  toring mouse cursor movements, system designers could then
+monitored noninvasively (and even unbeknownst to users) to                  evaluate if one version of a webpage results in statistically
+infer emotional changes. As such, our research enables                      different speed and distance, which may indicate that one
+researchers to assess emotional reactions during live system                version induced relatively greater negative emotion. Based
+use with fine temporal precision. Further, in the many                      on this analysis, system designers can choose among
+scenarios where traditional measures are appropriate, our                   competing design choices to improve the user experience.
+research can be used to conduct multimethod emotion
+research to help validate the results.                                      Further, JavaScript can continuously monitor mouse cursor
+                                                                            movements over a user’s entire interaction with a website,
+Finally, we contribute to e-commerce research, particularly on              allowing managers to identify real-life “failure points” in the
+website morphing (Hauser et al. 2009). Website morphing is                  interaction—that is, specific interaction points that cause a
+a stream of research that suggests that changing a website to               user to leave a site. For example, a website can record the
+meet a user’s specific needs will increase purchase intentions              timing of an abnormal increase in distance or decrease in
+(Hauser et al. 2014; Hauser et al. 2009). Typically,                        speed for a given webpage. Trends of increased distance and
+researchers present a pre-survey to participants to assess their            decreased speed across individuals could be identified, pos-
+preferences, and then morph a website to align it with user                 sibly indicating that a system component induced a negative
+preference. A limitation of this approach, however, is that it              reaction. By identifying the time and location of a possible
+is not always possible to have all users complete the pre-                  negative emotional reaction, system designers can identify
+survey. Thus, complementary methodologies are needed to                     areas in a webpage that may likely need to be redesigned.
+dynamically detect user needs as a basis for morphing web-
+sites. Our research helps address this need and thereby can                 Our methodology also helps build a foundation for pro-
+facilitate further research in this area. As one example, our               actively responding to customers’ negative reactions during
+research could help identify users who potentially have                     website use in real time. Once a negative emotional reaction
+computer anxiety (a negative emotion) and morph the website                 has been identified through our methodology, a website can
+to help alleviate that anxiety—with anxiety being a major                   take actions to better meet a user’s needs. For instance, an e-
+deterrent of system use (Beaudry and Pinsonneault 2010).                    commerce site can provide an opportunity for users to express
+                                                                            their concerns after experiencing a negative emotional reac-
+Our studies are not without limitations. First, they only                   tion to help “undo some of the negative feeling it [the system]
+examined mousing indicators of negative emotion in goal-                    causes” (Klein et al. 2002, p. 119). Providing slightly apolo-
+directed tasks. We have not tested the generalizability of our              getic statements is also an effective means of responding to
+results in experiential tasks—that is, tasks that are rather                negative emotions (Tzeng 2004). Offering compensation
+unstructured and are primarily motivated by the interaction,                (e.g., additional time on a subscription) can mitigate negative
+not the outcome (Wells et al. 2005). Second, we only                        encounters (Smith et al. 1999). Further, an explanation or
+explored the influence of negative emotion on two mouse                     offer for assistance may be an appropriate response to system
+movement statistics: distance and speed. However, other                     failures (Kuo et al. 2011). By alleviating negative emotion
+statistics may also indicate negative emotion. Third, we                    through these interventions, e-commerce sites can prevent
+examined the relationships between mouse cursor movements
+                                                                            users from prematurely leaving a website before purchasing,
+and negative emotion using a relatively narrow age range of
+                                                                            spreading negative word of mouth, not disclosing information,
+participants (mean age between 22 and 34.5 years). Finally,
+                                                                            or avoiding the site in the future. Ultimately, detecting and
+we did not specifically explore how other dimensions of
+                                                                            responding to negative emotions may be an effective
+emotion—positive valence, various levels of arousal, and
+                                                                            mechanism for improving the profitability of e-commerce
+dominance—influence mouse cursor movements.
+                                                                            companies.
+
+
+Implications for Practice
+                                                                            Conclusion
+Analyzing mouse cursor movements to detect negative
+emotion has several practical implications. First, practitioners            Detecting negative emotion is important for the design and
+can use our methodology for mass-deployable usability                       continual improvement of websites. Drawing on attentional
+
+
+                                                                                                   MIS Quarterly Vol. 41 No. 1/March 2017   17
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+control theory, we explained how negative emotion may influ-                 Bradley, M. M., and Lang, P. J. 1994. “Measuring Emotion: The
+ence mouse cursor distance and speed. In three experiments,                    Self-Assessment Manikin and the Semantic Differential,” Journal
+we demonstrated that both greater cursor distance and slower                   of Behavior Therapy and Experimental Psychiatry (25:1), pp.
+average cursor speed can indicate negative emotion and that                    49-59.
+these characteristics can infer negative emotional reactions.                Breazeal, C., and Aryananda, L. 2002. “Recognition of Affective
+Our findings suggest that the analysis of mouse cursor move-                   Communicative Intent in Robot-Directed Speech,” Autonomous
+                                                                               Robots (12:1), pp. 83-104.
+ments may enable researchers to assess negative emotional
+                                                                             Buhrmester, M., Kwang, T., and Gosling, S. D. 2011. “Amazon’s
+reactions during live system use, examine emotional reactions
+                                                                               Mechanical Turk: A New Source of Inexpensive, Yet High-
+with more temporal precision, conduct multimethod emotion                      Quality, Data?,” Perspectives on Psychological Science (6:1), pp.
+research, and provide researchers and system designers with                    3-5.
+an easy to deploy, but powerful, tool to infer users’ negative               Campbell, D. I., and Gingrich, K. 1980. “The Interactive Effects of
+emotion to create more unobtrusive affective and adaptive                      Task Complexity and Participation on Task Performance: A
+systems.                                                                       Field Experiment,” Organizational Behavior and Human
+                                                                               Decision Processes (38:2), pp. 162-180.
+                                                                             Campbell, J. Y., and Thompson, S. B. 2008. “Predicting Excess
+Acknowledgments                                                                Stock Returns Out of Sample: Can Anything Beat the Historical
+                                                                               Average?,” Review of Financial Studies (21:4), pp. 1509-1531.
+The work described in this paper was substantially supported by              Caridakis, G., Malatesta, L., Kessous, L., Amir, N., Raouzaiou, A.,
+research grants from City University of Hong Kong (Projects No.                and Karpouzis, K. 2006. “Modeling Naturalistic Affective
+7002626 and 7004123) and the Research Grants Council of the                    States Via Facial and Vocal Expressions Recognition,” in
+Hong Kong Special Administrative Region (Project No.                           Proceedings of the International Conference on Multimodal
+CityU149512). We would like to thank Professors Susanne Robra-                 Interfaces, Banff, Alberta, Canada.
+Bissantz and David Woisetschläger for valuable comments on initial           Ceaparu, I., Lazar, J., Bessiere, K., Robinson, J., and Shneider-
+versions of this manuscript. Further, we would like to thank                   man, B. 2004. “Determining Causes and Severity of End-User
+Munkhsarnai Baatar, Robert Lodahl, and Mathias Reisch for helping              Frustration,” International Journal of Human–Computer Inter-
+with the data collection.                                                      action (17:3), pp. 333-356.
+                                                                             Coelho, C. M., Lipp, O. V., Marinovic, W., Wallis, G., and Riek, S.
+                                                                               2010. “Increased Corticospinal Excitability Induced by Unplea-
+References                                                                     sant Visual Stimuli,” Neuroscience Letters (481:3), pp. 135-138.
+                                                                             Compeau, D., Marcolin, B., Kelley, H., and Higgins, C. 2012.
+Agarwal, R., and Karahanna, E. 2000. “Time Flies When You’re                   “Research Commentary—Generalizability of Information Sys-
+   Having Fun: Cognitive Absorption and Beliefs about Informa-                 tems Research Using Student Subjects—A Reflection on Our
+   tion Technology Usage,” MIS Quarterly (24:4), pp. 665-694.                  Practices and Recommendations for Future Research,”
+Agarwal, R., and Venkatesh, V. 2002. “Assessing a Firm’s Web                   Information Systems Research (23:4), pp. 1093-1109.
+   Presence: A Heuristic Evaluation Procedure for the Measure-               Coombes, S. A., Gamble, K. M., Cauraugh, J. H., and Janelle, C. M.
+   ment of Usability,” Information Systems Research (13:2), pp.                2008. “Emotional States Alter Force Control During a Feedback
+   168-186.                                                                    Occluded Motor Task,” Emotion (8:1), pp. 104-113.
+Anderson, C. L., and Agarwal, R. 2011. “The Digitization of                  Coombes, S. A., Higgins, T., Gamble, K. M., Cauraugh, J. H., and
+   Healthcare: Boundary Risks, Emotion, and Consumer Willing-                  Janelle, C. M. 2009. “Attentional Control Theory: Anxiety,
+   ness to Disclose Personal Health Information,” Information                  Emotion, and Motor Planning,” Journal of Anxiety Disorders
+   Systems Research (22:3), pp. 469-490.                                       (23:8), pp. 1072-1079.
+Bagozzi, R. P., Gopinath, M., and Nyer, P. U. 1999. “The Role of             Coombes, S. A., Naugle, K. M., Barnes, R. T., Cauraugh, J. H., and
+   Emotions in Marketing,” Journal of the Academy of Marketing                 Janelle, C. M. 2011. “Emotional Reactivity and Force Control:
+   Science (27:2), pp. 184-206.                                                The Influence of Behavioral Inhibition,” Human Movement
+Beaudry, A., and Pinsonneault, A. 2010. “The Other Side of                     Science (30:6), pp. 1052-1061.
+   Acceptance: Studying the Direct and Indirect Effects of
+                                                                             Coombes, S. A., Tandonnet, C., Fujiyama, H., Janelle, C.M.,
+   Emotions on Information Technology Use,” MIS Quarterly
+                                                                               Cauraugh, J. H., and Summers, J. J. 2009. “Emotion and Motor
+   (34:4), pp. 689-710.
+                                                                               Preparation: A Transcranial Magnetic Stimulation Study of
+Berinsky, A. J., Huber, G. A., and Lenz, G. S. 2012. “Evaluating
+                                                                               Corticospinal Motor Tract Excitability,” Cognitive, Affective, &
+   Online Labor Markets for Experimental Research:
+                                                                               Behavioral Neuroscience (9:4), pp. 380-388.
+   Amazon.com’s Mechanical Turk,” Political Analysis (20:3), pp.
+                                                                             Deng, L., and Poole, M. S. 2010. “Affect in Web Interfaces: A
+   351-368.
+Bishop, S. J., Jenkins, R., and Lawrence, A. D. 2007. “Neural                  Study of the Impacts of Web Page Visual Complexity and
+   Processing of Fearful Faces: Effects of Anxiety are Gated by                Order,” MIS Quarterly (34:4), pp. 711-730.
+   Perceptual Capacity Limitations,” Cerebral Cortex (17:7), pp.             Dimoka, A., Banker, R. D., Benbasat, I., Davis, F. D., Dennis, A. R.,
+   1595-1603.                                                                  Gefen, D., Gupta, A., Ischebeck, A., Kenning, P. H., Pavlou, P.
+
+
+
+18     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                         This content downloaded from
+                                       222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                 All use subject to https://about.jstor.org/terms
+                                                                 Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+   A., Muller-Putz, G., Riedl, R., vom Brocke, J., and Weber, B.              Keeker, K. 1997. “Improving Web Site Usability and Appeal”
+   2012. “On the Use of Neurophysiological Tools in IS Research:                 (https://msdn.microsoft.com/en-us/library/c889361(v=
+   Developing a Research Agenda for NeuroIS,” MIS Quarterly                      office.12).aspx).
+   (36:3), pp. 679-702.                                                       Kim, H.-J., and Choi, Y. S. 2012. “Exploring Emotional Preference
+Eysenck, M. W., and Derakshan, N. 2011. “New Perspectives in                     for Smartphone Applications,” in Proceedings of the Consumer
+   Attentional Control Theory,” Personality and Individual                       Communications and Networking Conference, IEEE, Las Vegas,
+   Differences (50:7), pp. 955-960.                                              NV, pp. 245-249.
+Eysenck, M. W., Derakshan, N., Santos, R., and Calvo, M. G. 2007.             Klein, J., Moon, Y., and Picard, R. W. 2002. “This Computer
+   “Anxiety and Cognitive Performance: Attentional Control                       Responds to User Frustration: Theory, Design, and Results,”
+   Theory,” Emotion (7:2), pp. 336-353.                                          Interacting with Computers (14:2), pp. 119-140.
+Freeman, J. B., Dale, R., and Farmer, T. A. 2011. “Hand in Motion             Kuo, Y. F., Yen, S. T., and Chen, L. H. 2011. “Online Auction
+   Reveals Mind in Motion,” Frontiers in Psychology (2:59), pp.                  Service Failures in Taiwan: Typologies and Recovery Stra-
+   1-6.                                                                          tegies,” Electronic Commerce Research and Applications (10:2),
+                                                                                 pp. 183-193.
+Galletta, D. F., Henry, R., McCoy, S., and Polak, P. 2004. “Web
+                                                                              Lang, P. J., and Bradley, M. M. 2007. “The International Affective
+   Site Delays: How Tolerant are Users?,” Journal of the Asso-
+                                                                                 Picture System (IAPS) in the Study of Emotion and Attention,”
+   ciation for Information Systems (5:1), Article 1.
+                                                                                 in Handbook of Emotion Elicitation and Assessment, J. A. Coan
+Gelbrich, K. 2010. “Anger, Frustration, and Helplessness After
+                                                                                 and J. J. B. Allen (eds.), New York: Oxford University Press, pp.
+   Service Failure: Coping Strategies and Effective Informational
+                                                                                 29-46.
+   Support,” Journal of the Academy of Marketing Science (38:5),              Lazarus, R. S. 1991. “Progress on a Cognitive Motivational Rela-
+   pp. 567-585.                                                                  tional Theory of Emotion,” American Psychologist (46:8), pp.
+Google. 2015. “Compatibility Definition Android 6.0,” Google                     819-834.
+   Inc. (https://static.googleusercontent.com/media/source.android.           Lin, H.-H., and Wang, Y.-S. 2006. “An Examination of the
+   com/en//compatibility/android-cdd.pdf).                                       Determinants of Customer Loyalty in Mobile Commerce Con-
+Grimes, M., Jenkins, J. L., and Valacich, J. 2013. “Exploring the                texts,” Information & Management (43:3), pp. 271-282.
+   Effect of Arousal and Valence on Mouse Interaction,” in                    Lin, J.-F., Drury, C. G., Chou, C.-M., Lin, Y.-D., and Lin, Y.-Q.
+   Proceedings of the 34th International Conference on Information               2011. “Measuring Corrective Reaction Time with the Inter-
+   Systems, Milan, Italy.                                                        mittent Illumination Model,” in Human–Computer Interaction:
+Gross, J. J., and Thompson, R. A. 2007. “Emotion Regulation:                     Design and Development Approaches, J. A. Jacko (ed.), New
+   Conceptual Foundations,” in Handbook of Emotion Regulation,                   York: Springer, pp. 397-405.
+   J. J. Gross (ed.), New York: Guilford Press, pp. 3-24.                     Maehr, W. 2008. eMotion: Estimation of User’s Emotional State
+Hauser, J. R., Liberali, G., and Urban, G. L. 2014. “Website                     by Mouse Motions, Saarbrücken, Germany: VDM Verlag.
+   Morphing 2.0: Switching Costs, Partial Exposure, Random Exit,              Mason, W., and Suri, S. 2012. “Conducting Behavioral Research
+   and When to Morph,” Management Science (60:6), pp.                            on Amazon’s Mechanical Turk,” Behavior Research Methods
+   1594-1616.                                                                    (44:1), pp. 1-23.
+Hauser, J. R., Urban, G. L., Liberali, G., and Braun, M. 2009.                Meyer, D. E., Abrams, R. A., Kornblum, S., Wright, C. E., and
+   “Website Morphing,” Marketing Science (28:2), pp. 202-223.                    Smith, J. E. K. 1988. “Optimality in Human Motor Perfor-
+Haywood, K. M. 1989. “Managing Word of Mouth Communi-                            mance: Ideal Control of Rapid Aimed Movements,” Psycho-
+   cations,” Journal of Services Marketing (3:2), pp. 55-67.                     logical Review (95:3), pp. 340-370.
+Hehman, E., Stolier, R. M., and Freeman, J. B. 2014. “Advanced                Meyer, D. E., Smith, J. E. K., Kornblum, S., Abrams, R. A., and
+   Mouse-Tracking Analytic Techniques for Enhancing Psycho-                      Wright, C. E. 1990. “Speed-Accuracy Tradeoffs in Rapid
+   logical Science,” Psychological Science (20:10), pp. 1183-1188.               Aimed Movements: Toward a Theory of Rapid Voluntary
+Hevner, A., March, S. T., Park, J., and Ram, S. 2004. “Design                    Action,” in Attention and Performance XIV, M. Jeannerod (ed.),
+   Science in Information Systems Research,” MIS Quarterly                       Hillsdale, NJ: Lawrence Erlbaum Associates, pp. 173-226.
+                                                                              Mulpuru, S., Hult, P., Freeman Evans, P., Sehgal, V., and
+   (28:1), pp. 75-105.
+                                                                                 McGowan, B. 2010. “US Online Retail Forecast, 2009 to 2014,”
+Huang, M.-H. 2003. “Modeling Virtual Exploratory and Shopping
+                                                                                 Forrester Research, Cambridge, MA.
+   Dynamics: An Environmental Psychology Approach,” Informa-
+                                                                              Nadkarni, S., and Gupta, R. 2007. “A Task-Based Model of
+   tion & Management (41:1), pp. 39-47.
+                                                                                 Perceived Website Complexity,” MIS Quarterly (31:2), pp.
+Jorgensen, A. H. 1990. “Thinking-Aloud in User Interface
+                                                                                 501-524.
+   Design—A Method Promoting Cognitive Ergonomics,”
+                                                                              Naugle, K. M., Coombes, S. A., Cauraugh, J. H., and Janelle, C. M.
+   Ergonomics (33:4), Apr, pp. 501-507.                                          2012. “Influence of Emotion on the Control of Low-Level Force
+Kannape, O. A., Barré, A., Aminian, K., and Blanke, O. 2014.                     Production,” Research Quarterly for Exercise and Sport (83:2),
+   “Cognitive Loading Affects Motor Awareness and Movement                       pp. 353-358.
+   Kinematics but Not Locomotor Trajectories During Goal-                     Nunamaker Jr., J. F., and Briggs, R. O. 2011. “Toward a Broader
+   Directed Walking in a Virtual Reality Environment,” PloS One                  Vision for Information Systems,” ACM Transactions on
+   (9:1), pp. 1-11.                                                              Management Information Systems (2:4), pp. 1-12.
+
+
+
+                                                                                                     MIS Quarterly Vol. 41 No. 1/March 2017    19
+
+
+
+                                                          This content downloaded from
+                                        222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                  All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+Pashler, H. 1994. “Dual-Task Interference in Simple Tasks: Data               Unsworth, N., and Spillers, G. J. 2010. “Working Memory
+   and Theory,” Psychological Bulletin (116:2), pp. 220-244.                     Capacity: Attention Control, Secondary Memory, or Both? A
+Pew Research Center. 2014. “Internet Users in 2014,” Pew                         Direct Test of the Dual-Component Model,” Journal of Memory
+   Research Center, Washington, DC (http://www.pewinternet.org/                  and Language (62:4), pp. 392-406.
+   data-trend/internet-use/latest-stats/; accessed July 7, 2014).             van Loon, A. M., van den Wildenberg, W. P., van Stegeren, A. H.,
+Picard, R. W. 2000. Affective Computing, Cambridge, MA: MIT                      Ridderinkhof, K. R., and Hajcak, G. 2010. “Emotional Stimuli
+   Press.                                                                        Modulate Readiness for Action: A Transcranial Magnetic Stimu-
+Russell, J. A., and Mehrabian, A. 1977. “Evidence for a Three-                   lation Study,” Cognitive, Affective, & Behavioral Neuroscience
+   Factor Theory of Emotions,” Journal of Research in Personality                (10:2), pp. 174-181.
+   (11:3), pp. 273-294.                                                       van Someren, M. W., Barnard, Y. F., and Sandberg, J. A. 1994.
+Salmeron-Majadas, S., Santos, O. C., and Boticario, J. G. 2014.                  The Think Aloud Method: A Practical Guide to Modelling
+   “An Evaluation of Mouse and Keyboard Interaction Indicators                   Cognitive Processes, London: Academic Press.
+   Towards Non-Intrusive and Low Cost Affective Modeling in an                Venkatesh, V., Brown, S. A., and Bala, H. 2013 “Bridging the
+   Educational Context,” Procedia Computer Science (35), pp.                     Qualitative-Quantitative Divide: Guidelines for Conducting
+   691-700.                                                                      Mixed Methods Research in Information Systems,” MIS
+Sarter, M., and Paolone, G. 2011. “Deficits in Attentional Control:              Quarterly (37:1), pp. 21-54.
+   Cholinergic Mechanisms and Circuitry-Based Treatment Ap-                   Venkatesh, V., Brown, S. A., and Wati, Y. 2016. “Guidelines for
+   proaches,” Behavioral Neuroscience (125:6), pp. 825-835.                      Conducting Mixed Methods Research: An Extension and
+Sheng, H., and Joginapelly, T. 2012. “Effects of Web Atmospheric                 Illustration,” Journal of the Association for Information Systems
+   Cues on Users’ Emotional Responses in E-Commerce,” AIS                        (17:7), Article 2, pp. 435-494.
+   Transactions on Human–Computer Interaction (4:1), pp. 1-24.                Venkatesh, V., and Davis, F. D. 2000. “A Theoretical Extension of
+Smith, A. K., Bolton, R. N., and Wagner, J. 1999. “A Model of                    the Technology Acceptance Model: Four Longitudinal Field
+   Customer Satisfaction with Service Encounters Involving Failure               Studies,” Management Science (46:23), pp. 186-204.
+   and Recovery,” Journal of Marketing Research (36:3), pp.                   Venkatesh, V., Morris, M. G., Davis, G. B., and Davis, F. D. 2003.
+   356-372.                                                                      “User Acceptance of Information Technology: Toward a Unified
+Steelman, Z. R., Hammer, B. I., and Limayem, M. 2014. “Data
+                                                                                 View,” MIS Quarterly (27:3), 425-478.
+   Collection in the Digital Age: Innovative Alternatives to Student
+                                                                              Venkatesh, V., and Ramesh, V. 2006. “Web and Wireless Site
+   Samples,” MIS Quarterly (38:2), pp. 355-378.
+                                                                                 Usability: Understanding Differences and Modeling Use,” MIS
+Sun, D., Paredes, P., and Canny, J. 2014. “MouStress: Detecting
+                                                                                 Quarterly (30:1), pp. 181-206.
+   Stress from Mouse Motion,” in Proceedings of the SICGCHI
+                                                                              Venkatesh, V., Ramesh, V., and Massey, A. P. 2003. “Under-
+   Conference on Human Factors in Computing Systems, New
+                                                                                 standing Usability in Mobile Commerce,” Communications of the
+   York: ACM, pp. 61-70.
+                                                                                 ACM (46:12), pp. 53-56.
+Sun, H., and Zhang, P. 2006. “The Role of Affect in IS Research:
+                                                                              Vine, S. J., and Wilson, M. R. 2011. “The Influence of Quiet Eye
+   A Critical Survey and a Research Model,” in Human–Computer
+                                                                                 Training and Pressure on Attention and Visuo-Motor Control,”
+   Interaction and Management Information Systems Foundations,
+                                                                                 Acta Psychologica (136:3), pp. 340-346.
+   P. Zhang, D. Galletta, and V. Zwass (eds.), New York: M. E.
+                                                                              Weinmann, M., Schneider, C., and Robra-Bissantz, S. 2013.
+   Sharpe, pp. 294-330.
+Tanaka, Y., Funase, K., Sekiya, H., and Murayama, T. 2012.                       “MOUSEREC—Monitoring Online Users’ Emotions by
+   “Modulation of Corticospinal Motor Tract Excitability During a                Recording and Evaluating Cursor Movements,” paper presented
+   Fine Finger Movement under Psychological Pressure: A TMS                      at the X Conference of the Italian Chapter of AIS: Empowering
+   Study,” International Journal of Sport and Health Science (10:1),             Society Through Digital Innovations, Milan, Italy.
+   pp. 39-49.                                                                 Wells, J. D., Palmer, J. W., and Fuerst, W. L. 2005. “Designing
+Tao, J., and Tan, T. 2005. “Affective Computing: A Review,” in                   Consumer Interfaces for Experiential Tasks: An Empirical Inves-
+   Affective Computing and Intelligent Interaction, J. Tao, T. Tan,              tigation,” European Journal of Information Systems (14:3), pp.
+   and R. W. Picard (eds.), New York: Springer, pp. 981-995.                     273-287.
+Tax, S. S., and Brown, S. W. 1998. “Recovering and Learning                   Welsh, T. N., and Elliott, D. 2004. “Movement Trajectories in the
+   from Service Failure,” Sloan Management Review (40:1), pp.                    Presence of a Distracting Stimulus: Evidence for a Response
+   75-88.                                                                        Activation Model of Selective Reaching,” The Quarterly Journal
+Tractinsky, N., Cokhavi, A., Kirschenbaum, M., and Sharfi, T.                    of Experimental Psychology Section A (57:6), pp. 1031-1057.
+   2006. “Evaluating the Consistency of Immediate Aesthetic                   Zhang, P. 2013. “The Affective Response Model: A Theoretical
+   Perceptions of Web Pages,” International Journal of Human–                    Framework of Affective Concepts and Their Relationships in the
+   Computer Studies (64:11), pp. 1071-1083.                                      ICT Context,” MIS Quarterly (37:1), pp. 247-274.
+Thorpe, S., Fize, D., and Marlot, C. 1996. “Speed of Processing in            Zimmermann, P., Gomez, P., Danuser, B., and Schär, S. 2006.
+   the Human Visual System,” Nature (381:6582), pp. 520-522.                     “Extending Usability: Putting Affect into the User-Experience,”
+Tzeng, J.-Y. 2004. “Toward a More Civilized Design: Studying                     in User eXperience Towards a Unified View: The 2nd COST294-
+   the Effects of Computers that Apologize,” International Journal               MAUSE International Open Workshop, October 14,
+   of Human–Computer Studies (61:3), pp. 319-345.                                NordiCHI’06, Oslo, Norway, pp. 27-32.
+
+
+
+20     MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                          This content downloaded from
+                                        222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                  All use subject to https://about.jstor.org/terms
+                                                                  Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+Zimmermann, P., Guttormsen, S., Danuser, B., and Gomez, P.                     sity. His primary research interests include human–computer
+  2003. “Affective Computing—A Rationale for Measuring Mood                    interaction, electronic commerce, and computer-mediated collabora-
+  with Mouse and Keyboard,” International Journal of Occupa-                   tion. His research has appeared in peer reviewed journals such
+  tional Safety and Ergonomics (9:4), pp. 539-551.                             as Information Systems Research, MIS Quarterly, and Management
+Zuckerman, M. 1955. “The Effect of Frustration on the Perception               Science; further, he has presented his research at various inter-
+  of Neutral and Aggressive Words,” Journal of Personality (23:4),             national conferences, including the International Conference on
+  pp. 407-422.                                                                 Information Systems, Americas Conference on Information Systems,
+                                                                               European Conference on Information Systems, and the Hawaii
+                                                                               International Conference on System Sciences. He is a coauthor of
+About the Authors                                                              the leading textbook Information Systems Today. Christoph serves
+                                                                               as a senior editor for Information Systems Journal and as a member
+Martin T. Hibbeln is an assistant professor of Finance at the                  of the international steering committee for the International
+Mercator School of Management, University of Duisburg-Essen,                   Conference on Information Systems Development.
+Germany. He graduated with a Ph.D. in Finance from the Univer-
+sity of Braunschweig, Germany. His research interests include                  Joseph (Joe) Valacich is an Eller Professor in the Eller College of
+financial risk management, empirical banking, and individual                   Management at the University of Arizona and is a Fellow of the
+decision making. His research has been published in various                    Association for Information Systems (2009). His primary research
+journals, including Journal of Risk and Insurance and Journal of               interests include human–computer interaction, deception detection,
+Banking & Finance, and conference proceedings such as the                      cyber security, technology-mediated collaboration, individual and
+International Conference on Information Systems and the European               group decision making, mobile and emerging technologies, and e-
+Conference on Information Systems.
+                                                                               business. He has published more than 200 scholarly articles in
+                                                                               numerous prestigious journals and conferences. In 2011 he received
+Jeffrey L. Jenkins is an assistant professor of Information Systems
+                                                                               the best paper award from AIS Transactions on Human–Computer
+at the Marriott School of Management, Brigham Young University.
+                                                                               Interaction; in 2009 he received the best paper award from MIS
+He graduated with a Ph.D. in Management Information Systems
+                                                                               Quarterly, and is currently ranked as one of MIS Quarterly’s
+from the University of Arizona. His active research includes
+                                                                               “prolific authors.” Over his career, he has earned numerous awards
+human-computer interaction and behavioral information security.
+                                                                               for outstanding research, teaching, and service. He is also a
+In a human–computer interaction context, Jeffrey’s research
+                                                                               coauthor of several leading textbooks.
+examines how to infer human states using computer input devices
+such as the computer mouse, keyboard, or touchscreen. His research
+has been published in various journals and conference proceedings,             Markus Weinmann is an assistant professor in the Department of
+including Journal of Management Information Systems, Proceedings               Information Systems at the University of Liechtenstein. He earned
+of the ACM Conference on Human Factors in Computing Systems                    a Ph.D. in Business Information Systems at the University of Braun-
+(CHI), Computers in Human Behavior, and others. Prior to earning               schweig, Germany. His primary research interests include human–
+his Ph.D., Jeffrey was a software engineer in both the public and              computer interaction, electronic commerce, applied behavioral
+private sectors.                                                               economics, and individual decision making. In particular, his
+                                                                               research examines how user interface design influences individual
+Christoph Schneider is an assistant professor in the Department of             decision making. Markus presented his research at various
+Information Systems at City University of Hong Kong. He earned                 international conferences, including the International Conference on
+a Ph.D. in Information Systems at Washington State University and              Information Systems, the Americas Conference on Information
+previously held a visiting faculty appointment at Boise State Univer-          Systems, and the European Conference on Information Systems.
+
+
+
+
+                                                                                                      MIS Quarterly Vol. 41 No. 1/March 2017    21
+
+
+
+                                                           This content downloaded from
+                                         222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                   All use subject to https://about.jstor.org/terms
+22   MIS Quarterly Vol. 41 No. 1/March 2017
+
+
+
+                                                     This content downloaded from
+                                   222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                             All use subject to https://about.jstor.org/terms
+                                                                                                                    RESEARCH ARTICLE
+
+
+
+
+       HOW IS YOUR USER FEELING? INFERRING EMOTION
+       THROUGH HUMAN–COMPUTER INTERACTION DEVICES
+                                                              Martin Hibbeln
+                             Mercator School of Management, University of Duisburg-Essen, Lotharstrasse 65,
+                                         47057 Duisburg, GERMANY {martin.hibbeln@uni-due.de}
+
+
+                                                            Jeffrey L. Jenkins
+                                 Information Systems Department, Brigham Young University, 790 TNRB,
+                                               Provo, UT 84602 U.S.A. {jjenkins@byu.edu}
+
+
+                                                          Christoph Schneider
+                            Department of Information Systems, City University of Hong Kong, Tat Chee Avenue,
+                                        Kowloon, HONG KONG {christoph.schneider@cityu.edu.hk}
+
+
+                                                           Joseph S. Valacich
+                          Management Information Systems, University of Arizona, McClelland Hall Room 430CC,
+                                            Tucson, AZ 85721 U.S.A. {valacich@arizona.edu}
+
+
+                                                           Markus Weinmann
+                          Information Systems Department, University of Liechtenstein, Fürst-Franz-Josef-Strasse,
+                                         9490 Vaduz, LIECHTENSTEIN {markus.weimann@uni.li}
+
+
+
+
+Appendix A
+Supplemental Page-Level Analysis for Study 2
+
+We conducted an ANOVA to test the hypothesized relationships between negative emotion and mouse cursor movements across the different
+pages of the website in Study 2. Because no manipulation was made prior to the first page of the website, the mousing behavior should
+hypothetically be the same between condition groups on this page. However, because we manipulated frustration before users interacted with
+pages 2, 3, and 4, according to our hypotheses, the mousing behavior should be different on these pages. We present the results in Table A1.
+As expected, since the manipulation did not precede page 1, both mouse cursor distance and speed were not significantly different between
+the two conditions. However, as the negative emotion manipulation did precede pages 2, 3, and 4, participants in the negative-emotion
+treatment group exhibited greater distance and slower speed than did participants in the control group.
+
+
+
+
+                                                                                   MIS Quarterly Vol. 41 No. 1—Appendices/March 2017     A1
+
+
+
+                                                         This content downloaded from
+                                       222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                 All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Table A1. Study 2 Results
+                                       Page 1                        Page 2                        Page 3                Page 4
+                                                                Frustration                     Frustration           Frustration
+                                                               manipulated                     manipulated           manipulated
+        Manipulation                    None                 before interaction              before interaction    before interaction
+                  Distance       M = 15,315.742            M = 6,033.361                   M = 5,212.737          M = 8,374.849
+ Group 1:         (px)           SD = 9,246.630            SD = 2,827.731                  SD = 3,563.427         SD = 4,483.745
+ Baseline         Speed          M = .167                  M = .161                        M = .109               M = .248
+                  (px/ms)        SD = .076                 SD = .072                       SD = .059              SD = .132
+                  Distance       M = 15,918.603            M = 10,673.614                  M = 12,163.959         M = 13,472.933
+ Group 2:
+                  (px)           SD = 9,038.885            SD = 9,468.696                  SD = 14,607.910        SD = 9,294.143
+ Negative-
+                  Speed          M = .168                  M = .116                        M = .076               M = .167
+ Emotion
+                  (px/ms)        SD = .070                 SD = .053                       SD = .040              SD = .075
+                                 F(1,124) = .137           F(1,124) = 13.703               F(1,124) = 13.271      F(1,124) = 15.220
+ Distance F-Test
+                                 p > .05                   p < .001                        p < .001               p < .001
+                                 F(1,124) = .940           F(1,124) = 16.393               F(1,124) = 13.203      F(1,124) = 17.981
+ Speed F-Test
+                                 p > .05                   p < .001                        p < .001               p < .001
+
+
+
+
+A2     MIS Quarterly Vol. 41 No. 1—Appendices/March 2017
+
+
+
+                                                        This content downloaded from
+                                      222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                All use subject to https://about.jstor.org/terms
+                                                     Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+Appendix B
+Supplementary Material for Study 3: Website Screenshots (Examples)
+
+
+
+
+Figure B1. Laptop Configurator (http://www/dell.com)
+
+
+
+
+Figure B2. Vehicle Configurator (http://volkswagen.co.uk)
+
+
+
+                                                                        MIS Quarterly Vol. 41 No. 1—Appendices/March 2017    A3
+
+
+
+                                              This content downloaded from
+                            222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                      All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+Appendix C
+Supplementary Material for Study 3: List of Tasks
+
+Dell (Website: http://www.dell.com)
+
+Task 1 (Maximum allotted time: 3 min): You want to buy a new laptop computer and you already know the specifications which should
+be included: The display size should be 15–16 inches, it should run Microsoft Windows 7, the weight should be 5–7 lbs., the processor should
+be an Intel Core i5 and the price should be between US$500 and US$800. Use the configurator to discover which models come into
+consideration.
+
+Task 2 (3 min): Choose one of the models. You love to chat with your friends, and that’s why you want to have a webcam included. Scan
+the models’ specifications to see whether there is a webcam included or not. It should have at least 1 megapixel. You think the i5 processor
+is too slow so you have decided to choose an Intel Core i7 with at least 1.7 GHz, instead of the i5. Please check whether this processor is
+available for your model or not. In case it is available, please select it.
+
+Task 3 (2 min): Now you would like to have security software for your new laptop. Choose one and add it to your shopping cart.
+
+Task 4 (2 min): You decide to invest in a 3-year customer care service. Search and add one of the service plans.
+
+Task 5 (2 min): Finish your configuration. Ensure that you haven’t made any mistakes during the configuration process and fix any mistakes
+you may have made.
+
+
+
+Volkswagen (Website: http://volkswagen.co.uk)
+
+Task 1 (3 min): You want to buy a new car but you are not really sure about the specifications. Your dream car should have at least 150 PS.
+It’s important for you that your car is efficient and environmentally friendly. That’s why the fuel consumption should be at least 60 miles/gallon
+(MPG) and the CO2 emissions at most 110g/km. The price should be in a range from £20,000 to £30,000. Use the configurator to discover
+which models come into consideration.
+
+Task 2 (3 min): Choose one of the models. There are different variations of the cars. Please choose a car with at least 150 PS. Moreover,
+you want to have a car with 5 doors.
+
+Task 3 (2 min): After you have chosen the engine, you would like to have 17 inch tires. The color of your car should be “Reflex Silver
+Metallic.” The interior upholstery (the seats) can be in a color you like best.
+
+Task 4 (2 min): You love your iPod and it’s time to choose some additional extras. You would like to hear your music in your car as well.
+Please search for an iPod interface and add it.
+
+Task 5 (2 min): Finish your configuration. Now it’s time to have a look at the financing of the car. Try to figure out your monthly rate if
+you finance your car for 36 months.
+
+
+
+
+A4      MIS Quarterly Vol. 41 No. 1—Appendices/March 2017
+
+
+
+                                                           This content downloaded from
+                                         222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                   All use subject to https://about.jstor.org/terms
+                                                                      Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+Appendix D
+Supplementary Material for Study 3: Additional Statistical Analyses
+and Robustness Checks
+
+Model Specification
+
+As discussed in the “Model Specification” section of Study 3, our main specification is a fixed-effects regression model of emotions on a set
+of mouse cursor movement data:
+
+                                              emotionsit = αi + β1 A cursor distanceit + β2 A cursor speedit
+                                                                                                                                                         (1)
+                                                     + γ' A additional mouse variablesit + λt + git
+
+where i indexes the individuals, t the task number, λt represents task-specific effects, and additional mouse variablesit contains left clicks,
+middle/right clicks, and scrolls.
+
+However, if the unobserved differences across individuals are random,1 estimates from the random effects model are not only consistent but
+also more efficient than fixed-effects estimates (Wooldridge 2010). Thus, our second specification is a random effects model:
+
+                                              emotionsit = αi + β1 A cursor distanceit + β2 A cursor speedit
+                                                                                                                                                         (2)
+                                         + γ' A additional mouse variablesit + δ' A control variablesi + λt + git
+
+where αi and εit are assumed to be independently and identically distributed, and αi has expectation α and variance σ².
+                                                                                                                     α In this specification, we
+additionally consider the control variables age, gender, and country, as well as configurator and configurator experience.
+
+For comparison of the results, we also apply a pooled regression model of the following form:
+
+                                               emotionsit = α + β1 A cursor distanceit + β2 A cursor speedit
+                                                                                                                                                         (3)
+                                         + γ' A additional mouse variablesit + δ' A control variablesi + λt + git
+
+Given our use of two very different product configuration systems, there may be differences in the means of the mouse variables between the
+two configuration systems. Such differences could be a result of differences in website design (for example, in contrast to Volkswagen’s site,
+Dell’s product configurator required vertical scrolling) and are not necessarily related to different emotions. Thus, in order to account for
+different slopes of the mouse variables across configurators, we analyze additional specifications for the fixed-effects, random-effects, and
+pooled-regression model, adding interactions terms between the assigned configurator and the different mouse variables.
+
+
+
+Results
+
+Table D1 presents a summary of the descriptive statistics of the variables captured in the study, and Table D2 presents the regression results
+using the pleasure scale of SAM. Models 1–2 of Table D2 are estimates based on fixed-effects specification (see equation 1), while models
+3–4 and 5–6 refer to the random-effects specification (see equation 2) and the pooled regressions2 (see equation 3), respectively. Consistent
+with our hypotheses, the coefficient of cursor distance was significantly positive across all models (p < .001). Moreover, the coefficient of the
+average cursor speed was significantly negative. This result was very robust to the model specification with at least p < .05 across all models.
+This provides evidence that greater cursor distance and lower cursor speed indicate negative emotion.
+
+
+1
+ An effect is said to be random if the study contains only a random sample of possible conditions (Field and Field 2013, p. 862). For example, the variable
+“product configurator” could be considered as random, as we could have used other systems or even more than two configuration systems.
+
+2
+ To test the poolability of the subsamples of GER and HK, we conducted a Chow test, that is, we tested whether the coefficients for these subsamples are
+significantly different (Chow 1960). For the OLS regression, we found in a joint test that the coefficients are indeed significantly different. However, when
+including the dummy variable country, our variables of interest (distance and speed) do not differ significantly between both subsamples. The corresponding
+p-values are p = 0.221 (Model 5) and p = 0.436 (Model 6). Thus, the chosen specification seems to be reasonable for estimating the model.
+
+
+
+                                                                                        MIS Quarterly Vol. 41 No. 1—Appendices/March 2017                A5
+
+
+
+                                                              This content downloaded from
+                                            222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                      All use subject to https://about.jstor.org/terms
+Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+Summing up the results, we found that the variation of the coefficients of interest was rather low across the models; the coefficients for cursor
+distance were between .126 and .132, and the respective coefficients for cursor speed varied between -10.30 and -8.08 for the models without
+interaction effects and between .140 and .155 for the models with interaction effects. This suggests that the results were highly robust to
+different model specifications.
+
+
+ Table D1. Study Variable Descriptive Statistics
+ Panel A. Dell Configurator
+                                          Obs.               Mean               Median                Std. Dev.    Min.              Max.
+ Independent Variables
+      Distance (px)                        200               12,602              11,588                 7,989      276             49,205
+      Speed (px/ms)                        200                .137                 .12                   .06       .04                .39
+      Left clicks                          200               10.94                  9                   7.33         0                48
+      Middle/right clicks                  200                 .08                  0                    .46         0                 5
+      Scrolls                              200               46.21                 30                   48.85        0               251
+ Dependent Variable
+      SAM Pleasure                         200                4.33                  4                   2.28         1                 9
+ Panel B. Volkswagen Configurator
+                                          Obs.               Mean               Median                Std. Dev.    Min.              Max.
+ Independent Variables
+      Distance (px)                        200               12,864              11,516                 7,515     1,437            40,217
+      Speed (px/ms)                        200                 .12                 .12                   .05       .02                .27
+      Left clicks                          200               17.49                 14                   13.00        0                79
+      Middle/right clicks                  200                 .02                  0                    .14         0                 1
+      Scrolls                              200                5.86                  0                   13.37        0               108
+ Dependent Variable
+      SAM Pleasure                         200                4.31                  5                   2.19         1                 9
+
+
+
+
+A6      MIS Quarterly Vol. 41 No. 1—Appendices/March 2017
+
+
+
+                                                           This content downloaded from
+                                         222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                   All use subject to https://about.jstor.org/terms
+                                                                   Hibbeln et al./Inferring Emotion Through Human–Computer Interaction Devices
+
+
+
+
+ Table D2. Regression Results Using the Pleasure Scale of SAM
+                                           Fixed-Effects Model                   Random-Effects Model             Pooled-Regression Model
+                                            (1)            (2)                      (3)          (4)                  (5)           (6)
+ Distance (px in ‘000)                     .132***        .140***                  .130***      .149***              .126***       .155***
+                                          (.031)         (.039)                   (.025)       (.030)               (.023)        (.026)
+ Speed (px/ms)                          -10.300**       -9.029*                  -9.185***    -9.468***            -8.076***     -9.949***
+                                         (3.649)        (4.312)                  (2.658)      (2.811)              (2.301)       (2.528)
+ Left clicks                              -.009          -.011                    -.013        -.023                -.019         -.036†
+                                          (.011)         (.022)                   (.011)       (.018)               (.012)        (.019)
+ Middle/right clicks                       .327           .257                     .358         .233                 .410          .231
+                                          (.241)         (.242)                   (.235)       (.211)               (.281)        (.210)
+ Scrolls                                   .002          -.002                     .003        -.001                 .005         -.000
+                                          (.004)         (.004)                   (.004)       (.004)               (.004)        (.004)
+ Configurator × Distance                                 -.016                                 -.042                              -.074
+                                                         (.054)                                (.046)                             (.045)
+ Configurator × Speed                                   -2.567                                 1.049                              5.593
+                                                        (6.478)                               (5.506)                            (5.582)
+ Configurator × Left clicks                               .010                                  .020                               .031
+                                                         (.026)                                (.024)                             (.025)
+ Configurator × Middle/right                              .654                                 1.199                              1.883*
+ clicks                                                 (1.042)                                (.930)                             (.908)
+ Configurator × Scrolls                                   .035***                               .037***                            .040***
+                                                         (.009)                                (.008)                             (.008)
+ Internet usage                                                                   -.011        -.011                -.011         -.011
+                                                                                  (.007)       (.007)               (.007)        (.007)
+ Configurator experience                                                           .195         .221                 .196          .240
+                                                                                  (.356)       (.356)               (.350)        (.344)
+ Configurator = Volkswagen                                                        -.063        -.354                 .075         -.598
+                                                                                  (.304)       (.618)               (.305)        (.686)
+ Country = Germany                                                                 .159         .146                 .155          .155
+                                                                                  (.374)       (.372)               (.374)        (.367)
+ Gender = Men                                                                     -.226        -.188                -.243         -.210
+                                                                                  (.323)       (.320)               (.318)        (.316)
+ Age                                                                               .079†        .083†                .081†         .081†
+                                                                                  (.045)       (.045)               (.046)        (.044)
+ Intercept                                3.594***            3.510***            1.881†       1.878†               1.708         2.021†
+                                          (.330)              (.321)             (1.043)      (1.128)              (1.094)       (1.133)
+ Task dummies                              YES                 YES                 YES          YES                  YES           YES
+ Individual effects                        YES                 YES                 YES          YES                   NO            NO
+ Observations                              400                 400                 400          400                  400            400
+ R²                                        .192a               .221a               .202         .229                 .205          .234
+ Adj. R²                                   .174a               .192a               .171         .189                 .173          .194
+Notes: †p < .1, *p < .05, **p < .01, ***p < .001. Standard errors clustered by individuals are in parentheses.
+a
+ The R²/adj. R² for the fixed-effects regressions are within-R², excluding the individual effects. The R²/adj. R² including the individual effects are
+.532/.400 (Model 1) and .549/.411 (Model 2).
+
+
+
+References
+Chow, G. 1960. “Tests of Equality Between Sets of Coefficients in Two Linear Regressions,” Econometrica (28:3), pp. 591-605.
+Field, A. J. M., and Field, Z. 2013. Discovering Stastistics Using R, London: SAGE Publications.
+Wooldridge, J. M. 2010. Econometric Analysis of Cross Section and Panel Data (2nd ed.), Cambridge, MA: MIT Press.
+
+
+
+                                                                                      MIS Quarterly Vol. 41 No. 1—Appendices/March 2017            A7
+
+
+
+                                                            This content downloaded from
+                                          222.205.121.197 on Fri, 25 Sep 2026 11:28:40 UTC
+                                                    All use subject to https://about.jstor.org/terms
+

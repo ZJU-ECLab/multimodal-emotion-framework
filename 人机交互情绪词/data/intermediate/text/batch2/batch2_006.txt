@@ -1,0 +1,297 @@
+                     2016 12th International Conference on Natural Computation, Fuzzy Systems and Knowledge Discovery (ICNC-FSKD)
+
+
+
+
+        Affective Computing for Intelligent Virtual
+                       Character
+                             Lin Shi                                                              Yucheng Guo
+          College of Information Engineering                                           College of Mechanical Engineering
+   North China University of Science and Technology                             North China University of Science and Technology
+                   Tangshan, China                                                              Tangshan, China
+
+                          Xuejing Gu                                                              Yang Zhao
+           College of Electrical Engineering                                                 College of Psychology
+   North China University of Science and Technology                             North China University of Science and Technology
+                   Tangshan, China                                                              Tangshan, China
+
+
+
+Abstract—The intelligent virtual character in games or some                 fuzzy and optimization, the emotion states can be
+virtual environments has became more and more popular.                      changed by adjusting parameters. Some other constructed
+To make it more natural and believable, endowing it with                    the affective model based on HowNet [11] or applied
+not only intelligence but also affection is very necessary.                 artificial emotion on evolutionary system [12]. But there
+This paper proposes an affective computing model based on                   are still some shortcomings. For example, some modes
+Fuzzy Rules, which can basically help the virtual character                 are too complex to meet the real-time requirements of the
+to simulate human emotions. The model can generate                          system, and some models don’t consider the non-
+different basic affection status according to different                     cognitive factors (eg. personality) on affective status.
+stimulus. Firstly, Based on the Fuzzy IF-THEN rules, it
+                                                                            Thus, considering the special requirements of virtual
+generates an affective factor . Secondly, a nonlinear function
+was used to compute affection strength, restricted by three
+                                                                            character in virtual environment, this paper tries to
+elements: personality, affective factor and affective status at             establish a real-time and realistic affective model, of
+the previous moment. In the end, this paper takes the                       course it must be easy to implement by machine. Thus, it
+simulation in MATLAB and applies the model in a smart                       proposes an affection generator to simulate the generation
+virtual scene. The result represents that the model can                     of basic human affections. Finally, the experimental
+simulate the nonlinear and fuzzy characteristics of human                   results show that the model can reasonably simulate the
+affection.                                                                  characteristics of human affection, such as nonlinear and
+                                                                            ambiguity.
+Index Terms— intelligent character, artificial psychology,
+basic affection theory, nonlinear function                                                     II. PSYCHOLOGICAL BASIS
+
+                       I. INTRODUCTION                                         We choose some fundamental theory in Psychology to
+                                                                            help us to decide the input and output of the affective
+    An intelligent virtual character [1], such as a virtual                 model, which are Cognitive Appraisal Theory and
+actor, the NPC in games and some virtual creator is more                    Primary Emotion Theory.
+and more popular. The appearance of these depends on
+the developments of multimedia technology and Artificial                         The most reasonable and widely accepted is the
+Intelligence. But here is the problem, the intelligent                      cognitive appraisal theory of emotion proposed by M B
+characters look like dull and dry, they are short of                        Arnold. The theory holds that "cognition is the decisive
+emotion. They will become definitely perfect if they own                    factor of emotion", emotion is caused by cognitive
+affection and if they can communicate with people                           appraisal. In addition, R.S Lazarus also stressed that the
+affectively and harmoniously. Many experts from the                         psychological structure of personality (such as beliefs,
+field of psychology and computer science are working on                     attitudes, personality traits, etc.) is a decisive factor in
+this.[2-3].                                                                 cognitive factors. To the same stimulus ， different
+                                                                            personalities of individuals’ evaluation are different,
+    Affective computing was proposed by Rosalind                            which may lead to the production of emotions is also
+Picard in 1995. Affective computing is trying to assign                     different.
+computers the human-like capabilities of observation,
+interpretation and generation of affect features[3]. We                         Humans have hundreds of emotions, these emotions
+can simulate human being’s affection by affective                           may be mutual penetration, or quite distinct from each
+modeling. There are some modeling methods [4-13] from                       other; there are many subtle unspeakable human
+different research fields, for example, in [9], the author                  emotions . Therefore, there are different opinions about
+proposed the concept of emotion vector, emotion vector                      the classification of emotion in the field of psychology.
+space and emotions Synthesis. Literature [10] constructs                    According to different classification dimensions, the
+an artificial psychology model based on self-organization,                  modern psychologists classify the emotions into different
+
+
+
+
+     Authorized licensed use limited to: Zhejiang
+    978-1-5090-4093-3/16/$31.00                   University. Downloaded on September
+                                         ©2016 IEEE                           294     25,2026 at 11:23:36 UTC from IEEE Xplore. Restrictions apply.
+categories. From the perspective of biological evolution,
+human emotions can be divided into basic emotions and
+                                                                                                       TABLE I.
+complex emotions. Basic Emotion or primary emotion is                            THE CORRESPONDING RELATION BETWEEN ‘DEGREE LEVEL’ AND
+common for human and animal, it is innate, and has a                                                 ‘MEMBERSHIP’
+specific physiological model and the corresponding                             Evaluation
+expression. Shaver and other scholars believe that there                        Factor
+                                                                                                   Degree Level             Membership Range
+are six basic emotional categories, which are love and joy                     Relevance         [weakly, medium,
+anger, surprise, angry, sadness and fear , other emotions                                                                      [0,0.33,0.67,1]
+                                                                                  δ Ar               strongly]
+can be classified according to their meaning and nature as                    Desirability       [weakly, medium,
+one of six basic emotions.                                                                                                     [0,0.33,0.67,1]
+                                                                                  δ Ad               strongly]
+                                                                               Likelihood         [weakly, medium,
+                                                                                                                               [0,0.33,0.67,1]
+                                                                                  δ Al                strongly]
+                     III. RESEARCH METHOD                                                       [strongly suppressed,
+                                                                                         δ Ac    weakly suppressed,
+                                                                               Causes                                        [0,0.25,0.5,0.75,1]
+    The affection generating process involved 2 steps.                                           weakly promoted,
+The affection generation procedure can be expressed as                                           strongly promoted]
+Figure1 shows. Firstly, cognitive appraisal, it consists of                     Stimulus
+                                                                                Intensity         [strongly-, weakly-
+the following steps: select the appropriate evaluation                                          ,strongly+, weakly+ ]
+                                                                                                                             [0,0.25,0.5,0.75,1]
+factors, establish the rules of emotional excitation                              δ As
+conditions based on fuzzy rules . The ‘affective factor’
+can be obtained by the rules. The second step is                                 •      Unexpected Fue: IF desirability is very low AND
+generating current affection status and calculating its
+intensity. The intensity is restricted by affective factor,                             stimulus intensity is very high THEN Fue is high;
+personality parameters and affection status of previous                          •      Goal Fail Fgf : IF goal is very important AND
+moment.
+                                                                                        desirability is very high AND likelihood of fail is
+A. Cognitive Appraisal                                                                  very high THEN Fgf is high;
+    Cognitive appraisal theory holds that it’s not the event                       The intensity level of each evaluation factor should
+itself, but the appraisal and interpretation of the event                    be quantified as shown in Table1. For example, if
+may trigger some kind of emotion. While, it needs                            ‘likelihood is strongly possible, it corresponds
+appraisal factors to appraise the event, so the appraisal                    to δ Al ∈ (0.67,1] . Among all factors, ‘causes’ and ‘stimulus
+factors are the key. Psychologists usually use cognitive
+appraisal factors including power, changeability, Ego                        intensity’, these two factors may be positive or negative,
+involvement and so on [14]. In this paper, we choose 5                       so we added 2 other variables δˆAs , δˆAc ∈ [−1,1] . If δˆAc ∈ [0，
+                                                                                                                                              1]
+appraisal factors as Figure 1 shows. These factors all                       , which means the IVA receives promotion, closer to 1,
+must deal with fuzzy measure. The corresponding                              meaning stronger promotion. The relationship between
+relationship of appraisal factor is shown in Table1.Take                     δ Ac and δˆAc is as fomula(1) shows:
+the factor ‘likelihood’ for example, it has four different
+degree level, little, moderate, quite and extremely.                                                   δ Ac = (δˆAc + 1) / 2 .                       (1)
+    We set up 8 affection factors: pleasant factor, sad
+factor, unexpected factor and so on. Part of the affection
+trigger rules are:                                                           B. Affection Generation
+                                                                                According to Basic Emotion Theory, the model can
+   •     Sad Fs : IF negative stimulus AND intensity is
+                                                                             simulate the following affections: love and joy anger,
+         very strong THEN Fs is high;                                        surprise, angry, sadness and fear. We defined a nonlinear
+
+
+
+
+   Figure 1 . Framework of the Affective Model, two steps : generating the affection factors F and then generating the current affection status A,
+                                                             computing its intensity
+
+
+
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September
+                                                                                 295 25,2026 at 11:23:36 UTC from IEEE Xplore. Restrictions apply.
+function to calculate affection intensity. It has several                             Comparing the curves, we can draw the conclusion as
+parameters: personality parameters, time, affection factor                        follow:
+and the affection status of previous moment. We set a
+                                                                                      As time goes by, the affective intensity will decay
+threshold θ for each affection factor; once the factor is                         gradually .If receiving a positive stimulus, intensity of
+beyond the threshold, the affection will change. Some                             pleasure increases; at the same time the growth rate of
+rules are :                                                                       sadness and anger will be attenuated. This precisely
+  Rule: If Fs > θ s , THEN Φ s = ( Fs − θ s ) / Ts .                              reflects the relationship between different emotional
+                                                                                  states.
+   Affection intensity can be calculated by formula (2):
+                                                                                      Although the intensity of pleasure increases greatly,
+                                            1              .                (2)   because of the previous period it is always sad and angry
+                    Ai (t ) =
+                                1 + exp(− ( X (t ) − α ) )                        coexisting, the intensity of pleasure decay rapidly due to
+                                                           β                      inhibition of sadness and anger, therefore, the primary
+                                                                                  affection ‘happy’ lasts for 2-3 seconds, and then the
+                       X (t − 1) + Φ +  w ji Ai (t − 1) − ε X (t) > 0 .
+                                                                           (3)
+             X (t ) =                  j                                         primary affectoin is still angry.
+                                       0                     X (t ) ≤ 0
+                      
+                                                                                      By the Experiment 1 and 2, we can draw that our
+   Ai (t ) —Affection Intensity;                                                  model can simulate the inhibition and promotion of
+                                                                                  different affections. It also can reflect that when receiving
+  η，λ —personality parameters;                                                    stimulation outside, the affective intensity will change,
+   Φ —output of the affection generation rules;                                   while in the absence of external stimulation, the affection
+   ε —attenuation coefficient;                                                    is fading, until quiet.
+   ωji —influence coefficient from affection j to
+                                                                                  C. Experiment 3
+affection i .
+                                                                                    Assume
+   Through the expert system or experimental statistics
+we can get these influence coefficients, which are always
+changing according to different personalities.
+   In some cases, maybe it can get more than one
+affection through the first step, which may causes
+coexistence of a variety of affective status at the same
+time. This phenomenon precisely is in line with the
+characteristics of human being’s emotion. Instead of
+affection filtering mechanism, we defined ‘Primary
+Affection’.
+   In addition, if the affective intensity is less than 0.01,
+we think the current affective status is ‘quiet’.
+
+                 IV. RESULTS AND ANALYSIS
+   Before the model is applied to the real system, we
+have simulated in the MATLAB.
+A. Experimet 1                                                                      Figure 2 . receiving positive stimulus when the previous moment
+                                                                                                             affection is sad.
+  Assume
+    a. Some           parameters           are θ p = 0.6 , ε = 0.015 ;
+η = 0.45， λ = 0.15 .
+       b. Previous affective status is sad, A sad (t ) = 0.4
+       c. t = 10 , IVA receives positive stimulus,
+δ As = 0.8, δ Ar = 0.76 . The change of affection is as shown in
+Figure 2.
+B. Experimet 2
+   Assume
+     a. Some         parameters           are θ p = 0.6 , ε = 0.015 ;
+η = 0.45， λ = 0.15 .
+       b. Previous affective status is sadness and anger,
+A sad (t ) = 0.4 A anger (t ) = 0.5
+       c. t = 10 , IVA receives positive stimulus,                                  Figure 3 . receiving positive stimulus when the previous moment
+δ As = 0.8, δ Ar = 0.76 . The change of affection is as shown in                                        affection is sad and anger
+Figure 3.
+
+
+
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September
+                                                                               296 25,2026 at 11:23:36 UTC from IEEE Xplore. Restrictions apply.
+     a.   Some      parameters       are θ p = 0.6 , ε = 0.015 ;                                    V. CONCLUSION
+η = 0.45， λ = 0.15 .                                                          In order to provide the realistic affections for the
+       b. Previous affective status is tiny happy,                        Intelligent Virtual Character, this paper points out an
+η = 0.1， η = 0.2，λ = 0.5                                                  affection generation model. The experiments reflect the
+       c. t = 10 , IVA receives positive stimulus,                        model can simulate the process of human emotion’s
+                                                                          migration and attenuation and can also meet the real-time
+δ As = 0.8, δ Ar = 0.76 . The change of affection is as shown in          requirements of the virtual environment.
+Figure 4.
+   From the curve, we can draw the conclusion:                                The next focus is to study and simulate how affection
+                                                                          affects the virtual character’s decision making procedure.
+    Receiving the same external stimuli, the curve of the
+changing rate is different when λ is different . Therefore,
+                                                                                                   ACKNOWLEDGMENT
+we can adjust λ to simulate different characteristics of
+the IVA. If we want to simulate the character variable,                       This work was supported in part by the Project of the
+affected by the outside world, mood swings, the λ can be                  Sci-Tech Research of Higher Education Insititutions of
+set smaller; if we want to simulate the character stable,                 Hebei Province(ZD2014074), in part by Research and
+ λ can be set larger.                                                     Practice Project supported by Teaching Reform of Higher
+                                                                          Education of Hebei Province(2015GJJG288), in part by
+      The experimental results reflect the affective model                the Project of Sci-Tech Support Program of Hebei
+is consistent with the generation mechanism of human                      Province(132777177).
+emotion. The model can also simulate the process of
+human emotion’s migration and attenuation. All these
+prove that the affective model is reasonable
+D. Application in a Virtual Scene
+    We establish a virtual scene to testify the affective
+model. In the scene, there are two virtual characters, the
+one is ‘Robot’, which represents the user; the other is
+‘Emma’, she can autonomously generate personalized
+behavior according to the stimulus and can also express
+affections through facial expressions and body
+movements. They can interact with each other. We
+designed a ‘homework’ event: Robot is responsible for
+reminding Emma to do the homework, and each time she
+reacts differently: from initial disgust, then anger, and
+finally happy because Robot is going to take her to the
+park and it express these different affections through her
+body language as Figure 5 shows.
+   Robot can produce different affective status according
+to the external stimulation, it has autonomous behavior
+ability. Of course, we also can endow it with different
+personality or different stimulations, to verify the
+affection model.
+
+
+
+
+                                                                             Figure 5 . Different body language according to different affective
+                                                                                                           status.
+   Figure 4 . When λ changes, the changing rate of emotion intensity is
+                               different
+
+
+
+
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September
+                                                                               297 25,2026 at 11:23:36 UTC from IEEE Xplore. Restrictions apply.
+                          REFERENCES                                      [8] H. Michael, G. Mashhuda, and J. Thomas, ‘Affecting HCI:
+                                                                               a new approach to affective computing through an
+[1] Z. G. Pan, H. W. Yang, and Z. Liu, ‘Overview of emotion                    emotional saliency model,’ in Proc. ACM symposium on
+    for virtual agent,’ J. Comput. Aided Design & Comput.                      Applied Perception, vol. 01, pp. 115-118, 2013.
+    Graphics, vol. 19, no. 12, pp. 1509-1517, 2007.                       [9] Z. Liu. ‘Synthesis of emotion vector and expression vector
+[2] J. C. Zhao, Z. L. Wang, and C. Wang, ‘Study on emotion                     for virtual human,’ J. Syst. Simulat., vol. 18, no. 1, pp. 404-
+    model building and virtual feeling robot,’ Comput. Eng.,                   406, 2006.
+    vol. 33, no. 1, pp. 212-215, 2007.                                    [10] N. Cheng, Y. Fan, and J. W. Liu, ‘Application of basic
+[3] D. Wu, ‘Special issue on computational intelligence and                    emotions theory in construction artificial psychology
+    affective computing,’ IEEE Comput. Intell. Mag., vol. 08,                  model,’ Comput. Eng., vol. 31, no. 22, pp.175-177, 2005.
+    no. 02, pp.17-19, 2013.                                               [11] Q. Wang and Y. X. Chen, ‘The modeling of virtual human
+[4] T. J. Mayne and G. A. Bonanno, Emotions. 1sted, New                        emotions based on HowNet,’ Tech. Automat. Appl., vol. 27,
+    York: The Guilford Press, 2001, pp. 35-68.                                 no. 05, pp. 76-79, 2008.
+[5] A. Ortony, G. L. Clore, and A. Collins, The Cognitive                 [12] X. Xu. ‘Implementation of an evolutionary control system
+    Structure of Emotions, 1sted, London: Cambridge                            based on artificial emotion,’ CAAI Trans. Intell. Syst., vol.
+    University Press, 1988, pp. 328-340.                                       03, no. 02, pp.135-139, 2008.
+[6] A. Sloman, ‘What are Emotion Theories about?’ Proc. of                [13] X. H. Wu, P. L. Wang, and L. Xu. ‘An artificial emotion
+    19th National Conference on American Association for                       model based on state-space method,’ Control & Automat.,
+    Artificial Intelligence (AAAI 2004). pp. 108-114, July 2004.               vol. 23, no. 05, pp. 243-245, 2007.
+[7] O. Magalie and P. Catherine, ‘Model of the perception of              [14] J. Gratch, ‘A domain-independent framework for modeling
+    smiling virtual character,’ in Proc. 11th Int. Conf.                       emotion,’ J. Cogn. Syst. Res., vol. 04, no. 05, pp. 269-306,
+    Autonomous Agents and Multiagent Systems, vol. 01, pp.                     2004.
+    87-94, 2013.
+
+
+
+
+     Authorized licensed use limited to: Zhejiang University. Downloaded on September
+                                                                               298 25,2026 at 11:23:36 UTC from IEEE Xplore. Restrictions apply.
+

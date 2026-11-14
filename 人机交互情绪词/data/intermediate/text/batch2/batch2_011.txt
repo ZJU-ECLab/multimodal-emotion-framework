@@ -1,0 +1,552 @@
+Journal of Ambient Intelligence and Humanized Computing (2019) 10:2175–2184
+https://doi.org/10.1007/s12652-017-0636-8
+
+    ORIGINAL RESEARCH
+
+
+
+Affective state detection via facial expression analysis
+within a human–computer interaction context
+Anas Samara1        · Leo Galway1 · Raymond Bond1 · Hui Wang1
+
+Received: 26 April 2017 / Accepted: 22 November 2017 / Published online: 4 December 2017
+© The Author(s) 2017. This article is an open access publication
+
+
+Abstract
+The advancement in technology indicates that there is an opportunity to enhance human–computer interaction by way of
+affective state recognition. Affective state recognition is typically based on passive stimuli such as watching video clips,
+which does not reflect genuine interaction. This paper presents a study on affective state recognition using active stimuli,
+i.e. facial expressions of users when they attempt computerised tasks, particularly across typical usage of computer sys-
+tems. A data collection experiment is presented for acquiring data from normal users whilst they interact with software,
+attempting to complete a set of predefined tasks. In addition, a hierarchical machine learning approach is presented for facial
+expression-based affective state recognition, which employs an Euclidean distance-based feature representation, conjointly
+with a customised encoding for users’ self-reported affective states. Consequently, the aim is to find the potential relationship
+between the facial expressions, as defined by Paul Ekman, and the self-reported emotional states specified by users using
+Russells Circumplex model, in relation to the actual feelings and affective states. The main findings of this study suggest that
+facial expressions cannot precisely reveal the actual feelings of users whilst interacting with common computerised tasks.
+Moreover, during active interaction tasks more variation occurs within the facial expressions of participants than occurs
+within passive interaction.
+
+Keywords Emotions · Human computer interaction · Facial expression
+
+
+1 Introduction                                                             by interpreting user behaviour with the mouse movements,
+                                                                           keyboard keystrokes and content viewing, or even a combi-
+In human-human interaction, one can intuitively predict the                nation of all of these different modalities (Duric et al. 2002).
+emotional state based on observations about persons facial                    This paper describes a human-computer interaction
+expressions, body behaviour, and voice intonations (Karray                 (HCI) data collection study that has been developed to col-
+et al. 2008). This ability is essential as humans often adapt              lect data from several input modalities, in order to be used
+their own behaviour based on such inferences. Correspond-                  for studying and modelling different characteristics of users
+ingly, in computer systems, various input modalities exist                 across typical HCI context, where users interact with varied
+that can be utilised to acquire information about the user.                computer applications. Subsequently, the paper investigates
+Firstly, audio and visual-based input modalities, such as eye              automatic affective state techniques using analysis of facial
+gaze tracking, facial expressions, body movement detec-                    expressions from static images, where an ensemble hier-
+tion, and speech and auditory analysis may be employed as                  archical classification approach with feature representation
+additional inputs. Secondly, physiological input modalities                based on Euclidean distance has been used alongside vari-
+using sensor-based signals, such as electroencephalogram                   ous user-based self assessment mapping schemes. In addi-
+(EEG), galvanic skin response, and electrocardiogram can                   tion, it aims to identify the affective states that users are
+also be utilised. Alternatively, extra inputs may be gained                experiencing whilst interacting with multiple graphical user
+                                                                           interface-based applications and attempting different com-
+* Anas Samara                                                              puterised tasks, in conjunction with validating related self-
+  samara‑a@ulster.ac.uk                                                    assessment and self-reporting techniques. Accordingly, the
+                                                                           work presented herein contributes to the body of literature
+1
+     School of Computing, Ulster University, Belfast BT37 0QB,             on automated facial expression recognition.
+     UK
+
+
+                                                                                                                                 1 3
+                                                                                                                          Vol.:(0123456789)
+2176                                                                                                                       A. Samara et al.
+
+
+   The sections of the paper are organised as follows. Sec-             as the work of Liew and Yairi (2015) who achieved accuracy
+tion 2 gives a brief background on the research area and                of 91.2% on CK-Plus dataset, using Support Vector Machine
+related work. Section 3 introduces and discusses available              trained on Histogram of Oriented Gradients. Furthermore,
+facial expression datasets with relevant work on data collec-           recent progress with the evolution of Deep Learning tech-
+tion. Section 4 outlines about the methodology employed                 niques has produced a high classification accuracy of 96.76%
+by the techniques used in the associated experiments car-               on the same dataset, using Convolutional Neural Networks,
+ried out, as well as the details of the data collection proto-          as shown in the work presented by Lopes et al. (2017). Con-
+col utilised during the experiments. Section 5 presents the             sequently, the work presented herein may be considered as
+experiments together with their results. Section 6 concludes            comparable in terms of facial expression classification accu-
+the paper with discussion on the results and a summary of               racy, whereas this work has been validated against multiple
+the findings.                                                           benchmark datasets.
+
+                                                                        3 Datasets
+2 Background and related work
+                                                                        In terms of facial expression data, there are plenty of avail-
+A variety of models have been developed for modelling innate            able datasets. For instance, Lucey et al. published a bench-
+human feelings; one such model is the Circumplex Model, pro-            mark dataset entitled as Extended Cohn-Kanade (CK-Plus)
+posed by Russell (1980), which asserts that the affective state         database, which comprises 593 sequences taken from 123
+of human feeling can be considered as a point in two dimen-             subjects expressing the emotional states of: angry, contempt,
+sional space, as illustrated in Fig. 1. In particular, this model       disgust, fear, happy, sadness and surprise (Lucey et al. 2010).
+is composed of valence and arousal intensity dimensions,                In a similar manner, Lundqvist et al. published the Karolinska
+whereby valence represents the intrinsic attractiveness or              Directed Emotional Faces dataset (KDEF), which consists of
+averseness of an emotion, and can be presented as a pleasant-           4900 pictures captured from 70 subjects, whereby each sub-
+unpleasant continuum (Frijda 1986), and arousal is the physi-           ject acted seven different affective states: afraid, angry, dis-
+ological and psychological state that activates the alertness,          gust, happy, neutral, sad and surprise (Lundqvist et al. 1998).
+consciousness and attention as a reaction to stimuli, and can           Furthermore, Siddiqi et al. had collected a dataset in which
+be presented as an activation-deactivation continuum (Coull             the expressions represent real life situations including emu-
+1998; Robbins 1997). Consequently, results from the experi-             lated, semi-naturalistic, and naturalistic expressions (Siddiqi
+ments carried out and presented in this paper were analysed             et al. 2017). Moreover, another multimodal dataset entitled
+by means of valence and arousal separately and conjointly.              DEAP, is a dataset for Emotion Analysis using EEG, Physi-
+Within the research literature, facial expression recognition           ological and Video Signals for 32 subjects (frontal face video
+is an active area of research despite the number of successes           was recorded for only 22), who individually watched 40 1-min
+in this domain. For instance, studies where machine learn-              music videos of different genres as a stimulus, to induce dif-
+ing techniques trained on features extracted using different            ferent affective and emotional states (Koelstra et al. 2012).
+approaches achieved a reasonable classification accuracy such           Generally, such datasets could be used for the analysis of affec-
+                                                                        tive states, along with the assessment and self-reports made
+                                                                        by the subjects themselves, such as using the Self-Assessment
+                                                                        Manikin (SAM) scales (Bradley and Lang 1994), to typify
+                                                                        the awareness of subjects’ feelings. Consequently, the work
+                                                                        presented herein investigates the relationship between facial
+                                                                        expressions, as defined by Paul Ekman, and affective states.
+                                                                        Particularly, the work focuses on self-reporting using Russell’s
+                                                                        Circumplex model that is used as a means to represent the
+                                                                        actual experienced affective state (Russell 1980).
+
+
+                                                                        4 Methodology
+
+                                                                        4.1 Feature extraction and distance‑based
+                                                                             representation
+Fig. 1  Valence (pleasant–unpleasant continuum) versus arousal (acti-
+vation-deactivation continuum), in the Circumplex Model (Russell        Geometric-based techniques for facial expression analysis
+and Lemay 2000)                                                         are based on locating the facial points and determining the
+
+13
+Affective state detection via facial expression analysis within a human–computer interaction…                                           2177
+
+                                                                             Vector Machine (SVM), specifically the C-Support Vector
+                                                                             with a linear kernel, available from the LIBSVM library
+                                                                             developed at National Taiwan University (Chang and Lin
+                                                                             2001; EL-Manzalawy 2005). Furthermore, in this study we
+                                                                             have investigated an approach that combines a set of SVM
+                                                                             classifiers in order to improve the overall performance of
+                                                                             the system. Initially, a number of labelled datasets (equal to
+                                                                             the number of labels, i.e. classes) were produced from the
+                                                                             original dataset. Accordingly, each dataset contains a pair
+                                                                             of labels: either one of the labels from the original dataset,
+                                                                             which corresponds to an emotional state, or others. After-
+                                                                             wards, each dataset generated is used to train a single binary
+Fig. 2  Configural features of facial point coordinates
+                                                                             classifier. Subsequently, a number of binary classifiers are
+                                                                             trained individually on the individual two-class datasets,
+                                                                             which comprise the first stage of the framework. The second
+location and the shape of associated facial components,                      stage of the framework then utilises a multi-class classifier
+including the eyebrows, eyes, nose, lips and mouth. The                      that provides the final result from the overall classification
+study presented in this paper used the “Chehra” tool in order                task.
+to extract the location of 49 facial points, as illustrated in                   Thus, the resulting classification framework, Hierarchical
+Fig. 2a (Asthana et al. 2014). Chehra is a publicly avail-                   Parallelised Binary Support Vector Machines (HPBSVM),
+able facial landmark detector based on discriminative facial                 operates in two stages as given in Fig. 3. During the first
+deformable models, trained using a cascade of linear regres-                 stage, binary SVM models are constructed from annotated
+sions. In addition, this tool is capable to locate the facial                data, with one model employed for each emotional state
+points automatically in real time and handle faces under                     within the dataset. Furthermore, during the second stage,
+uncontrolled natural setting. Subsequently, the detected                     a multi-class SVM model is constructed to predict the state
+landmarks are represented as the Cartesian coordinates of                    based on the combination of the decisions given from the
+the extracted facial points, which produce a 98-dimension                    binary SVM models of the first stage. The output from the
+feature vector that is used in the classification stage of the               first stage, which is a multiple components vector produced
+facial expression analysis pipeline, as mentioned in the                     by the set of binary classifiers, represents the intermediate
+experiment section.                                                          feature vector that is used to train a posteriori second stage
+   Feature representation using Cartesian coordinates                        multi-class classifier, entitled the Aggregation Classifier,
+yielded a good classification accuracy. Nevertheless, this
+approach is not robust enough to permit recognition of facial
+expressions not provided in the training data. This is due to
+the fact that the constellation of these points varies among
+the myriad of facial shapes that comprise different facial
+morphologies (Salah et al. 2010). Therefore, we investigated
+another feature representation, which is primarily based on
+finding the configural features that represent intra-facial
+component distances, as shown in Fig. 2b (Martinez 2011).
+Subsequently, resultant features are represented by finding
+the Euclidean distances among all facial landmark points.
+Consequently, the facial expression is finally represented as
+a 1176-dimension feature vector, resulting from 49 Cartesian
+coordinate combinations (Samara et al. 2016).
+
+4.2 Hierarchical parallelised binary support vector
+     machines
+
+Within the research literature, a range of classification tech-
+niques have been used in Affective Computing and emo-
+tion recognition using facial expressions as input vectors                   Fig. 3  Hierarchical parallelised binary support vector machines
+(Corneanu et al. 2016). In this study, we used a Support                     (HPBSVM) for emotion classification
+
+
+                                                                                                                                  13
+2178                                                                                                                A. Samara et al.
+
+which gives the final decision on the detected emotional           system tasks; (2) online shopping tasks; (3) Excel spread-
+state. This approach facilitates more efficient and accurate       sheet manipulation tasks, and (4) game-based tasks. Con-
+classification of the whole system. The whole system ben-          sequently, the themes of these had been chosen according
+efits from the advantages of making some features more             to a study of computer usage statistics carried out by Beau-
+discriminative for specific classes. In other words, this          visage (2009), which presented the average distribution
+framework decomposes the overall problem into smaller              of individual weekly computer usage. Notably, the study
+micro-decisions that are made by specialised classifiers,          showed that the four categories identified and selected for
+which are trained differently.                                     the study presented herein, occupy the highest percentages
+                                                                   of time spent on computer usage for both households and
+4.3 Facial expression datasets                                    individuals. Accordingly, the set of tasks represent active
+                                                                   interaction with a computer in which the participant has a
+Two different facial expression datasets have been selected        predefined task to carry out within a limited time of 5 min
+for validating the suggested techniques: CK-Plus and KDEF,         at most. Regarding the operating system task, the partici-
+as they are considered to be benchmark datasets for facial         pant was asked within to change the desktop background,
+expression analysis. These two datasets employ different           screen saver, time zone, and add a new input language to
+labels for their annotated facial expressions. For CK-Plus,        the system within the predefined time limit. For the online
+the labelling process was carried out over the peak frame          shopping task, the participant was asked to search online for
+using the Facial Action Coding System (FACS) (Ekman                a Tablet-PC with specific properties using their preferred
+et al. 2002), and only 327 sequences meet the criteria to be       Internet browser application. In terms of the spreadsheet
+labelled as a specific expression. For KDEF, the labels were       manipulation task, the participant was asked to modify an
+given according to the emotion state that the subject was          existing Excel spreadsheet to insert new data into the exist-
+asked to attitudinise. In the experiments described later, our     ing records, sort the data in ascending order, use an aggre-
+interest is to look at the facial expressions that may entail      gation function (i.e. average), and draw a line graph of the
+different affective states. Therefore, we have used another        data. For the game-based task, the participant was asked to
+variation of CK-Plus by using neutral state snapshots.             play a version of the arcade game Pacman (namely Deluxe
+Therefore, three datasets have been utilised with the classi-      Pacman 2— Release v16) for a total of 3 min.
+fiers: CK-7, in which the sequences were divided into seven
+groups: angry (45), contempt (18), disgust (59), fear (25),        4.4.2 Procedure
+happy(69), sadness (28) and surprise (83); CK-8, which
+expands upon CK-7 by incorporating 112 additional images           Firstly, each participant was given an information sheet
+annotated as neutral; KDEF, in which we selected the frontal       describing the flow of the experiment, and then he/she was
+view of the snapshots, thereby producing an equal number           asked to sign a consent form that his/her participation in the
+of the seven states: afraid, angry, disgust, happy, neutral,       study is completely voluntary. At this stage, the participant
+sad and surprise.                                                  commenced the first task within the designated time. On
+                                                                   task completion, the participant was asked to complete SAM
+4.4 Data collection study                                         scales (Bradley and Lang 1994) to self-report the levels of
+                                                                   valence and arousal during that task. During the experiment,
+The aim of the data collection study is to collect features        the video of participant’s face was recorded using a typical
+from different input modalities, which is used to reason           webcam placed at the top of the screen.
+about users’ affective states whilst interacting with com-
+mon computer software and attempting to complete typical           4.5 Approach and analysis design
+computer-based tasks. A total of 42 participants took part in
+the study. Participants were either staff or a student at Ulster   This work aims to develop a validated technique for auto-
+University. There was no specific inclusion or exclusion cri-      matic classification of emotions from facial expressions
+terion other than being a current student or staff member of       by analysing video frames that were acquired whilst users
+the university, as the study is interested in identifying affec-   attempted and interacted with each of the computer based
+tive states in a generic HCI context, hence participants expe-     tasks. Hence, the main objective of the classification is to
+riences could vary from novice to expert computer users.           model the affective states of users within a HCI context,
+                                                                   and the association between the self-reporting and the facial
+4.4.1 Material                                                    expression. Subsequently, we categorised the tasks into two
+                                                                   groups as active and passive interactions. Firstly, active
+The material for the tasks used throughout the study can           interaction, which represents the situations where the user
+be classified into four main categories: (1) basic operating       is working and undertaking an effort to carry out the task.
+
+
+13
+Affective state detection via facial expression analysis within a human–computer interaction…                                             2179
+
+These situations include: general operating systems tasks
+(tagged as OS), online shopping tasks (tagged as Online),
+and spreadsheet tasks (tagged as Excel), and entertainment
+task playing Pacman (tagged as Pacman). Secondly, passive
+interaction that represents situations where the user does not
+exert effort, which refers to the recordings contained within
+the DEAP dataset (Koelstra et al. 2012), where the sub-
+jects passively watched videos on Youtube without explicit
+interaction.
+   Moreover, as previously described, each participant car-
+ried out a self-reported assessment after performing each
+task using the SAM scale; this is the case in both the dataset
+obtained from the study and the DEAP dataset. Thus, each
+recorded video from each task is associated with a valence
+and arousal scores. Consequently, the relationship between
+facial expression percentages and the self-reported valence                  Fig. 4  Mapping from SAM scale value ranges into three labels
+and arousal scores given by the participants for each task                   [scores from (1.0–3.0) mapped to low, (4.0–6.0) mapped to medium,
+was further investigated. However, during analysis, rather                   and (7.0–9.0) mapped to high]
+than using the actual SAM ranges, i.e. (1.0–9.0), a mapping
+of the reported values into three ranges (low, medium and
+high) was used. Correspondingly, classification performance
+improves during supervised learning when the number of
+target classes is reduced (Aha 1992), especially when the
+combined classes have common properties and similarity,
+as is the case with our dataset. Therefore, a transformation
+was applied to the rounded values, as illustrated in Fig. 4,
+whereby values within the range (1.0–3.0) are labelled
+as low, values within the range (4.0–6.0) are labelled as
+medium, and values within the range (7.0–9.0) are labelled
+                                                                             Fig. 5  Representation of Circumplex Model quadrants using combi-
+as high. In addition to this mapping, the labels correspond-                 nations of Valence and Arousal score mappings, which utilises only
+ing to the self-reported values of valence and arousal have                  the mappings corresponding to the High and Low labels
+been used to represent the four quadrants of the Circumplex
+Model, as illustrated in Fig. 5, during the analysis carried
+out in this study.                                                           show the lower and upper limits along with the statistical
+                                                                             significance of the results obtained.
+
+5 Results                                                                   5.1 Expression datasets classification
+
+This section will summarise the experiment results achieved                  We have validated the performance of HPBSVM against
+throughout the current study. Firstly, classification experi-                the normal, single classifier scheme (i.e. SVM), using both
+ments applied on existing facial expression datasets. Sec-                   the distance-based feature descriptor and a feature vector
+ondly, percentages of facial expression that automatically                   comprising Cartesian point coordinates. Basically, distance-
+applied on the video frames from the dataset obtained from                   based feature descriptor and HPBSVM outperforms point
+the current work, which are recordings of subjects interact-                 coordinates with SVM. Yet the improvement caused by the
+ing with typical software interfaces. Thirdly, percentages                   HPBSVM is substantial, with comparison to the improve-
+of facial expressions across self-reporting ratings given by                 ment resulting from using distance-based descriptor. In
+subjects, that are presumed to represent their actual feeling                brief, as given in Table 1, HPBSVM with distance-based
+during each task, as well as, facial expression percentages                  descriptor achieves the higher accuracy rates across all three
+according to combined ratings that are mapped to the Cir-                    datasets. Consequently, this technique assures a credible
+cumplex model quadrants. Experiments carried out herein                      result to be used with other data such as the one collected
+used tenfold cross validation. In addition, a 95% confidence                 in our study and DEAP dataset. Therefore, we adopted this
+interval of classification results has been used in order to                 scheme in the experiments of next section.
+
+
+
+                                                                                                                                   13
+2180                                                                                                                        A. Samara et al.
+
+
+5.2 Expression classification during human–                            labels angry, contempt, disgust, fear and sadness from the
+     computer interaction                                               CK-8 dataset used in our analysis can be combined together
+                                                                        to represent the negative state. Likewise, the labels afraid,
+HPBSVM with distance-based feature was used to train two                angry, disgust and sad from the KDEF dataset can be com-
+models using the validated datasets CK-8 and KDEF, so that              bined together to represent the negative state. Additionally,
+each resulting model can automatically classify the video               from the Circumplex Model it may be observed that there
+frames of the recordings obtained during the computer-based             is a common aspect among these expressions, in that such
+tasks at a frequency of one frame per second. Figure 6 shows            negative labels occur on the negative side of the pleasant-
+the percentages of facial expressions using the earlier men-            unpleasant continuum, e.g. the valence axis, as previously
+tioned trained models, which is achieved by automatically               shown in Fig. 1. Therefore, the negative states grouping
+classifying the video frames of the user recording while                (to be within the negative state) applied to CK-8 results as
+carrying out the Online task. Figure 6a presents the expres-            well as KDEF results. After that, the resultant percentages
+sion percentages using a classification model that is trained           obtained by averaging the output of the two trained models.
+on CK-8 dataset. Similarly, Fig. 6b presents the expression             Accordingly, the results depicted in Fig. 7, show percentages
+percentages using a trained classifier using KDEF dataset.              of each expression obtained from the videos recorded dur-
+   As depicted in Fig. 6, different percentages of each                 ing each task using the average percentages across both the
+expression have been found for both models. However,                    CK-8 and KDEF trained models.
+one can view these percentages differently by consider-                    From Fig. 7, it can be observed that neutral and negative
+ing the fact that some expressions are much more precisely              expressions occupy the highest percentages across the dif-
+recognised than others. Generally, detecting states such as             ferent tasks, with a greater number of negative expressions
+happy and surprise is comparably superior than detecting                being shown during the tasks involving active interaction by
+other states such as contempt, neutral, fear, angry, sad-               participants. By contrast, in the passive interaction Youtube
+ness and disgust, which is possibly due to the similarity               task, a greater level of neutral expression can be observed.
+in the geometric shape of these expressions (Samara et al.              Moreover, although a small percentage of happy expression
+2016). Moreover, the work presented in (Joho et al. 2009)               may be observed in all tasks, within the Youtube task, the
+underlined this type of grouping, by devising the pronounce             lowest percentage of happy expression is found. Therefore,
+level of the associated expressions, where these expressions            it may potentially be surmised that, during active interaction
+belong to a low pronounced level. Therefore, the expression             tasks more variation occurs within the facial expressions of
+
+Table 1  Classification accuracy     Dataset       Point-coordinates and   Distance-based and   Point-coordinates and    Distance-based
+of different datasets using point-                 SVM (%)                 SVM (%)              HPBSVM (%)               and HPBSVM
+coordinates/distance-based with                                                                                          (%)
+SVM/HPBSVM classification
+models                               CK-7           80.75 ± 4.28           82.86 ± 4.09         96.02 ± 2.24             96.94 ± 2.01
+                                     CK-8           76.76 ± 3.95           78.36 ± 3.85         95.22 ± 2.06             95.67 ± 1.98
+                                     KDEF           78.47 ± 2.57           81.84 ± 2.42         85.71 ± 2.20             96.22 ± 1.22
+
+                                     Distance-based feature with HPBSVM outperforms point-coordinates with SVM with statistically signifi-
+                                     cant improvement (P < 0.001)
+
+
+
+Fig. 6  Percentages of expres-
+sions on CK-8 and KDEF
+trained models applied on
+recordings of Online task con-
+text respectively
+
+
+
+
+13
+Affective state detection via facial expression analysis within a human–computer interaction…                                              2181
+
+                                                                             it is apparent that the lowest percentage of frames, across all
+                                                                             tasks, show the happy expression. However, somewhat sur-
+                                                                             prisingly, tasks where participants self-reported high valence
+                                                                             values correspond to the facial expression percentages where
+                                                                             the happy expression is lowest too.
+
+
+                                                                             6 Discussion and conclusion
+
+                                                                             By merging low pronounced facial expressions such as con-
+                                                                             tempt, neutral, fear, angry, sadness and disgust as a single
+                                                                             facial expression label, negative, makes the analysis of the
+Fig. 7  Percentages of facial expressions across tasks by averaging          relationships between the facial expressions and affective
+outputs of two trained models on CK-8 and KDEF datasets                      states of users performing computer-based tasks much more
+                                                                             persuasive. Especially, distinguishing between these facial
+                                                                             expressions automatically is a non-robust job (Joho et al.
+participants, than occurs within passive interaction tasks.                  2009). We have explored a number of different analysis
+However, such expressions might not reflect the actual feel-                 approaches in pursuit of understanding the potential rela-
+ings of the participants, as will be exposed later in this paper.            tionships between self-reported affect and the corresponding
+                                                                             recorded facial expressions over a number of tasks. Firstly, it
+5.3 Expressions versus reported valence                                     was anticipated that there is a difference in the facial expres-
+     and arousal                                                             sion percentages between passive and active interaction con-
+                                                                             texts, due to the significant difference between the nature of
+We also compared the facial expression percentages with                      the contexts.
+the ratings that were self-reported by subjects themselves for                  Although a general inference is that both active and
+both valence and arousal. Table 2 gives the facial expres-                   passive contexts are similar with regard to the relation-
+sion percentages obtained from averaging the results of the                  ships between the self-reported measures and the observed
+two trained models, across all the tasks (both active and                    facial expressions, one difference found was that the facial
+passive), using the aforementioned mapping for the self-                     expression alternation that occurs within an active con-
+reported scores of valence and arousal respectively. In the                  text is marginally increased over that found within a pas-
+same manner, combination of these scores as depicted in                      sive context where an expression mostly remains as it is. In
+Fig. 5, has been aggregated versus facial expression percent-                addition, there is a weak correlation, and inconsistency in
+ages as given in Table 3. From the results given in the tables,              some cases, between the individual and combined reported
+
+
+Table 2  Facial expression            Stimuli       Score       Happy (%)           Surprise (%)        Neutral (%)         Negative (%)
+percentages obtained based on
+classification of video frames                                  Val       Aro       Val         Aro     Val       Aro       Val       Aro
+using the average of the two
+trained models versus self-           OS            Low         2.64      8.31      28.33       14.54   11.65     39.99     57.38     37.17
+reported values of Valence (Val)                    Med         3.72      2.53      20.07       15.65   33.84     32.56     42.38     49.26
+and Arousal (Aro)                                   High        3.38      3.76      18.12       31.91   17.27     17.23     61.23     47.1
+                                      Online        Low         4.58      2.96      23.83       17.39   13.71     27.19     57.88     52.47
+                                                    Med         4.08      4.51      21.91       23.7    25.83     25.93     48.18     45.85
+                                                    High        2.53      3.08      32.94       26.85   27.62     20.42     36.91     49.65
+                                      Excel         Low         0.81      3.02      27.69       25.75   26.49     34.44     45.01     36.79
+                                                    Med         4.72      5.1       19.19       17.55   27.38     28.87     48.71     48.49
+                                                    High        2.08      1.03      26.31       28.82   26.82     21.86     44.79     48.29
+                                      Pacman        Low         2.75      4.67      18.44       32.45   23.82     31.25     54.99     31.63
+                                                    Med         1.59      3.63      28.17       15.22   26.3      30.66     43.94     50.49
+                                                    High        5.1       3.83      25.82       28.3    25.28     22.24     43.8      45.63
+                                      Youtube       Low         0.5       0.97      16.84       15.05   47.62     54.83     35.03     29.15
+                                                    Med         0.65      1.04      13.08       12.99   53.35     50.38     32.92     35.59
+                                                    High        1.91      1.12      15.38       17.61   47.2      45.28     35.51     35.99
+
+
+
+                                                                                                                                    13
+2182                                                                                                              A. Samara et al.
+
+Table 3  Facial expression        Stimuli     Valence/arousal    Happy (%)       Surprise (%)      Neutral (%)      Negative (%)
+percentages versus combination
+of subject self-reported values   OS          Low/low            0               0                 0               0
+of Valence and Arousal together
+                                              Low/high           0.13            41.59             3.25            55.03
+                                              High/low           0               0                 0               0
+                                              High/high          2.43            20.56             27.25           49.76
+                                  Online      Low/Low            0               0                 0               0
+                                              Low/high           6.84            18.9              10.04           64.22
+                                              High/low           6.67            30                31.4            31.93
+                                              High/high          1.28            30.36             25.84           42.51
+                                  Excel       Low/Low            1.95            15.61             51.46           30.98
+                                              Low/High           0.81            26.74             25.58           46.86
+                                              High/Low           6.65            18.97             42.36           32.02
+                                              High/High          1.59            32.34             21.55           44.52
+                                  Pacman      Low/Low            2.45            46.57             12.25           38.73
+                                              Low/High           2.7             13.41             24.3            59.58
+                                              High/Low           6.49            32.15             39.23           22.12
+                                              High/High          4.66            30.15             22.39           42.79
+                                  Youtube     Low/Low            0.61            16.5              56.9            26
+                                              Low/High           0.77            18.2              40.48           40.55
+                                              High/Low           1.47            13.68             52.02           32.83
+                                              High/High          1.48            18.65             46.21           33.67
+
+
+
+values of valence and arousal with facial expression found       very good recognition accuracy rates for certain states
+in the recordings. Subsequently, this potentially supports the   such as stress, which can be reflected through physiologi-
+hypothesis that facial expressions do not reflect the actual     cal responses such as heart rate and blood pulse volume,
+feelings of users within a HCI context. On the other hand,       though they could be obtrusive and too noisy to be employed
+it may potentially indicate the fact that when participants      for generic HCI purposes. Additionally, some of the tech-
+attempted to assess and self-report their actual feelings,       nologies may produce an extra effect on the users and cause
+they were unable to accurately distinguish and report on dif-    additional feelings for humans, rather than detecting actual
+ferent emotions and feelings. This point of view certainly       feelings they are attempting to measure (Hernandez et al.
+agrees with the argument given in Rosalind (2003) that           2014). Therefore, HCI approaches and designs begin, espe-
+humans often do not know how to articulate their actual          cially within the last decade, to shift the focus from the
+feelings and affective states due to ambiguity and mixed         behaviours and procedures of user experience, towards psy-
+mental activities. In addition to the significant differences    chology and sociology concepts, which take into account
+in valence and arousal values that were reported for the vari-   human factors, emotions, cognitive aspects and individuals
+ous tasks, simultaneously the same facial expressions were       behaviours (Harper et al. 2008).
+still portrayed.                                                    The work presented in this paper comprises deploying
+    Moreover, the results presented reveal that the accu-        an approach for user modelling and affective state detection
+racy of automatically detecting affective states using facial    via facial expression analysis within HCI context. Employ-
+expression analysis, particularly within a HCI context, is       ing a hierarchical ensemble model, the classification deci-
+not comparable to the accuracy achieved by facial expres-        sion is decomposed into smaller micro-decisions that are
+sion analysis when acted and performed deliberately as com-      individually made by specialised binary classifiers, thereby
+monly found in most work within the Affective Computing          facilitating higher accuracy of the overall model. In addition,
+literature. Consequently, this could be due to the nature of     a data collection study, along with its corresponding find-
+the relationship between humans and computers. Ultimately,       ings from data analysis were discussed. The same analysis
+humans do not (currently) exchange emotions and feelings         approach was also applied to data from another published
+with machines in the same manner as they do when interact-       dataset, namely DEAP dataset. Subsequently, from analys-
+ing with each other.                                             ing video frames collected within different applications,
+    For these reasons, researchers look to other technolo-       it is concluded that facial expressions cannot precisely
+gies for the purpose of detecting human emotions and states      reveal the actual feelings of users. Experiments presented
+(Jaimes and Sebe 2007). Some of these technologies have          in this paper examined automatic affect recognition during
+
+
+13
+Affective state detection via facial expression analysis within a human–computer interaction…                                                  2183
+
+common computer usage with results suggesting that facial                         expression recognition: history, trends, and affect-related appli-
+expressions doubtfully indicate the actual feelings of users                      cations. IEEE Trans Pattern Anal Mach Intell 38(8):1548–1568
+                                                                             Coull JT (1998) Neural correlates of attention and arousal: insights
+during interactions with computers. Consequently, work is                         from electrophysiology, functional neuroimaging and psychop-
+needed to determine much more appropriate and effective                           harmacology. Prog Neurobiol 55(4):343–361
+techniques that reason upon users’ experiences during inter-                 Duric Z, Gray WD, Heishman R, Li F, Rosenfeld A, Schoelles MJ,
+action with computers in order to facilitate the generation of                    Schunn C, Wechsler H (2002) Integrating perceptual and cognitive
+                                                                                  modeling for adaptive and intelligent human-computer interaction.
+intelligent and adaptive systems. While the work presented                        Proc IEEE 90(7):1272–1289
+within this paper investigates facial expression variation                   Ekman P, Friesen WV, Hager JC (2002) Facial action coding system.
+across different user interaction tasks, future work could                        Manual and investigator’s guide. Research Nexus, Salt Lake City
+undertake more in-depth experimentation and analysis of                      El-Manzalawy Y, Honavar V (2005) WLSVM: integrating libsvm into
+                                                                                  WEKA environment. Software available at http://www.cs.iastate.
+related cognitive load.                                                           edu/~yasser/wlsvm
+   Although a lot of attention is paid towards deploying                     Frijda NH (1986) The emotions, 1st edn. Cambridge University Press,
+facial expression analysis in Affective Computing, the chal-                      Cambridge. ISBN-10: 0521316006, ISBN-13: 978-0521316002
+lenges encountered in these endeavours may not only be                       Harper R, Rodden T, Rogers Y, Sellen A (2008) Being human: Human-
+                                                                                  computer interaction in the year 2020. Microsoft Research,
+in terms of technical issues. On the contrary, one potential                      Cambridge
+and significant challenge that may need to be addressed,                     Hernandez J, Paredes P, Roseway A, Czerwinski M (2014) Under
+for example, might be in humans’ perception of comput-                            pressure: sensing stress of computer users. In: Proceedings of
+ers; the perception that the computer is a machine that is a                      the SIGCHI conference on human factors in computing systems.
+                                                                                  ACM, pp 51–60
+task oriented tool, which is inexpert to reason upon human                   Jaimes A, Sebe N (2007) Multimodal human–computer interaction: a
+feelings with the same intellect as that of another human.                        survey. Comput Vis Image Underst 108:116–134
+Thereupon, work is progressing in different directions within                Joho H, Jose JM, Valenti R, Sebe N (2009) Exploiting facial expres-
+various disciplines to reinforce the link between the human                       sions for affective video summarisation. In: CIVR ’09, p 1
+                                                                             Karray F, Alemzadeh M, Saleh JA, Arab MN (2008) Human-computer
+and the computer.                                                                 interaction: overview on state of the art. Int J Smart Sens Intell
+                                                                                  Syst 1(1):137–159
+Acknowledgements The authors gratefully acknowledge the Vice                 Koelstra S, Muhl C, Soleymani M, Lee J-S, Yazdani A, Ebrahimi T,
+Chancellor’s Research Scholarships of Ulster University for the gener-            Pun T, Nijholt A, Patras I (2012) Deap: a database for emotion
+ous financial support of the research project. As well as, we would like          analysis; using physiological signals. IEEE Trans Affect Comput
+to thank The Health Informatics Society of Ireland for HISI Research              3(1):18–31
+Bursary Award given to support the current research. Additionally, we        Liew CF, Yairi T (2015) Facial expression recognition and analysis: a
+thank all the participants who accepted to take part in this study, their         comparison study of feature descriptors. IPSJ Trans Comput Vis
+contribution is appreciated.                                                      Appl 7:104–120
+                                                                             Lopes AT, de Aguiar E, De Souza AF, Oliveira-Santos T (2017) Facial
+Open Access This article is distributed under the terms of the Creative           expression recognition with Convolutional Neural Networks: cop-
+Commons Attribution 4.0 International License (http://creativecom-                ing with few data and the training sample order. Pattern Recogn
+mons.org/licenses/by/4.0/), which permits unrestricted use, distribu-             61:610–628
+tion, and reproduction in any medium, provided you give appropriate          Lucey P, Cohn JF, Kanade T, Saragih J, Ambadar Z, Matthews I (2010)
+credit to the original author(s) and the source, provide a link to the            The extended Cohn-Kanade dataset (CK+): a complete dataset for
+Creative Commons license, and indicate if changes were made.                      action unit and emotion-specified expression. In: IEEE computer
+                                                                                  society conference on computer vision and pattern recognition
+                                                                                  workshops (CVPRW). IEEE, pp 94–101
+                                                                             Lundqvist D, Flykt A, Öhman A (1998) The Karolinska directed emo-
+References                                                                        tional faces (KDEF). CD ROM from Department of Clinical Neu-
+                                                                                  roscience, Psychology Section, Karolinska Institutet
+Aha DW (1992) Generalizing from case studies: a case study. In: Pro-         Martinez AM (2011) Deciphering the face. In: IEEE computer society
+    ceedings of the 9th international conference on machine learning,             conference on computer vision and pattern recognition workshops
+    pp 1–10                                                                  Picard RW (2003) Affective computing: challenges. Int J Hum Comput
+Asthana A, Zafeiriou S, Cheng S, Pantic M (2014) Incremental face                 Stud 59(1):55–64
+    alignment in the wild. In: Proceedings of the IEEE conference on         Robbins TW (1997) Arousal systems and attentional processes. Biol
+    computer vision and pattern recognition, pp 1859–1866                         Psychol 45:57–71
+Beauvisage T (2009) Computer usage in daily life. In: Proceedings of         Russell J, Lemay G (2000) Emotion concepts. In: Lewis MH-J (ed)
+    the SIGCHI conference on human factors in computing systems.                  Handbook of emotion. Guilford Press, New York
+    ACM, pp 575–584                                                          Russell JA (1980) A circumplex model of affect. J Personal Social
+Bradley MM, Lang PJ (1994) Measuring emotion: the self-assessment                 Psychol 39(6):1161–1178
+    manikin and the semantic differential. J Behav Ther Exp Psychia-         Salah AA, Sebe N, Gevers T (2010) Communication and automatic
+    try 25(1):49–59                                                               interpretation of affect from facial expressions. Affect Comput
+Chang C-C, Lin C-J (2001) LIBSVM—a library for support vector                     Interact Psychol Cogn Neurosci Perspect 8:157–183
+    machines. https://www.csie.ntu.edu.tw/~cjlin/libsvm/. Accessed           Samara A, Galway L, Bond R, Wang H (2016) Sensing affective states
+    Mar 2015                                                                      using facial expression analysis. In: Ubiquitous computing and
+Corneanu CA, Simon MO, Cohn JF, Guerrero SE (2016) Survey                         ambient intelligence: 10th international conference, UCAmI
+    on RGB, 3D, thermal, and multimodal approaches for facial                     2016, San Bartolomé de Tirajana, Gran Canaria, Spain, November
+
+
+                                                                                                                                       13
+2184                                                                                                                       A. Samara et al.
+
+     29–December 2, 2016, Proceedings, Part I 10. Springer, pp         state-of-the-art in facial expression recognition using a novel You-
+     341–352                                                           Tube-based datasets. Multim Tools Appl. https://doi.org/10.1007/
+Siddiqi MH, Ali M, Abdelrahman Eldib ME, Khan A, Banos O, Khan         s11042-016-4321-2
+     A, Lee S, Choo H (2017) Evaluating real-life performance of the
+
+
+
+
+13
+

@@ -1,0 +1,1324 @@
+Neural Comput & Applic (2015) 26:1277–1296
+DOI 10.1007/s00521-014-1790-y
+
+ ORIGINAL ARTICLE
+
+
+
+Hybrid affective computing—keyboard, mouse and touch screen:
+from review to experiment
+Kaveh Bakhtiyari • Mona Taghavi •
+Hafizah Husain
+
+
+
+
+Received: 9 April 2014 / Accepted: 8 December 2014 / Published online: 27 December 2014
+ The Natural Computing Applications Forum 2014
+
+
+Abstract Emotions play an important role in human                    the currently existing methods. It is a significant contri-
+interactions. They can be integrated into the computer               bution to show new directions of future research in emotion
+system to make human–computer interaction (HCI) more                 recognition, user modeling and emotional intelligence.
+effective. Affective computing is an innovative computa-
+tional modeling and detecting user’s emotions to optimize            Keywords Affective computing  Human emotion
+system responses in HCI. However, there is a trade-off               recognition  Keyboard keystroke dynamics  Mouse touch
+between recognition accuracy and real-time performance in            pad movement  Touch screen monitor  Human–computer
+some of the methods such as processing the facial                    interaction (HCI)
+expressions, human voice and body gestures. Other meth-
+ods lack efficiency and usability in real-world applications
+such as natural language processing and electroencepha-
+lography signals. To accomplish a reliable, usable and               1 Introduction
+high-performance system, this paper proposes an intelli-
+gent hybrid approach to recognize users’ emotions by using           Human interaction is an important role in human commu-
+easily accessible and low computational cost input devices           nication. It builds trust and exchanges beliefs. These
+including keyboard, mouse (touch pad: single touch) and              interactions can be categorized as a verbal or nonverbal
+touch screen display (single touch). Using the proposed              communication. Human emotion is a type of nonverbal
+approach, the system is developed and trained in a super-            message, which plays an important and effective role in
+vised mode by artificial neural network and support vector           communications. People understand each other’s emotions
+machine (SVM) techniques. The result shows an increase               in their interactions, and it leads to a better and more
+in accuracy of 6 % (93.20 %) by SVM in comparison with               reliable communication.
+                                                                        Nowadays, people spend a lot of time with digital
+                                                                     gadgets such as personal computers, PDAs, tablets and
+K. Bakhtiyari (&)
+                                                                     smart phones. Intelligent systems are moving forward by
+Interactive Systems, Department of Computer and Cognitive            providing means of communication among their users by
+Science, Faculty of Engineering, University of Duisburg-Essen,       employing various methods and technologies. They try to
+47048 Duisburg, North Rhine-Westphalia, Germany                      understand their users’ needs, therefore, to personalize
+e-mail: academic@bakhtiyari.com
+                                                                     their interface. Recognition of human emotions is a step
+K. Bakhtiyari  M. Taghavi  H. Husain                               into the future of artificial intelligence to have computers
+Department of Electrical, Electronics and Systems Engineering,       behaving more similar to human.
+Faculty of Engineering and Built Environment, Universiti                Human emotion recognition systems fall into various
+Kebangsaan Malaysia, UKM (The National University of
+Malaysia), 43600 Bangi, Selangor Darul Ehsan, Malaysia
+                                                                     different categories from gaming to business applications.
+e-mail: mona@siswa.ukm.edu.my                                        Emotional intelligent systems can respond to the users
+H. Husain
+                                                                     according to their emotions and build a connection between
+e-mail: hafizah@eng.ukm.my                                           computer and users more naturally [1].
+
+
+                                                                                                                       123
+1278                                                                              Neural Comput & Applic (2015) 26:1277–1296
+
+
+   Users often talk about their computers, and they             1.1 What is emotion?
+describe the interface as the system underlying it, which is
+almost consistent among the majority of users [2]. In order     Figure 1 illustrates the states of emotions and their per-
+to make people-friendly technologies, interfaces are mod-       sistency in time. Emotions that last only few seconds are
+eled based on the people who interact with it. In the           Expressions; recognizing the expressions is not useful, and
+development of application interfaces, it is necessary to       they are very complicated because of their short life span.
+incorporate all aspects of human behavior, including cul-       The second state is very similar to expressions, but it may
+tural and social competence and awareness in the design         also last alongside with expressions. This type is called
+considerations [3].                                             Autonomic Changes. It takes a few seconds; then, a little
+   Generally, a transmitted message consists of two major       later, it does not exist anymore. The third state of the
+channels, which are sending explicit and implicit messages.     emotions that last from seconds to minutes is Attitude.
+Explicit messages are about the message owner features.         Attitudes recognition by the system or human might be
+Implicit messages can be about anything, and not even           useful. The fourth state is Self-Reported (full blown)
+special. Implicit messages are not very well known, which       emotions, which may last from minutes to hours. Most
+require a lot of efforts to comprehend. The emotions of the     researchers working in affective computing are concen-
+speaker are included in the second type of channel in           trating on this state of emotion. This emotional state is
+implicit messages [4]. Emotions are discussed by three          guaranteed to be fixed for a time to be processed and
+parameters. The first parameter is Arousal, which shows         recognized. Therefore, the user’s computer system has
+the energy of feeling. In the literature, they are classified   enough time to respond properly to these emotions. The
+with different names as emotions. Happiness, sadness, joy,      next type of the emotional state is Mood. Mood is a kind of
+etc. are examples of arousals. The second parameter is          emotion between hours and months. The sixth state is
+Valence. Valence presents whether the feeling is pleasure       Emotional Disorders, which lasts from weeks to years.
+(positive) or displeasure (negative) in case of the energy.     Finally, the seventh is Traits, which may last for a lifetime,
+And the third parameter is Dominance. Dominance shows           and it can be considered as a part of human characteristics.
+the strength of the emotion, and it explains how strong an      Moods and emotional disorders can be recognized by fur-
+emotion is. Most of the current emotional-aware systems         ther processing of the Self-Reported emotions [4].
+consist of only arousal and valence parameters. Integration        Some mental states are placed in the different emotional
+of dominance is useful if and only if a high accurate rec-      states above. They may exist as expressions or even as
+ognition of arousal is achieved.                                traits. For example, happiness can be considered as a Self-
+   Affective computing is a new research area, which            Reported (full blown) emotion, mood or even a trait [6].
+studies the recognition, interpretation, process and simu-
+lation of human affects [5]. Due to the novelty of this         1.2 Classification of emotions
+area, it suffers from serious challenges such as: (1) per-
+forming in real time, (2) reliable recognition accuracy and     In psychological studies, emotions are classified in various
+(3) applicable on most of available computers. This paper       groups. Some researchers classified the emotions based on
+presents an accessible, achievable and implementable            their own requirements on the research. In Sanskrit, a
+hybrid method for a large group of available computer           group of nine emotions is selected as the Basic Emotions as
+systems. This methodology recognizes human emotions             below [7]:
+by using common input devices such as keyboard, mouse
+                                                                •   Sexual passion, love, delight
+(touch pad) and touch screen displays. These devices are
+                                                                •   Amusement, laughter, humor, mirth
+available on most of currently available personal
+                                                                •   Sorrow
+computers.
+
+Fig. 1 States of emotion
+categories based on the time
+
+
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                           1279
+
+
+•   Anger                                                     2 Affective computing methods and technologies
+•   Fear, terror
+•   Perseverance, energy, dynamic energy, heroism             Affective computing has been a challenging and attractive
+•   Disgust, disillusion                                      research area for a long time. Researchers have tried var-
+•   Amusement, wonder, astonishment, amazement                ious methods and techniques to achieve their goals of
+•   Serenity, calm                                            recognizing the proper emotion of the computer users.
+                                                              Some of the major methods and technologies, which
+   Another classification of emotions is done by Plutchik,
+                                                              recently were used, are listed below:
+which is known as Plutchik’s emotion wheel [4]. In this
+classification, eight emotions are described in a circular    •   Facial expression recognition
+way that each emotion is close by properties of the next      •   Body gesture recognition
+emotion by an angle. These emotions are illustrated in        •   Natural language processing (NLP)
+Fig. 2.                                                       •   Voice recognition
+   Plutchik emotions list is the most common used classi-     •   Electroencephalography (EEG) signal processing
+fication in affective computing. Cowie et al. presented a     •   Physical human–computer interaction:
+table of emotional words from Whissell and Plutchik to
+                                                                  •   Keyboard
+represent each emotion in three dimensions of Activation,
+                                                                  •   Mouse (touch pad)
+Evaluation and Angle [2]. Different emotions are classified
+                                                                  •   Touch screen monitor (single touch)
+in various rates, and the resulted value would be matched
+to the rates to detect the proper emotion related to the         Facial expression and body gesture recognition are
+context. Angle is called emotional orientation. For exam-     mostly based on the image processing techniques. They
+ple, the value for Acceptance is considered 0, Disgust is     work by capturing the facial image of the user and pro-
+180, Apathetic is 90 and Curious is 270. The other emo-       cessing the video of the body movements to recognize the
+tions between these emotions on Plutchik emotion wheel        emotion. These two methods are the most common meth-
+have a range between them. This measurement is based on       odologies in affective computing. NLP and voice recog-
+a circular degree from 0 to 359. Activation is another        nition work on the language patterns. They process the
+important feature, which shows the possible emotion states.   pattern of the user’s talks by analyzing the words, defini-
+Activation value has been determined by Whissell. There       tions and intonations. Electroencephalography (EEG) sig-
+are some differences in Plutchik and Whissell methods of      nal processing is the most recent method. This device was
+representing the emotions. For instance, Fear and Anger       previously used in medical experiments. The other method
+are two opposite emotions in Plutchik’s wheel, but they are   is through normal input devices like the keyboard, mouse
+close in Whissell’s method. Most research has used            (touch pad) and touch screen, which are ubiquitous.
+Whissell activation for their computations [2].
+   Emotions are universal expressions. In a comparative
+                                                              2.1 Facial expressions recognition
+cultural study, people were asked to identify which emo-
+tion could be seen in standardized photographs of faces? It
+                                                              Facial expressions are the reflex of different emotions on
+was shown that people all over the world can accurately
+                                                              the human face; actually, it is the change of muscles
+assign these aforementioned emotions using the facial
+                                                              position in the face, eyes or skin to show an emotion [9].
+expression; thus, the question could be answered by uni-
+                                                              There are basically six emotions and about 17 sub-emo-
+versal emotions [8].
+                                                              tions, which can be classified in facial expressions [10].
+                                                              Those six emotions are Joy, Surprise, Fear, Anger, Disgust
+                                                              and Sadness, and the 17 sub-emotions are listed as Anger,
+                      Joy                 Acceptance
+                                                              Concentration, Confusion, Contempt, Desire, Disgust,
+                                                              Excitement, Empathy, Fear, Flirt, Frustration, Glaring,
+           Ancipaon                             Fear        Happiness, Sadness, Snarl, Surprise and Love.
+                                                                  Facial expressions are considered as nonverbal com-
+                                                              munication. It sends the emotion to the other side of the
+             Anger                               Surprise     communication channel without expressing a single word
+                                                              or phrase. In some countries like USA, the facial expres-
+                                                              sions are used in the sign language [11]. Facial expressions
+                     Disgust               Sadness
+                                                              are different from one country to another. In Asian coun-
+                                                              tries, the intensity of facial expressions is less than the
+Fig. 2 Plutchik’s ‘‘Emotion Wheel’’ [4]                       other countries, because among some Asian cultures, it is
+
+
+                                                                                                                123
+1280                                                                             Neural Comput & Applic (2015) 26:1277–1296
+
+
+rude to show some specific emotions on the face. There-         machine learning methods as ABA and CART on facial
+fore, showing some negative emotions may cause a dis-           expression, and they achieved a high accuracy of 90 %.
+harmony in the society [7].                                     Ilbeygi and Shah-Hosseini (2012) used fuzzy inference
+   For more than a decade, researchers in computer science      system (FIS) on facial expressions with the accuracy of
+have tried to recognize emotions by processing the facial       93.96 %. In addition, Genetic Algorithm was applied to
+expressions. This method is based on image processing. It       tune the parameters of the membership functions [18].
+captures a facial image. Then, it extracts the feature points   95.24 % of accuracy on the facial expression datasets of
+and analyzes the location of each feature point with the        JAFFE and MUG is achieved in 2013 [19]. They used the
+other points. At the end, it can recognize the proper emo-      cloud computing to perform their research. This result was
+tion from the facial image [12–14]. Figure 3 demonstrates       based on the analysis on popular databases. However, the
+the feature points on two volunteers for facial expression      images taken in a real situation would be different and
+recognition.                                                    troublesome due to the image noises.
+   As image processing techniques are time-consuming               Facial expression recognition has some advantages that
+with high computational time, decreasing the number of          they are known as the positive points of this method. These
+feature points on a face may decrease the computational         positive points are as follows:
+time. However, the accuracy of the system remains reli-
+                                                                •   It is based on image processing, which is a supervised
+able. Some researchers used human visual cortex (HVC)
+                                                                    method.
+and radial encoding to improve the performance [15].
+                                                                •   A normal camera can be used for this method.
+Konar et al. [16] used type-2 fuzzy model on facial
+                                                                •   It can be integrated with body gesture recognition.
+expressions to recognize emotions. He partially succeeded
+                                                                •   Extra (explicit) information such as the estimation of
+in multi-level recognition of emotions (dominance
+                                                                    the user’s age and gender can be extracted by image
+parameter), and he gained 88.66 % in recognition accu-
+                                                                    processing.
+racy. Kao and Fahn [17] used a combination of several
+
+
+Fig. 3 Feature points on facial
+expressions recognition are
+shown in white dots
+
+
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                               1281
+
+
+    As the image processing techniques are the positive          processed in 3D and 2D (appearance based). The affective
+points of this method, itself, it is also a negative point for   computing extracts the features of body gesture to recog-
+facial expression recognition. The process complexity of         nize the emotions of the user. Gunes et al. [27] even gained
+the facial expression recognition cannot be reduced to a         an accuracy of 81 % in human emotions recognition by
+simple algorithm with low computational cost [20]. The           analyzing the body gestures, and some other researchers
+available challenges in facial expressions recognition are       like Glowinski et al. [28] only tried to propose a new
+listed below. These challenges make the system far from          solution for processing the body gesture toward the rec-
+real-time processing and anytime availability:                   ognition of emotions. Chen et al. [29] tried a hybrid model
+                                                                 of body gesture and facial expressions recognition. In their
+•   Image processing is time- and resource-consuming.
+                                                                 initial test, they evaluated each body gestures and facial
+•   A camera is required, which may not be available in all
+                                                                 expressions separately, and they could achieve an accuracy
+    cases.
+                                                                 of \70 %. And in the hybrid model, they improved their
+•   The user should be facing toward the camera, and the
+                                                                 initial result up to 72 %.
+    head direction changes may distract the recognition
+                                                                    Image processing is used in body gesture recognition
+    process.
+                                                                 similar to facial expression recognition. So, the advantages
+•   Multiple faces in captured picture by camera may
+                                                                 and disadvantages of this technique are limited to image
+    confuse the system in the procedure.
+                                                                 processing limitations, and they are similar to the limita-
+•   Noises and external objects in the picture may interrupt
+                                                                 tions of facial expression recognition. Beside good and
+    the recognition process.
+                                                                 reliable accuracy of this method, high computational time
+•   Privacy issues by using video camera exist for many
+                                                                 and resource-consuming are the main weaknesses of this
+    users.
+                                                                 technique.
+   Besides the above problems in facial expressions, two            Privacy is an important issue that users do not feel
+emotions may have similar facial expressions in different        comfortable to be recorded by video cameras.
+cultures. Therefore, it would be difficult to recognize the
+proper emotion. A hybrid method of recognition by using          2.3 Natural language processing (NLP)
+facial expression recognition in parallel with other methods
+may come as a solution to overcome this problem.                 The other way of emotional exchange among people in
+                                                                 social life is using words. Each adjective, verb or generally
+2.2 Body gesture recognition                                     a word can represent emotional states in a sentence. An
+                                                                 obvious example of this natural state is recognition of a
+Body gesture is another nonverbal communication among            person’s emotion while somebody is reading a letter or a
+people. It exchanges messages without textual or vocal           short message (SMS).
+phrases. Body gesture is a visible and visual message,              Ortony, Clore and Collins (OCC) model [30] with 22
+which is mostly conducted by hands and head. In some             emotion rules was also used for human emotion recogni-
+gestures, the whole body can be used as a sign. In some          tion. This model presents a knowledge base (KB) of words
+cultures, body and hand gestures are used in parallel with       and emotions, which are customized for each person. Li
+the speech to clarify and emphasize the concept of the           et al. [31] enhanced and improved the OCC model from 22
+speech [21]. They are also known as a mean to transfer the       rules into 16 rules. They also used five-factor model (FFM)
+emotions while speaking [22].                                    to analyze the emotional rules on each dimension. At the
+    History of body gesture goes back to more than               end, they tested their own system by two experiments, and
+500 years ago. There are lots of people who worked on the        they gained their best result in Anger for 74.1 % and the
+gesture to analyze the language structures or even to            worst in Pity for 58.1 %.
+describe human personality through the gestures. John               Social networks were also concerned in some research.
+Bulwer in 1644 [23] discussed about body gestures, their         For instance, Twitter has 340 million tweets per day. In
+importance and their usage in the daily speaking. Later on,      2013, Spanish Twitter corpus was evaluated with the
+in 1832, Andrea De Jorio [24] elaborated and extended the        accuracy of 65 % on emotions recognition by applying
+definition of gesture expressions. Since then, this research     multinomial naı̈ve bayes (MNB) machine learning method
+area has been continued, and researchers are still working       on n-gram features [32]. In this research, unigram pre-
+on the different important aspects of gestures on human          sented the best results on classification.
+life. For instance, we can name David McNeill [25] or even          Calvo and MacKim [33] developed two different com-
+Susan Goldin-Meadow [26] who has worked in this area.            putational models based on NLP for emotion recognition.
+    Body gesture recognition can be done in online and           They used four datasets with an emotional thesaurus and a
+offline modes, and the pictures can be rendered and              bag of words. LSA, PLSA and NMF dimensionality
+
+
+                                                                                                                   123
+1282                                                                                Neural Comput & Applic (2015) 26:1277–1296
+
+
+reduction techniques are employed to evaluate the recog-         human speech. They used statistical and MFCC features to
+nition. Their best result was related to Anger/Disgust and       compare the speech and reference sample in order to rec-
+Joy with the accuracy of 77.3 % by using NMF-based               ognize the proper emotion [43].
+categorical classification (CNMF) [33]. Their achieved
+performance is near to Li et al. (2008) with 75.9 on             2.5 Electroencephalography (EEG) signal processing
+distress.
+   NLP in affective computing is improving, but still it is      Electroencephalography (EEG) records electrical activities
+far from being used in commercial applications. So far,          and changes of neurons along the scalp. It works by mea-
+only a few types of communication are based on the text,         suring the voltage of ionic current flows in the neurons of
+and this method is only available on few resources and           the brain. This device was previously used in neurology
+media. Moreover, language differences cause different            and medical purposes, but today as its cost has decreased,
+emotional patterns, and NLP should be done separately on         computer scientists use it in their own applications. There
+different languages and cultures [7].                            are some laboratory-based computer games and applica-
+                                                                 tions, which work by using EEG. Figure 4 shows an
+2.4 Speech signal processing                                     installed EEG on the scalp of a woman.
+                                                                    EEG works with a high accuracy as it works directly
+Voice/Sound/Speech processing is the science of analyzing        with the brain activity. Liu et al. [44] in Singapore used
+the tones and the spectrum of the sound to extract a             machine learning and collected EEG data (signals) with the
+meaningful concept. The voice recognition method is based        labeled emotions for training. Later, these results were
+on the signal processing techniques. A very common usage         compared with the valence and arousal of real emotions in
+of voice recognition is converting human voice to the text,      the detection. This is the general procedure of machine
+which can be found in recent computers, handheld devices         learning methods, which works based on training and
+and mobile phones. Speech processing has stronger litera-        testing (application) sessions iteratively. Schaaff [45] has
+ture for user identification. To date, in speech signal pro-     also tried this device in affective computing and reached
+cessing, the average accuracy of user identification/            66 % of accuracy. Then, Guangying et al. [46] used sup-
+authentication is higher than emotion recognition [34].          port vector machine (SVM) to improve the performance of
+   Emotions have a direct influence on the human voice.          the system with the reported recognition rate of more than
+This may result in differences in voice tones and vibra-         83.33 %.
+tions. A natural example of this nonverbal message is               Most of the reported performances on emotion recog-
+recognition of emotion while you are talking on the phone        nitions by EEG are not competitive with the other available
+[35, 36]. These changes can be marked in a sound spectrum        methods. However, in 2013, 91.33 % of accuracy by EEG
+as identification. This research area goes back to query by      is achieved by using four frequency bands, namely alpha,
+humming [37], which basically works on searching through         beta, gamma and alpha to gamma. Probabilistic neural
+sounds. Then, by improving those methods, we are able to         network (PNN) and K-nearest neighbor (KNN) are used in
+mark and identify these emotional changes inside the             their research, and their highest accuracy was made by
+voice. Generating identification of emotional states in the      KNN [47].
+sound is called fingerprint. The fingerprint is nothing more        Despite the reliable results of EEG signal processing,
+than marked top frequencies in various and different fre-        this device is not available and cheap to be easy to access.
+quency rates in a spectrum [38]. After that, these finger-
+prints would be matched with a collected series in database
+or knowledge base to retrieve an equivalent emotion.
+   Despite all the above efforts, the recognition accuracy of
+this method is still low, and it is unreliable to be used
+independently in a system. So, it is preferred to be used in a
+hybrid with the other methods. Amarakeerthi et al. [39]
+combined it with postures and body gestures; Kleckova and
+Pittermann et al. [35, 40] integrated with NLP methods.
+Wang et al. and Hunag [36, 41] integrated it with visual
+and facial recognition. Although emotion recognition is
+possible through the sound, this technique can be used to
+identify the gender [42]. The registered patent in 2014 in
+USA by Krishnan and Fernandez only shows the accuracy
+of 40–50 % in emotion recognition by analyzing the               Fig. 4 A simple installed electroencephalography (EEG)
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                 1283
+
+
+Also, installation and maintenance of this device require          example, users’ keystroke dynamics on keyboard are dif-
+technical experts and trainings. This device is only acces-        ferent, and the level of proficiency in computer alters the
+sible and usable in laboratory/research level. It might be a       results of the analysis. In such case, the result of using
+long time before it is used as a common device among               input devices cannot be extended to other users without
+computer users and to be sold as an accessory.                     consideration of users’ similarities.
+
+2.6 Common input devices                                           2.7 Critiques
+
+Every day, people are using some regular input and output          As discussed earlier, there are still unanswered problems
+devices to interact with digital systems. Mice (touch pads),       and open challenges in this research area. Some of those
+keyboards and touch screen monitors are the common input           challenges are covered in this research as we walked
+devices. At least one of these devices is available and            through and analyzed the possibilities.
+accessible on all computers and digital systems [48–50].               Even though facial expression recognition gained a high
+   Monrose et al. authenticated the computer users by              accuracy in emotions recognition, in real-time processing,
+keystrokes dynamics on keyboard in 2000. They tested on            still it is inferior to the other methods. Because image
+17 computer programmers. The system was successful to              processing techniques are time- and resource-consuming,
+identify all users by their keystroke patterns while typing a      NLP and common input devices can be used for real-time
+specific word or phrase with the accuracy of 92.14 %.              applications. However the reported recognition results of
+However, there was a challenge in his research. At the time        NLP and common input devices in recent research litera-
+of training and testing the system for authentication pro-         ture are not satisfying.
+cess, the users should be in the same emotional state.                 Some technologies such as EEG machines are expensive
+Otherwise, the keystroke pattern would be changed;                 and not easily available and usable in daily life. The other
+therefore, the computer cannot identify the user properly          methods of affective computing which use microphone,
+[51, 52]. Meanwhile, they implied that human emotions              camera and other input devices are much cheaper and more
+reflect on the keystroke dynamic patterns.                         available. But because of the security and privacy issues,
+   Schuller et al. [48] from Technical University of Munich        many users may not allow usage of microphones and
+in 2004 worked on emotion recognition by analyzing the             cameras. This issue limits the number of developed
+mouse movement patterns and clicks on the screen. They             applications for facial expression recognition, body ges-
+used the SVM to train the system and achieved a reliable           tures recognition and voice processing.
+accuracy of emotion recognition on four major emotions.                Even though the ability of emotion recognition by com-
+They got a recognition accuracy range between 77.7 and             mon input devices has been proved, but the low accuracy still
+90.2 % for mouse interaction and the range of 43.3 and             keeps the door and questions open in the affective computing
+92.7 % for touch screen interactions. They also performed          research area. Table 1 shows the positive and negative fea-
+a hybrid experiment of mouse and touch screen                      tures of various methodologies in affective computing to
+interactions.                                                      detect human emotions. In this table, the best achieved rec-
+   Milanova et al. [49] tried to increase the reliability of the   ognition accuracies are also listed.
+facial recognition by integrating keyboard keystrokes
+analysis. Their research showed an average of 8 %                  2.8 Problem statement
+improvement by using a combination of methods rather
+than a single facial expression at that time. Epp et al. [53]      Affective computing can be applied in commercial and
+used keyboard keystroke dynamics to classify emotions.             daily software applications, when the system can achieve a
+They achieved the highest accuracy of 87.8 % for Sadness,          high reliable accuracy and low false-positive in emotion
+and the least 77.4 % for Neutral or Relaxation. They also          recognition. Affective computing has been utilized by
+used Kappa statistics to measure the membership value of           various methods and techniques to achieve this goal, but
+the emotions in classification. They used C4.5 supervised          still is far away. There are some challenges from different
+machine learning method in Weka software [54] for                  perspectives, which make it an open research area to work
+classification.                                                    on [4, 59, 60]. The first challenge is to achieve a higher
+   Common input devices are available and easy to access           accuracy in emotion recognition with a reliable precision
+to be used for human emotions recognition. To the best of          (relatively low false-positive rate) [12, 27, 56]. The avail-
+our knowledge, mostly only one input device is used to be          able techniques are not reliable and accurate enough to be
+processed and analyzed; however, a combination of devi-            employed in real-world applications. Every day, new
+ces is preferable. The main weakness of using input devices        techniques and methods are being introduced, and com-
+is having different patterns of usage by various users. For        puter systems are becoming faster and smarter. Therefore,
+
+
+                                                                                                                     123
+1284                                                                                       Neural Comput & Applic (2015) 26:1277–1296
+
+
+Table 1 Pros and cons of different methodologies in affective computing and their highest achieved accuracy
+Method             Accuracy        Pros                                 Cons                                       References
+                   (%)
+
+Facial             95.24           Supervised method                    Time- and resource-consuming               [15, 20, 29, 55, 56]
+ expression                        Cheap equipment                      Noise
+                                   Extra information                    Image processing problems
+                                                                        Privacy issues
+EEG                91.33           It can be extended for real-time     Expensive device                           [44–47]
+                                     processing                         Low recognition accuracy on dominance
+                                                                         emotion
+Body gesture       81              Supervised method                    Time- and resource-consuming               [27, 29]
+                                   Cheap equipment                      Noise
+                                   Extra information                    Image processing problems
+                                                                        Privacy issues
+Voice              78.64           Accurate                             Cultural and language differences          [34–36, 39, 41–43]
+ recognition                       Integrated into interactive user     Time- and resource-consuming
+                                     interfaces
+NLP                77.30           Easy implementation                  Not accurate enough                        [31–33, 57, 58]
+                                                                        Cultural and language differences
+                                                                        Not being real time
+
+
+we can apply new methods and hypotheses to gain better                     This research proposes a solution for human emotions
+results with a higher performance. The second challenge is             recognition to address the three mentioned problems. We
+the real-time processing [16, 41, 51]. Image and signal                applied a hybrid methodology on analysis of the users input
+processing are the most common techniques used in emo-                 using common input devices such as keyboard keystroke
+tion recognition. However, both techniques are time and                dynamics, mouse (touch pad) movements, and touch screen
+computational resource intensive. It is very important to be           monitor interactions. Combining the results of analysis of
+able to recognize the user’s emotion in real-time online.              three devices will provide a higher accuracy in emotions
+The third challenge is using the available and cheap                   recognition as these devices are available on most of
+hardware for the recognition process [49, 52, 53]. For                 computer systems. Fast learning techniques for data clas-
+instance, the EEG devices are not easily available, not-               sification are chosen to provide faster recognition and to be
+portable, difficult to install and expensive. The desired              closer to real-time processing.
+solution here is to work on the ability of identifying
+emotions by available, easy to carry and cheap devices
+such as normal input devices like mouse (touch pad),                   3 Methodology
+keyboard and touch screen displays.
+                                                                       The methodology is based on prototype software, which
+2.9 Trust                                                              records the user’s interaction data from mouse (touch pad),
+                                                                       keyboard and touch screen interactions. This methodology
+The recent problem, which was introduced by Simon Sinek                is known as experience sampling methodology (ESM) [62].
+at a TEDx presentation in Maastricht, Netherlands [61], is             A prototype application was designed and developed to
+the lack of direct interaction among the people in a society           collect the required data from users’ interactions. This
+by using the technology and electronic media. This phe-                software was installed on the volunteers’ computers for a
+nomenon made the communications faster than before, but                specific period of time (1 month) to process and analyze
+the level of trust in human life has been decreased. Trust is          users’ emotions.
+a human interaction. It is made among the people who                      In this study, the universal emotions by Paul Ekman [56]
+believe what the others believe. Meanwhile, electronic                 have been selected. Then, the dataset was minimized into
+communication degraded the happiness and passion of                    four emotions. This action helps to minimize the data
+communication. This split can be healed by importing the               scattering in the recorded dataset and also to compare the
+natural human emotions into the digital communication                  results with the other scholars. These four emotions are as
+[60].                                                                  follows:
+
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                              1285
+
+
+•   Neutral (includes emotion of happiness and as per-          features as a fingerprint and records them in a database.
+    ceived normal mood)                                         The last section is classification that matches the extracted
+•   Fright (afraid) (includes helplessness, confusion and       features of a new user with the existing features in the
+    surprise)                                                   database to identify him/her. This research has used the
+•   Sadness (includes primarily sadness, anger and              similar method, but there are differences to identify the
+    resentment)                                                 emotions instead of the users.
+•   Nervousness (including nervous, fatigue and light-
+    headedness)                                                 3.1.1 Keystroke dynamics features
+   The keyboard keystroke dynamics, mouse (touch pad)
+                                                                There are three major features in keystroke dynamics as
+movements and touch screen interactions of 50 users were
+                                                                below:
+collected. Every 4 hours, users were asked to enter their
+current emotion (Self-Reported emotion). This procedure         •   Key down-to-down
+continued for 1 month; then, the collected data were used       •   Key down-to-up
+in RapidMiner for classification.                               •   Key up-to-down
+   For evaluation of the mouse (touch pad) and touch
+                                                                   The above features have worked well on users’ identi-
+screen interaction, the methodology presented by Schuller
+                                                                fication in a neutral emotion. The first feature, the key
+[48] has been used. For data collection, all the mouse
+                                                                down-to-down feature measures the time between sub-
+movements and mouse (touch pad) keystrokes were col-
+                                                                sequent key presses. This feature has two hidden parame-
+lected; meanwhile, in the similar research, only a limited
+                                                                ters as duration and latency. These parameters are basically
+number of the features were analyzed. Also, evaluation
+                                                                the next features of keystrokes. Key down-to-up is the
+method of the touch screen interactions is retrieved from
+                                                                exact time between pushing and releasing a button. This
+Schuller et al. keyboard features that were also presented
+                                                                item can also be considered as duration. Duration is the
+by Monrose and Rubin [51] for authentication purposes;
+                                                                spent time for one character. The last feature is key up-to-
+however, the emotions were the weakness of their research.
+                                                                down that it is also called latency. Latency is the wasted
+This weakness arises from the emotions interrupting the
+                                                                time between typing two characters. Research showed that
+authentication process during keyboard keystroke dynam-
+                                                                the latest two features are 10 times more in a novice typing
+ics. In this research, the keyboard keystroke dynamics
+                                                                in comparison with a professional and expert user [51].
+features used to analyze the emotions are based on their
+                                                                   The keystroke features (KFs) were selected from the
+study.
+                                                                timing differences of single keystrokes, digraphs (two-let-
+   These 50 users were selected with various cultural
+                                                                ter combinations) and trigraphs (three-letter combinations)
+backgrounds. Then, the prototype application was installed
+                                                                [53]. For each feature, the mean and standard deviation are
+on each of the user’s personal computer. Prototype appli-
+                                                                calculated, because during a sample period, the user might
+cation recorded the interactions for 1 month and prompting
+                                                                enter the same sequence of keys more than once (e.g.,
+the users to enter their own proper emotions with defining
+                                                                entering ‘th’ twice during the sampling period). The fol-
+the level of each emotion. These users were mostly settled
+                                                                lowing 15 features are defined for the keyboard keystroke
+physically in Malaysia, Germany and Iran.
+                                                                dynamics:
+   One of the most important processes of data preparation
+is data cleaning to remove all redundant and inaccurate/        •   KF1 The duration between first and second down keys
+incomplete entries from data. As these data are recorded by         of the digraphs.
+a prototype application, each entry is checked at the time of   •   KF2 The duration of the first key of the digraphs.
+recording to avoid the representation of incomplete data.       •   KF3 Duration between first key up and next key down
+No data collection in this research has been conducted              of the digraphs.
+manually.                                                       •   KF4 The duration of the second key of the digraphs.
+                                                                •   KF5 The duration of the digraphs from first key down
+3.1 Keyboard                                                        to last key up.
+                                                                •   KF6 The number of key events that were part of the
+Keystroke dynamics are habitual rhythmic patterns of                graph.
+typing. These features are used in biometrics for identifi-     •   KF7 The duration between first and second down keys
+cations for more than a decade. Representation shows the            of the trigraphs.
+input values as the words. When the user is typing, he is       •   KF8 The duration of the first key of the trigraphs.
+actually representing his identity. The next step is features   •   KF9 Duration between first key up and next key down
+extraction where the system extracts and defines the                of trigraphs.
+
+
+                                                                                                                  123
+1286                                                                                    Neural Comput & Applic (2015) 26:1277–1296
+
+
+•    KF10 The duration between second and third down
+     keys of the trigraphs.
+•    KF11 The duration of the second key of the trigraphs.
+•    KF12 Duration between second key up and next key
+     down of trigraphs.
+•    KF13 The duration of the third key of the trigraphs.
+•    KF14 The duration of the trigraphs from first key down
+     to last key up.
+•    KF15 The number of key events that were part of the
+     graph.
+
+
+3.1.2 Keystroke dynamic framework
+
+As a standard framework, there are twenty (20) sets of
+characters, which are defined as a fingerprint for keystroke
+dynamics. A graph of duration and latency for each of            Fig. 5 Sample of recorded keystroke dynamics by latency and
+these 20 sets represents a unique identity that was used for     duration (A user’s fingerprint) [51]
+user identification. This fingerprint is applied to match with
+the user’s emotions instead of user’s authentication. These                                                     Click Point
+twenty sets are as follows [51]:                                                        Mouse
+
+
+th                 er                  is                  or
+he                 an                  at                  hi
+nd                 ng                  on                  the
+re                 me                  es                  ing                                  Ideal Mouse
+in                 we                  ay                  are
+
+                                                                          Start Point
+
+   The above sets are chosen in English language as they         Fig. 6 Example of a movement of mouse (touch pad) without left
+have been occurred the most in an English context. Users         mouse button pressed. Red (straight) vector showing the magnitude
+                                                                 and direction of the mouse movement. Blue (curved) actual mouse
+in different emotional states type the words by different        movement (color figure online)
+durations and latencies, and the above sets are chosen to be
+recorded as the user’s fingerprint.
+   Figure 5 shows a sample of recorded keystroke                 3.2.1 Click: features of the mouse (touch pad) movement
+dynamics of a user with a neutral emotion. This figure is
+considered as the user’s fingerprint in a neutral emotional      By looking at the mouse (touch pad) movement example in
+state.                                                           Fig. 6, we can simulate the situation and the total distance
+                                                                 travelled via corresponding screen coordinates. This stretch
+3.2 Mouse (touch pad: single touch)                              of click to click represents the shortest distance between
+                                                                 start and end points of the mouse movement on the screen.
+It seems reasonable to divide the mouse (touch pad: single
+touch) movements into two different groups. The first            3.2.2 Characteristics of the place
+group is the movement of the mouse without using the left
+mouse (touch pad) button pressed. The second group is            This curve extracted from the mouse movement in Fig. 6 is
+where the mouse button is pressed. An attempt is made to         then transformed into a two-dimensional coordinate sys-
+dwell mainly on the following motion characteristics.            tem; as mentioned previously, the ideal line corresponds to
+                                                                 the x-axis of the coordinate system, and the y-axis therefore
+•    Which way the mouse (touch pad) moves?
+                                                                 describes a measure of the local variation of the mouse
+•    What is the mouse (touch pad) speed?
+                                                                 (touch pad) movement from the ideal line. In Fig. 7, mouse
+•    How long is it moved?
+                                                                 movement curve, as shown in Fig. 6, has been transformed
+   Figure 6 shows a mouse (touch pad) movement from the          and is depicted in conjunction with overlay sampling
+starting point to the end point or click point.                  points.
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                        1287
+
+
+                                                                       3.2.3 Time properties
+
+
+
+ Distance
+                                                                       In parallel with the above-discussed features, the time
+                                                                       intervals, which register with the result of a new (x,
+                                                                       y) point, are analyzed. It should not be forgotten that only a
+                                                                       change in the x- or y-coordinate of a new data value is read.
+                                                                       This elapsed time between two consecutive points not only
+                                                                       represents the total time of the mouse movement, but also
+                                   Samples
+                                                                       describes information about the individual movements.
+Fig. 7 Real spaces designed for mouse (touch pad) movement ideal       Later, the next section explains the time between jerky and
+line                                                                   slow motions. Also, it can be used to distinguish verse
+                                                                       breaks in existing movements very well. A complete
+   Then, the transformed curve can be used to evaluate the
+                                                                       overview of all the examined features is firstly presented in
+captured (x, y) coordinate of the mouse movement and the
+                                                                       Fig. 8. It shows a possible sequence of values of time
+resulting distance values, which are shown in Fig. 7. This
+                                                                       intervals, from which the main features are very well seen.
+newly obtained set of distance values is an expression of
+                                                                       This figure presents the time between the clicks. This figure
+the local deviation of the motion from the constructed ideal
+                                                                       is only a demonstration of a sample of registered mouse
+line.
+                                                                       keystrokes.
+   Since these distance values have lost the absolute
+                                                                          As can be seen initially, it is similar to the local varia-
+commitment to its original screen position (but not its sign,
+                                                                       tion, made and analyzed with a number of time delta val-
+based on the ideal line), it can already measure global
+                                                                       ues. Then, first two statements about the time relationships
+properties of the local mouse movement. For example, the
+                                                                       are possible:
+sum over all possible distance values states how much the
+mouse was moving entirely above or below the ideal line.               •   Total time of motion by summing over all values
+The studied properties are as follows:                                 •   Average time distance between two points or the
+                                                                           average required time.
+•           The length of the racing line from start to end point as
+            shown in Fig. 6                                               However, when a change occurs to the location coor-
+•           The sum over all distance values                           dinates of the mouse movements, then averaging is per-
+•           The zero crossings                                         formed on the following:
+   The above distances provide individual information                  •   Standard deviation of individual values.
+about the type of mouse movements giving the following                 •   Variance of these values.
+global properties:
+                                                                         Finally, the derived variables of mouse movements and
+•           Maximum deviation of the values.                           keystrokes are as follows:
+•           Average amount of the individual values.
+                                                                       •   Correlation function.
+•           Standard deviation.
+                                                                       •   First derivative.
+•           Variance.
+                                                                       •   Second derivative with the corresponding analysis.
+   Finally, there are some derived features for mouse
+                                                                          The formation of a distribution function of these values
+movements, which are also considered for more precise
+                                                                       and the derived properties of this distribution function lead
+recognition of emotions and their calculations:
+                                                                       to the catalogue of properties and thus the distribution
+•           Correlation function of the curve.
+                                                                                   80
+•           First-order and second-order derivatives with their
+                                                                                   70
+            specific evaluation.                                                   60
+                                                                                   50
+   It should be noted that the following features can be
+                                                                            Time   40
+extracted based on the first and second derivatives of the                         30
+identified and utilized emotion recognitions:                                      20
+                                                                                   10
+•           Minimum and maximum of the values.                                      0
+•           Average amount over all values.                                             0   5   10     15      20     25     30
+
+•           Standard deviation.                                                                      Samples
+•           Variance.                                                  Fig. 8 Elapsed time between the modified coordinates of mouse
+•           Autocorrelation function.                                  keystrokes
+
+
+                                                                                                                           123
+1288                                                                                       Neural Comput & Applic (2015) 26:1277–1296
+
+
+function. The first derivation of the distribution function         4 Evaluation
+with a corresponding evaluation is also added.
+                                                                    This section demonstrates the diagnosis of the research
+3.3 Touch screen (single touch)                                     based on the theories and methods of research
+                                                                    methodology.
+The touch screen is only able to determine points in x-, y-
+and z-coordinates. User interaction with touch screen               4.1 Evaluation criteria
+monitors only results the changes in these coordinate val-
+ues [48, 63]. These values along with the time interval of          Evaluation of the system is based on the emotions recog-
+changes are collected and prepared to measure the other             nition methods and machine learning techniques, which
+important features such as velocity and movement details.           have been used in the affective system. There are several
+Recently, there are technologies that utilize user’s eye            criteria to evaluate and measure the performance of the
+movement, hand gestures and other behaviors to enhance              system. These criteria are listed in Table 2.
+touch capabilities of a touch screen monitor. All of these             Classification/recognition accuracy is the value that
+advanced technologies are the combination of image pro-             shows how precise a system is able to recognize the
+cessing and advanced AI techniques with the touch screen            emotions. It is mostly focused on the output of machine
+monitors. However, human emotions recognition in touch              learning techniques. This criterion is measured by the
+screen technology is in its initial stages of its development.      machine learning classification methods. Generally, for this
+It is expected that the better techniques will be invented in       purpose, from 60 to 80 % of the data would be trained, and
+the future to capture human emotions more dynamically               then, the rest of 20–40 % of the remaining data would be
+and accurately.                                                     tested. In the testing section, machine learning method
+    The most significant expansion was therefore to com-            ignores the recorded emotions and predicts/estimates them
+plement the additional available z-component, which has             according to the training section, and later, the final result
+been evaluated in parallel. Thus, analogous reads the (x,           of recognized emotions (estimated emotions) would be
+y) coordinates of an initial set of z-values, where they open       compared to the real recorded emotions. The percentage
+up a value range between 0 and 255. Based on this history,          rate of true classified/recognized emotions is known as
+the following features are accessible:                              recognition accuracy. This value can be represented either
+                                                                    as a range of [0, 1] or as percentage. Higher classification
+•   Average of all z-values.
+                                                                    accuracy shows higher performance in recognition process.
+•   Minimum value.
+                                                                       False-positive rate represents false classified emotions.
+•   Maximum value.
+                                                                    These emotions are recognized, but they are not matched
+•   Standard deviation.
+                                                                    with the recorded emotions, which are known as false-
+•   Variance.
+                                                                    positive. The resulted percentage of these classified data in
+•   First derivatives.
+                                                                    the whole dataset is called as false-positive rate. It has the
+•   Second derivatives.
+                                                                    same range of recognition accuracy and can be presented in
+•   Correlation function.
+                                                                    percentage as well. Despite the recognition accuracy, the
+   Straight from the emerging contours of the first and             lower false-positive ate shows less false detection for
+second derivatives as well as the correlation function,             emotions, therefore a system having a better performance
+above additional values can be used to interpret better.            [64].
+These values will be recorded and played to the crowd with             Computational time is a classification procedure that
+the observed features.                                              takes some time to be applied on the collected dataset.
+   By considering this number of features on touch screen           Different classifiers follow different algorithms, and they
+monitors, all the values are obtained from the Cartesian            have different time complexity. The time that is taken for
+coordinate system. However, a three-dimensional coordi-             each classification from the beginning to the end is called
+nate space is presented. This can also offer a transforma-          computational time or process time. This criterion is mostly
+tion in spherical coordinates (r, a, b).                            related to the nature of the machine learning method and
+
+
+Table 2 Criteria of evaluation   No.   Criteria                              Description
+for the recognition methods
+                                 1     Classification/recognition accuracy   This shows how accurate a system recognizes the emotions
+                                 2     False-positive rate                   This parameter shows the failure rate in detection
+                                 3     Computational time                    The required time for the process to be completed
+
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                                  1289
+
+
+Table 3 SVM: confusion           Intended emotions          Detected emotions
+matrix with the normalized
+values for mouse (touch pad)                                Neutral                    Fright              Sadness                  Nervousness
+features classification
+                                 Neutral                    0.930                      0.022               0.028                    0.020
+                                 Fright                     0.202                      0.787               0.004 (0.040)            0.007
+Bold values are the ‘‘true       Sadness                    0.061 (0.084)              0.012               0.912                    0.015
+positives’’ and the rest are     Nervousness                0.085 (0.175)              0.015               0.065                    0.835
+‘‘false positives’’
+
+
+the amount of data for training and testing iterations. This          Table 4 ANN: confusion matrix with the normalized values for
+parameter is measured in seconds, and lower values show               mouse (touch pad) features classification
+faster emotion recognition [65].                                      Intended emotions         Detected emotions
+   Research studies are trying to improve these values by
+                                                                                                Neutral      Fright      Sadness    Nervousness
+increasing the recognition accuracy, decreasing false-
+positive rates and computational time [66].                           Neutral                   0.911        0.042       0.015      0.032
+                                                                      Fright                    0.333        0.631       0.024      0.012
+4.2 Data analysis and evaluation                                      Sadness                   0.025        0.102       0.852      0.021
+                                                                      Nervousness               0.020        0.097       0.142      0.741
+Evaluations and data analysis were based on the collected             Bold values are the ‘‘true positives’’ and the rest are ‘‘false positives’’
+data from the prototype software. This section presents
+different evaluations step by step from classic emotions
+                                                                      Table 5 SVM: confusion matrix with the normalized values for
+recognition with the previously discussed features to answer          touch screen
+the questions that have been raised in the earlier sections.
+                                                                      Selected emotion     Detected emotion
+    The recognition performance is determined by using
+SVM (with nonlinear Gaussian Kernel) and ANN as clas-                                      Neutral       Fright           Sadness   Nervousness
+sifiers in terms of classification accuracy, false-positive and
+                                                                      Neutral              0.710         0.178 (0.321)    0.090     0.022
+false-negative rates.
+                                                                      Fright               0.015         0.900            0.073     0.012
+                                                                      Sadness              0.008         0.099 (0.113)    0.893     0.000
+4.2.1 Normalized and maximum classification results                   Nervousness          0.071         0.354            0.022     0.553
+                                                                      Bold values are the ‘‘true positives’’ and the rest are ‘‘false positives’’
+The experiments for every entry in the confusion matrix
+(Tables 3, 4, 5, 6, 7, 8) are done independently. Therefore,
+the sum of the recognition accuracy and their relative false-         Table 6 ANN: confusion matrix with the normalized values for
+                                                                      touch screen
+negative values may be more and/or \100 %. To report
+more reliable results, the false-negative rates have been             Selected emotion         Detected emotion
+normalized. The numbers in parenthesis (for SVM classi-                                        Neutral      Fright       Sadness    Nervousness
+fication) are the maximum possible error rates (false-
+positive and false-negative rates), which have been mea-              Neutral                  0.538        0.322        0.094      0.046
+sured on many iterative runs of the SVM classification                Fright                   0.068        0.830        0.081      0.021
+[67]. The maximum and normalized values show the pos-                 Sadness                  0.130        0.081        0.781      0.008
+sible inaccuracies in the experiment. However, classifica-            Nervousness              0.164        0.203        0.102      0.531
+tion experiment on a more homogenous dataset would                    Bold values are the ‘‘true positives’’ and the rest are ‘‘false positives’’
+result less difference among minimum, maximum, average
+and normalized values of the classification.                          keystrokes). It was not possible to catch all of the possible
+                                                                      correction scenarios as keystrokes were collected from
+4.2.2 Keyboard keystroke dynamics                                     different applications environments and so we did not have
+                                                                      any control on them. However, this feature does give a
+The number of mistakes in typing (backspace ? delete                  general idea of the number of mistakes being made.
+key) was calculated as it shows the proficiency of user in               Outliers for all of the features that involved multiple
+typing. These mistakes can reflect the user’s emotions.               keys were calculated to remove these pauses (e.g., digraph
+There are many different methods to correct the mistakes              and trigraph latencies). They were removed by considering
+(e.g., selection with the mouse and replacement with                  the mean and standard deviation for all keystroke dynamic
+
+
+                                                                                                                                    123
+1290                                                                                                     Neural Comput & Applic (2015) 26:1277–1296
+
+
+Table 7 SVM: confusion                  Selected emotion              Detected emotion
+matrix with the normalized
+values of keyboard, mouse                                             Neutral             Fright                      Sadness                       Nervousness
+(touch pad) and touch screen
+                                        Neutral                       0.851               0.121                       0.006 (0.076)                 0.022
+                                        Fright                        0.001               0.932                       0.055 (0.082)                 0.012
+Bold values are the ‘‘true              Sadness                       0.009               0.064 (0.118)               0.921                         0.006
+positives’’ and the rest are            Nervousness                   0.092               0.261                       0.087 (0.122)                 0.650
+‘‘false positives’’
+
+
+Table 8 ANN: confusion matrix with the normalized values of                                  100
+                                                                                              90
+keyboard, mouse (touch pad) and touch screen                                                  80
+                                                                                              70
+Selected emotion       Detected emotion                                                       60
+                                                                                              50
+                       Neutral      Fright       Sadness     Nervousness                      40
+                                                                                              30
+                                                                                              20
+Neutral                0.883        0.018        0.053       0.046                            10
+Fright                 0.011        0.810        0.137       0.042                             0
+                                                                                                     Nervousness      Neutral        Sadness            Fright
+Sadness                0.071        0.039        0.807       0.083               ANN Accuracy           78.12          81.1            80.7             76.2
+                                                                                 SVM Accuracy           85.2           79.4            87.1             91.24
+Nervousness            0.075        0.071        0.092       0.762
+                                                                                 ANN False Posive      9.46            7.8            4.06             5.63
+Bold values are the ‘‘true positives’’ and the rest are ‘‘false positives’’      SVM False Posive      10.26          17.6            9.36             4.35
+                                                                                     ANN Accuracy      SVM Accuracy    ANN False Posive      SVM False Posive
+
+features, which they were 12 standard deviations greater                        Fig. 9 Keyboard keystroke dynamics classification accuracy and
+than the mean for each individual participant [53]. This                        false-positive rates of ANN and SVM
+process has been considered in the prototype application
+while recording and collecting the data from users.
+   The percentage values in Fig. 9 show the classification
+results of human emotions based on the keyboard keystroke
+dynamics with their false-positive rates by ANN and SVM.
+Fright emotion has the strongest classification accuracy of
+91.24 % by SVM and the least value of 4.35 % for false-
+positive rate in SVM classification.
+
+4.2.3 Mouse (touch pad: single touch)
+
+Figure 10 shows two primary and simple emotion recog-
+nition results separately. In the first detection process,
+features were selected randomly and the result is shown in
+a lighter (orange) color. Clearly, the best result was on                       Fig. 10 Percentage of emotions recognition in two phases by
+Neutral emotion, but for the other emotions, the outcome is                     changing the features
+\40 %. Then, in the second round, the features were
+selected according to the Schuller [48], and it turned to the                       In details, the collected data from our volunteers were
+blue results that are far better than the first result. In con-                 evaluated; then, it is tried to analyze with their emotions.
+trast to the weak result percentage of fright (afraid) emo-                     Tables 3 and 4 and Figs. 11 and 12 summarize the evaluation
+tion, the other two emotions of pensive and annoyed results                     of all collected datasets on four sets of emotions. This evalu-
+are remarkably improved. There are two exemplary emo-                           ation was performed based on the collected data vectors [68,
+tions that are clearly satisfied in this network diagram,                       69] and written in a confusion matrix. Each emotion set was
+which are pensive and annoyed. Depending on the values at                       trained and evaluated separately. The overall average of the
+zero, the more dissatisfied section was the subject of rec-                     correctly classified emotions is 0.866 with a mean variance of
+ognition of the corresponding emotion. But neutral was a                        0.075. In summary, the following two precision characteristics
+very different emotion, apart from the emotion category for                     in determining the results are particularly striking:
+the time being. Each person has their own movement and                          •   The highest precision is recognized in the neutral and
+behavior of the mouse that is a general synthetic dataset                           annoyed categories.
+which was not individually tailored.                                            •   The lowest precision is for the fright (afraid) category.
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                                1291
+
+ 1.000     0.930                                0.912                               But a question still remains on why the precision of the
+ 0.900                                                          0.835
+                            0.787                                               detection is still low. The probable answer was found when
+ 0.800
+ 0.700
+                                                                                the analysis on the volunteers was performed. At the time
+ 0.600                                                                          of working in different situations with the computer, they
+ 0.500                                                                          are not sure about their own emotions. When they are
+                   0.348
+ 0.400                                                                          asked to identify their emotions, they are rather unsure
+ 0.300
+                                                                                what kind of emotion they have at the moment.
+ 0.200                                                 0.097
+ 0.100                              0.049                               0.042       The most inaccurate result was obtained in fright
+ 0.000                                                                          (afraid) emotion. The reason is that just moving the mouse
+             Neutral           Fright            Sadness       Nervousness
+                                                                                while pressing the mouse button is relevant to this emotion.
+                              Accuracy       False Posive
+                                                                                Thus, an insecure person presses a little longer and delib-
+Fig. 11 SVM: mouse (touch pad) features classification accuracy and             erates on the mouse, where they will lead, and the person
+false-positive rates                                                            did not intend slight movement of the cursor. Data analysis
+                                                                                of the features is shown for the recognition of emotion, and
+                                                                                it is not very meaningful, and this is probably one of the
+  1
+         0.911
+0.9                                            0.852                            reasons for the lower values in the confusion matrix.
+0.8                                                             0.741               Finally, it can be concluded that although the recogni-
+0.7                        0.631                                                tion of emotion in sufficient degree happens, unfortunately
+0.6                                                                             the lack of standard hardware with significant qualities
+0.5                                                                             causes a lower accuracy. It would be very important to
+                 0.378
+0.4
+                                                                                have several data collection periods to increase the strength
+0.3                                0.241
+0.2
+                                                       0.181                    of the data. It also brings more clarity about the emotions,
+0.1                                                                     0.065   and it enables better detection.
+  0
+          Neutral            Fright               Sadness      Nervousness
+                             Accuracy       False Posive                       4.2.4 Touch screen (single touch)
+Fig. 12 ANN: mouse (touch pad) features classification accuracy and
+false-positive rates                                                            In the signal processing field, it is already known that the
+                                                                                auto correlation function (ACF) is the function of u(T) by a
+                                                                                measure of the inner context of a signal s(t). Therefore, it is
+    The correctly classified emotions by RapidMiner are the                     a measure of similarity or correlation of signal sections. In
+values at the junction of the same detected emotion with                        the other words, s is a shifted time against each other [70]:
+the intended emotion as shown in bold in Table 3 and
+                                                                                                 T
+Table 4. The other values are false-positive alarms, which                                      Z2
+are classified incorrectly. The increased classification rate                              1
+                                                                                uðsÞ ¼ lim           sðtÞsðt þ sÞdt                        ð1Þ
+for neutral emotion can be explained easily.                                           T!1 T
+                                                                                               T2
+    The test subjects were accumulated primarily with
+expectations of neutral data vectors for the emotion,                              The ACF is recorded directly as the temporal correlation
+because this is probably the most common emotion, which                         function of a time series. There is a context in each one,
+is felt to have been distributed over the days. For example,                    and it is examined the same measure at different time
+the collected data by the volunteers at the individual days                     points and plotted as a function of the difference. This
+can be represented neutral with up to 93 % on certain days.                     feature implies as the memory of the system. The ACF
+    Annoyed caused a different system behavior. If a PC                         consists of only a single peak at s = 0 and disappears for
+user has the emotion of annoyed, he moves the mouse                             all other s values. Then, the series of measurements can be
+usually very fast and also fixed with short presses on the                      analyzed in a completely reliable, stochastic behavior.
+mouse button. The properties of mouse movement are fast                            Thus, for s = 0, the internal consistency of the signal is
+and brief. In the short press, the mouse pointer does not                       the greatest, and the resulting value is an addition with the
+move. Thus, generally, no movement is detected during the                       power of the signal s(t). For s [ 0, the value of the ACF is
+mouse click. Above all, the movement between pressing                           small, with u(s) while s ? ? tends to zero when s(t) is
+the mouse button (clicking) gives information about the                         neither a constant nor contains a periodic component,
+emotion. The movements are almost in all cases, strongly                        especially when voice signals are more pronounced by
+oriented toward a goal, and thus, the coordinates of the                        negative correlation values of significance. For example,
+determined distances to the ideal line are rather low.                          with a male speaker for ms5 & s significant negative
+
+
+
+                                                                                                                                    123
+1292                                                                                       Neural Comput & Applic (2015) 26:1277–1296
+
+
+values, this is at a fundamental frequency of the speaker of        1
+                                                                                              0.9              0.893
+100 Hz due to the shift by a half wave.                         0.9
+                                                                0.8
+   Finally, ACF can suppress the signals, which are                        0.71
+                                                                0.7                                 0.631
+superimposed by a noise, and their noise signal pulse           0.6                                                             0.553
+duration is very small compared with the signals to inter-      0.5
+ference suppression. From the theory of the noise, it is        0.4
+apparent that particular white noise can be suppressed by       0.3
+                                                                                                                       0.185
+the autocorrelation method. This is possible even if the        0.2
+                                                                                   0.094
+                                                                0.1                                                                     0.034
+measuring signal in time domain is no longer detected in
+                                                                    0
+the noise because it goes down.                                            Neutral            Fright            Sadness        Nervousness
+                                                                                               Accuracy     False Posive
+
+4.2.5 ACF on z-values
+                                                                Fig. 13 SVM: touch screen features classification accuracy and false-
+                                                                positive rates
+Now, it would be an attempt to transfer the meaning of the
+ACF in a speech signal to the resulting data series. The
+                                                                    1
+broadest sense is a kind of power function with the cor-
+                                                                0.9                          0.83
+responding z-values. A very slow pressure on the screen         0.8
+                                                                                                               0.781
+
+surface and also harmonic pressure reduction lead to a          0.7
+                                                                                                    0.606
+significantly higher value of the ACF at s = 0, such as a       0.6        0.538                                                0.531
+very jerky, short pressure pulse. Similarly, the mentioned      0.5
+                                                                0.4                0.362
+strong negative values can achieve a magnitude of much                                                                 0.277
+                                                                0.3
+higher value than the short and strong pulses by a slow
+                                                                0.2
+press on the screen.                                            0.1                                                                     0.075
+   It also seems plausible that PC users tend to be at a            0
+                                                                            Neutral            Fright            Sadness       Nervousness
+certain emotion when they touch the screen in the same
+                                                                                               Accuracy     False Posive
+way, but each time you touch it too shortly may result the
+system recognition inaccuracies. This fact can now be           Fig. 14 ANN: touch screen features classification accuracy and false-
+compared with the noise as previously mentioned. The            positive rates
+small deviations overlap is registered as a white noise with
+a kind of pure basic series of z-values, which is typical for   confusion with each other. These results are tabulated in
+a specific emotion. It can be processed by using the ACF        Table 7.
+with a particular degree of strong noisy signals. This is a        As it can be seen in Tables 7, 8 and Figs. 15, 16, all of
+striking indication of the importance of the ACF for the        the four emotions have been detected more accurately by
+components of a data series.                                    using a hybrid and combination of all three input devices
+   Tables 5, 6 and Figs. 13, 14 show the final normalized       (keyboard, mouse and touch screen). Also in some cases,
+results over all the test subjects. The overall confusion       the error has been escalated a little bit, but the increase in
+matrix with an overall mean value of 0.76 (76 %) for the        performance is much higher than the error rates (false-
+correctly classified emotions, as shown in bold font, is        positive and false-negative rates).
+achieved. After the evaluation of the existing system for
+the detection of the four emotions, with their detailed
+explanations, it can be concluded that this system can be       5 Discussion
+used for emotion recognition with an acceptable accuracy.
+                                                                The three evaluation criteria used in this study were as
+                                                                follows:
+4.3 Hybrid of keyboard–mouse (touch pad)–touch
+    screen                                                      •       The recognition accuracy is the most important crite-
+                                                                        rion in the evaluation. The proposed methods of this
+After each individual evaluation on analysis of keyboard                research have been evaluated in terms of classification/
+keystroke dynamics, mouse movements and touch screen                    recognition accuracy; then, at the end, they are
+interaction, a hybrid model is tested. In the hybrid model,             compared with the similar research areas in measuring
+the accuracy of the fright (afraid) emotion is the best                 human emotions recognition accuracy in computing.
+among the others. Neutral and Nervousness have the lowest       •       The false-positive rate has been shown in every
+accuracies, and these two emotions have the greatest rate of            confusion table. However, the lack of enough
+
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                                             1293
+
+    1                      0.932               0.921
+                                                                                       Facial Expression                                              95.24%
+0.9        0.851
+0.8                                                                            Hybrid Aﬀecve Compung                                               93.20%
+0.7                                                            0.65
+0.6                                                                                                 EEG                                             91.33%
+0.5                                0.446
+                                                                                    ML-AC (Fuzzy Model)                                           86.00%
+0.4
+0.3                                                                                       Body Gesture                                       81.00%
+0.2                                                    0.148
+                   0.102
+0.1                                                                    0.04            Voice Recognion                                     78.64%
+    0
+            Neutral          Fright             Sadness        Nervousness                          NLP                                    77.30%
+                             Accuracy      False Posive
+                                                                                                      0.00%   20.00%   40.00%   60.00%   80.00%    100.00%
+
+Fig. 15 SVM: keyboard, mouse and touch screen features classifi-
+cation accuracy and false-positive rates                                       Fig. 17 Comparison of the best accuracies of different methods for
+                                                                               affective computing
+
+    1                                                                          methods. An affective system based on EEG has gained the
+           0.883
+0.9                        0.81                0.807
+                                                                               accuracy of 66 % in the years of 2009 and 2010 [44, 45]. In
+                                                               0.762
+0.8                                                                            2013, despite other similar research by EEG, 91.33 % of
+0.7                                                                            accuracy is achieved by using KNN machine learning
+0.6
+                                                                               method [47]. Regarding NLP, in 2008, Lei et al. [31] got
+0.5
+0.4
+                                                                               the result of 74.1 % in the emotion of anger; Calvo and
+0.3
+                                                       0.282                   Kim [33] achieved 77.30 % in anger/disgust and Joy by
+0.2                0.157
+                                   0.128
+                                                                       0.171   using CNMF method. Voice processing in emotion rec-
+0.1                                                                            ognition achieved the 78.64 % of accuracy [39, 71].
+    0                                                                          Affective systems based on body gesture recognition have
+             Neutral         Fright             Sadness        Nervousness
+                                                                               been resulted in 81 % by Gunes and Piccardi [27]. The
+                             Accuracy      False Posive
+                                                                               most similar approaches to this research method have been
+Fig. 16 ANN: keyboard, mouse and touch screen features classifi-               done by Milanova and Sirakov [49]; they gained 87 % of
+cation accuracy and false-positive rates                                       emotions recognition accuracy. The best competitive
+                                                                               method is facial expression recognition, which has been
+        information in the previous research papers, comparing
+                                                                               improved a lot. Among many researchers in facial
+        the results of this study with the similar works, was not
+                                                                               expression recognition, Konar et al. [16], Kao and Fahn
+        possible.
+                                                                               [17] and Beaudrya et al. [20] got 88.68, 90 and 95.24 %,
+•       The computational/processing time. This is only related
+                                                                               respectively, of accuracy. Figure 17 shows that the meth-
+        to the classification methods and the number of
+                                                                               ods employed in this research have resulted roughly 6 %
+        extracted features.
+                                                                               better than the similar methods.
+    Previously researchers tried to gain more precise results
+in affective computing, while some fails to consider all
+different aspects of efficiency, usability and real-time                       6 Conclusion and future work
+performance. This research tried to obtain a reliable
+method which considers all these aspects and is more                           This research has proposed a hybrid solution for human
+suitable to be applied in real-world applications. It could                    emotion recognition (affective computing), which is out-
+gain a high accuracy in comparison with the other scholarly                    standing from different aspects. Firstly, the recognition
+research, especially by combining three methods together.                      accuracy by using SVM classification shows a reliable
+A reliable high accurate result of 93.20 % by SVM clas-                        93.20 % of accuracy at the best of its recognition rate in
+sification method has been achieved, which is competitive                      this study. Secondly, the computational time of this
+with all other previous methods. However, facial expres-                       methodology is much less than the other techniques such as
+sions stands on the top, yet our hybrid method could fulfill                   image and signal processing. Thirdly, the required hard-
+deficiency and limitations of image processing techniques.                     ware in this research is mostly available in all personal
+Figure 17 compares the achieved result with the other                          computers. Finally, this research has eliminated the dis-
+methods and accuracies discussed earlier.                                      cussed privacy issues by using camera and microphone.
+    The final result of 93.20 % was compared with the                             To name a few limitations of this research, we can refer
+superior research on affective computing with different                        to the new input devices such as multi-touch touch pads
+
+
+                                                                                                                                              123
+1294                                                                                      Neural Comput & Applic (2015) 26:1277–1296
+
+
+and multi-touch touch screen displays, which are not                   2. Harris M, Ishii H, Chung C, Dodsworth C, Buxton B (1999)
+covered in this scope. Human emotion is a cognitive con-                  Natural and invisible human interfaces. In: International confer-
+                                                                          ence on computer graphics and interactive techniques (SIG-
+cept and is hard to recognize the exact emotion with its                  GRAPH). doi:10.1145/311625.311922
+degree. This research collected the data based on the users’           3. Palm G, Glodek M (2013) Towards emotion recognition in human
+Self-Reported emotion. It is possible that the users could                computer interaction. In: Neural nets and surroundings, vol 19.
+not identify their own emotions properly, which may alter                 Springer, pp 323–336. doi:10.1007/978-3-642-35467-0_32
+                                                                       4. Cowie R, Douglas-Cowie E, Tsapatsoulis N, Votsis G, Kollias S,
+the results. Furthermore, the achieved result is limited to               Fellenz W, Taylor JG (2001) Emotion recognition in human–
+some few groups of emotions, which are common in the                      computer interaction. Sig Process Mag IEEE 18(1):32–80
+similar research to make a comparative analysis. However,              5. Picard RW (1998) Affective computing. MIT Press, Cambridge
+other emotions were not investigated. At last, evaluation              6. Strongman KT (2003) The psychology of emotion. Department of
+                                                                          Psychology, University of Canterbury, 5th edn. Wiley,
+was conducted based on only three criteria, which can be                  Christchurch
+extended in future to cover more aspects of efficiency and             7. Lewis M, Haviland-Jones JM, Barrett LF (2010) The cultural
+usability.                                                                psychology of the emotions—ancient and renewed. In: Richard
+   Many researchers in affective computing and psychol-                   A, Shweder JH, Horton R, Joseph C (eds) Handbook of emotions,
+                                                                          3rd edn. The Guilford Press, New York, p 19
+ogy proved that there are some minor differences in the                8. Fredrickson BL (2001) The role of positive emotions in positive
+definitions and expressions of each emotion among people                  psychology—the broaden-and-build theory of positive emotions.
+all around the world with different language and cultural                 Am Psychol 56(3):9. doi:10.1037/0003-066X.56.3.218
+backgrounds [7]. Participants in the research showed only              9. SRamaraj V, Ravindran A, Thirumurugan A (2013) Emotion
+                                                                          recognition from human eye expression. IJRCCT 2(4):158–164
+the emotional features on themselves, and the resulted data           10. Schmidt K, Cohn J (2002) Human facial expressions as adapta-
+may not be extended to the other people from other part of                tions: evolutionary questions in facial expression. Am J Phys
+the world. Lack of a standard framework on emotions for                   Anthropol 33:3–24
+people in different regions is one of the critiques of this           11. Baker C, Cokely D (1980) American sign language: a teacher’s
+                                                                          resource text on grammar and culture. T.J. Publishers, Silver
+research and the whole field of research for affective                    Spring
+computing. Lewis has discussed the strength of our                    12. Jamshidnejad A (2009) Facial emotion recognition for human
+hypothesis to cluster the collected data based on the lan-                computer interaction using a fuzzy model in the e-business. In:
+guage and cultural backgrounds to differentiate the results               Conference on innovative technologies in intelligent systems and
+                                                                          industrial applications (CITISIA), pp 202–204
+based on the emotions [7].                                            13. Tsihrintzis GA, Virvou M, Alepis E, Stathopoulou IO (2008)
+   To address the above issues, we are currently working                  Towards improving visual-facial emotion recognition through use
+on a fuzzy model for affective computing to detect other                  of complementary keyboard-stroke pattern information. In: Fifth
+available emotions (not only one emotion) with their                      international conference on information technology: new gener-
+                                                                          ations, pp 32–37
+dominance values [72, 73]. This fuzzy model tries to                  14. Valstar M, Patras I, Pantic M (2004) Facial action unit recog-
+cluster and classify the emotions based on the cultural                   nition using temporal templates. In: IEEE international work-
+differences. Building a universal model to be extended and                shop on robot and human interactive communication,
+used on all users globally is an open challenge in affective              pp 253–258
+                                                                      15. Gu W, Xiang C, Venkatesh Y, Huang D, Lin H (2012) Facial
+computing [74, 75].                                                       expression recognition using radial encoding of local Gabor
+   We also plan to implement this method on new devices                   features and classifier synthesis. Pattern Recogn 45(1):80–91
+with new features and platforms such as smart phones.                 16. Konar A, Chakraborty A, Halder A, Mandal R, Janarthanan R
+Result of this research is going to be used in a recom-                   (2012) Interval type-2 fuzzy model for emotion recognition from
+                                                                          facial expression. In: Kundu MK, Mitra S, Mazumdar D, Pal SK
+mender system [74] in a way that system adjusts its rec-                  (eds) Perception and machine intelligence. Lecture notes in
+ommendation according to user’s emotions and                              computer science, vol 7143. Springer, Heidelberg, pp 114–121.
+interactions.                                                             doi:10.1007/978-3-642-27387-2_15
+                                                                      17. Kao CY, Fahn CS (2012) A design of face detection and facial
+Acknowledgments Thanks to the students of Universiti Ke-                  expression recognition techniques based on boosting schema.
+bangsaan Malaysia (The National University of Malaysia), University       Appl Mech Mater 121:617–621
+of Duisburg-Essen, Germany, and members of AIESEC UKM and             18. Ilbeygi M, Shah-Hosseini H (2012) A novel fuzzy facial
+AIESEC ESSEN, the largest nonprofit organization run by students,         expression recognition system based on facial feature extraction
+who participated in the prototype system evaluation.                      from color face images. Eng Appl Artif Intell 25(1):130–146.
+                                                                          doi:10.1016/j.engappai.2011.07.004
+                                                                      19. Rahulamathavan Y, Phan RC-W, Chambers JA, Parish DJ (2013)
+                                                                          Facial expression recognition in the encrypted domain based on
+References                                                                local fisher discriminant analysis. IEEE Trans Affect Comput
+                                                                          4(1):83–92. doi:10.1109/T-AFFC.2012.33
+ 1. Leon E, Clarke G, Callaghan V, Sepulveda F (2007) A user-         20. Beaudrya O, Roy-Charlanda A, Perrona M, Cormierb I, Tappa R
+    independent real-time emotion recognition system for software         (2014) Featural processing in recognition of emotional facial
+    agents in domestic environments. Eng Appl Artif Intell                expressions. Cogn Emot 28(3):416–432. doi:10.1080/02699931.
+    20(3):337–345. doi:10.1016/j.engappai.2006.06.001                     2013.833500
+
+
+123
+Neural Comput & Applic (2015) 26:1277–1296                                                                                             1295
+
+21. Kleinsmith A, Bianchi-Berthouze N (2013) Affective body              43. Krishnan A, Fernandez M (2014) System and method for rec-
+    expression perception and recognition: a survey. IEEE Trans              ognizing emotional state from a speech signal. Google Patents
+    Affect Comput 4(1):15–33. doi:10.1109/T-AFFC.2012.16                 44. Liu Y, Sourina O, Nguyen MK (2010) Real-time EEG-based
+22. Lee JS, Shin D-H (2013) A study on the interaction between               human emotion recognition and visualization. In: International
+    human and smart devices based on emotion recognition. In: HCI            conference on cyberworlds, pp 262–269
+    international 2013-posters’ extended abstracts. Springer,            45. Schaaff K, Schultz T (2009) Towards emotion recognition from
+    pp 352–356                                                               electroencephalographic signals. In: Affective computing and
+23. Bulwer J (1644) Chirologia: or the natural language of the hand.         intelligent interaction and workshops (ACII), pp 1–6
+    London. doi:10.1037/11828-001                                        46. Guangying Y, Shanxiao Y (2010) Emotion recognition of elec-
+24. de Jorio A (1832) Gesture in naples and gesture in classical             tromyography based on support vector machine. In: Third inter-
+    antiquity. Indiana University Press, Bloomington                         national symposium on intelligent information technology and
+25. McNeill D (2005) Gesture and thought. Chicago University                 security informatics, pp 298–301
+    Press, Chicago                                                       47. Murugappan M, Murugappan S (2013) Human emotion recog-
+26. Goldin-Meadow S (2003) Hearing gesture: how our hands help us            nition through short time electroencephalogram (EEG) signals
+    think. Harvard University Press, Cambridge                               using fast fourier transform (FFT). In: IEEE 9th international
+27. Gunes H, Piccardi M (2005) Fusing face and body gesture for              colloquium on signal processing and its applications (CSPA),
+    machine recognition of emotions. In: IEEE international work-            pp 289–294. doi:10.1109/CSPA.2013.6530058
+    shop on robots and human interactive communication,                  48. Schuller B, Rigoll G, Lang M (2004) Emotion recognition in the
+    pp 306–311                                                               manual interaction with graphical user interfaces. In: IEEE
+28. Glowinski D, Camurri A, Volpe G, Dael N, Scherer K (2008)                international conference on multimedia and expo 2.
+    Technique for automatic emotion recognition by body gesture              pp 1215–1218
+    analysis. In: IEEE computer society conference on computer           49. Milanova M, Sirakov N (2008) Recognition of emotional states in
+    vision and pattern recognition workshops                                 natural human–computer interaction. In: IEEE international
+29. Chena S, Tiana Y, Liub Q, Metaxasc DN (2013) Recognizing                 symposium on signal processing and information technology
+    expressions from face and body gesture by temporal normalized            (ISSPIT), pp 186–191
+    motion and appearance features. Image Vis Comput                     50. Kaklauskas A, Zavadskas EK, Seniut M, Dzemyda G, Stankevic
+    31(2):175–185. doi:10.1016/j.imavis.2012.06.014                          V, Simkevičius C, Stankevic T, Paliskiene R, Matuliauskaite A,
+30. Steunebrink BR, Dastani M, Meyer JJC (2009) The OCC model                Kildiene S, Bartkiene L, Ivanikovas S, Gribniak V (2011) Web-
+    revisited. Utrecht University, The Netherlands                           based biometric computer mouse advisory system to analyze a
+31. Li H, Pang N, Guo S, Wang H (2008) Research on textual                   user’s emotions and work productivity. Eng Appl Artif Intell
+    emotion recognition incorporating personality factor. In: IEEE           24(6):928–945. doi:10.1016/j.engappai.2011.04.006
+    international conference on robotics and biomimetics,                51. Monrose F, Rubin AD (2000) Keystroke dynamics as a biometric
+    pp 2222–2227                                                             for authentication. Future Gener Comput Syst 16(4):351–359
+32. Gil GB, Jesús ABd, Lopéz JMM (2013) combining machine              52. Wang R, Fang B (2008) Affective computing and biometrics
+    learning techniques and natural language processing to infer             based HCI surveillance system. In: International symposium on
+    emotions using Spanish twitter corpus. In: International workshops       information science and engineering, pp 192–195
+    of PAAMS 365:149–167. doi:10.1007/978-3-642-38061-7_15               53. Epp C, Lippold M, Mandryk RL (2011) Identifying emotional
+33. Calvo RA, Kim SM (2013) Emotions in text: dimensional and                states using keystroke dynamics. In: Proceedings of the 2011
+    categorical models. Comput Intell 29(3):527–543. doi:10.1111/j.          annual conference on human factors in computing systems,
+    1467-8640.2012.00456.x                                                   pp 715–724. doi:10.1145/1978942.1979046
+34. Shahin I (2013) Speaker identification in emotional talking          54. Waikato Uo (2010) Weka. http://www.cs.waikato.ac.nz/ml/weka/
+    environments based on CSPHMM2s. Eng Appl Artif Intell                    . Accessed 01 July 2010
+    26(7):1652–1659. doi:10.1016/j.engappai.2013.03.013                  55. Bashir MG, Nagarajan R, Hazry D (2010) Facial emotion
+35. Klecková J (2009) Important nonverbal attributes for spontaneous        detection using GPSO and Lucas–Kanade algorithms. In: Inter-
+    speech recognition. In: Fourth international conference on sys-          national conference on computer and communication engineering
+    tems, pp 13–16                                                           (ICCCE), pp 1–6. doi:10.1109/ICCCE.2010.5556754
+36. Wang Y, Guan L (2008) Recognizing human emotional state              56. Ekman P, Friesen WV (2003) Unmasking the face: a guide to
+    from audiovisual signals*. Multimed IEEE Trans 10(5):936–946             recognizing emotions from facial clues. Malor Books, Cambridge
+37. Merrett T (2008) Query by humming. McGill University,                57. Kao ECC, Liu CC, Yang TH, Hsieh CT, Soo VW (2009)
+    Montreal                                                                 Towards text-based emotion detection. In: International confer-
+38. Unal E, Chew E, Georgiou PG, Narayanan SS (2008) Challeng-               ence on information management and engineering (ICIME),
+    ing uncertainty in query by humming systems: a fingerprinting            pp 70–74
+    approach. Audio Speech Lang Process IEEE Trans                       58. Yang H, Willis A, De Roeck A, Nuseibeh B (2012) A hybrid
+    16(2):359–371                                                            model for automatic emotion recognition in suicide notes. Bio-
+39. Amarakeerthi S, Ranaweera R, Cohen M (2010) Speech-based                 med Inform Insights 5(Supp 1):17–30. doi:10.4137/BII.S8948
+    emotion characterization using postures and gestures in CVEs. In:    59. Böhlen M (2009) Second order ambient intelligence. J Ambient
+    International conference on cyberworlds, pp 72–76                        Intell Smart Environ 1(1):63–67
+40. Pittermann J, Schmitt A, El Sayed NF (2008) Integrating lin-         60. Aarts E, de Ruyter B (2009) New research perspectives on
+    guistic cues into speech-based emotion recognition. In: 4th              ambient intelligence. J Ambient Intell Smart Environ 1(1):5–14
+    international conference on intelligent environments, pp 1–4         61. Sinek S (2011) First why and then trust. TEDx. http://science
+41. Huang T (2008) Audio-visual human computer interface. In:                stage.com/v/42756/tedxmaastricht-simon-sinek-first-why-and-
+    IEEE international symposium on consumer electronics, pp 1–1             then-trust.html. Accessed 06 Jan 2012
+42. Kotti M, Kotropoulos C (2008) Gender classification in two           62. Larson R, Csikszentmihalyi M (1983) The experience sampling
+    emotional speech databases. In: 19th international conference on         method. In: New directions for methodology of social & behav-
+    pattern recognition, pp 1–4                                              ioral science, vol 15, pp 41–46
+
+
+
+
+                                                                                                                                123
+1296                                                                                       Neural Comput & Applic (2015) 26:1277–1296
+
+63. Hertenstein MJ, Keltner D, App B, Bulleit BA, Jaskolka AR          70. Hauske G (2003) Statistische Signaltheorie. In: Skriptum zur
+    (2006) Touch communicates distinct emotions. Emotion 6(3):528          Vorlesung. Technische Universität München, München,
+64. Rezaee Jordehi A (2014) A chaotic-based big bang–big crunch            Deutschland
+    algorithm for solving global optimisation problems. Neural         71. Xiao Z, Dellandrea E, Dou W, Chen L (2007) Automatic hier-
+    Comput Appl 25(6):1329–1335. doi:10.1007/s00521-014-1613-1             archical classification of emotional speech. In: Ninth IEEE
+65. Rezaee Jordehi A (2014) Particle swarm optimisation for                international symposium on multimedia workshops, pp 291–296
+    dynamic optimisation problems: a review. Neural Comput Appl        72. Bakhtiyari K, Husain H (2013) Fuzzy model on human emotions
+    25(7–8):1507–1516. doi:10.1007/s00521-014-1661-6                       recognition. In: 12th international conference on applications of
+66. Han J, Kamber M, Pei J (2012) Data mining concepts and tech-           computer engineering, pp 77–82
+    niques, 3rd edn. Elsevier, USA                                     73. Bakhtiyari K, Husain H (2014) Fuzzy model of dominance
+67. Bakhtiyari K, Taghavi M, Husain H (2014) Implementation of             emotions in affective computing. Neural Comput Appl
+    emotional-aware computer systems using typical input devices.          25(6):1467–1477. doi:10.1007/s00521-014-1637-6
+    In: Nguyen NT, Attachoo B, Trawiński B, Somboonviwat K (eds)      74. Taghavi M, Bakhtiyari K, Scavino E (2013) Agent-based com-
+    Intelligent Information and Database Systems, vol 8397. Springer       putational investing recommender system. In: Proceedings of the
+    International Publishing, Bangkok, pp 364–374. doi:10.1007/978-        7th ACM conference on recommender systems, pp 455–458.
+    3-319-05476-6_37                                                       doi:10.1145/2507157.2508072
+68. Kemp F (2003) Applied multiple regression/correlation analysis     75. Taghavi M, Bakhtiyari K, Taghavi H, Olyaee V, Hussain A
+    for the behavioral sciences. J R Stat Soc Ser D (Stat) 52(4):691       (2014) Planning for sustainable development in the emerging
+69. Cohen J (2003) Applied multiple regression/correlation analysis        information societies. J Sci Technol Policy Manag 5(3):178–211.
+    for the behavioral sciences. Lawrence Erlbaum Associates,              doi:10.1108/JSTPM-04-2014-0013
+    Publishers
+
+
+
+
+123
+

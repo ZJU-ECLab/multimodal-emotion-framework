@@ -1,0 +1,640 @@
+International Journal of Social Robotics (2024) 16:763–773
+https://doi.org/10.1007/s12369-024-01125-1
+
+
+
+
+Having Different Dialog Roles in Telecommunication by Using Two
+Teleoperated Robots Reduces an Operator’s Guilt
+Reina Nozawa1 · Kazuki Sakai1 · Megumi Kawata1 · Hiroshi Ishiguro1 · Yuichiro Yoshikawa1
+
+Accepted: 11 March 2024 / Published online: 10 April 2024
+© The Author(s) 2024
+
+
+Abstract
+In recent years, applications of social robots as the operator’s avatar have been widely studied for remote conversation with
+rich nonverbal information. Having another side-participant robot beside the avatar robot of the operator was found to be
+effective for providing long-lasting backchannels to the interlocutor. The side-participant robot is also expected to play a
+role in assisting human participation in multiparty conversations. However, such a focus has not been applied to remote
+conversations with multiple robots. Here, we propose a multiple-robot telecommunication system with which the operator
+can use a side-participant robot to assist conversation that is developed by the operator through the main speaker robot to verify
+its effectiveness. In the laboratory experiment where the subjects were made to feel stressed by being forced to provide rude
+questions to the interlocutor, the proposed system was shown to reduce guilt and to improve the overall mood of operators.
+The result encourages the application of a multi robot remote conversation system to allow the user to participate in remote
+conversations with less anxiety of potential failure in maintaining the conversation.
+
+Keywords Multiple robots · Tele-communication robot · Cybernetic avatar · Tele-communication support · Assisting robot
+operator
+
+
+1 Introduction                                                     format from that in face-to-face communication [32] and
+                                                                   because the physical space cannot be shared [25]. Social
+In recent years, there has been an increase in remote commu-       presence has been the focus of studies of computer-mediated
+nication between different locations due to various factors,       communication [9, 24], and the lack of social presence is
+including globalization. However, conventional telecommu-          known to decrease the willingness to continue the dialog
+nication devices such as telephones and videoconferencing          [43] and social conformity [28]. In contrast, several stud-
+systems do not sufficiently convey the social presence [6]         ies have been conducted by using robots as communication
+of the remote speaker (i.e., the sense of being together with      media that can transmit nonverbal information and can allow
+the remote speaker) because nonverbal information such as          their operator to share physical space with their interlocutors
+a gaze to establish eye contact is transmitted in a different      via its body [4, 35, 40]. Takeuchi et al. [40] reported that
+                                                                   a physically handicapped person may serve customers from
+B Yuichiro Yoshikawa                                               his or her home by operating an avatar robot. Veronica et al.
+    yoshikawa@irl.sys.es.osaka-u.ac.jp                             [35] also reported that students who are unable to physically
+    Reina Nozawa                                                   attend school due to illness may participate in the classroom
+    nozawa.reina@irl.sys.es.osaka-u.ac.jp                          by operating a robot.
+    Kazuki Sakai                                                       However, it is difficult for an operator to operate a robot
+    sakai.kazuki@irl.sys.es.osaka-u.ac.jp                          rapidly and precisely to sufficiently convey desired nonverbal
+    Megumi Kawata                                                  information due to the limitations in its degree of freedom
+    kawata@irl.sys.es.osaka-u.ac.jp                                and human skill. Therefore, methods that allow the robot to
+    Hiroshi Ishiguro                                               be semiautonomously operated have been studied. Ishii et
+    ishiguro@sys.es.osaka-u.ac.jp                                  al. [23] and Sakai et al. [36] developed a semiautonomous
+                                                                   robot that can autonomously produce its lips and head move-
+1   Graduate School of Engineering Science, Osaka University,      ments based on the operator’s voice input. However, due to
+    Toyonaka, Japan
+
+
+                                                                                                                       123
+764                                                                             International Journal of Social Robotics (2024) 16:763–773
+
+
+sensing errors or other factors, semiautomatic teleoperated        the current study functions as an assistive robot that par-
+robots sometimes generate actions that look unrelated to the       ticipates in conversation semiautonomously and proactively
+conversation and interfere with it. Furthermore, it is possi-      with the goal of helping the operator produce the utterance
+ble that the movement directly given by the operator and the       via the main robot. In the proposed system, specifically, two
+one automatically generated by the system may interfere with       roles are shared by two robots: A teleoperated speaker robot
+each other. On the other hand, Arimoto et al. [2] improved the     is operated by the operator’s voice to speak freely, and a
+social presence of the tele-operator by introducing another        teleoperated side-participant robot is operated by buttons for
+autonomous robot to be a side-participant of the conversation      proactive participation to assist the operator in easily speak-
+and by making it autonomously produce necessary nonver-            ing. Therefore, we developed an interface with functions for
+bal information. The adoption of multiple robots resolved the      supporting a single operator to simultaneously operate two
+interference between movements generated by the operator           robots with different dialog roles. Then, to show that the
+and the system by assigning the role of responding to the          proposed system improves the operator’s mood during a con-
+interlocutor only to the side-participant robot.                   versation, an experiment was conducted in which the subject
+   Even in a face-to-face conversation where participants can      was asked to be an operator conversing in a situation in which
+feel the interlocutor’s social presence, just saying something     he or she easily feels guilty or stressed. We then showed that
+is often not an easy task in some situations, such as cross-       the proposed system decreases the operator’s guilt and stress
+cultural conversations [41] and group conversations [10]. In       during the conversation.
+other words, improving social presence cannot be a sufficient
+solution to support communication. In social psychology, the
+communication participation style scale (COMPASS) [12]             2 Related Work
+was developed as a scale of communication participation
+style, i.e., how people usually participate in communication,      2.1 Conversation Assistance Using Robots and
+and is used to evaluate participants’ attitudes in collabora-          Agents
+tive learning [34]. The scale contains four factors: passive
+participation, which shows a tendency not to engage in the         In previous studies, robots and agents have been developed
+conversation; receptive participation, which shows a ten-          that make conversation smooth. For example, Matsuyama et
+dency to listen to others and to try to understand what they are   al. [31] developed a framework for facilitation robots that reg-
+saying; conversation management, which shows a tendency            ulate imbalanced engagement density in a four-participant
+to manage and spark conversation like the chairperson; and         conversation with proper procedures for obtaining initia-
+proactive participation, which shows a tendency to describe        tives. The robot’s behavior based on the framework showed
+ideas without hesitation and to claim their opinions. There        evidence of acceptability for a participant’s behavior and
+are some studies in which robots or agents were implemented        a feeling of group connectedness. Short et al. [39] devel-
+to have the style of conversation management to assist com-        oped a robot that moderates a collaborative assembly game
+munication [7, 22, 31, 39, 45]. Matsuyama et al. [31] showed       and showed that the more the robot spoke to participants,
+that the behavior of facilitation robots can be accepted as a      the higher the group cohesion they reported, and the more
+participant’s behavior and can produce a feeling of group          they helped the other participants in the group. In addition,
+connectedness. Yamaguchi et al. [45] also showed that a pre-       Birmingham et al. [7] reported that a robot can improve
+senting robot can stimulate conversation by introducing a          trust among strangers by asking questions that encouraged
+funny story. However, in their study, the robot was controlled     participants to share with one another. Isbister et al. [22]
+by a Wizard of Oz (WoZ) method, and its speech contents            also developed an agent that suggests nonsensitive topics for
+were limited to one implemented in advance. On the other           cross-cultural conversation when it breaks off and confirmed
+hand, it is not clear how a robot can assist in conversation       that it positively affected impressions of typical Japanese
+with the style of proactive participation.                         people for American people. All of these robots and agents
+   In this study, therefore, we propose a remote dialog sys-       assisted in conversation through the participation style of
+tem that allows an operator to have different dialog roles         conversation management. This differs from our study, which
+by using two tele-operated robots: One robot is used for           aims to realize conversational assistance through the proac-
+conveying the operator’s voice and the other for assisting         tive participation of robots.
+conversation. Mehmood et al. [29] proposed the use of mul-
+tiple teleoperated robots to alternately convey the operator’s     2.2 Multiple Robots
+utterance and to instill in the operator stronger perceptions of
+the right to talk and social support. Although the two robots      Previous studies on human-robot interactions have shown
+employed in the previous study shared the speaker role to          good points of cooperation among multiple autonomous
+produce the utterance of the operator, the second robot in         robots [3, 20, 21, 37, 38, 42]. The first merit of cooperat-
+
+
+123
+International Journal of Social Robotics (2024) 16:763–773                                                                      765
+
+
+ing with multiple robots is increasing the impact on people.       with voice changer software, while the assistance robot pro-
+Sakamoto et al. [37] reported that two robots attracted more       duces actions to support conversation, which is driven by the
+people than did a single robot in open public environments,        operator’s button input (see Fig. 1).
+which was conceptualized as the advantage of a passive social          These robots are controlled by a microphone and GUI
+medium. Shiomi et al. [38] also reported that multiple robots      with three software blocks. The blocks consist of the “voice
+can give their human interlocutor stronger pressure than that      recognizer”, which receives the operator’s and interlocutor’s
+of a single robot. The second merit is improving the user’s        voices for speech recognition and voice activity detection, the
+impression of a conversation. Arimoto et al. [3] reported that     “utterance recommender,” which receives voice recognition
+people felt that it was easier to talk with a dialog system        results of the operator and the interlocutor to offer recommen-
+that alternately made two robots talk to a human interlocutor      dations for the operator to choose the next utterance for the
+than it was with one that talked only with a single robot. Iio     assistance robot, and the “multiple-robots controller,” which
+et al. [20, 21] developed a dialog system that can maintain        controls the robot’s utterances and coordinates two robots’
+conversational consistency against speech recognition fail-        behavior so as to make them work collaboratively.
+ure by making two robots cooperatively respond to human                The utterance recommender generates candidates for the
+interlocutors.                                                     assistance robot’s utterances to either the interlocutor or the
+   On the other hand, studies have also been conducted on          main robot. The GUI receives the candidates and updates
+multiple teleoperated robots. Glas et al. [16] developed a sys-    the buttons to trigger them. When the operator selects the
+tem in which robots automatically talk in noncritical sections     assistance robot’s speech content and the speech addressee
+and are controlled in critical sections. It allows one operator    (main robot or interlocutor) by clicking on a preferable button
+to control multiple robots in different places simultaneously.     generated on the GUI, the selected information is sent to the
+However, it was not for facilitating conversations by using        multiple-robot controller.
+multiple robots. Arimoto et al. [2] focused on enhancing the           The main robot’s utterance controller in the multiple-
+social presence of the teleoperator to improve the conversa-       robot controller converts the operator’s voice into robot-like
+tion. They developed a telecommunication system not only           speech by elevating its pitch, which is produced through a
+with a proxy robot that conveys the operator’s utterances          loudspeaker placed behind the main robot. Furthermore, in
+but also with another autonomous bystander robot that gives        synchrony with the operator’s speech voice, the main robot
+vague utterances. However, the bystander robot only gives          opens and closes its mouth and moves its arms up and down,
+back-channel feedback such as “oh” or “uh”. Although Ari-          such that the produced voice is perceived as being gener-
+moto used a teleoperated and an autonomous robot, in this          ated by the main robot. For such synchronization, the mouth
+study, we use two teleoperated robots. Recently, Mehmood           and arm movements are generated based on vowels extracted
+et al. proposed the use of multiple teleoperated robots, either    from the operator’s speech [23]. The assistance robot’s utter-
+of which can be randomly chosen to serve as the main robot         ance controller receives the text to be uttered by the assistance
+that conveys the operator’s words; these authors also high-        robot from the GUI and synthesizes voice sound. The syn-
+lighted the effect of this approach on facilitating conversation   thesized voice is produced by the built-in speaker of the
+in terms of the operator’s perceptions of the right to talk and    assistance robot, while its mouth and arm movements are
+social support [29]. However, the choice of robots was made        generated using the same method employed by the main
+randomly and independently of the context of the dialog. In        robot.
+other words, the second robot was not designed to assist the           The question of how to implement social gaze has been the
+main robot but rather to share the speaker role with the main      focus of research in the field of human-robot interaction (for
+robot. In this paper, on the other hand, we propose a system       a review, see [1]). It is well known that gaze has the ability
+in which the second robot plays the role of a side-participant     to regulate the exchange and maintenance of speaker roles
+that sometimes explicitly assists the operator in developing       [27]. Participants playing the speaker and listener roles spend
+the dialog via the main robot.                                     a large amount of time looking at the listener and the speaker,
+                                                                   respectively [44]. These human tendencies have been used
+                                                                   to generate appropriate gaze behavior for a speaker robot
+3 Proposed System                                                  [33]. The attentional target of a side-participant robot has
+                                                                   also been modeled based on the roles played by participants
+3.1 System Configuration                                           [48]. In accordance with previous studies, we implemented
+                                                                   the multiple-robot coordinator to generate the gaze of both
+The proposed system enables a remote operator to operate           robots and the nodding behavior of the assistance robot so
+two robots, that is, a main robot and an assistance robot,         that both robots look as if they are paying attention naturally
+simultaneously, each with different dialog roles. The main         in the conversation. As in a previous study [2], if either robot
+robot produces the operator’s voice after it has been processed    speaks, the gaze is directed toward the speaker robot, while
+
+
+                                                                                                                         123
+766                                                                           International Journal of Social Robotics (2024) 16:763–773
+
+
+
+
+Fig. 1 The system’s configuration
+
+
+if neither robot is speaking, the gaze is directed toward the     acts. Among the nine dialog acts, in the proposed system, we
+interlocutor. Specifically, when the operator’s voice activity    focused on questions (yes-no), questions (what), requests,
+is detected, the assistance robot turns its gaze toward the       and self- disclosures and prepared sets of appropriate utter-
+main robot. When the multiple-robot coordinator receives          ances for each category, which is to be recommended for use
+the speech addressee of the assistance robot (main robot or       by the assistance robot. For example, if the operator says,
+interlocutor) chosen by the operator, it moves both robots’       “How much money do you have saved? ”, it is recognized
+gaze in the following steps. First, the assistance robot turns    as a question (what). Then, the recommender recommends
+its gaze toward the addressee simultaneously when the gen-        candidates such as “That is a rude question.” or “It is hard
+erated voice is produced from the built-in speaker by the         to answer, is not it?” We note that the utterances in the pre-
+utterance controller. One second later, the main robot turns      pared set are associated with binary labels indicating nuance
+its gaze toward the assistance robot two points five seconds      (hereafter called “nuance label”). These labels had values as
+later, and the main robot looks back to the interlocutor. These   friendly or critical and were used in the GUI for the operator
+gazes of the main robot are expected to make it clear that the    to intuitively imagine how the assistance robot is perceived
+current speaker is the assistance robot and the addressee is      by saying it. The sentence type judgment API included in the
+the interlocutor. In other cases, the main robot and the assis-   COTOHA API is used to classify the dialog act of the given
+tance robots are directed to the interlocutor. In addition, to    sentence sent from the Google Speech API, which is an artifi-
+increase both the interlocutor’s and the operator’s sense of      cial sound recognition module. As the labels of the COTOHA
+being listened to, the head of the assistance robot is moved      API and Fukuoka et al. [13, 14] are different from each other,
+up and down once or twice 30% of the time when their voice        a simple mapping rule was applied. Namely, information-
+activities become inactive.                                       seeking, directive, and information-providing are mapped to
+                                                                  the question (Yes-No, What), request, and self-Conflict of
+                                                                  interest, respectively.
+3.2 Assistance-Robot’s Utterances Recommender                         In addition, to reduce one-sided conversations, appro-
+                                                                  priate support words are generated dependent on speaking
+To allow an operator who mainly controls the main robots          amount bias. Namely, when either the operator or the inter-
+to easily control the assistance robot, the assistance robot’s    locutor is speaking for a long period, the recommender
+utterances recommender suggests its next utterance based on       chooses utterances promoting another to speak from pre-
+the last utterance by the operator or interlocutor.               pared sets and recommends it. Specifically, if the operator or
+   The assistance robot is supposed to utter to reduce two        the interlocutor speaks continuously for more than 30 s, the
+types of potential concerns of the operator during the con-       assistance robot is recommended to say words to encourage
+versation: One concern is for his or her impoliteness, and the    turn-taking. For example, it says, “Do you have something
+other is a one-sided conversation. We suppose that appropri-      to say?” or “Did you understand me so far?” to the previous
+ate words basically depend on the expected function of the        listener. In addition, if the operator speaks continuously for
+utterance by the last speaker. Fukuoka et al. [13, 14] proposed   more than 50 s, the recommender suggests an utterance that
+that utterances in a dialog can be categorized into nine dialog
+
+
+123
+International Journal of Social Robotics (2024) 16:763–773                                                                      767
+
+
+condemns the one-sided conversation, such as, “Aren’t you
+talking a little too much?” We note that, as in the case of the
+dialog act, utterances in the prepared set are associated with
+nuance labels.
+    Another way to relax the concern for one-sided conversa-
+tion is to increase the sense of being listened to. To increase
+it, we implemented “repeating utterances” [8], which is evi-
+dence of understanding the other person’s speech. Namely,
+key phrases are extracted from the speech recognition results
+and used to recommend utterances for the speaker to feel
+repeated and listened to. We note that the tone of the speech
+tail of the repeated key phrase is ascended to sound inter-
+rogative so that the assistance robot looks interested in the        Fig. 2 Screen of the GUI
+phrase. For example, if the operator says, “I went to Kyoto
+yesterday,” “Kyoto?” is recommended to be repeated. Key              which is often used to represent a warming heart in Japan,
+phrase extraction (v2) of Yahoo! API is used for key phrase          was used if the nuance label was friendly. On the other hand,
+extraction. It analyzes Japanese sentences and extracts impor-       five short vertical lines, which are often used to represent a
+tant expressions as key phrases. The extracted key phrases           disappointing or disrespectful feeling in Japan, were used if
+are given a score (0–100) indicating their importance. For           the nuance label was critical. Furthermore, when the recom-
+the system’s stability, only key phrases with a score of 100         mended utterance is unacceptable to the operator, he or she
+are treated as key phrases. We note that utterances generated        can click on face icons to obtain another candidate.
+from key phrases are associated with friendly labels.
+
+3.3 GUI                                                              4 Experiment
+We developed a GUI for the operator to observe the conver-           The experimental conversation was conducted with a sub-
+sation scene and to choose the recommended utterances for            ject and the experimenter who took the roles of the operator
+the assistance robot to utter (see Fig. 2). On the left side of      and the interlocutor, respectively. To verify the effect of the
+the screen, the camera image capturing both the frontal face         proposed system, they attended two conversations with and
+of the interlocutor and the backside or lateral faces of the two     without the operation of the assistance robot. Then, we eval-
+robots is displayed so that the operator can observe the con-        uated the hypothesis that operating the assistance robot to be
+versational scene. On the right side, buttons with the shape of      a proactive participant that supports the interlocutor reduces
+speech bubbles are displayed, each of which contains texts of        the operator’s guilt and stress during the conversation where
+the recommended utterance to be produced by the assistance           the operator happens to be rude.
+robot when the operator clicks on it. When new utterances are           This research involves human participants and was
+recommended, the GUI automatically generates new speech              approved by the Ethics committee for research involving
+bubble-type buttons.                                                 human subjects at the Graduate School of Engineering Sci-
+   In addition, there are two icon images of the assistance          ence, Osaka University, approval number 31-1-1. The written
+robot with different facial directions expressing the addressee      informed consents were obtained from all participants.
+of the recommended utterances for the assistance robot. For
+example, in the upper area, the robot’s face looking at the          4.1 Subjects
+interlocutor in the monitor image is drawn so that the utter-
+ance candidate filled in the speech bubble close to it is            Twenty-nine native Japanese speakers (20–23 years old, 14
+produced toward the interlocutor. Conversely, on the lower           males and 15 females) participated in the experimental con-
+area, the robot’s face looking at the operator is drawn to mean      versation under two conditions. Specifically, 15 participants
+that the utterance candidate filled in one close to it is produced   (7 males and 8 females, mean age 21.3 years) did it while
+toward the main robot that is a proxy agent of the operator.         operating the assistance robot (hereafter, With condition) fol-
+In addition, to support the operator in intuitively deciding if      lowed by the condition without operation (hereafter Without
+he or she accepts the recommended utterances, a visual rep-          one). The remaining 14 participants (7 males and 7 females,
+resentation of their nuance, such as friendly and critical, was      mean age 21.5 years) did so in the reverse order.
+superimposed on the face icon. In particular, a heart mark,
+
+
+
+
+                                                                                                                         123
+768                                                                           International Journal of Social Robotics (2024) 16:763–773
+
+Fig. 3 The environment on the
+interlocutor side (left) and on
+the operator side (right)
+
+
+
+
+4.2 Apparatus                                                    verify the effect of the proposed method to decrease the sub-
+                                                                 ject’s guilt and stress, three of the six questions were chosen
+In our system, we adopted two robots called CommU for            to be rude ones so that the standard level of the subject’s
+the main and assistance robots, which is a desktop, social       guilt and stress became relatively high. To further enhance
+conversation robot developed by the collaboration between        the subject’s guilt, he or she was asked to give a further ques-
+Osaka University and VSTONE Co. Ltd. and has been used           tion to deepen the interlocutor’s answer to one of the rude
+for studies of human-robot conversation [18, 26, 47]. It has a   questions: “I really want to know, but what is the truth of the
+height of 304 mm, a width of 180 mm, and a depth of 131 mm.      matter?”
+It has two DOFs for its waist, two for each arm, three for its      To prepare two sets of questions with sufficient and
+neck, three for its eyes, one for its eyelids, and one for its   balanced levels of rudeness for two conversations in the
+mouth.                                                           experiment, we surveyed the rudeness of 28 questions. A
+    The environments on the interlocutor’s and operator’s        total of 114 participants in their 20 s (57 men and 57 women)
+sides are shown in Fig. 3. On the interlocutor side, a web       participated in the web-based survey. The participants were
+camera was used to observe the interlocutor and the robots,      asked to rate the difficulty of asking and answering each
+a USB loudspeaker was used to produce the main robot’s           question on a 7-point Likert scale while imagining a situa-
+voice, and two microphones were placed around the robots         tion where a woman in her 20 s was the dialog partner. The
+on a desk. An omnidirectional microphone was used to cap-        rude score was calculated for each question by averaging the
+ture both the assistance robot and the subject’s voices for      difficulty in asking and answering. The average rude score for
+the operator to understand the conversation, while a unidi-      the 28 questions was 8.7. The questions were then selected
+rectional microphone was used to capture only the subject’s      so that the total rude score for each set was high and as equal
+voice for the system to perform speech recognition. To pre-      as possible. The selected questions and the rude scores are
+vent both participants from directly listening to the other’s    shown in Table 1.
+voice, the GUI computer with a headset for the operator was         We note that the flowchart for With condition requested
+placed in a soundproof room. In the With condition, the pro-     the subject to operate the assistance robot and that this request
+posed system introduced in Sect. 3 was used. On the other        appeared every time after the subject made rude questions or
+hand, in Without one, the same system was used except that       a further deepening one. In both conditions, the flowchart
+the area for operating the assistance robot was not shown in     was presented right next to the window for operation GUI on
+the interface.                                                   the PC so that the subject’s eye movement was minimized.
+
+4.3 Scenarios                                                    4.4 Procedure
+
+To control for the two conditions, subjects were asked to ask    First, subjects were asked to watch a video describing how
+the interlocutor questions according to the predefined sce-      to attend the experiment as well as the first practice ses-
+nario. Sequences of the subject actions, such as questions and   sion. In the first practice session, the subjects talked with
+backchannels, were given in the form of flowcharts that the      two robots operated by the experimenter. Here, the experi-
+subject must follow. Each flowchart consists of three phases:    menter played the role of operator, and the subject played the
+opening, questioning, and closing. At the opening, the subject   role of interlocutor; they experienced a conversation similar
+said, “Nice to meet you.” Then, for questioning, the subject     to the experiment to have an image of the operation. After-
+asked the interlocutor six questions. Finally, in closing, the   ward, the subjects moved to the operation room and watched
+subject closed the conversation by saying “That’s all.” To       another video explaining the details of the experiment and
+
+
+123
+International Journal of Social Robotics (2024) 16:763–773                                                                                769
+
+
+Table 1 Rude questions used in
+                                       round           Question                                         Rude score                 Total score
+the experiment and their mean
+and standard deviation                                                                                  Avg.         SD
+
+                                       1st             Can you give me your address?                    10.0         1.7
+                                                       What is your parents’ annual income?             8.9          1.7           27.8
+                                                       How old were you when you first kissed?          8.9          1.7
+                                       2nd             Can you give me your phone number?               9.8          1.7
+                                                       What is your weight?                             9.2          1.8           27.9
+                                                       How much money do you have in savings?           8.9          1.8
+
+
+
+how to operate the robots. In the video, the subject was told                 vague guilt within the personality trait mind. In this experi-
+not to utter any words other than those shown in the flowchart.               ment, for each questionnaire item included in this factor, the
+We note that they were also told that, for the request of the                 subjects were asked to choose an option on a 5-point scale
+operating assistance robot, they could decide not only when                   (1 = not at all, 5 = always) which best describes their cur-
+to do it but also whether or not to use the assistance robot.                 rent guilt-related feeling formed through the conversation.
+The experimenter checked the subjects’ understanding, and                     Furthermore, additional questionnaire items “I regret what I
+if there were any unclear points, the experimenter explained                  said,” “I felt sorry for the other person,” and “I felt awkward”
+them again. Afterward, the subjects were given a flowchart                    were used as items to directly evaluate guilt caused by one’s
+for the practice and asked to practice talking with the exper-                own behavior during the conversation. They were rated on a
+imenter as the interlocutor through the robot system. After                   7-point Likert scale (1 = completely disagree, 7 = absolutely
+the practice, the subjects were asked to check the question-                  agree).
+naire items. The experimenter then told the subject to start
+the conversation when the experimenter said “please” and                      4.5.3 Conversation Impression Evaluation
+moved to the front of the robots in the robot booth to be the
+interlocutor in the experiment. When the experimenter was                     Conversation by operating two robots is a special situa-
+ready, the experimenter said “please”, and the subjects started               tion that may cause awkwardness and nervousness in the
+a conversation under one condition. After this conversation,                  participants. Therefore, to evaluate them, the items “the
+the participants were asked to answer a questionnaire. After-                 conversation causes awkwardness (awkwardness)” and “the
+ward, the subjects conversed again in another condition. The                  conversation causes a tense atmosphere (nervousness)” were
+subjects answered the same questionnaire again afterward                      used with a 7-point Likert scale (1 = completely agree, 7 =
+second conversation.                                                          absolutely agree).
+
+4.5 Measurement
+                                                                              5 Result
+4.5.1 Mood Evaluation
+                                                                              All subjects performed the conversation following the
+The total mood disturbance (TMD) of POMS [11] was                             designed flow as specified in the flowchart. In the With
+employed to assess mood during a conversation, which                          condition, more than 89% (26 of 29 subjects) operated the
+is considered to reflect the operator’s stress. We used the                   assistance robot more than four times, which corresponded
+Japanese version of the POMS developed by Yokoyama et                         to the number of times that the operator was recommended
+al. [46]. For each item, the participants were asked to select                in the flowchart.
+the options that best represented their mental state during                      Figure 4 shows boxplots of the measured impressions of
+the conversation on a 5-point scale (0 = not at all, 4 = very                 subjects in the With and Without conditions. A Wilcoxon
+much).                                                                        signed rank sum test was applied to TMD since the normal-
+                                                                              ity of its distribution was rejected by the Shapiro-Wilk test.
+4.5.2 Guilt Evaluation                                                        The test revealed that the TMD in the With condition was
+                                                                              significantly lower than the TMD in the Without condition
+Seven items on a factor called intrapsychic guilt represent-                  (With: Md = 10.0, Without: Md = 15.0, W = 101, d = −0.3,
+ing ambiguous guilt without clear reasons from the trait guilt                p<.05).
+scale (TGS) [30] were used to assess the operator’s guilt                        The minimum residual method was applied to scores
+during a conversation. Intrapsychic guilt is an assessment of                 for guilt evaluation to perform factor analysis with Promax
+
+
+                                                                                                                                   123
+770                                                                             International Journal of Social Robotics (2024) 16:763–773
+
+
+
+
+Fig. 4 Impression of subjects
+
+
+rotation. Based on the Guttman-Kaiser criterion, one fac-          reduced by having options to resolve problems that possibly
+tor consisting of 10 items was found, which explained 55%          arise from their rude or inadequate questions. The proposed
+of the variance with high internal consistency (Cronback’s         method is expected to be applied to a conversation with a
+alpha=.91). A paired t test was applied on the sum of the 10       Conflict of interest. In some cases of discipline, it is not easy
+items since the normality of its distribution was accepted by      for parents to control their emotions, and they are prone to
+the Shapiro-Wilk test. The test revealed that the guilt score      say react in an overly aggressive or emotional manner [15].
+was significantly lower in the With condition than in the With-    In that situation, the parents feel guilty for giving neces-
+out condition (With: M = 34.7 (SD = 9.0), Without: M =             sary but eventually discouraging comments to the children
+37.5 (SD = 10.8), t(23) = −2.1, d = −0.5, p < .05).                to be scolded. The proposed system is expected to reduce
+   A Wilcoxon signed rank sum test was applied on awk-             the guilt and stress of such a parent by allowing him or her
+wardness and tension since the normality of their distribu-        to maintain consistency in the conflicting roles of scolding
+tions was rejected by the Shapiro-Wilk test. Although the          and forgiving to release the children from strong discourage-
+median values were lower in the With condition than in the         ment. Similarly, this method can be applied to conversations
+Without condition, no significant differences were observed        to manage a customer’s complaint where the responsible per-
+in the following measurements: awkwardness (With: Md =             son cannot simply obey the customer due to his or her role.
+5.0, Without: Md = 5.0, W = 62.5, d = −0.3) and tension            It may be possible to reduce his or her stress and guilt by
+(With: Md = 5.0, Without: Md = 5.5., W = 76.5, d = −0.2).          allowing him or her to produce the apology via another robot
+                                                                   instead of simply rejecting their unacceptable request. It is
+                                                                   worth investigating the validities of such applications in field
+                                                                   experiments in future work.
+6 Discussion                                                          Special and complicated tasks that require operating mul-
+                                                                   tiple robots simultaneously are said to be difficult [17, 19].
+The results indicated that the operator’s mental state was         The awkwardness and tension that subjects felt toward the
+improved in the With condition.In both conditions, the sub-        conversation in the With condition did not differ from those
+jects were led to feel guilt and to be in a bad mental mood by     in the Without condition, although the former was a special
+being forced to give rude questions. In the With condition,        and complicated setting in which the subjects simultaneously
+simultaneously, they were given opportunities to help the          operated two robots. In the interview, some subjects reported
+interlocutor by making the assistance robot produce a sup-         that the assistance robot’s operation relaxed the conversa-
+portive utterance to the interlocutor or a critical one to the     tion’s atmosphere. However, such differences could not be
+main robot, which was their main proxy. When people make           confirmed in this experiment. This might be caused by the
+their interlocutor stressed or annoyed, they tend to try to help   characteristics of the used indexes about the whole conver-
+him or her to reduce their guilt [5]. Therefore, the helping       sation, which required considering not only the subject but
+behavior through the assistance robot promoted in the With         also the interlocutor who was controlled to produce the same
+condition causes a reduction in their guilt and consequently       behavior independently of the awkwardness and tension of
+an improvement in their overall mood.                              the conversation. Therefore, it is necessary to confirm the
+   The proposed method can be applied to make tense                effect of the proposed system on the impression of the con-
+conversations comfortable, such as in first-encounter and          versation in a situation close to a natural conversational style,
+cross-cultural communication, where the participants do not        such as free dialog.
+know which questions are rude or inadequate. Because the
+user’s anxiety to give rude or inadequate questions can be
+
+
+123
+International Journal of Social Robotics (2024) 16:763–773                                                                            771
+
+
+7 Limitations                                                    conversations and cross-cultural conversations. Although it
+                                                                 was evaluated in the controlled style conversation, it is worth
+In the current paper, we did not focus on the accuracy of        evaluating also in the freestyle conversation to verify and to
+the generation of candidate utterances since the purpose of      enhance its operability of the proposed interface as well as
+this experiment was to verify the effect of the operation of     the impression of the interviewee’s perspective.
+the assistance robot on the operator’s mood. Therefore, to
+                                                                 Funding Open Access funding provided by Osaka University. This
+control between conditions, the controlled dialog style con-
+                                                                 research was partially supported by JST, Moonshot R&D Grant Num-
+versation was adopted: The operator was asked to have a          ber JPMJMS2011 (system development) and JSPS KAKENHI Grant
+conversation according to the flowchart, and if the gener-       Number 20H00101 (experiment).
+ated candidate utterance was inappropriate, the operator was
+                                                                 Data Availibility The datasets generated during and/or analyzed dur-
+allowed to regenerate another candidate and to select the
+                                                                 ing the current study are available from the corresponding author on
+appropriate one. To properly evaluate and to improve how         reasonable request.
+well the current method for the utterance candidate gener-
+ation works for supporting the use of the assistance robot,      Declarations
+it is necessary to verify the extent to which the generated
+candidates are used in free dialog style conversation.
+    To simultaneously control two robots with different dialog   Conflict of interest The authors declare that they have no conflict of
+                                                                 interest.
+roles, as focused on in the current study, the operator might
+have a high operation load [17, 19]. Although we developed       Human and Animal Rights This research involves human participants
+an interface that displays the generated utterance candidates    and was approved by the Ethics committee for research involving human
+in the form of buttons with the shape of a speech balloon to     subjects at the Graduate School of Engineering Science, Osaka Univer-
+                                                                 sity, Approval Number 31-1-1. The written informed consents were
+reduce the operation load, the evaluation of the operability     obtained from all participants.
+of the interface is not sufficient. Therefore, it is necessary
+to conduct experiments again to investigate how easily users     Open Access This article is licensed under a Creative Commons
+can use the proposed interface.                                  Attribution 4.0 International License, which permits use, sharing, adap-
+    Third, the proposed system was not evaluated from the        tation, distribution and reproduction in any medium or format, as
+                                                                 long as you give appropriate credit to the original author(s) and the
+interlocutor’s perspective. In a situation where the system is   source, provide a link to the Creative Commons licence, and indi-
+actually used, it is considered important to evaluate not only   cate if changes were made. The images or other third party material
+the operator’s perspective but also that of the interlocutor.    in this article are included in the article’s Creative Commons licence,
+Therefore, it is necessary to conduct an experiment with the     unless indicated otherwise in a credit line to the material. If material
+                                                                 is not included in the article’s Creative Commons licence and your
+subject as the interlocutor to investigate how the proposed      intended use is not permitted by statutory regulation or exceeds the
+system affects the person facing the robot.                      permitted use, you will need to obtain permission directly from the copy-
+    Moreover, the current experiment was limited by the fact     right holder. To view a copy of this licence, visit http://creativecomm
+that young persons were the interview targets. A worthwhile      ons.org/licenses/by/4.0/.
+future approach would be to examine the applicability of
+the proposed method in other potential target situations and
+among different users, such as by investigating scolding and     References
+forgiving in parent–child conversations or by exploring com-
+                                                                  1. Admoni H, Scassellati B (2017) Social eye gaze in human-robot
+plaining customers in the context of customer service.
+                                                                     interaction: a review. J Human-Robot Interaction 6(1):25–63
+                                                                  2. Arimoto T, Yoshikawa Y, Ishiguro H (2014) Nodding responses by
+                                                                     collective proxy robots for enhancing social telepresence. In: Pro-
+8 Conclusion                                                         ceedings of the second international conference on human-agent
+                                                                     interaction, pp 97–102
+                                                                  3. Arimoto T, Yoshikawa Y, Ishiguro H (2018) Multiple-robot con-
+In this study, a dialog system that allows an operator to have       versational patterns for concealing incoherent responses. Int J Soc
+more than one dialog role simultaneously by using two tele-          Robot 10(5):583–593
+operated robots was developed, for example, an interviewer        4. Baba J, Song S, Nakanishi J et al (2021) Local vs. avatar robot: per-
+                                                                     formance and perceived workload of service encounters in public
+and an assistant of the interviewee. The experimental results        space. Front Robot AI 8:778753
+showed that the operation of the assistance robot to defend       5. Baumeister RF, Stillwell AM, Heatherton TF (1994) Guilt: an inter-
+the interviewee or to criticize the main robot operated by the       personal approach. Psychol Bull 115(2):243
+interviewer improved the operator’s mood during the con-          6. Biocca F, Harms C, Burgoon JK (2003) Toward a more robust the-
+                                                                     ory and measure of social presence: review and suggested criteria.
+versation and reduced the operator’s sense of guilt. We argue
+                                                                     Presence Teleoper Virtual Environ 12(5):456–480
+that the proposed system allows the user to talk with a sense     7. Birmingham C, Hu Z, Mahajan K et al (2020) Can I trust you?
+of security even in intense situations prone to such as first        A user study of robot mediation of a support group. In: 2020
+
+
+                                                                                                                             123
+772                                                                                       International Journal of Social Robotics (2024) 16:763–773
+
+
+    IEEE international conference on robotics and automation (ICRA).       28. Laporte L, van Nimwegen C, Uyttendaele AJ (2010) Do people
+    IEEE, pp 8019–8026                                                         say what they think: Social conformity behavior in varying degrees
+ 8. Clark HH, Schaefer EF (1989) Contributing to discourse. Cogn Sci           of online social presence. In: Proceedings of the 6th Nordic con-
+    13(2):259–294                                                              ference on human-computer interaction: extending boundaries, pp
+ 9. Connell JB, Mendelsohn GA, Robins RW et al (2001) Effects of               305–314
+    communication medium on interpersonal perceptions. In: Proceed-        29. Mehmood F, Mahzoon H, Yoshikawa Y, Ishiguro H et al (2023)
+    ings of the 2001 ACM international conference on supporting group          Effect of having and switching multiple avatars on the oper-
+    work, pp 117–124                                                           ator’s right to talk and receive social support. PLoS ONE
+10. Cooney G, Mastroianni AM, Abi-Esber N et al (2020) The many                18(10):e0292803
+    minds problem: disclosure in dyadic versus group conversation.         30. Masafumi Onishi. Structure of Trait Guilt in Adolescents: Concep-
+    Curr Opin Psychol 31:22–27                                                 tualization of Guilt and Development of Trait Guilt Scale Based on
+11. Curran SL, Andrykowski MA, Studts JL (1995) Short form of the              Psychoanalytic Theory. The Japanese J Person, 16(2): 171–184,
+    profile of mood states (POMS-SF): psychometric information. Psy-           2008
+    chol Assess 7(1):80                                                    31. Matsuyama Y, Akiba I, Fujie S et al (2015) Four-participant group
+12. Fujimoto M (2008) Compass indicates participants’ communica-               conversation: a facilitation robot controlling engagement density
+    tion participation styles. Soc Soc Psychol 23(3):290–297                   as the fourth participant. Comput Speech Lang 33(1):1–24
+13. Fukuoka Shirai (2017) Dialogue act estimation in free dialogue         32. Morikawa O, Maesako T (1998) Hypermirror: toward pleasant-to-
+    systems considering features specific to dialogue acts. Nat Lang           use video mediated communication system. In: Proceedings of the
+    Process 24(4):523–547                                                      1998 ACM conference on Computer supported cooperative work,
+14. Fukuoka T, Shirai K (2015) Identification of sympathy in free con-         pp 149–158
+    versation. In: Proceedings of the 29th Pacific Asia conference on      33. Mutlu B, Kanda T, Fortizzi J, Hodgins JK (2012) Conversational
+    language, information and computation: posters, pp 1–9                     gaze mechanisms for humanlike robots. ACM Trans Interact Intell
+15. Gershoff ET, Grogan-Kaylor A, Lansford JE et al (2010) Parent              Syst 1(2):1–33
+    discipline practices in an international sample: associations with     34. Nakano YI, Nihonyanagi S, Takase Y et al (2015) Predicting partic-
+    child behaviors and moderation by perceived normativeness. Child           ipation styles using co-occurrence patterns of nonverbal behaviors
+    Dev 81(2):487–502                                                          in collaborative learning. In: Proceedings of the 2015 ACM on
+16. Glas DF, Kanda T, Ishiguro H et al (2011) Teleoperation of multiple        international conference on multimodal interaction, pp 91–98
+    social robots. IEEE Trans Syst Man Cybernet Part A Syst Humans         35. Newhart VA, Warschauer M, Sender L (2016) Virtual inclusion via
+    42(3):530–544                                                              telepresence robots in the classroom: an exploratory case study. Int
+17. Goodrich MA, Quigley M, Cosenzo K (2005) Task switching                    J Technol Learn 23(4):9–25
+    and multi-robot teams. In: Multi-Robot Systems. From Swarms            36. Sakai K, Ishi CT, Minato T et al (2015) Online speech-driven head
+    to Intelligent Automata Volume III: Proceedings from the 2005              motion generating system and evaluation on a tele-operated robot.
+    international workshop on multi-robot systems. Springer, Berlin,           In: 2015 24th IEEE international symposium on robot and human
+    pp 185–195                                                                 interactive communication (RO-MAN). IEEE, pp 529–534
+18. Hagio Y, Kamimura M, Hoshi Y et al (2022) TV-watching robot:           37. Sakamoto D, Hayashi K, Kanda T et al (2009) Humanoid robots
+    toward enriching media experience and activating human commu-              as a broadcasting communication medium in open public spaces.
+    nication. SMPTE Motion Imaging J 131(4):50–58                              Int J Soc Robot 1:157–169
+19. Hill SG, Bodt B (2007) A field experiment of autonomous mobility:      38. Shiomi M, Hagita N (2016) Do synchronized multiple robots exert
+    operator workload for one and two robots. In: Proceedings of the           peer pressure? In: Proceedings of the fourth international confer-
+    ACM/IEEE international conference on Human-robot interaction,              ence on human agent interaction, pp 27–33
+    pp 169–176                                                             39. Short E, Mataric MJ (2017) Robot moderation of a collaborative
+20. Iio T, Yoshikawa Y, Ishiguro H (2016) Pre-scheduled turn-taking            game: towards socially assistive robotics in group interactions. In:
+    between robots to make conversation coherent. In: Proceedings of           2017 26th IEEE international symposium on robot and human inter-
+    the fourth international conference on human agent interaction, pp         active communication (RO-MAN). IEEE, pp 385–390
+    19–25                                                                  40. Takeuchi K, Yamazaki Y, Yoshifuji K (2020) Avatar work: telework
+21. Iio T, Yoshikawa Y, Chiba M et al (2020) Twin-robot dia-                   for disabled people unable to go outside by using avatar robots. In:
+    logue system with robustness against speech recognition failure            Companion of the 2020 ACM/IEEE international conference on
+    in human-robot dialogue with elderly people. Appl Sci 10(4):1522           human-robot interaction, pp 53–60
+22. Isbister K, Nakanishi H, Ishida T et al (2000) Helper agent: Design-   41. Thomas J (1983) Cross-cultural pragmatic failure. Appl Linguist
+    ing an assistant for human-human interaction in a virtual meeting          4(2):91–112
+    space. In: Proceedings of the SIGCHI conference on Human factors       42. Todo Y, Nishimura R, Yamamoto K et al (2013) Development and
+    in computing systems, pp 57–64                                             evaluation of spoken dialog systems with one or two agents through
+23. Ishi CT, Liu C, Ishiguro H, et al (2012) Evaluation of formant-            two domains. In: Text, speech, and dialogue: 16th international
+    based lip motion generation in tele-operated humanoid robots. In:          conference, TSD 2013, Pilsen, Czech Republic, September 1–5,
+    2012 IEEE/RSJ international conference on intelligent robots and           2013. Proceedings 16. Springer, Berlin, pp 185–192
+    systems. IEEE, pp 2377–2382                                            43. Tu CH, McIsaac M (2002) The relationship of social presence and
+24. Kiesler S, Sproull L (1992) Group decision making and communi-             interaction in online classes. Am J Distance Educ 16(3):131–150
+    cation technology. Organ Behav Hum Decis Process 52(1):96–123          44. Vertegaal R, Slagter R, van der Veer G, Nijholt A et al (2001)
+25. Kraut RE, Fussell SR, Siegel J (2003) Visual information as a              Eye Gaze patterns in conversations: there is more to conversational
+    conversational resource in collaborative physical tasks. Human-            agents than meets the eyes. In: Proceedings of ACM conference on
+    Comput Interaction 18(1–2):13–49                                           human factors in computing systems, pp 301–308
+26. Kumazaki H, Yoshikawa Y, Yoshimura Y et al (2018) The impact           45. Yamaguchi K, Nergui M, Otake M (2014) A robot presenting repro-
+    of robotic intervention on joint attention in children with autism         duced stories among older adults in group conversation. Appl Mech
+    spectrum disorders. Mol Autism 9(1):1–10                                   Mater 541:1120–1126
+27. Kendon A (1967) Some functions of gaze-direction in social inter-      46. Yokoyama K, Araki S, Kawakami N et al (1990) Production of
+    action. Acta Physiol (Oxf) 26(1):22–63                                     the Japanese edition of profile of mood states (POMS): assessment
+
+
+123
+International Journal of Social Robotics (2024) 16:763–773                                                                                     773
+
+
+    of reliability and validity. [Nihon koshu eisei zasshi] Jpn J Public    Hiroshi Ishiguro received a D. Eng. in systems engineering from the
+    Health 37(11):913–918                                                   Osaka University, Japan in 1991. He is currently professor of the
+47. Yoshino K, Murase Y, Lubis N et al (2021) Spoken dialogue robot         Department of Systems Innovation in the Graduate School of Engi-
+    for watching daily life of elderly people. In: Increasing naturalness   neering Science at Osaka University (2009-). He is also visiting Direc-
+    and flexibility in spoken dialogue interaction: 10th international      tor (2014-) of ATR Hiroshi Ishiguro Laboratories.
+    workshop on spoken dialogue systems. Springer, Berlin, pp 141–
+    146
+48. Yoshino T, Hayashi Y, Nakano IY (2014) Determining robot gaze
+                                                                            Yuichiro Yoshikawa received the Ph.D. degree in engineering from
+    according to participation roles in multiparty conversations. In:
+                                                                            Osaka University, Japan, in 2005. From 2010, he has been an associate
+    Proceedings of the second international conference on Human-
+                                                                            professor of the Department of Systems Innovation in the Graduate
+    agent interaction, pp 277–280
+                                                                            School of Engineering Science, Osaka University. He is interested in
+                                                                            the study of human-robot communication, especially about multiple-
+                                                                            robots coordination and psychiatric or educational applications.
+Publisher’s Note Springer Nature remains neutral with regard to juris-
+dictional claims in published maps and institutional affiliations.
+
+
+
+Reina Nozawa received the Master degree in engineering from Osaka
+University, Japan, in 2024. Her research interests include human-robot
+interaction and dialogue support.
+
+
+
+Kazuki Sakai received a Ph.D. degree in engineering science from
+Osaka University, Japan, in 2020. He is currently a specially appointed
+assistant professor of the Department of Systems Innovation in the
+Graduate School of Engineering Science at Osaka University. His
+research interests include human-robot interaction and dialogue sys-
+tems.
+
+
+
+Megumi Kawata received a Ph.D. in Graduate School of Intercul-
+tural Studies from Kobe University, Japan, in 2021. She is a Specially
+appointed assistant professor of the Department of Systems Innovation
+in the Graduate School of Engineering Science at Osaka University.
+Her research interests include social robotics and human-robot inter-
+action.
+
+
+
+
+                                                                                                                                       123
+

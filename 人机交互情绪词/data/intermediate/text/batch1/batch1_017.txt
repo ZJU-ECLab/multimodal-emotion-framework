@@ -1,0 +1,1398 @@
+                                                                                                                     TYPE Original Research
+                                                                                                                     PUBLISHED 02 January 2026
+                                                                                                                     DOI 10.3389/frobt.2025.1569040
+
+
+
+
+                                                    Embarrassment in HRI:
+OPEN ACCESS                                         remediation and the role of robot
+EDITED BY
+Junpei Joni Zhong,
+University of Wollongong, Australia
+                                                    responses in emotion control
+REVIEWED BY
+Heng Zhang,                                         Ahmed Salem and Kaoru Sumi*
+ENSTA ParisTech, France
+Mengting Gong,                                      School of Systems Information Science, Future University Hakodate, Hakodate, Hokkaido, Japan
+Jinan University, China
+
+*CORRESPONDENCE
+Kaoru Sumi,
+  kaoru.sumi@acm.org                                As robots became increasingly integrated into daily life, their ability to influence
+RECEIVED 31 January 2025                            human emotions through verbal and nonverbal expressions is gaining attention.
+REVISED 25 September 2025                           While robots have been explored for their role in emotional expression,
+ACCEPTED 17 October 2025
+PUBLISHED 02 January 2026
+                                                    their potential in emotion regulation particularly in mitigating or amplifying
+                                                    embarrassment remains under-explored in human-robot interaction. To address
+CITATION
+Salem A and Sumi K (2026) Embarrassment in
+                                                    this gap, this study investigates whether and how robots can regulate
+HRI: remediation and the role of robot              the embarrassment emotion through their responses. A between-subjects
+responses in emotion control.                       experiment was conducted with 96 participants (48 males and 48 females)
+Front. Robot. AI 12:1569040.
+doi: 10.3389/frobt.2025.1569040
+                                                    using the social robot Furhat. Participants experienced an embarrassing situation
+                                                    induced by a failure of meshing scenario, followed by the robot adopting
+COPYRIGHT
+© 2026 Salem and Sumi. This is an                   one of three response attitudes: neutral, empathic, or ridiculing. Additionally,
+open-access article distributed under the           the robot’s social agency was manipulated by varying its facial appearance
+terms of the Creative Commons Attribution           between a human-like and an anime-like appearances. The findings indicate
+License (CC BY). The use, distribution or
+reproduction in other forums is permitted,          that embarrassment was effectively induced, as evidenced by physiological data,
+provided the original author(s) and the             body movements, facial expressions, and participants’ verbal responses. The
+copyright owner(s) are credited and that the        anime-faced robot elicited lower embarrassment and arousal due to its lower
+original publication in this journal is cited, in
+accordance with accepted academic practice.         perceived social agency and anthropomorphism. The robot’s attitude was the
+No use, distribution or reproduction is             dominant factor shaping participants’ emotional responses and perceptions. The
+permitted which does not comply with                neutral and empathic attitudes with an anime face were found to be the most
+these terms.
+                                                    effective in eliciting mild emotions and mitigating embarrassment. Interestingly,
+                                                    an empathic attitude is suspected to be favored over a neutral one as it elicited
+                                                    the lowest embarrassment. However, an empathic attitude risks shaming the
+                                                    participant due to its indirect confrontation that inherently acknowledges the
+                                                    embarrassing incident which is undesirable in Japanese culture. Nevertheless,
+                                                    in terms of the robot’s perceived evaluation by participants, a neutral attitude
+                                                    was the most favored. This study highlights the role of robot responses in
+                                                    emotion regulation, particularly in embarrassment control, and provides insights
+                                                    into designing socially intelligent robots that can modulate human emotions
+                                                    effectively.
+
+                                                    KEYWORDS
+
+                                                    embarrassment, failure of meshing, Furhat, HRI, emotion control, robot attitude,
+                                                    empathic attitude, ridiculing attitude
+
+
+                                                    1 Introduction
+                                                        Robots have been emerging rapidly in all different areas of our lives. Robots have
+                                                    aided in many life activities in areas spanning from children to the elderly. Robots have
+                                                    proven to be useful in assisting with activities of daily living and healthcare (Hall et al.,
+                                                    2019), lifelong disabilities (Scassellati et al., 2012), retail (Song and Kim, 2022), industry
+
+
+
+Frontiers in Robotics and AI                                             01                                                            frontiersin.org
+Salem and Sumi                                                                                                          10.3389/frobt.2025.1569040
+
+
+
+
+ (Graetz and Michaels, 2018), and many more. As robots becoming               that is liked the least and after choosing a painting, the painter
+gradually an inseparable part of our lives, more research and                 reveals that he/she actually painted that painting (Edelmann and
+investigation is needed to ensure acceptance from society and also            Hampson, 1979). Thus, failure of meshing is a clear breakdown
+smooth satisfying interaction.                                                in interaction. Vulnerable shy and socially anxious people could
+     Interestingly, the robot’s verbal and bodily expressions can             feel discomfort from the interaction when failure of meshing
+transmit emotions to the user during interaction according to                 occurs. As large language models (LLMs) start to be integrated
+emotional contagion and social identity theories (Yu, 2020; Xu et al.,        with robots, thus making them more conversational and interact
+2015; Laban and Cross, 2024). Examining emotional contagion and               effectively (Zhao et al., 2023; Zhang et al., 2023), the likelihood of
+mood transitions in human-robot interaction (HRI) and comparing               embarrassing situations arising in dialogues with robots increases.
+them to human-human interaction (HHI) has become an emerging                  Thus, investigating failure of meshing impact in HRI is crucial to
+research field recently (Stock, 2016). Mood contagion was proved              ensure a comfortable satisfying interaction. Note that in the HRI
+to be recognized and have a contagion effect on users through                 literature, the word “meshing” has been used where it was defined as
+pose and motion dynamics (Xu et al., 2014), yawning (Lehmann                  when the robot’s actions, movements, and behavior allow for better
+and Broz, 2018), posture with a facial expression (Casso et al.,              understanding and collaboration with humans (Moon, 2017), thus,
+2022), and inter-personal account of emotion (Damm et al.,                    this work defines meshing differently in the context of a dialogue
+2011). Furthermore, robot’s anthropomorphization and gender can               rather than physical interaction.
+significantly influence positive emotional contagion (Yang and Xie,                In HHI, when an embarrassing encounter occurs, the actor
+2024). While emotion transmission has been widely explored, the               recognizes the encounter and proceeds by remedying the situation
+ability of robots to actively regulate and alleviate negative emotions        through embarrassment remediation strategies (Cufach and Metts,
+in social interactions remains under-explored.                                1990). For example, when one is embarrassed, usually an apology
+     Embarrassment emotion can have a significant effect on the               and a justification are offered. If the actor did not recognize the
+smoothness of HRI (as it is for HHI (Royal Society (Great Britain).           embarrassing encounter or did not remedy it, thus challenging the
+Study Group on Non-Verbal Communication and others, 1972))                    social norms, it will affect social relations and interactions due
+and how socially intelligent the robot will be perceived. Humans              to aggression over the social norms (Metts and Cupach, 1989).
+are convinced that a robot will not realize that a human is in                However, it remains unclear whether humans will remedy their
+an embarrassing situation, which can be a relief to humans such               embarrassment in HRI. Furthermore, it remains unclear whether
+as when they are consumers acquiring an embarrassing product                  robots are perceived as capable of recognizing the embarrassing
+(Holthöwer and van Doorn, 2023; Pitardi et al., 2021; Guo et al.,             situation and, if so, what response is considered socially appropriate
+2024). A highly machine-like (vs. human-like) robot makes                     and how they can aid in mitigating the experienced embarrassment.
+consumers feel less socially judged (Holthöwer and van Doorn,                      To address the aforementioned questions, the role of robots
+2023; Pitardi et al., 2021). Thus, intentionally shifting away from           in embarrassment regulation is investigated by examining how
+anthropomorphism for consumer satisfaction. Medical robots’                   different robot attitudes and social agencies impact the perception
+high level of anthropomorphism causes more embarrassment                      and remediation of embarrassment in HRI. Specifically, we
+to patients than a technical box (Bartneck et al., 2010). In                  investigate the following research questions:
+Choi et al. (2014), tele-operated robots caused more embarrassment
+                                                                                1. Will failure of meshing in conversations with a robot induce
+than autonomous robots. Thus, the more human intervention,
+                                                                                   embarrassment as it does in HHI?
+the more embarrassment is expected. Moreover, a robot that
+                                                                                2. How should a robot respond to embarrassment? Should it
+acts naturally in an embarrassing situation by avoiding gaze is
+                                                                                   acknowledge it or ignore it?
+perceived as more sociable and intelligent than a robot that
+                                                                                3. What type of robot personality or attitude is most effective in
+does not (Choi et al., 2013). Interestingly, the types of robots
+                                                                                   mitigating embarrassment?
+(product-like vs. human-like) did not affect the effectiveness
+                                                                                4. How does a robot’s social agency (e.g., human-like vs. anime-
+of mitigating embarrassment in Kang and Kwak (2023) which
+                                                                                   like appearance) influence the perception of embarrassment?
+highlights the necessity of investigating other robots aspects (e.g.,
+                                                                                5. Will individuals adopt embarrassment remediation strategies
+robot’s personality and attitude) that can aid in mitigating and
+                                                                                   (e.g., justifications, apologies) when interacting with robots,
+alleviating embarrassment (Van Pinxteren et al., 2020).
+                                                                                   even though they know robots lack human-like emotional
+     A naturally occurring short-lived embarrassment in HHI is
+                                                                                   awareness?
+induced when failure of meshing occurs. Failure of meshing is the
+disagreement over the definition of the situation or the failure to               A between-subjects experiment was conducted with 96
+agree on the roles played by those present (Gross and Stone, 1964;            participants (48 males and 48 females) using the social robot Furhat.
+Edelmann, 1981; Argyle, 2017). Failure of meshing occurs when                 Participants engaged in a conversation in which a failure of meshing
+any of the following situations occurs: revealing of unknown or               scenario is introduced, thus inducing embarrassment momentarily.
+unexpected information, misnaming, forgetting names, slips of the             After the embarrassment-inducing event, the robot responds with
+tongue, getting caught in a cover story, forgetting one’s lines in            a neutral or empathic or a ridiculing attitude. The robot attitude
+speeches such as ceremonies, processions, and working concerts,               is accompanied by either a human-like or an anime-like facial
+forgetting the wedding ring, and handing a colleague a wrong                  appearance. Participants emotional responses were measured
+tool (Edelmann, 1981; Gross and Stone, 1964). Other examples of               through subjective ratings and questionnaires, physiological data
+failure of meshing include when customers are treated in a shop               (heart rate and electrodermal activity), body movements and facial
+as a salesman or when one is asked by a painter about a painting              expressions, and verbal responses to the robot.
+
+
+
+Frontiers in Robotics and AI                                             02                                                           frontiersin.org
+Salem and Sumi                                                                                                           10.3389/frobt.2025.1569040
+
+
+
+
+    This study provides new insights into the role of robots in                   • Humor: making a joke about the situation or laughing it off
+emotion regulation, particularly in mitigating the embarrassment                  • Do nothing: no actions are taken
+induced in conversations. To the best of our knowledge, this                      • Aggression: attacking the people present verbally/physically
+is the first study to investigate 1. failure of meshing induced                   • Avoidance: pretend as if nothing has happened
+embarrassment in HRI, 2. the embarrassment remediation strategies                 • Statement of the fact: stating that the person himself/herself
+used in HRI, and 3. how robots should respond to regulate and                       did something wrong
+mitigate the induced embarrassment. The contributions of this work
+include the following:
+  1. Empirical evidence on how failure of meshing induces
+                                                                               2.2 Facework in HHI
+     embarrassment in HRI.
+  2. Insights into how humans apply embarrassment remediation                      Facework was defined as any statement that intends to improve
+     strategies in HRI.                                                        the subject’s image in the eyes of the other person (e.g., the
+  3. Comforting robot attitudes and social agency that mitigate the            confederate) (Modigliani, 1971).
+     embarrassment produced in social settings.                                    The nonfacework responses are:
+
+    In Section 2, the embarrassment remediation strategies that                     • Accepting failure
+are commonly used in HHI are presented. In Section 3, the                           • Straightforward answers
+methodology used to trigger embarrassment using a failure of                       The facework responses are:
+meshing HHI scenario in an HRI setup is shown. Experiment
+design is shown in Section 4. The screening process and the                         • Defensively changing the subject
+experiment procedure are presented in Section 5. The methods                        • Introducing information excusing the performance
+used for embarrassment recognition are presented in Section 6 and                   • Introducing redeeming or self-enhancing information
+the results analysis are in Section 7. The findings are discussed in                • Minimizing failure by derogating the task
+Section 8 and the limitations of the study are presented in Section 9.              • Denying failure
+The study is concluded in Section 10, and finally, implications and                 • Fishing for reassurance
+future directions are presented in Section 11.
+
+                                                                               2.3 Embarrassment remediation strategies
+2 Embarrassment remediation                                                    in HHI in Japanese culture
+strategies
+                                                                                   Culture is the most powerful predictor of the use of
+    In this section, the embarrassment remediation strategies and              embarrassment remediation strategies (Sueda and Wiseman, 1992).
+the facework applied in embarrassing situations in HHI are                     As most studies are monocultural and focus on U.S. culture, this
+presented. The commonly used remediation strategies in HHI in                  work considered the literature that investigates Japanese culture
+Japanese culture are also presented since all the participants taking          or provides a cross-cultural study between Japanese culture and
+part in this HRI study (presented later) are of a Japanese ethnicity.          other cultures.
+Note that, this work is inspired by the embarrassment remediation                  Handling an embarrassing situation requires competence which
+strategies obtained from the HHI scenarios presented in this section.          can differ by culture, thus, in Japanese culture, being communicably
+The goal is to investigate if participants will give the same responses        competent is being an effective good ingroup member and not
+and use the same strategies used in HHI when experiencing similar              being egocentric (Triandis, 1988). Thus, the self is seen differently
+triggering situations but in an HRI scenario.                                  and consequently leads to relying on different remedial strategies.
+                                                                               Apology is very commonly used when expectations are not met.
+                                                                               Japanese will use the excuse strategy if it’s a superior-subordinate
+2.1 Embarrassment remediation strategies                                       relationship. A high amount of remediation will be used too. In
+in HHI                                                                         a misidentification situation, the excuse strategy can be used if
+                                                                               both parties are of equal status. A low amount of remediation
+    Embarrassment is felt strongly by the actor, however, observers            may also be used, and justification is another possible strategy. The
+also feel anxiety because of it. Thus, corrective actions must be taken        choice of remedial strategy depends on the type of embarrassment
+by the actor in the form of embarrassment remediation. Moreover,               and the contextual relationship between the individuals (equal or
+observers can offer to provide help for the actor to reduce the                unequal status) (Sueda and Wiseman, 1992).
+embarrassment (Edelmann, 1982).
+    The remediation strategies used by the embarrassed person can
+be as follows:                                                                 3 Embarrassment remediation
+                                                                               triggering technique in HRI and
+   • Apology: showing regret and requesting a pardon                           different robot attitudes
+   • Justification: minimizing the negative nature of what occurred
+   • Excuse: acknowledgment and taking responsibility                              In this section, the failure of meshing embarrassment
+   • Remediation: trying to make up for what happened                          triggering technique in HRI is presented. The robot gestures used
+
+
+
+Frontiers in Robotics and AI                                              03                                                          frontiersin.org
+Salem and Sumi                                                                                                               10.3389/frobt.2025.1569040
+
+
+
+
+across different robot attitudes to the participants after inducing                embarrassment and comfort. The attitudes and utterances/gestures
+embarrassment into them are also presented.                                        were one of the following:
+    Subjects were expected to use embarrassment remediation
+strategies and facework to enhance their image. Whether subjects                      • Ridiculing: “I should not have asked you. Maybe it’s because
+will care to enhance their image to the robot or not is investigated.                   you do not know much about art.”
+If subjects perceived the robot to be in a lower status than                          • Empathic: “But it’s okay. Please do not worry about it.”
+themselves, no facework will be conducted. Thus, the subjects were                    • Neutral: “Ok, I got it.”
+influenced to anthropomorphize the robot by asking them to have
+a conversation with the robot about any topic for 5 min before                          The ridiculing, empathic, and neutral attitudes robot
+starting the experiment. The robot was operated through Wizard                     gestures are shown in Figures 2–4, respectively. Note that, a
+of Oz (WoZ) method to enhance their feeling of embarrassment                       full recording of the robot gestures shown in Figures 1–4 is
+later in the experiment (Choi et al., 2014). This procedure makes                  provided in Supplementary Video 1.
+the subjects anthropomorphize the robot and remove novelty effects.                     The Gesture Capture Tool provided by Furhat was used to record
+The participants were not informed that the robot is being controlled              emotional utterances, facial expressions, and head movements
+by an assistant.                                                                   for the four parts of the dialogue shown in Figures 1–4 that
+    In an HHI scenario (Edelmann and Hampson, 1979), subjects                      Furhat will conduct with the participants depending on the
+who felt embarrassed due to failure of meshing decreased their                     experiment condition assigned to them. The emotional voice,
+eye-contact significantly, whereas their body motion and speech                    facial expressions, and head movements were acted by a male
+disturbances increased. Unembarrassed subjects increased their eye-                university student. Thus, the robot was projecting a male social
+contact without any change to their speech disturbances and body                   robot across the whole experiment to aid in transmitting the
+motion. Thus, the focus was on capturing the moment of breakdown                   embarrassment negative emotion (Yang and Xie, 2024). Note that,
+of the interaction which is reflected in the non-verbal dynamic                    other parts of the dialogue including the structured interview
+features of the interaction (Argyle and Kendon, 1967).                             and the reply to the participants responses after the robot project
+    As failure of meshing in HRI is being investigated, the social                 the gestures and utterances in Figure 1 in combination with 2
+robot Furhat (Al Moubayed et al., 2012) is used in the experiment.                 or 3 or 4 were performed by the WoZ method. Consistency
+Furhat is a robot head that deploys a back-projected animated                      across sessions was ensured through a framework that the robot
+face that is realistic and human-like without risking falling into                 operator follows where responses during the interview were
+the uncanny valley effect due to the usage of facial animation.                    prepared and fixed, thus focusing the dialogue on the paintings of
+It facilitates studying and validating patterns in HHI and HRI.                    interest. Furthermore, responses following the participant’s reaction
+In Furhat, the robot’s animated face is back-projected on a                        to the robot’s attitude ensured consistency across conditions.
+translucent mask, thus the principle is similar to other retro-                    Hence, the robot failure of meshing triggering gestures are pre-
+projected robots. However, Furhat enjoys a rich library of facial                  recorded.
+expressions and performs speech recognition, and multi-person                           The methods the participants used to mitigate their
+face tracking leading to an advanced reliable multimodal input                     embarrassment in this situation were studied. What the participants
+processing and operation.                                                          felt when interacting with the robot and their impression after
+    The participants were provided with five famous paintings.                     that encounter was also studied. Sometimes, the participants
+The paintings provided were Mona Lisa, The Last Supper, The                        were very interested in a painting or about the topic itself and
+Starry Night, The Scream, and Girl with a Pearl Earring. The robot                 proceeded by asking questions out of the structured interview’s
+conducts a structured interview about the participant’s attitude                   scope. Such a possibility was considered by preparing some
+toward the paintings and art. The interview included the following                 documents that provide detailed information about the five
+questions:                                                                         paintings to the robot operator to be used when needed.
+                                                                                   Furthermore, the conversation was made to be somehow led by
+      • Do you like art?
+                                                                                   the robot thus, the participant and the robot will not be talking
+      • What do you know about art generally?
+                                                                                   for extended periods of time which can be out of the scope
+      • Do you know any of these paintings?
+                                                                                   of this study.
+     Later, the robot asks the participants what painting they dislike
+the most by saying “I wanted to ask your opinion, which painting do
+you dislike the most?”. When the participant chooses the painting                  4 Experiment design
+they dislike the most, the robot proceeds by saying “Really? According
+to my algorithm, this is the best painting. According to a survey by                   Ninety-six participants took part in this study. The study
+the Ministry of Education, Culture, Sports, Science and Technology,                included a balanced design: 24 males and 24 females in the
+the painting is the most liked by art students, and the artist is                  human robot face condition, and an additional 24 males and 24
+the most respected in the field.” Thus, embarrassment is elicited.                 females in the anime robot face condition. As each robot face
+The human and anime robot gestures used for this utterance                         was provided with three different personalities, the participants
+are shown in Figure 1.                                                             were also counter-balanced and distributed equally across the
+     After eliciting failure of meshing embarrassment, the robot                   two robot faces and their three personalities. This experiment
+proceeds by saying an utterance and giving gestures with it to show                is a between-subjects study, where each participant interacts
+its attitude to the participant. Thus, affecting the participant’s level of        with only one robot face and personality. The participants
+
+
+
+Frontiers in Robotics and AI                                                  04                                                          frontiersin.org
+Salem and Sumi                                                                                                              10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 1
+   Human and anime robot faces gestures when eliciting failure of meshing embarrassment and saying “Really? According to my algorithm, this is the
+   best painting. According to a survey by the Ministry of Education, Culture, Sports, Science and Technology, the painting is the most liked by art
+   students, and the artist is the most respected in the field.”
+
+
+
+
+   FIGURE 2
+   Human and anime robot faces gestures when projecting a ridiculing attitude and saying “I should not have asked you. Maybe it’s because you do not
+   know much about art.”
+
+
+
+
+distribution across the experiment conditions is shown in                       as shown in Table 1. Each participant experiences only one of the
+Table 1. Furthermore, the participants age range, M, and                        following conditions:
+SD are shown in Table 2. Note that, males and females are
+                                                                                     • Dialogue about art with a ridiculing robot
+distributed and analyzed separately due to their differences in
+                                                                                     • Dialogue about art with an empathic robot
+experiencing embarrassment, where females experience more
+                                                                                     • Dialogue about art with a neutral robot
+intense embarrassment emotions than males (Pettijohn et al., 2010;
+Salem and Sumi, 2024; Sato et al., 2024).                                           which were assigned to the participants randomly. Note that, all
+    For each robot personality, eight males and eight females                   the participants are students in Future University Hakodate and were
+interact with it, thus reaching 16 participants per robot personality           compensated financially for their participation in the experiment.
+
+
+
+
+Frontiers in Robotics and AI                                               05                                                             frontiersin.org
+Salem and Sumi                                                                                                             10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 3
+   Human and anime robot faces gestures when projecting an empathic attitude and saying “But it’s okay. Please do not worry about it.”
+
+
+
+
+   FIGURE 4
+   Human and anime robot faces gestures when projecting a neutral attitude and saying “Ok, I got it.”
+
+
+
+
+5 Experiment protocol                                                           5.1 The screening process
+     In this section, the screening process used to ensure participants’           To elicit the embarrassment emotion, the participant must
+eligibility and the experimental procedure are presented.                       be a shy person. The participant was asked “Are you a shy
+
+
+
+
+Frontiers in Robotics and AI                                               06                                                            frontiersin.org
+Salem and Sumi                                                                                                                         10.3389/frobt.2025.1569040
+
+
+
+
+TABLE 1 Participants distribution across the experiment’s conditions.                      TABLE 4 The SPIN score and symptom severity.
+
+  Robot face                          Robot personality                                           The SPIN score                    Symptom severity
+
+                       Neutral       Empathic         Ridiculing           Total                             0–20                             None
+
+   Human robot            16               16                 16              48                         21–30                                Mild
+      face
+                                                                                                         31–40                              Moderate
+   Anime robot            16               16                 16              48
+      face                                                                                               41–50                                Severe
+
+       Total              32               32                 32              96                         51–68                             Very Severe
+
+
+
+
+TABLE 2 Participants age data (range/M/SD).                                                TABLE 5 The SPIN score data of the participants (M/SD).
+
+  Robot face               Participants gender                       Overall                   Robot face             Participants gender                 Overall
+
+                           Male                 Female                                                                 Male           Female
+
+   Human robot         18–25/20.21/2.21    18–21/18.96/1.27        18–25/19.58/1.88           Human robot face       39.37/10.96     36.87/11.95         38.12/11.42
+      face
+                                                                                              Anime robot face        32.3/9.37      36.12/12.67          34.21/11.2
+   Anime robot         18–26/20.66/2.42    18–24/19.25/1.62        18–26/19.96/2.16
+      face                                                                                         Overall           35.83/10.7       36.5/12.19
+
+      Overall          18–26/20.44/2.3     18–24/19.14/1.44
+
+
+
+                                                                                           (Connor et al., 2000; Ranta et al., 2007) to ensure that they were
+TABLE 3 Degree of shyness of the participants (M/SD).
+                                                                                           not socially phobic. The official Japanese translation of the SPIN
+     Robot face                Participants gender                    Overall              questionnaire was used, which was obtained by contacting the
+                                                                                           authors of the SPIN questionnaire.
+                                Male             Female                                        The SPIN is a 17-item self-rating for social anxiety disorder (or
+                                                                                           social phobia). The scale is rated over the past week and includes items
+    Human robot face           4.33/0.48         4.12/1.11             4.23/0.86
+                                                                                           assessing each of the symptom domains of social anxiety disorder (fear,
+    Anime robot face           3.83/1.2           4/0.66               3.92/0.96           avoidance, and physiologic arousal). The SPIN demonstrates solid
+                                                                                           psychometric properties and is highly trusted as a measurement for
+         Overall               4.08/0.94         4.06/0.91                                 the screening and treatment response of social phobia. The maximum
+                                                                                           score on the scale is 85. The SPIN score and severity of symptoms are
+                                                                                           presented in Table 4. The SPIN score data of the participants is shown
+person?” to ensure that the participant is shy as in Zimbardo et al.                       in Table 5. The male sample that interacted with the human face robot
+(1977) and Hofmann et al. (2006). That question has an answer of                           (M = 39.37, SD = 10.96) reported a significantly higher social anxiety
+“yes” or “no”. The response to that question must be “yes”. They were                      score than the male sample that interacted with the anime face robot
+asked if there had ever been a period of time in their lives when they                     (M = 32.3, SD = 9.37), t(45) = −2.406, p = 0.02, as shown in Table 5
+were shy, which can be indicated by “yes” or “no”. The response must                       which is also in line with the data presented in Table 3 where they also
+be “yes”.                                                                                  had a higher degree of shyness (M = 4.33, SD = 0.48). There were no
+    To verify how shy the participant is, the method in                                    other significant differences.
+Hofmann et al. (2006) was followed in which the participants were                              If the participant is a shy person and not socially phobic, then the
+asked to rate their degree of shyness from 0 (not shy at all) to 6 (I feel                 participant is eligible to take part in the experiment and they were
+shy all the time). The degree of shyness must be 3 or more. The M and                      asked to sign the consent form.
+SD of the degree of shyness of the participants are shown in Table 3.
+There were no significant differences.
+    A shy person is the targeted participant because shy people                            5.2 Experiment procedure
+report higher embarrassment and social anxiety, which necessitates
+developing systems that comfort them, reduce their anxiety, alleviate                          After the participants sign the consent form, they fill out a
+their embarrassment, and ensure smooth HRI (Crozier, 2001).                                questionnaire that captures basic demographic data such as gender and
+    It was highlighted that physiological changes could have                               age. After that, they have a conversation about any topic they desire for
+occurred due to participants having a social phobia as discussed                           5 min with the robot. The purpose of that conversation is to remove
+in Hofmann et al. (2006), thus the participants were asked                                 any novelty effects and to allow the participant to anthropomorphize
+to fill out the Social Phobia Inventory (SPIN) questionnaire                               the robot thus enhancing the embarrassment emotion. Electrodermal
+
+
+
+Frontiers in Robotics and AI                                                          07                                                                 frontiersin.org
+Salem and Sumi                                                                                                             10.3389/frobt.2025.1569040
+
+
+
+
+activity (EDA) and electrocardiography (ECG) sensors were attached               6.2.1 EDA
+to the participants to capture their physiological data. The BITalino                EDA is the raw electrical signal that describes variations in
+board kit was used as the data acquisition unit to obtain EDA and                the eccrine sweat gland production. The EDA sensor electrodes
+ECG sensory information from the subjects (Da Silva et al., 2014).               were placed below the thumb (i.e., thenar eminence below the
+The participants were asked to sit quietly while listening to neutral            thumb). EDA is considered to be the most useful index as it is
+calming music in order for the baseline data to be collected. After that,        the only psychophysiological variable that is not contaminated by
+the embarrassment remediation strategy is triggered by making them               parasympathetic activity (Braithwaite et al., 2013).
+embarrassed from the conversation about art with the robot. The whole
+scenario is recorded using a hidden video camera. Participants were              6.2.2 ECG
+not informed of the existence of a video camera in order to obtain real              Heart rate (HR) is a highly popular biosignal where a high
+genuine reactions to the robot embarrassing encounter (Bartneck et al.,          HR can indicate levels of stress, sleep, and metabolic rate (Shaffer
+2010). After they finish the embarrassment remediation triggering                and Ginsberg, 2017). Noise and artifacts were removed from the
+conversation with the robot, the EDA and ECG sensors were                        obtained ECG signal by using a Butterworth filter of order 3 and a
+detached. They then filled out different questionnaires assessing their          cutoff frequency of 2.5 Hz. The filtered signal was processed through
+embarrassment during the encounter and were debriefed about the                  the Savitzky-Golay filter of order 1 and a frame length of 75 (López-
+purpose of the experiment and the deception was removed. In the                  Ales et al., 2019). After that, the HR was calculated by detecting the
+end, they were asked to sign a “Video Release Form” so that their                R-R intervals in the ECG.
+recorded videos can be kept to analyze their interaction with the robot.
+None of the participants spotted the hidden video camera that was
+used and all of them signed the video release form at the end of the
+experiment. Note that, this study received full ethical approval from            6.3 Body movements and facial
+the Research Ethics Committee at Future University Hakodate. The                 expressions
+approval number is 2024010.
+                                                                                     In this part, the body movements and facial expressions
+                                                                                 that are related to the embarrassment, interest, and surprise
+6 Embarrassment recognition                                                      emotions that the participants experienced in the failure
+                                                                                 of meshing scenario (as it will be presented later) are
+                                                                                 presented.
+    In this section, the methodology used to measure, recognize, and
+verify the existence and successful elicitation of the embarrassment
+emotion is presented. The embarrassment emotion was measured                     6.3.1 Embarrassment gestures
+through subjective ratings, questionnaires, physiological data (EDA                  Bodily cues, and eye and mouth movements are crucial in the
+and ECG), body movements, facial expressions, and verbal                         recognition of embarrassment (Edelmann and Hampson, 1981).
+responses.                                                                       Increase in body motion, reduction in eye contact (Modigliani,
+                                                                                 1971), lowering the level of eye contact (Edelmann and Hampson,
+                                                                                 1981), shuffling the feet and putting the finger to the lips
+6.1 Subjective ratings                                                           (Birdwhistell, 1952; Krout, 1954), manipulative gestures (Schulz
+                                                                                 and Barefoot, 1974), increased smiling, disturbances in speech,
+     Participants were asked to rate on a 7-point Likert scale where             and postural shifting (Edelmann and Hampson, 1981) are all cues,
+the anchors are labeled “not at all” and “very much” a list of seven             gestures, and signs of embarrassment. Note that, manipulative
+emotions (Costa et al., 2001): disgust, joy, interest, embarrassment,            gestures are where the hand of the participant moves to touch
+surprise, anxiety, and shame. They were also asked to fill out                   himself although not communicating anything (Schulz and
+the “experienced embarrassment questionnaire” (Modigliani, 1968).                Barefoot, 1974).
+It’s a self-rating on four of these scales (at ease-self conscious,                  Relying on facial cues only can lead to identifying
+poised-awkward, free-constrained, not embarrassed-embarrassed).                  embarrassment as amusement (Edelmann and Hampson, 1981).
+To evaluate how the participants perceived the robot’s attitude,                 The most important signals of embarrassment are the eyes, hands,
+the three questionnaires developed in Bickmore (2003) were used                  lower legs, and mouth. If the level of eye contact becomes higher,
+to evaluate the robot’s perceived character, interaction, and the                this means that the participant is amused and not embarrassed.
+opinions formed about it.                                                        Embarrassment can be disguised as amusement as a “face-saving”
+                                                                                 display to deceive the onlooker (Goffman, 1955). An amused
+                                                                                 expression combined with downcast eyes, nervous hands, and leg
+6.2 Physiological data                                                           movements produces an “embarrassed laugh”.
+                                                                                     Social anxiety and embarrassment are difficult to differentiate
+    Participants were asked to relax while the EDA and ECG sensors               at the autonomic level which leads to blushing being a
+were being attached. The BITalino board kit was used as the data                 psychophysiological marker of social anxiety and shyness
+acquisition unit to obtain EDA and ECG sensory information from                  (Hofmann et al., 2006). Anxiety can be recognized by lip biting,
+the subjects (Da Silva et al., 2014). The ECG electrodes 30 × 24                 stretching of the mouth, eyes turn up/down/left/right, lip wipe,
+mm Kendall H124SG were used in all the data collection of this                   fingers moving, and fingers tapping on a surface (e.g., table) (Gunes
+experiment. The sampling frequency was 1,000 Hz.                                 and Piccardi, 2007).
+
+
+
+Frontiers in Robotics and AI                                                08                                                           frontiersin.org
+Salem and Sumi                                                                                                          10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 5
+   Intensity of seven emotions during the interaction.
+
+
+
+
+6.3.2 Interest gestures                                                     (Robot Personality: Neutral, Empathic, Ridiculing) design. Three-
+    Interest is an emotion of a positive valence and low arousal. It        Way ANOVA was conducted to examine the effects of these three
+can be identified by arms resting on the sides with trunk leaning           factors on various subjective emotional ratings.
+forward. Asymmetrical one arm action and raising hands are also an
+interest emotion body movement (Castellano et al., 2008). Note that,        7.1.1 Ratings of seven emotions
+in combination with facial expressions and the situational context,              The ratings for the seven emotions (Costa et al., 2001): disgust,
+that body movement can be interpreted as a gesture that indicates           joy, interest, embarrassment, surprise, anxiety, and shame are shown
+either interest or irritation (cold anger) (Dael et al., 2012).             in Figure 5. Clearly, the emotions experienced by all the participants
+                                                                            were primarily interest and surprise. After dividing the participants
+6.3.3 Surprise gestures                                                     according to their gender and the robot’s social agency (facial
+   Failure of meshing is expected to cause surprise which
+                                                                            appearance), same results were obtained as shown in Figure 6.
+necessitates considering its gestures in the analysis. Surprise
+                                                                            Significant differences across the different robot personalities and
+emotion can be recognized when the following body
+                                                                            the seven emotions are highlighted in Figure 7.
+movements occur (Noroozi et al., 2018):
+      • Abrupt backward movement                                            7.1.1.1 Disgust emotion
+      • One hand or both of them move toward the head                            Personality is a significant main effect, F(2,84) = 37.07, p <
+      • Moving one hand up                                                   0.001, η 2 p = 0.25. Post-hoc comparisons using Tukey’s HSD
+      • Both of hands touching or over the head                             indicated that the ridiculing personality (M = 4.25, SD = 1.92)
+      • One of the hands or both touching the face or mouth                 elicited significantly higher disgust than the neutral (M = 2.47, SD
+      • Self-touch or both hands covering the cheeks or the mouth           = 1.61), p < 0.001, Cohen’s d = 1.09, 95% CI [0.57, 1.62] and the
+      • Head shaking                                                        empathic personalities (M = 2.31, SD = 1.31), p < 0.001, Cohen’s d
+      • Body shift or backing                                               = 1.2, 95% CI [0.66, 1.72] as shown in Figure 7. This result highlights
+                                                                            that a ridiculing response is the least favored by participants and
+                                                                            thus, should be avoided.
+7 Results analysis
+                                                                            7.1.1.2 Joy emotion
+7.1 Subjective ratings analysis                                                  Personality is a significant main effect, F(2,84) = 6.68, p = 0.002,
+                                                                            η 2 p = 0.14. Post-hoc comparisons using Tukey’s HSD indicated that
+   This is a between-subjects study with a 2 (Gender: Male,                 the ridiculing personality (M = 2.66, SD = 1.47) elicited significantly
+Female) × 2 (Robot Facial Appearance: Human, Anime) × 3                     lower joy than the empathic (M = 3.88, SD = 1.5), p = 0.003,
+
+
+
+Frontiers in Robotics and AI                                           09                                                             frontiersin.org
+Salem and Sumi                                                                                                                 10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 6
+   Intensity of emotions for all males, all females, all human robot face, and all anime robot face interactions.
+
+
+
+
+Cohen’s d = 0.848, 95% CI [0.334, 1.362] and the neutral personalities             neutral personality (M = 3.06, SD = 1.83) elicited the highest
+(M = 3.69, SD = 1.26), p = 0.014, Cohen’s d = 0.72, 95% CI [0.21, 1.23]            embarrassment followed by the empathic personality (M = 2.84,
+as shown in Figure 7. This result highlights that a ridiculing response            SD = 1.61) and then, the ridiculing personality (M = 2.72, SD = 2),
+is the least favored by participants and thus, should be avoided.                  p = 0.75, as shown in Figure 7.
+                                                                                        Despite the insignificant differences, the results show a potential
+7.1.1.3 Interest emotion                                                           for the empathic response in being a better alternative than a neutral
+    The Gender × Personality interaction was significant, F(2,84) =                response for embarrassment mitigation.
+5.49, p = 0.006, η 2 p = 0.12. Post-hoc comparisons using                               Note that, females experiencing embarrassment more intensely
+Tukey’s HSD indicated that males interacting with a ridiculing                     than males (Pettijohn et al., 2010; Salem and Sumi, 2024; Sato et al.,
+personality (M = 3.81, SD = 1.8) experienced significantly less                    2024) and a human robot face eliciting higher embarrassment than
+interest than females who interacted with an empathic personality                  the anime face (Bartneck et al., 2010) are both in line with the HHI
+(M = 5.63, SD = 1.26), p = 0.021, Cohen’s d = 1.14, 95%                            and HRI literature.
+CI [0.42, 1.87]. This follow-up post hoc comparison seems self-
+evident, thus, it did not yield a consistent or theoretically                      7.1.1.5 Surprise emotion
+meaningful pattern of differences. However, it pointed out that                         Personality is a significant main effect, F(2,84) = 4.13, p = 0.02,
+the empathic personality (M = 4.97, SD = 1.45) elicited the                        η 2 p = 0.09. Post-hoc comparisons using Tukey’s HSD indicated
+highest interest emotion over the neutral (M = 4.69, SD =                          that the ridiculing personality (M = 5.06, SD = 1.61) elicited
+1.51) and the ridiculing personalities (M = 4.28, SD = 1.9) despite the            significantly higher surprise emotion than the neutral personality
+differences being not significant, p = 0.22. This result highlights the            (M = 4.03, SD = 1.62), p = 0.02, Cohen’s d = 0.71, 95% CI [0.2, 1.22],
+potential of robot personalities to elicit interest in humans, which               as shown in Figure 7.
+may influence their willingness or intention to use the robot in                        The Gender × Personality interaction was significant too,
+the future.                                                                        F(2,84) = 5.84, p = 0.004, η 2 p = 0.12. Post-hoc comparisons using
+                                                                                   Tukey’s HSD indicated that females who interacted with the neutral
+7.1.1.4 Embarrassment emotion                                                      personality (M = 3.5, SD = 1.79) experienced significantly less
+    There were no significant differences. However, it was                         surprise emotion than the ones who interacted with the empathic
+observed that females (M = 3.19, SD = 1.94) experienced                            personality (M = 5.31, SD = 1.35), p = 0.009, Cohen’s d = 1.25, 95%
+higher embarrassment than males (M = 2.56, SD = 1.62),                             CI [0.52, 1.98] and the ridiculing personality (M = 5.5, SD = 1.41), p
+p    =   0.09.  Moreover,    the   human    face   (M     =                        = 0.003, Cohen’s d = 1.38, 95% CI [0.64, 2.11].
+3.08, SD = 1.91) also elicited higher embarrassment than                                The obtained results highlight that a minimalistic reply of
+the anime face (M = 2.67, SD = 1.69), p = 0.27. Lastly, the                        confirmation where direct (as in the ridiculing response) or indirect
+
+
+
+Frontiers in Robotics and AI                                                  10                                                             frontiersin.org
+Salem and Sumi                                                                                                           10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 7
+   Intensity of emotions across different robot personalities.
+
+
+
+
+(as in the empathic response) remarks are nonexistent can ensure               = 2.38, SD = 1.7), p = 0.81. Lastly, the empathic personality (M =
+the weakest surprise emotion elicitation to the participants. This is          2.53, SD = 1.68) elicited the highest shame followed by the neutral
+also confirmed in Figure 7 where the ridiculing response elicited the          personality (M = 2.44, SD = 1.56) and then, the ridiculing personality
+highest surprise emotion followed by the empathic response and                 (M = 2.28, SD = 1.75), p = 0.83, as shown in Figure 7.
+lastly, the neutral response.                                                      Although the differences were not statistically significant, the
+                                                                               results point to a potential limitation of the empathic response: by
+7.1.1.6 Anxiety emotion                                                        indirectly signaling the occurrence of an embarrassing incident, it
+    There were no significant differences. However, it was observed            may have inadvertently increased participants’ feelings of shame
+that females (M = 3.44, SD = 2.08) experienced higher anxiety than             compared with the neutral response. The indirect confrontation
+males (M = 3.42, SD = 1.75), p = 0.96. Moreover, the human face                could be a reason for the empathic response having high
+(M = 3.67, SD = 1.78) also elicited higher anxiety than the anime              shame rating. Nevertheless, direct confrontation occurred with the
+face (M = 3.19, SD = 2.03), p = 0.23. Lastly, the neutral personality          ridiculing response and did not cause high shame rating as the
+(M = 3.59, SD = 2.03) elicited the highest anxiety followed by the             empathic response. It is suspected that due to the social agency
+empathic personality (M = 3.41, SD = 1.81) and then, the ridiculing            of the robot, a direct confrontation was not as effective as an
+personality (M = 3.28, SD = 1.94), p = 0.81, as shown in Figure 7.             indirect one. This underscores a potential link between the robot’s
+    Despite the insignificant differences, the results show a potential        social agency and the type of confrontation it employs in dialogue,
+for the empathic response in being a better alternative than a                 which may significantly shape the elicitation and regulation
+neutral response for embarrassment mitigation as it could elicit               of emotions.
+lower anxiety which could aid in mitigating the embarrassment                      Note that, as shame is an embarrassment-related emotion
+experienced by humans.                                                         (Bartneck et al., 2010), the effects of gender and robot
+    Note that, as anxiety is an embarrassment-related emotion                  anthropomorphism on elicited shame are in line with findings from
+(Bartneck et al., 2010), the effects of gender and robot                       the HHI and HRI literature.
+anthropomorphism on elicited anxiety are in line with findings
+from the HHI and HRI literature.                                               7.1.1.8 Embarrassment-related emotions
+                                                                                   Interestingly, the embarrassment-related emotions (i.e.,
+7.1.1.7 Shame emotion                                                          embarrassment, anxiety, and shame) were the lowest in rating
+    There were no significant differences. However, it was observed            as shown in Figures 5, 6. Nevertheless, the level of perceived
+that females (M = 2.52, SD = 1.8) experienced higher shame than                embarrassment following the method in Bartneck et al. (2010)
+males (M = 2.31, SD = 1.5), p = 0.54. Moreover, the human face (M              where the average of the embarrassment-related emotions is used
+= 2.46, SD = 1.62) also elicited higher shame than the anime face (M           was applied.
+
+
+
+Frontiers in Robotics and AI                                              11                                                           frontiersin.org
+Salem and Sumi                                                                                                              10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 8
+   Experienced embarrassment.
+
+
+
+
+     There were no significant differences. However, it was                     neutral response and then lastly, the empathic response. Similarly
+observed that females (M = 3.05, SD = 1.73) experienced higher                  to the presented results for the embarrassment, anxiety, and shame
+embarrassment-related emotions than males (M = 2.76, SD = 1.36),                emotions, this highlights that an empathic response could be an
+p = 0.38. Moreover, the human face (M = 3.07, SD = 1.51) also elicited          effective alternative to the neutral response for embarrassment
+higher embarrassment-related emotions than the anime face (M =                  mitigation.
+2.74, SD = 1.59), p = 0.32. Note that, both results are in line with the
+HHI and HRI literature.                                                         7.1.3 Robot’s evaluation
+     The neutral personality (M = 3.03, SD = 1.58) elicited                         The responses obtained from the three questionnaires developed
+the highest embarrassment-related emotions followed by the                      in Bickmore (2003) that evaluate robot’s perceived character, the
+empathic personality (M = 2.93, SD = 1.51) and then, the                        interaction with the robot, and the opinions formed about it
+ridiculing personality (M = 2.76, SD = 1.6), p = 0.79. This                     are presented below. The robot’s evaluation across its different
+could highlight the potential of utilizing an empathic response                 personalities and participants genders is shown in Figures 9, 10,
+for embarrassment mitigation despite of the possible high shame                 respectively.
+it could induce.
+                                                                                7.1.3.1 The robot’s character
+7.1.2 Experienced embarrassment                                                      The robot’s perceived character for males and females across
+     The ratings obtained from administering the “experienced                   different personalities and the robot’s facial appearances is shown
+embarrassment questionnaire” (Modigliani, 1968) are shown in                    in Tables 6, 7, respectively. The robot’s perceived character across
+Figure 8. There were no significant differences.                                its different personalities and participants genders is shown in
+     Males (M = 18.1, SD = 7.53) scored higher experienced                      Figures 9, 10, respectively.
+embarrassment than females (M = 17, SD = 6.8), p = 0.48.                             Participants gender is a significant main effect, F(1,84) = 5.5,
+Human face (M = 18.1, SD = 6.63) also elicited higher experienced               p = 0.021, η 2 p = 0.06. Females (M = 77.8, SD = 19) perceived
+embarrassment than an anime face (M = 17, SD = 7.67), p =                       the robot’s character significantly more favorably than males (M
+0.48. Note that, both results are in line with the HHI and HRI                  = 68.9, SD = 19.8) as shown in Figure 10. This result highlights
+literature.                                                                     that females could be more accepting and trusting to robots
+     Ridiculing personality (M = 18.3, SD = 8.09) elicited the highest          than males.
+experienced embarrassment followed by the neutral personality                        Personality is a significant main effect, F(2,84) = 6.82, p = 0.002,
+(M = 17.8, SD = 7.05) then the empathic personality (M                          η 2 p = 0.14. Post-hoc comparisons using Tukey’s HSD indicated that
+= 16.5, SD = 6.3), p = 0.6. As this questionnaire dissects                      the ridiculing personality (M = 63.8, SD = 17.8) led to perceiving the
+embarrassment closely, the ridiculing response caused the highest               robot’s character significantly less than the neutral personality (M =
+embarrassment as initially expected and then followed by the                    80.4, SD = 17.3), p = 0.002, Cohen’s d = 0.9, 95% CI [0.38, 1.41] and
+
+
+
+Frontiers in Robotics and AI                                               12                                                             frontiersin.org
+Salem and Sumi                                               10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 9
+   Robot’s evaluation across its three personalities.
+
+
+
+
+   FIGURE 10
+   Robot’s evaluation across males and females.
+
+
+
+
+Frontiers in Robotics and AI                            13                frontiersin.org
+Salem and Sumi                                                                                                               10.3389/frobt.2025.1569040
+
+
+
+
+TABLE 6 Robot’s perceived character according to its personality with males and females (M/SD).
+
+              Participants gender                                                 Robot personality                                      Overall
+
+                                                          Neutral                   Empathic                   Ridiculing
+
+                        Male                              79.7/15.7                   66.1/21.4                  60.9/18.1               68.9/19.8
+
+                       Female                             81.1/19.3                   85.5/15.7                  66.7/17.6                77.8/19
+
+                       Overall                            80.4/17.3                    75.8/21                   63.8/17.8
+
+
+
+
+TABLE 7 Robot’s perceived character according to its social agency with          SD = 24.2) and then lastly, the ridiculing personality (M = 63, SD =
+males and females (M/SD).
+                                                                                 23.1), p = 0.03, as shown in Figure 9. This highlights that a neutral
+     Robot face                Participants gender         Overall               response is the most favored in terms of perceived robot interaction.
+
+                                Male       Female                                7.1.3.3 Opinion about the robot
+                                                                                      The opinions formed about the robot are presented in Tables 10,
+    Human robot face           69.4/20      80/20.3         74.7/20.6
+                                                                                 11. The opinions formed about the robot across its different
+    Anime robot face           68.4/20.1   75.6/17.9         72/19.2             personalities and participants genders are shown in Figures 9, 10,
+                                                                                 respectively.
+         Overall               68.9/19.8    77.8/19                                   Participants gender is a significant main effect, F(1,84) = 4.41,
+                                                                                 p = 0.04, η 2 p = 0.05. Post-hoc comparisons using Tukey’s HSD
+                                                                                 indicated that the females (M = 88.7, SD = 18.3) formed opinions
+                                                                                 about the robot were significantly higher than males (M = 81.6,
+                                                                                 SD = 17.1), p = 0.04, Cohen’s d = 0.43, 95% CI [0.02, 0.84],
+the empathic personality (M = 75.8, SD = 21), p = 0.031, Cohen’s d =
+                                                                                 as shown in Figure 10. This result is similar to the former two results
+0.646, 95% CI [0.14, 1.15] as shown in Figure 9. This highlights that
+                                                                                 which highlights that females could be more accepting and trusting
+a neutral response is the most favored in terms of perceived robot
+                                                                                 to robots than males. This evaluation was consistent along the three
+character.
+                                                                                 aspects of the robot’s evaluation.
+    Lastly, it was observed that the human face (M = 74.7, SD = 20.6)
+                                                                                      Personality is a significant main effect, F(2,84) = 10.81, p <
+was rated higher than the anime face (M = 72, SD = 19.2), p = 0.5.
+                                                                                   0.001, η 2 p = 0.21. Post-hoc comparisons using Tukey’s HSD
+This could be due to the expressiveness of the human face compared
+                                                                                 indicated that the opinions formed about the neutral personality
+to the anime face as it can be noticed in Supplementary Video 1.
+                                                                                 (M = 91.8, SD = 14.7) were significantly higher than the ridiculing
+                                                                                 personality (M = 74.3, SD = 18.7), p < 0.001, Cohen’s d = 1.1, 95%
+7.1.3.2 The robot’s interaction
+     The robot’s perceived interaction is presented in Tables 8, 9.              CI [0.55, 1.6], as shown in Figure 9. Opinions formed about the
+Moreover, the robot’s interaction across its different personalities             empathic personality (M = 89.5, SD = 15.4) were also significantly
+and participants genders is shown in Figures 9, 10, respectively.                higher than the ridiculing personality (M = 74.3, SD = 18.7), p =
+     Personality is a significant main effect, F(2,84) = 3.53, p = 0.034,        0.001, Cohen’s d = 0.93, 95% CI [0.41, 1.45], as shown in Figure 9.
+η 2 p = 0.08. Post-hoc comparisons using Tukey’s HSD indicated                   Note that, the neutral personality (M = 91.8, SD = 14.7) was rated
+that the neutral personality interaction (M = 78.5, SD = 22.1) was               the highest and followed by the empathic personality (M = 89.5,
+perceived significantly higher than the ridiculing personality (M =              SD = 15.4) and lastly, the ridiculing personality (M = 74.3, SD =
+63, SD = 23.1), p = 0.03, Cohen’s d = 0.65, 95% CI [0.14, 1.16],                 18.7) as shown in Figure 9. This highlights that a neutral response
+as shown in Figure 9. This highlights that a neutral response is the             is the most favored in terms of the opinions formed about the robot.
+most favored in terms of perceived robot’s interaction.                          This evaluation was consistent along the three aspects of the robot’s
+     It was observed that females (M = 74, SD = 23.8) rated the                  evaluation.
+interaction higher than males (M = 69.4, SD = 23.9), p = 0.35,                        It was observed that the human face (M = 86.1, SD = 18.6)
+as shown in Figure 10. Despite of the insignificant differences, this            gained better opinions than the anime face (M = 84.3, SD =
+result is similar to the former one which proves that females could              17.5), p = 0.59, which could be due to the high expressiveness
+be more accepting and trusting to robots than males.                             of the human face compared to the anime face as it can be
+     The human face (M = 73.6, SD = 25.9) received higher                        noticed in Supplementary Video 1. This evaluation was consistent
+interaction rating than the anime face (M = 69.8, SD = 21.6),                    across the three aspects of the robot’s evaluation.
+p = 0.43, which could be due to the high expressiveness of
+the human face compared to the anime face as it can be                           7.1.4 Participants embarrassability
+noticed in Supplementary Video 1.                                                    The participants embarrassability is shown in Table 12. The
+     Lastly, the neutral personality (M = 78.5, SD = 22.1) received              embarrassability of the males interacting with the human face (M
+the highest rating followed by the empathic personality (M = 73.7,               = 143.87, SD = 22.74) was significantly higher than that of the males
+
+
+
+Frontiers in Robotics and AI                                                14                                                            frontiersin.org
+Salem and Sumi                                                                                                               10.3389/frobt.2025.1569040
+
+
+
+
+TABLE 8 Robot’s perceived interaction according to its personality with males and females (M/SD).
+
+              Participants gender                                                Robot personality                                      Overall
+
+                                                         Neutral                   Empathic                   Ridiculing
+
+                        Male                              80.1/21.3                  66.6/24.6                   61.6/22.9               69.4/23.9
+
+                       Female                             76.8/23.4                  80.7/22.2                   64.5/23.9                74/23.8
+
+                       Overall                            78.5/22.1                  73.7/24.2                   63/23.1
+
+
+
+
+TABLE 9 Robot’s perceived interaction according to its social agency            nature of the emotion and its effect on males (Salem and Sumi, 2024).
+with males and females (M/SD).                                                  Negative emotions are associated with reduction in HR (Osnes et al.,
+     Robot face                Participants gender         Overall              2023). It could be also due to the high disgust elicited from the
+                                                                                ridiculing response which is commonly known for lowering HR in
+                                Male       Female                               males and females (Gilchrist et al., 2016; Stark et al., 2005).
+    Human robot face           71.2/26.3   76.1/25.9       73.6/25.9
+                                                                                7.2.2 EDA analysis
+    Anime robot face           67.7/21.6   71.9/21.8       69.8/21.6                 During embarrassed states, arousal increases above the baseline
+                                                                                relaxation levels, thus, similarly to the ECG study, the EDA difference
+         Overall               69.4/23.9    74/23.8                             is used. EDA difference is the difference between the arousal level
+                                                                                in an embarrassed state and the baseline state. Thus, a positive high
+                                                                                difference indicates higher arousal in the embarrassed state than the
+                                                                                baseline state, which is an indication of an embarrassment occurrence.
+interacting with the anime face (M = 130.08, SD = 23.53), t(46) =                    There were no significant differences. However, a significant trend
+2.06, p = 0.04. There were no other significant differences.                    was observed where females (M = 4.74, SD = 5.18) had higher arousal
+                                                                                difference than males (M = 2.83, SD = 4.99), p = 0.07. This result is
+                                                                                expected and in line with the embarrassment emotion literature.
+7.2 Physiological data analysis                                                      The ridiculing personality (M = 4.96, SD = 5.53) incurred the
+                                                                                highest arousal difference followed by the neutral personality (M
+7.2.1 ECG analysis                                                              = 3.7, SD = 4.98), and lastly, the empathic personality (M = 2.7,
+     The HR of all participants in different experiment conditions              SD = 4.83), p = 0.22. Thus, the potential of the empathic response
+is investigated. Embarrassment leads to an increase in                          is highlighted again where it is possible that it can be an effective
+heart rate (Hofmann et al., 2006). As embarrassment emotion is                  candidate for embarrassment mitigation.
+related to the baseline (relaxation state) and the embarrassed state,                The human face (M = 3.84, SD = 5.04) induced a higher arousal
+the difference between the embarrassed state and the baseline state             difference than the anime face (M = 3.73, SD = 5.32), p = 0.92,
+was used in the analysis. Thus, a higher difference (of positive value)         however, the difference was minimal. Nevertheless, this result is
+can indicate that the embarrassed state’s physiological data was                expected and in line with the embarrassment emotion literature.
+higher in value than the baseline state.
+     The robot’s face had a significant trend, F(1,82) = 3.7, p = 0.058,
+η 2 p = 0.043. Post-hoc comparisons using Tukey’s HSD indicated                 7.3 Body movements, facial expressions,
+that the anime face (M = 4.51, SD = 18.6) induced a significantly               and participants responses
+higher heart rate difference than the human face (M = −2, SD = 15),
+p = 0.058, Cohen’s d = 0.4, 95% CI [0.014, 0.81]. It is suspected that          7.3.1 Participants body movements and facial
+due to the males interacting with the human face had significantly              expressions
+higher embarrassability and due to embarrassment occurrence in                      Two independent researchers coded the participants body
+males being correlated with low HR (Salem and Sumi, 2024), the                  movements and facial expressions. The Cohen’s Kappa was
+obtained result surfaced. Thus, higher embarrassment occurred with              calculated to measure inter-rater reliability. A substantial agreement
+the human face leading the HR of males to be low compared to the                score of κ = 0.68 (95% CI: 0.61–0.75) was achieved (“substantial”
+anime face and results in making the HR difference noticeable in                agreement referring to 0.61 < κ < 0.80) (McHugh, 2012). Thus,
+the sample.                                                                     raters are broadly consistent. The percent agreement was 72.5%
+     It was observed that the neutral personality (M = 4.4, SD                  which shows a strong agreement between the two raters. Moreover,
+= 17.9) elicited the highest HR difference and was followed by                  the Gwet AC2 was 0.68 which also shows a substantial agreement
+the empathic personality (M = 3.47, SD = 8.58), and lastly, the                 between the raters (Landis and Koch, 1977; Altman, 1991) and
+ridiculing personality (M = −3.91, SD = 21.5), p = 0.12. Although               verifies the reliability of the raters’ coding.
+the ridiculing attitude caused the highest embarrassment and thus,                  For further statistical analyses examining gender, robot social
+the least favored, a low HR difference could be due to the negative             agency, and robot personality effects, a single consensus-coded
+
+
+
+Frontiers in Robotics and AI                                               15                                                             frontiersin.org
+Salem and Sumi                                                                                                             10.3389/frobt.2025.1569040
+
+
+
+
+TABLE 10 Opinion about the robot according to its personality with males and females (M/SD).
+
+              Participants gender                                              Robot personality                                      Overall
+
+                                                          Neutral                Empathic                   Ridiculing
+
+                        Male                              88.8/16.4                82.9/13.5                   73.3/18.1               81.6/17.1
+
+                       Female                             94.7/12.5                96.1/14.6                   75.3/19.9               88.7/18.3
+
+                       Overall                            91.8/14.7                89.5/15.4                   74.3/18.7
+
+
+
+
+TABLE 11 Opinion about the robot according to its social agency with               Note that, embarrassment emotion can be misidentified to be
+males and females (M/SD).
+                                                                              amusement if only facial expressions are monitored (Edelmann and
+     Robot face                Participants gender         Overall            Hampson, 1981). Thus, when Duchenne smile occurred with males
+                                                                              and females, lower leg movements, hands, eyes, and mouth were also
+                                Male        Female                            considered (Edelmann and Hampson, 1981). It was clear that in the
+                                                                              experiment an embarrassment emotion is being experienced, not joy
+    Human robot face           81.4/17.3     90.8/19        86.1/18.6
+                                                                              or amusement.
+    Anime robot face           81.9/17.2     86.6/17.8      84.3/17.5              A chi-square test of independence across all the experiment’s
+                                                                              conditions indicated that body movements and facial expressions
+         Overall               81.6/17.1     88.7/18.3
+                                                                              differed significantly depending on the robot face and personality,
+                                                                              χ(110, N = 222) = 162, p < 0.001, Cram ́    er’s V = 0.27. Because some
+                                                                              cells had low expected counts, Fisher’s exact test was also conducted,
+TABLE 12 Embarrassability score data of the participants (M/SD).
+                                                                              which confirmed the result, p = 0.002.
+    Robot face             Participants gender             Overall                 Post-hoc analysis of adjusted residuals revealed that
+                                                                              manipulative gestures were significantly more frequent than
+                               Male        Female                             expected with the human robot face with a ridiculing personality
+   Human robot face      143.87/22.74      136.37/29.53   140.12/26.35
+                                                                              that interacts with males (adjusted residual = 2.175, p < 0.05).
+                                                                              Manipulative gestures are cues of embarrassment occurrence. This
+   Anime robot face      130.08/23.53      141.87/24.45   135.98/24.48        highlights that a ridiculing robot response is highly discomforting
+                                                                              to participants.
+        Overall          136.98/23.93      139.12/26.96
+                                                                                   Smile control was also significantly more frequent than expected
+                                                                              with the anime robot face with a ridiculing personality that interacts
+                                                                              with females (adjusted residual = 2.528, p < 0.01). Smile control
+dataset was required. Therefore, any disagreements were resolved              proves that embarrassment took place, however, it is possible that it
+through adjudication to ensure reliability and usability.                     occurred with the anime face due to a baby schema (Glocker et al.,
+    In the experiment, the participants were sitting in front of              2009; Yao et al., 2022) from the anime face’s big eyes. Embarrassment
+the robot which limited their movement. Moreover, ECG and                     in front of a witness who is perceived as cute converges two
+EDA sensors were attached to them which limited their hand                    social-affective processes (Keltner, 1995), which are self-conscious
+movements. Furthermore, looking at different paintings while                  appraisal (as embarrassment) and an increased drive to appease or
+holding them made their hands occupied. As a result, asymmetrical             affiliate because the witness (the robot with an anime face) evokes
+arm movements which are a body cue of experiencing interest                   a caregiving approach. The embarrassed smile is highly functional
+emotion were discarded as participants hands were busy holding                in this situation as it signals non-threat intent (appeasement) and
+the paintings. Some of them showed the paintings to the robot and             manages self-presentation (modesty) which suits the situation when
+others just described the paintings vocally.                                  the actor wants to elicit care from the witness (the anime robot face).
+    It is suspected that due to the constant holding of the paintings              Lip wipe was significantly more frequent with the human robot
+thus forcing participants to do an asymmetrical arm movement (an              face with empathic personality that interacts with males (adjusted
+interest emotion body gesture) may have given them the perception             residual = 2.316, p < 0.05). The empathic personality is inherently
+that they are experiencing an emotion of interest (Davey et al., 2021;        kind which could trigger reciprocity (Gouldner, 1960) from
+Coles et al., 2019; Kelly and Ngo Tran, 2025) which could have been           humans. A form of reciprocity is through impression management
+rated lower if they are seeing the paintings on a screen or through           where people unconsciously adjust their grooming behaviors when
+any other method that does not require holding them. Any lower                interacting with desirable others (Knapp et al., 1972). Subtle lip
+gazing was also not considered as the experiment setup made gazing            moistening can increase attractiveness as it draws attention to the
+down to be always for the purpose of looking at the paintings.                mouth and also improve the appearance (Grammer et al., 2000). Lip
+Thus, gazing down was not necessarily due to embarrassment despite            wiping is a socially valuable tool as it signals a kind friendly persona
+being a cue of it.                                                            as it is an attractiveness enhancer (Ekman and Friesen, 1969).
+
+
+
+Frontiers in Robotics and AI                                             16                                                             frontiersin.org
+Salem and Sumi                                                                                                               10.3389/frobt.2025.1569040
+
+
+
+
+     Duchenne smile was significantly less frequent with the anime                exhibit an internalizing behavior (Ishimoto et al., 2022). Besides,
+robot face with an empathic personality that interacts with females               traditional gender roles often encourage men to display strength
+(adjusted residual = −2.6, p < 0.01). The few occurrences of                      and dominance, which can manifest as aggression, directness or
+Duchenne smile with the anime robot face could be due to the fact                 assertiveness in communication (Ramírez et al., 2001) which makes
+that it is an artificial entity and the lack of its perceived agency. Non-        the strategy of “defensively changing the subject” less likely to be
+Duchenne, polite, or social smiles are more frequent with robots                  employed by males.
+than with other people (Kappas and Gratch, 2023).                                     Lastly, when males interact with an anime robot face with
+     Lastly, no gestures (neutral participant state were no body                  an empathic personality, the fishing for reassurance was used
+movements or facial expressions are taking place) were significantly              more frequently than expected (adjusted residual = 3.1, p <
+more frequent with the anime robot face with a neutral personality                0.05) which can be due to the baby schema or the empathic
+that interacts with males (adjusted residual = −2.75, p < 0.01) and               personality projected by the anime robot. Note that, for the sake
+less frequent with the human robot face with a ridiculing personality             of comprehensiveness, when a participant said “thank you”, it was
+that interacts with females (adjusted residual = −2.05, p < 0.05).                marked as a “fishing for reassurance” strategy, however, saying
+This highlights that a neutral response is not triggering unlike the              “thank you” in Japanese culture is a cultural norm and expected in
+ridiculing response. Moreover, the robot’s facial appearance have                 social interactions (Ohashi, 2008).
+a direct effect on triggering humans and eliciting emotions which                     Fisher’s exact test also confirmed gender differences in using
+was shown in this work with the lack of gestures when both, an                    different remediation strategies, p = 0.003. However, there were no
+anime face is combined with a neutral non-provoking and non-                      significant differences in the chosen remediation strategy for both
+confrontational response.                                                         robot faces.
+     To investigate the effect of gender differences and the robot’s                  Across all conditions, the justification strategy was the most used
+social agency, a chi-square test of independence indicated that body              strategy (22.43%) followed by the strategy of defensively changing
+movements and facial expressions differed significantly depending                 the subject (19.2%), accept failure (10.2%), do nothing (8.3%),
+on the gender of the participant and the robot face, χ(30, N =                    minimizing failure by derogating the task (7.05%), introducing
+222) = 49.6, p = 0.014, Cram ́     er’s V = 0.27. Because some cells had          redeeming or self-enhancing information (6.4%), introducing
+low expected counts, Fisher’s exact test was also conducted, which                information excusing performance (5.8%), fishing for reassurance
+confirmed the result, p = 0.011.                                                  (5.8%), apology (4.5%), verbal aggression (2.6%), humor (2.6%),
+     Post-hoc analysis of adjusted residuals revealed that lip wipe               excuse (1.9%), remediation (1.3%), avoidance (0.64%), statement of
+and Duchenne smile were significantly less frequent than expected                 the fact (0.64%), denying failure (0.64%), and lastly straightforward
+when females interact with the robot human (adjusted residual =                   answers (0%).
+−2.2, p < 0.05) and anime faces (adjusted residual = −2.74, p <                       Gender and robot facial appearance effects on the participants’
+0.01), respectively. It can be deduced that lip wipe was less frequent            choice of the remediation strategy are shown in Figures 11, 12,
+with the human face robot due to absence of a need to enhance                     respectively. Across both figures, the remediation strategies most
+attractiveness to the robot. Less frequent Duchenne smile with the                commonly applied are the “justification” and “defensively changing
+anime face robot can be due to its lack of perceived agency.                      the subject”. Clearly, no changes took place due to different genders
+     There were no significant differences between males and females              or robot facial appearances.
+regarding their body movements and facial expressions. There were
+also no significant differences between participants who interacted
+with the robot human and anime faces.                                             8 Discussion
+7.3.2 Participants responses                                                          In this experiment, participants subjective ratings showed that
+    Participants’ verbal responses to the robot were coded using a                they did not experience embarrassment noticeably. Moreover, interest
+thematic framework corresponding to 17 predefined embarrassment                   and surprise emotions were rated highly while other embarrassment-
+remediation strategies as presented in Sections 2.1, 2.2.                         related emotions such as embarrassment, anxiety and shame were
+    There was a significant trend where remediation strategies                    rated low. Despite the differences not being statistically significant,
+frequency of usage differed significantly across the experiment’s                 embarrassment-related emotions showed a consistent trend: they
+conditions. Fisher’s exact test was conducted, p = 0.059.                         were rated higher for female than for male participants, which
+    Post-hoc analysis of adjusted residuals revealed that the apology             is in line with gender differences reported in the embarrassment
+remediation strategy was used more frequently when females                        emotion literature (Pettijohn et al., 2010; Salem and Sumi, 2024;
+interact with the robot with the human face and ridiculing                        Sato et al., 2024). Moreover, the embarrassment-related emotions
+personality (adjusted residual = 2.23, p < 0.05). This is in line                 were also rated higher for the robot human face than the anime
+with (Itoi et al., 1996) where Japanese females are more likely                   face, which is in line with the robot anthropomorphization effect on
+to offer an apology than Japanese males. Interestingly, males                     the embarrassment experienced by the participants (Bartneck et al.,
+used aggression with the same condition more frequently than                      2010). It is possible that embarrassment-related emotions were not
+expected (adjusted residual = 2.1, p < 0.05) and used the                         rated highly as embarrassment was not experienced consciously
+“defensively changing the subject” strategy less frequently than                  due to its short-lived momentarily nature in a failure of meshing
+expected (adjusted residual = −2.06, p < 0.05). Higher externalizing              scenario. This is plausible since embarrassment surfaced in other
+behaviors such as aggression or hyperactivity in response to                      subconscious physiological, body movements, facial expressions and
+stressors were noticed more in males than females who tend to                     verbal responses measures.
+
+
+
+Frontiers in Robotics and AI                                                 17                                                            frontiersin.org
+Salem and Sumi                                                                                                           10.3389/frobt.2025.1569040
+
+
+
+
+   FIGURE 11
+   Frequency of remediation strategies across males and females.
+
+
+
+
+   FIGURE 12
+   Frequency of remediation strategies across the robot’s human and anime faces.
+
+
+
+
+    For emotions subjective ratings, robot personality was the main           the ridiculing response lead to this result and aided in making the
+significant effect. This highlights that robot personality can have a         participants be more surprised than being embarrassed, thus, being
+more prominent role than the robot’s social agency or the gender              distracted from the fact of how embarrassing it is (Chan and Singhal,
+of the participants in emotion regulation and alleviation scenarios           2013). Note that, the ridiculing personality significantly induced the
+where emotion control is of interest. Interestingly, the induced              highest surprise emotion. However, the experienced embarrassment
+embarrassment and anxiety emotions were rated the highest for                 questionnaire uncovered how embarrassing the ridiculing response
+the neutral personality unlike the ridiculing personality where they          is for participants. It was also observed that the empathic personality
+were rated the lowest. It is suspected that the surprising nature of          induced the highest shame emotion over the neutral and ridiculing
+
+
+
+Frontiers in Robotics and AI                                             18                                                            frontiersin.org
+Salem and Sumi                                                                                                             10.3389/frobt.2025.1569040
+
+
+
+
+personalities. This could be due to highlighting the fact that the             nothing” remediation strategy). The robot’s facial appearance nor
+participant gave a wrong answer in the robot’s response which                  the participant’s gender affected the type of remediation strategy
+could be perceived as confrontational (despite being indirect) which           used. Moreover, the “justification” strategy was the one mostly
+is not favored in Japanese culture (Brett et al., 2014). The results           used followed by “defensively changing the subject” which confirms
+highlighted that an empathic response have the potential to be                 that embarrassment has been experienced due to the scenario and
+an effective alternative to a neutral response for embarrassment               is being remedied. It is worthwhile to notice that strategies such
+mitigation. Nevertheless, an empathically indirect confrontational             as “apology” and “excuse” were almost rarely used which verifies
+response risks eliciting shame emotions (an embarrassment-related              that participants did not view the robot as higher in status than
+emotion). Besides, the empathic response elicited the lowest                   them, thus, it is not a superior-subordinate relationship, which
+experienced embarrassment, thus, a thorough study could be                     is in line with the embarrassment remediation strategies used in
+beneficial to uncover its potential in emotion control.                        Japanese culture.
+     A thorough robot evaluation showed that the robot’s perceived                  It should be highlighted that some participants responses might
+character, interaction, and opinions about the robot are affected              be analyzed differently. In our experiment, all the participants
+by the robot’s social agency and the participants gender. The                  are of a Japanese ethnicity. In Japanese culture, saying “Thank
+ridiculing personality received the lowest ratings whereas the neutral         you.” and “I do not mind.” is common and can be considered as
+personality was highly favored. Interestingly, females gave the robot          a social norm (Haugh and Obana, 2011). These responses were
+higher ratings than males across all aspects, including its character,         interpreted as “fishing for reassurance” type of remediation strategy
+interaction quality, and the opinions formed about it. Thus, when              to provide a comprehensive analysis. However, it is possible that,
+designing the robot to handle failure of meshing situations, females           because such responses are a social norm, the motive behind them
+are easier to perceive the robot positively despite of the momentarily         is not actually fishing for reassurance. Thus, cultural background is
+short-lived elicited embarrassment. This is in line with the literature        essential when analyzing the responses.
+where females are known to report higher trust in robots than males                 By observing the robot gestures, it was clear that the human face
+(Gallimore et al., 2019). Females are also more willing than males to          is more expressive than the anime face. The big eyes of the anime
+self-disclose to robots (Uchida et al., 2020), which may explain why           face limited the eye movements highly unlike the human face where
+they tend to accept robots more easily.                                        eyes are more flexible to express various emotions. Furthermore,
+     Embarrassment emotion leads to an increase in heart rate and              the anime face mouth opening was narrow which limited the
+arousal. Thus, we analyze the physiological data of the participants           expressions and consequently the emotions it can transmit unlike
+to recognize and verify the existence of the embarrassment emotion             the human face’s mouth. It is possible that limiting the expressiveness
+through its psychophysiological correlates. Emotion control was                of robot’s face during negative emotions situations could be an
+realized through the robot success in mitigating and amplifying the            elegant solution that aids in mitigating negative emotions. Moreover,
+embarrassment emotion in the participants through its responses.               the big eyes of the anime face could have projected a baby schema
+The heart rate when interacting with the anime face was higher                 which is usually perceived to be cuter than small eyes (of the human
+than when interacting with the human face. In Salem and Sumi                   face) (Glocker et al., 2009; Yao et al., 2022), thus leading participants
+(2024), it is suggested that when males experience embarrassment,              to be less embarrassed and feeling calmer (less arousal, lower heart
+their heart rate decreases. Moreover, the embarrassability of males            rate, and softer and more accepting responses).
+interacting with the human robot face is significantly more than
+the males interacting with the anime robot face. This highlights
+the possibility of the human face inducing more embarrassment                  9 Limitations
+than the anime face despite of the higher HR for the anime face.
+EDA results confirmed the elicitation of embarrassment emotions                    The anime robot face was not as expressive as the human
+where females EDA was higher than males, and human robot face                  robot face. On one hand, this gave an indication that limiting the
+induced higher EDA than the anime robot face which is in line with             expressiveness of the robot face can aid highly in limiting the effect
+the literature. Lastly, the ridiculing personality induced the highest         and contagiousness of negative emotions. On the other hand, testing
+EDA over other personalities. This shows a favoring for robots with            the social agency could be questionable due to the dissimilarity
+an anime face and a neutral or an empathic personality for failure             between both faces in expressing emotions. Thus, an anime face
+of meshing scenarios. Note that, an empathic response elicited                 with similar facial expressions to the human face would give a
+the lowest EDA.                                                                clearer indication about the effect of social agency in mitigating
+     Participants responses showed that embarrassment remediation              embarrassment.
+strategies are applied even with robots. Thus, the knowledge                       The social robot Furhat is a back-projected robotic head
+accumulated regarding embarrassment remediation strategies in                  which lacks a body. Thus, the embarrassment in this experiment
+HHI are applicable to the HRI field. Participants using remediation            occurred solely from the robotic head. It can be expected
+strategies with robots show that HHI social norms are being                    that more embarrassment will be experienced if the robot is
+maintained in HRI contexts. Results show that many participants                having a full body and utilizing arms and hands gestures. Thus,
+used more than one strategy at a time. Interestingly, participants             this work gives a conclusive result for advanced back-projected
+perceived the robot with the human or anime face as not low                    robotic heads (e.g., Furhat), not robots that has a full body
+in status, which lead them to use embarrassment remediation                    (e.g., humanoids).
+strategies and facework to improve their image in front of                         A perception-based manipulation check was not conducted due
+the robot (although not always due to the usage of the “do                     to the short-lived nature of the elicited embarrassment from a failure
+
+
+
+Frontiers in Robotics and AI                                              19                                                             frontiersin.org
+Salem and Sumi                                                                                                           10.3389/frobt.2025.1569040
+
+
+
+
+of meshing scenario. However, a perception-based manipulation                     • Cross-cultural differences in embarrassment perception and
+check would aid in ensuring that the different robot attitudes were                 regulation in HRI.
+perceived as intended which can enhance the generalizability of the               • How different levels of robot expressiveness impact emotion
+results. A manipulation check prior to the main experiment would                    regulation outcomes.
+add an additional layer that validates the clarity and effectiveness of           • Potential applications in fields such as mental health, customer
+the attitude manipulation.                                                          service, and social assistance, where emotion regulation plays
+                                                                                    a crucial role.
+
+
+10 Conclusion                                                                      By advancing our understanding of how robots can recognize,
+                                                                               respond to, and regulate emotions like embarrassment, this study
+     As LLMs become increasingly integrated with robots, the                   lays the groundwork for more emotionally intelligent robots capable
+likelihood of embarrassing situations emerging in HRI increases.               of fostering positive human-robot interactions in everyday life.
+One such scenario is failure of meshing, where a misalignment
+in expectations leads to a short-lived but socially significant
+embarrassment experience. Embarrassment can negatively affect                  Data availability statement
+individuals, particularly shy and socially anxious people, making its
+regulation an important aspect of smooth and comfortable HRI.                      The original contributions presented in the study are included in
+     In this study, robots methods in mitigating embarrassment                 the article/Supplementary Material, further inquiries can be directed
+through their responses were investigated through analyzing                    to the corresponding author.
+participants’ subjective ratings, physiological data, body movements,
+facial expressions, and verbal responses. The obtained results
+confirm that robot responses can successfully modulate                         Ethics statement
+embarrassment, either by mitigating or amplifying it. The robot’s
+social agency played a crucial role in shaping participants’                       Full ethical approval was obtained from the Research Ethics
+physiological and behavioral responses. The anime-faced robot                  Committee at Future University Hakodate. The approval number is
+elicited milder and softer emotional responses, resulting in lower             2024010. The studies were conducted in accordance with the local
+arousal and better user ratings. This highlights the importance of             legislation and institutional requirements. The participants provided
+social agency in mitigating embarrassment experiences.                         their written informed consent to participate in this study. Written
+     Furthermore, it was observed that robot attitude had a                    informed consent was obtained from the individual(s) for the
+significant effect on perceptions about the robot. Neutral and                 publication of any potentially identifiable images or data included
+empathic attitudes were rated the most favorable as they facilitated           in this article.
+smoother interactions and helped mitigate embarrassment more
+effectively. Interestingly, an empathic robot personality is suspected
+to be the most effective in embarrassment mitigation while
+carrying the risk of indirectly shaming the participant through its            Author contributions
+inherently indirect confrontational approach which could lead to
+reducing its effectiveness in mitigating embarrassment emotions.                   AS: Conceptualization, Data curation, Formal Analysis,
+However, other embarrassment-related emotions (embarrassment                   Investigation, Methodology, Software, Validation, Visualization,
+and anxiety) were rated the lowest for the empathic response. Robot            Writing – original draft, Writing – review and editing.
+personality and attitude shaped user perceptions thus reinforcing              KS: Conceptualization, Funding acquisition, Investigation,
+the idea that emotional intelligence in robots depends on how                  Methodology, Project administration, Resources, Supervision,
+they respond to social and emotional cues rather than their                    Validation, Writing – review and editing.
+anthropomorphism alone.
+
+                                                                               Funding
+11 Implications and future directions
+                                                                                   The author(s) declare financial support was received for
+    Our findings contribute to the growing field of emotion                    the research, authorship, and/or publication of this article. This
+regulation in HRI, demonstrating that robots can actively                      paper was based on results obtained from a project, JPNP23025,
+modulate user emotions rather than merely transmitting them. As                commissioned by the New Energy and Industrial Technology
+conversational AI continues to advance, designing robots that can              Development Organization (NEDO).
+strategically regulate emotions, particularly embarrassment, will be
+crucial for ensuring more natural and comfortable interactions.
+    Future research should explore:                                            Acknowledgements
+   • The long-term effects of robot-mediated emotion regulation                   We would like to thank Yusuke Sato, Asahi Imaruoka, Shun
+     on user trust and engagement.                                             Suzuki, Shun Furuichi, Sota Kaga, and Kyosuke Saga for their help
+
+
+
+Frontiers in Robotics and AI                                              20                                                          frontiersin.org
+Salem and Sumi                                                                                                                                            10.3389/frobt.2025.1569040
+
+
+
+
+in supporting the experiment. We would like to also thank all the                                  artificial intelligence and reasonable efforts have been made to
+participants who took part in our experiment and helped us with                                    ensure accuracy, including review by the authors wherever possible.
+their participation.                                                                               If you identify any issues, please contact us.
+
+
+Conflict of interest                                                                               Publisher’s note
+    The authors declare that the research was conducted in the
+                                                                                                       All claims expressed in this article are solely those of the
+absence of any commercial or financial relationships that could be
+                                                                                                   authors and do not necessarily represent those of their affiliated
+construed as a potential conflict of interest.
+                                                                                                   organizations, or those of the publisher, the editors and the
+    The author(s) declared that they were an editorial board member
+                                                                                                   reviewers. Any product that may be evaluated in this article, or claim
+of Frontiers, at the time of submission. This had no impact on the
+                                                                                                   that may be made by its manufacturer, is not guaranteed or endorsed
+peer review process and the final decision.
+                                                                                                   by the publisher.
+
+
+Generative AI statement
+                                                                                                   Supplementary material
+    The author(s) declare that no Generative AI was used in the
+creation of this manuscript.                                                                           The Supplementary Material for this article can be
+    Any alternative text (alt text) provided alongside figures in                                  found online at: https://www.frontiersin.org/articles/10.3389/
+this article has been generated by Frontiers with the support of                                   frobt.2025.1569040/full#supplementary-material
+
+
+
+References
+  Al Moubayed, S., Beskow, J., Skantze, G., and Granström, B. (2012). “Furhat: a                      Chan, M., and Singhal, A. (2013). The emotional side of cognitive
+back-projected human-like robot head for multiparty human-machine interaction,”                    distraction: implications for road safety. Accid. Analysis and Prev. 50, 147–154.
+in Cognitive behavioural systems: COST 2102 international training school, dresden,                doi:10.1016/j.aap.2012.04.004
+Germany, February 21-26, 2011, revised selected papers (Springer), 114–130.
+                                                                                                     Choi, J. J., Kim, Y., and Kwak, S. S. (2013). “Have you ever lied? the impacts of
+   Altman, D. G. (1991). Statistics in medical journals: developments in the 1980s.                gaze avoidance on people’s perception of a robot,” in 2013 8th ACM/IEEE international
+Statistics Med. 10, 1897–1913. doi:10.1002/sim.4780101206                                          conference on human-robot interaction (HRI) (IEEE), 105–106.
+  Argyle, M. (2017). Social interaction: process and products. New York: Taylor &                     Choi, J. J., Kim, Y., and Kwak, S. S. (2014). “Are you embarrassed? The impact of robot
+Francis Group.                                                                                     types on emotional engagement with a robot,” in Proceedings of the 2014 ACM/IEEE
+                                                                                                   international conference on Human-robot interaction, 138–139.
+  Argyle, M., and Kendon, A. (1967). “The experimental analysis of social
+performance,” in Advances in experimental social psychology (Elsevier), 3, 55–98.                     Coles, N. A., Larsen, J. T., and Lench, H. C. (2019). A meta-analysis of the facial
+doi:10.1016/s0065-2601(08)60342-1                                                                  feedback literature: effects of facial feedback on emotional experience are small and
+                                                                                                   variable. Psychol. Bull. 145, 610–651. doi:10.1037/bul0000194
+  Bartneck, C., Bleeker, T., Bun, J., Fens, P., and Riet, L. (2010). The influence of robot
+anthropomorphism on the feelings of embarrassment when interacting with robots.                       Connor, K. M., Davidson, J. R., Churchill, L. E., Sherwood, A., Weisler, R. H., and Foa,
+Paladyn 1, 109–115. doi:10.2478/s13230-010-0011-3                                                  E. (2000). Psychometric properties of the social phobia inventory (spin): new self-rating
+                                                                                                   scale. Br. J. Psychiatry 176, 379–386. doi:10.1192/bjp.176.4.379
+   Bickmore, T. W. (2003). Relational agents: effecting change through human-computer
+relationships Ph.D. thesis, Massachusetts Institute of Technology. Cambridge, MA,                    Costa, M., Dinsbach, W., Manstead, A. S., and Bitti, P. E. R. (2001). Social
+United States: Massachusetts Institute of Technology. Available online at: https://                presence, embarrassment, and nonverbal behavior. J. Nonverbal Behav. 25, 225–240.
+dspace.mit.edu/handle/1721.1/36109.                                                                doi:10.1023/a:1012544204986
+   Birdwhistell, R. L. (1952). Introduction to kinesics:(an annotation system                        Crozier, W. R. (2001). Understanding shyness: psychological perspectives. Basingstoke,
+for analysis of body motion and gesture). Washington, D.C.: U.S. Department                        Hampshire, England: Palgrave. Available online at: https://archive.org/details/
+of State, Foreign Service Institute. Available online at:   https://books.google.                  understandingshy0000croz.
+co.jp/books?hl&en&lr&&id=Ad99AAAAMAAJ&oi=fnd&pg=PA2&dq=Introduction+
+                                                                                                     Cufach, W. R., and Metts,                  S. (1990). Remedial          processes in
+to+kinesics:(an+annotation+system+for+analysis+of+body+motion+and+gesture)&ot
+                                                                                                   embarrassing predicaments. Ann.             Int. Commun. Assoc.           13, 323–352.
+s=xmeAU589xp&sig=scE5n5J38NPHQRr2XeIHChyS15w&redir_esc=y#v=onepage&
+                                                                                                   doi:10.1080/23808985.1990.11678761
+=Introduction%20to%20kinesics%3A(an%20annotation%20system%20for%20analysis
+%20of%20body%20motion%20and%20gesture)&f=false.                                                      Da Silva, H. P., Guerreiro, J., Lourenço, A., Fred, A., and Martins, R. (2014). Bitalino:
+                                                                                                   a novel hardware framework for physiological computing. Int. Conf. Physiological
+   BITalino (2020). Electrodermal activity (EDA) sensor user manual. Available online
+                                                                                                   Comput. Syst. 2, 246–253. doi:10.5220/0004727802460253
+at: https://www.bitalino.com/storage/uploads/media/electrodermal-activity-eda-user-
+manual-810121207-810121208-810121252.pdf.                                                            Dael, N., Mortillaro, M., and Scherer, K. R. (2012). Emotion expression in body action
+                                                                                                   and posture. Emotion 12, 1085–1101. doi:10.1037/a0025737
+   Braithwaite, J. J., Watson, D. G., Jones, R., and Rowe, M. (2013). A guide for analysing
+electrodermal activity (Eda) and skin conductance responses (scrs) for psychological                  Damm, O., Dreier, K., Hegel, F., Jaecks, P., Stenneken, P., Wrede, B., et al. (2011).
+experiments. Psychophysiology 49, 1017–1034.                                                       “Communicating emotions in robotics: towards a model of emotional alignment,”
+                                                                                                   in Proceedings of the workshop” Expectations in intuitive interaction” on the 6th HRI
+   Brett, J., Behfar, K., and Sanchez-Burks, J. (2014). “Managing cross-culture conflicts:
+                                                                                                   international conference on human-robot interaction.
+a close look at the implication of direct versus indirect confrontation,” in Handbook
+of conflict management research (Cheltenham, Gloucestershire, United Kingdom:                        Davey, S., Halberstadt, J., and Bell, E. (2021). Where is emotional feeling felt in the
+Edward Elgar Publishing), 136–154. Available online at: https://www.elgaronline.com/               body? An integrative review. PloS one 16, e0261685. doi:10.1371/journal.pone.0261685
+edcollchap/edcoll/9781781006931/9781781006931.00016.xml.
+                                                                                                     Edelmann, R. J. (1981). Embarrassment: the state of research. Curr. Psychol. Rev. 1,
+   Casso, I., Li, B., Nazir, T., and Delevoye-Turrell, Y. N. (2022). The effect of robot           125–137. doi:10.1007/bf02979260
+posture and idle motion on spontaneous emotional contagion during robot-human
+                                                                                                     Edelmann, R. J. (1982). The effect of embarrassed reactions upon others. Aust. J.
+interactions. arXiv preprint arXiv:2209.00983
+                                                                                                   Psychol. 34, 359–367. doi:10.1080/00049538208254730
+  Castellano, G., Kessous, L., and Caridakis, G. (2008). “Emotion recognition through
+                                                                                                     Edelmann, R. J., and Hampson, S. E. (1979). Changes in non-verbal behaviour
+multiple modalities: face, body gesture, speech,” in Affect and emotion in human-
+                                                                                                   during embarrassment. Br. J. Soc. Clin. Psychol. 18, 385–390. doi:10.1111/j.2044-
+computer interaction: from theory to applications, 92–103.
+                                                                                                   8260.1979.tb00908.x
+
+
+
+
+Frontiers in Robotics and AI                                                                  21                                                                            frontiersin.org
+Salem and Sumi                                                                                                                                               10.3389/frobt.2025.1569040
+
+
+
+
+  Edelmann, R. J., and Hampson, S. E. (1981). The recognition of embarrassment.                       López-Ales, E., Herrrero, M. T., and Palma, J. (2019). “A machine learning approach
+Personality Soc. Psychol. Bull. 7, 109–116. doi:10.1177/014616728171017                            for emotion detection through low-cost hardware,” in AfCAI.
+  Ekman, P., and Friesen, W. V. (1969). The repertoire of nonverbal behavior: categories,            McHugh, M. L. (2012). Interrater reliability: the kappa statistic. Biochem. medica 22,
+origins, usage, and coding. semiotica 1, 49–98. doi:10.1515/semi.1969.1.1.49                       276–282. doi:10.11613/bm.2012.031
+  Gallimore, D., Lyons, J. B., Vo, T., Mahoney, S., and Wynne, K. T. (2019). Trusting                Metts, S., and Cupach, W. R. (1989). Situational influence on the use of
+robocop: gender-based effects on trust of an autonomous robot. Front. Psychol. 10, 482.            remedial strategies in embarrassing predicaments. Commun. Monogr. 56, 151–162.
+doi:10.3389/fpsyg.2019.00482                                                                       doi:10.1080/03637758909390256
+   Gilchrist, P. T., Vrinceanu, T., Beland, S., Bacon, S. L., and Ditto, B. (2016). Disgust          Modigliani, A. (1968). Embarrassment and embarrassability. Sociometry 31, 313–326.
+stimuli reduce heart rate but do not contribute to vasovagal symptoms. J. Behav. Ther.             doi:10.2307/2786616
+Exp. psychiatry 51, 116–122. doi:10.1016/j.jbtep.2016.01.005
+                                                                                                     Modigliani, A. (1971). Embarrassment, facework, and eye contact: testing a theory of
+  Glocker, M. L., Langleben, D. D., Ruparel, K., Loughead, J. W., Gur, R. C., and Sachser,         embarrassment. J. Personality Soc. Psychol. 17, 15–24. doi:10.1037/h0030460
+N. (2009). Baby schema in infant faces induces cuteness perception and motivation for
+                                                                                                     Moon, A. (2017). Negotiating with robots: meshing plans and resolving conflicts in
+caretaking in adults. Ethology 115, 257–263. doi:10.1111/j.1439-0310.2008.01603.x
+                                                                                                   human-robot collaboration. Ph.D. thesis (Vancouver, BC, Canada: University of British
+  Goffman, E. (1955). On face-work: an analysis of ritual elements in social interaction.          Columbia). Available online at: https://open.library.ubc.ca/soa/cIRcle/collections/
+Psychiatry 18, 213–231. doi:10.1080/00332747.1955.11023008                                         ubctheses/24/items/1.0348225.
+  Gouldner, A. W. (1960). The norm of reciprocity: a preliminary statement. Am. Sociol.              Noroozi, F., Corneanu, C. A., Kamińska, D., Sapiński, T., Escalera, S., and Anbarjafari,
+Rev. 25, 161–178. doi:10.2307/2092623                                                              G. (2018). Survey on emotional body gesture recognition. IEEE Trans. Affect. Comput.
+                                                                                                   12, 505–523. doi:10.1109/TAFFC.2018.2874986
+  Graetz, G., and Michaels, G. (2018). Robots at work. Rev. Econ. Statistics 100,
+753–768. doi:10.1162/rest_a_00754                                                                    Ohashi, J. (2008). Linguistic rituals for thanking in japanese: balancing obligations. J.
+                                                                                                   Pragmat. 40, 2150–2174. doi:10.1016/j.pragma.2008.04.001
+  Grammer, K., Kruck, K., Juette, A., and Fink, B. (2000). Non-verbal behavior as
+courtship signals: the role of control and choice in selecting partners. Evol. Hum. Behav.           Osnes, B., Berrefjord, S. R., Poless, P. G., Sigrist, C., Koenig, J., and Sørensen, L. (2023).
+21, 371–390. doi:10.1016/s1090-5138(00)00053-2                                                     Low heart rate variability is associated with a negativity valence bias in interpreting
+                                                                                                   ambiguous emotional expressions. Emotion 23, 1040–1047. doi:10.1037/emo0
+  Gross, E., and Stone, G. P. (1964). Embarrassment and the analysis of role
+                                                                                                   001123
+requirements. Am. J. Sociol. 70, 1–15. doi:10.1086/223733
+                                                                                                      Pettijohn, T., Naples, G. M., and McDermott, L. A. (2010). Gender, college
+  Gunes, H., and Piccardi, M. (2007). Bi-modal emotion recognition from
+                                                                                                   year, and romantic relationship status differences in embarrassment and self
+expressive face and body gestures. J. Netw. Comput. Appl. 30, 1334–1345.
+                                                                                                   attitudes of college students. Individ. Differ. Res. 8, 164–170. doi:10.65030/idr.
+doi:10.1016/j.jnca.2006.09.007
+                                                                                                   08016
+  Guo, L., Gong, L., Xu, Z., Wang, W., and Chen, M.-H. (2024). The role of service
+                                                                                                     Pitardi, V., Wirtz, J., Paluch, S., and Kunz, W. (2021). “Will robots judge me?
+robots in enhancing customer satisfaction in embarrassing contexts. J. Hosp. Tour.
+                                                                                                   Examining consumer-service robots interactions in embarrassing service encounters:
+Manag. 59, 116–126. doi:10.1016/j.jhtm.2024.04.008
+                                                                                                   an abstract,” in Academy of marketing science annual conference-world marketing
+  Hall, A. K., Backonja, U., Painter, I., Cakmak, M., Sung, M., Lau, T., et al. (2019).            congress (Springer), 257–258.
+Acceptance and perceived usefulness of robots to assist with activities of daily living
+                                                                                                       Ramírez, J. M., Fujihara, T., and Goozen, S. V. (2001). Cultural and gender differences
+and healthcare tasks. Assist. Technol. 31, 133–140. doi:10.1080/10400435.2017.1396565
+                                                                                                   in anger and aggression: a comparison between japanese, dutch, and spanish students.
+  Haugh, M., and Obana, Y. (2011). Politeness in Japan. Politeness East Asia, 147–175.             J. Soc. Psychol. 141, 119–121. doi:10.1080/00224540109600528
+doi:10.1017/cbo9780511977886.009
+                                                                                                     Ranta, K., Kaltiala-Heino, R., Koivisto, A.-M., Tuomisto, M. T., Pelkonen, M., and
+  Hofmann, S. G., Moscovitch, D. A., and Kim, H.-J. (2006). Autonomic correlates of                Marttunen, M. (2007). Age and gender differences in social anxiety symptoms during
+social anxiety and embarrassment in shy and non-shy individuals. Int. J. Psychophysiol.            adolescence: the social phobia inventory (spin) as a measure. Psychiatry Res. 153,
+61, 134–142. doi:10.1016/j.ijpsycho.2005.09.003                                                    261–270. doi:10.1016/j.psychres.2006.12.006
+  Holthöwer, J., and van Doorn, J. (2023). Robots do not judge: service robots                       Royal Society (Great Britain). Study Group on Non-Verbal Communication and
+can alleviate embarrassment in service encounters. J. Acad. Mark. Sci. 51, 767–784.                others (1972). Non-verbal communication. Cambridge University Press.
+doi:10.1007/s11747-022-00862-x
+                                                                                                     Salem, A., and Sumi, K. (2024). “Psychophysiological correlates of embarrassment
+  Ishimoto, Y., Yamane, T., Matsumoto, Y., Takizawa, Y., and Kobayashi, K. (2022). The             emotion: a comparative study between shy males and females,” in 2024 IEEE 48th annual
+impact of gender differences, school adjustment, social interactions, and social activities        computers, software, and applications conference (COMPSAC) (IEEE), 2083–2088.
+on emotional and behavioral reactions to the covid-19 pandemic among japanese
+                                                                                                      Sato, Y., Salem, A., and Sumi, K. (2024). “Physiological correlates while playing
+school children. SSM-mental health 2, 100077. doi:10.1016/j.ssmmh.2022.100077
+                                                                                                   tetris: a comparative study between males and females,” in 2024 IEEE 48th
+   Itoi, R., Ohbuchi, K.-I., and Fukuno, M. (1996). A cross-cultural study of preference           annual computers, software, and applications conference (COMPSAC), 2054–2059.
+of accounts: relationship closeness, harm severity, and motives of account making 1. J.            doi:10.1109/COMPSAC61105.2024.00328
+Appl. Soc. Psychol. 26, 913–934. doi:10.1111/j.1559-1816.1996.tb01117.x
+                                                                                                      Scassellati, B., Admoni, H., and Matarić, M. (2012). Robots for use in autism
+  Kang, D., and Kwak, S. S. (2023). “I am relieved to have you: exploring the effective            research. Annu. Rev. Biomed. Eng. 14, 275–294. doi:10.1146/annurev-bioeng-071811-
+robot type to mitigate users negative emotions,” in International conference on social             150036
+robotics (Springer), 333–343.
+                                                                                                     Schulz, R., and Barefoot, J. (1974). Non-verbal responses and affiliative conflict
+  Kappas, A., and Gratch, J. (2023). These aren’t the droids you are looking for: promises         theory. Br. J. Soc. Clin. Psychol. 13, 237–243. doi:10.1111/j.2044-8260.1974.tb0
+and challenges for the intersection of affective science and robotics/ai. Affect. Sci. 4,          0116.x
+580–585. doi:10.1007/s42761-023-00211-3
+                                                                                                     Shaffer, F., and Ginsberg, J. P. (2017). An overview of heart rate variability metrics
+  Kelly, S. D., and Ngo Tran, Q.-A. (2025). Exploring the emotional functions of co-               and norms. Front. public health 5, 258. doi:10.3389/fpubh.2017.00258
+speech hand gesture in language and communication. Top. Cognitive Sci. 17, 586–608.
+                                                                                                     Song, C. S., and Kim, Y.-K. (2022). The role of the human-robot interaction in
+doi:10.1111/tops.12657
+                                                                                                   consumers’ acceptance of humanoid retail service robots. J. Bus. Res. 146, 489–503.
+  Keltner, D. (1995). Signs of appeasement: evidence for the distinct displays of                  doi:10.1016/j.jbusres.2022.03.087
+embarrassment, amusement, and shame. J. personality Soc. Psychol. 68, 441–454.
+                                                                                                     Stark, R., Walter, B., Schienle, A., and Vaitl, D. (2005). Psychophysiological correlates
+doi:10.1037//0022-3514.68.3.441
+                                                                                                   of disgust and disgust sensitivity. J. Psychophysiol. 19, 50–60. doi:10.1027/0269-
+  Knapp, M. L., Hall, J. A., and Horgan, T. G. (1972). Nonverbal communication in                  8803.19.1.50
+human interaction (thomson wadsworth)
+                                                                                                     Stock, R. M. (2016). Emotion transfer from frontline social robots to human
+  Krout,    M.    H.    (1954).   An experimental attempt  to  produce                             customers during service encounters: testing an artificial emotional contagion modell
+unconscious manual symbolic movements. J. General Psychol. 51, 93–120.
+                                                                                                     Sueda, K., and Wiseman, R. L. (1992). Embarrassment remediation in Japan and
+doi:10.1080/00221309.1954.9920209
+                                                                                                   the United States. Int. J. Intercult. Relat. 16, 159–173. doi:10.1016/0147-1767(92)90
+  Laban, G., and Cross, E. S. (2024). Sharing our emotions with robots: why do                     016-n
+we do it and how does it make us feel? IEEE Trans. Affect. Comput., 1–18doi.
+                                                                                                      Triandis, H. (1988). “Collectivism v. individualism: a reconceptualisation of a basic
+doi:10.1109/TAFFC.2024.3470984
+                                                                                                   concept in cross-cultural social psychology,” in Cross-cultural studies of personality,
+   Landis, J. R., and Koch, G. G. (1977). The measurement of observer agreement for                attitudes and cognition (Springer), 60–95.
+categorical data. biometrics 33, 159–174. doi:10.2307/2529310
+                                                                                                     Uchida, T., Takahashi, H., Ban, M., Shimaya, J., Minato, T., Ogawa, K., et al.
+   Lehmann, H., and Broz, F. (2018). “Contagious yawning in human-robot interaction,”              (2020). Japanese young women did not discriminate between robots and humans
+in Companion of the 2018 ACM/IEEE international conference on human-robot                          as listeners for their self-disclosure-pilot study. Multimodal Technol. Interact. 4, 35.
+interaction, 173–174.                                                                              doi:10.3390/mti4030035
+
+
+
+
+Frontiers in Robotics and AI                                                                  22                                                                                frontiersin.org
+Salem and Sumi                                                                                                                                        10.3389/frobt.2025.1569040
+
+
+
+
+  Van Pinxteren, M. M., Pluymaekers, M., and Lemmink, J. G. (2020). Human-like                     Yao, L., Dai, Q., Wu, Q., Liu, Y., Yu, Y., Guo, T., et al. (2022). Eye size
+communication in conversational agents: a literature review and research agenda. J.             affects cuteness in different facial expressions and ages. Front. Psychol. 12, 674456.
+Serv. Manag. 31, 203–225. doi:10.1108/josm-06-2019-0175                                         doi:10.3389/fpsyg.2021.674456
+   Xu, J., Broekens, J., Hindriks, K. V., and Neerincx, M. A. (2014). “Robot mood                 Yu, C.-E. (2020). Emotional contagion in human-robot interaction. E-review Tour.
+is contagious: effects of robot body language in the imitation game,” in Aamas,                 Res. 17. Available online at: https://ertr-ojs-tamu.tdl.org/ertr/article/view/561.
+973–980.
+                                                                                                  Zhang, C., Chen, J., Li, J., Peng, Y., and Mao, Z. (2023). Large language
+  Xu, J., Broekens, J., Hindriks, K., and Neerincx, M. A. (2015). Mood contagion of             models for human-robot interaction: a review. Biomim. Intell. Robotics 3, 100131.
+robot body language in human robot interaction. Aut. Agents Multi-Agent Syst. 29,               doi:10.1016/j.birob.2023.100131
+1216–1248. doi:10.1007/s10458-015-9307-3
+                                                                                                   Zhao, W. X., Zhou, K., Li, J., Tang, T., Wang, X., Hou, Y., et al. (2023). A survey of
+  Yang, W., and Xie, Y. (2024). Can robots elicit empathy? The effects of social robots’        large language models. arXiv preprint arXiv:2303.18223
+appearance on emotional contagion. Comput. Hum. Behav. Artif. Humans 2, 100049.
+                                                                                                   Zimbardo, P. G., Pilkonis, P. A., and Marnell, M. E. (1977). Shyness: what it is, what
+doi:10.1016/j.chbah.2024.100049
+                                                                                                to do about it. Addison-Wesley Pub. Co.
+
+
+
+
+Frontiers in Robotics and AI                                                               23                                                                          frontiersin.org
+

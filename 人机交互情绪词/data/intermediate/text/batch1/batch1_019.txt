@@ -1,0 +1,708 @@
+      International Journal of Human–Computer Interaction
+
+
+
+
+      ISSN: 1044-7318 (Print) 1532-7590 (Online) Journal homepage: www.tandfonline.com/journals/hihc20
+
+
+
+
+Emotional Experience during Human-Computer
+Interaction: A Survey
+
+Lilu Tang, Peijun Yuan & Dan Zhang
+
+To cite this article: Lilu Tang, Peijun Yuan & Dan Zhang (2024) Emotional Experience during
+Human-Computer Interaction: A Survey, International Journal of Human–Computer Interaction,
+40:8, 1845-1855, DOI: 10.1080/10447318.2023.2259710
+
+To link to this article: https://doi.org/10.1080/10447318.2023.2259710
+
+
+
+
+       View supplementary material
+
+
+
+       Published online: 27 Sep 2023.
+
+
+
+       Submit your article to this journal
+
+
+
+       Article views: 2230
+
+
+
+       View related articles
+
+
+
+       View Crossmark data
+
+
+
+       Citing articles: 19 View citing articles
+
+
+
+
+                      Full Terms & Conditions of access and use can be found at
+             https://www.tandfonline.com/action/journalInformation?journalCode=hihc20
+INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION
+2024, VOL. 40, NO. 8, 1845–1855
+https://doi.org/10.1080/10447318.2023.2259710
+
+
+
+
+Emotional Experience during Human-Computer Interaction: A Survey
+Lilu Tanga,b†          , Peijun Yuanc†, and Dan Zhanga,b
+a
+ Department of Psychology, Tsinghua University, Beijing, China; bTsinghua Laboratory of Brain and Intelligence, Tsinghua University, Beijing,
+China; cQiyuan Lab, Beijing, China
+
+
+    ABSTRACT                                                                                                                     KEYWORDS
+    As human-computer interaction (HCI) technology becomes more and more integrated into our                                     Emotion; context specificity;
+    daily life, increasing attention has been drawn towards the interaction experience in addition to                            human-computer inter­
+    HCI efficiency. In the present study, we conducted a survey to explore context-specific emotional                            action (HCI); human-human
+                                                                                                                                 interaction (HHI); survey
+    experience in HCI. Four hundred participants were recruited to report the frequency of their emo­
+    tional experiences on 44 fine-grained emotion items in six representative HCI scenarios. Compared
+    with six matched human-human interaction (HHI) scenarios used as control, the HCI scenarios
+    were in general more frequently associated with negative emotions, and less frequently associated
+    with positive emotions, especially when computer served as a tool for communication with other
+    people. Furthermore, the 44 emotional experience items in HCI were summarized as five factors,
+    representing low-arousal focused, positively engaged, emotionally empathetic, high-arousal nega­
+    tive and frustratingly confused. Our study presents a comprehensive overview of context-specific
+    emotional experience in human-computer interactions and provides a framework for emotion
+    evaluation in HCI applications.
+
+
+
+
+1. Introduction                                                                    unified responses, but rather are flexibly constructed by the
+                                                                                   individual’s conceptualization of the situation, as well as
+Human-computer interaction (HCI) technology has been
+                                                                                   past experiences and cultural background. This theory
+increasingly involved in our daily life. While previous HCI
+                                                                                   emphasizes the context-dependent nature of emotions and
+research has primarily focused on improving interaction effi­                      the active role that individuals play in constructing their
+ciency (Brave & Nass, 2007; Picard, 2010), the advances in                         emotional experience (Barrett, 2014; Hu et al., 2022). In line
+automation and intelligence of HCI technology have led to                          with this theory, a series of influential survey studies by
+more and more research attention paid to users’ subjective                         Cowen and colleagues have investigated the multiplicity of
+experience, especially emotional experience in HCIs (Jerritta                      emotional experience in different contexts. They employed
+et al., 2011; Picard, 2003), which has great value for the                         different emotion induction methods like watching videos
+evaluation and optimization of HCI systems. Most existing                          (Cowen & Keltner, 2017) and listening to music (Cowen &
+research on emotion in human-computer interactions                                 Keltner, 2020). Thirty-four and 28 emotion items were
+adopted classical unified emotion theories as the framework                        included in these studies to provide a comprehensive
+(Fragopanagos & Taylor, 2005; Ramakrishnan & El Emary,                             description of possible emotional experiences associated
+2013; Sreeja & Mahalakshmi, 2017). The six-basic-emotion                           with these contexts. In each study, they asked subjects to
+theory (i.e., happiness, sadness, fear, anger, surprise, and dis­                  rate each material on multiple emotional dimensions and
+gust; Ekman & Friesen, 1978) or its variations (Khalil et al.,                     then clustered the emotions in a semantic space. Their find­
+2019) has been the most widely used framework for study­                           ings revealed that there were considerable differences in
+ing emotional experience in a number of typical HCI scen­                          emotional experiences depending on the context.
+arios, including video games (Piana et al., 2014), online                          Specifically, emotions, like admiration, empathetic pain,
+learning (Hasnine et al., 2021), online community engage­                          amusement, awe, and embarrassment, obtained from watch­
+ment (Colneri�c & Dem�sar, 2018), interaction with robots                          ing video scenes, did not appear during listening to music,
+(Devillers et al., 2015), and virtual reality environments                         while emotions, like dreamy, energetic, and annoying, did
+(Hinkle et al., 2019).                                                             not appear during watching videos. These studies provided
+   While unified emotion frameworks have played a domin­                           solid evidence for context-specific emotional experiences in
+ant role in emotion studies, the context-dependent nature of                       a wide range of emotional events. In another influential
+emotions is gaining increasing interest in recent years.                           research in learning science, Pekrun and Linnenbrink-Garcia
+According to the Conceptual Act Theory, emotions are not                           (2012) conducted an in-depth survey to students’ emotional
+
+CONTACT Dan Zhang         dzhang@tsinghua.edu.cn          Department of Psychology, School of Social Sciences, Tsinghua University, Beijing 100084, China
+†
+  These authors contributed equally to this work.
+    Supplemental data for this article is available online at https://doi.org/10.1080/10447318.2023.2259710
+� 2023 Taylor & Francis Group, LLC
+1846     L. TANG ET AL.
+
+
+experiences while they were attending classes, studying, and      experience in HCI contexts, it is necessary to employ multi­
+taking exams in academic contexts through qualitative inter­      variate data analysis methods such as factor analysis, to
+views and questionnaires. They identified nine specific cate­     explore correlations between multiple emotions. The factor­
+gories of “academic emotions,” including enjoyment, hope,         ization would reveal co-occurrence relationships of emotions
+pride, relief, anger, anxiety, shame, hopelessness, and bore­     in HCI contexts, thus helping us define more representative
+dom. Jointly, these lines of studies provided strong evidence     HCI emotional states that are independent of each other.
+to the Conceptual Act Theory, that emotional experience is           Boosted by the aforementioned motivations, in the pre­
+complex and deeply grounded in situations or contexts.            sent study, we employed a survey method to investigate
+Therefore, when it comes to human-computer interaction            emotional experience specific to HCI scenarios. To acquire a
+contexts, the six-basic-emotion framework may not be suffi­       relatively fine-grained description of emotional experience in
+cient for depicting HCI-specific emotional experiences, but       HCI contexts, we chose 44 emotion items as the scoring
+it is necessary to take more emotion items and various HCI        dimensions in the survey based on recent advances in emo­
+scenarios into consideration.                                     tion categorization (Baker et al., 2010; Cowen & Keltner,
+    Based on the Conceptual Act Theory (Barrett, 2014;            2017, 2020; Craig et al., 2004; Kort et al., 2001). We also
+Barrett et al., 2015), we can speculate that emotions arising     included human-human interaction (HHI) contexts as con­
+from the conceptualization of HCI scenarios may be differ­        trol conditions to investigate the HCI specificity of the emo­
+ent from those in daily interpersonal activities, because the     tional experiences. As interacting with a computer would
+object of interaction is a computer rather than a real human      have less social-related consequences (Liu et al., 2023;
+in HCI scenarios. Previous research has demonstrated that         Shechtman & Horowitz, 2003), it is expected that HCI
+people act differently when they interact with a real person      would be less strongly linked with social emotions, such as
+as compared with when they interact with a computer (Liu          admiration, adoration, etc. Furthermore, considering the
+et al., 2023; Shechtman & Horowitz, 2003). And this differ­       diversity of HCI scenarios, we included six representative
+ence in behavioral orientations may affect individual’s emo­      HCI scenarios, which can be further divided into two major
+tional experiences (Camodeca & Nava, 2022; Jones,                 subtypes according to the role computer plays in HCI, i.e.,
+McGarrah & Kahn, 2019; Lang, 1984). Take online learning          computer as an interaction object and computer as a com­
+as an example, students reported higher frequencies of expe­      munication tool (Bedny & Karwowski, 2011; Kuutti, 1996;
+riencing emotions, like concentration, flow, boredom and          Leont’ev, 1978; Uden, 2007). This subdivision of HCI con­
+frustration (Baker et al., 2010; D’Mello, 2013), which consti­    texts enabled us to further elucidate the possible contribu­
+tuted a pattern distinct from live learning with real people.     tions of context-specific effect to the difference in emotional
+Moreover, Walter et al. (2014) identified 20 emotion items        experience between HCI and HHI. As interactions with a
+to be highly relevant for HCI scenarios. However, these           computer are less bonded with instant social feedback
+studies have focused on a single or relatively restricted HCI     (Hibbeln et al., 2017; Wadley et al., 2015), we hypothesized
+contexts, and a comprehensive depiction of HCI-specific           that HCI contexts, especially the computer-as-an-inter­
+emotional experience still requires a deeper look into the        action-object scenarios (Wu et al., 2023), may give rise to
+complexity and diversity of HCI contexts. According to the        less positive emotional experience in contrast with HHI con­
+Activity Theory (Bedny & Karwowski, 2011; Kuutti, 1996;           texts. In addition, we also employed an exploratory factor
+Leont’ev, 1978; Uden, 2007), there exist substantial differen­    analysis to disentangle the co-occurrence relationships of
+ces among different types of HCI tasks, which can be gener­       emotions and distill more representative emotional states
+ally divided into two types, computer as an interaction           specific to HCI contexts.
+object (Cowie et al., 2001; Fragopanagos & Taylor, 2005;
+Hibbeln et al., 2017) and computer as a communication tool        2. Methodology
+(Fabri, Elzouki & Moore, 2007; Wadley et al., 2015).
+Nevertheless, it still remains unclear whether there exist dis­   This study employed quantitative questionnaires to investi­
+tinct emotional experiences in these subtypes of HCI              gate fine-grained emotional experience in HCI and HHI
+contexts.                                                         scenarios.
+    Moreover, the existing emotion categorization may not
+be suitable for describing more daily HCI scenarios, espe­
+                                                                  2.1. Participants
+cially those with complex emotional experiences. It has been
+shown that people in real-life situations often experience        The valid data were obtained from a total of 400 partici­
+two or more discrete emotions simultaneously (Ellsworth &         pants, with N ¼ 200 participants for questionnaire#1 (125
+Smith, 1988; Hu et al., 2022; Martinent et al., 2012). For        females, mean age 27.60 ± 5.74) and N ¼ 200 participants for
+instance, people may experience a mixture of joy and sad          questionnaire#2 (114 females, mean age 27.37 ± 5.74, see
+during their graduation ceremony, but feel both fear and          “2.2. Procedure” for the explanations of the two question­
+disgust when they see a mouse in the room. This co-occur­         naires). Each participant was paid 18 RMB (approximately
+rence nature of human emotional experience, however, has          equal to 3 USD). All participants gave informed consent,
+also been overlooked in existing HCI studies, which mainly        and the protocols of this study were approved by the local
+focused on single discrete emotions. To effectively summar­       ethics committee at the Department of Psychology,
+ize the co-occurrence characteristics of complex emotional        Tsinghua University.
+                                                                     INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                          1847
+
+
+2.2. Procedure                                                      Table 1. The included emotion items.
+                                                                    Emotions                                                    References
+To have a fine-grained description of emotional experience,         Admiration, Adoration, Aesthetic                  Cowen and Keltner (2017)
+we included 25 positive and 19 negative emotion items in               appreciation, Amusement, Anger,
+our questionnaire for users to rate the frequency of each              Anxiety, Awe, Awkwardness, Boredom,
+                                                                       Calmness, Confusion, Contempt, Craving,
+emotion experienced in different themes of scenarios.                  Disappointment, Disgust, Empathic pain,
+Participants were required to answer how frequently they               Entrancement, Envy, Excitement, Fear,
+experienced each emotion in 3 HCI scenarios and 3                      Guilt, Horror, Interest, Joy, Nostalgia,
+                                                                       Pride, Relief, Romance, Sadness,
+matched HHI scenarios. To reduce the number of questions               Satisfaction, Surprise, Sympathy,
+for each participant, the participants were randomly                   Triumph,
+assigned to questionnaire#1 or questionnaire#2. For ques­           Concentration, Distress, Realization              Cowen and Keltner, D. (2020)
+                                                                    Frustration                                       Baker et al. (2010)
+tionnaire#1, there were online and offline shopping, bank­          Flow                                              Craig et al. (2004)
+ing, and chatting scenarios; and for questionnaire#2, there         Hopeful, Confident, Ennui, Indifference,          Kort et al. (2001)
+were online and offline learning, conference, and navigation           Intrigue, Anticipatory
+scenarios. It should be noted that although there were 264
+questions (6 scenarios (3 HCI þ 3 HHI) � 44 emotion                 Table 2. Representative HCI and HHI scenarios listed in the questionnaires.
+items ¼ 264) per questionnaire, the participants only need          Scenarios             HCI                        HHI               Questionnaire
+to read 6 scenario information to complete 44 questions per         Shopping     Online shopping           Shopping at the mall or           #1
+scenario. The time required to complete each questionnaire                                                   store
+was about 6 to 10 minutes.                                          Banking      Making transfers,         Making transfers, open            #1
+                                                                                    open accounts, and       accounts, and make
+   The questionnaires were created and published on an                              make inquiries on        inquiries with the
+online data collection platform Credamo. When publishing                            mobile banking           help of bank tellers
+the questionnaires, we set a data collection target of 200          Chatting     Chatting with friends     Meeting and chatting              #1
+                                                                                    on a                     with friends
+valid samples for each questionnaire. To ensure the quality                         communication
+of the completed questionnaires, we limited participants to                         application
+those who had more than 80% qualified rate of their previ­          Learning     Taking online classes     Taking offline classes            #2
+                                                                                                              with classmates
+ous responses on Credamo. Responses were checked for                Conference Participating in online     Participating in offline          #2
+each participant after data collection. We excluded samples                       conference                  conference with
+with significantly low-quality responses (based on the actual                                                 classmates/
+                                                                                                              colleagues
+questionnaire completion performance, e.g., selecting the           Navigation   Navigating using a        Asking a passby how to            #2
+same options for all questions or taking less than 5 minutes                       map application            get to a certain place
+to complete the questionnaire) and republished question­
+naires until the target sample size of valid data was achieved.     learning, conferencing, and navigation as the six representa­
+A total of 436 participants were recruited for the question­        tive HCI scenarios in our study.
+naires, of which 36 responses were excluded for further ana­           To further provide a comparison between HCI and HHI
+lysis because of their low-quality completion.                      scenarios, we also included six matched HHI scenarios in
+                                                                    the questionnaire (see Table 2), corresponding to the six
+2.3. Questionnaire design                                           representative scenarios of HCI in terms of event themes.
+                                                                    Moreover, we also divided the six HCI scenarios into two
+The questionnaires were designed on the basis of discrete emo­      types: computer as an interactive object (including shopping,
+tion theory (Ekman, 1992), instructing participants to rate their   banking, and navigation) and computer as a communication
+experience on each discrete emotion item (P�erez-Espinosa
+                                                                    tool (including chatting, learning, and conference), accord­
+et al., 2022). To include a broad range of emotions, we referred
+                                                                    ing to the Activity Theory (Bedny & Karwowski, 2011;
+to the emotion items under different induced conditions
+                                                                    Kuutti, 1996; Leont’ev, 1978; Uden, 2007). This division is
+(Cowen & Keltner, 2017, 2020), and added eight more emo­
+                                                                    expected to provide further insight about possible difference
+tions based on previous HCI emotion studies (see Table 1).
+    The representative HCI scenarios in the questionnaires          in emotion experience for these two types of interactions.
+were mainly decided on the basis of the analysis report                Specifically, the questionnaires contained prompts which
+released by Sensor Tower, a mobile applications data ana­           briefly described the scenarios (consistent with the wording
+lytics company. Their report “Global Mobile Application             in Table 2) and asked participants to rate the frequency of
+(Non-Game) Market Outlook 2023” (Sensor Tower, 2023)                experiencing each of the 44 emotions on a scale of 1 to 5.
+summarized five representative categories of global non-            Therefore, each participant scored 44 questions for 3 HCI
+game applications in 2022, including finance (e.g., online          scenarios and 3 HHI scenarios, with a total of 264 questions.
+banking), shopping, entertainment, social and productivity          For example, participants who were assigned to complete
+(e.g., online learning and online conference) tools. Another        questionnaire #1 needed to answer the question: “How often
+two scenarios were included as well, based on a report The          do you experience the following emotions when you go
+State of Travel Apps in 2022 (Sensor Tower, 2022), in which         shopping online? Please rate each emotion on a scale of 1 to
+travel and navigation applications showed a surge in global         5.” The full-length questionnaires were translated into
+demand. In summary, we chose shopping, banking, chatting,           English and provided as Appendix.
+1848        L. TANG ET AL.
+
+
+2.4. Data analysis                                                                  and questionnaire#2 was 0.85, indicating an acceptable reli­
+                                                                                    ability of questionnaires. The frequency scores of emotional
+Before analyzing the data, we merged the previously obtained
+                                                                                    experiences in HCI scenarios and their comparisons with
+data from questionnaire#1 and questionnaire#2 to obtain 200
+                                                                                    the HHI counterparts are shown in Figure 1. The most fre­
+valid emotional experience data of all scenarios. To verify the
+                                                                                    quently experienced positive emotions in both HHI and
+reliability of the questionnaire, the parallel-forms reliability
+                                                                                    HCI were concentration and joy, and the most frequently
+was calculated based on the correlation between the responses
+                                                                                    experienced negative emotions were boredom and confu­
+of questionnaire#1 and questionnaire#2.
+                                                                                    sion. Most positive emotions had higher frequency scores in
+    To characterize the emotional experience of the HCI
+                                                                                    HHI than in HCI scenarios, while more negative emotions
+scenarios, we performed descriptive statistical analyses—the
+                                                                                    had higher frequency scores in HCI scenarios (paired sample
+mean frequency score for each emotion in each scenario
+                                                                                    t-test, FDR adjusted ps < 0.05). The following positive emo­
+was calculated for each participant. In order to understand
+                                                                                    tions differed significantly in the frequency among HCI and
+which emotional experiences in HCI were significantly dis­
+                                                                                    HHI scenarios: admiration, aesthetic appreciation, adoration,
+tinctive from other scenarios, we conducted a paired t-test
+                                                                                    excitement, realization, nostalgia, sympathy, awe, interest,
+between HCI and the HHI for each emotion. To correct for
+                                                                                    romance, joy, satisfaction, concentration, flow, hopeful, sur­
+multiple comparisons, we used the false discovery rate
+                                                                                    prise, anticipatory, amusement. Significant differences
+(FDR) method, and all the reported p-values were FDR cor­
+                                                                                    existed in the following negative emotions: awkwardness,
+rected (p < 0.05).
+                                                                                    confusion, fear, envy, contempt, disappointment, disgust,
+    To obtain the representative emotional factors of HCI
+                                                                                    indifference, anger, ennui, boredom.
+scenarios, exploratory factor analysis was used to derive
+irrelevant emotional factors. Before the analysis, we con­
+ducted a structural validity analysis on the questionnaire                          3.2. HCI-specific emotion factors
+data. The number of retained factors was determined by
+parallel analysis (Franklin et al., 1995; Hayton et al., 2004).                     Figure 2(a and b) show the correlation matrix between emo­
+Specifically, the eigenvalues of the real data matrix were                          tions in HCI and HHI scenarios, where within-valence emo­
+compared to the eigenvalues of a same-sized Monte-Carlo                             tions were more significantly correlated than cross-valence
+simulated matrix created from random data to evaluate their                         emotions. Strongest correlations were found between emo­
+statistical significance, and only the factors with significant                     tion pairs of adoration and aesthetic appreciation, ennui and
+eigenvalues were retained. In addition, we calculated the                           puzzlement. These correlational results provided a solid
+correlation matrix between the HHI and the HCI emotion                              basis for the planned factor analysis. Moreover, our data
+factors based on the loadings of the emotion factors on dif­                        contained sufficient shared variance for factor analysis, for
+ferent emotions, to explore the specificities of the HCI-                           both HCI data (KMO ¼ 0.95; Bartlett’s test of sphericity,
+related emotion factors.                                                            v2 ¼ 22349.72, p < 0.001) and HHI data (KMO ¼ 0.94;
+                                                                                    Bartlett’s test of sphericity, v2 ¼ 21937.99, p < 0.001), indi­
+                                                                                    cating a satisfying structural validity.
+3. Results                                                                             According to the results of parallel analysis, 3 compo­
+                                                                                    nents of positive emotions and 2 components of negative
+3.1. Context-specific emotional experiences in HCI
+                                                                                    emotions were retained in the HCI scenarios, while 3 com­
+scenarios
+                                                                                    ponents of positive emotions and 3 components of negative
+First of all, we checked the reliability of the questionnaire in                    emotions were retained in the HHI scenarios. As shown in
+our study. The parallel-forms reliability of questionnaire#1                        Figure 2, the first positive emotion factor of HCI scenarios
+
+
+
+
+Figure 1. Comparison of mean frequency scores of positive and negative emotions among HCI and HHI scenarios. Emotions are arranged from left to right accord­
+ing to the differences in frequency scores between HHI and HCI scenarios. The red dots indicate the scores in HHI scenarios and the blue dots indicate the scores in
+HCI scenarios. The bars below indicate the difference between HCI and HHI scores and the color refers to which condition (HCI/HHI) scored higher. Significant results
+(FDR adjusted p <.05) are starred.
+                                                                                       INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                        1849
+
+
+
+
+Figure 2. Correlations of emotions in HCI (a) and HHI (b) scenarios. The emotions from top to bottom and from left to right are: Anger, Anxious, Awkward,
+Boredom, Confusion, Contempt, Disappointment, Disgust, Empathic pain, Envy, Fear, Guilt, Horror, Sadness, Puzzlement, Frustration, Ennui, Indifference, Intrigue,
+Admiration, Adoration, Aesthetic appreciation, Amusement, Awe, Calmness, Craving, Entrancement, Excitement, Interest, Joy, Nostalgia, Pride, Relief, Romance,
+Satisfaction, Surprise, Sympathy, Triumph, Concentration, Realization, Flow, Hope, Confident, Hopeful. Results of factor analysis of positive (c) and negative (d) emo­
+tion frequency scores for HCI scenarios, blue indicates positive correlation, red indicates negative correlation; positive (e) and negative (f) emotion frequency scores
+for HHI scenarios. Blue indicates a positive loading and red indicates a negative loading. (g) Correlations between the positive emotion factors of HCI and HHI. (h)
+Correlations between the negative emotion factors in HCI and HHI scenarios. In the correlation plot, blue indicates positive correlation, red indicates negative correl­
+ation, and the size of the dots indicates the absolute value magnitude.
+1850        L. TANG ET AL.
+
+
+
+
+Figure 3. Differences in frequency score among HCI and HHI scenarios for positive (left) and negative (right) emotions. Significant difference between computer-as-
+an-interactive-object and computer-as-a-communication-tool scenarios are starred (FDR adjusted p <.05).
+
+
+was similar to the second factor of HHI. And higher load­                          in HCI than in HHI scenarios. As shown in Figure 3, in
+ings on emotions included concentration, confident, calm­                          comparison with computer-as-an-interactive-object scen­
+ness, satisfaction, triumph, and realization (all a > 0.40),                       arios, most positive emotions were experienced less fre­
+which were related to a low arousal focused state. The                             quently, while some negative emotions were experienced
+second positive emotion factor of HCI scenarios was similar                        more frequently in computer-as-a-communication-tool
+to the first factor of HHI. And higher loadings on emotions                        HCI scenarios. Among the positive emotions, the follow­
+included joy, amusement, interest, excitement, aesthetic                           ing emotions differed significantly in the differential
+appreciation, and entrancement (all a > 0.50), which were                          scores between computer-as-an-interactive-object and
+associated with a state of positive engagement. In addition,                       computer-as-a-communication-tool scenarios: admiration,
+the third positive emotion factor for HCI had higher load­                         aesthetic appreciation, adoration, excitement, realization,
+ings emotions including empathy, relief, romance, and nos­                         nostalgia, awe, interest, romance, joy, satisfaction, concen­
+talgia (all a > 0.50), which were associated with a state of                       tration, flow, confident, craving, pride, triumph, entrance­
+emotional empathy. By contrast, the third positive emotion                         ment, amusement. As for the negative emotions,
+factor of HHI scenarios loaded higher on emotions includ­                          significant differences were found in the following emo­
+ing anticipatory, confident and hopeful (all a > 0.50), indi­                      tions: awkwardness, confusion, envy, puzzlement, indiffer­
+cating a state of positively anticipated.                                          ence, ennui, boredom.
+   Regarding the results of factor analysis of negative emo­                          We also conducted factor analyses for computer-as-an-
+tions, the first negative factor of HCI was similar to the                         interactive-object and computer-as-a-communication-tool
+third negative factor of HHI, with high loadings on high                           scenarios, respectively. As shown in Figure 4, three factors
+arousal negative emotions including horror, fear, intrigue,                        of positive emotions and 2 factors of negative emotions
+guilt and envy (all a > 0.50). The second negative factor of                       were retained under both types of HCI. Specifically, the first
+HCI was similar to the first negative factor of HHI, with                          positive emotion factor for computer-as-a-communication-
+higher loadings on emotions including confusion, frustra­                          tool scenarios was similar to that of computer-as-an-inter­
+tion, puzzlement, and anxiety (all a > 0.50), indicating a                         active-object scenarios—high loadings on emotions included
+state of frustratingly confused. Additionally, the second                          satisfaction, joy, interest, hopeful, confident, anticipatory,
+negative factor unique to HHI loaded higher on emotions                            and concentration (all a > 0.50), indicating an emotional
+including indifference, ennui, disgust, and boredom, indicat­                      state of positively engaged. The second positive emotion fac­
+ing a state of boredom.                                                            tor of computer-as-a-communication-tool scenarios and the
+                                                                                   third of computer-as-an-interactive-object scenarios were
+                                                                                   similar—high loadings on emotions included empathy,
+3.3. Emotional experiences in HCI scenarios: Computer
+                                                                                   romance, relief, and nostalgia (all a > 0.50), indicating a state
+as a communication tool vs. as an interactive object
+                                                                                   of emotionally empathetic. In addition, the third positive
+To further identify the specific emotional experience in                           factor of computer-as-a-communication-tool scenarios had
+different themes of HCI scenarios, we classified the six                           high loadings on the emotions of surprise and awe (all
+HCI scenarios into two types—computer-as-an-inter­                                 a > 0.50), suggesting a positively surprised state. Lastly, the
+active-object scenarios (i.e., shopping, banking, and navi­                        second positive factor of computer-as-an-interactive-object
+gation) and computer-as-a-communication-tool scenarios                             scenarios had high loadings on concentration and calmness,
+(i.e., online chatting, learning, and conference). We first                        indicating a positively focused state.
+calculated the difference in frequency score between HCI                              The first negative factor of computer-as-a-communica­
+and HHI conditions for each scenario type and each emo­                            tion-tool was a state of bored, loading higher on emotions
+tion valence. Therefore, a frequency differential less than                        including boredom, ennui, disgust, frustration, and indiffer­
+zero means this emotion was less frequently experienced                            ence (all a > 0.50), whereas the first negative factor of
+                                                                                      INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                       1851
+
+
+
+
+Figure 4. Results of factor analysis of positive and negative emotion frequency scores for computer-as-a-communication-tool and computer-as-an-interactive-object
+scenarios. The number of factors retained was determined by parallel analysis. (a & b) Results of the emotional experience factor analysis for computer-as-a-commu­
+nication-tool. (c & d) Results of the emotional experience factor analysis for computer-an-interactive-object. (e & f) Correlation between positive and negative emo­
+tional factors, respectively. “CT” is short for “computer as a communication tool” and “IO” is short for “computer as an interactive object.”.
+
+
+computer-as-an-interactive-object is a state of stuckness and                       computer-as-an-interactive-object scenarios were similar,
+incomprehension, with higher loadings on confusion, frus­                           loading higher on emotions such as horror, contempt, anger,
+tration, puzzlement, anxiety (all a > 0.50), etc. The second                        and intrigue (all a > 0.50), inferring a high arousal negative
+negative factor of computer-as-a-communication-tool and                             state.
+1852     L. TANG ET AL.
+
+
+4. Discussion                                                     communicating with another person. Thus, this result
+                                                                  would suggest that the HHI through the state-of-the-art
+Defining the emotions of interest for human-computer
+                                                                  HCI technology (i.e., computer-as-a-communication-tool)
+interaction (HCI) is challenging due to its context-depend­
+                                                                  is still not comparable to real HHI (Baker et al., 2010;
+ent nature as well as the complexity of HCI scenarios. In
+                                                                  Dunlop & Brewster, 2002; Huang, 2009), leading to less
+the present study, we conducted a survey to explore context-
+                                                                  positive and more negative emotions. However, the com­
+specific emotional experience in diverse HCI scenarios.
+                                                                  puter-as-an-interactive-object scenarios showed its unique
+Compared with six HHI scenarios used as control, the HCI
+                                                                  patterns as well (Figure 3), e.g., less awkwardness and
+scenarios were in general more frequently associated with
+                                                                  more amusement, but only with a relatively limited num­
+negative emotions including boredom, ennui, and anger,
+                                                                  ber of emotion items. While these results resembled the
+and less frequently associated with positive emotions includ­
+                                                                  findings from human-robot interaction studies (Chuah &
+ing admiration, aesthetic appreciation, and adoration.
+                                                                  Yu, 2021; Stock-Homburg, 2022), the relatively limited
+Furthermore, the 44 emotional experience items in HCI
+                                                                  number of involved emotion items suggested a largely con­
+were summarized as five factors, representing low-arousal
+                                                                  sistent pattern between computer-as-an-interactive-object
+focused, positively engaged, emotionally empathetic, high-
+                                                                  and HHI scenarios. Taken together, the differences between
+arousal negative and frustratingly confused. In addition,
+                                                                  computer-as-an-interactive-object and computer-as-a-com­
+people experience positive emotions less frequently, but
+                                                                  munication-tool HCI scenarios indicate that the observed
+negative emotions more in HCI scenarios, especially when
+they treat HCI as a tool for communication with other peo­        general differences across all the HCI scenarios might be
+ple as compared to treating HCI as an interactive object.         mainly attributed to the HCI technology per se (i.e., as a
+   The item-by-item comparison of the emotional experi­           communication tool), not by the computer as an inter­
+ence frequency data between the HCI and the HHI scenarios         active object.
+revealed largely similar but distinct patterns. The similarity        More importantly, the factor analysis revealed five
+between these two types of scenarios was reflected in the         HCI-related emotion factors. Among them, low-arousal
+high correlations of the overall emotional frequency patterns     focused, positively engaged, high-arousal negative and
+(Figure 1): top-rated emotions were mostly the same for           frustratingly confused were shared by HCI and HHI scen­
+HCI and HHI. This piece of observation was in line with           arios, suggesting the largely consistent emotional experi­
+some previous studies advocating the similarity between           ence in these two types of scenarios (Walter et al., 2014).
+HCI and HHI (Shen & Wang, 2022; Siegert et al., 2015;             However, the factor of emotional empathy was relatively
+Walter et al., 2014). However, there were also significant dif­   distinct for HCI scenarios. A possible explanation is that
+ferences in quite a number of emotion items, with HCI             since HCI takes the form of content interaction through
+associated with higher frequencies of negative emotions such      an interactable interface, the lingering and processing
+as boredom, ennui, and anger, as well as lower frequencies        time of a single message is much more prolonged, and the
+of positive emotions such as admiration, aesthetic appreci­       emotional content involved is more likely to generate
+ation, and adoration. These results could be related to the       stronger emotional resonance for the user. Previous
+state-of-the-art development of the HCI technology, which         research in online communities has also mentioned the
+does not always work as well as expected and hereby result­       effect of emotional amplification in HCI scenarios
+ing in more negative emotions such as boredom                     (Goldenberg & Willer, 2023; Luo et al., 2020). There were
+(Makelberge, 2004; Giakoumis et al., 2010). Alternatively, it     also two factors specific for HHI: positively anticipated
+is also possible that these results were due to the nature of     and the boredom factor. According to the previous
+HCI—computer is considered to be less human-like and              research (Ludema et al., 1997; Sawyer & Clair, 2022), the
+therefore less likely to induce those positive social emotions    anticipated emotion could be defined as an affirmative
+that arise from human interactions, such as admiration            form of social discourse, indicating the generation of
+(Hareli & Parkinson, 2008). This is consistent with our           anticipatory is also related to social interaction. And the
+hypothesis that social emotions could be experienced less in      boredom factor might be a product of social stress
+HCI scenarios. More importantly, with relatively diverse          (Parasuraman & Purohit, 2000). These findings are con­
+HCI scenarios and the relatively complete coverage of emo­        sistent with our hypothesis, indicating a more social-
+tion items, the present findings are expected to provide a        related emotional experience in HHI scenarios. By further
+comprehensive overview of the specificity of emotions for         dividing the HCI scenarios into computer-as-an-inter­
+HCI contexts.                                                     active-object    and    computer-as-a-communication-tool
+   The comparison between the computer-as-an-inter­               scenarios, the results were also similar. Positive surprised
+active-object and the computer-as-a-communication-tool            and bored factors were unique to the computer-as-a-com­
+HCI scenarios provide further information regarding how           munication-tool scenarios, while low-arousal focused and
+the HCI-specific emotion experience arises. Interestingly,        frustratingly confused factors were unique to the com­
+the observed general difference between HCI and HHI               puter-as-an-interactive-object scenarios. The reason may
+seemed to be mainly related to computer-as-a-communica­           be that when the computer acts as a communication tool,
+tion-tool scenarios (Figure 3), which is not in line with our     the user interacts more with the content and can be sur­
+expectation. When computer was considered as a commu­             prised or bored by the information received. Whereas,
+nication tool, the HCI user was expected to be actually           when the computer serves as an interactive object, the
+                                                                        INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                 1853
+
+
+user is task-oriented and interacts more with the technol­             References
+ogy, thus experiencing more feelings of focused or frustra­
+                                                                       Baker, R. S., D’Mello, S. K., Rodrigo, M. T., & Graesser, A. C. (2010).
+tion. In sum, the factor analysis took the co-occurrence                  Better to be frustrated than bored: The incidence, persistence, and
+nature of human emotion experience into consideration,                    impact of learners’ cognitive–affective states during interactions with
+and the results provide a concise but effective summary of                three different computer-based learning environments. International
+the emotion experience during human-computer                              Journal of Human-Computer Studies, 68(4), 223–241. https://doi.org/
+interactions.                                                             10.1016/j.ijhcs.2009.12.003
+                                                                       Barrett, L. F. (2014). The conceptual act theory: A pr�ecis. Emotion
+   There are several limitations of the present study that                Review, 6(4), 292–297. https://doi.org/10.1177/1754073914534479
+should be noted. First, our concern of emotional experience            Barrett, L. F., Wilson-Mendenhall, C. D., & Barsalou, L. W. (2015).
+focused on the frequency of emotions. The inclusion of                    The conceptual act theory: A roadmap. In L. F. Barrett & J. A.
+other characteristics of emotion experience such as intensity             Russell (Eds.), The psychological construction of emotion (pp. 83–
+would provide further insights into HCI-related emotions                  110). The Guilford Press.
+                                                                       Bedny, G. Z., & Karwowski, W. (2011). Application of systemic-struc­
+(Shui et al., 2021; Zhang et al., 2020), preferably with a care­          tural theory of activity. In W. W. Gasparski & T. Airaksinen (Eds.),
+ful consideration of a balance between the richness of infor­             Praxiology and the philosophy of technology (pp. 97–144).
+mation and the expected survey time. Second, the HCI                      Transaction Publishers.
+scenarios selected in the questionnaires were all from typical         Braun, M., Weber, F., & Alt, F. (2022). Affective automotive user inter­
+mobile phone interactions. Further studies are necessary to               faces–reviewing the state of driver affect research and emotion regu­
+                                                                          lation in the car. ACM Computing Surveys, 54(7), 1–26. https://doi.
+include more HCI scenarios such as driving (Braun et al.,
+                                                                          org/10.1145/3460938
+2022; Zepf et al., 2021). Third, while the survey method is            Brave, S., & Nass, C. (2007). Emotion in human-computer interaction.
+convenient and flexible, it would be necessary to have                    In The human-computer interaction handbook (pp. 103–118). CRC
+laboratory-based experiments with real interaction scenarios              Press. https://doi.org/10.1201/9781410615862
+(Harrison et al., 2007; Kuutti & Bannon, 2014) to verify the           Camodeca, M., & Nava, E. (2022). The long-term effects of bullying,
+                                                                          victimization, and bystander behavior on emotion regulation and its
+findings in high ecological validity settings.
+                                                                          physiological correlates. Journal of Interpersonal Violence, 37(3–4),
+                                                                          NP2056–NP2075. https://doi.org/10.1177/0886260520934438
+                                                                       Chuah, S. H. W., & Yu, J. (2021). The future of service: The power of
+5. Conclusion                                                             emotion in human-robot interaction. Journal of Retailing and
+In the present study, we provide a comprehensive view into                Consumer Services, 61, 102551. https://doi.org/10.1016/j.jretconser.
+                                                                          2021.102551
+the context-specific emotional experience in various types of          Colneri�c, N., & Dem�sar, J. (2018). Emotion recognition on twitter:
+daily HCI scenarios by taking advantage of a fine-grained                 Comparative study and training a unison model. IEEE Transactions
+survey covering 44 emotion items. In contrast with human-                 on Affective Computing, 11(3), 433–446. https://doi.org/10.1109/
+human interactions, our findings reveal that some negative                TAFFC.2018.2807817
+emotion items are more specific to HCI scenarios, especially           Cowen, A. S., & Keltner, D. (2017). Self-report captures 27 distinct cat­
+                                                                          egories of emotion bridged by continuous gradients. Proceedings of
+when a computer is used for communicating with other
+                                                                          the National Academy of Sciences of the United States of America,
+people. Factor analyses further disentangle the co-occurrence             114(38), E7900–E7909. https://doi.org/10.1073/pnas.1702247114
+characteristics of complex emotional experiences specifically          Cowen, A. S., & Keltner, D. (2020). Universal facial expressions uncov­
+in HCI scenarios. We also elaborate the differences in emo­               ered in art of the ancient Americas: A computational approach.
+tional experience between two subtypes of HCI scenarios,                  Science Advances, 6(34), eabb1005. https://doi.org/10.1126/sciadv.
+                                                                          abb1005
+i.e., computer as a communication tool vs. computer as an
+                                                                       Cowie, R., Douglas-Cowie, E., Tsapatsoulis, N., Votsis, G., Kollias, S.,
+interactive object. Altogether, this study offers great theoret­          Fellenz, W., & Taylor, J. G. (2001). Emotion recognition in human-
+ical value for extending the Conceptual Act Theory of emo­                computer interaction. IEEE Signal Processing Magazine, 18(1), 32–
+tion in HCI research, as well as practical value for emotion              80. https://doi.org/10.1109/79.911197
+evaluation in HCI applications.                                        Craig, S., Graesser, A., Sullins, J., & Gholson, B. (2004). Affect and
+                                                                          learning: An exploratory look into the role of affect in learning with
+                                                                          AutoTutor. Journal of Educational Media, 29(3), 241–250. https://
+Disclosure statement                                                      doi.org/10.1080/1358165042000283101
+                                                                       Csikszentmihalyi, M. (1990). Flow: The psychology of optimal experi­
+No potential conflict of interest was reported by the author(s).          ence. Harper Collins.
+                                                                       D’Mello, S. (2013). A selective meta-analysis on the relative incidence
+                                                                          of discrete affective states during learning with technology. Journal
+Funding                                                                   of Educational Psychology, 105(4), 1082. https://doi.org/10.1037/
+                                                                          a0032674
+This work is supported by the National Natural Science Foundation of   Devillers, L., Tahon, M., Sehili, M. A., & Delaborde, A. (2015).
+China [61977041], the Tsinghua University Spring Breeze Fund              Inference of human beings’ emotional states from speech in
+[2021Z99CFY037], and the Education Innovation Grants of Tsinghua          human–robot interactions. International Journal of Social Robotics,
+University [DX05_02].                                                     7(4), 451–463. https://doi.org/10.1007/s12369-015-0297-8
+                                                                       Dunlop, M., & Brewster, S. (2002). The challenges of mobile devices
+                                                                          for human computer interaction. Personal and Ubiquitous
+ORCID                                                                     Computing, 6(4), 235–236. https://doi.org/10.1007/s007790200022
+                                                                       Ekman, P. (1992). An argument for basic emotions. Cognition and
+Lilu Tang     http://orcid.org/0009-0003-1614-1107                        Emotion, 6(3–4), 169–200. https://doi.org/10.1080/026999392
+Dan Zhang      http://orcid.org/0000-0002-7592-3200                       08411068
+1854       L. TANG ET AL.
+
+
+Ekman, P., & Friesen, W. V. (1978). Facial action coding system: A               design: From experience to ethics (pp. 27–39). Springer International
+   technique for the measurement of facial movement. Consulting                  Publishing. https://doi.org/10.1007/978-3-030-53483-7_3
+   Psychologist Press. https://doi.org/10.1037/t27734-000                    Jones, S. M., McGarrah, M. W., & Kahn, J. (2019). Social and emo­
+Ellsworth, P. C., & Smith, C. A. (1988). From appraisal to emotion:              tional learning: A principled science of human development in con­
+   Differences among unpleasant feelings. Motivation and Emotion,                text. Educational Psychologist, 54(3), 129–143. https://doi.org/10.
+   12(3), 271–302. https://doi.org/10.1007/BF00993115                            1080/00461520.2019.1625776
+Fabri, M., Elzouki, S. Y. A., & Moore, D. (2007). Emotionally expressive     Khalil, R. A., Jones, E., Babar, M. I., Jan, T., Zafar, M. H., & Alhussain,
+   avatars for chatting, learning and therapeutic intervention. In               T. (2019). Speech emotion recognition using deep learning techni­
+   Human-Computer Interaction. HCI Intelligent Multimodal Interaction            ques: A review. IEEE Access. 7, 117327–117345. https://doi.org/10.
+   Environments: 12th International Conference, HCI International 2007,          1109/ACCESS.2019.2936124
+   Beijing, China, July 22-27, 2007, Proceedings, Part III 12 (pp. 275–      Kort, B., Reilly, R., Picard, R. W. (2001). An affective model of inter­
+   285). Springer Berlin Heidelberg.                                             play between emotions and learning: Reengineering educational
+Fragopanagos, N., & Taylor, J. G. (2005). Emotion recognition in                 pedagogy-building a learning companion. In Proceedings IEEE
+   human–computer interaction. Neural Networks, 18(4), 389–405.                  International Conference on Advanced Learning Technologies (pp.
+   https://doi.org/10.1016/j.neunet.2005.03.006                                  43–46). IEEE. https://doi.org/10.1109/ICALT.2001.943850
+Franklin, S. B., Gibson, D. J., Robertson, P. A., Pohlmann, J. T., &         Kuutti, K. (1996). Activity theory as a potential framework for human-
+   Fralish, J. S. (1995). Parallel analysis: A method for determining sig­       computer interaction research. In B. Nardi (Ed.), Context and
+   nificant principal components. Journal of Vegetation Science, 6(1),           consciousness: Activity theory and human-computer interaction (pp.
+   99–106. https://doi.org/10.2307/3236261                                       17–44). MIT Press.
+Giakoumis, D., Vogiannou, A., Kosunen, I., Moustakas, K., Tzovaras,          Kuutti, K., Bannon, L. J. (2014). The turn to practice in HCI: Towards
+   D., & Hassapis, G. (2010, January). Identifying psychophysiological           a research agenda. In Proceedings of the SIGCHI Conference on
+   correlates of boredom and negative mood induced during HCI. In                Human Factors in Computing Systems (pp. 3543–3552). https://doi.
+   B-Interface, pp. 3–12.                                                        org/10.1145/2556288.2557111
+Goldenberg, A., & Willer, R. (2023). Amplification of emotion on             Lang, P. J. (1984). Cognition in emotion: concept and action. In C. E.
+   social media. Nature Human Behaviour, 7(6), 845–846. https://doi.             Izard, J. Kagan, & R. B. Zajonc (Eds.), Emotions, cognition, and
+   org/10.1038/s41562-023-01604-x                                                behavior (pp. 192–228). Cambridge University Press.
+Graesser, A., D’Mello, S., Chipman, P., King, B., & McDaniel, B.             Leont’ev, A. N. (1978). Activity, consciousness, and personality.
+   (2007). Exploring relationships between affect and learning with              Prentice-Hall.
+                                                                             Liu, H., Wang, F., & Zhang, D. (2023). Inspiring real-time evaluation
+   AutoTutor. In Proc Int Conf AIED.
+Hamann, S. (2012). Mapping discrete and dimensional emotions onto                and optimization of human–Robot interaction with psychological
+                                                                                 findings from human–Human interaction. Applied Sciences, 13(2),
+   the brain: Controversies and consensus. Trends in Cognitive Sciences,
+                                                                                 676. https://doi.org/10.3390/app13020676
+   16(9), 458–466. https://doi.org/10.1016/j.tics.2012.07.006
+                                                                             Ludema, J. D., Wilmot, T. B., & Srivastva, S. (1997). Organizational
+Hareli, S., & Parkinson, B. (2008). What’s social about social emotions?
+                                                                                 hope: Reaffirming the constructive task of social and organizational
+   Journal for the Theory of Social Behaviour, 38(2), 131–156. https://
+                                                                                 inquiry. Human Relations, 50(8), 1015–1052. https://doi.org/10.1023/
+   doi.org/10.1111/j.1468-5914.2008.00363.x
+                                                                                 A:1016985129104
+Harrison, S., Tatar, D., & Sengers, P. (2007, April). The three para­
+                                                                             Luo, M., Hsu, T. W., Park, J. S., & Hancock, J. T. (2020). Emotional
+   digms of HCI. In Alt. Chi. Session at the SIGCHI Conference on
+                                                                                 amplification during live-streaming: Evidence from comments dur­
+   human factors in computing systems San Jose (pp. 1–18).
+                                                                                 ing and after news events. Proceedings of the ACM on Human,
+Hasnine, M. N., Bui, H. T., Tran, T. T. T., Nguyen, H. T., Akçapınar,
+                                                                                 4(CSCW1), 1–19. https://doi.org/10.1145/3392853
+   G., & Ueda, H. (2021). Students’ emotion extraction and visualiza­
+                                                                             Makelberge, N. (2004). Flow, interaction design and contemporary bore­
+   tion for engagement detection in online learning. Procedia Computer
+                                                                                 dom. IT University of Gothenburg.
+   Science, 192, 3423–3431. https://doi.org/10.1016/j.procs.2021.09.115      Martinent, G., Campo, M., & Ferrand, C. (2012). A descriptive study
+Hayton, J. C., Allen, D. G., & Scarpello, V. (2004). Factor retention            of emotional process during competition: Nature, frequency, direc­
+   decisions in exploratory factor analysis: A tutorial on parallel ana­         tion, duration and co-occurrence of discrete emotions. Psychology of
+   lysis. Organizational Research Methods, 7(2), 191–205. https://doi.           Sport and Exercise, 13(2), 142–151. https://doi.org/10.1016/j.psy­
+   org/10.1177/1094428104263675                                                  chsport.2011.10.006
+Hibbeln, M., Jenkins, J. L., Schneider, C., Valacich, J. S., & Weinmann,     Parasuraman, S., & Purohit, Y. S. (2000). Distress and boredom among
+   M. (2017). How is your user feeling? Inferring emotion through                orchestra musicians: The two faces of stress. Journal of Occupational
+   human–computer interaction devices. MIS Quarterly, 41(1), 1–21.               Health Psychology, 5(1), 74–83. https://doi.org/10.1037/1076-8998.5.
+   https://doi.org/10.25300/MISQ/2017/41.1.01                                    1.74
+Hinkle, L. B., Roudposhti, K. K., & Metsis, V. (2019, June).                 Pekrun, R., & Linnenbrink-Garcia, L. (2012). Academic emotions and
+   Physiological measurement for emotion recognition in virtual real­            student engagement. In Handbook of research on student engagement
+   ity. In 2019 2nd International Conference on Data Intelligence and            (pp. 259–282). https://doi.org/10.1007/978-1-4614-2018-7_12
+   Security (ICDIS)) (pp. 136–143). IEEE. https://doi.org/10.1109/           P�erez-Espinosa, H., Zatarain-Cabada, R., & Barr�       on-Estrada, M. L.
+   ICDIS.2019.00028                                                              (2022). Emotion recognition: From speech and facial expressions. In
+Hu, X., Wang, F., & Zhang, D. (2022). Similar brains blend emotion in            Biosignal processing and classification using computational learning
+   similar ways: Neural representations of individual difference in emo­         and intelligence (pp. 307–326). Academic Press. https://doi.org/10.
+   tion profiles. NeuroImage, 247, 118819. https://doi.org/10.1016/j.neu­        1016/B978-0-12-820125-1.00028-2
+   roimage.2021.118819                                                       Piana, S., Stagliano, A., Odone, F., Verri, A., & Camurri, A. (2014).
+Huang, K. Y. (2009). Challenges in human-computer interaction design             Real-time automatic emotion recognition from body gestures. arXiv
+   for mobile devices. In Proceedings of the World Congress on                   Preprint arXiv:1402.5047. https://doi.org/10.48550/arXiv.1402.5047
+   Engineering and Computer Science (Vol. 1, No. 6, pp. 1–6).                Picard, R. W. (2003). Computers that recognize and respond to user
+Jerritta, S., Murugappan, M., Nagarajan, R., & Wan, K. (2011, March).            emotion. In International conference on user modeling (pp. 1–2).
+   Physiological signals based human emotion recognition: A review.              Springer. https://doi.org/10.1007/3-540-44963-9_2
+   In 2011 IEEE 7th International Colloquium on Signal Processing and        Picard, R. W. (2010). Emotion research by the people, for the peo­
+   Its Applications) (pp. 410–415). IEEE. https://doi.org/10.1109/CSPA.          ple. Emotion Review, 2(3), 250–254. https://doi.org/10.1177/
+   2011.5759912                                                                  1754073910364256
+Jokinen, J. P., & Silvennoinen, J. (2020). The appraisal theory of emo­      Ramakrishnan, S., & El Emary, I. M. (2013). Speech emotion
+   tion in human–computer interaction. In Emotions in technology                 recognition approaches in human computer interaction.
+                                                                             INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                1855
+
+
+   Telecommunication Systems, 52(3), 1467–1478. https://doi.org/10.         Uden, L. (2007). Activity theory for designing mobile learning.
+   1007/s11235- 011-9624-z                                                    International Journal of Mobile Learning and Organisation, 1(1), 81–
+Russell, J. A. (1980). A circumplex model of affect. Journal of               102. https://doi.org/10.1504/IJMLO.2007.011190
+   Personality and Social Psychology, 39(6), 1161–1178. https://doi.org/    Wadley, G., Carter, M., & Gibbs, M. (2015). Voice in virtual worlds:
+   10.1037/h0077714                                                           The design, use, and influence of voice chat in online play. Human–
+Sreeja, P. S., & Mahalakshmi, G. (2017). Emotion models: A review.            Computer Interaction, 30(3–4), 336–365. https://doi.org/10.1080/
+   International Journal of Control Theory and Applications, 10(8),           07370024.2014.987346
+   651–657.                                                                 Walter, S., Wendt, C., B€ohnke, J., Crawcour, S., Tan, J.-W., Chan, A.,
+Sawyer, K. B., & Clair, J. A. (2022). Hope cultures in organizations:         Limbrecht, K., Gruss, S., & Traue, H. C. (2014). Similarities and dif­
+   Tackling the grand challenge of commercial sex exploitation.               ferences of emotions in human–machine and human–human inter­
+   Administrative Science Quarterly, 67(2), 289–338. https://doi.org/10.      actions: What kind of emotions are relevant for future companion
+   1177/00018392211055506                                                     systems? Ergonomics, 57(3), 374–386. https://doi.org/10.1080/
+Sensor Tower (2022). The State of Travel Apps 2022. Sensor Tower.             00140139.2013.822566
+Sensor Tower. (2023). 2023 Global Mobile Application (Non-Game)             Wang, Y., Song, W., Tao, W., Liotta, A., Yang, D., Li, X., Gao, S., Sun,
+   Market Outlook. Sensor Tower.                                              Y., Ge, W., Zhang, W., & Zhang, W. (2022). A systematic review on
+Shechtman, N., Horowitz, L. M. (2003, April). Media inequality in con­        affective computing: Emotion models, databases, and recent advan­
+   versation: How people behave differently when interacting with             ces. Information Fusion, 83–84, 19–52. https://doi.org/10.1016/j.
+   computers and people. In Proceedings of the SIGCHI Conference on           inffus.2022.03.009
+   Human Factors in Computing Systems (pp. 281–288). https://doi.org/       Zepf, S., Hernandez, J., Schmitt, A., Minker, W., & Picard, R. W.
+   10.1145/642611.642661                                                      (2021). Driver emotion recognition for intelligent vehicles. ACM
+Shen, H. Y., & Wang, M. (2022). Improving interaction experience              Computing Surveys, 53(3), 1–30. https://doi.org/10.1145/3388790
+                                                                            Wu, W., Mitchell, P., & Lv, Y. (2023). Consistency in personality trait
+   through lexical convergence: The prosocial effect of lexical align­
+                                                                              judgments across online chatting and offline conversation. Frontiers in
+   ment in human-human and human-computer interactions.
+                                                                              Psychology, 14, 1077458. https://doi.org/10.3389/fpsyg.2023.1077458
+   International Journal of Human–Computer Interaction, 38(1), 28–41.
+                                                                            Zhang, M., Wang, F., & Zhang, D. (2020). Individual differences in
+   https://doi.org/10.1080/10447318.2021.1921367
+                                                                              trait creativity moderate the state-level mood-creativity relationship.
+Shui, X., Zhang, M., Li, Z., Hu, X., Wang, F., & Zhang, D. (2021). A
+                                                                              PLoS One, 15(8), e0236987. https://doi.org/10.1371/journal.pone.
+   dataset of daily ambulatory psychological and physiological record­        0236987
+   ing for emotion research. Scientific Data, 8(1), 161. https://doi.org/
+   10.1038/s41597-021-00945-4
+Siegert, I., Bock, R., Wendemuth, A., Vlasenko, B., & Ohnemus, K. (2015,
+                                                                            About the authors
+   October). Overlapping speech, utterance duration and affective content
+   in HHI and HCI-An comparison. In 2015 6th IEEE International             Lilu Tang is a graduate student in the Department of Psychology at
+   Conference on Cognitive Infocommunications (CogInfoCom) (pp. 83–88).     Tsinghua University, China. Her current research interests include human-
+   IEEE. https://doi.org/10.1109/CogInfoCom.2015.7390569                    computer interaction, emotion measurement, and user experience.
+Song, T., Zheng, W., Lu, C., Zong, Y., Zhang, X., & Cui, Z. (2019).
+   MPED: A multi-modal physiological emotion database for discrete          Peijun Yuan is a research scientist in Qiyuan Lab, China. She received
+   emotion recognition. IEEE Access. 7, 12177–12191. https://doi.org/       her Ph.D. degree in cognitive neuroscience from the Institute of
+                                                                            Psychology, Chinese Academy of Sciences. Her current research inter­
+   10.1109/ACCESS.2019.2891579
+                                                                            ests include human-computer interaction, spatiotemporal dynamics of
+Stock-Homburg, R. (2022). Survey of Emotions in Human–Robot
+                                                                            cognition, and visual attention.
+   Interactions: Perspectives from Robotic Psychology on 20 Years of
+   Research. International Journal of Social Robotics, 14(2), 389–411.      Dan Zhang is an associate professor in the Department of Psychology
+   https://doi.org/10.1007/s12369-021-00778-6                               at Tsinghua University, China. He received his Ph.D. degree in bio­
+Tyng, C. M., Amin, H. U., Saad, M. N., & Malik, A. S. (2017). The           medical engineering at Tsinghua University in 2011. His research inter­
+   influences of emotion on learning and memory. Frontiers in               ests include affective computing, brain-computer interface, as well as
+   Psychology, 8, 1454. https://doi.org/10.3389/fpsyg.2017.01454            the psychological basis of emotion.
+

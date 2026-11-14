@@ -1,0 +1,309 @@
+                               Eighth IEEE International Conference on Advanced Learning Technologies
+
+                  Design an interactive agent by multi-empathic strategies to reduce
+                                   student’s negative emotion
+
+                                  Yu-Chia Cheng, Chih-Wei Chang, Gwo-Dong Chen
+                               Computer Science and Information Engineering Department
+                                             National Central University
+                                     {biaggi129, gogo, chen}@db.csie.ncu.edu.tw
+
+                               Abstract                                           communication between learner and system [9]. An
+                                                                                  empathic agent has been proved that the agent can let
+      In recent years, combining the empathic virtual                             students feel concerned and reduce their frustration in
+   human with the learning system is one of the most                              the computer-based learning system [10]. However,
+   popular topics. However, there are few studies on
+                                                                                  there are few studies on designing pedagogical agents
+   designing pedagogical agents which have different                              which have different empathic strategies to interact
+   empathic strategies to interact with learners. In this                         with learners. In addition, current computer-based
+   paper, we have described our approach to design an                             learning systems and traditional educational systems
+   interactive empathic agent with different empathic                             often lack many features of profound empathy [11],
+   strategies. We created an empathic interaction model
+                                                                                  and fail to provide suitable social interaction. It would
+   according to Davis’ [1] empathic processes and                                 have a significantly influence on learning and
+   Lester’s [2] empathic model. We invited 12 students to                         motivation [12]. In order to address these problems, we
+   participate in this experiment. We had found some
+                                                                                  design an interactive caring agent called Maggie who
+   interactive suggestions when students suffered some                            uses some verbal and nonverbal behaviors and two
+   negative or positive emotions during the learning                              kinds of empathic strategies to interact with students.
+   process. These suggestions can make students feeling                              In our learning system, the aims of the empathic
+   concerned and more engaged in learning.                                        agent are as follow:
+                                                                                     To discuss that the agent with what kinds of
+   1. Introduction                                                                empathic strategies can let students feel concerned and
+                                                                                  more engaged in learning.
+      In recent years, due to the rapid development of
+   computer technologies, the virtual human has already                           2. Empathy
+   become one of the most popular topics. Virtual human
+   is an agent that has to be provided with a virtual face                           The definitions of empathy are based on Roger’s
+   and body in computer environment, and they also have                           explanations in 1970. According to Roger, empathy is
+   some human interaction abilities [3]. With wide                                the process of putting oneself in the place of another
+   application of computers, virtual human interact with                          person, seeing matters from the other’s perspective,
+   users in many kinds of roles. For example, in some web                         perceiving the other’s feelings and thoughts and
+   service, virtual human is playing a role as a salesman to                      conveying this awaring to that person (Eisenberg and
+   help people shopping [4], or playing a role as a virtual                       Delaney, 1998, p. 105-106; Do¨kmen, 2002, p. 135)
+   actor to entertain people [5]. In medical professions,                         [13].
+   Relational Agents use many caring strategies (such as                             Lester [2] has described the process of empathy as
+   social dialogue, empathy exchanges, continuity                                 follows: “Social psychologists describe three
+   behaviors etc.) to build and maintain long-term,                               constituents of empathy. First, the antecedent consists
+   social-emotional relationships with their users [6].                           of the empathizer’s consideration of herself, the
+      Among these studies, the empathic agent is one of                           target’s intent and affective state, and the situation at
+   the popular topics. Through active emotional support,                          hand. Second, assessment consists of evaluating the
+   Empathic interfaces may improve human–computer                                 antecedent. Third, empathetic outcomes, e.g., behaviors
+   interaction, and reduce users’ frustration during the                          expressing concern, are the products of assessment
+   interaction [7]. Johnson et al. [8] has mentioned about                        (Davis, 1994) including both affective and nonaffective
+   an affective virtual human can have some significant                           outcomes (e.g., judgment, cognitive awareness). Two
+   motivation on learner. Cassell also point out putting the                      types of affective outcomes are possible. In parallel
+   social agent to a learning system can be helpful for                           outcomes, the empathizer mimics the affective state of
+
+
+978-0-7695-3167-0/08 $25.00 © 2008 IEEE                                     330
+DOI 10.1109/ICALT.2008.112
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:11:14 UTC from IEEE Xplore. Restrictions apply.
+the target. For example, the empathizer may become                             x    User Interaction Module: Figure 2 outlines the
+fearful when assessing a target’s situation in which the                            various components of the User Interaction
+target is afraid. In reactive outcomes, empathizers                                 Module. This module has divided into three parts:
+exhibit a higher cognitive awareness of the situation to                            input sectionȯdata section and output section. In
+react with empathetic behaviors that do not necessarily                             input section, the system processes various inputs
+match those of the target’s affective state. For example,                           from the student. The input channels include:
+empathizers may become frustrated when the target                                   student-input text, student’s current emotional
+does not meet with success in her task, even if the                                 state (chosen by the student), and student’s facial
+target herself may not be frustrated.”                                              expression (captured by a webcam). After that, this
+   There are no literatures have been discussed about                               information will be transferred to data section. The
+weather the agent using parallel or reactive empathic                               data section consists of one empathic behavior
+strategy may influence students' feeling of concern and                             manager and four databases. These four databases
+learning will. Therefore, we use Davis’ [1] empathic                                include some dialogues and empathic behaviors,
+process and Lester’s [2] empathic model to create an                                and the training information from the Agent
+empathic interaction model. We hope to use this model                               Training Module. In dialogue database, it stores up
+to discuss about weather these two empathic strategies                              some verbal behavior. This database includes one
+will influence students’ feeling of concern and learning                            verbal interaction table. When the agent wants to
+will.                                                                               response to users’ emotion, the system will choose
+                                                                                    the dialogues from the verbal interaction table. In
+3. Caring Agent Design                                                              order to make our learning system smarter, the
+3.1 Empathic interaction model design                                               dialogue may not be the same even though the
+                                                                                    user’s emotional state is the same. For example,
+                                                                                    when the user felt sad during the learning process,
+   In order to let the Agent have empathic capabilities,                            the agent may response to the user “you look so
+we created an empathic interaction model based on                                   sad. What happened to you? I can listen to your
+Davis’ empathic process and Lester’s empathic model.                                complaining.”      Or    ”It seems that you are
+Our empathic interaction model can be divided in two                                unhappy. What happened to you ? ” . In behavior
+parts: Agent Training Module and User Interaction                                   database, it consists of some nonverbal behaviors
+Module.                                                                             including facial expressions and body movements.
+x Agent Training Module: Figure 1 outlines the                                      These nonverbal behaviors were stored in
+     various components of the Agent Training Module.                               nonverbal interaction table. According to the
+     The empathizer interacts with the target user via                              user’s emotional state, the agent will response to
+     trainer interface. The interaction process and data                            the user with some nonverbal behaviors choosing
+     will store to databases in User Interaction Module.                            from the nonverbal interaction table. In time
+     The stored information includes some dialogues                                 database, it consists of agent’s appearing time.
+     and empathic behaviors.                                                        According to Zanbaka et al. [14], in the presence
+                                                                                    of others, people may be influenced by others.
+                                                                                    Therefore, choosing the suitable agent’s appearing
+                                                                                    time is very important. In empathic strategy
+                                                                                    database, this database was created to store up
+                                                                                    which empathic strategy (parallel or reactive
+                                                                                    strategy) must be used. The main function of
+                                                                                    empathic behavior manager is to decide what
+                                                                                    information should be displayed to the user. It will
+                                                                                    choose the suitable actions from four databases
+                                                                                    and then send this information to output section.
+                                                                                    Finally, the output section would combine these
+                                                                                    affective elements into an animation and play it in
+                                                                                    the interaction area.
+
+                                                                               !
+Figure 1. Agent Training Module architecture
+
+
+                                                                         331
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:11:14 UTC from IEEE Xplore. Restrictions apply.
+                                                                                  Figure 4. Maggie’s sad and happy gestures
+Figure 2. User interaction module architecture
+                                                                             3.3 Learning System Architecture
+
+3.2 Implementing Emapthic Behaviors for                                         Figure 5 shows the! screenshot of the learning
+Maggie                                                                       environment with the caring agent, Maggie. Users can
+                                                                             log into the learning system by web browser. The agent
+   In the agent’s empathic behaviors, we extended                            Maggie catches the user’s emotional state or learning
+Tzung-Yi Lee’s [10] study. The caring agent, Maggie                          status by webcam or emotional button. The left side of
+was developed using Poser 6Ǵa 3D animation-design                            the learning system is some learning resources
+tool. The animation files created in Poser 6 were                            including some homework and exercises. The right side
+converted to MPEG4 (AVI-Format) movies for                                   of the learning system is the interaction area. When
+compression and were later integrated into the caring                        students call for help, Maggie’s verbal and nonverbal
+agent system.                                                                behaviors will be displayed here.
+   In order to build Maggie with empathy and, we
+designed her affective behaviors with facial expression
+and hand gestures. For her facial expressions, we
+adopted six basic facial expressions (happiness, anger,
+surprise, sadness, disgust, fear) which were suggested
+by Ekman [15]. In addition, for the needs of this study,
+we added two extra facial expressions (Concern and
+Neutral). Figure 3 shows some of Maggie’s facial
+expressionsΖ
+
+
+
+
+                                                                             Figure 5. A screenshot of the learning environment
+                                                                             with the caring agent, Maggie
+
+Figure 3.Examples of Maggie’s facial expressions
+                                                                             4. Experiment
+   For Maggie’s hand gestures and body movements,                            4.1 Participants and Procedure
+we referred to some studies on human affective
+gestures from several researchers [16, 17, 18] to make                          We invited 5 masters and 12 students to participate
+Maggie’s nonverbal behaviors more consistent with her                        in this experiment. All the 12 students are majoring in
+emotions. Figure 4 shows Maggie’s affective behaviors.                       Human Computer Interaction class in National Central
+                                                                             University (NCU). Before the start of the experiment,
+                                                                             we thanked to the subjects to join this project and gave
+                                                                             them a brief introduction about this research. This
+                                                                             experiment was starting in our learning system. When
+
+
+                                                                       332
+
+  Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:11:14 UTC from IEEE Xplore. Restrictions apply.
+the student logged into our learning system, Maggie                          One student said “Maggie always mimics my affective
+would interaction with them about 3 minutes. And then,                       state, this makes me uncomfortable”
+Maggie will tell the student it is time to go learning. In                      Several students told us they thought our idea of
+learning processes, students may have some negative                          integrating the caring agent into the learning system is
+emotion. At this time, Maggie will show empathy to                           very interesting. They suggested that we can increase
+the student followed the empathic processes which                            more Maggie’s verbal and nonverbal behaviors and
+provided parallel or reactive empathic strategy. At the                      design male agents or cute animal characters which can
+beginning, we let 5 masters interact with Maggie about                       be chosen by the users. However, one student
+10 minutes and stored up their interaction processes to                      commented that they didn’t like Maggie because they
+the Empathic Interaction Model. Then, each subject                           consider she is not a real person but a computer
+was asked to randomly interact with Maggie in our                            program.
+learning system environment (parallel vs. reactive
+empathic strategy) for 20 minutes per version. When
+the subjects finished each interaction, they would fill                                     Table1. The means of 6 questions
+out a questionnaire with a five point Likert scale (5 =
+                                                                                   Questions                 parallel             Reactive
+strongly agree; 1 = strongly disagree). Figure 5 shows the
+experimental environment.                                                    I feel that the agent           M=2.67                M=3.33
+
+                                                                             really cared about my
+                                                                             emotions in learning.
+
+                                                                             She understands my               M=2.5                M=3.16
+
+                                                                             feelings and thoughts
+
+                                                                             correctly.
+
+                                                                             She looks at                    M=2.33                M=2.83
+                                                                             situations from my
+
+                                                                             point of view when
+
+                                                                             it’s necessary.
+ Figure 5. The student interacts with the empathic                           The learning system              M=3.6                M=3.83
+agent and we use a webcam to capture the student’s
+                 facial expressions.                                         becomes more
+
+                                                                             interesting because of
+4.2 Results
+                                                                             the agent.
+
+   Due to page limitation, we only list results that are                     When I got troubles             M=2.67                M=2.83
+particularly relevant to the perceptions of caring
+                                                                             in learning, the agent
+behaviors and interaction (see Table 1). As above, the
+results of the questionnaires show a positive perception                     always helped me.
+of reactive empathic strategy versions. Although the
+sample size was not large enough to reveal significant                       I would like to                 M=2.83                M=3.5
+differences between parallel and reactive empathic                           continue learning
+strategies, most subjects indicated they preferred to
+interact with Maggie which uses reactive caring                              with the agent.
+strategy. Many students told us that Maggie using
+reactive empathic strategy can provide them more
+empathic feedback modes. On the other hand, they                             5. Conclusions and Future Work
+thought that Maggie with reactive empathic strategy
+understands their feeling and thoughts correctly. Some                          In this paper, we have described our approach to
+students told us that Maggie using parallel empathic                         design an interactive empathic agent with different
+strategy can not provide them so many empathic                               empathic strategies. In our learning system, students
+feedback modes, therefore they felt unexciting soon.                         can reduce their negative emotions by interacting with
+
+
+
+                                                                       333
+
+  Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:11:14 UTC from IEEE Xplore. Restrictions apply.
+Maggie. The initial experimental results showed that                           [6] Bickmore, T., Picard, R., (2005). Establishing and
+these actions can let students more engaged in learning                            maintaining long-term human-computer relationships.
+and feel concerned. During the interaction, using                                  ACM Transactions on Computer-Human Interaction
+                                                                                   (TOCHI) 12 293–327
+different empathic strategies can have some affect on
+student’s emotion and learning will.                                           [7] Klein, J., Moon, Y., Picard, R. (2002). This computer
+    Many students told us that they hope these two                                 responds to user frustration. Interacting with Computers
+empathic strategies can be used together. When their                               14 (2), 119–140
+emotional state was in the negative conditions, they
+hoped Maggie interacting with them by using parallel                           [8] Johnson, W. L., Rickel, J. W., & Lester, J. C. (2000).
+empathic strategy at the beginning and then using the                              Animated pedagogical agents: Face-to-face interaction in
+reactive empathic strategy. For example, when the                                  interactive learning environments. International Journal
+student was sad, he hoped that Maggie can be sad with                              of Artificial Intelligence in Education, 11, 47-78.
+him for a while and then use happy emotions to
+                                                                               [9] Cassell, J., & Thórisson, K. (1999). The power of a nod
+encourage them. When students were in the positive                                 and a glance: envelope vs. emotional feedback in
+emotions such as happy, they hoped that Maggie can be                              animated      conversational agents. Applied Artificial
+happy with them, on the other hand they wanted                                     Intelligence, 13, 519-538.
+Maggie using parallel empathic strategy.
+    In conclusions, we suggested some empathic                                 [10] Tzung-Yi Lee, Chih-Wei Chang, Gwo-Dong Chen
+interaction strategies during the interaction processes.                           (2007). Building an Interactive Caring Agent for
+When students are using the learning system, we                                    Students in Computer-based Learning Environments.
+should combine the empathic strategies (parallel and                               Seventh IEEE International Conference on Advanced
+                                                                                   Learning Technologies (ICALT 2007) pp. 300-304
+reactive) appropriately. These can make the students
+felt concerned and more engaged in learning.                                   [11] Cooper, B. (2003). Care – Making the affective leap:
+    Further work will keep on experiencing the current                              More than a concerned interest in a learner’s cognitive
+interactive empathic agent system with real university                              abilities. International Journal of Artificial Intelligence
+courses to evaluate the impact of Maggie’s empathic                                 in Education, 13, 1
+strategy in learning process, and also try to examine the
+efficiency of the subsets of these empathic strategies.                        [12] Baylor, A.L. and Kim, Y. (2005). Simulating
+                                                                                   instructional roles through pedagogical agents.
+                                                                                   International Journal of Artificial Intelligence in
+6. References                                                                      Education 15, 1–18.
+[1] Davis, M. (1994). Empathy: A Social Psychological
+                                                                               [13] Fatih To¨remen, Abdurrahman Ekinci and Mehmet
+    Approach. Brown and Benchmark Publishers, Madison,
+                                                                                    Karakus¸ (2006).Influence of managers’ empathic skills
+    WI.
+                                                                                    on school success. International Journal of Educational
+                                                                                    Management Vol. 20 No. 6, 2006 pp. 490-499
+[2] Scott W. McQuiggan_, James C. Lester (2007). Modeling
+    and evaluating empathy in embodied companion agents.
+                                                                               [14] Zanbaka, C., Ulinski, A., Goolkasian, P., Hodges, L.
+    Int. J. Human-Computer Studies 65 348–360!
+                                                                                    (2007). Social responses to virtual humans: Implications
+                                                                                    for future interface design, In Proc. CHI.
+[3] Cassell, J., Sullivan, J., Prevost, S., Churchill, E.(eds).
+    (2000). Embodied Conversational Agents, MIT Press,
+                                                                               [15] Ekman, P and Friesen, W. V. (1975).Unmasking the face:
+    Cambridge, MA.
+                                                                                    a guide to recognizing emotions facial cues,
+                                                                                    Prentice-Hall
+[4] Bickmore, T., Cassell, J. (2004). Social Dialogue with
+    Embodied Conversational Agents. In J. van Kuppevelt, L.
+                                                                               [16] Nierenberg, G.I. and Calero, H.H. (2001).How to Read a
+    Dybkjaer, and N. Bernsen (eds.), Natural, Intelligent and
+                                                                                    Person Like a Book. Barnes & Noble Digital
+    Effective Interaction with Multimodal Dialogue Systems.
+    New York: Kluwer Academic.
+                                                                               [17] James, J. (2007). Nonverbal Communication Issues.
+                                                                                    Available at
+[5] Mateas, M. and Stern, A. (2004). A Behavior Language:
+                                                                                    http://www.coping.org/dialogue/nonverbal.htm#nonverb
+    Joint Action and Behavioral Idioms. In Predinger, H. and
+                                                                                    al
+    Ishiuka, M.(Eds), Life-like Characters: Tools, Affective
+    Functions and Applications, Springer 2004.
+                                                                               [18] David B. (2006). Nonverbal dictionary of gestures, signs
+                                                                                    and body language cues. Center for Nonverbal Studies
+                                                                                    Press, Washington. Available at
+                                                                                     http://www.members.aol.com/nonverbal2/diction1.htm
+
+
+
+                                                                         334
+
+    Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:11:14 UTC from IEEE Xplore. Restrictions apply.
+

@@ -1,0 +1,736 @@
+                 Gaze Interaction and People with Computer Anxiety:
+                   Paving the Way to User Interface Simplification
+                       Thiago Donizetti dos Santos                                                        Vagner Figueredo de Santana
+                     Federal University of ABC (UFABC)                                                               IBM Research
+                           Santo André, SP, Brazil                                                                São Paulo, SP, Brazil
+                           thiagods05@gmail.com                                                                   vagsant@br.ibm.com
+
+ABSTRACT                                                                                      1    INTRODUCTION
+The wide variety of services and data available on the internet may                           The literature presents different ways of removing barriers that
+make people’s lives easier, increasing the access to information and                          users may face when interacting with computers, for instance, the
+turning services that were complicated into more practical ones.                              Web Content Accessibility Guidelines (WCAG) 2.0 [14]. However,
+However, the use of computers can be difficult for some people due                            there are types of barriers that can affect how the user perceives
+to issues related to usability, accessibility, or for feeling afraid or                       the UI, even before the actual use. One example is low Computer
+anxious while using computers. When this anxiety reaches high                                 Self-Efficacy (CSE). CSE is the belief one has in his/her own abili-
+levels, they manifest what is known as Computer Anxiety (CA).                                 ties to perform a task in the computer [13]. The CSE is one of the
+People with Computer Anxiety (PwCA) may face problems when                                    characteristics influencing use and acceptance of technology by
+using computers at home, at work or for study purposes, resulting                             people afraid of facing difficulties while using computers. Charac-
+in multiple forms of barriers even before the actual interaction                              teristics of this type may represent a barrier even before the use of
+with a computer. In this context, an eye tracking field study was                             computers, due to preconceived ideas about abilities or difficulties
+performed with 39 elderly participants interacting with a website                             one may face when using computers. One of the characteristics
+aiming to identify user interface elements impacting negatively                               studied in this setting is Computer Anxiety.
+task performance and user experience for people with CA. More-                                   Computer Anxiety (CA) was first defined in terms of affective
+over, an initial exploratory study was performed on the feasibility                           factors such as intimidation, fear, apprehension, hostility, and wor-
+of creating a classifier for identifying sessions related to people                           ries that one will be embarrassed, will look stupid, or thinks she/he
+with CA. Results show that certain user interface elements (e.g.,                             could damage the computer [27]. Computer Anxiety is also related
+carousel and maps) might impact negatively task performance and                               to changes in four physiological measures when people interact
+user experience for PwCA, due to information overload and salient                             with computers, namely [49]: (1) Systolic blood pressure; (2) Dias-
+objects calling users’ attention. Moreover, classification model us-                          tolic blood pressure; (3) Heart rate; (4) Electrodermal response. In
+ing Random Forest reached accuracy of 84.8%. From the presented                               addition to physiological responses, Computer Anxiety has been
+results, one expects that personalized systems could use classifica-                          connected to cognitive negative reactions such as aversion [18].
+tion algorithms to identify sessions from PwCA and then simplify                              Bozionelos [7] presented a consolidated definition that encompasses
+user interfaces based on different levels of CA.                                              these two aspects, in which: “Computer Anxiety involves negative
+                                                                                              emotions and cognition processes evoked in actual or imag-
+CCS CONCEPTS                                                                                  inary interaction with computer-based technology.” Thus, CA
+• Human-centered computing → Field studies.                                                   might impact numerous activities performed by people with Com-
+                                                                                              puter Anxiety (PwCA) such as study, work, entertainment, leisure,
+KEYWORDS                                                                                      communication, among others.
+                                                                                                 Considering factors that increase CA, literature presents that
+Accessibility, Computer Anxiety, Computerphobia, Technophobia,
+                                                                                              lack of computer access, lack of training, bad first user experience,
+Eye tracking, Eye tracker, Eye gaze, Classification
+                                                                                              low frequency of use, and low usefulness of computer in daily tasks
+ACM Reference Format:                                                                         impact PwCA. CA is also related to technology acceptance [56] and,
+Thiago Donizetti dos Santos and Vagner Figueredo de Santana. 2021. Gaze                       while CA can affect people of all ages, the literature shows that CA is
+Interaction and People with Computer Anxiety: Paving the Way to User
+                                                                                              more present in older groups [11, 19, 54]. Thus, besides the existing
+Interface Simplification. In XX Brazilian Symposium on Human Factors in
+Computing Systems (IHC’21), October 18–22, 2021, Virtual Event, Brazil. ACM,
+                                                                                              stereotype related to elderly users, which should be avoided as
+New York, NY, USA, 12 pages. https://doi.org/10.1145/3472301.3484319                          presented in [30], there is a need for studies and initiatives to reduce
+                                                                                              CA for older adults due to strong relationship of this population
+Permission to make digital or hard copies of all or part of this work for personal or         with factors related to CA presented previously [54]. The increasing
+classroom use is granted without fee provided that copies are not made or distributed
+for profit or commercial advantage and that copies bear this notice and the full citation     need to use computers in daily activities, especially in the current
+on the first page. Copyrights for components of this work owned by others than ACM            context of the COVID-19 pandemics, shows the importance of
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,       supporting elderly people in the acceptance and use of computers,
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.                                            promoting autonomy and increasing their quality-of-life.
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                               According to earlier studies about CA, there is a relationship
+© 2021 Association for Computing Machinery.                                                   between CA and negative emotions (like anger or fear) and could
+ACM ISBN 978-1-4503-8617-3/21/10. . . $15.00
+https://doi.org/10.1145/3472301.3484319                                                       be caused by low experience and lack of knowledge on how to
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                                                Santos and Santana
+
+
+operate computers [55]. CA is also related to experience in using              The contributions presented in this paper point in two main
+computers, perceived ease of use, perceived usefulness, and behav-          directions: (1) feasibility on classifying sessions related to different
+ioral intention[25]. Computer experience and computer ease of use           levels of CA based on gaze data and (2) identifying UI elements that
+were identified as strong predictors of CA [29, 62]. Thus, high levels      might impact negatively task performance for people with CA. The
+of CA may impact the accessibility and usability of a system, acting        implications for HCI researchers encompasses providing building
+as a barrier to interaction.                                                blocks for the UI personalization/simplification pipeline for PwCA.
+   Human-Computer Interaction (HCI) can be defined as “A disci-                The following sections are organized as follows: section 2 presents
+pline concerned with the design, evaluation and implementa-                 related work, section 3 details the method followed, section 4 shows
+tion of interactive computing systems for human use and with the            results obtained, section 5 discusses the implications of the pre-
+study of major phenomena surrounding them” [28]. Bearing                    sented findings, and section 6 concludes.
+in mind the latter aspect on studying major phenomena surround-
+ing humans, an interesting aspect related to CA is that it can be
+a barrier even before the use of the computer, for instance, when           2   RELATED WORK
+people avoid using a computer due to preconceived ideas. In ad-             Computer Anxiety is also called Computerphobia, Computer Appre-
+dition, CA can occur before, during, and after the interaction with         hension, and Technophobia [3]. In a work about Computerphobia,
+a computing device. Given that a data-oriented approach implies             Rosen et al. [51] pointed out different methods and questionnaires
+capturing data during the interaction, the use of interaction data (in-     used to measure CA, presented next: Computer Anxiety Index
+teraction logs) to represent how CA affects the use of a UI and how         (CAIN) examines avoidance of, caution with, negative attitudes to-
+CA is manifested during the interaction is an interesting approach,         ward, and disinterest in computers [39]; Computer Attitude Scale
+making this theme especially relevant to HCI.                               (CAS) assesses computer liking, confidence, and anxiety through
+   In this context, the research question guiding the study is the          a Likert attitude-measurement format [37]; Attitudes Toward
+following: Is it feasible to consider user interaction logs (e.g., mouse,   Computers Questionnaire (ATCQ) assesses attitudes towards
+keyboard, gaze movements) to detect signals of CA automatically and         computer appreciation, usage, and societal impact [50]; Computer
+to personalize/simplify web pages for PwCA? According to [42], web          Anxiety Rating Scale (CARS) assesses behavioral, cognitive, and
+personalization implies delivering dynamic content, such as textual         affective components related to technology use [27, 51], being the
+elements, links, advertisement, product recommendations, etc., that         latter the most popular scale for measuring CA [54].
+are tailored to needs or interests of a particular user or a segment           The main factors related to PwCA are that they usually have
+of users. In addition to delivering tailored content, automatic per-        less experience in using computer, have low Computer Self-efficacy
+sonalization can also be used to simplify the content or the way the        (CSE), take too long to accomplish tasks, show low performance
+information will be shown to the user. Then, simplification can be          compared to other users, have negative beliefs about computer/skills,
+seen as a subset of personalization in which a data-driven system           or negative bodily sensations during/previous the interaction with
+identifies most relevant information to be in a prominent position          a computer [54]. CSE is a strong predictor of CA and people with
+and less relevant information to be in a less prominent position (or        low CSE usually avoid using computers at home or even at work.
+even removed), reducing thus any existing information overload.             Negative thoughts related to CSE can be either cause or conse-
+Hence, a system can use simplification to help users by removing            quence of bad performance on computer-based tasks [35]. Besides
+task distractors or changing the information architecture.                  that, earlier studies find a strong relationship between age and CA
+   In this context, identifying visual stimuli acting as distractors        levels, showing that CA is more present in older population than
+is fundamental. Thus, by recording eye gaze data, it is possible            younger ones [11, 19, 47]. This can be related to the pace in which
+to understand how user interface (UI) elements call users’ atten-           technology advances and to the fact that 48% of older adults report
+tion and also how non-task related UI elements distract users. A            that they usually need someone else to set up a new electronic
+technology that can help in this sense is eye tracking. Then, the           device or show them how to use it [10].
+proposed UI simplification pipeline involves the following steps:              The Technology Acceptance Model (TAM), used to explain the
+(1) logging interaction data, (2) identifying users who have higher         technology adoption behavior through the relation of different
+levels of CA, (3) identifying elements acting as distractors, and (4)       factors, has CA as a component that influences the perceived ease
+simplifying UI by removing non-task related UI elements. This said,         of use. Perceived ease of use is defined as the degree to which
+this work presents an eye tracking study run prior to the COVID-19          a person believes that using a particular system would be free
+crisis, focusing on the step 3 of the presented pipeline. It involved       of effort [1]. Therefore, when considering the adoption of new
+39 elderly users (with different CA levels) while interacting with          computing systems for PwCA, HCI practitioners should take CA
+a website in order to identify UI elements acting as distractors (if        into account, from the detection to personalization features.
+any).                                                                          The influence of CA was investigated in different contexts such
+                                                                            as acceptance of e-learning tools, e-gov, acceptance of new tech-
+1.1     Contribution Statement                                              nologies and health-care systems [12, 26, 32, 38, 48, 56]. The authors
+This paper is part of long-term project and it includes preliminary         of these studies concluded that:
+results published elsewhere for different steps of the proposed
+pipeline, namely: (1) a systematic review on CA and interaction [54]            • PwCA tend to prefer traditional classes, with paper-pencil
+and (2) a proposal on how to classify sessions related to different               tests, instead of e-learning systems and computer-based
+levels of CA based on mouse and keyboard events [17].                             tests;
+Gaze Interaction and People with Computer Anxiety                                                     IHC’21, October 18–22, 2021, Virtual Event, Brazil
+
+
+     • PwCA usually have worse performance on virtual classes             of triangulating eye movement, interaction, and thinking-aloud
+       when compared to people without CA;                                data [6, 52, 53].
+     • PwCA have more difficulties in accepting new technologies;
+     • Older PwCA face difficulties while using home telehealth           3     METHOD
+       services.
+                                                                          Before the main experiment, a pilot was performed in order to
+                                                                          assess the materials, procedure, setup, experiment design, and data
+   Considering support offered to PwCA, the literature presents
+                                                                          analysis planned. The goal of the experiment was to collect data
+that instructional/technical support reducing CA in the context of
+                                                                          related to questionnaires and eye gaze data, while participants per-
+e-learning systems [22, 40, 45].
+                                                                          formed tasks on a website. After the user tests, all data would be
+   In previous works investigating the classification of user sessions
+                                                                          processed and analyzed using supervised classification algorithms
+based on detailed interaction logs, tree-based Machine Learning
+                                                                          and fixations analysis on areas of interests (AOIs). The pilot in-
+algorithms provided a baseline for speed and accuracy (e.g., 83%
+                                                                          cluded 4 elderly participants who were not included in the main
+of accuracy) [17, 43]. Thus, this work also explores the feasibility
+                                                                          experiment, recruited in the same way the participants of the main
+of using solely eye gaze data to classify sessions into different CA
+                                                                          experiment (detailed in the next section). The pilot achieved its
+levels, using tree-based algorithms.
+                                                                          goals and the only change performed was related to the positioning
+   Eye trackers have been used extensively in studies on user in-
+                                                                          of the eye tracker and computer used in the tests.
+teraction and behavior [31]. In the context of the web, [46] explore
+the determinants of ocular behavior of young people on a single
+web page and conclude that it is influenced by the gender and view-       3.1    Participants
+ing order of a web page, that there is an interaction between page        According to the literature [54], elderly people usually face diffi-
+order and site type and that the complexity of web page design            culties in staying up-to-date with technology and, since they have
+influences the degree of scanpath variation among different sub-          not used computers since childhood, many of them face CA even
+jects on the same web page. Regarding what attracts and keeps             when performing what could be a simple task to others age groups.
+the user’s attention, [21] investigates page location, element size,      Hence, the target-audience considered in this work is elderly people,
+and information density. In addition, [61] explores the correlation       defined as people over 60 years old.
+between text and image visual features. Moreover, [16] studies what          The participants of the experiment were recruited from a list
+attracts the attention of people of the Generation Y (age 18–31).         of registered people that participate in the activities of the elderly
+Furthermore, [23] investigates how past web browsing experience           center of the city of São Paulo, Brazil, called Reference Centre for
+influences web viewing behavior using gaze frequency analysis. In         Citizenship of Elderly (CRECI@). Before the recruiting participants,
+the referred study authors found differences between frequent web         a partnership was signed and the proper process for ethics com-
+users and non-frequent users, concluding that prior web brows-            mittee was followed at the Federal University of ABC (process #
+ing experiences form an individual’s efficient tracking method or         2.808.392 and CAEE: 94704418.8.0000.5594 ), detailing the materi-
+mental model of how to view a web site to get information.                als, procedure, questionnaires, data to be collected, and analysis
+   Previous studies have used eye tracking to analyze the relation-       to be performed. This study was performed before the COVID-19
+ship between eye gaze and anxiety in general, although no study           crisis and follow up field works are planned to occur as soon as the
+involving CA and eye tracking was found. For instance, [34] ana-          activities at CRECI@ are reestablished.
+lyzed the differences between anxious and non-anxious people in              In addition to age, other criteria considered to select potential
+focal-attention and pupil dilation. Moreover, [64] explored factors       participants was to invite only those who had never taken computer
+that should be considered as possible anxiety-inducers for readers        classes offered by CRECI@, since literature points out that computer
+of news sites, using analysis of areas of interest (AOIs), fixation and   classes potentially reduce CA, as presented in related work section.
+heat maps from respondents’ eye activity. In the referred study, the         Beyond the pilot performed to assess the experiment procedure,
+participants were divided into four groups of anxiety (low, mod-          the main experiment included 39 participants. Due to exclusion
+erate, high and severe) and the results show differences between          criteria defined in the section 3.3, data from 8 participants were
+high and severe anxious people related to the preference between          not considered. For the resulting 31 participants, gaze data was not
+text and images. In addition, while participants with high anxiety        captured correctly in three of them; in two cases the eye tracker
+mostly had almost-tie fixation ratios between text and images, the        stopped capturing during the experiment; in one the best calibration
+severe anxiety group had a larger-text preference.                        obtained was not enough for detecting fixations. Thus, the number
+   Eye tracking was also employed to support personalization, adap-       of participants considered for eye gaze data analysis is 28 people.
+tation and recommendation in web-based systems and visualiza-                The participants’ ages ranged between 61 and 87 years old (mean
+tions. For instance, [59] proposes a user-adaptive information vi-        = 71.92); 48.39% were females and 51.61% males. When considering
+sualization system using the user’s eye gaze data to infer their          computer use, 38.46% of the participants reported they do not own
+cognitive style during the interaction. Moreover, [20] present a          a computer and do not have frequent access to computers, while
+proactive content based recommender system that employs web               10.26% do not own a computer, but use it at lanhouses or those
+document clustering performed by using eye gaze data. And [57]            available in public places; 51.28% reported owning computers. Re-
+use eye gaze to automatically adapt multiple visualizations. Fur-         garding frequency of use, 61.29% reported that rarely (less than once
+thermore, in order to better understand what, how, and why partic-        a month) use a computer, 16.13% reported that use it sometimes
+ipants performed certain actions, authors argue about the benefits        (more than once a month), 6.45% reported that usually (more than
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                                            Santos and Santana
+
+
+once a week) use it, and 16.13% reported that always (everyday) use              to technology use [27, 51]. The rationale for using CARS is
+computers. When considering ownership and use of smartphones,                    that it is the most referenced questionnaire for screening
+89.74% of the participants reported that they own smartphones and                CA.
+53.85% reported that they always (everyday) use it. The education            • State-Trait Anxiety Inventory (STAI): This inventory as-
+level of the participants varies from 0 to 15 years of formal edu-               sesses the anxiety under the stable trait (STAI-T), related
+cation (mean = 9.69) (Figure 1). Regarding the possibility of lack               to the individual characteristics, and under the transitory
+of vision, motor coordination issues and hearing impairment, the                 state (STAI-E), that could vary depending on the situation. It
+participants reported that the use of glasses (when needed) was                  is based on the Spielberger’s concept of anxiety [5, 58]. The
+enough to correctly see the computer screen, and none of them                    STAI is composed of two Likert scales with 20 items each [5].
+presented hearing impairment or motor coordination limitations                   The rationale for using STAI-T was to compare anxiety (trait
+that could have impacted the execution of tasks or the results.                  and transitory) to CA.
+                                                                             • Computer Self-Efficacy (CSE): Proposed by [13], CSE is a
+                                                                                 ten items scale used to assess Computer Self-efficacy [60].
+                                                                                 The rationale for using CSE was to cross check the results
+                                                                                 from this study with results from the literature that show
+                                                                                 that CSE has a strong but inverse relationship with CA.
+                                                                             • System Usability Scale (SUS): A five points Likert scale ques-
+                                                                                 tionnaire with ten items. It is often used to quickly assess
+                                                                                 the perceived usability [9]. The rationale for using it was to
+                                                                                 compare perceived usability of the website considered in the
+                                                                                 study and the CARS values.
+                                                                            Moreover, a table-mounted eye tracker was used to register user
+                                                                         gaze data. In this experiment, the eye tracker used was The Eye
+                                                                         Tribe1 , which provides access to raw gaze data and pupil diameter.
+
+      Figure 1: Distribution of years of formal education.               3.3     Procedure
+                                                                         The experiment was divided into three main steps: pre-test, test,
+3.2     Materials                                                        and post-test. The steps are detailed in the next subsections.
+Questionnaires about CA and computers skills were applied. In            3.3.1 Pre-test. First, screening tests for cognitive deficit, depres-
+order to isolate CA from other comorbidities, questionnaires to          sion, and literacy were applied to identify participants whose scores
+assess cognitive abilities and levels of depression were applied.        fall outside the inclusion criteria. The Mini Mental presents a score
+Only participants with low levels of depression and those who do         indicating good cognitive capacity relating the answer points ob-
+not present signals of dementia or cognitive deficits had their data     tained and years of education of the participant. Hence, the exclu-
+considered in the data analysis. These two metrics were considered       sion criteria considered for the Mini Mental were the following:
+in the exclusion criteria, detailed in the procedure section.                  • No formal education: ≤ 21 points;
+   The questionnaires applied are listed below:                                • 1 to 5 years of formal education: ≤ 24 points;
+     • Mini Mental: A cognitive screening test used for adults and             • 6 to 11 years of formal education: ≤ 26 points;
+       elderly to evaluate orientation, memory and attention, nam-             • 12+ years of formal education: ≤ 27 points
+       ing ability, obedience to verbal and writing commands, free          For the GDS screening test, a person has indicators of low lev-
+       writing of a sentence, and copying of a complex drawing           els of depression if he/she scores four points or less on the scale.
+       (two intersecting polygons). It is currently the most used test   Hence, the exclusion criterion was: 𝐺𝐷𝑆 ≥ 5 points. After the tests
+       for this type of assessment in the world [41]. The rationale      considered in the exclusion criteria, the technology use and profile,
+       for using Mini Mental was to identify any comorbidity.            CARS, STAI, and CSE were applied.
+     • Geriatric Depression Scale (GDS): Proposed by [63], GDS has
+       30 yes/no questions and it is used for screening depression       3.3.2 Test. The user test was performed on a computer with the eye
+       in elderly people [2]. The rationale for using GDS was also       tracker calibrated for each user. The website considered in the test
+       to identify any comorbidity.                                      was the SESC website. The Social Service of Commerce (SESC) is a
+     • Technology use and profile: It has questions about the par-       private entity maintained by the entrepreneurs of the trade in goods,
+       ticipant’s age, educational level, and frequency of use of        tourism, and services. SESC’s objective is to provide the welfare and
+       computers and smartphones. This questionnaire was applied         quality of life to workers in this sector and their families 2 . SESC
+       to give an overview of how participants use technology daily      offers several activities as courses, sports, art exhibition, concerts,
+       basis (Appendix A).                                               and other events related to culture and entertainment in multiple
+     • Computer Anxiety Rating Scale (CARS): Proposed by [27],           units in the metropolitan area of São Paulo. The tasks read out loud
+       CARS has nineteen questions in a five points Likert scale         to participants were the following:
+       ranging from strongly disagree to strongly agree. It assesses     1 http://theeyetribe.com
+
+       the behavioral, cognitive and affective components related        2 https://www.sescsp.org.br/
+Gaze Interaction and People with Computer Anxiety                                                     IHC’21, October 18–22, 2021, Virtual Event, Brazil
+
+
+    (1) Search for an event, class, or activity he/she might be inter-    was used to calculate the mean pupil diameter and the number of
+        ested;                                                            pupil dilations. The rationale for selecting these attributes was that
+    (2) Find the address of the unit where the chosen activity/event      the velocity and distance traveled by the eye may be different de-
+        is offered;                                                       pending on the user way of interacting with the studied UI. Those
+    (3) Find the route to the unit.                                       differences can occur when the user does not know how to perform
+   The tasks and their chaining were defined to approximate the           the task or gets lost. Moreover, the pupil size and its variation may
+needs and the daily lives of the participants, especially impor-          indicate cognitive load [33]. Finally, all the metrics were combined
+tant in the context of CA. Moreover, during the tasks, participants       in a single comma-separated-values (CSV) file used to build the
+were encouraged to verbalize their thoughts and actions they were         models. The creation of the models was performed using Weka [24].
+planning/doing, following the Thinking-Aloud Protocol [36]. User          3.4.2 Fixation Analyses. Beyond the metrics extracted solely from
+screen and audio were recorded in order to reduce the burden of           the eye tracker logs, an investigation on how fixations occur on
+the facilitator during the individual sessions.                           different AOIs and how they relate with task performance was also
+   There was no maximum time limit for task completion. Thus,             done. The AOI analysis was performed over the user screen capture
+the task duration depended on participants telling whether they           video annotated with gaze data in conjunction with thinking-aloud
+finished or gave up on performing each of the tasks, and they could       recordings. The rationale was to deal with eventual noise from the
+take breaks if they wanted. Moreover, the participants could ask          eye tracker. In order to annotate the video with eye tracker data,
+questions as part of the Thinking-aloud Protocol, but instead of          a python script was created to processes all the eye tracker files
+giving answers, the facilitator read again the current task and in-       and, for each of them, it generated a subtitle file. The python script
+structed the participant to try as he/she would do in a real situation.   reads the lines on the eye tracker file identifying whether it is a
+3.3.3 Post-test. In order to evaluate the perceived usability of the      saccade or fixation and the position where it occurred. When a
+website used in the test, participants were asked to answer the           saccade occurred, the script produces a line on the output file using
+SUS questionnaire. Through the SUS score, the goal is to verify if        subtitle commands that shows an ‘O’ on the respective XY-position
+perceived usability had any relationship with CA levels.                  and, in the same way, when fixations happen, a line showing an ‘X’
+                                                                          is produced. Then, the output file produced is saved as subtitle file
+3.4     Data Analysis                                                     with .srt extension and it is used to perform the video analysis.
+                                                                             AOIs were defined according to relevant areas of the UI and clus-
+According to the exclusion criteria defined, the data from partic-
+                                                                          ters of similar UI elements. When performing task 1, participants
+ipants who did not score the points required by Mini Mental or
+                                                                          could interact with the homepage, search, or browse using the top
+scored five or more points on GDS were removed from the data set
+                                                                          menu and then going to the courses page. Based on these strategies,
+to be analyzed.
+                                                                          the AOIs defined for Task 1 are shown on Figure 2.
+   In the experiment, there were data coming from multiple sources:
+                                                                             In the task 2, participants could browse the page containing
+eye tracker, screen, thinking-aloud, and questionnaires.
+                                                                          detailed information about the activity (Figure 3) and the name of
+   Eye trackers usually aim at registering two different behaviors:
+                                                                          the unit where it is offered, as well as the “Ver no Mapa” (Show Map)
+fixations and saccades. Fixations happen when the eyes are station-
+                                                                          link that opens a map showing where the unit is located, which is
+ary focusing on something, typically taking between 100 and 600
+                                                                          the task 3. AOIs defined for task 3 are presented in Figure 4.
+milliseconds, while saccades are rapid ballistic movements between
+                                                                             Finally, for each task, statistical tests were applied to compare
+the fixations, usually taking from 10 to 100 milliseconds [4, 44]. The
+                                                                          fixations on AOIs, aiming at identifying statistically significant
+eye tracker data was processed and used in two different ways, one
+                                                                          differences.
+to study the classification feasibility and another to perform the
+fixation analyses.                                                        4   RESULTS
+3.4.1 Classification feasibility study. The attributes considered in      The obtained scores for CARS ranged from 20 to 59 (mean 42.19).
+the classification feasibility test were the following:                   Based on the approach presented in [15], where the maximum and
+     • Gaze total distance;                                               minimum scores are used to divide the participants into 3 groups,
+     • Gaze mean distance;                                                the participants were divided as follows:
+     • Gaze total time;                                                        • No CA: 20 ≤ CARS ≤ 33 (7 participants);
+     • Gaze velocity;                                                          • Low CA: 34 ≤ CARS ≤ 46 (10 participants);
+     • Number of pupil dilations;                                              • High CA: 47 ≤ CARS ≤ 60 (11 participants).
+     • Mean pupil diameter.                                                  The CSE scores ranged from 22 to 100 (mean 59.23), the STAI-T
+   The eye tracker produces a file in which the lines show the coor-      from 21 to 45 (mean 30.6), the STAI-E from 20 to 37 (mean 23.71),
+dinates of the point viewed by the user, whether it was a fixation        and the SUS scores ranged from 20 to 90 (mean 55.57). The Table 1
+or not, the pupil size, and the timestamp showing when it occurred.       shows the mean scores for each CA group. Statistically significant
+Thus, in order to obtain the attributes, the eye tracker files were       correlations were found between CARS and CSE (𝑟ℎ𝑜 = −0, 464 e
+processed using the coordinates and timestamps to compute sac-            𝑝 −𝑣𝑎𝑙𝑢𝑒 < 0, 01), CARS and STAI-T (𝑟ℎ𝑜 = 0.534 e 𝑝 −𝑣𝑎𝑙𝑢𝑒 < 0.01),
+cade distances (gaze total and mean distance), the velocity of the        and CARS and SUS (𝑟ℎ𝑜 = −0.478 e 𝑝 − 𝑣𝑎𝑙𝑢𝑒 < 0.01).
+saccades between the fixations (gaze velocity) and the sum of the            Regarding the computer experience and CARS, results show
+time interval between fixations (total time). The size of the pupil       that the group with higher CA scores includes less people owning
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                           Santos and Santana
+
+
+
+
+                                        (a)
+                                                                                           (a)
+
+
+
+
+                                                                                           (b)
+
+                                        (b)
+                                                                Figure 3: AOIs defined for task 2 encompassing classes and
+                                                                activities (a) and SESC sites (b) pages.
+
+
+
+
+                                        (c)
+
+Figure 2: AOIs defined for task 1 encompassing homepage                     Figure 4: AOIs defined for task 3.
+(a), classes and activities (b), and search result (c) pages.
+Gaze Interaction and People with Computer Anxiety                                                          IHC’21, October 18–22, 2021, Virtual Event, Brazil
+
+
+computer. Similarly, considering the frequency of use, people that        faced difficulties with the map-based UI. For instance, participant
+rarely use computer are the ones with greater CA levels (Figure 5).       11 said: “It doesn’t say where it is. I didn’t like SESC.”, participant
+                                                                          35 said: “Why don’t you have the address on the about the unit
+   Class CARS(𝜎) CSE(𝜎)       STAIT(𝜎) STAIE(𝜎) SUS(𝜎)                    page?” and participant 42 said: “It will take me a long time to find
+   High 51.4(3.4) 48.7(16.5) 32.8(6.2) 23.8(3.3) 46.1(11.1)               it [address]”. During the use the map, for instance, participant 22
+   Low 42.2(2.7) 59.8(19.1) 30.1(4.5) 24.7(4.3) 59.2(17.3)                said: “What should I do here? I have never used it [map] before”
+   No    27.6(4.2) 74.6(15.5) 25.7(2.7) 21.7(2.1) 63.6(17.3)              and participant 35 felt confused when he did not find transport
+Table 1: Mean scores and standard deviations by Computer                  options commonly available in a map-based UI while participant
+Anxiety groups; the highest values are in bold.                           37 missed text input fields for starting point and destination.
+
+                                                                          4.1     Classifying Sessions from Eye Gaze Data
+                                                                          In order to assess feasibility of building a classification model for
+                                                                          identifying sessions as coming from one of the CA groups, a ex-
+                                                                          ploratory study was performed using different classification algo-
+                                                                          rithms. The features considered were the following: Gaze Total
+                                                                          Distance (px), Gaze Mean Distance (px), Gaze Total Time (sec),
+                                                                          Gaze Velocity (px/s), Mean Pupil diameter (normalized for each
+                                                                          subject) and class. All data were normalized.
+                                                                             The number of instances of each class (i.e., No CA, Low CA, and
+                                                                          High CA) is not balanced. The No CA class has seven instances,
+                                                                          the Low CA has ten instances and High CA has 11 instances. To
+                                                                          deal with this issue, a resampling algorithm3 was applied. The algo-
+                                                                          rithm used aims at generating balanced classes resampling elements
+ Figure 5: Relationship between computer use and groups.                  based on the data instances and keeping key characteristics of the
+                                                                          available data according to the original distribution. In this assess-
+   Bearing in mind task completion (Figure 6), 21 out of 28 (75%)         ment, a 10-fold-cross-validation was employed when testing the
+participants found an activity of interest and completed the first        classification algorithms.
+task. Four participants found an activity that was not of interest to          Algorithm               Precision          Recall
+them or was offered by a unit far from their home, but they were
+                                                                               Random Forest           84.8%              83.9%
+unable to find another one after that. The remaining three gave
+                                                                               Random Tree             80.2%              80.6%
+up without finding an activity. For the second task, eight out of 21
+                                                                               J48                     80.2%              80.6%
+(38.10%) participants found the correct address of the unit where
+                                                                               LMT                     75.7%              74.2%
+the selected activity is offered and 19 participants (including those
+                                                                               Hoeffding Tree          74.7%              74.2%
+who did not complete the first task) found only the name of the unit.
+                                                                                Table 2: Best results found during model creation.
+Regarding the last task, 12 out of 28 (42.86%) participants found the
+map available on the site, but all of them failed to find the route to
+the unit. Only two out of 12 participants figured out how to set the             No CA High CA Low CA <– classified as
+starting point address on the map-based UI and four participants                 11        0         0          No CA
+used the text input box for starting point address in the wrong way.             2        7          1          High CA
+                                                                                 1        1          8          Low CA
+                                                                          Table 3: Confusion matrix for the Random Forest algorithm.
+
+                                                                             Table 2 shows the best results obtained and respective classi-
+                                                                          fication algorithms. Results show that Random Forest algorithm
+                                                                          is a good fit for the problem and this data set, reaching 84.8% of
+                                                                          accuracy and 83.9% of recall; the Random Forest algorithm used is
+                                                                          based on [8]. Moreover, given that the proposed use of such classi-
+                                                                          fier is to identify for whom to offer personalization/simplification
+                                                                          features, even the false positives are less critical due to the goal
+                                                                          of the study. Table 3 shows the confusion matrix resulting from
+            Figure 6: Task completion rate by group.                      running the Random Forest algorithm for this dataset. Moreover,
+                                                                          having explainability in mind, Figure 7 presents the resulting tree
+   In sum, task completion dropped from 75.00% (task 1), 38.10%           from the random Tree classifier. In the tree it is possible to verify
+(task 2), and 0% (task 3); 7.14% partially completed the last task.       that greater mean pupil diameter and smaller total distance are as-
+This can be related to factors as task difficulty, fatigue effects, and   sociated with high CA group. This might be related to the cognitive
+task dependence. However, after triangulating these results with          3 http://weka.sourceforge.net/doc.dev/weka/filters/supervised/instance/
+thinking-aloud data, it was possible to identify that participants        Resample.html
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                                             Santos and Santana
+
+
+load during tasks causing dilation responses and the exploratory          and “I want courses. This doesn’t interest me". Another participant
+visual search behavior, triggering shorter saccades in the vicinity       seemed to be confused when an image showing a Brazilian viola,
+of the current UI element.                                                in which he was interested, changed to another image and then he
+                                                                          asked: “Is the viola gone? Where is the viola?”. After clicking on
+                                                                          the carousel, a participant said: “I do not know where this is going”.
+   Gaze Total Time (sec) < 0.22                                           Figure 9b shows the concentration of fixations on different AOIs
+                                                                          for task 2. In this task, participants had to find the address of the
+       Mean Pupil Size < 0.53
+                                                                          unity from which participants chose an activity. Similar to task 1,
+            Gaze Total Time (sec) < 0.08 : Low                            participants with high CA interacted more with top menu. In this
+                                                                          task, the top menu was not directly related to the task, given that
+            Gaze Total Time (sec) ≥ 0.08                                  the address was part of the description, as presented how people
+                                                                          with no CA interacted more with description AOI. Figure 9c shows
+                Gaze Total Dist. (px) < 0.32 : High                       the concentration of fixations on different AOIs for task 3. In this
+                                                                          task, participants had to find a route to the unit identified in the
+                Gaze Total Dist. (px) ≥ 0.32 : Low                        task 2. It is possible to verify that the group with no CA interacted
+                                                                          a bit less with input address AOI and a bit more with the routes
+                                                                          than the other groups. Beyond the fixations on AOIs, participants
+       Mean Pupil Size ≥ 0.53 : High
+                                                                          reported during the task that “they had never used the map before”,
+                                                                          “they usually have difficulty when using a map”, “they know that
+   Gaze Total Time (sec) ≥ 0.22
+                                                                          is possible to find a route using a map, but they do not know how
+       Mean Pupil Size < 0.54                                             to do it”, “the map has not changed, it is the same thing” when
+                                                                          they selected a suggested route. Others complain that they want to
+            Gaze Mean Dist. (px) < 0.76
+                                                                          enter an address, but do not know where and that the part of the
+                Mean Pupil Size < 0.19 : Low                              map saying “suggested routes” does not suggest anything, referring
+                                                                          to the suggested routes features that remains blank until the user
+                Mean Pupil Size ≥ 0.19                                    enters a departure address. The participants also asked questions
+                                                                          such as, “where do I type the address?”, “what should I do?”, “what
+                     Gaze Total Dist. (px) < 0.35
+                                                                          do I have to write?” and “where are the text input for the starting
+                          Gaze Total Dist. (px) < 0.17 : No               address and the destination? Don’t you have it here?”, referring
+                                                                          to the difference between the Google Maps and the map-based UI
+                                                                          used on the site.
+                          Gaze Total Dist. (px) ≥ 0.17 : High
+
+                     Gaze Total Dist. (px) ≥ 0.35 : No
+
+            Gaze Mean Dist. (px) ≥ 0.76 : Low
+
+       Mean Pupil Size ≥ 0.54 : High
+
+
+Figure 7: Tree representing the random tree classifier result.
+All measures are normalized.
+
+4.2     Fixations on Areas of Interest                                          Figure 8: Fixations by tasks and CA level groups.
+Figure 8 shows the number of fixations per task. It is possible to
+verify that the fixations decrease as people with high and low CA            Kruskal-Wallis test results comparing fixation for the three CA
+perform tasks, while the group with no CA increased fixations in          groups show that for the top menu AOI present on the courses
+the task involving interaction with map-based UI. This might be           page (p-value=0.006) is used in different ways by different groups.
+related with fatigue-related effects, as presented in [54].               Considering a significance level of 0.05, the difference of the number
+   Figure 9a shows the concentration of fixations on different AOIs       of fixations on this AOI is statistically significant. For the others
+for task 1. In this task, participants had to search for an activity of   AOIs analyzed, the results are p > 0.05.
+interest and they explored different ways of navigating. However, it         Figure 10 and Table 4 shows the average time to complete tasks
+is possible to verify that people with high CA interacted more with       by group for each task. It can be seen that the group of participants
+top menu and carousel UI elements. While top menu was part of the         with high CA had a shorter task time than the other groups for task
+task, carousel distracted users. For instance, a participant said: “I     1. This might be related to the fact that people with high CA usually
+have seen it several times. Only that [carousel] appears.”. Other par-    gave up more because they feel frustrated, lost, or think that they
+ticipants said: “Only these images appear and it is not what I want”      would not be able to finish the task. This can be exemplified by the
+Gaze Interaction and People with Computer Anxiety                                                      IHC’21, October 18–22, 2021, Virtual Event, Brazil
+
+
+participants quotes as: “I think I will have difficulty in this task”,
+“This is difficult” and “I’m lost, I don’t know what to do”.
+
+
+
+
+                                                                                                             (a)
+
+
+                                     (a)
+
+
+
+
+                                                                                                             (b)
+
+                                     (b)
+
+
+
+
+                                                                                                             (c)
+                                     (c)
+                                                                            Figure 10: Average time spent on tasks 1 (a), 2 (b), and 3 (c).
+Figure 9: Fixations on AOIs during tasks 1 (a), 2 (b), and 3 (c).
+
+5    DISCUSSION                                                             a website. Bearing in mind the AOIs and UI elements impacting
+This paper presented a feasibility study considering eye gaze data          task performance for PwCA, results indicate that distractor UI el-
+to classify sessions in terms of CA levels and a user study aiming          ements, i.e., components that are not needed for completing task
+at identifying different AOIs and its UI elements. The classifier ob-       impact negatively task performance. Elements that most impacted
+tained more than 84.8% of accuracy, showing that such approach is           task time/completion were the ones increasing visual stimuli (as
+feasible for detecting similar effects for this population. Statistically   shown by mean pupil diameter) and not related to task at hand (e.g.,
+significant inverse correlation between CARS and CSE is in accor-           carousel, top menu) or different from standard web UI elements
+dance to results presented previously. Positive correlation between         (e.g., map-based UIs). Task completion, number of fixation by task,
+CARS and STAI-T suggests that CA is related with trait, but not             and thinking-aloud quotes indicate that there might be a fatigue
+with state. And the inverse correlation between CARS and SUS                effect associated with difficulties with map-based UI for the high
+suggests that higher levels of CA impact the perceived usability of         and low CA groups. The implications for HCI researchers in this
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                                           Santos and Santana
+
+
+aspect are related to the design of shorter and simpler tasks and to      clicked the “OK” button without entering an address and nothing
+improve map-based UI as well.                                             changed.
+
+               Task 1 (s)       Task 2 (s)     Task 3 (s)
+  Class        Mean (𝜎)         Mean(𝜎)         Mean(𝜎)                   6   CONCLUSIONS
+  High CA 411.18 (230.72) 599.67 (220.30) 398.00 (262.19)                 This work presented an eye tracking field study that involved 39
+  Low CA 647.90 (666.46) 450.13 (336.52) 560.50 (30.50)                   elderly participants. From this set of participants, 31 participants
+  No CA      525.14 (331.39) 587.00 (390.73) 399.67 (375.05)              surpassed exclusion criteria. In addition, gaze data from 3 partic-
+Table 4: Average task time by group and standard deviations.              ipants were discarded due to eye tracker malfunctioning. Finally,
+                                                                          data from 28 participants were considered in the study.
+    Based on the results, the time spent on the tasks can be related         The presented contribution is twofold. A feasibility study was
+with the UI elements that users interact with or looked at more.          presented considering classifying sessions of users in one of dif-
+Then, the elements that impacted task time were the carousel and          ferent groups (i.e., no CA, low CA, and high CA). Results show
+the top menu present on the home page. Regarding the carousel,            that a classifier could be deployed in website to support person-
+some participants reported that it attracted attention and they           alization for PwCA. This solves the issue of when to personalize.
+thought that they had to see all the images and texts present in them.    In addition, there is a need for identifying what to simplify (step
+Although the top menu was part of the task, it was observed that          #3 of the proposed UI simplification pipeline). In this sense, this
+some participants looked at it and read all the links several times       paper presents how fixations were triggered on different AOIs for
+during the tasks. Besides that, the top menu does not inform which        different CA groups, when they are task-related or when they are
+link was selected, so when a user clicked on the classes link and the     distractors. Recommendations for simplifying UI for PwCA should
+page loaded, for instance, the participants demonstrated not know-        consider reducing distractors (moving) elements (e.g., carousel).
+ing which page they were, causing them to read the menu again             Moreover, UI elements different from standard ones might impact
+and go to another location. On the page listing available classes and     task performance, as PwCA might know less UI design patterns
+activities, the participants spent more time trying to understand         than people more used to interact with technology.
+the side menu and how to use it to filter content. Not everyone              The implications for HCI researchers are supporting identify-
+understood its function and some users faced problems when using          ing when and what to simplify. Namely, feasibility on identifying
+it, for instance, when using the schedule filter, some participants       different levels of CA based only on gaze related metrics and UI
+were unable to understand which elements were clickable.                  elements that can act as distractors for PwCA. In this sense, this
+    Bearing in mind the participants who completed the tasks and          work presents an initial step towards UI simplification for PwCA.
+those who deviated or were lost, it can be seen how the UI elements          Considering limitations of the study, the main issue is the num-
+can help the task completion or lead to error. The main example of        ber of participants and eye tracker accuracy. In addition, the main
+an UI element that led to the error was the carousel. The presence of     goal of this study was to explore the automatic detection in envi-
+this element caused some participants to be distracted, preventing        ronments as the one studied, namely, older adults interacting with
+them to explore other parts of the page, taking the focus off the top     computers. The setup of the entire experiment was designed to
+menu that could lead straight to the list of courses. Most partici-       address the situation in which a person interacts with the system
+pants (60%) who entered some link on carousel did not complete            sitting in front of the computer, focused on the tasks, and using
+the first task and only 20% of the participants who entered some          mouse and keyboard devices. Although this setup is meaningful
+carousel link completed the second task, showing how hard was             for the Brazilian context, in the sense that it occurs in community
+for participants to recover from the task deviation caused by it. The     centers, lanhouses, and at home, the approach adopted here may
+participants usually got lost after following a carousel link, causing    not work for different contexts. For example, in other scenarios
+them to become frustrated and sometimes give up after interacting         in which someone uses a notebook, mobile device, input devices
+with it. The SESC website does not have breadcrumbs nor other user        other than mouse and keyboard, or interacts with the Web while
+guidance to show where users are. Then, some participants got lost        performing another task. In these scenarios, the interaction data
+even when they were on task-related pages. Regarding map-based            logged could be different and, thus, require further investigation
+UI, since no participant completed the third task, it is possible to      and are beyond the scope of this work.
+notice that they faced problems. The first problem was that the              In this paper we have shown gaze metrics related to CA and
+input text box for the starting point address was not effectively         UI elements candidates to personalization for PwCA. Future work
+identified, causing only two out of twelve participants who arrived       aims at involving more users from the same target-audience to
+on the map to be able to correctly enter the starting point address.      experiment a prototype for simplifying UI for PwCA as soon as
+Other four participants tried to use it typing the destination address.   COVID-19 crisis is finished.
+Observing the participants who entered the address correctly, it
+could be seen that they did not understand the results showing
+the suggested routes and its relationship with the route shown at
+the map area. Another problem occurred when the map is open               ACKNOWLEDGMENTS
+and there is an area with the title “routes suggested”, but empty,        We thank the CRECI@ for all the support. This study was financed
+given that the user has not yet entered the address. This made some       in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível
+participants think that the site was not working properly, as they        Superior - Brasil (CAPES) - Finance Code 001.
+Gaze Interaction and People with Computer Anxiety                                                                              IHC’21, October 18–22, 2021, Virtual Event, Brazil
+
+
+REFERENCES                                                                                  [26] Rugayah Hashim, Hashim Ahmad, and Che Abdullah. 2010. Paradox of e-learning
+ [1] Fazil Abdullah, Rupert Ward, and Ejaz Ahmed. 2016. Investigating the influence              for distance education students at UiTM Shah Alam. In Distance Learning and
+     of the most commonly used external variables of TAM on students’ Perceived                  Education (ICDLE), 2010 4th International Conference on. IEEE, 105–107.
+     Ease of Use (PEOU) and Perceived Usefulness (PU) of e-portfolios. Computers in         [27] Robert K. Heinssen, Carol R. Glass, and Luanne A. Knight. 1987. Assessing
+     Human Behavior 63 (2016), 75–90.                                                            computer anxiety: Development and validation of the computer anxiety rating
+ [2] Osvaldo P. Almeida and Shirley A. Almeida. 1999. Confiabilidade da versão                   scale. Computers in human behavior 3, 1 (1987), 49–59.
+     brasileira da Escala de Depressão em Geriatria (GDS) versão reduzida. Arquivos         [28] Thomas T. Hewett, Ronald Baecker, Stuart Card, Tom Carey, Jean Gasen, Marilyn
+     de Neuro-Psiquiatria 57 (06 1999), 421 – 426. http://www.scielo.br/scielo.php?              Mantei, Gary Perlman, Gary Strong, and William Verplank. 1992. ACM SIGCHI
+     script=sci_arttext&pid=S0004-282X1999000300013&nrm=iso                                      Curricula for Human-Computer Interaction. http://old.sigchi.org/cdg/index.html
+ [3] Mustafa Baloğlu and Vildan Çevik. 2008. Multivariate effects of gender, ownership,     [29] Maxwell K. Hsu, Stephen W. Wang, and Kevin K. Chiu. 2009. Computer attitude,
+     and the frequency of use on computer anxiety among high school students.                    statistics anxiety and self-efficacy on statistical software adoption behavior: An
+     Computers in Human Behavior 24, 6 (2008), 2639–2648.                                        empirical study of online MBA learners. Computers in Human Behavior 25, 2
+ [4] Jennifer R. Bergstrom and Andrew Schall. 2014. Eye tracking in user experience              (2009), 412–420.
+     design. Elsevier.                                                                      [30] Loredana Ivan and Ioana Schiau. 2016. Experiencing Computer Anxiety Later
+ [5] Ângela M. B. Biaggio. 1980. Desenvolvimento da forma infantil em português                  in Life: The Role of Stereotype Threat. In International Conference on Human
+     do inventário de ansiedade traço-estado de Spielberger. Arquivos Brasileiros de             Aspects of IT for the Aged Population. Springer, 339–349.
+     Psicologia 32, 3 (1980), 106–118.                                                      [31] Robert JK Jacob and Keith S Karn. 2003. Eye tracking in human-computer
+ [6] Tanja Blascheck, Markus John, Steffen Koch, Leonard Bruder, and Thomas Ertl.                interaction and usability research: Ready to deliver the promises. In The mind’s
+     2016. Triangulating user behavior using eye movement, interaction, and think                eye. Elsevier, 573–605.
+     aloud data. In Proceedings of the Ninth Biennial ACM Symposium on Eye Tracking         [32] Ashok Jashapara and Wei-Chun Tai. 2006. Understanding the complexity of
+     Research & Applications. 175–182.                                                           human characteristics on e-learning systems: an integrated study of dynamic
+ [7] Nikos Bozionelos. 2001. Computer anxiety: relationship with computer experi-                individual differences on user perceptions of ease of use. Knowledge Management
+     ence and prevalence. Computers in human behavior 17, 2 (2001), 213–224.                     Research & Practice 4, 3 (2006), 227–239.
+ [8] Leo Breiman. 2001. Random forests. Machine learning 45, 1 (2001), 5–32.                [33] Eszter Józsa. 2010. A potential application of pupillometry in web-usability
+ [9] John Brooke et al. 1996. SUS-A quick and dirty usability scale. Usability evaluation        research. Periodica Polytechnica Social and Management Sciences 18, 2 (2010),
+     in industry 189, 194 (1996), 4–7.                                                           109–115.
+[10] Pew Research Center. 2017. Tech Adoption Climbs Among Older Adults. http://            [34] Krzysztof Krejtz, Katarzyna Wisiecka, Izabela Krejtz, Paweł Holas, Michał Ol-
+     www.pewinternet.org/2017/05/17/tech-adoption-climbs-among-older-adults/                     szanowski, and Andrew T Duchowski. 2018. Dynamics of emotional facial
+[11] Jyh-Rong Chou and Hung-Cheng Tsai. 2009. On-line learning performance and                   expression recognition in individuals with social anxiety. In Proceedings of the
+     computer anxiety measure for unemployed adult novices using a grey relation                 2018 ACM symposium on eye tracking research & applications. 1–9.
+     entropy method. Information Processing & Management 45, 2 (2009), 200–215.             [35] Kerrie D. Laguna and Renee L. Babcock. 2000.                   Computer Testing
+[12] Miha Cimperman, Maja M. Brenčič, and Peter Trkman. 2016. Analyzing older                    of Memory Across the Adult Life Span.                    Experimental Aging Re-
+     users’ home telehealth services acceptance behavior-applying an Extended                    search 26, 3 (2000), 229–243.            https://doi.org/10.1080/036107300404877
+     UTAUT model. International journal of medical informatics 90 (2016), 22–31.                 arXiv:https://doi.org/10.1080/036107300404877 PMID: 10919068.
+[13] Deborah R. Compeau and Christopher A. Higgins. 1995. Computer self-efficacy:           [36] Clayton Lewis. 1982. Using the" thinking-aloud" method in cognitive interface
+     Development of a measure and initial test. MIS quarterly (1995), 189–211.                   design. IBM TJ Watson Research Center Yorktown Heights, NY.
+[14] World Wide Web Consortium et al. 2008. Web content accessibility guidelines            [37] Brenda H. Loyd and Clarice Gressard. 1984. Reliability and factorial validity of
+     (WCAG) 2.0. (2008).                                                                         computer attitude scales. Educational and psychological measurement 44, 2 (1984),
+[15] Elizabeth D. Cooper-Gaiter. 2015. Computer anxiety and computer self-efficacy               501–505.
+     of older adults. (2015).                                                               [38] Ruth H. Maki, William S. Maki, Michele Patterson, and P. David Whittaker.
+[16] Soussan Djamasbi, Marisa Siegel, and Tom Tullis. 2010. Generation Y, web design,            2000. Evaluation of a Web-based introductory psychology course: I. Learning
+     and eye tracking. International journal of human-computer studies 68, 5 (2010),             and satisfaction in on-line versus lecture courses. Behavior Research Methods,
+     307–323.                                                                                    Instruments, & Computers 32, 2 (01 Jun 2000), 230–239. https://doi.org/10.3758/
+[17] Thiago Donizetti dos Santos and Vagner Figueredo de Santana. 2019. A Computer               BF03207788
+     Anxiety Model for Elderly Users Interacting with the Web. In Proceedings of            [39] Matthew M. Maurer and Michael R. Simonson. 1984. Development and validation
+     the 16th Web For All 2019 Personalization - Personalizing the Web (W4A ’19).                of a measure of computer anxiety. (1984).
+     Association for Computing Machinery, New York, NY, USA, Article 32, 10 pages.          [40] Ram Mehar and Avneet Kaur. 2017. Effect of Web Based Instructional Strategy
+     https://doi.org/10.1145/3315002.3317565                                                     on Achievement in Computer Science in Relation to Computer Anxiety. Asian
+[18] Eileen Doyle, Ioanna Stamouli, and Meriel Huggard. 2005. Computer anxiety, self-            Journal of Research in Social Sciences and Humanities 7, 6 (2017), 202–216.
+     efficacy, computer experience: An investigation throughout a computer science          [41] Denise M. de Melo and Altemir J. G. Barbosa. 2015. O uso do Mini-Exame
+     degree. In Frontiers in Education, 2005. FIE’05. Proceedings 35th Annual Conference.        do Estado Mental em pesquisas com idosos no Brasil: uma revisão sistemática.
+     IEEE, S2H–3.                                                                                Ciência e Saúde Coletiva 20 (12 2015), 3865 – 3876. http://www.scielo.br/scielo.
+[19] Mireia Fernández-Ardèvol and Loredana Ivan. 2015. Why age is not that impor-                php?script=sci_arttext&pid=S1413-81232015001203865&nrm=iso
+     tant? An ageing perspective on computer anxiety. In International Conference on        [42] Bamshad Mobasher. 2007. Data mining for web personalization. In The adaptive
+     Human Aspects of IT for the Aged Population. Springer, 189–200.                             web. Springer, 90–135.
+[20] Daniela Giordano, Isaak Kavasidis, Carmelo Pino, and Concetto Spampinato.              [43] Fabiano M. de Moraes, Vagner F. de Santana, and Juliana C. Braga. 2016. Sup-
+     2012. Content based recommender system by using eye gaze data. In Proceedings               porting the selection of web content modality based on user interactions logs. In
+     of the Symposium on Eye Tracking Research and Applications. 369–372.                        Proceedings of the 13th Web for All Conference. ACM, 40.
+[21] Laura Granka, Helene Hembrooke, and Geri Gay. 2006. Location Location Loca-            [44] Jakob Nielsen and Kara Pernice. 2010. Eyetracking web usability. New Riders.
+     tion: Viewing Patterns on WWW Pages. In Proceedings of the 2006 Symposium              [45] Zacchaeus O Omogbadegun. 2019. Technical Support: Towards Mitigating Effects
+     on Eye Tracking Research & Applications (ETRA ’06). Association for Computing               of Computer Anxiety on Acceptance of E-Assessment Amongst University Stu-
+     Machinery, New York, NY, USA, 43. https://doi.org/10.1145/1117309.1117328                   dents in Sub Saharan African Countries. In ICT Unbounded, Social Impact of Bright
+[22] Saurabh Gupta. 2017. Reducing computer anxiety in self-paced technology                     ICT Adoption: IFIP WG 8.6 International Conference on Transfer and Diffusion of
+     training. Advances in Teaching and Learning Technologies (2017).                            IT, TDIT 2019, Accra, Ghana, June 21–22, 2019, Proceedings, Vol. 558. Springer, 48.
+[23] Yoshiko Habuchi, Haruhiko Takeuchi, and Muneo Kitajima. 2006. The Influence            [46] Bing Pan, Helene A Hembrooke, Geri K Gay, Laura A Granka, Matthew K Feusner,
+     of Web Browsing Experience on Web-Viewing Behavior. In Proceedings of the                   and Jill K Newman. 2004. The determinants of web page viewing behavior: an
+     2006 Symposium on Eye Tracking Research & Applications (ETRA ’06). Association              eye-tracking study. In Proceedings of the 2004 symposium on Eye tracking research
+     for Computing Machinery, New York, NY, USA, 47. https://doi.org/10.1145/                    & applications. 147–154.
+     1117309.1117332                                                                        [47] Saroj Parasuraman and Magid Igbaria. 1990. An examination of gender differences
+[24] Mark Hall, Eibe Frank, Geoffrey Holmes, Bernhard Pfahringer, Peter Reutemann,               in the determinants of computer anxiety and attitudes toward microcomputers
+     and Ian Witten. 2009. The WEKA data mining software: an update. ACM SIGKDD                  among managers. International Journal of Man-Machine Studies 32, 3 (1990),
+     explorations newsletter 11, 1 (2009), 10–18.                                                327–340.
+[25] Bassam Hasan and Mesbah Ahmed. 2012. A path analysis of the impact of                  [48] Chee W. Phang, Juliana Sutanto, Atreyi Kankanhalli, Yan Li, Bernard C. Tan,
+     application-specific perceptions of computer self-efficacy and anxiety on technol-          and Hock-Hai Teo. 2006. Senior citizens’ acceptance of information systems: A
+     ogy acceptance. In End-User Computing, Development, and Software Engineering:               study in the context of e-government services. IEEE Transactions on Engineering
+     New Challenges. IGI Global, 354–368.                                                        Management 53, 4 (2006), 555–569.
+                                                                                            [49] William G. Powers et al. 1973. The Effects of Prior Computer Exposure On
+                                                                                                 Man-Machine Computer Anxiety. (1973).
+IHC’21, October 18–22, 2021, Virtual Event, Brazil                                                                           Santos and Santana
+
+
+[50] Annalyse C. Raub. 1981. Correlates of computer anxiety in college students.           Music / Video: [ ] Yes   [ ] No
+     (1981).
+[51] Larry D. Rosen, Deborah C. Sears, and Michelle M. Weil. 1987. Computerphobia.
+     Behavior Research Methods 19, 2 (1987), 167–179.
+[52] Vagner Figueredo de Santana, Rogerio Abreu de Paula, Juliana Jansen Ferreira,
+     Renato Cerqueira, Dario Sergio Cersósimo, Marco Ferraz, and Joana Almeida.
+     2019. Different Specialties, Different Gaze Strategies: Eye Tracking Opportunities
+     in Seismic Interpretation Context. In Extended Abstracts of the 2019 CHI Conference
+     on Human Factors in Computing Systems (CHI EA ’19). Association for Computing
+     Machinery, New York, NY, USA, 1–6. https://doi.org/10.1145/3290607.3313083
+[53] Vagner Figueredo de Santana, Juliana Jansen Ferreira, Rogério Abreu de Paula,
+     and Renato Fontoura de Gusmão Cerqueira. 2018. An Eye Gaze Model for Seismic
+     Interpretation Support. In Proceedings of the 2018 ACM Symposium on Eye Tracking
+     Research &; Applications (ETRA ’18). Association for Computing Machinery, New
+     York, NY, USA, Article 44, 10 pages. https://doi.org/10.1145/3204493.3204554
+[54] Thiago D. dos Santos and Vagner F. de Santana. 2018. Computer Anxiety and
+     Interaction: A Systematic Review. In Proceedings of the Internet of Accessible
+     Things. ACM, 18.
+[55] Maimunah M. Shah, Roshidi Hassan, and Roslani Embi. 2011. Computer anxiety:
+     Research results. In Humanities, Science and Engineering (CHUSER), 2011 IEEE
+     Colloquium on. IEEE, 386–391.
+[56] Maimunah M. Shah, Roshidi Hassan, and Roslani Embi. 2012. Technology ac-
+     ceptance and computer anxiety. In 2012 International Conference on Innovation
+     Management and Technology Research. 306–309. https://doi.org/10.1109/ICIMTR.
+     2012.6236408
+[57] Nelson Silva, Tobias Schreck, Eduardo Veas, Vedran Sabol, Eva Eggeling, and Di-
+     eter W Fellner. 2018. Leveraging eye-gaze and time-series features to predict user
+     interests and build a recommendation model for visual analysis. In Proceedings
+     of the 2018 ACM Symposium on Eye Tracking Research & Applications. 1–9.
+[58] Charles D. Spielberger, Richard L. Gorsuch, Robert E. Lushene, Peter R. Vagg,
+     and Gerard A. Jacobs. 1983. Manual for the state-trait anxiety inventory (Palo
+     Alto, CA, Consulting Psychologists Press). Inc (1983).
+[59] Ben Steichen, Bo Fu, and Tho Nguyen. 2020. Inferring Cognitive Style from Eye
+     Gaze Behavior During Information Visualization Usage. In Proceedings of the 28th
+     ACM Conference on User Modeling, Adaptation and Personalization. 348–352.
+[60] Jason B. Thatcher, J. Christopher Zimmer, Michael J. Gundlach, and D. Harrison
+     McKnight. 2008. Internal and External Dimensions of Computer Self-Efficacy:
+     An Empirical Examination. IEEE Transactions on Engineering Management 55, 4
+     (Nov 2008), 628–644. https://doi.org/10.1109/TEM.2008.927825
+[61] Sandeep Vidyapu, V Vijaya Saradhi, and Samit Bhattacharya. 2018. Fixation-
+     Indices Based Correlation between Text and Image Visual Features of Webpages.
+     In Proceedings of the 2018 ACM Symposium on Eye Tracking Research and; Appli-
+     cations (ETRA ’18). Association for Computing Machinery, New York, NY, USA,
+     Article 53, 5 pages. https://doi.org/10.1145/3204493.3204566
+[62] Jeffery D. Wilfong. 2006. Computer anxiety and anger: The impact of computer
+     use, computer experience, and self-efficacy beliefs. Computers in Human Behavior
+     22, 6 (2006), 1001–1011.
+[63] Jerome A. Yesavage, Terence L. Brink, Terence L. Rose, Owen Lum, Virginia
+     Huang, Michael Adey, and Von O. Leirer. 1982. Development and validation of a
+     geriatric depression screening scale: a preliminary report. Journal of psychiatric
+     research 17, 1 (1982), 37–49.
+[64] Daniel Hadrian Yohandy, Djoko Budiyanto Setyohadi, and Albertus Joko Santoso.
+     2020. Considered Factors of Online News Based on Respondents’ Eye Activity
+     Using Eye-Tracker Analysis. Future Internet 12, 3 (2020), 57.
+
+
+A     TECHNOLOGY USE AND PROFILE
+    (1) Do you have a computer available at home? If not, do you use
+        a computer somewhere else (e.g., at work or in the lanhouse)?
+    (2) How often do you use a computer?
+        A: [ ] Rarely [ ] Sometimes [ ] Usually [ ] Always
+    (3) What do you usually do on computer?
+    (4) Do you own a smartphone?
+    (5) How often do you use smartphones?
+        A: [ ] Rarely [ ] Sometimes [ ] Usually [ ] Always
+    (6) What do you usually do on smartphone?
+        Internet: [ ] Yes [ ] No
+        Social networks: [ ] Yes [ ] No
+        Instant Message: [ ] Yes [ ] No
+        Call: [ ] Yes [ ] No
+        Games: [ ] Yes [ ] No
+        Message: [ ] Yes [ ] No
+

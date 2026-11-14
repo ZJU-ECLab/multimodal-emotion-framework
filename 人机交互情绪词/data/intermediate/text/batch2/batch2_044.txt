@@ -1,0 +1,253 @@
+                               Eye Tracking in Emotional Design
+                               Research: What Are Its Limitations?
+
+Cyril Brom                          Ondřej Javora                             Abstract
+Faculty of Mathematics and          Film and TV School                        Adding anthropomorphic graphical elements to
+Physics, Charles University in      Academy of Performing Arts in             computerized learning materials has been shown to
+Prague, Czech Republic              Prague                                    enhance learning. We have prepared an experimental
+brom@ksvi.mff.cuni.cz               Czech Republic                            study, in which we will investigate if learning is
+                                                                              enhanced because of the elevated positive affect of
+Tereza Stárková                     Edita Bromová                             learners or due to the attention-capturing effect of the
+Faculty of Arts, Faculty of         Faculty of Mathematics and                anthropomorphisms. Here, we present a pilot study
+Mathematics and Physics             Physics                                   asking if eye tracking might help in answering this
+Charles University in Prague        Charles University in Prague              question. Participants (N = 23) studied from one of
+Czech Republic                      Czech Republic                            three versions (schematic, enhanced black-and-white,
+                                                                              enhanced with color) of instructional slides about the
+Jiří Lukavský                                                                 influenza virus for about 10 minutes; with eye tracking.
+Institute of Psychology                                                       Their prior and, especially, post hoc negative affect was
+Academy of Sciences of the Czech                                              elevated, and positive affect decreased compared to
+Republic                                                                      participants from a similar experiment without an eye
+Czech Republic                                                                tracker (N = 37). One-third of participants reported
+                                                                              higher nervousness due to the eye tracker. The
+Permission to make digital or hard copies of all or part of this work for     attention-capturing effect was possible to measure; but
+personal or classroom use is granted without fee provided that copies are     with limitations. The implications for emotional design
+not made or distributed for profit or commercial advantage and that
+copies bear this notice and the full citation on the first page. Copyrights   studies with eye tracking are discussed.
+for components of this work owned by others than the author(s) must be
+honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior
+                                                                              Author Keywords
+specific permission and/or a fee. Request permissions from                    Emotional design; anthropomorphisms; positive affect;
+Permissions@acm.org.                                                          negative affect; eye tracking; eyes; slides.
+NordiCHI '16, October 23 - 27, 2016, Gothenburg, Sweden
+Copyright is held by the owner/author(s). Publication rights licensed to
+ACM.                                                                          ACM Classification Keywords
+ACM 978-1-4503-4763-1/16/10…$15.00
+DOI: http://dx.doi.org/10.1145/2971485.2996749                                H.5.2. User interfaces: Evaluation/methodology.
+Introduction
+Multimedia learning refers to learning from any material
+combining text and pictures [6], including textbooks,
+computerized presentations and animations or
+videogames. So-called multimedia learning principles
+(e.g. [3, 6]) show how to design these materials so
+that they can be cognitively processed by learners in an
+effective way. However, there is very limited knowledge
+on how to improve multimedia learning materials that
+have been already optimized from the cognitive
+perspective so that they are also affectively appealing
+and motivating and thus further enhance learning.
+These improvements are sought after in so-called
+emotional design research (e.g., [9, 12]). Our work is
+situated within this milieu and asks the following
+research questions:
+
+1.   if replacing schematic visual elements in a
+     computerized presentation with
+     anthropomorphisms with expressive eyes (see
+     Figure 1):
+     a)   elevates the positive affect [13] of learners;
+     b)   improves learning outcomes;
+     c)   has attention-capturing effects as measured by
+          eye tracking;                                       Figure 1. Graphics from the three versions of the slides
+                                                              compared in this experiment. Inspired by [7]. ©Ondřej Javora
+2.   if learning outcomes are predicted by
+     a)   affective-motivational variables;                   Background
+     b)   gaze patterns;                                      Opposing Effects of Affective Manipulations
+     c)   affective-motivational variables after the effect   In the emotional design research field, there is a
+          of gaze patterns is accounted for.                  consensus that a manipulation having the ability to
+                                                              elevate positive affect (or motivation, interest, positive
+This paper presents a pilot study for this research,          activating emotions) can have two effects with
+which (tentatively) addresses Questions 1a and 1c.            opposing impact on quality of learning (cf. [12]). First,
+                                                              it can activate the learner, increasing the effectivity of
+                                 cognitive processing (improving learning). Second, it         reason that because of them, learners’ processing of
+                                 can consume cognitive resources (hindering learning),         pictures will be improved. We thus refine our Research
+                                 because a) it has to be processed in the first place,         Question 1c by hypothesizing that:
+                                 which requires cognitive resources, and b) it can lead to
+                                 losing focus. This idea is theoretically underpinned, for     i.    expressive eyes will capture the learner’s attention
+                                 instance, by the Cognitive-Affective Theory of Learning             (i.e., learners will inspect the element with eyes for
+                                 with Media [6]. It is unknown for which manipulations               a longer period of time);
+                                 (and what types of learners) “affective” benefits             ii.   learners will follow eye gaze (and thus then process
+                                 outweigh disadvantages.                                             the adjacent element, e.g., virus  cell on Fig. 1).
+
+                                 Anthropomorphisms in Multimedia Learning
+                                                                                               We have used learning materials by Mayer and Estrella
+                                 Research on emotional design is in its infancy [9, 12].       [7] and optimized them for eye tracker usage (e.g., by
+                                 The most promising manipulation found so far is adding        normalizing the size of elements). The original
+                                 anthropomorphisms (combined with warm, bright color           materials included an anthropomorphic version with
+                                 or gray-scale) to brief animations or slides. Although        colors and a schematic version. We also added an
+                                 the data are not always clear-cut, this manipulation          anthropomorphic black-and-white version (Fig. 1) and
+                                 tends to elevate affective-motivational states [10, 12]       we included more sophisticated instruments for
+                                 and improve learning [1, 7, 10, 12]. It is not clear if the   measuring affective variables (not used in [7]).
+                                 positive effect of anthropomorphisms is of affective
+                                 origin (e.g., they can also have signaling effects, which     Based on previous results, small to medium effect sizes
+                                 improve the way learners process the pictures). Only          for between-condition differences in affective variables
+                                 one study on the effect of anthropomorphisms has used         can be expected. We cannot hope to detect such
+                                 an eye tracker [8]: it found attention-capturing effects      differences with the pilot’s sample size. However, as a
+                                 of expressive eyes but not of simpler geometric eyes. It      manipulation check (Question 1a), we ask if the
+                                 also reported no improvements to positive affect and          affective variables will be in the same ranges compared
+                                 mixed results concerning learning outcomes.                   to the affective states for a comparable sample
+                                                                                               engaged in a similar learning experience; namely,
+                                 This Study
+                                                                                               studying the functioning of a wastewater treatment
+                                 The aim of our whole study is to expand present               plant from a brief animation (cf. [2], Fig. 2).
+                                 knowledge on the usage of anthropomorphisms in
+                                 multimedia learning materials by investigating the            Method
+                                 attention-capturing effects of eyes as a mechanism
+                                                                                               Participants
+                                 (partly) responsible for improved learning outcomes
+                                 (cf. Research Question 2c from Introduction). In the          Undergraduate students of psychology – special
+Figure 2. A screenshot of the    current pilot study, we focus on Questions 1a and 1c.         education (17 females, 2 males; M age = 21.8±2.8
+animation used for comparison.                                                                 [±SD]) and undergraduate computer science students
+                                 Given the known signaling effects of eyes [4], we
+    Eye Tracking Details             (4 males; Mage = 21.5±1.7) participated. None of them         Mage = 21.2±1.4) and computer science (15 males, 1
+                                     had participated before in an eye tracking experiment.        female; M age = 23.1±2.1) for comparison. These
+Model: EyeFollower eye-              For the eye tracking analysis, we checked the number          persons studied (in a different experiment [2]) from a
+tracking system (LC                  of invalid gaze samples and fixations beyond the              black-and-white animation (Fig. 2) about the
+Technologies, Inc., USA), 120        monitor and discarded data from six participants (with        functioning of a waste wastewater treatment plant for
+Hz, 24-in screen, 75 cm dist.        <80% valid samples). The mean proportion of valid             roughly 6 minutes. The procedure and materials were
+Areas of Interest (AOIs):            samples in retained data was 94.1%±2.7.                       comparable to the present pilot study, except for the
+Three different levels of                                                                          eye tracker usage.
+detail: 1) whole textual vs.         Materials, Procedure
+pictorial part; 2) individual        Participants were informed that they will study (from a       Results and Discussion
+elements (e.g. cell, virus), 3)      few slides) how the influenza virus attacks the human         Do eyes capture attention?
+sub-elements (e.g. eyes of           body, that they would be tested on that knowledge
+                                                                                                   Learners spent more time on texts compared to
+the virus vs. the rest of the        thereafter and an eye tracker would be used as part of
+                                                                                                   pictures, regardless of the condition (331±132 s vs.
+virus, Figure 3).                    the research. After filling in a consent form, a
+                                                                                                   77±41 s). This is not surprising (e.g., cf. [5]). In the
+                                     demographic questionnaire, and a questionnaire on
+Analysis: Each valid gaze                                                                          debriefing, learners clearly indicated their awareness of
+sample (94.1%) assigned to           initial interest and anxiety (5 (3) items with a 7-point
+                                                                                                   anthropomorphisms (in the two respective conditions).
+a corresponding AOI. The             Likert scale; see [2]), the eye tracker was calibrated.
+                                                                                                   Descriptively, eyes captured more attention compared
+                                     Participants then received one of the slides versions
+dwell time analyzed for the                                                                        to the schematic version (19±14 s vs. 15±11 s; Figure
+critical AOIs and gaze               (Fig. 1). The slides were self-paced (2 introductory
+                                                                                                   4), but a smaller amount of time was spent on eyes
+transitions (where one’s gaze        textual slides; 9 text-and-picture slides: each with 1-5
+                                                                                                   overall compared to the rest of the anthropomorphized
+                                     elements with expressive eyes and one textual inset; 1
+lands next after visiting a                                                                        elements (19±14 s vs. 26±12 s). Across all conditions,
+critical AOI). Only transitions      final textual slide; Mtime-to-complete = 10.6±4.1 min). The
+                                                                                                   fixations on the virus were more frequent compared to
+with no other transition in 50       text was placed above the picture (650 words in total).
+                                                                                                   fixations on the cell (27±16 s vs. 18±14 s); probably
+                                     After the learning part, the PANAS [5] and the Flow
+ms considered.                                                                                     due to more complex shape of the virus (the mean area
+                                     short scale (FSS) [11] were administered. The PANAS
+                                                                                                   of virus AOIs represented a third of mean cell AOIs).
+                                     measured generalized positive and negative affect
+                                     (each with 10 items with a 5-point Likert scale) and the      In the most detailed AOI analysis (i.e., level 3), the
+                                     FSS measured flow levels (10 items, 7-point Likert            total number of transitions from eyes to the element
+                                     scale). Next, participants received an evaluation             that the eyes were looking at (e.g., eyes of the virus 
+                                     questionnaire irrelevant to the present purpose and           cell) was negligible in all conditions (10±12). However,
+                                     knowledge tests (we calibrated these tests during this        transitions from eyes to the rest of the element (e.g.,
+                                     pilot). Finally, participants were debriefed.                 eyes of the virus  virus) occurred substantially more
+                                                                                                   often (75±49). Analysis of transitions on a coarser level
+Fig. 3. AOIs example: the eyes       Sample and Materials Used for Comparison
+                                                                                                   (level 2; e.g. virus  cell) may thus provide a better
+(pink) vs. the virus (green) vs. a
+                                     We used different undergraduate students of                   measure (77±42); with sufficient variability to test
+different object (red). ©O. Javora
+                                     psychology – special education (20 females, 1 male;           further hypotheses and robustness against noise.
+                                         Taken together, these data indicate that in the main        Taken together, these findings warn us that the
+                                         study we are planning, the attention-capturing effect of    affective state of participants may also be influenced by
+                                         eyes could indeed be found (Hypothesis i). To inspect       the eye tracking research method per se. This means
+                                         its postulated consequences, i.e., gaze cueing              that for the main study, either participants influenced
+                                         (Hypothesis ii), it will be probably necessary to analyze   by the presence of the eye tracker will have to be
+                                         transitions between whole anthropomorphized elements        excluded, or different participants will have to be
+                                         rather than just from eyes. The same will likely be         recruited to investigate Questions 1a, 1b and 2a vs. 1c
+                                         needed in any similar study.                                and 2b (leaving Question 2c out). We have opted for
+                                                                                                     the latter option. The main study will continue during
+  Figure 4. Time spent on eyes by
+                                         Do anthropomorphisms elevate positive affect?               the rest of 2016 and the beginning of 2017.
+  condition (mean and SE).
+                                         An unexpected result was found when comparing
+                                         current affective data to data from the wastewater          Conclusion
+                                         treatment experiment (Table 1). Despite comparably          This pilot study investigated if the eyes of
+              Waste        This pilot
+                                         higher initial interest among this pilot’s participants,    anthropomorphized elements in instructional slides can
+               water         study
+                                         their initial anxiety, prior and, especially, post hoc      capture attention and elevate positive affect when
+  Prior      21.0 | 20      23.5 | 24    negative affect were also elevated. Participants’ post      attention-capturing effects are measured using an eye
+ interest      (4.9)         (4.4) +     hoc positive affect and flow levels were substantially      tracker. The results suggested that a) attention-
+  Prior      10.8 | 11      12.8 | 13    lower. Part of these differences could be explained by      capturing effects (if any) can be found in the main
+ anxiety       (2.5)        (2.7) **     a) the two participant samples used for comparison          study using the present research method, b) the
+                                         being slightly different and b) the materials and the       majority of transitions from eyes (or the
+  Prior      14.7 | 14      18.0 | 18
+                                         topic being different (e.g., slides vs. animation).         complementary area in the schematic version of the
+neg. aff.      (3.9)         (6.6) *
+                                         However, one-third of participants complained in the        slides) ends in the remaining part of the element with
+  Prior      28.6 | 28      27.5 | 27    debriefing that they were distracted and stressed by        the eyes, and c) the presence of the eye tracker may
+ pos. aff.     (6.0)        (6.2) n.s.   the eye tracker. This model’s camera made some noise        distract or even be stressful for some participants.
+                                         when searching for eyes (This happened quite often,
+Post hoc     12.1 | 12      17.0 | 14
+                                         because during the learning experience participants did     To our knowledge, this is the first study that attempts
+neg. aff.      (2.4)        (7.2) **
+                                         not fixate on the image all of the time. They also often    to analyze out-going transitions from eyes in the
+Post hoc     31.8 | 31      27.9 | 27    looked outside the screen when they were mentally           context of emotional design research. The
+ pos. aff.     (6.5)         (7.7) +     processing the learning message.). One-fourth of            methodological implication for future studies (including
+Post hoc     56.8 | 59      44.9 | 47    participants complained about noise, but this could         our own) is that analysis of transitions from whole
+   flow        (7.3)        (9.8) ***    explain post hoc differences, not prior differences.        elements could be needed. This is because there may
+                                         Indeed, five participants suggested that they were          be too few transitions leading from the eyes outside to
+Table 1. Affective variables: means |
+                                         concerned (prior to the experiment) with the fact that      the element containing the eyes for a meaningful
+medians (standard deviations).
+Significance tested by Mann-Whitney
+                                         their eyes would be monitored (a kind of “Big Brother”      analysis.
+test (+p < .1; *p < .05; p** < .01;      effect). The distribution of negative affect (Fig. 5)
+p*** < .001).                            suggests that this is unlikely an issue for all.
+                                        A wider methodological implication is that using an eye      [5] Johnson, C.I., & Mayer, R.E. An eye movement
+                                        tracker in studies where the affective variables are of      analysis of the spatial contiguity effect in multimedia
+                                        key interest may be problematic. This is because an          learning. Journal of Experimental Psychology:
+                                        eye tracker’s presence may influence the affective state     Applied, 18, 2 (2012), 178-191.
+                                        of some participants. Due to the preliminary nature of       [6] Mayer, R. Multimedia Learning. Cambridge
+                                        our findings, it is obviously still a question to what       University Press, 2009.
+                                        extent our results would generalize. It would be
+                                                                                                     [7] Mayer, R. E. and Estrella, G. Benefits of emotional
+                                        informative if other researchers check if participants in
+                                                                                                     design in multimedia instruction, Learning and
+                                        their studies were influenced the same as in our pilot
+                                                                                                     Instruction, 33 (2014), 12-18.
+                                        study.
+Figure 5. Prior and post hoc                                                                         [8] Park, B., Knörzer, L., Plass, J. L. and Brünken, R.
+negative affect for each participant.   Acknowledgements                                             Emotional design and positive emotions in multimedia
+                                                                                                     learning: An eyetracking study on the use of
+                                        This research was partially funded by the research
+                                                                                                     anthropomorphisms. Computers & Education, 86
+                                        project nr. 15-14715S supported by the Czech Grant
+                                                                                                     (2015), 30-42.
+                                        Science Foundation (GA ČR).
+                                                                                                     [9] Plass, J.L. and Kaplan, U. Emotional Design in
+                                        References                                                   Digital Media for Learning. In Emotions, Technology,
+                                        [1] Brom C., Hannemann, T., Starkova, T., Bromova,           Design, and Learning (2015), 131–161.
+                                        E., & Dechterenko, F. Anthropomorfic faces and funny         [10] Plass, J.L., Heidig, S., Hayward, E.O., Homer, B.D.
+                                        graphics in an instructional animation may improve           and Um, E. Emotional design in multimedia learning:
+                                        superficial rather than deep learning: A quasi-              Effects of shape and color on affect and learning,
+                                        experimental study. In Proc. of European Conference          Learning and Instruction, 29 (2014), 128-140.
+                                        on e-Learning (2016). (accepted)                             [11] Rheinberg, F., Vollmeyer, R. and Engeser, S. Die
+                                        [2] Brom, C., Hannemann, T., Stárková T., Bromová,           Erfassung des Flow-Erlebens [in German]. In
+                                        E., & Děchtěrenko, F. The role of cultural background in     Diagnostik von Motivation und Selbstkonzept, Hogrefe
+                                        the personalization principle: Experiments with Czech        2003, 261-279.
+                                        learners (2016). (submitted)                                 [12] Um, E.R., Plass, J.L., Hayward, E.O. and Homer,
+                                        [3] Clark, R.C. and Mayer, R.E. E-learning and the           B.D. Emotional Design in Multimedia Learning, Journal
+                                        Science of Instruction: Proven Guidelines for                of Educational Psychology, 104, 2 (2012) 485-498.
+                                        Consumers and Designers of Multimedia Learning. John         [13] Watson, D., Clark, L.A. and Tellegen, A.
+                                        Wiley & Sons 2011.                                           Development and validation of brief measures of
+                                        [4] Frischen, A., Bayliss, A.P. and Tipper, S. P. Gaze       positive and negative affect: the PANAS scales, Journal
+                                        cueing of attention: visual attention, social cognition,     of Personality and Social Psychology, 54, 6 (1988),
+                                        and individual differences. Psychological bulletin, 133, 4   1063-1070.
+                                        (2007) 694-724.
+

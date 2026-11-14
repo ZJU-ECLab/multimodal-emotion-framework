@@ -1,0 +1,521 @@
+    A Fuzzy Modelling Approach of Emotion for Affective Computing
+                              Systems
+
+             Charalampos Karyotis1, Faiyaz Doctor1, Rahat Iqbal1, Anne James1 and Victor Chang2
+     1Faculty of Engineering, Environment and Computing, Coventry University, Priory Street, CV1 5FB, Coventry, U.K.
+                          2School of Computing, Creative Technologies & Engineering, Leeds Beckett University,
+
+                                                                City Campus, Leeds, LS1 3HE, U.K.
+
+
+
+
+Keywords:              Adaptive Fuzzy Systems, Emotion Modelling, Affective Trajectories, Arousal Valence, Affective
+                       Computing, Personalised Learning.
+
+Abstract:              In this paper we present a novel affective modelling approach to be utilised by Affective Computing
+                       systems. This approach is a combination of the well known Arousal Valence model of emotion and the
+                       newly introduced Affective Trajectories Hypothesis. An adaptive data driven fuzzy method is proposed in
+                       order to extract personalized emotion models, and successfully visualise the associations of these models’
+                       basic elements, to different emotional labels, using easily interpretable fuzzy rules. Namely we explore how
+                       the combinations of arousal, valence, prediction of the future, and the experienced outcome after this
+                       prediction, enable us to differentiate between different emotional labels. We use the results obtained from a
+                       user study consisting of an online survey, to demonstrate the potential applicability of this affective
+                       modelling approach, and test the effectiveness and stability of its adaptive element, which accounts for
+                       individual differences between the users. We also propose a basic architecture in order for this approach to
+                       be used effectively by AC systems, and finally we present an implementation of a personalised learning
+                       system which utilises the suggested framework. This implementation is tested through a pilot experimental
+                       session consisting of a tutorial on fuzzy logic which was conducted under an activity-led and problem based
+                       learning context.
+
+
+
+1       INTRODUCTION                                                                           influence almost every cognitive process of an
+                                                                                               individual. Their influence in performance,
+The modern world calls for techniques which enable                                             motivation, learning, communication, perception and
+the surrounding environment to behave in an                                                    organization of memory, attention and many other
+intelligent way in order to support and aid people in                                          aspects of human life has been identified by
+their lives. Ambient Intelligence (AmI) has emerged                                            numerous studies (Nasoz, 2010). Therefore as
+as a discipline promising to satisfy this need through                                         Rosalind Picard pointed out, if we wish to construct
+modifying our everyday environment by providing                                                an intelligent system with a higher level of human
+intelligence to networks of electronic devices around                                          machine interaction, we should allow them to
+us. But how is it possible for this vision of AmI to                                           successfully recognize and model emotions, or even
+be realised through the development of truly                                                   enable them to express their own emotions. The
+intelligent systems, if they do not possess a basic                                            range of applications of AC is vast since emotion
+understanding of core aspects of human behavior                                                plays a vital role in every aspect of human life. Since
+such as emotions? Affective Computing (AC) is an                                               the dawn of AC we have seen applications in
+emerging scientific field that incorporates emotion                                            medicine (Lisetti, 2003), gaming (Mandryk, 2007),
+into the design of computing systems, in order to                                              learning (Graesser, 2005), driving (Nasoz, 2010) and
+bridge the gap between the emotional human and the                                             many others. This paper focuses especially on the
+emotionally challenged computer application.                                                   application of AC in learning by presenting a
+Affective Computing is defined in (Picard, 1999) as                                            personalised learning AC system. Emotion plays a
+"computing that relates to, arises from or                                                     vital role in the learning process due to its close
+deliberately influences emotions". Emotions                                                    relation to the levels of motivation and engagement
+
+
+                                                                                                                                                  453
+Karyotis, C., Doctor, F., Iqbal, R., James, A. and Chang, V.
+A Fuzzy Modelling Approach of Emotion for Affective Computing Systems.
+DOI: 10.5220/0005945604530460
+In Proceedings of the International Conference on Internet of Things and Big Data (IoTBD 2016), pages 453-460
+ISBN: 978-989-758-183-0
+Copyright c 2016 by SCITEPRESS – Science and Technology Publications, Lda. All rights reserved
+RAIBS 2016 - Special Session on Recent Advancement in IoT, Big Data and Security
+
+
+
+
+of the learner. Therefore we can infer the need of                  arousal, and it ranges from passive to active (figure
+AC systems with the ability to take emotion into                    2). For example anger can be defined as a high
+account in order to aid in the educational process.                 arousal and negative valence state. The AT
+    As proposed by Wu et Al in (Wu, 2010) an AC                     hypothesis on the other hand states that an emotional
+system should consist of three basic elements. These                experience can be created from the combination of a
+elements will be responsible for recognizing and                    person's evaluation of their current state, their
+modelling affect, and finally making the necessary                  predictions about the future, and their evaluations of
+shifts of user's affective states by outputting the                 the outcome they have experienced (Kirkland,
+necessary control signals (figure 1). Wu's affective                2012). With this approach anger could be defined as
+loop is the basis of our proposed architecture.                     a state where the outcome of a process is bad and
+                                                                    unexpected. In (Karyotis, 2015) was shown that this
+                                                                    approach can be used within the context of
+                                                                    education and that individual differences play a part
+                                                                    in the construction of different affective states.
+                                                                    Meaning that every individual utilizes the AT's basic
+               Figure 1: Wu's affective loop.
+                                                                    elements but may do so in a personalised manner.
+                                                                        In our research the use of the combination of
+    In AC one of the most important design                          these two models is suggested in order to
+dilemmas is the selection of the appropriate machine                differentiate more successfully between the emotion
+learning technique for modelling affect relations,                  labels we use to describe our affective state. More
+and mapping low level values, such as sensory                       specifically we propose a two stage (prediction-
+inputs, to values of affective states. Our selected                 outcome) modelling approach. In the first stage an
+machine learning and affect modelling approach is                   emotion is constructed from the combination of the
+based on Fuzzy Logic. Fuzzy logic systems are very                  person's arousal, valence and predictions of the
+efficient in dealing with uncertainties concerning                  future, while in the second stage we utilize the
+emotion (Wu, 2012). Different people may perceive                   combination of the person's arousal, valence and
+or express the same emotion differently                             evaluation of an outcome. As an example flow can
+(interpersonal uncertainty), while even the same                    be described as a state of medium-high arousal
+individual may have uncertainty about the same                      where one makes a positive prediction about the
+emotion in different times or in a different context                future, while excitement is a state of positive
+(intrapersonal uncertainty). Moreover through                       valence, high arousal and is mostly related with a
+employing fuzzy logic we can construct                              better than expected outcome. The AV and AT
+interpretable rule bases to illustrate the existing                 models have already been used in AC applications
+relations. This is fundamental for our research since               (Mandryk, 2007), (Karyotis, 2015) thus it would be
+we aim to be able to reveal the underlying affect                   interesting to explore the performance of this mix-
+relations while building an effective AC system.                    modelling approach in AC systems.
+    Modelling and understanding emotion is a very
+difficult task, heavily debated by psychologists. In
+the early days of psychology the prominent view
+was that the labels we use to describe our affective
+state are in direct relation to underlying discrete
+affective states. Paul Ekman for example identified
+six basic emotions (anger, disgust, fear, happiness,
+sadness and surprise) by using cross-cultural facial
+expressions experiments (Ekman, 1975). A different
+approach called psychological constructivism,
+suggests that emotion is constructed from the
+combination of more basic elements. Examples of
+constructivist theories are the Arousal Valence (AV)
+model (Russell, 1980) and the Affective Trajectories                               Figure 2: Russell's Affect Grid.
+(AT) Hypothesis (Kirkland, 2012). The arousal
+valence model suggests that emotions can be                            In the following sections we aim to highlight the
+represented as points in a two-dimensional space                    potential efficacy of this model, and introduce an
+where the first axis is valence, and it ranges from                 appropriate AC system's architecture able to utilize
+unpleasant to pleasant, and the second axis is                      our model beyond context constraints. In section 2
+
+
+454
+                                                      A Fuzzy Modelling Approach of Emotion for Affective Computing Systems
+
+
+
+
+the proposed fuzzy rule extraction and adaptation             in the story. Every variable is rated using sliders and
+method is presented, aiming to harvest the necessary          ranges from 0 to 100. Valence ranges from
+information in order to create personalized emotion           unpleasant (0) to pleasant (100), arousal from
+models. Obtained results, using data collected from a         deactivated (0) to activated (100), prediction from
+previous study, are also included in this section,            very negative (0) to very positive (100) and the
+demonstrating the stability of our method. The                degree the emotions fit the story from not at all (0)
+proposed AC system architecture is outlined in                to perfectly (100). As a result our data samples have
+section 3. In section 4 a personalised learning system        3 inputs and 8 outputs. The inputs for the first stage
+utilising the suggested architecture, fuzzy method            are valence, arousal and prediction, and those for the
+and affect modelling approach is presented. In                second stage are valence, arousal and outcome. The
+section 5 we test the proposed system with the help           outputs in both stages are values of the eight
+of a tutorial session on fuzzy logic and we present           emotions.
+the corresponding results. In section 6 conclusions
+and research directions are being discussed.                  2.2     Fuzzy MFs and Fuzzy Rule Base
+                                                                      Extraction
+
+2     METHODOLOGY                                             In order to extract the necessary MFs from the data,
+                                                              it is essential that we originally define the number of
+Our proposed fuzzy modelling approach comprises               fuzzy sets we require, in order to cover the input-
+of three stages. Firstly user data is collected using an      output space. Subsequently we utilize the FCM
+online survey as described in section 2.1. Then the           algorithm and compute the same number of fuzzy
+fuzzy membership functions (MF) are extracted, and            sets' centers. Finally we define the corresponding
+the fuzzy rule-bases are being constructed from the           fuzzy set to have triangular MFs with degree of
+data by using the approach outlined in section 2.2.           membership equal to one, at the previously
+Finally the general rule base extracted is adapted to a       computed by the FCM center. The support is the
+specific participant by utilizing the fuzzy adaptation        space defined between the projections of the
+method presented in section 2.3.                              previous center and the next center on the horizontal
+                                                              axis. Figure 3 displays the extracted fuzzy sets for
+2.1    Data Collection                                        the prediction element.
+
+In order to acquire the necessary data a user study
+was conducted to gather data relating to the
+construction of emotions from the proposed basic
+structural elements. The user study comprises of a
+survey including stories which describe common
+real life situations and are context specific (i.e.
+education). During the survey the user is asked to
+read the scenario and imagine that they are taking                        Figure 3: Prediction element's MFs.
+part in the story described. Each story consists of
+two stages. In the first stage, the starting point of the         The fuzzy rule extraction method is based on the
+story is described (e.g. "you are attending a                 method presented in (Wang, 2005) by Wang.
+mandatory seminar which you predict isn't going to            According to this method, initially every data
+be useful to you"). In the second part of the story,          sample is converted to a fuzzy rule. The extracted
+which follows consequently, the ending of the story           fuzzy rules are afterwards organized to groups, each
+is presented to the user (e.g. "the seminar proves to         group containing the rules with the same if-part. A
+be extremely interesting"). In the first stage, the user      single rule is then extracted for every group by
+is asked to provide ratings of their valence, arousal         computing the weighted average of the consequents
+and prediction while in the second stage the user is          of the all the rules in the group and by mapping the
+asked to rate their valence, arousal and evaluation of        extracted value to the corresponding output fuzzy
+the experienced outcome. In both stages, after                set. These fuzzy rules are utilised in our system by
+providing the corresponding values, the user rates            two fuzzy classifiers, for stage 1 and 2 respectively,
+the degree to which each of the emotional words               in order to map values of arousal, valence,
+(flow, excitement, calm, boredom, stress, confusion,          prediction and outcome to values of the targeted
+frustration and neutral state) fit their affective state      emotions.
+
+
+                                                                                                                      455
+RAIBS 2016 - Special Session on Recent Advancement in IoT, Big Data and Security
+
+
+
+
+2.3      Adaptation                                                   promising and can be improved and extended upon
+                                                                      completion of the data collection and processing
+As shown in (Karyotis, 2015) for the AT hypothesis                    phase of the new user study described in the
+every person uses the basic elements in a                             previous section. In (Karyotis, 2015) the data were
+personalized way in order for them to select the                      collected following the method described in section
+appropriate emotion label. For this to be accounted                   2.1. However this data do not account for the values
+in our model we implement a modified version of                       of arousal since the survey was aimed at modelling
+the Adaptive Online Fuzzy Inference System                            the AT theory. We have inferred some arousal
+(AOFIS) (Doctor, 2005) as proposed in (Karyotis,                      values from the provided emotional values by using
+2015). With this method the user can provide new                      the Affective Norms for English Words (ANEW)
+emotion values if they aren’t satisfied with the                      (Bradley, 2010) database. The values we used for
+output of the system, also resulting in changes to the                valence correspond to the values of "current state" as
+fuzzy rule base. This will allow the system to adjust                 used in (Karyotis, 2015), since this variable was
+its general rule base to a specific user, making it                   used to describe how positive or negative valenced
+more accurate and user-friendly. To achieve this,
+                                                                      the user was. To follow the aforementioned
+when the user provides new values, a new training
+                                                                      methodology arousal, valence and prediction values
+sample is formed, and fed into the system. This new
+data sample is used by the system to identify the                     are considered as inputs for the first stage
+rules that fired and alter the consequent of the rule                 classification systems. While for the second stage
+with the highest activation value. This is                            classification systems, the inputs are: arousal,
+accomplished by calculating the optimal position of                   valence and outcome values. For both stages the
+the output fuzzy set's center of the highest activation               outputs are values of the educational context specific
+value rule, given the contribution of all the other                   emotions: flow, excitement, calm, boredom, stress,
+fired rules, and by mapping this value to the                         confusion, frustration and the neutral state. For a
+corresponding output fuzzy set. Finally we propose                    chosen number of five fuzzy sets for both input and
+that the data samples collected offline from the                      output space we have computed the Normalized
+responses of a specific user at the online survey                     Root Mean Square Error (NRMSE) using ten-fold
+described before to be presented one by one to the                    cross validation for stage 1 and stage 2 classifiers of
+system. This way the system will make all the                         our proposed model (AV-AT) and of the model
+necessary changes to the fuzzy rule base, thus                        proposed in (Karyotis, 2015) (AT) . For the adaptive
+creating a more personalised system before the user                   versions (Adaptive AT and Adaptive AV-AT) we
+starts using it in a real time setting.                               considered the values given from a specific
+                                                                      participant as changes they have provided during
+2.4      Results                                                      their interaction with the system. The results are
+                                                                      shown in table 1.
+Since data collection is still ongoing, we used the                       To demonstrate the ability of the proposed fuzzy
+data collected for (Karyotis, 2015) in order to                       approach to produce easily interpretable fuzzy rules,
+demonstrate the stability of the system and                           we quote some examples of the rules extracted using
+interpretability of the rules obtained from the fuzzy                 this method on the data from (Karyotis, 2015) for
+method discussed above. The results acquired are                      excitement and flow.
+
+                         Table 1: NRMSE of AT and AV-AT models using the proposed fuzzy method.
+                                                                      NRMSE
+   Emotions                            Stage1                                                  Stage2
+                  AT        AV-AT      Adaptive AT   Adaptive AV-AT        AT        AV-AT      Adaptive AT   Adaptive AV-AT
+      Flow      0,2559      0,2478       0,1823           0,2098          0.2359     0,2379       0,1724          0,1813
+  Excitement    0,2432      0,2292       0,1766           0,1770          0.2081     0,2094       0,1654          0,1712
+      Calm      0,2763      0,2502       0,2175           0,1810          0.2857     0,2573       0,1882          0,1820
+   Boredom      0,2386      0,2180       0,2057           0,1658          0.2199     0,2102       0,1413          0,1274
+      Stress    0,2689      0,2284       0,2134           0,2120          0.2473     0,2522       0,1652          0,1591
+  Confusion     0,2145      0,2063       0,1512           0,1376          0.2331     0,2311       0,1366          0,1375
+  Frustration   0,2174      0,2175       0,1428           0,1512          0.2001     0,1910       0,1455          0,1862
+    Neutral     0,2209      0,2215       0,1682           0,1442          0.2064     0,2057       0,1278          0,1186
+    Overall     0,2420      0,2273       0,1822           0,1723          0.2296     0,2243       0,1554          0,1579
+
+
+
+
+456
+                                                   A Fuzzy Modelling Approach of Emotion for Affective Computing Systems
+
+
+
+
+If valence is neutral, and arousal is medium, and          (McFarland, 1985). As a result values of arousal and
+prediction is positive, then flow is medium.               valence can be acquired either explicitly, by asking
+If valence is positive, and arousal is high, and           the user, or implicitly, by computing estimates of
+outcome is better than expected, then excitement is        their values using physiological sensors. This can be
+high.                                                      achieved with the help of non obtrusive wearable
+                                                           devices such as the Autosense, the Empatica E3, or
+                                                           E4 sensors and others.
+3    PROPOSED AC
+     ARCHITECTURE
+In this section we will outline the architecture of an
+AC system utilizing the proposed approach. This
+approach can be applied in different contexts by
+simply adjusting the output emotions to context
+specific ones. For example the output emotions of a
+system installed in a car aiming to aid the driver,
+could comprise of: panic, fear, frustration, anger,
+boredom, fatigue (Nasoz, 2010), while for an
+affective learning system a suitable set of target
+emotions would be the one used in (Karyotis, 2015).
+Nevertheless no matter the context of the
+application, it is necessary to have separate sessions
+where the start and end points can be clearly
+defined, so that we can acquire the user's prediction
+and his evaluation of the experienced outcome. For
+example in a driving application, a driving session
+could include a journey, where the driver is able to               Figure 4: Proposed AC system architecture.
+provide a prediction for the journey ahead when
+entering the vehicle, and an evaluation of the                 Given the output emotion values and the context
+outcome when leaving the vehicle.                          of the application, the system delivers the
+    In figure 4 an overview of the proposed                appropriate feedback to the user. More specifically
+architecture can be found. The design encompasses          in the context of an affective driving application the
+the two-stage classification approach described in         system could suggest a break to the driver, or
+section 2. The inputs comprise of the user’s arousal,      choose a designated favourite radio station on the
+valence, and estimate of prediction for the first          car's entertainment system, when it detects high
+stage, while for the second stage the inputs used          levels of frustration. Another example would be
+include: arousal, valence, and evaluation of the           affective gaming, where the difficulty level could be
+outcome. These inputs are fed to the appropriate           adjusted to match the output emotion values. This
+classifiers in order to be mapped to the context           could be achieved by raising the difficulty level of
+related emotion values. The classification systems         the game to make the session more challenging, or
+also include the adaptation mechanism (described in        by decreasing the level to make the game more
+section 2.3) in order to account for individual            appealing to novice users. Moreover it would be
+differences and make the necessary changes to the          useful to store the input values of the basic elements
+fuzzy rule base when the user is not happy with the        along with the system's output values, and the values
+results and provides new values for the targeted           provided from the user in order to retrain the system,
+emotions. Valence and arousal have been found to           in a future time, when enough data have been
+have close relations to different physiological            accumulated, thus resulting to a rule-base which is
+signals. For example, a person’s heart rate (HR)           more tailored to the user. .
+(Rainville, 2006) can increase when he is presented
+with positive stimuli; the galvanic skin response
+signal (GSR) (Dawson, 2007) is in close relation to
+their arousal levels and their skin temperature (ST)
+changes according to their affective state
+
+
+
+                                                                                                                   457
+RAIBS 2016 - Special Session on Recent Advancement in IoT, Big Data and Security
+
+
+
+
+4     PERSONALISED LEARNING                                         important to note that the system could be used to
+                                                                    observe the student's affective state during activities
+      SYSTEM                                                        spanning multiple learning sessions. These student's
+                                                                    affective trajectories are stored and can be shown to
+In this section we will present the basic                           the student when required, allowing them to reflect
+implementation (using Matlab) of a personalized                     on their learning performance. For example in figure
+learning system based on the architecture described                 5 we can observe the user's affective trajectory for a
+above. The suggested system aims to aid the student                 session containing 4 activities (8 points).
+during collaborative, and activity led learning tasks.                  This AC system has a very low computational
+As mentioned before it is vital for our system to                   burden and can offer its services instantly and
+have predefined starting and end points so that the                 without requiring any complex and expensive
+prediction and outcome elements could be provided.                  equipment. A standard laptop or smart phone would
+In this case the entire learning session would consist              be a more than adequate device to run the system
+of a number of different activities. These activities               along with its adaptive mechanism, which
+may include: a lecture, a presentation, a lab exercise,             contributes to making the system more user-friendly
+a class game, a discussion etc.                                     and accurate.
+    The step by step implementation of the system
+for a single activity is described below. This process
+will be repeated for every activity of a specific
+learning session. At the beginning of the activity the
+user is explicitly asked to provide a value of his
+prediction concerning the upcoming activity. At this
+point of the research, arousal, and valence values are
+also acquired by explicitly asking the participant.
+The arousal, valence, and prediction values obtained
+are used from the system's first stage classifier to
+provide values for flow, excitement, calm, boredom,
+stress, confusion, frustration and neutral. The
+calculated emotional values are presented to the                        Figure 5: Recorded affective trajectory of a student.
+student with the use of bar charts. If a student is not
+happy with the results they can provide their own
+values for any of the emotions. These new values                    5     SYSTEM EVALUATION
+will be used by the adaptation mechanism to make
+the necessary changes to the fuzzy rule base. The                   In order to test the performance of the developed
+system will provide feedback to the student in the                  system we carried out a practical experimental
+form of tips, by taking into account the values of the              session, comprising of a tutorial on fuzzy logic,
+targeted emotions and the way these emotion                         where the participants were utilizing the proposed
+influence student's performance. Feedback appears                   system. A total of twenty one participants took part
+in the form of short motivational quotes or advice                  in the tutorial. All the participants had completed the
+("It appears you have high levels of stress, please try             online survey in order to provide the necessary data
+to discuss your concerns with your tutor or take a                  for the construction of a more personalised learning
+break"). The average values from every emotion                      system. The structure of the tutorial was congruent
+category are also calculated and shown to the tutor,                with the limitations of the model and followed an
+in the form of bar charts. As a result the tutor is able            activity led learning based approach. The tutorial
+to observe their classes' overall affective state, and              comprised of 2 separate sessions which contained 4
+thus they are able to adjust their teaching style or                activities each. The first session included an
+classroom conditions, to suit their students' needs.                introductory lecture on fuzzy logic, a class game
+    At the end of the activity the student is asked to              designed to introduce the students to the basic fuzzy
+provide a value rating of what happened (outcome)                   logic concepts, a discussion on famous quotes
+in respect to their prediction in the beginning of the              concerning the subject and finally a small quiz. The
+activity. Student's valence, arousal and outcome                    second session included a lecture focused on fuzzy
+values will be given to the second classifier which                 logic as an machine learning approach, example lab
+would be now responsible for providing the                          exercises using Matlab's fuzzy toolbox, a group
+necessary results. The feedback and adaptation                      project where the students were asked to utilize what
+mechanism is the same as in the previous stage. It is
+
+
+458
+                                                      A Fuzzy Modelling Approach of Emotion for Affective Computing Systems
+
+
+
+
+they have learned to solve a basic machine learning           due the adaptation process of the system which
+problem, and finally the students made a short                allowed for a more successful representation of
+presentation of their work to the class. All the              individual differences. Individual differences play a
+participants used their personal laptops where the            major role in the construction of emotions using the
+system was previously installed. Upon entering the            AT theory (Karyotis, 2015) as a result they play a
+class the participants were divided into groups of            major role in the AV-AT model which is an
+three students.                                               extension of the AT. The AV-AT emotional model
+    We tested the performance of the system in terms          also provides a more efficient emotional modelling
+of the emotion recognition accuracy it provided for           approach than the AV model for both stages. This is
+stage 1 and stage 2 of the emotional model                    obvious from the dominant emotion accuracy
+respectively. More specifically we tested the                 results. The AT-AV model scored 88.10% for stage
+recognition accuracy in terms of the NRMSE error              1 and 80.95% for stage2 respectively, while the AV
+for all emotion categories, and we also calculated the        scored around 60% for both stages. These are very
+dominant emotion accuracy (DEA) for the AV-AT                 logical results since the arousal valence model is not
+model in comparison to the accuracy provide it by             dependant of stages.
+another affective system if it used the AV model of
+emotion. As dominant emotion for our system we
+defined the emotion for which the system provided             6     CONCLUSIONS
+the highest value. In order to calculate the dominant
+emotion values for the AV model we initially                  In this paper we introduced an emotional modelling
+utilized the Affective Norms for English Words
+                                                              approach which combines the Arousal Valence
+(ANEW) (Bradley, 2010) database in order to define            model of emotion, and the Affective Trajectories
+clusters in arousal valence space representing each
+                                                              Hypothesis. We provided a framework in which this
+of the eight emotions (flow, excitement, calm,
+                                                              model can be utilised in Affective Computing and
+boredom, stress, confusion, frustration and neutral).         presented an example of a personalised learning
+The arousal and valence values of those words in the
+                                                              system which uses this architecture. The proposed
+database were used in order to define the cluster             system is responsible for recognizing and recording
+centers. Afterwards we utilized the arousal and               the affective state of a student through time, offering
+valence values provided from the participant, and
+                                                              in the same time appropriate feedback to aid in the
+the dominant emotion was defined by calculating the           learning process. This system utilizes the suggested
+minimum Euclidian distance from each clusters'                novel emotional modelling approach by using an
+centers. The results are shown in table 2.
+                                                              adaptive fuzzy logic mechanism.
+                                                                  Our preliminary results demonstrate the potential
+Table 2: NRMSE and DEA results for the tutorial session.
+                                                              of this model, and highlight the applicability of the
+                           NRMSE and DEA for fuzzy            implemented fuzzy method. By using the data from
+     Emotions                  Tutorial                       a previous study we observed that the fuzzy
+                         Stage 1            Stage2            approach used, proves to be stable, promising and in
+       Flow              7.3253             8.8728            the same time it is able to capture individual
+                                                              differences and preferences through its adaptive part.
+    Excitement           8.3177             7.1235
+                                                              Additionally the rule base extracted, using this
+      Calm               9.3274             8.1050
+                                                              method, contains easily interpretable fuzzy rules.
+     Boredom             7.2292             9.6106            These rules will allow us to visualize how an
+      Stress             10.8370            6.5552            individual combines the basic elements to choose an
+ Confusion               6.1300             9.6812            emotional label, thus enabling us to create both
+    Frustration          7.6439             9.5817
+                                                              general and personalised emotional models.
+                                                                  Ongoing work focuses on the collection and
+      Neutral            5.5270             8.6740
+                                                              processing of data through the online survey
+      Overall            7.7922             8.5253            described, in order to reveal and model the
+   AV-AT DEA             88.10%             80.95%            underlying affect relations. Upon the completion of
+     AV DEA              58.93%             60.12%            this process we aim to explore the performance and
+                                                              effectiveness of the proposed emotional model,
+   The results from table 2 show that the                     fuzzy technique and personalized learning system by
+performance of the proposed model outperforms the             using the system in a series of practical learning
+survey results for both stages. This is to be expected        sessions which utilize collaborative and activity led
+
+
+                                                                                                                      459
+RAIBS 2016 - Special Session on Recent Advancement in IoT, Big Data and Security
+
+
+
+
+learning tasks. Providing a novel computational                        Cambridge MA.
+methodology to model emotion, will enhance our                      Rainville, P., Bechara, A., Naqvi, N., and Damasio, A. R.
+understanding of the incorporation of emotion in the                   (2006) Basic emotions are associated with distinct
+design of computing systems, resulting in the                          patterns of cardiorespiratory activity. International
+                                                                       Journal of Psychophysiology, 61(1), 5–18.
+improvement of services provided by those systems                   Russell, J. A. (1980) A Circumplex Model of Affect.
+to their users.                                                        Journal of Personality and Social Psychology, 39(6),
+                                                                       1161–1178.
+                                                                    Wang, L. X. (2003) The MW method completed: A
+REFERENCES                                                             flexible system approach to data mining. IEEE
+                                                                       Transactions Fuzzy Systems, 11(6), 768–782.
+                                                                    Wu, D. et al. (2010) Using Physiological Signals: Virtual
+Bradley, M.M. & Lang, P.J. (2010). Affective Norms for                 Reality Stroop Task. IEEE Transactions on Affective
+    English Words (ANEW): Instruction manual and                       Computing, 1(2), 109–118.
+    affective ratings. Technical Report C-2, Gainesville,           Wu, D. (2012) Fuzzy sets and systems in building closed-
+    FL.The Center for research in Psychophysiology,                    loop affective computing systems for human-computer
+    University of Florida.                                             interaction: Advances and new directions, IEEE World
+Dawson, M.E., Schell, A. M., and Filion, D. L. (2007) The              Congress on Computational Intelligence, Brisbane,
+    electrodermal system, In Cacioppo, J. T., Tassinary, L.            Australia.
+    G., Berntson, G. (eds),Handbook of Psychophysiology.
+    Cambridge University Press, Cambridge.
+Doctor, F., Hagras, H., Callaghan, V. (2005) A Fuzzy
+    Embedded Agent-Based Approach for Realizing
+    Ambient Intelligence in Intelligent Inhabited
+    Environments. IEEE Transactions on Systems, Man
+    and Cybernatics- Part A: Systems and Humans, 35(1),
+    55-56.
+Ekman, P., and Friesen, W. V. (1975) Unmasking the
+    Face: A Guide to Recognizing Emotions from Facial
+    Expressions. Prentice-Hall, Englewood Cliffs, New
+    Jersey, NJ.
+Graesser, A., Chipman, P., Haynes, B. and Olney, A.
+    (2005) AutoTutor: An Intelligent Tutoring System
+    with Mixed-Initiative Dialogue. IEEE Transactions on
+    Education 48(4), 612-618.
+Karyotis, C., Doctor, F., Iqbal, R., and James, A. (2015)
+    An Intelligent Framework for Monitoring Students
+    Affective Trajectories Using Adaptive Fuzzy Systems.
+    IEEE International Conference on Fuzzy Systems, 2-5
+    August 2015, Istanbul, Turkey.
+Kirkland, T., and Cunningham, W. A. (2012) Mapping
+    Emotions Through Time: How Affective Trajectories
+    Inform the Language of Emotion. Emotion, 12(2),
+    268–282.
+Lisetti, C., Nasoz, F., LeRouge, C., Ozyer, O. and
+    Alvarez, K. (2003) Developing multimodal intelligent
+    affective interfaces for tele-home health care.
+    Internarional Journal of Human-Computer Studies,
+    59(1-2), 245–255.
+Mandryk, R.L., Atkins, M.S. (2007) A Fuzzy
+    Physiological Approach for Continuously Modelling
+    Emotion during Interaction with Play Technologies.
+    International Journal of Human-Computer Studies,
+    65, 329- 347.
+McFarland, R. A. (1985) Relationship of skin temperature
+    changes to the emotions accompanying music.
+    Biofeedback and Self-regulation, 10(3), 255–267.
+Nasoz, F., Lisetti, C., and Vasilakos A. (2010) Affectively
+    intelligent and adaptive car interfaces. Information
+    Sciences, 180, 3817–3836.
+Picard, R. (1997) Affective Computing. The MIT Press,
+
+
+460
+

@@ -1,0 +1,411 @@
+2020 29th IEEE International Conference on
+Robot and Human Interactive Communication (RO-MAN)
+August 31 - September 4, 2020 - Virtual Conference
+
+
+
+    Acceptance of a minimal design of a human infant for facilitating
+ affective interaction with older adults: A case study toward interactive
+                               doll therapy*
+                Hidenobu Sumioka1 and Masahiro Shiomi1 and Nobuo Yamato2 and Hiroshi Ishiguro3
+
+
+   Abstract— We introduce a minimal design approach to
+achieve a robot for interactive doll therapy. Our approach aims
+for positive interactions with older adults with dementia by just
+expressing the most basic elements of human-like features and
+relying on the user’s imagination to supplement the missing
+information. Based on this approach, we developed HIRO, a
+baby-sized robot with abstract body representation and without
+face. The recorded voice of a real human infant emitted by
+robots enhance human-like features of the robot and then
+facilitate emotional interaction between older people and the
+robot. A ﬁeld study showed that HIRO was accepted by older
+adults with dementia and facilitated positive interaction by
+stimulating their imagination.
+
+                      I. INTRODUCTION
+   Dementia is a major cause of dependency and disability
+in older adults and signiﬁcantly impacts them as well as
+their families, caregivers, and society. 40-50% of those with
+dementia suffer from cognitive, psychological, and behav-
+                                                                                 Fig. 1.   A minimal design of a human infant for interactive doll therapy,
+ioral problems (BPSD), including hallucinations, depression,                     HIRO
+and agitation. Such problems force caregivers to pay more
+attention to such people, which increases their burden and
+the cost of care. Therefore, BPSD reduction is a major                           is an application for an interactive doll therapy because it
+social challenge [1]. Although pharmacological interventions                     can show such reactions as six kinds of emotional facial
+are often used for this purpose, non-pharmacological in-                         expressions as well as play a recorded voice of a one-year-
+terventions are recommended ﬁrst to avoid potential side                         old child and move its neck, mouth, and eyes in response to
+effects [2]. Many attempts related to non-pharmacological                        the actions of seniors.
+interventions have been addressed.                                                  Since typical doll therapy provides no response from the
+   Doll therapy, which usually provides a human baby doll                        doll, its appearance is the only factor that can be modulated
+to seniors with dementia, is one of non-pharmacological                          to enhance senior’s feeling of human presence. Therefore,
+intervention. Studies reports that some seniors with dementia                    they seem to prefer a doll with a more human-like appear-
+show such care actions for the dolls as holding, talking,                        ance [5]. However, for a baby robot, since it is possible to
+feeding, cuddling, or dressing and then they increase levels                     interact with older adults in a multimodal way, both the
+of engagement with others and reduce BPSD as a result [3].                       interaction and the multimodal information are obviously
+Although typical doll therapy uses a baby doll without any                       important and must be designed carefully. One technically-
+interactive functions, robotic technology can enhance the                        challenging approach is to make every feature as realistic
+interaction with older people. For example, Babyloid [4],                        as possible so that the robot actually resembles a human
+which is a baby robot modeled on a beluga whale baby,                            baby. However, such an approach might cause an adaptation
+                                                                                 gap, which indicates that the differences between the actual
+   *This work was supported by JST CREST Grant Number JPMJCR18A1,
+Japan
+                                                                                 functions of artiﬁcial agents and those expected by users
+   1 Hidenobu  Sumioka and Masahiro Shiomi are with the                          before their interaction with them affect the users’ ﬁnal
+Advanced      Telecommunications     Research    Institute Interna-              impressions of the agents [6]. Another potential problem
+tional, 2-2-2 Hikaridai, Seika-cho, Soraku-gun, Kyoto, Japan,
+{sumioka,m-shiomi}@atr.jp
+                                                                                 is the uncanny valley effect, which describes the eeriness
+  2 Nobuo Yamato is with Japan Advanced Institute of Science                     and discomfort when we encounter realistic virtual/artiﬁcial
+and Technology 1-1 Asahidai, Nomi, Ishikawa 923-1292 Japan,                      humans [7]. This approach also increases both the expense
+yamato@vstone.co.jp                                                              and fragility of the robots, adding to the burden of care costs
+  3 Hiroshi Ishiguro is with the Graduate School of Engineering Science,
+Osaka University, 1-3 Machikaneyama, Toyonaka, Osaka 560-8531, Japan,            and fueling care staff resistance.
+ishiguro@sys.es.osaka-u.ac.jp                                                       Another approach explores simpler designs to eliminate
+
+978-1-7281-6075-7/20/$31.00 ©2020 IEEE                                     775
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+such negative effects described above. This approach also                        Some works suggest that effective interaction with a robot,
+helps to make the user understand the cognitive and socio-                       such as touching and caring for older adults, may affect well-
+emotional information from a robot easily because it elim-                       being by reducing anxiety, for example [12], [13].
+inates unnecessary elements and clariﬁes the information                            A seal-shaped companion robot, “PARO”, is one of the
+to be conveyed. In particular, older adults have problems                        most famous robots for robotic therapy. Many studies have
+integrating information from multiple modalities due to cog-                     shown that it provides not only psychological and physi-
+nitive and socio-emotional decline and mental illness [8].                       ological effects in older adults but also helps them expand
+This implies that conveying the information in less modal-                       their social networks [14]. These effects have been conﬁrmed
+ities makes older adults understand the information easily.                      in Japan and other countries [15]. On the other hand, a
+Furthermore, it also helps us build a robot which is cost                        study with doll therapy reports that many older people with
+effective and less fragile. Therefore, the investigation of the                  dementia preferred dolls to stuffed bears in doll therapy [16].
+minimal requirements of an interactive robot for doll therapy                    Therefore, an interactive baby robot may be more suitable
+is important to realize doll therapy in effective ways.                          for dementia sufferers to whom doll therapy is effective.
+   In this study, we apply the minimal human design ap-                             Babyloid [4], modeled on the beluga whale, is a baby
+proach to an interactive baby robot to create a positive                         robot that shows potential for interactive doll therapy. It can
+interaction for users by expressing only the minimum el-                         perform facial expressions with six types of emotions and
+ements of human-like features and relying on the user’s                          such multimodal reactions as a recorded voice of a one-year-
+imagination to supplement the missing information. We                            old and body movements. In a two-week experiment with
+developed a teleoperated android named Telenoid as a test                        ﬁve healthy, older adults, interaction with Babyloid averaged
+bed to investigate its effectiveness with older people with                      about seven minutes, and their scores on the Geriatric De-
+dementia [9], [10] ( [11] for a review). Although Telenoid                       pression Scale (GDS), which measures depression, improved
+lacks emotional expression functions of its face, older people                   after the experiment. However, no studies have been reported
+were able to imagine its smile from the information contained                    that actually involve older adults with dementia. In addition,
+in the voice of the human operator. We expect that the                           although various features were implemented, no functional
+design that facilitates user’s imagination to a robot like                       requirements were explored.
+Telenoid enhances positive attitude toward the robot. Based                         We developed a teleoperated android named Telenoid
+on a minimal human design approach, we developed HIRO1 .                         based on a minimal human design approach to support
+Although its shape and size resemble a human baby, we                            communication with older adults. Telenoid only has mini-
+eliminated such facial expressions as gazes and emotional                        mal functions for communication and a simple movement
+expression as well as such detailed body parts as hands.                         mechanism for its arms, neck, and mouth. It has no function
+Instead of a simple appearance, we used the recorded voice                       for emotional expression though it has eye, nose, and mouth.
+of an actual human infant with multiple emotional states                         Its appearance is neutral in terms of gender and age. How-
+to facilitate emotional interaction. HIRO vocalizes based on                     ever, the human operator’s voice information conveyed from
+its emotional states, which respond to older adults person’s                     Telenoid allows users to project personal traits and emotional
+actions as well as its own internal mechanism.                                   states onto Telenoid. In fact, some older adults claimed that
+   It remains unclear whether this new baby robot will                           Telenoid smiled during their interactions although such a
+actually be accepted by older people with dementia and how                       function is not implemented [11]. Another study described
+they will interact with it since it has untypical appearance.                    how older people with dementia often made physical con-
+The aim of this paper is to investigate these points before                      tact with Telenoids [10]. Such touch interactions probably
+performing interactive doll therapy, hypothesizing that the                      increase the intimacy between older adults and robots and
+baby robot which is designed based on the minimal human                          strengthen their social bonds [17].
+design approach induce longer interaction with older adults                         On the other hand, it requires a human operator since Te-
+than typical baby robot. We introduce HIRO and a typical                         lenoid is a teleoperated robot. However, for older adults with
+baby robot into an elderly nursing home to investigate their                     moderate to severe dementia, verbal communication is often
+inﬂuences on older people through experiments in their living                    difﬁcult, and simpler communication should be sufﬁcient.
+environments. We evaluate whether older adults with de-                          In addition, previous studies have shown that many such
+mentia show positive interaction with HIRO or typical baby                       older people treat Telenoid like a toddler even when adult
+robot at least ﬁve minutes. We also observe the interaction                      care staffs teleoperated it [9], implying that a more child-
+between older people and the robots and ﬁgure out common                         speciﬁc design that elicits their imagination through simple
+and unique responses of older adults to the robots.                              communication may be sufﬁcient. Therefore, we designed an
+                                                                                 interactive baby robot based on a minimal design approach.
+                       II. R ELATED W ORK
+                                                                                         III. M INIMAL D ESIGN OF H UMAN I NFANT
+  Robot therapy has been proposed with several types of
+social robots to provide mental support for older adults.                           Figure 1 shows a prototype of the minimal design of a
+                                                                                 human infant, HIRO (W210 x D165 x H 300 mm and 610 g).
+  1 HIRO-chan is a commercial version manufactured by Vstone Co., Ltd.           Its ABS control module, which is covered with a polyester
+https://vstone.co.jp/products/hiro/index.html                                    fabric, includes a computer, a 3-axis accelerometer, and a
+
+                                                                           776
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+                                                                                 sensor information. Based on the sum of these three values,
+                                                                                 se (t) is selected between negative (1) and positive (4), and
+                                                                                 a current voice is randomly selected from the selected emo-
+                                                                                 tional category. For example, if se (t) = 4, one of the voices
+                                                                                 classiﬁed as positive is randomly selected. In this study, the
+                                                                                 internal generator generated +1, 0, −1 with a probability of
+                                                                                 50, 20, 30%. The interaction effect si (t) was changed based
+                                                                                 on the L2 norm of three values of the accelerometer so that
+                                                                                 it reacts when the robot is lifted up or down. If the L2 norm
+                                                                                 is larger than a certain threshold, we set si (t) = 1 otherwise
+                                                                                 si (t) = 0. This implies that the robot’s emotional state is
+                                                                                 more often positive if there is more interaction from the
+                                                                                 participant and less often positive if there is less interaction
+                                                                                 from the participant. If se (t) is higher(lower) than 4(1),
+                                                                                 we set se (t) = 4 (se (t) = 1). This processing interval was
+              Fig. 2.   A typical baby robot in Face group                       randomly changed within 2 to 5 seconds. In this study, we
+                                                                                 set the initial state to se (0) = 1, which means HIRO has a
+                                                                                 negative emotional state at beginning of the interaction.
+speaker. The module can be removed from its back. HIRO
+is also equipped with a microphone and a touch sensor, but                                                IV. E XPERIMENT
+we did not use them in this study.                                                  HIRO is an interactive doll robot that uses minimal visual
+   Its appearance resembles a human baby. The distinction                        information and human-like emotions transmitted by voice
+among its head, torso, and limbs is recognizable but its face                    to induce positive interaction with older adults. Since this
+is excluded. Previous studies conﬁrmed that a distinction                        is the ﬁrst attempt to introduce a faceless robot into elderly
+between head and torso is the minimum requirement for                            care, we addressed the following research questions (RQ)
+enhancing a feeling of a human presence and that the                             before applying HIRO to practical doll therapy: RQ1) Will
+expression of limbs does not signiﬁcantly enhance human                          it actually be accepted by seniors? RQ2) If it is accepted,
+impressions [18]. Although we could have removed the                             will it be more easily accepted than a doll with a typical
+limbs, we left them so that older people can intuitively                         baby robot, which has more body representations and facial
+understand the robot’s orientation and its attitude to the in-                   expressions? RQ3) Does it elicit different interaction patterns
+teraction. The emotional mismatch between faces and voices                       from a typical baby robot?
+complicates the perception of emotion [19], suggesting
+that if facial expressions are designed poorly, they may                         A. Participants
+interfere with the transmission of emotions and negatively                          Our experiment was carried out in an elderly nursing home
+impact the human-robot interaction. In addition, since older                     in Hyogo Prefecture with 21 senior (18 women) participants.
+adults imagine facial expressions through communication                          Their average age was 86.6 years (SD:5.4), and their average
+with Telenoid [11], we excluded facial expression to facilitate                  level of required care (Care Level), which is used in Japan
+positive interactions.                                                           to evaluate how much the person require care service 2 ,
+   Instead of visual information, we enhance humanlikeness                       was 3.38 (2-5). Older adults were selected by the nursing
+in auditory information. We recorded the voice of a human                        home’s staffs to join the experiment. All the participants and
+infant about one year old and cut out 91 voice patterns and                      their families received information and signed an informed
+categorized them into the following emotions: positive: 20;                      consent form approved by the ATR Ethics Committee with
+weakly positive: 25; weakly negative: 17; and negative: 29.                      their doctor’s permission.
+Positive and negative categories include voice patterns which                    B. Procedure
+we was able to recognize as positive and negative clearly. The
+voice patterns which we relatively recognize as positive and                        Participants were randomly assigned into two groups:
+negative were categorized into weakly positive and weakly                        participants in one group (11 participants (2 males)) were
+negative. Weakly positive also included three sounds of baby                     given a HIRO (No-face group), and the other group (10
+babbling, which means such meaningless articulated sounds                        participants (1 male)) were given a robot with a more human-
+that a human baby utters as “ma ma ma”, and the rest of the                      like appearance (a typical robot hereafter), shown in Fig. 2
+sounds were different patterns of laughing and crying.                           (Face group). This robot has a smiling face, ears, and ﬁngers.
+                                                                                 It also has a small camera inside its head, which was not used
+   The design of the interaction between older adults and
+                                                                                 in this study. Both robots wore identical clothing (Fig. 2).
+the robot is a critical aspect. The following is the robot’s
+                                                                                 All participants have more than one son or daughter and had
+speech generation process. The current internal state (se (t))
+                                                                                 experience raising their child except for one participant for
+is calculated with previous state se (t − 1), the output value of
+the internal generator so (t), and the value that represent the                    2 https://www.mhlw.go.jp/english/topics/elderly/
+effect of the interaction with older adults si (t), reﬂected as                  care/index.html
+
+
+                                                                           777
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+                                                                                                                    TABLE I
+each group. The demographic information of the participants
+                                                                                                    D EMOGRAPHIC INFORMATION OF PARTICIPANTS
+in each group is shown in Table I.
+   We investigated whether the participants would continue                                               Group     Age ± SD      Care Level ± SD
+to care for their baby robot for ﬁve minutes when they were                                              No-face   86.3 ± 4.21   3.36 ± 0.81
+                                                                                                         Face      86.9 ± 6.62   3.4 ± 0.97
+given it by a staff member. This interval was suggested by the
+care staff as a minimum interval that can reduce their burden.
+The experiment was carried out in the participants’ private                                         60                No-face     Face
+rooms. Participants who had no problem walking were asked                                           50
+to sit in the chairs in their room. People in wheelchairs
+                                                                                                    40
+
+                                                                                        Ratio (%)
+were asked to remain in them. In addition, one bedridden
+participant in each group joined.                                                                   30
+   The procedure is as follows. The staff and experimenter                                          20
+entered the participant’s room and introduced the robot they
+were holding and asked the participant to hold and soothe it                                        10
+(pre-interaction phase). This phase helped the participants                                          0
+understand the robot’s function. The experimenter began                                                    Negative Weak neg. Weak pos. Positive
+video recording and left the room.
+   Following a call from the experimenter after about one                          Fig. 3.          Average ratio of robot’s emotional states during interaction
+minute, the staff member asked the participant to continue to
+care for the robot and left the room, leaving the participant
+and the robot alone (interaction phase). In this phase, we                                                            V. R ESULT
+asked the staff member to stay in the room for a half of par-                    A. Quantitative results
+ticipants in each group to exclude the possibility that leaving
+the participant and the robot alone forces the participant to                       Regardless of the group, most participants positively en-
+continue to care for the robot. In this case, the care staff                     joyed engaging with the robot. 60% in the Face group and
+avoided actively interacting with them. During the interaction                   81.8% in the No-face group continued to hold it for ﬁve
+phase, the experimenter (and the staff member if they had                        minutes. One sample proportion test showed that the No-
+left from the participant’s room) observed the situation in                      face group was signiﬁcantly higher than 50% (χ 2 = 4.45, p =
+the room from outside by an external monitor. After ﬁve                          .017) while the Face group was not (χ 2 = .4, p = .26). In the
+minutes or after the participant lost interest in the robot, the                 Face group, one participant completely stopped holding the
+experimenter (and the staff member if they had left) entered                     robot, and two participants called the staff member to remove
+the room, thanked the participant for caring for the robot,                      the robot after caring for it for less than ﬁve minutes. Another
+retrieved it and the video camera, and left the room. After                      participant returned the robot because it started crying. In the
+the experiment, we interviewed the staff members to get their                    No-face group, one participant completely stopped holding
+opinions and reactions to the participants’ interaction with                     the robot and one participant fell asleep during caring for it.
+the robot compared to their normal states. We also collected                     Although more participants continued to care for the robot
+histories of the robot’s emotional states in the interaction                     in the No-face group, we found no statistically signiﬁcant
+phase.                                                                           difference in terms of proportions using the chi-square test
+                                                                                 (χ 2 = 1.22, p = .27).
+                                                                                    We investigated the proportion of the robot’s emotional
+C. Evaluation
+                                                                                 states that occurred during the interaction to determine
+   We investigated RQ1 by examining whether the older                            whether there was a difference in the way participants
+participants hold this robot for ﬁve minutes and how they                        engaged with the robot across the conditions. Figure 3 shows
+interact with it. We counted the participants who continued to                   the average of the ratio of the emotional states of the robots
+hold HIRO or the typical robot for ﬁve minutes and compared                      over a ﬁve-minute period for each group. Since the normality
+the numbers to investigate their acceptance for the robot. We                    in the negative and positive states was conﬁrmed with the
+also analyzed the proportion of emotional states selected by                     Shapiro-Wilk test, we did a Welch’s t-test, and a Mann-
+the robot during the interaction and examined whether the                        Whitney’s U test for weak negative and weak positive states.
+frequency of the robot’s emotional expressions affected the                      Although the No-face group tended to have more negative
+interaction times with older adults to investigate RQ2.                          states than the Face group (t(18.7) = −1.80, p = .089, d =
+   In addition to these quantitative evaluations, we observed                    .79), there were no signiﬁcant differences (weak negative:
+the participants’ speech and behavior toward the robot to                        W = 63, p = .60, r = .17; weak positive: W = 68, p = .39, r =
+investigate RQ2 and RQ3 and extracted the shared and                             .28; positive: t(16.1) = 1.23, p = .24, d = .55).
+different characteristics of the participant responses. We also                     Figure 4 shows the percentage of emotional states that
+interviewed the care staff who observed the reactions of the                     occurred during the interaction with each participant. An
+participants and compared their impressions to their normal                      asterisk indicates participants who did not care for the
+reactions of the participants.                                                   robot for the entire ﬁve minutes. We found no distinctive
+
+                                                                           778
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+              0%        20%      40%      60%       80%      100%                     interpret the robot’s babbling. For example, participant R
+         K                                                                            said, “Don’t say no” to the robot’s babbling, and participant
+          L
+                                                                                      L said, “It says that its name is Kentaro.” An older adult
+                                                                                      with severe dementia (participant O) who had difﬁculty
+         M
+                                                                                      communicating parroted the robot’s voice.
+         N                                                                               In the No-face group, participants L and T talked about
+        *O                                                                            HIRO’s face. Participant T, looking at HIRO, remarked that
+                                                                                      “he has no eyes or mouth!” Participant L also lamented that
+          P
+                                                                                      he had no eyes or mouth while pointing at his face. However,
+        *Q                                                                            the lack of facial expressions did not interfere with their
+          R                                                                           interactions because they both positively cared for HIRO.
+                                                                                         Many of the participants seemed to be actively caring
+          S
+                                                                                      for the robot even though they knew that it was a robot.
+          T                                                                           For example, participant T said, “It’s sturdy.” Participant E
+         U                                                                            asked, “What’s the doll’s name?” On the other hand, two
+                                                                                      participants seemed confused whether the robot was actually
+                   Negative   Weak neg.   Weak pos.     Positive
+                                                                                      human. For example, when HIRO started crying, participant
+                               (a) No-Face group                                      N who has severe dementia in the No-face group said, “I
+                                                                                      can’t breastfeed him,” which implies that she thought HIRO
+              0%        20%      40%      60%       80%      100%                     was hungry. Participant C who has severe dementia in the
+        *A                                                                            Face group repeatedly touched the robot’s crotch and tried to
+                                                                                      undress it when it started crying. The staff member thought
+        *B
+                                                                                      that “it looked like she was checking the robot’s diaper.”
+          C
+                                                                                                          VI. DISCUSSION
+        *D
+                                                                                         We introduced a minimal design approach and developed
+          E                                                                           an interactive doll called HIRO to investigate the necessary
+          F
+                                                                                      elements of a robot for interactive doll therapy. HIRO had
+                                                                                      minimal representation as a human baby and no facial
+        *G                                                                            expression. Nevertheless, the older adults continued to hold
+         H                                                                            ito and showed positive interaction with it. One sample
+                                                                                      proportion test also supports this. Therefore, we can answer
+          I
+                                                                                      yes to RQ1: the older adults accept HIRO.
+          J                                                                              We developed RQ2 and RQ3, expecting that eliminating
+                                                                                      non-essential information and allowing users to imagine
+               Negative       Weak neg.   Weak pos.     Positive
+                                                                                      the missing information would promote positive interaction
+                                (b) Face group                                        and be more acceptable to a wider range of older adults
+Fig. 4. Ratio of robot’s emotional state during interaction. Letters indicate         with dementia. Unfortunately, we found no signiﬁcant effect
+each participant. * shows participant who failed to care for robot for entire         compared to the typical robot, which means that we should
+ﬁve min.                                                                              answer no to RQ2. The participants’ observations conﬁrmed
+                                                                                      that both robots elicited positive attitude and a variety of
+differences between the groups or whether they interacted                             imaginative reactions from older adults, which indicate RQ3
+with it for the entire ﬁve minutes.                                                   should be answered with no. One possibility is that since
+                                                                                      our experiment was only ﬁve minutes long, its effect may
+B. Qualitative results                                                                not have had a signiﬁcant impact. We need to test longer
+    All participants who interacted with HIRO or the typical                          and multiple interactions.
+robot for ﬁve minutes showed positive attitudes toward them.                             Another possibility is that the lack of information about
+They engaged as they might with a typical actual infant:                              appearance may not have had a great effect because we used
+sang songs, lifted the robot up, kissed, cuddled, and rocked                          an actual baby’s voice. Japanese people tend to rely more
+it. Even in the No-face group, participants interacted while                          on auditory information than European people when visual
+looking at the robot’s face, even though it has no facial                             and auditory information are presented simultaneously [20].
+expression. The participants who were able to communicate                             In addition, since dolls with more human-like features are
+addressed it regardless of the condition: “It’s so cute” or                           preferred in doll therapy [5], perhaps the interaction through
+“What’s your name?” They talked to it about things related                            human voice emitted by robots has become primary for
+to the robot and themselves.                                                          older people with dementia. It will be interesting to examine
+    The participants also responded to the robot’s crying and                         whether a similar effect is achieved in the future when low
+laughing:“Don’t cry” or “It’s laughing.” They also tried to                           quality speech or synthetic speech are used.
+
+                                                                                779
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+   This result also suggests that voice-speciﬁc interactions                                                  R EFERENCES
+such as HIRO may be more effective with European people.                          [1] J. Cerejeira, L. Lagarto, and E. B. Mukaetova-Ladinska, “Behavioral
+Although no cultural differences have been found in previ-                            and Psychological Symptoms of Dementia,” Front. Neurol., vol. 3,
+ous studies with a teleoperated android, perhaps Telenoid’s                           2012.
+                                                                                  [2] M. Azermai, M. Petrovic, M. M. Elseviers, J. Bourgeois, L. M.
+human-like appearance will work effectively for European                              Van Bortel, and R. H. Vander Stichele, “Systematic appraisal of
+people, and its human voice is effective in Japanese. We are                          dementia guidelines for the management of behavioural and psycho-
+looking forward to investigating cultural differences in robot                        logical symptoms,” Ageing Research Reviews, vol. 11, no. 1, pp. 78–
+                                                                                      86, Jan. 2012.
+design guidelines in interactive doll therapy.                                    [3] G. Mitchell, B. McCormack, and T. McCance, “Therapeutic use
+   One advantage of baby robots that can make multimodal,                             of dolls for people living with dementia: A critical review of the
+emotional expressions, such as Babyloid, is that they can                             literature,” Dementia, vol. 15, no. 5, pp. 976–1001, Sept. 2016.
+                                                                                  [4] M. Kanoh, “A Robot as“Receiver of Care” in Symbiosis with People,”
+expand the range of older adults who can be supported. For                            Journal of Japan Society for Fuzzy Theory and Intelligent Informatics,
+example, HIRO and Telenoid can not facilitate emotional                               vol. 27, no. 6, pp. 193–201, 2015.
+interactions with deaf older people. In this case, interaction                    [5] T. Tamura, K. Nakajima, M. Nambu, K. Nakamura, S. Yonemitsu,
+                                                                                      A. Itoh, Y. Higashi, T. Fujimoto, and H. Uno, “Baby dolls as ther-
+through facial expressions is generally effective although the                        apeutic tools for severe dementia patients,” Gerontechnology, vol. 1,
+intuitive design of facial expressions for older adults should                        no. 2, pp. 111–118, Apr. 2001.
+be explored for smooth emotional interaction.                                     [6] T. Komatsu, “Adaptation gap hypothesis: How differences between
+                                                                                      users’ expected and perceived agent functions affect their subjective
+   Multimodal interaction is important for rich emotional                             impression,” Journal of Systemics, Cybernetics and Informatics, vol. 9,
+interaction, and humanoid robots are an effective means                               no. 1, pp. 67–74, 2011.
+to do so. But on the other hand, increasing the quality of                        [7] M. Mori, K. MacDorman, and N. Kageki, “The Uncanny Valley,”
+                                                                                      IEEE Robot. Autom. Mag., vol. 19, no. 2, pp. 98–100, June 2012.
+every modality increases the cost and fragility of robots. The                    [8] T. Ruffman, J. D. Henry, V. Livingstone, and L. H. Phillips, “A meta-
+minimal design approach, which searches for the minimum                               analytic review of emotion recognition and aging: Implications for
+necessary elements to facilitate emotional interaction, limits                        neuropsychological models of aging,” Neuroscience & Biobehavioral
+                                                                                      Reviews, vol. 32, no. 4, pp. 863–881, Jan. 2008.
+the robot’s functions, resulting in a cheaper and more robust                     [9] R. Yamazaki, S. Nishio, K. Ogawa, and H. Ishigur, “Teleoperated
+machine. In fact, HIRO-chan, the product version of HIRO,                             android as an embodied communication medium: A case study with
+is less expensive (about 5000 yen) than other robots and                              demented elderlies in a care facility,” in 2012 IEEE RO-MAN: The
+                                                                                      21st IEEE International Symposium on Robot and Human Interactive
+interactive toys. Since it is covered with a soft material, it is                     Communication. Paris, France: IEEE, Sept. 2012, pp. 1066–1071.
+reasonably safe from being broken even when it is handled                        [10] K. Kuwamura, S. Nishio, and S. Sato, “Can We Talk through a Robot
+carelessly or roughly. Therefore, care staff members can use                          As if Face-to-Face? Long-Term Fieldwork Using Teleoperated Robot
+                                                                                      for Seniors with Alzheimer’s Disease,” Front. Psychol., vol. 7, 2016.
+it with less concern about damage.                                               [11] H. Sumioka, S. Nishio, T. Minato, R. Yamazaki, and H. Ishiguro,
+   There are several limitations in this study. First, sample                         “Minimal Human Design Approach for sonzai-kan Media: Investiga-
+size is relatively small and the degree of dementia was not                           tion of a Feeling of Human Presence,” Cognitive Computation, vol. 6,
+                                                                                      no. 4, pp. 760–774, Dec. 2014.
+balanced across the groups. Future experiments with larger                       [12] J. Broekens, M. Heerink, and H. Rosendal, “Assistive social robots in
+samples are needed to control the participants’ dementia                              elderly care: A review,” Gerontechnology, vol. 8, no. 2, pp. 94–103,
+levels and measure them with objective indicators such                                Apr. 2009.
+                                                                                 [13] L. Pu, W. Moyle, C. Jones, and M. Todorovic, “The Effectiveness
+as Severe Mini Mental State Examination (sMMSE). We                                   of Social Robots for Older Adults: A Systematic Review and Meta-
+must also objectively assess whether HIRO actually reduces                            Analysis of Randomized Controlled Studies,” The Gerontologist,
+BPSD symptoms. In addition, due to such large individual                              vol. 59, no. 1, pp. e37–e51, Jan. 2019.
+                                                                                 [14] K. Wada and T. Shibata, “Living With Seal Robots—Its Sociopsycho-
+differences, we must perform validation in a within-subject                           logical and Physiological Inﬂuences on the Elderly at a Care House,”
+design for future research.                                                           IEEE Transactions on Robotics, vol. 23, no. 5, pp. 972–980, Oct. 2007.
+                                                                                 [15] T. Shibata, K. Wada, Y. Ikeda, and S. Sabanovic, “Cross-Cultural
+                     VII. CONCLUSIONS                                                 Studies on Subjective Evaluation of a Seal Robot,” Advanced Robotics,
+                                                                                      vol. 23, no. 4, pp. 443–458, Jan. 2009.
+   We introduced a minimal design approach to achieve a                          [16] I. A. James, L. Mackenzie, and E. Mukaetova-Ladinska, “Doll use
+robot for interactive doll therapy. Based on this approach, we                        in care homes for people with dementia,” International Journal of
+                                                                                      Geriatric Psychiatry, vol. 21, no. 11, pp. 1093–1098, 2006.
+developed HIRO, a baby-sized robot with an abstract body                         [17] M. Okubo, H. Sumioka, S. Keshmiri, and H. Ishiguro, “Intimate Touch
+representation and without facial expressions. Emotional                              Conversation through Teleoperated Android: Toward Enhancement of
+interaction was achieved with the voice of an actual baby to                          Interpersonal Closeness in Elderly People,” in 2018 27th IEEE Inter-
+                                                                                      national Symposium on Robot and Human Interactive Communication
+activate the imagination of seniors with dementia. Field work                         (RO-MAN). Nanjing: IEEE, Aug. 2018, pp. 23–28.
+for older adults with dementia showed that they accepted                         [18] H. Sumioka, K. Koda, S. Nishio, T. Minato, and H. Ishiguro, “Re-
+HIRO. Additional experiments with more samples are needed                             visiting ancient design of human form for communication avatar:
+                                                                                      Design considerations from chronological development of dogu,” in
+in the future. In addition, we must verify whether it actually                        IEEE International Symposium on Robot and Human Interactive
+reduces BPSD symptoms using objective indicators.                                     Communication (RO-MAN), Aug. 2013, pp. 726–731.
+                                                                                 [19] B. de Gelder and J. Vroomen, “The perception of emotions by ear
+                    ACKNOWLEDGMENT                                                    and by eye,” Cogn. Emot., vol. 14, no. 3, pp. 289–311, May 2000.
+                                                                                 [20] A. Tanaka, A. Koizumi, H. Imai, S. Hiramatsu, E. Hiramoto, and B. de
+  We thank K. Kawashima, S. Yamauchi, M. Okubo, and S.                                Gelder, “I Feel Your Voice: Cultural Differences in the Multisensory
+Hiramatsu for helping data analysis and system development.                           Perception of Emotion,” Psychological Science, vol. 21, no. 9, pp.
+                                                                                      1259–1262, Sept. 2010.
+We also thank all staffs and residents in Ryusei Fukushikai
+Yume paratice for helping our experiment.
+
+                                                                           780
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:49 UTC from IEEE Xplore. Restrictions apply.
+

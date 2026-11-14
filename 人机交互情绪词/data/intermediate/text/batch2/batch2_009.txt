@@ -1,0 +1,426 @@
+                                         Available online at www.sciencedirect.com
+
+                                                     ScienceDirect
+                                           Procedia Computer Science 84 (2016) 107 – 114
+
+
+
+
+                 7th International conference on Intelligent Human Computer Interaction, IHCI 2015
+
+                            Affective modelling of users in HCI using EEG
+
+                                                      Jyotish Kumara*, Jyoti kumarb
+                                                        ab
+                                                           Instrument Design and Development centre
+                                                   Indian Institute of Technology Delhi, New Delhi, India
+
+
+      Abstract
+
+      Emotions have potential to play a role in HCI which is primarily dominated by cognitive measures. Human physiological
+      communication channels are dominated by emotions. Emotion affects several human activities like communication, learning,
+      decision making, cognition, perception etc. Further, as emotions are difficult to interpret and hard to measure, technologists and
+      designers have been struggling to incorporate them in design and technology. On the other hand, advancement of technology has
+      both necessitated and enabled us to understand emotions and put them to use in contexts like human computer interaction. This
+      study reports an attempt to model emotions by means of electroencephalography (EEG). Video stimuli of four representative
+      basic emotions based on Navarasa theory of Ancient Indian treatise called Natya Shastra were shown to participants and EEG
+      data was collected. Power spectrum analysis of EEG signals associated with emotions was done. Further, the EEG analysis
+      findings were compared with the subject’s self-reports about their emotional states during the experiment. EEG results have
+      shown significantly consistent frequency patterns across the brain lobes for a given emotion. This study suggests that human
+      emotions can be modeled for use in HCI either as an affect assessment tool or for affect based intelligent interactions.
+
+
+        2015The
+     © 2016    TheAuthors.
+                    Authors.Published
+                             Publishedbyby Elsevier
+                                        Elsevier B.V.B.V.
+                                                      This is an open access article under the CC BY-NC-ND license
+     (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+     Peer-review under   responsibility of the Scientific Committee of IHCI 2015.
+     Peer-review under responsibility of the Organizing Committee of IHCI 2015
+      Keywords:HCI;EEG;Emotion: Affective computing
+
+
+
+      1. Introduction
+
+               Human body responds physiologically to physical and psychological stimuli and exhibits different physical
+      changes. These changes comprise of facial expressions, skin conductance, heartbeat, brain signals, body
+      temperature, pulse rate, etc. Advancement in biomedical technology has given us access to identify even smaller
+      change in physiological parameters. For example fear release excessive amount of sweat compare to normal
+      condition and happiness makes our body warm1. There are number of such physical changes reported in literature
+
+      * Corresponding author. Tel.: 011-2659 6744
+      E-mail address:jyotish@iddc.iitd.ac.in, jyoti@iddc.iitd.ac.in
+
+
+
+
+1877-0509 © 2016 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license
+(http://creativecommons.org/licenses/by-nc-nd/4.0/).
+Peer-review under responsibility of the Organizing Committee of IHCI 2015
+doi:10.1016/j.procs.2016.04.073
+108                               Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114
+
+
+      which bolster the era of Affective Computing. Since, last two decades human computer interaction has come over
+      the surface of technology and captivated a wide attention of researchers towards the role of emotion in HCI2, 3.
+                Since the birth of computer it has seen number of developments. It has come a long way from calculator to
+      computer and finally took shape of smart computer. But still it lacks of emotional intelligence, response of person’s
+      anger, frustration, happiness etc. Affective computing is a forward step in the direction of filling this gap. Since last
+      one decade, this title has grabbed a wide attention from all area of science and technology around the globe.
+      Emotion assessment was successfully done in by different research community by means of different biomedical
+      tools like, electroencephalography (EEG), electrocardiogram (ECG), galvanic skin response (GSR), heart rate
+      variability (HRV) 4, 5, 6. Various steps like data acquisition, preprocessing, feature extraction and classification have
+      been followed in this process. The outcome of this area may benefit applications like Human Robot/Machine
+      interaction, Interactive human computer interface, learning in autism, Affective computer etc.
+
+      1.1. EEG and Emotion:
+
+                EEG is a noninvasive measurement technique with temporal resolution in milliseconds. It shows the
+      synchronized neuronal activity from a region of a brain, recorded by an electrode as an oscillating signal reflecting
+      the electric potential from the group of neurons situated in close proximity to the electrode7. Ever since the invention
+      of EEG, Constant attempts have been made to give meaning to the oscillating signal recorded from different parts of
+      brain. This has resulted in the ability to detect a wide range of different psychological and physiological
+      phenomenon. This recording was in the early days only suitable for detecting large differences in the pattern, such as
+      epileptic seizures8.
+                More precise recording equipment, empirical studies of EEG, and the availability of sufficient
+      computational software tools, gives rise the possibility to detect even more subtle changes in the electric potential
+      recorded. These subtle changes have been recognized to encode for cognitive and affective processes of brain such
+      as attention, working memory, mental calculations, as well as different types of behavior 9, 10, 11. These possibilities
+      motivated to look forward for detecting emotion through EEG. Based on the brain functions EEG is categorized into
+      five frequency bands, including delta (į: 1–3 Hz), theta (ș: 4–7 Hz), alpha (Į: 8–13 Hz), beta (ȕ: 14–30 Hz), and
+      gamma (Ȗ: 31–50 Hz) 12. Delta and theta bands are commonly found during sleep or clam state of brain. Alpha is
+      evident mainly during the low mental activity whereas beta and gamma are produced when brain is involved in
+      higher cognitive functions13. Alteration in these bands and their features are often assessed to examine the emotional
+      states. YisiLui reports that arousal shows negative correlations in theta, beta, and gamma band. It means increase of
+      arousal leads to a decrease of theta, beta, and gamma powers. It is found that beta band of electrodes FC2 has a
+      negative correlation with arousal. For valence, we get a positive correlation in beta band and a negative correlation
+      in gamma band. It means that an increase of valence leads to an increase of beta power and a decrease of gamma
+      power14. Sander Koelstra states in DEAP database that central alpha power decreases with arousal. All frequency
+      bands shows positive correlation with valance in occipital lobe but central beta power decreases with valance15. He
+      further reports that valance shows negative correlation in right posterior alpha power whereas left central increases
+      and right frontal decreases in beta power. Arousal shows robust decrease in right posterior in alpha power.
+
+      1.2 .Computational models of emotion
+
+      "The Emotions are all those feelings that so change men as to affect their judgments, and that are also attended by
+      pain or pleasure. Such are anger, pity, fear and the like, with their opposites." (Aristotle, 1378b, English translation
+      by W. Rhys Roberts) [15]
+      Since the term affective computing was coined by R. Piccard, It grabbed attention of many research community
+      comprising Psychology, neuroscience, neuropsychology, physics, and engineering. To map emotions through
+      physiological measures, it is very important to identify possible types of emotions. Two approaches can be found in
+      literature to model emotions. One is mapping of individual emotions and another is representation of emotion on
+      multidimensional space16. In first category, Plutchik proposed eight basic emotion states: anger, fear, sadness,
+      disgust, surprise, anticipation, acceptance, and joy17. Ekman used model of six emotions while studying of relation
+      associated with facial expressions: anger, disgust, fear, happiness, sadness and surprise. Later Ekman expanded the
+                         Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114                      109
+
+
+basic emotions by adding amusement, contempt, contentment, embarrassment, excitement, guilt, and pride in
+achievement, relief, satisfaction, sensory pleasure, and shame18. From the dimensional perspective, the most widely
+used classification is the bipolar model - valence and arousal dimensions advocated by Russell19. Valence represents
+the quality of an emotion, ranging from unpleasant to pleasant. Arousal denotes the quantitative activation level,
+from not aroused to aroused. Later a three dimensional Pleasure-Arousal-Dominance (PAD) model was proposed by
+Mehrabian and Russell20, 21. In this model, besides the arousal and valence dimensions, an additional dimension
+called dominance is added.
+          Ancient Indian dance and dramatics literature has described the process of elicitation of emotions and has
+identified nine emotions in called as Navaras22. The treatise describes emotions or ‘rasa’ as the developed relishable
+state of a permanent mood, which is called sthayIbhava. The process of elicitation of emotion has been described as
+a result of the interplay of attendant emotional conditions called Vibhavas, anubhavas and sanchari/
+vyabhicharIbhavas23, 24. Vibhava mean cause of an emotion. Anubhava is the phase of development of emotion
+evoked in vibhava. Vibhavas are argued to be caused by Alambana and uddipana. Alambana is caused by the person
+due to one’s personal dispositions towards stimuli. Uddipana is the external cause of evocation of emotion.
+Vyabichari/sanchari bhavas is the phase where the emotions decline. This theory of rasa has been fundamental to
+many forms of traditional Indian arts including dance, music, musical theatre, cinema and literature and has been
+operationalized in performances.
+This paper has taken its understanding of emotions form the ‘rasa’ theory and the ‘Navaras model’. The nine
+emotions described in ‘navarasa model’ are Shringara (love), Hasya (laughter), karuna (compassion), Rudra (anger),
+Veera (courage), Bhayanaka (terror), Bheebhastya (disgust), Adbhuta (surprise), and Shanta (peace). Out of these
+nine emotions, Shringara (love), Raudra (anger), Veera (courage) and Bheebhatsya (disgust) are considered as four
+primary emotions25. This paper has selected the four emotions described as primary emotions in ‘navarasa model’,
+as focus of EEG study and subsequently suitable stimuli (uddipana) were identified. Further, based on the rasa
+theory, it was tried that the further development of emotion into spontaneous myriad shades called anubhava phase
+in development of emotions in rasa theory, by keeping the stimuli of short duration and a controlled experiment
+environment.
+
+2. Experiment design
+
+2.1. Stimuli selection
+
+So far there are only a few affective EEG databases published14. Three databases have been reported frequently in
+literature. The first one is the eNTERFACE database26, the second one is the DEAP database27, and the third one is
+the database established by Yazdani28. As reported in these databases, stimuli like images (IAPS), audio (IADS),
+virtual stroop task and music video were used to elicit emotions28, 29. Among the audio, picture and video stimuli, the
+video stimuli were most effective in electing emotions30, 31. In this study, the aim was to model emotion
+physiologically using EEG. As argued in literature, the video stimuli being the most impactful, in this study video
+clip of 4-5 minutes were used as experiment stimuli. The video selected were of local semantic context for the
+participants to be able to elicit requisite emotions. The process for selection of the stimuli is as follows. A large set
+of randomly selected videos in ratio of 25:1 were collated form different sources. Each video was evaluated for its’
+elicitation of each of the four specific navrasa emotions by three researchers who mutually rated the videos. After a
+mutual consensus, videos were further filtered in 5:1 ratio. Then, 15 users then rated the emotional elicitation for
+each video and the highest rated video was selected for the EEG experiment for each amotion. Finally 10 altogether
+different users were subjected to the 4 selected videos related to the 4 emotions while EEG signals were observed.
+This method of selection of videos was undertaken to ensure that the videos elicited the emotions desired by the
+videos for EEG recording. Further, as discussed in section 1.2, rasa is the developed relishable state of a permanent
+mood. So that it is very necessary to take proper time gap to avoid the influence of the emotion depicted by
+previously seen videos. Time gap of 2-3 days was taken between different stages in the entire filtering process of the
+videos to avoid bias due to prior mood developed from past viewing of other similar video clips leading to
+permanent mood (sthayibhav).
+110                                 Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114
+
+
+                                        Table 1: Video clip details causing stimulation of specific emotions
+
+                           Video clip name                        Stimulated Emotion           Participants feedback on 10 scale
+                                                                                               Average         Max      Min
+                          Pehlanasha                              Love (happy)                 8.5             10       5
+                          Best inspirational                      Courage                      8.3             9.5      6
+                          Nirbhaya BBC doc                        Anger                        8.1             9        6
+
+                          Worms eating                            Disgust                      8.8             10       7
+
+
+      2.2 Participant selection
+
+      Total 10 participants (6 male and 4 female) of different age groups (24-51, with a mean of age 29.8) were selected.
+      These participants were among the master’s students, research scholars or project staff. Selection of the participants
+      was based on the standard set of questionnaire which ensures that they fit for the experiment. It was ensured that the
+      participants had proper sleep, no drugs consumption and no other health issues prior to the experiment. It was also
+      ensured that they are not going through any mental stress or personally caused emotions (alambana).
+
+      2.3 Experiment setup and procedure
+
+      An adequate environment was maintained that no external and unwanted stimuli like sound or light can disturb the
+      participants. Each participant was presented with a trial case, followed by a 2 minutes baseline recording without the
+      experimenter, which allowed them to familiarize with the system before the actual recordings. After this, the 4 trials
+      were performed, and included the following steps mentioned in fig 1 (a).
+      All four videos of 4-5 minutes duration were played in a queue with a gap of 1 minute. Ten seconds of baseline was
+      recorded prior to experiment. After every video participant was asked to report self-assessment feedback for the
+      emotion they have undergone through.
+
+      2.4 Apparatus
+
+      In all experiments, 14-channel wireless EEG device was used32. Positions of electrodes were locating at AF3, F7,
+      F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4 standardized by the American Electroencephalographic
+      Society33 (plus CMS/DRL as references) . The technical parameters of the device are given as follows:
+      Bandwidth, 0.2-45Hz, digital notch filters at 50Hz and 60Hz; A/D converter with 16 bits resolution and sampling
+      rate of 128Hz. The data are transferred via wireless receiver. The use of 14 channel wireless EEG device has
+      become popular in the EEG-based research [4] [14].
+      Stimuli were played on 17 inches LCD screen and good quality of audio speakers was used. Filtering, pre-
+      processing and analysis were done with the help of EEGLAB incorporated with MATLAB software [34].
+
+
+
+
+                                       Fig.1. (a) Experimental Setup; (b) The procedure of experiment session
+                       Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114                      111
+
+
+3. Observation and Analysis
+
+  3.1 Data preprocessing
+
+  Although proper care was taken while the data collection but raw EEG signals are generally found contaminated
+  by external noise. Beside noise various artefacts due to electrostatic devices and muscular movements are present
+  in raw signals [35]. In order to remove all these unwanted elements from the data, signal pre-processing was
+  done. 10 seconds of both post and prior data was also removed in order to get effective data set. An extensive
+  number of features can be seen in frequency domain rather than time domain. So after the process of pre-
+  processing Fast Fourier Transform (FFT) was applied to convert in frequency domain from time domain.
+  Electrical noises were removed from the raw signal by using Butterworth notch filter (01- 40 Hz). Baseline was
+  removed and re-referencing was done with reference channel. Interpolation of electrodes was done to bind the
+  data. Independent component analysis (ICA) was performed to identify the local sources and find the
+  independent components.
+        ICA algorithms have been proven technique for isolating both artefactual and event generated data. EEG
+  data contains various artefacts signal like EMG, ECG, EOG, Eye blinks etc. ICA separates neurally generated
+  data from these various types of artefacts. In the original scalp channel data, each row of the data recording
+  matrix represents the time course of summed in voltage differences between source projections to one data
+  channel and one or more reference channels. After ICA decomposition, each row of the data activation matrix
+  gives the time course of the activity of one component process spatially filtered from the channel data [34].
+
+
+
+
+                             Fig: 2 ICA component map and related independent component properties
+
+  For an example, herein we report ICA component spectra and its associated components properties. There are
+  some standard features set reported in literature to identify various types of artefacts such as35.
+
+    x   The smoothly decreasing EEG spectrum (bottom panel) is typical of an eye artifact;
+    x   The scalp map shows a strong far-frontal projection typical of eye artifacts; And,
+    x   It is possible to see individual eye movements in the component
+
+  As depicted in fig 2 (a), it was observed that a smooth decreasing EEG pattern existed in the far frontal projection
+  in component one. This confirms that first component belonged to eye blink artefacts. Similarly, as evident in
+  component properties spectra fig 2 (b), component 3 showed higher power in high frequency region (25-35 Hz)
+  in far temporal projection and smooth decreasing pattern which indicates muscle artefacts34. By analysing
+  component topography and its individual properties such muscle artefacts were removed.
+   The resultant spectra was isolated into five frequency bands for further investigation, including delta (į: 1–3 Hz),
+  theta (ș: 4–7 Hz), alpha (Į: 8–13 Hz), beta (ȕ: 14–30 Hz), and gamma (Ȗ: 31–50 Hz).As discussed in section 1.1,
+  alteration in these bands and its characteristics lead to different types of features set which relate to different
+  emotional states. Based on finding in literature and experimental studies three main features type were extracted.
+112                                      Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114
+
+
+           x Power spectral density (PSD)
+           x Differential asymmetry of power spectral density
+           x Correlation with frequency bands.
+           First of all individual spectral power from 14 scalp electrodes were used as the feature including AF3, AF4, F3,
+           F4, FC5, FC6, T7, T8, P7, P8, O1 and O2. These 14 features were named as PSD14 (power spectral density of
+           all 14 channels). After that, total 7 asymmetry electrode indexes were derived from 7 symmetry electrode pairs
+           like AF3-AF4, F3-F4, FC5-FC6, T7-T8, P7-P8 and O1-O2. The asymmetry index was calculated by differential
+           power (power of F3- power of F4) and named as 7 DAEP (differential asymmetry of electrode pair). Power
+           spectral density was calculated by following formula.
+                                                                     f
+                   1. Total Power in x (t):                                                                                             (1)
+                                                        ³ S ( f )df R (0)
+                                                              P
+                                                                     f
+                                                                          x          x
+
+                                                                          f2
+                   2. Power in x (t) in range f - f : P                                                                                (2)
+                                                    1
+                                                         ³ S ( f )df R (0)
+                                                         2
+                                                                12
+                                                                         f1
+                                                                               x         x
+
+      Correlation was calculated in three bands (theta, alpha and beta) for four different lobes of brain including frontal,
+      central, parietal and occipital. Correlation was calculated by following formula.
+
+
+
+
+                                                                                                                                             (3)
+      3.2 Results and discussion
+
+      After filtering and pre-processing of raw data, power spectra against frequency, for each and every of the 14
+      channels, were plotted. The frequency range of 5-50 Hz was taken on X-axis and Power varying from -10 dB to +20
+      dB was taken on Y-axis. For example, in fig 5, power distribution associated with different frequencies for channel
+      1 has been plotted. In fig 3 (a), one can observe the peak in higher alpha band (11-13 Hz). In similar fashion power
+      versus frequency plots was drawn of all 14 channels for 10*4 (10 participants * 4 emotions) and the peak values
+      were identified. These plots were compared for four different emotions. Though the weakness of this analysis is that
+      it does not separate out the possible sources of the frequency, hence one is blind while analysing as to what could
+      have caused the frequency but this was conducted as still mere power spectrum analysis does show a difference in
+      the frequencies for emotions.
+
+
+
+
+      Fig.3. (a) Power spectra of individual channel (b) Power spectral topography of all four emotions with respect to different frequency bands
+
+      It was observed from the channel power spectrum plots that for a given emotion across participants the peak
+      frequency range was repeating. In order to confirm the observed pattern, power spectrum topography was also
+      plotted. The observations are shows in fig 3 (b). The frequency bands in which peak values were repeating across
+      the participants for a given emotion has been tabulated in table 2.
+                           Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114                       113
+
+
+Table 2: Observation from power spectrum topography
+Emotion               Theta                Alpha               Beta                                   Inferences
+
+                Low        High      Low        High     Low       High
+
+Love            FC5        AF3                  AF3                AF3       Increased activity in frontal lobe
+                FC6        AF4                  AF4                AF4       P7 has negative correlation with frequency
+                           P7
+Courage         FC5        AF3       FC5        AF3                P7        Frontal activity decreases with high frequency
+                FC6        AF4       FC6        AF4                AF3       P7 has positive correlation with high frequency
+                P8         F7                   P7                 AF4
+                           P7
+Anger           T8         AF3                  AF4      AF3       T7        Frontal activity decreases
+                P8         AF4                  T7       F3        P8        T7 has high positive correlation with frequency
+                           T7                   P7       F4                  O1 has negative correlation
+                                                         O1
+Disgust         AF3        F4        AF3        F4       F3        O1        F3 and AF3 has negative correlation
+                F3         P7        F3         O1       F7        O2        O3 and O4 has positive correlation
+                           O1                   O2
+
+
+As evident from table 2, out of four emotions, the EEG response to visual stimuli depicting emotion of love was
+found to be correlated with higher frontal lobe activity. The author posits that the emotion love had higher
+correlation probably because the brain was involved in imagination during the participants watched video stimuli
+evoking feeling of ‘love’. At the same time, emotion of love showed negative correlation in right temporal and
+occipital lobe because of less motor imagery activity. For courage, theta and alpha power shows positive correlation
+in frontal lobe and negative correlation in right occipital lobe as well as central brain. Courage was found to have
+high positive correlation in left occipital lobe and it was observed that the spectral power increased with increase in
+frequency of the band. Further, it was observed that the stimuli evoking emotion ‘anger’ lead to increase in theta
+power theta in frontal lobe while alpha power increased both in frontal and left temporal lobe. Authors posit that
+since anger is expected to activate motor imagery activity as a human is in fight-flight reaction, one is inclined to
+have more left temporal lobe activity. As the beta power showed increase in left temporal region with anger, relative
+suppression might be the reason for the negative correlation observed in the frontal as well as occipital lobe for
+emotion ‘anger’. Further it was observed that feeling of emotion ‘anger’ led to higher overall brain activity as
+observed through increase in overall power of beta frequency. Disgust showed very high correlation in theta and
+alpha power of occipital lob and negative correlation in left frontal. Authors posit that the reason for increase in
+occipital lobe activity during feeling of disgust might have been due to suppression on further imagination and
+thinking linked to the stimuli as they were ‘disgusting’ and increase in relative visual processing activity to force out
+the stimuli from mind without thinking. The suppression of the imagination related to the stimuli might have led to
+decrease in in beta power of left frontal lobe.
+
+4. Conclusion:
+
+This paper has reported EEG correlational features associated with four different emotions selected from ancient
+Indian dramatics affective model called ‘navarasa’. The paper has briefly discussed the selection of primary four
+emotions from the ‘navarasa’ model in ‘rasa’ theory. The experimental study has showed consistent patterns in EEG
+signal characteristic of the four emotions. This study reports that higher theta, alpha and lower beta frequency bands
+were found to be most responsive to the change in emotional states. Frontal, left temporal and occipital lobes were
+observed to exhibit maximum change in activity during the change of emotional states. Further studies with other
+types of emotions can help towards creating an extensive EEG map of the brain states related to emotional states and
+be useful in developing emotional intelligence in advanced human computer interaction.
+114                                         Jyotish Kumar and Jyoti kumar / Procedia Computer Science 84 (2016) 107 – 114
+
+
+      References:
+      1. L. Nummenmaa and E. G. Riitta Hari, "Bodily maps of emotions," 2013.
+      2. R. W. Picard, "AFFECTIVE COMPUTING FOR HCI," MIT Media Laboratory, 1999.
+      3. E. Hudlicka, "To feel or not to feel:The role of affect in," Int. J. Human-Computer Studies, vol. 59, pp. 1-32, 2003.
+      4. H. Hamdi and P. R. a. A. S. Philippe Allain, "Emotion Assessment for Affective Computing," in IEEE World Congress on Computational
+         Intelligence , Brisbane, Australia, 2012.
+      5. S. Koelstra and J.-S. L. Thierry Pun, "DEAP: A Database for Emotion Analysis using," AFFECTIVE COMPUTING , pp. 1-15.
+      6. J. S and . M. M. R Nagarajan#, "Physiological Signals Based Human Emotion," in IEE, 7th International Colloquium on Signal Processing
+         and its Applications, 2011.
+      7. M. Teplan, "FUNDAMENTALS OF EEG MEASUREMENT," MEASUREMENT SCIENCE REVIEW, vol. 2, no. 2, 2002.
+      8. R. N. C. . A. H. H. Kazi Mohibur Rahman, "Interictal EEG changes in patients with seizure," springer plus, vol. 2, p. 27, 2013.
+      9. R. Shriram and . D. M. S. Nivedita Daimiwal, "EEG Based Cognitive Workload Assessment for Maximum efficiency," IOSR Journal of
+         Electronics and Communication Engineering (IOSR-JECE), pp. 34-38, 2006.
+      10. C. Escolano and M. A. Javier Minguez, "EEG-based Upper Alpha Neurofeedback Training Improves," in 33rd Annual International
+          Conference of the IEEE EMBS, Boston, Massachusetts USA, 2011.
+      11. P. Zarjam and J. E. Fang Chen, "Evaluation of Working Memory Load using EEG," in Proceedings of the Second APSIPA Annual Summit
+          and Conference, pages, Biopolis, Singapore, 2010.
+      12. C. J. Corsaro, Fundamentals of EEG Technology, Vol. 1. Basic Concepts and Methods,., Journal of Clinical Neurophysiology, 1984.
+      13. W. Freeman and . R. Q. , Imaging Brain Function With EEG, Springer Science & Business Media, 2012.
+      14. Y. Liu, "EEG database for emotion recognition," in international conference on cyberworlds,IEEE, 2013.
+      15. W. R. Roberts, Rhetoric by Aristotle, The republic, 2004.
+      16. D. Kahneman, "Experienced Utility and Objective happiness: A moment based approach," cambridge university press, pp. 673-692, 2000.
+      17. R. Plutchik, "Emotions and life: perspectives from psychology, biology, and evolution," American Physiological association, no. 1, 2003.
+      18. P. Ekman, "Basic Emotions," in Handbook of Cognition and Emotion, New York, willey, 1999.
+      19. J. A. Russell, "Affective space is bipolar," Journal of Personality and Social Psychology, vol. 37, pp. 347-356, 1979.
+      20. A. Mehrabian, "Framework for a comprehensive description and measurement of emotional states," Genetic, social, and general Psychology
+          monographs, vol. 37, pp. 339-361, 1995.
+      21. A. Mehrabian, "Pleasure-Arousal-Dominance: A general framework for describing and measuring individual differences in temperament,"
+          Current Psychology, vol. 14, pp. 261-292, 1996.
+      22. D. C. S. Srinivas, "Significance of Rasa and Abhinaya Techniques in Bharata’s natyasastra," IOSR Journal Of Humanities And Social
+          Science (IOSR-JHSS), vol. 19, no. 5, pp. 25-29, 2014.
+      23. "Indian aesthetics," Wikipedia.
+      24. a. R. Brandon, "Farley Richmond, India," Cambridge University Press, p. 69, 1993.
+      25. G. Tarlekar, Studies in Natyasastra, Delhi: Motilal banarasidas, 1991.
+      26. O. Martin and . I. K. B. Macq, The eNTERFACE’05 Audio-Visual Emotion Database, Université catholique de Louvain.
+      27. J.-S. L. T. P. S. Koelstra, "DEAP: A Database for Emotion Analysis ;Using Physiological Signals," affective computing , vol. 3, pp. 18-31,
+          2012.
+      28. A. YAZDANI and J.-S. L. JEAN-MARC VESIN, "Affect Recognition Based on Physiological Changes During," ACM Transactions on
+          Interactive Intelligent Systems, vol. 2, no. 1, 2012.
+      29. C.-H. W. T.-P. J. Yuan-Pin Lin, "EEG based emotion recognition in music listening," biomedical engineering, IEEE transaction, vol. 57, no.
+          7, pp. 1798-1806, 2010.
+      30. M. Soleymani, "Multimodal emotion recognition in response to videos," Affective computing , IEEE transaction, vol. 3, no. 2, 2012.
+      31. D. Wu, "Optimal arousal identification and classification for affective computing using physiological signals: virtual reality stroop task,"
+          Affective computing , IEEE transaction, vol. 1, no. 2, 2010.
+      32. A. Hoffmann, EEG Signal Processing and Emotiv's Neuro Headset, 2010.
+      33. "American Electroencephalographic Society guidelines for standard electrode position nomenclature," J Clin Neurophysiol, 1991.
+      34. S. M. Arnaud Delorme, "EEGLAB: an open source toolbox for analysis of single-trial EEG," Journal of Neuroscience Methods, vol. 134, pp.
+          9-21, 2003.
+      35. D. W. Klass, "The continious challenge of artifacts in EEG," Journal of EEG Technology, vol. 35, pp. 239-269, 1995.
+

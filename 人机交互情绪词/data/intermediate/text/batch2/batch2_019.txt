@@ -1,0 +1,422 @@
+                 Audio-visual Affect Recognition through Multi-stream Fused HMM for HCI
+
+                           Zhihong Zeng*, Jilin Tu, Brian Pianfetti, Ming Liu, Tong Zhang, Zhenqiu Zhang,
+                                                Thomas S. Huang and Stephen Levinson
+                                               University of Illinois at Urbana-Champaign
+                           {zhzeng, jilintu, mingliu1, zzhang6, huang, sel}@ifp.uiuc.edu, bpianfet@uiuc.edu
+
+
+                                           Abstract                                        education-based testbed focuses on the ability of the
+                                                                                           computing environment to help middle school students
+                  Advances in computer processing power and                                learn math and science concepts through exploration.
+               emerging algorithms are allowing new ways of                                This project uses a proactive computing learning
+               envisioning Human Computer Interaction. This paper                          environment to achieve two goals. The first goal was to
+               focuses on the development of a computing algorithm                         keep the children actively engaged in the learning
+               that uses audio and visual sensors to detect and track a                    activity. The second goal was to support the
+               user's affective state to aid computer decision making.                     exploration of math and science phenomena enabling
+               Using our Multi-stream Fused Hidden Markov Model                            the children to increase their knowledge. This is done
+               (MFHMM), we analyzed coupled audio and visual                               through the recognition of changes in the children's
+               streams to detect 11 cognitive/emotive states. The                          affective states (e.g. interest, boredom, frustration and
+               MFHMM allows the building of an optimal connection                          puzzlement) and applying appropriate tutoring
+               among multiple streams according to the maximum                             strategies (e.g. encouragement, transition, guidance,
+               entropy principle and the maximum mutual                                    and confirmation).
+               information         criterion.      Person-independent                          The psychological study [16] indicated that judging
+               experimental results from 20 subjects in 660 sequences                      someone’s affective states, people mainly rely on facial
+               show that the MFHMM approach performs with an                               expressions and vocal intonations. Thus, affect
+               accuracy of 80.61% which outperforms face-only                              recognition should inherently be the issue of
+               HMM, pitch-only HMM, energy-only HMM, and                                   multimodal analysis. In this paper, we present our
+               independent HMM fusion.                                                     efforts toward audio-visual affect recognition. With an
+                                                                                           HCII application in mind, we used 11 affective states
+                                                                                           which indicate a user's cognitive/emotive state. And we
+               1. Introduction                                                             focus on person-independent affect recognition in
+                                                                                           which testing data and training data are from different
+                  Changes in a person's affective state play a                             subjects. Thus, the variation of the data is more
+               significant role in perception and decision making                          significant and classification is more challenging than
+               during human to human interactions. This fact has                           person-dependent recognition in which testing data and
+               inspired the research field of “affective computing”                        training data are from the same subject.
+               which aims at enabling computers to express and                                 For integrating coupled audio and visual streams,
+               recognize affect [9]. Perhaps the most fundamental                          we present the multi-stream fused hidden Markov
+               applications of affective computing would be in                             model (MFHMM) which can build optimal connection
+               human-computer interaction where the computer could                         among multiple streams according to the maximum
+               detect and track a user's affective states and initiate                     entropy principle and a maximum mutual information
+               communications based on this knowledge, rather than                         criterion. This person-independent affect recognition
+               simply responding to a user's commands.                                     approach was tested in 660 sequences based on 20
+                  Research presented in paper is part of an ongoing                        subjects with 11 HCII-related affect states. The
+               federally funded project (ITR) [20] which is to                             experimental results show that the MFHMM approach
+               contribute to the development of a multimodal human-                        performs with an accuracy of 80.61% which
+               computer intelligent interaction (HCII) environment.                        outperformed face-only HMM, pitch-only HMM,
+               The concepts and tools resulting from this project are                      energy-only HMM, and independent HMM fusion
+               applied to an educational context for evaluation. This                      which assumes independence among tightly coupled
+                                                                                           streams.
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+                                                                                           repeat each state with speech three times. Therefore,
+               2. Related work                                                             for every affective state, there are 3*20=60 video
+                                                                                           sequences. And there are totally 60*11=660 sequences
+                   Researchers from many different disciplines are                         for 11 affective states. The time of every sequence
+               interested in the possibility of automated affect                           ranged from 2-6 seconds.
+               analysis and recognition.          Recent advances in
+               computing power and multimedia technologies are
+               facilitating efforts toward audio-visual affect
+               recognition. According to [1], four papers [2-5]
+               reported advances of bimodal affect recognition. In
+               addition, there have been three papers of bimodal
+               emotion recognition [6-7][18] recently published in
+               2004.
+                   Three of these seven papers only did person-
+               dependent affect recognition [5][7][18]. [6] did not
+               give the number of tested subjects, and did not
+               mentioned feature normalization which is crucial for
+                                                                                                 Figure 1. The videos used in our experiment
+               person-independent test either. Thus, we think that [6]
+               should belong to person-dependent recognition.
+                                                                                              During labeling, start and end points of each
+               Compared with the rest reports of person-independent
+                                                                                           emotion expression were determined by speech energy
+               bimodal affect recognition [2-4], the progress in this
+                                                                                           which is easy to detect. Once these segments were
+               paper includes:
+                                                                                           defined, corresponding points of facial feature and
+                   1) 11 affective states are analyzed, including 7 basic
+                                                                                           pitch sequences were labeled.
+               emotions and 4 cognitive states (puzzlement, interest,
+               boredom, and frustration). [2-4] only analyzed 5-7
+               basic emotions.                                                             4. Facial feature extraction
+                   2) 20 subjects are tested. The numbers of subjects
+               in [2-4] are at most five.                                                      A tracking algorithm called Piecewise Bezier
+                   3) Multi-stream Fused HMM is applied in audio-                          Volume Deformation (PBVD) tracking [10] is applied
+               visual fusion. [3-4] applied rule-based methods for                         to extract facial features in our experiment.
+               combining two modalities. [2] applied the single-                               This face tracker uses a 3D facial mesh model
+               modal method in a sequential manner for bimodal                             which is embedded in multiple Bezier volumes. The
+               recognition.                                                                shape of the mesh can be changed with the movement
+                                                                                           of the control points in the Bezier volumes. That
+                                                                                           guarantees the surface patches to be continuous and
+               3. Database                                                                 smooth. In the first video frame (frontal view of a
+                                                                                           neutral facial expression), the 3-D facial mesh model is
+                  The datasets used in previous papers [2-4] were
+                                                                                           constructed by manual or automatic selection [8] of
+               small in the number of subjects, and were not related
+                                                                                           landmark facial feature points. Once the model was
+               directly to human computer interaction. To overcome
+                                                                                           fitted, the tracker can track head motion and local
+               these problems, a large-scale database was collected
+                                                                                           deformations of the facial features. At the current
+               [19]. This database consists of performances of 7 basic
+                                                                                           stage, only local deformations of facial features are
+               emotions (happiness, sadness, fear, surprise, anger,
+                                                                                           used for affect recognition. These deformations are
+               disgust, and neutral), and 4 cognitive states (interest,
+                                                                                           measured in terms of magnitudes of 12 predefined
+               boredom, puzzlement and frustration).
+                                                                                           motions of facial features, called Motion Units (MUs),
+                  The 20 subjects (10 female and 10 males) in our
+                                                                                           which are shown in Figure 2. The outputs of the face
+               database consist of graduate and undergraduate
+                                                                                           tracker corresponding to 12 MUs are used as facial
+               students from different disciplines. The first frames of
+                                                                                           features for later affect recognition in our experiment.
+               the videos used in our experiment are shown in Figure
+                                                                                               We notice that the movements of facial features are
+               1. This set of videos contains subjects with a wide
+                                                                                           related to both affective states and content of speech.
+               variability in physiognomy. Although the subjects
+                                                                                           Thus, smooth facial features are calculated by
+               displayed affect expressions on request, the subjects
+                                                                                           averaging facial features at consecutive frames to
+               chose how to express each state. They were simply
+                                                                                           reduce the influence of speech on facial expression,
+               asked to display facial expressions and speak
+                                                                                           based on the assumption that the influence of speech
+               appropriate sentences. Each subject was required to
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+               on face features is temporary, and the influence of                         to normalize amplitude change due to the speaker
+               affect is relatively more persistent.                                       volume and the distance of a speaker for microphone.
+                                                                                              Similarly to the visual feature quantization, the
+                                                                                           energy and pitch are quantized into 19-size codebook
+                                                                                           by vector quantization respectively.
+
+                                                                                           6. Multi-stream fused HMM (MFHMM)
+                                                                                              For integrating coupled audio and visual features,
+                                                                                           we propose multi-stream fused HMM (MFHMM)
+                                                                                           which constructs a new structure linking the multiple
+                                                                                           component HMMs which is optimal according to the
+                                                                                           maximum entropy principle and a maximum mutual
+                              Figure 2. 12 facial Motion Units                             information (MMI) criterion. MFHMM is a
+                                                                                           generalization of two-stream fused HMM [11]. It is
+                   Regarding person-independent affect recognition,                        suitable for the recognition problem which has more
+               facial feature normalization is crucial because every                       than two features. The advantages of MFHMM
+               subject has different physiognomy. To express an                            include: 1) every feature could be modeled by one
+               affect, different subjects will display different                           component HMM so that the performance of every
+               magnitudes of 12 MUs. To overcome this difference,                          feature could be analyzed individually. And that
+               the neutral expression for each person has been used as                     analysis can be used for feature selection; 2) it reaches
+               the normalization standard. In detail, for a given                          a better balance between model complexity and
+               subject, the magnitudes of 12 MUs at every frame were                       performance than other existing model fusion methods,
+               normalized by the corresponding feature means of the                        like the coupled HMM (CHMM)[17] and mixed-
+               neutral expression of the same subject.                                     memory HMM (MHMM) [15]. That is shown in [11];
+                   After the feature vector of each frame is                               3) reliabilities of component HMM can be used to
+               normalized, it is quantized into 19-size codebook by                        adjust the corresponding weights in final fusion. And if
+               vector quantization (VQ).                                                   one component HMM fails due to some reason, the
+                                                                                           other HMM can still work. Thus, the final fusion
+               5. Audio feature extraction                                                 performance can be robust.
+                                                                                              In our affect recognition, we treat composite facial
+                   For audio feature extraction, Entropic Signal                           feature, speech energy and pitch as three tightly
+               Processing System named get_f0, a commercial                                coupled streams. And three-stream fused HMM was
+               software package, is used. It implements a fundamental                      used in our experiment.
+               frequency estimation algorithm using the normalized
+               cross correlation function and dynamic programming                          6.1. Multi-stream Fused HMM
+               [12]. The program can output the pitch F0 for
+               fundamental frequency estimate, RMS energy for local                           Consider           n tightly coupled time series
+               root mean squared measurements, prob_voice for
+                                                                                           {O (i ) , i = 1," , n} . Assume    that the    series
+               probability of voicing, and the peak normalized cross-
+               correlation value that was used to determine the output                     {O , i = 1," , n} can be modeled respectively by n
+                                                                                              (i )
+
+               F0. The experimental results in [13] showed pitch and                       HMMs with hidden states {U ( i ) , i = 1,..., n} . In the fused
+               energy are the most important factors in affect                             HMM framework, an optimal solution for
+               classification. Therefore, in our experiment, we only                        p ( O (1) ; O ( 2) ; " ; O ( n ) ) according to the maximum
+               used these two audio features for affect recognition.                       entropy principle [11] is given by
+               Some prosody features, like frequency and duration of                            ˆp (O (1) ; O (2) ;" ; O ( n ) )
+               silence, could have implication in the HMM structure                                                                         p (v (1) , v (2) ," , v ( n ) )
+               of energy and pitch.                                                           = p (O (1) ) p (O (2) ) " p (O ( n ) ) •
+                   Obviously, the emotional information in the voice                                                                     p (v (1) ) p (v ( 2) ) " p (v ( n ) )
+               depends on the subject and recording condition. The                                                                                                 (6.1.1)
+               pitch varies widely from person to person. In general,                           The last term in the equation can be viewed as an
+               males speak with a lower pitch than females. Thus, for                      enhancement/suppression factor, which absorbs some
+               a given subject, the pitch at every frame is normalized                     dependence among {O ( i ) , i = 1, " , n} .The transforms
+               by the pitch mean of the neutral expression sequence of                                          v (i ) = g i (O (i ) ) i = 1, 2 , " , n
+               the same subject. The same is done for energy features
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+               were introduced so that p ( v (1) , v ( 2 ) , " , v ( n ) ) can more            The weights of (6.1.3) could be set proportinal to
+               easily calculated than p (O (1) ; O ( 2 ) ; " ; O ( n ) ) and it            the reliabilities of the component HMMs. The more
+               reflects          the      statistical dependence             among         reliable one component HMM is, the larger its weight.
+               {O ( i ) , i = 1, " , n} .                                                  In our experiments, the performance of component
+                   According to the maximum mutual information                             HMMs increases from face-only, pitch-only and
+               (MMI) criterion, [11] proposed to fuse component                            energy-only HMMs, so their corresponding weights
+               HMMs together by connecting the hidden states of one                        are set to be 2.5, 3.5 and 4 respectively.
+               HMM to the observation of another HMM. Thus n sets
+               of transforms can be invoked with the i-th                                  6.2. Learning Algorithm
+               ( i = 1, 2 , " , n ) set of transform being
+                                     ­U ( j ) j = i                                        The learning algorithm of the n-stream fused HMM
+                          v ( j) = ® ( j)                ( j = 1, 2 , " , n )              includes three main steps.
+                                     ¯O        j≠i                                         1) n component HMMs are trained independently by
+                  The i-th corresponding fusion model defined by                                 the EM algorithm.
+               (6.1.1) yields                                                              2) The best hidden state sequences of the component
+                      ˆp (i ) (O(1) ; O(2) ;"; O ( n ) )                                         HMMs are estimated using the Viterbi algorithm
+                      = p(O(1) ) p(O(2) )" p(O( n ) )                                      3) The coupling parameters between the n HMMs are
+                                                                                                 estimated.
+                                 p(U (i ) , O(1) ," , O(i −1) , O(i +1) ,", O( n ) )
+                       •                                                                      In step 1, the model parameters (the initial,
+                            p(U (i ) ) p(O(1) )" P(O(i −1) ) P(O (i +1) )" p(O( n ) )      transition, and observation probabilities) of individual
+                     = p(O(i ) ) p(O(1) ," , O (i −1) , O (i +1) ", O( n ) | U (i ) )      HMMs are estimated. And step 2 infers hidden states
+                   And assuming                                                            U (i ) (i = 1,2," , n) . The details of the EM and the
+                          p (O (1) , " O ( i −1) , O ( i +1) " , O ( n ) | U ( i ) )       Viterbi algorithms used for solving the above problems
+                                            n                                              can be found in [14].
+                                   = ∏ p (O ( j ) | U ( i ) )                                 In step 3, the coupling parameters between the n
+                                       j ≠ i , j =1
+                                                                                           HMMs are determined as follows:
+                   Although this conditional independence assumption                                        B (i , j ) = arg max p (O ( j ) | U (i ) )
+               is usually violated in practice, it has a good record in
+                                                                                                                      i, j = 1,2," , n, i ≠ j
+               pattern recognition. The reason of the success of this
+               assumption is attributed to the small number of                             Since O and U (i = 1,2," , n) are known, the above
+                                                                                                      (i )     (i )
+
+
+               parameters to be estimated. Some complicated                                equations are a typical ML problem.
+               algorithms without this assumption require more
+               training data, and are more susceptible to local                            6.3. Inference Algorithm
+               maximum during parameter estimation.
+                   Thus, the estimate of p (O (1) ; O ( 2 ) ;"; O ( n ) ) is given              In our application, inference is the process of
+               by                                                                          computing pˆ (O (1) ; O ( 2 ) ; " ; O ( n ) ) in (6.1.3) given
+                   ˆp (i ) (O (1) ; O (2) ;"; O ( n ) )                                    observation sequence {O ( i ) , i = 1, " , n} and the model
+                                     n                                   (6.1.2)           parameters corresponding to each affective state. And
+                  = p(O ( i ) ) ∏ p(O ( j ) | U ( i ) )                                    the        affective           state           with           maximum      of
+                                    j ≠ i , j =1                                                  (1)   (2)        (n)
+                                                                                            pˆ (O ; O ; " ; O )            is    regarded        as      the recognition
+                   The structures defined by (6.1.2) are different for
+                                                                                           result.
+               different i . (6.1.2) emphasizes the dependencies
+                                                                                                According to (6.1.2), we first computer individually
+               between hidden states U (i ) and observations                                                    pˆ ( i ) (O (1) ; O ( 2 ) ;" , O ( n ) )
+               {O ( j ) , j = 1, " , n , j ≠ i} , which requires that U (i ) be                                           i = 1, 2 , " , n
+               reliably estimated. In practice, if the n component                              Then their results are combined according to (6.1.3)
+               HMMs have different reliabilities, they may be                              to get
+               combined by different weights to get a better result:
+                                                                                                                  pˆ (O (1) ; O ( 2 ) ;"; O ( n ) )
+                   pˆ (O (1) ; O (2) ;"; O ( n ) )
+                                                                    (6.1.3)                     The individual inference algorithm of (6.1.2) is
+                        n
+                  = ¦ λ ( i ) ˆp ( i ) (O (1) ; O (2) ;"; O ( n ) )                        derived from the forward inference procedure of
+                     i =1                                                                  traditional HMM [14]. The only difference of our
+                             n                                                             algorithm is that multiple stream observations instead
+               where
+                            ¦λ
+                            i =1
+                                    (i)
+                                           =1                                              of one-stream observation at time instants are taken
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+               into account. In the other words, observation                                    Among the five methods mentioned above, face-
+               probability                                                                  only HMM gave the poorest performance. The main
+                            p (O ( i ) | U ( i ) ) (i = 1,2," , n)                          reason is that speaking influences facial expressions.
+               in the forward-backward procedure [14] is replaced by                        Especially, subjects seldom display expressive peaks
+                              n                                                             which are main characteristic for pure facial
+                              ∏ p (O
+                              j =1
+                                        ( j)
+                                               | U (i ) )     (i = 1,2," , n)               expressions without speaking. Pitch-only and energy-
+                                                                                            only HMMs performed better than face-only HMM but
+                                                                                            worse than IHMM and MFHMM because both of
+               7. Experimental results                                                      IHMM and MFHMM combine information of face,
+                                                                                            pitch and energy which provide complementary
+                  The            MFHMM                 person-independent          affect   information for recognition. IHMM gave worse
+               recognition algorithm was tested on 20 subjects (10                          performance than MFHMM because it assumes that
+               females and 10 males). For this test, all of the                             O (1) , O ( 2 ) and O (3) are independent. The performance of
+               sequences of one subject are used as the test sequences,                     MFHMM is best on recognition rate, and the time of
+               and the sequences of the remaining 19 subjects are                           its training and inference is only a little more than
+               used as training sequences. The test is repeated 20                          IHMM.
+               times, each time leaving a different person out (leave-                          Thus, the MFHMM reaches a good balance between
+               one-out cross-validation). For every affective state,                        model complexity (as well as computational
+               there are 3*20=60 expression sequences. Therefore,                           complexity) and performance.
+               there are totally 60*11=660 sequences for 11 affective                           The more details of comparison of the five methods
+               states. The time of every sequence is from 2-6 seconds.                      of 11-state affect recognition are presented in Table 2
+                   In our experiment, the composite facial feature                          which lists the recognition rate of each affect. In Table
+               from video, energy and pitch features from audio are                         2 for face-only HMM confusion matrix, the 3 cognitive
+               treated         as         three        tightly         coupled   streams    states (frustration, interest and boredom) has the lowest
+               ( O (1) , O ( 2 ) , O ( 3) ), and modeled by three component                 recognition rates. That shows that it is difficult to judge
+               HMMs with 12 hidden states. We used the following                            these subtle cognitive states if only using information
+               five methods to make decisions and compared the                              of facial expression. Fortunately, the audio features
+               recognition results:                                                         (pitch and energy) provide complementary information
+                   1) face-only HMM;                                                        in these cognitive states which are shown in Table 2.
+                   2) pitch-only HMM;
+                   3) energy-only HMM;                                                      8. Conclusion
+                   4) independent-HMM                           (IHMM):        assuming
+                         O (1) , O ( 2 ) and O ( 3) are independent, it combines               With an automatic affect recognizer, a computer can
+                         the component HMMs by computing:                                   respond appropriately to the user’s affective state
+                                            ˆp(O (1) ; O (2) ; O (3) )                      rather than simply responding to user commands. In
+                                                                                            this way, the nature of the computer interactions would
+                                   = p (O (1) ) p (O (2) ) p (O (3) )                       become more authentic, persuasive, and meaningful.
+                   5) MFHMM: assuming statistical dependence                                This type of interaction is the ultimate goal of ITR
+                      among O (1) , O ( 2 ) and O ( 3) , it combines the                    project where attending to changes in the child’s
+                      component HMMs by computing (6.1.3) in                                affective states leads to a high level of engagement and
+                      which λ (1) , λ ( 2 ) , λ ( 3 ) are set to be 2.5, 3.5 and 4          knowledge acquisition. To accomplish this end, this
+                      individually.                                                         paper proposes a person-independent audio-visual
+                  In order to make our experiment comparable with                           affect recognition.
+               the previous basic emotion recognition reports, we also                         For integrating tightly coupled audio-visual streams,
+               did 7-state basic emotion recognition besides 11-state                       we applied the multi-stream fused HMM which is
+               affect recognition. The affect recognition results in our                    optimal according to the maximum entropy principle
+               experiment are shown in Table 1.                                             and the maximum mutual information criterion.
+                                                                                            Experimental results from analyzing 11 affect states of
+                   Table 1. Average accuracies of affect recognition                        20 subjects suggests that the MFHMM with the
+                      %         Face           Pitch        Energy   IHMM       FHMM        recognition rate of 80.61% outperformed face-only
+                  11 States     38.64          57.27        66.36     72.42      80.61      HMM, pitch-only HMM, energy-only HMM, and
+                   7 States     52.38          63.81        70.71     75.24      85.24      independent       HMM        fusion    which    assumes
+                                                                                            independence among tightly coupled streams.
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+                  Multimodal recognition of human affective states is                      [7] Busso, C., Deng, Z., Yildirim, S., Bulut, M., Lee, C.M.,
+               a largely unexplored and challenging problem. The                           Kazemzadeh, A., Lee, S., Neumann, U., Narayanan, S.,
+               elicited nature of the affects performed in our database                    Analysis of Emotion Recognition Using Facial Expressions
+               has the potential to differ from corresponding                              Speech and Multimodal Information, ICMI 2004
+                                                                                           [8] Tu, J., Zhang, Z., Zeng, Z. and Huang, T.S., Face
+               performances in natural settings. The next stage in the                     Localization via Hierarchical Condensation with Fisher
+               evaluation of this algorithm will be attempting to                          Boosting Feature Selection, In Proc. Computer Vision and
+               detect these affect states in human interactions where                      Pattern Recognition, 2004.
+               the states are performed naturally.                                         [9] Picard, R.W., Affective Computing, MIT Press,
+                                                                                           Cambridge, 1997.
+               Acknowledgement                                                             [10] Tao, H. and Huang, T.S., Explanation-based facial
+                                                                                           motion tracking using a piecewise Bezier volume
+                                                                                           deformation mode ,CVPR'99, vol.1, pp. 611-617, 1999
+                  We like to thank Dr. Lawrence Chen for collecting                        [11] Pan, H., Levinson S., Huang, T.S., and Liang, Z.P., A
+               the valuable data in this paper for audio-visual affect                     fused Hidden Markov Model With Application to Bimodal
+               recognition. This work has been funded by National                          Speech Processing, IEEE Transaction on Signal Processing,
+               Science Foundation: Information Technology Research                         Vol.52, No.3, 573-581, March 2004
+               Grant# 0085980                                                              [12] Talkin, D., A Robust Algorithm for Pitch Tracking, in
+                                                                                           Speech Coding and Synthesis, Kkeijn, W.B., and Paliwal,
+               References                                                                  K.K., Eds., Amsterdam: Elsevier Science, 1995
+                                                                                           [13] Kwon, O.W., Chan, K., Hao, J., Lee, T.W, Emotion
+                                                                                           Recognition by Speech Signals, EUROSPEECH 2003.
+               [1] Pantic M., Rothkrantz, L.J.M., Toward an affect-sensitive
+                                                                                           [14] Rabiner, L.R., A Tutorial on Hidden Markov Models
+               multimodal human-computer interaction, Proceedings of the
+                                                                                           and Selected Applications in Speech Recognition,
+               IEEE, Vol. 91, No. 9, Sept. 2003, 1370-1390
+                                                                                           Proceedings of IEEE, Vol.77, No.2, February, 1989
+               [2] Chen, L. and Huang, T. S., Emotional expressions in
+                                                                                           [15] Saul, L.k. and Jordan, M.I., Mixed memory Markov
+               audiovisual human computer interaction, Int. Conf. on
+                                                                                           model: Decomposing complex stochastic processes as
+               Multimedia & Expo 2000, 423-426
+                                                                                           mixture of simpler ones, Machine Learning, Vol.37, 75-88,
+               [3] Chen, L., Huang, T. S., Miyasato, T., and Nakatsu, R.,
+                                                                                           Oct. 1999
+               Multimodal human emotion/expression recognition, Int.
+                                                                                           [16] Mehrabian, A., Communication without words, Psychol.
+               Conf. on Automatic Face & Gesture Recognition 1998, 396-
+                                                                                           Today, vol.2, no.4, 53-56, 1968
+               401
+                                                                                           [17] Brand, M. and Oliver, N., Coupled hidden Markov
+               [4] De Silva, L. C., and Ng, P. C., Bimodal emotion
+                                                                                           models for complex action recognition, In Proc. Computer
+               recognition, Int. Conf. on Automatic Face & Gesture
+                                                                                           Vision Pattern Recognition, 201-206, 1997
+               Recognition 2000, 332-335
+                                                                                           [18] Zeng, Z., Tu, J., Liu, M., Zhang, T., Rizzolo, N., Zhang,
+               [5] Yoshitomi, Y., Kim, S., Kawano, T., and Kitazoe, T.,
+                                                                                           Z., Huang, T.S., Roth, D., and Levinson, S., Bimodal HCI-
+               Effect of sensor fusion for recognition of emotional states
+                                                                                           related Affect Recognition, ICMI 2004
+               using voice, face image and thermal image of face, in Proc.
+                                                                                           [19] Chen, L.S, Joint Processing of Audio-Visual Informa-
+               ROMAN 2000, 178-183
+                                                                                           tion for the Recognition of Emotional Expressions in
+               [6] Song, M., Bu, J., Chen, C., Li, N., Audio-Visual Based
+                                                                                           Human-Computer Interaction, PhD thesis, UIUC, 2000
+               Emotion Recognition-A New Approach, CVPR 2004.
+                                                                                           [20] itr.beckman.uiuc.edu
+
+
+                 Table 2. Comparison of face-only HMM, pitch-only HMM, energy-only HMM, IHMM and MFHMM for 11 state affect
+                                                                                 recognition
+                    (%)        neutral     happy       sad      angry      disgust      surprise      fear      frustrated      puzzle      interest     bore
+                   face         0.45        0.40       0.32      0.58        0.43         0.43        0.52         0.18          0.42         0.25       0.27
+                   pitch        0.92        0.42       0.55      0.63        0.68         0.42        0.62         0.35          0.72         0.62       0.38
+                  energy        0.92        0.53       0.33      0.67        0.85         0.60        0.72         0.63          0.78         0.58       0.68
+                  IHMM          0.97        0.53       0.67      0.77        0.90         0.57        0.72         0.58          0.82         0.82       0.63
+                 MFHMM          0.98        0.70       0.68      0.82        0.88         0.78        0.78         0.75          0.85         0.85       0.78
+
+
+
+
+Proceedings of the 2005 IEEE Computer Society Conference on Computer Vision and Pattern Recognition (CVPR’05)
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:09:32 UTC from IEEE Xplore. Restrictions apply.
+1063-6919/05 $20.00 © 2005 IEEE
+

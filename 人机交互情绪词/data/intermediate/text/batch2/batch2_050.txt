@@ -1,0 +1,819 @@
+      How much do Twitter posts affect voters? Analysis of the
+     multi-emotional charge with affective computing in political
+                            campaigns
+                 David Valle-Cruz                                          Asdrúbal López-Chau                             Rodrigo Sandoval-Almazan
+         Department of Engineering,                                 CU UAEM Zumpango, Universidad                         Department of Political Science,
+     Universidad Autónoma del Estado de                              Autónoma del Estado de México                      Universidad Autónoma del Estado de
+                   México                                                 alchau@uaemex.mx                                           México
+             davacr@uaemex.mx                                                                                                rsandovala@uaemex.mx
+ABSTRACT                                                                                          1   INTRODUCTION
+Artificial intelligence has been applied to different sectors in the                              The twenty-first century represents the rise of artificial intelli-
+government from data analysis to predictive analytics, as well as,                                gence worldwide. Different artificial intelligence techniques are
+policing, combating the COVID-19 pandemic, and political elec-                                    bio-inspired and psychologically motivated [32]. The public sphere
+tion campaigns. In the academic field, the exploitation and under-                                has not been left behind, and governments throughout the world
+standing of data generated in social media have mostly focused                                    have reached levels of automation that were unimaginable in the
+on unimodal sentiment analysis, based on one-dimensional senti-                                   last century. Some artificial intelligence techniques, such as machine
+ment analysis. This research proposes an analysis of the emotional                                learning, sentiment analysis, text mining, and pattern recognition
+charge for the U.S. presidential elections in 2020, based on a hybrid                             are the most representative areas in the public sector [80]. Artificial
+approach that combines affective computing and classic statistical                                intelligence has been applied to different sectors in the government
+analysis. We analyze the multi-emotional charge of candidates and                                 from data analysis to predictive analytics applied to policing, com-
+voters, as well as the potential relationship of the candidates’ emo-                             bating the COVID-19 pandemic, and political election campaigns
+tions on the voters. Through this analysis is possible to determine                               [20, 70, 77]. E-Governing, boosted by artificial intelligence, has the
+the degree of agreement between candidates and voters. Future                                     potential to disrupt government efficiency, transparency, account-
+research is proposed for the area of affective computing in political                             ability, and government to citizen interaction [14]. E-government
+campaigns.                                                                                        facilitates citizen access to government services, information, and
+                                                                                                  data, as well as creates public value [68]. In the same way that
+CCS CONCEPTS                                                                                      some government services have been automated, democracy and
+• Applied computing → Computers in other domains; Comput-                                         politics have also been digitalized, expressed into new forms of
+ing in government; E-government; • Computing methodologies                                        communication based on social media, and the generated emotions
+→ Artificial intelligence; Natural language processing; Lexical se-                               in the virtual public sphere towards political campaigns.
+mantics.                                                                                             In this regard, an artificial intelligence application is to detect
+                                                                                                  sentiments and emotions. Unimodal sentiment analysis has been
+                                                                                                  widely applied in many areas, while multimodal sentiment anal-
+KEYWORDS
+                                                                                                  ysis in texts with an affective computing approach has recently
+Affective computing, Emotional charge, Artificial Intelligence,                                   been proposed in the scientific community [19, 50, 72]. Under-
+Multi-modal sentiment analysis, Twitter, Social Media, Political                                  standing more sentiments and emotions is a fundamental issue
+campaigns                                                                                         for better decision-making and perception about different kinds
+ACM Reference Format:                                                                             of events. The processing of emotions is also important for the
+David Valle-Cruz, Asdrúbal López-Chau, and Rodrigo Sandoval-Almazan.                              detection of human behaviors, in this regard, automatically captur-
+2021. How much do Twitter posts affect voters? Analysis of the multi-                             ing people’s perceptions about social events, political movements,
+emotional charge with affective computing in political campaigns. In                              marketing campaigns, and product preferences have been of in-
+DG.O2021: The 22nd Annual International Conference on Digital Govern-                             terest to the scientific community because of the impact it has
+ment Research (DG.O’21), June 09–11, 2021, Omaha, NE, USA. ACM, New                               on elections, marketing, and prediction among other applications
+York, NY, USA, 14 pages. https://doi.org/10.1145/3463677.3463698                                  [4, 17].
+                                                                                                     These types of phenomena have given the origin to specific
+Permission to make digital or hard copies of all or part of this work for personal or             fields of artificial intelligence, like affective computing and deep
+classroom use is granted without fee provided that copies are not made or distributed             learning, which take advantage of human-machine interaction,
+for profit or commercial advantage and that copies bear this notice and the full citation
+on the first page. Copyrights for components of this work owned by others than ACM                information extraction, and multimodal signal processing to detect
+must be honored. Abstracting with credit is permitted. To copy otherwise, or republish,           people’s sentiments from the data generated daily in social media
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.
+                                                                                                  [22, 51]. In this regard, in social media, emotions, thoughts, ideas,
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                         and sentiments are expressed after different kinds of events, the
+© 2021 Association for Computing Machinery.                                                       amount of data and information that is generated in social media is
+ACM ISBN 978-1-4503-8492-6/21/06. . . $15.00
+https://doi.org/10.1145/3463677.3463698
+
+
+
+
+                                                                                              1
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                        David Valle-Cruz et al.
+
+
+immeasurable, but it contains important information for decision-              2.1    Sentiment Analysis in Political Campaigns
+making and the understanding sentiments and emotions of social                 This section is divided into two stages: the first one focuses on
+media users [43].                                                              social media and elections, and the second one discusses sentiment
+    Recently, emerging technologies, especially artificial intelligence        analysis using social media.
+techniques, have been used for data extraction and as an important
+tool for analyzing all kinds of information, in this regard, large tech-       2.1.1 Social Media and Elections. The study of social media in
+nology companies like Facebook, Google-Alphabet, and Microsoft                 elections starts with former president Barack Obama, who pro-
+have taken advantage of intelligent algorithms and the exploitation            moted the intensive use of Facebook and other social media tools
+of so-called Big Data [41]. In the academic field, the exploitation            to create his brand, make the difference, and won the presidential
+and understanding of data generated in social media have mostly                race [38]. Since then, the use of different social media platforms –
+focused on unimodal sentiment analysis, based on one-dimensional               Youtube, Twitter, Facebook – and new platforms – TikTok, Twicht,
+sentiment analysis [37, 66]. However, there are no multimodal sen-             Clubhouse, Telegram, WhatsApp, Instagram – are an everyday use
+timent analysis studies in political campaigns research [59]. In               for developing strategies to change voters’ perception and deci-
+this regard, studies in the political arena have focused on polar-             sion. Some authors carry out correlational studies to link social
+ity analysis, which can result in a poor explanatory quality of the            media users’ behavior with other variables to explain different types
+emotions, thoughts, and sentiments presented by users of social                of outcomes. Other studies use sentiment analysis to understand
+media [50, 51]. The importance of the study of emotions plays a                emotions and try to change them. This section aims to present an
+relevant role in decision-making, and in a better understanding                overview of social media and elections, and the second section is
+of social phenomena and political events, where some techniques                based only on sentiment analysis research.
+of artificial intelligence can help advance in this direction [26, 70].           The first study from Effing and colleagues tested a Social Media
+Artificial intelligence techniques have developed different kinds of           Participation Model (SMPM) in the Netherlands and finds a negative
+machines capable of recognizing, express, model, communicate and               correlation between social media use and a sense of community
+respond to emotional information: this area of knowledge is called             [30]. A more recent study from these scholars reported developing
+"affective computing" [58, 67].                                                a theoretical framework and an algorithm that contributed to a
+    This research proposes an analysis of the emotional charge for             more reliable impact measurement of social media campaigns by
+the U.S. presidential elections in 2020, based on a combination of             politicians. They tested this in the 2014 municipal elections, again
+affective computing and classic statistical analysis. For this reason,         in the Netherlands, revealing positive correlations in the social
+we analyze the multi-emotional charge of candidates and voters                 media contributions and politicians’ scores and their preference
+(based on eight emotional levels), as well as the potential relation-          votes [28, 29].
+ship of the candidates’ emotions to the voters [66]. The authors                  Barclay, Chinnasamy, and Pichandy studied Facebook and Twit-
+analyze tweets from Donald Trump, and Joe Biden, as well as the                ter posts related to U.S. presidential elections in 2012, finding a
+data generated by the trending topics that emerged around the po-              positive correlation between political opinions and sentiments ex-
+litical election in the U.S. The document consists of six sections. The        pressed, and a positive correlation between sentiments and the
+second section describes the literature review of sentiment analysis,          electoral result [9]. A complementary perspective in the U. K. was
+the potential of the affective computing area, and the Hourglass               reported by Moore, who analyzed the expenditure of 1.2 million
+of emotions model towards the multi sentiment analysis in polit-               pounds by the Conservative Party to support a Facebook campaign
+ical campaigns. The third section presents the methods based on                to develop tailored messages and found that this communication
+the emotional charge detected on Twitter data. The fourth section              "compromised the principles of fair and open elections in the U.
+shows the results of the multi sentiment analysis and traditional              K." [53]. Muñiz and colleagues developed a scale to measure the
+statistical analysis. The fifth section contains the discussion of the         impact of social media in elections through a content analysis using
+results. Finally, the last section shows the conclusions, limitations,         Facebook messages on two local government elections in Mexico
+and future research paths in the area of affective computing in                [54]. Jaidka and colleagues used volumetric analyses, sentiment
+political campaigns.                                                           analyses, and network analyses through machine learning models
+                                                                               to predict elections in Malaysia, India, and Pakistan, discovering
+                                                                               that these techniques effectively predict smaller vote shares: inde-
+                                                                               pendent candidates and regional parties [42].
+2    THE POTENTIAL OF AFFECTIVE                                                   Fujimura and colleagues [33] found that the exposure to Twitter
+     COMPUTING IN POLITICAL CAMPAIGNS                                          lowered the Republican vote share in the 2016 presidential elec-
+The purpose of this section is to explain the characteristics of affec-        tion but had limited effects on turnout and vote shares in House
+tive computing and its potential application for political campaign            and Senate races as well as previous presidential elections. The
+analysis. The section is divided into three stages. The first stage            use of social media bots in political campaigns is now a signifi-
+presents the research of sentiment analysis in political campaigns.            cant trend. However, its use, limitations, and scope are still under
+The third stage shows the affective computing as an area of arti-              debate [34]. Nevertheless, in Africa, recent elections in different
+ficial intelligence and discusses the potential of affective comput-           countries use bots and algorithms to change voters’ decisions [56].
+ing for political campaign analysis. The third stage presents the              In Europe, Ferrara [31] compares the use of Bots in the French Pres-
+Hourglass of emotions model that will be used to analyze Twitter               idential election of 2017 and analyzes 2016, 2018 U.S. Presidential,
+data.                                                                          and Midterm elections, and found that bots are already current
+
+
+
+
+                                                                           2
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+political campaigns in both countries. In the U.S., they founded that                   highly reactive to negative emotion-filled, text-using, and activity-
+a core of over 245K users, of which 12.1% were bots, was active in                      demanding posts. Memes and videos facilitate virality. Heiss [39]
+Presidential and Midterm campaigns.                                                     research state three contributions for the sentiment analysis re-
+   The use of social media strategies to impact political campaigns                     search field: 1. The use of an official fan profile and party vote
+extended in many countries. Lopez-Lopez et al. [52] study social                        share was negatively related to political actors’ reactions to user
+media’s impact in five Latin American countries: Argentina, Peru,                       comments. 2. Party profiles were least successful in stimulating
+Ecuador, Honduras, and Chile. They found two main currents in                           user engagement, and 3. Post level, we found that reasoning, post
+social media: sympathy and antipathy trends. Also, their findings                       length, and references to competitive political actors can increase
+support the argument that emotions on social media correlate with                       different types of user engagement.
+the electoral result.                                                                      An essential use of sentiment analysis is forecasting elections.
+   The use of social media in the Zimbabwe elections caused po-                         Recent work is the one that proposes a new research model called
+larization, and fake news, according to the research from Chibuwe                       Hybrid Topic Basic Sentiment Analysis (HTBSA) to capture word
+[24]. An opposite example comes from Uganda, where the pri-                             relations and co-occurrences in short-length tweets for election
+mary elections on Arua inspired a respectful deliberate democracy                       prediction using tweets. The authors collect more than 300,000
+on Facebook threads, according to the research from Muzee &                             tweets in 2017 to predict Uttar Pradesh (U.P.) legislative elections.
+Enaifoghe [55].                                                                         Bansal & Srivastava [8]. Another contribution to this topic is the
+   On the topic of political strategies, Groshek & Koc-Michalska                        research from Rezapour et al. [60], which manually includes the
+[35] support the idea that social media helped Trump win the pres-                      hashtag with the lexicon, increasing 7% the prediction results, at
+idency in 2016. This is also related to the consequences of adopting                    least in New York’s primary elections 2016.
+political disinformation strategies (PDS) as tools for manipulation,                       Vepsäläinen and colleagues’ research [73] shows the influence of
+via innovative artificial intelligence technologies, on established                     social media in voting decisions. They reported the use of Facebook
+social media networks during recent democratic elections in the U.S.                    likes to predict an outcome of the Finnish parliamentary election
+and other rising hegemonies [78]. Finally, Bright et al. [15] research                  of 2015. After analyzing an initial sample of 2.7 million likes, the
+over 6,000 observations panel data from two British elections found                     authors found a "significative positive relation" to the outcome.
+no evidence that Twitter-based campaigns improve the electoral                          However, the authors remarked that "like Facebook data, might be
+outcome. Also supporting this argument, Skoric & Zhu [65] are                           a significant but weak indicator of electoral success."
+cautioned against concluding that all social media uses promote                            Another example of polarization research in elections comes
+political participation.                                                                from Nigeria. These authors collect 118,420 posts in the election of
+                                                                                        2019 and, using machine learning techniques, they find out how
+2.1.2 Unimodal Sentiment Analysis using Social Media. Nowadays,                         polarized the election was [57]. Another supporter of the ML tech-
+social media as the primary broadcast to send messages and pro-                         nique is Jaidka et al. [42], who found highly predictive power in
+duce interaction with candidates is a common standard. However,                         India and Pakistan elections. They also found that combining sen-
+the primary trend is developing strategies to understand the mean-                      timent and volume information effectively "at predicting smaller
+ing of comments dispersed through social media platforms. This                          vote shares" in particular independent candidates.
+is called: sentiment analysis with electoral purposes. Some pre-                           One of the main challenges for sentiment analysis is the wording.
+liminary background of this trend comes from Sampietro research,                        Words and emotions change from language to language; several
+which found that Facebook posts in Spanish politics in 2014 showed                      studies present different approaches to overcome this problem. For
+more positive emotions published by the political party, and nega-                      example, in Turkey, Uysal et al. [69] created a Turkish dictionary
+tive emotions when they were replied to by the users [61]. Research                     containing emotion-specific keywords. El Alaoui et al. [1] propose
+from Barclay and colleagues [10] confirms the traditional use of sen-                   a different approach to building a dynamic dictionary of words’
+timent analysis based on positive, negative, and neutral scores, this                   polarity based on a selected set of hashtags related to a given topic,
+technique is broadly adopted in research related to political cam-                      then classifying the tweets under several classes introducing new
+paigns, and it is called unimodal sentiment analysis. They studied                      features that strongly fine-tune the polarity degree of a post.
+the U.S. Presidential election of 2012 and founded that "sentiments                        A similar research problem is the word sequence disambigua-
+are a reflection of the prevailing public mood" but only using these                    tion (WSD). Hasan and colleagues [3] propose several supervised
+three categories.                                                                       machine-learning algorithms like support vector machines (SVM)
+   Samuel-Azran and colleagues [62] studied the Israel election in                      to solve this problem. A different approach but more complete
+2013, analyzing the responses and attacks from negative messages                        is speech analysis; Liu & Lei’s [49] research using computerized
+for two different parties. This study reported the first mapping of a                   sentence-level sentiment analysis promises more accuracy or a
+negative online campaign’s effects, using the relevance of political                    complementary method for this topic.
+and religious context in a multi-party system. Using a populist neg-
+ative discourse, Krämer [47] studied the online discourse of leaders
+and citizens, justifying the exclusion of outgroups, the conceptual
+                                                                                        2.2     The Potential of Affective computing in
+elaboration of right-wing populist ideology, and the development                                Political Campaigns
+of a right-wing populist lifestyle and identity.                                        In the new century, there is a boom in research on artificial intelli-
+   Studies from Bene [13] reports interactions between candidates                       gence in the public sector [6, 27], however, there is a gap in the re-
+and followers on Facebook. They also found that citizens are                            search related to the application of artificial intelligence techniques
+
+
+
+
+                                                                                    3
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                                   David Valle-Cruz et al.
+
+
+for the analysis of political campaigns. In this regard, several stud-        on features extracted from documents. The second is a lexicon-
+ies have analyzed polarity based on sentiment analysis [5, 23, 63]            based approach. Sentiment lexicons are lists of words (and phrases)
+that can be expanded using a broader spectrum of emotional cate-              with prior associations to positive and negative sentiments. Some
+gories through multidimensional sentiment analysis with affective             lexicons can additionally provide a sentiment score for a term to
+computing techniques [11, 18, 46].                                            indicate its strength of evaluative intensity. Higher scores indicate
+   Affective computing is an emerging interdisciplinary research              greater intensity or charge. For example, an entry great (positive,
+field bringing together researchers and practitioners from different          1.2) states that the word great has a positive polarity with the
+fields of knowledge, ranging from artificial intelligence, natural            sentiment score of 1.2. An entry acceptable (positive, 0.1) specifies
+language processing, to cognitive and social sciences [59]. Affective         that the word acceptable has a positive polarity and its intensity is
+computing is an area of artificial intelligence that allows us to iden-       lower than that of the word great [45, 46]. An example of the use
+tify and model emotions, interpret moods, opinions, and trends in             of artificial intelligence in political campaigns is for voting advice
+texts, images, videos, facial expressions, and body language. Affec-          applications to recommend parties and candidates that are close
+tive computing focuses on technologies and theories that advance              to a citizen’s political preferences and require the construction of
+understanding of human behavior, considering emotion and cog-                 candidate and party profiles [66].
+nition in the design of related technologies to fulfill human needs,             To understand the research panorama carried out to date in the
+which gains substantial attention of researchers all over the world           field of emotional computing applied to political campaigns, we
+[36].                                                                         carried out a logical search1 on Google Scholar, Web of Science,
+   Affective computing techniques study and develop systems and               and Scopus. The results were null and although unimodal senti-
+devices that recognize, interpret, process, and simulate human                ment analysis has been widely studied [16, 21, 79], we did not find
+emotions in a multidisciplinary approach between the fields of                any specific literature on the application of affective computing
+neuroscience and computational cognitive science [58]. Affective              or multimodal sentiment analysis in political campaigns. While
+computing conceptualizes the emotional state of a user and allows             there is research that applies sentiment analysis to some electoral
+to adjust the system to the user’s state of mind, having a potential          contexts, there are no specific studies that analyze the emotions of
+application in different areas of knowledge such as psychology,               political candidates on social media through artificial intelligence
+economy, business, and finance by understanding user-profiles                 techniques.
+and segmenting customers, besides having application in the anal-                In this regard, Sandoval-Almazán and Valle-Cruz [63] attempt
+ysis of political campaigns [2, 18, 71]. Affective computing has              to analyze the emotions of voters in political campaigns, classify-
+also been used to understand the personality and affective profiles           ing the Facebook emojis (like, love, haha, wow, sad, angry) into
+of individuals, as well as the generation of affective agents that            positive and negative; and applying a sentiment index to propose
+allow the simulation of the cognitive behavior of human beings                a measurement of the emotions generated on Facebook users. Be-
+[12, 64, 74].                                                                 sides, Valle-Cruz, López-Chau and Sandoval-Almazan [72] analyzed,
+   Emotional information recognition requires the extraction of               through classification algorithms, tweets generated by the 2017
+meaningful samples from the data collected by means of machine                earthquake in Mexico, proposing a multidimensional perspective
+learning techniques, that process data through voice recognition,             of impressions for the analysis of emotions in disaster situations.
+pattern recognition, natural language processing, or the detection            Wang [75] leverage the reaction emojis delivered from users to
+of facial expressions [17, 19]. Social media is an important source           media fan pages on Facebook to investigate how users react to me-
+of information for data extraction in order to detect emotional pat-          dia organizations and the implications of selective exposure. The
+terns through affective computing and natural language processing             outcomes suggest that the report genres and topics are key factors
+techniques [48]. Social media analytics have proven valuable in               to categorize media groups through reaction emojis from the online
+numerous research areas as a pragmatic tool for public opinion                audience.
+mining and analysis. Sentiment analysis addresses the dynamics                   Extending the sentiment analysis models and research to mul-
+of complex socio-affective applications that permeate intelligence            timodal emotional versions has the potential to discover different
+and decision-making in the sentient and solution-savvy social web             characteristics or specific features of posts generated in social me-
+[76].                                                                         dia. The potential of these types of techniques can result in a better
+   Sentiment analysis and opinion mining, fields of affective com-            understanding of various emotions generated in different kinds of
+puting, analyze people’s opinions, sentiments, evaluations, atti-             events. Consequently, this document continues the research con-
+tudes, and emotions from written language. It is one of the most              ducted by Poria, Cambria, Bajpai, and Hussain [59], and Valle-Cruz,
+active research areas in natural language processing and is also              López-Chau, and Sandoval-Almazán [72] applying affective com-
+widely studied in data mining, web mining, and text mining [48].              puting techniques in political campaigns on Twitter. The following
+With the proliferation of diverse information posted online for               section present the Hourglass of emotions framework for the mul-
+product reviews, movie reviews, political views, and more, affective          timodal sentiment analysis.
+computing research has increasingly evolved from conventional
+unimodal analysis to more complex forms of multimodal emotion                 1 Web of Science: TS = (("affective computing" OR “multimodal sentiment analysis”)
+recognition [59].                                                             AND "political campaign").
+   Currently, there are two main approaches for applying sentiment                Scopus: TITLE-ABS-KEY ("affective computing" OR “multimodal sentiment analy-
+                                                                              sis”) AND "political campaign")
+analysis on texts. The first one uses machine-learning techniques                 Google Scholar: InTitle ("affective computing" OR “multimodal sentiment analysis”)
+                                                                              AND "political campaign")
+
+
+
+
+                                                                          4
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+
+
+                                 Figure 1: The Hourglass of emotions. Source: Extracted of Wang et al. (2020)
+
+
+2.3     The Hourglass of emotions: A Multimodal                                         are equivalent to the emotions with lower levels of activation (bore-
+        Sentiment Analysis Framework                                                    dom, pensiveness, distraction, apprehension, annoyance, interest,
+                                                                                        serenity, and acceptance). Besides, high levels in the thresholds of
+This section presents the Hourglass of Emotions model for analyz-
+                                                                                        the emotions correspond to the highest levels of activation (loathing,
+ing texts. The Hourglass of Emotions is a biologically inspired, as
+                                                                                        grief, amazement, terror, rage, vigilance, ecstasy, and admiration).
+well as psychologically motivated emotion categorization model
+(Figure 1). In this model, there are four affective dimensions – sen-
+sitivity, aptitude, pleasantness, and attention – which measure the                     3     METHOD
+strength of a specific emotion in the particular dimension, thus                        This section shows the data analysis method, based on affective com-
+giving rise to a set of 24 basic emotions for emotion categorization                    puting techniques and multimodal sentiment analysis, specifically
+[76].                                                                                   with a sentiment lexicon approach and the Hourglass of emotions
+    To carry out this study, we selected the average emotional levels                   model towards the multi-emotional charge calculation. The first
+of the Hourglass model that correspond to the categories of 1) dis-                     stage describes the data collected during the political campaign.
+gust, 2) sadness, 3) surprise, 4) fear, 5) anger, 6) anticipation, 7) joy,              The second section explains the emotional charge calculation. The
+and 8) trust, considering that low levels of the analyzed emotions                      third section shows some examples of the analyzed tweets with
+
+
+
+
+                                                                                    5
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                        David Valle-Cruz et al.
+
+
+                     Table 1: Analyzed data sets                          to the following classification: trust, anger, disgust, fear, anticipa-
+                                                                          tion, joy, sadness, and surprise. The emotion analysis process based
+ Data set                               Tweets                            on sentiment lexicons begins with the 1) extraction of posts from
+                                                                          Twitter related to the study phenomenon. 2) The publications were
+ @JoeBiden                              1.616
+                                                                          classified into two types of data sets: a) Political candidates: which
+ @realDonaldTrump                       2,470
+                                                                          correspond to Donald Trump’s posts and Joe Biden’s posts, and
+ #Clown                                 10,000
+                                                                          b) Voters: posts found in the trending topics that emerged during
+ #Debates2020                           10,000
+                                                                          the political debate. 3) Each post was analyzed using a sentiment
+ #PrayForTrump                          10,000
+                                                                          lexicon approach to determine the emotions presented only in the
+ #TrumpHasCovid                         10,000
+                                                                          texts, omitting hashtags, usernames, emojis, URLs, images, and
+ #TrumpIsACoward                        10,000
+                                                                          videos. 4) The emotional charge was calculated, based on the av-
+ #VoteHimOut                            10,000
+                                                                          erage results of the sentiment lexicons, and classified into three
+ Biden                                  5,140
+                                                                          main categories: a) Political candidate Donald Trump, b) Political
+ Chris Wallace                          10,000
+                                                                          candidate Joe Biden, and c) Voters. 5) Finally, we generated figures
+ Joe Rogan                              10,000
+                                                                          to visualize the average emotional charge during the political cam-
+ Moderator                              10,000
+                                                                          paign and the correlation between the average emotional charge
+ Philadelphia                           10,000
+                                                                          between political candidates and voters (Figure 2). The following
+ Proud Boys                             10,000
+                                                                          section shows examples of publications with the calculation of their
+ The American                           10,000
+                                                                          emotional charge and a dominant emotion.
+ Trump                                  19,025
+ White Supremacists                     10,000
+ White Supremacy                        10,000                            3.3    Tweet examples
+ Total                                  166,637                           We calculated the emotional charge with the sentiment lexicon
+Source: Authors’ own elaboration                                          approach. In this manner, we obtained the values of the multi-
+                                                                          emotional charge of each post as the sum of the multimodal values
+                                                                          of each of the words contained in the analyzed text. Since our model
+                                                                          detects emotions in a multimodal way, some words contain different
+their calculated multi-emotional charge and predominant emotions.         emotional values, and therefore, each post on Twitter has different
+The fourth section presents the statistical test for comparing the        emotional levels. Table 2 shows examples of posts with dominant
+emotional charges of candidates and voters based on the t-Student         emotions, but with emotional values in different dimensions.
+test and Welch’s t-test.
+
+3.1    Data description                                                   3.4    Comparison of emotional charges
+                                                                          Significance tests are one of the most used methods in areas such
+On November 3rd, 2020, the presidential elections were held in the
+                                                                          as clinical, pharmaceutical, and psychology studies, it is applied to
+U.S. to elect the POTUS46. The race was between Donald Trump
+                                                                          assess some claim about the population from which the sample has
+and Joe Biden. Biden won with 63% of the vote, far exceeding the
+                                                                          been drawn. Among the different significance tests, an unpaired t-
+benchmark of 270 electoral votes required to reach the White House
+                                                                          test (t-student test) is applied to test if there is a significant difference
+[25]. Amid an environment polarized by the political campaign and
+                                                                          between the means of the two groups. In such a test, the number
+the COVID-19 pandemic, the candidates disseminated information
+                                                                          of samples in the two groups do not need to be the same. The
+on their social media generating emotions towards the voters that
+                                                                          null hypothesis H0 of this test states that there is no significant
+emerged the discussion and different trending topics [7, 40, 44].
+                                                                          difference between the means of the two groups, H0 is accepted if
+   The data analyzed corresponds to the tweets published by the
+                                                                          the p-value is greater than the limit chosen by statistical significance
+candidates for the presidency of the U.S. during 2020, including
+                                                                          (usually 0.05). Otherwise, the alternative hypothesis H1 is accepted,
+trending topics that emerged as a result of the controversy gen-
+                                                                          which establishes a significant difference between the means of
+erated in the presidential debates. The data sets analyzed are or-
+                                                                          the two groups. Some assumptions that must be met to apply the
+ganized as follows: Tweets published by the political candidates:
+                                                                          unpaired t-test:
+Donald Trump (@realDonaldTrump) and Joe Biden (@JoeBiden);
+                                                                             The observations are sampled independently from the popula-
+Trending topics that emerged represented by the Twitter trends due
+                                                                          tion.
+to the presidential election where emotions towards the political
+                                                                             The dependent variable is continuous.
+candidates are exacerbated, some trends emerged as a hashtag or
+                                                                             The dependent variable is normally distributed.
+by the repetition of some phrase or word on Twitter. (Table 1).
+                                                                             The variance of data is the same between groups, i.e., they have
+                                                                          the same standard deviation.
+3.2    Towards a multi-emotional charge                                      Levene’s test for equality of variances can be used to verify the
+       calculation                                                        last of these assumptions.
+The processing of emotions is by a lexicon-based approach using              In some data the standard deviations between groups are signifi-
+the Hourglass of emotions model, specifically the SenticNet lexicon       cantly different; in these cases, Welch’s t-test can be used to obtain
+[19]. The emotions were detected in each of the tweets according          reliable results. Welch’s t-test for comparing means of groups does
+
+
+
+
+                                                                      6
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+                               Table 2: The multi-emotional charge of Twitter posts with dominant emotions
+
+ Tweet                                 Dominant              Trust       Anger       Disgust       Fear       Anticipation       Joy       Sadness         Surprise
+                                       emotion
+  BIDEN just won a TON of                    Trust                11            0             0           1                  4         7              1               2
+ votes on his side just for the
+ way he responded to the
+  side jab made from Trump.
+  The uncertainty you are                    Anger                   0          8             0           1                  0         1              0               0
+  feeling and the aggressions
+  that others feel, is only a
+  small taste of what is to
+  come.
+  When trump said bad things                Disgust                  1          0             6           2                  3         3              4               1
+  happen in Philadelphia all I
+  could think was this
+  homeless man telling me I
+ was going to get raped for
+  not giving him money
+  I’m sorry he hurt your                      Fear                   1          0             1           5                  1         2              4               0
+ widdle feelings. Maybe next
+  time instead of posting
+  poorly photoshopped / false
+  memes, maybe not vote
+  racist candidate
+  Biden lost a chunk of bernie           Anticipation                6          0             1           1                  9         3              0               0
+  bros portion of his. base by
+  renigging on the green new
+  deal and Medicare for all.
+ Trump didn’t lose one voter
+  from his base. advantage
+  trump. this election is about
+  turning out your base bigly
+  That clown is an                            Joy                    8          0             0           1                  3      12                1               1
+  embarrassment to the
+  institution of the
+  Presidency! He is more fit
+  for the circus than for the
+ White House! VOTE LIKE
+ YOUR COUNTRY DEPENDS
+  ON IT!
+  Ignorance is Deplorable!                  Sadness                  4          1             2           1                  1         3              6               2
+ “We are all born ignorant,
+  but you have to work very
+  hard to remain that way!”
+ -Quote attributed to
+  Benjamin Franklin
+  Trump reportedly wanted to               Surprise                  6          0             3           2                  2         3              1               7
+  rip open his button-down to
+  reveal a Superman T-shirt to
+  surprise people when he left
+  the hospital.
+  OMFG!
+Source: Authors’ own elaboration
+
+
+
+
+                                                                                    7
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                David Valle-Cruz et al.
+
+
+
+
+                                Figure 2: Estimation of the multi-emotional charge in political campaigns
+
+
+
+
+                                            Figure 3: Average emotional charge shown by voters
+
+
+not rely on the assumption of the same variances between groups.        same between the two groups, then the t-student test is used; oth-
+In this paper, we use significance tests to compare the means of        erwise, Welch’s t-test is applied. The use of significance tests for
+emotional charges identified in the tweets. One of the groups is        emotional charges between groups enables the analysis of agree-
+formed by the texts of each candidate, the other group is formed        ment between the emotions detected in candidates’ and voters’
+by the tweets of voters. Whether the standard deviations are the        tweets.
+
+
+
+
+                                                                    8
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+
+
+                                           Figure 4: Average emotional charge shown by Donald Trump
+
+
+4     RESULTS                                                                           the political campaign were trust, joy, and anticipation because
+Based on the calculations of the multi-emotional charge for each                        these emotions reached the highest levels; this means that there
+data set, we calculated the averages of emotional charges for the                       were high levels of admiration, ecstasy, and vigilance. According to
+voters and the two candidates to obtain comparable values. Conse-                       the Hourglass of emotions model the strength of emotions mani-
+quently, the average emotional charge shows the emotions of the                         fested with greater intensity in the affective dimensions of aptitude,
+voters’ posts during the election, the emotions of Donald Trump’s                       attention, and pleasantness. The low-leveled emotions in the Twit-
+posts, the emotions of Joe Biden’s posts, the average emotional                         ter posts were fear and anger; according to the Hourglass of emo-
+charge of the voters to Donald Trump and Joe Biden, and the av-                         tions model, these types of emotions manifest levels of boredom
+erage emotional charge of Donald Trump to Joe Biden and vice                            and annoyance, meaning that there were low levels of sensitivity
+versa.                                                                                  in the political campaign on Twitter. In brief, the importance of
+   This section is divided into four stages. The first stage shows                      emotions in the political campaign placed trust first, followed by
+the general results of the data analysis and the average emotional                      joy and anticipation. On a lesser level, but not zero, some posts
+charge of voters. The second stage presents the average emotional                       showed surprise, disgust, sadness, anger, and fear. Although each
+charge of Donald Trump. The third stage shows the average emo-                          publication on Twitter presents combinations of these types of
+tional charge of Joe Biden. The fourth section presents the results                     emotions that conformed the emotional charge.
+of the comparison of emotional charges with the t-Student test and                         The emotions that predominated in the voters were trust, joy,
+Welch’s t-test                                                                          and anticipation, which is similar to the average emotional charge
+                                                                                        of the presidential elections. Besides, a high correlation was found
+                                                                                        between trust and anticipation, as well as trust and joy. Voters were
+4.1     General Results and the Average Emotional                                       also found to have an average correlation of joy with anticipation,
+        Charge of Voters                                                                surprise with trust, and disgust with anger. Although the average
+                                                                                        emotional charge on voters in the political campaign is similar to
+The emotions generated by the U.S. political campaign on Twitter
+                                                                                        the average emotional charge shown toward Donald Trump and Joe
+were classified into eight groups, as a result of the lexicon approach.
+                                                                                        Biden there are some differences. First, voters’ trust and anticipation
+The calculation of the average emotional charge resulted in the
+                                                                                        of Donald Trump is greater than that of Joe Biden. Likewise, the
+range of 0.20 to 2.10. The emotions that most predominated during
+
+
+
+
+                                                                                    9
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                       David Valle-Cruz et al.
+
+
+
+
+                                            Figure 5: Average emotional charge shown by Joe Biden
+
+
+anger and sadness are greater for Donald Trump than for Joe Biden.            4.4    Comparison of emotional charges in tweets
+The levels of anger, joy, surprise and fear shown by voters towards           In this section, we present statistical tests to compare the mean of
+the two political candidates are practically the same (Figure 3)              emotional charge between candidates and the emotional charge of
+                                                                              voters towards candidates. We applied t-student tests to the data
+4.2    Donald Trump’s Average Emotional Charge                                related to emotions calculated with SenticNet. Tables 3 shows the
+                                                                              mean and standard deviation of emotional charges in the tweets of
+According to our sentiment lexicon analysis, an important feature
+                                                                              presidential candidates Biden and Trump, and voters.
+of Donald Trump’s Twitter posts is a lack of trust, both in general
+                                                                              An independent-samples test was conducted to compare the mean
+and towards his political opponent. The predominant emotions
+                                                                              of the emotional charge of presidential candidates and voters. The
+in Donald Trump’s posts were joy and fear during the campaign,
+                                                                              type of test applied, statistics, and result of the test are included,
+plus surprise towards Joe Biden’s Twitter posts. Anger, disgust,
+                                                                              when the means of the emotional charge are statistically similar H0
+anticipation, and sadness were at low levels for this political candi-
+                                                                              is accepted (Table 4).
+date. However, Donald Trump’s tweets had the most anger in all
+the datasets, along with disgust and surprise for Joe Biden. In the
+case of Donald Trump, there were medium correlations between
+surprise and disgust, surprise and anticipation, and joy and fear
+                                                                              5     DISCUSSION
+(Figure 4).                                                                   Findings corroborate the results of Harfoush [38] related to social
+                                                                              media as a useful tool to persuade voters and one way to do this
+                                                                              is to mimic voters with the emotions of the candidates. Although
+4.3    Joe Biden’s Average Emotional Charge                                   we do not correlate social media with preference votes, we tested
+Joe Biden’s tweets were the most reliable. His publications are dom-          the emotions generated in voters and candidates for the presiden-
+inated by trust and anticipation, followed by joy, surprise, disgust,         tial elections in U. S. finding similar emotional charges between
+fear, sadness, and anger. Joe Biden’s posts contain the most confi-           voters and candidates [28, 29]. Our affective computing analysis
+dence, anticipation, and joy to Donald Trump’s posts. In Joe Biden’s          finds similar results to those reported by Barclay, Chinnasamy, and
+data sets, a high correlation was identified between anticipation             Pichandy [9] related to the similarity between emotional charge
+and confidence, as well as between confidence and joy (Figure 5).             between the winning candidate and the voters.
+
+
+
+
+                                                                         10
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+                       Table 3: Mean and standard deviation of multi-emotional charge of candidates and voters.
+
+ Sentiment                              Tweets                                                  Mean                                      SD
+ Trust                                  Biden                                                   2.95                                      1.810
+                                        Trump                                                   3.21                                      1.560
+                                        Voters                                                  2.97                                      1.830
+                                        Voters towards Trump                                    2.80                                      1.730
+                                        Voters towards Biden                                    2.78                                      1.670
+ Anger                                  Biden                                                   1.18                                      0.425
+                                        Trump                                                   1.25                                      0.433
+                                        Voters                                                  1.29                                      0.578
+                                        Voters towards Trump                                    1.29                                      0.574
+                                        Voters towards Biden                                    1.31                                      0.641
+ Disgust                                Biden                                                   1.62                                      0.947
+                                        Trump                                                   1.90                                      1.270
+                                        Voters                                                  1.51                                      0.801
+                                        Voters towards Trump                                    1.46                                      0.745
+                                        Voters towards Biden                                    1.44                                      0.721
+ Fear                                   Biden                                                   1.23                                      0.486
+                                        Trump                                                   1.36                                      0.481
+                                        Voters                                                  1.22                                      0.495
+                                        Voters towards Trump                                    1.22                                      0.499
+                                        Voters towards Biden                                    1.29                                      0.597
+ Anticipation                           Biden                                                   2.73                                      1.410
+                                        Trump                                                   2.84                                      1.550
+                                        Voters                                                  2.27                                      1.320
+                                        Voters towards Trump                                    2.08                                      1.230
+                                        Voters towards Biden                                    2.01                                      1.200
+ Joy                                    Biden                                                   2.29                                      1.300
+                                        Trump                                                   2.32                                      1.340
+                                        Voters                                                  2.35                                      1.430
+                                        Voters towards Trump                                    2.15                                      1.280
+                                        Voters towards Biden                                    2.24                                      1.320
+ Sadness                                Biden                                                   1.50                                      0.837
+                                        Trump                                                   1.88                                      1.080
+                                        Voters                                                  1.42                                      0.723
+                                        Voters towards Trump                                    1.38                                      0.684
+                                        Voters towards Biden                                    1.35                                      0.648
+ Surprise                               Biden                                                   1.50                                      0.837
+                                        Trump                                                   1.88                                      1.080
+                                        Voters                                                  1.42                                      0.723
+                                        Voters towards Trump                                    1.38                                      0.684
+                                        Voters towards Biden                                    1.35                                      0.648
+Source: Authors’ own elaboration
+
+
+
+   Lopez-Lopez et al. [52] found two main currents in social me-                        not analyze the levels of sarcasm and irony in the presidential
+dia: sympathy and antipathy, and we move in this direction by                           election.
+proposing the multi-emotional charge, based on eight emotional                             Related to analyzed data, the method based on affective comput-
+levels: trust, anger, disgust, fear, anticipation, joy, sadness, and                    ing, and the traditional statistics approach we discuss the results.
+surprise. These categories can be classified into positive and neg-                     First, seven (trust, anger, disgust, fear, anticipation, joy, and sad-
+ative according to the results of Sampietro and Valera [61]. We                         ness) of the eight statistical means of emotional charge coincide
+differ on the findings of Bene [13], related to the citizens are highly                 among the presidential candidates. The statistical mean of emo-
+reactive to negative emotions, because or findings shows that pre-                      tional charge for the sentiment Surprise of Trump’s posts is differ-
+dominated emotions in the voters were trust, joy, and anticipa-                         ent from Biden’s posts. The statistical mean of candidate Trump
+tion, however, this result may have been obtained because we did                        is higher than Biden’s mean for Surprise. Second, the statistical
+
+
+
+
+                                                                                  11
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                           David Valle-Cruz et al.
+
+
+                                     Table 4: Comparison of emotional charge of voters and candidates
+
+    Comparison of       t-student test /      Trust      Anger        Disgust         Fear      Anticipation        Joy       Sadness        Surprise
+      emotional         Welch’s t-test
+    chargebetween
+ Candidates1      t                           -0.905      -0.51        -1.17         -0.851        -0.488          -0.14       -1.65      -2.41
+                  p-value                      0.366      0.611        0.246          0.397         0.626          0.889       0.101      0.017
+                  Ho                        accepteda   accepteda    accepteda     accepteda     accepteda      accepteda    accepteda rejectedb
+ Candidate Biden t                            -0.142      -1.48         1.25          0.168         5.15           0.683        1.07     -0.122
+ and voters2      p-value                      0.887      0.138        0.211          0.866           0            0.495       0.283      0.903
+                  Ho                        accepteda   acceptedb    acceptedb     accepteda     rejecteda      accepteda    acceptedb accepteda
+ Candidate Trump t                             0.903      0.241         2.24          0.983         2.93          -0.168        2.62     0.267
+ and voters3      p-value                      0.367       0.81         0.02          0.326         0.003          0.866       0.008       0.79
+                  Ho                        accepteda   accepteda    rejectedb     accepteda     rejecteda      accepteda    rejectedb accepteda
+ Means of voters’ t                            1.49       -1.63         1.71          -8.91         5.95           -7.24        3.48       3.48
+ emotional charge p-value                      0.137      0.103        0.087            0             0              0            0          0
+ towards          Ho                        acceptedb   acceptedb    acceptedb     rejectedb     rejectedb      rejectedb    rejectedb rejectedb
+ candidates4
+Source: Authors’ own elaboration
+  1    H0: The mean of the emotional charge is the same in Biden’s posts and in Trump’s posts.
+       H1: The mean of the emotional charge is not the same in Biden’s posts and in Trump’s posts.
+  2    H0: The mean of the emotional charge is the same in Biden’s posts and in Voters’ posts.
+       H1: The mean of the emotional charge is not the same in Biden’s posts and in Voters’ posts.
+  3    H0: The mean of the emotional charge is the same in Trump’s posts and in Voters’ posts.
+       H1: The mean of the emotional charge is not the same in Trump’s posts and in Voters’ posts.
+  4    H0: The mean of the voters’ emotional charge towards Trump is the same of the voters’ emotional charge towards Biden.
+       H1: The mean of the voters’ emotional charge towards Trump is not the same of the voters’ emotional charge towards Biden.
+  a    t-Student
+  b    Welch’s t-test
+
+
+mean of emotional charge for sentiment Anticipation for Biden                      The results showed that, candidates’ emotions are similar dur-
+is significantly different from voters’ mean. The statistical means            ing the political campaign, except for surprise, as Donald Trump
+of emotional charge do not differ significantly from the other sen-            showed more surprise in his Twitter postings. The effect that the
+timents. Third, most of the statistical means of emotional charge              emotions shown by Donald Trump towards the voters had resulted
+retrieved from posts of voters agree with the emotional charges of             in trust, anger, fear, joy, and surprise. While the effect of Biden’s
+candidate Biden’s posts. Fourth, the statistical mean of emotional             posts was towards trust, anger, disgust, fear, joy, sadness, and sur-
+charge for sentiments anger, anticipation, and sadness for candi-              prise this may mean that voters identified and mimicked Biden’s
+date Trump is significantly different from voters’ mean. Fifth, about          posts more than Trump’s posts. We found a difference in the emo-
+60% of statistical means of emotional charges retrieved from posts             tions shown by voters and Donald Trump in disgust, anticipation,
+of voters agree with the emotional charges of candidate Trump’s                and sadness. Related to Joe Biden we only identified differences,
+posts.                                                                         with voters, in anticipation. According to our findings, voters’ emo-
+                                                                               tions towards the candidates are similar in trust, anger, and disgust;
+                                                                               but no evidence of similarity was found for the emotions of fear,
+6    CONCLUSIONS AND FUTURE RESEARCH                                           anticipation, joy, sadness, and surprise.
+In this research, we proposed seminal research to examine the                      We think that this type of research can provide a broader analysis
+potential of affective computing in political campaigns, specifically          of political campaigns on Twitter, including the understanding of
+through multimodal sentiment analysis to explore the candidates’               political candidates’ profiling, as well as which personality type
+and voters’ emotions during the 2020 U.S. presidential campaign.               appeals most to voters, in order to make social media strategic use
+We used a multi-emotional charge analysis approach and compared                in political campaigns.
+the results of our calculations through statistical tests. According to            Our limitations in this research are related to the data collected;
+the hourglass of emotions framework, the predominant emotions                  it is not possible to know what the particular behavior of each type
+during the political campaign were confidence, joy and anticipation,           of political ideology, political wing, or political party is, to identify
+as these emotions reached the highest levels; this means that there            the reaction of voters who are for or against a candidate. Study
+were high levels of admiration, ecstasy and vigilance during the               limitations lead us to think about our future work on this research
+political campaign.                                                            problem. Political campaigns present certain levels of sarcasm and
+
+
+
+
+                                                                          12
+How much do Twitter posts affect voters? Analysis of the multi-emotional charge with affective computing in political campaigns DG.O’21, June 09–11, 2021, Omaha, NE, USA
+
+
+irony that we did not analyze, but its study may lead us to better                              [26] Criado, J.I. et al. 2021. Chief information officers’ perceptions about artificial
+understand the effect of Twitter political campaigns on voters, as                                   intelligence. First Monday. (2021).
+                                                                                                [27] Desouza, K.C. et al. 2020. Designing, developing, and deploying artificial intelli-
+well as their reaction towards candidates’ posts. Finally, we are                                    gence systems: Lessons from and for the public sector. Business Horizons. 63, 2
+far from predicting the outcome of the presidential elections, but                                   (2020), 205–213.
+                                                                                                [28] Effing, R. et al. 2011. Social Media and Political Participation: Are Facebook,
+future work will consist of continuing to explore these kinds of                                     Twitter and YouTube Democratizing Our Political Systems? E. Tambouris et al.,
+techniques to conduct analyses that lead to better results in the                                    eds. Springer Berlin Heidelberg. 25–35.
+analysis of political campaigns, profiling, and election prediction,                            [29] Effing, R. et al. 2016. Social Media Indicator and Local Elections in the Netherlands:
+                                                                                                     Towards a Framework for Evaluating the Influence of Twitter, YouTube, and
+through different types of data, affective computing techniques,                                     Facebook. Social Media and Local Governments. Springer International Publishing.
+and statistical modeling.                                                                            281–298.
+                                                                                                [30] Effing, R. et al. 2013. Social Media Participation and Local Politics: A Case Study
+                                                                                                     of the Enschede Council in the Netherlands.
+REFERENCES                                                                                      [31] Ferrara, E. 2020. Bots, elections, and social media: a brief overview. Disinformation,
+ [1] Aishwarya, R. et al. 2019. A Novel Adaptable Approach for Sentiment Analysis.                   Misinformation, and Fake News in Social Media. (2020), 95–114.
+     International Journal of Scientific Research in Computer Science, Engineering and          [32] Floreano, D. and Mattiussi, C. 2008. Bio-inspired artificial intelligence: theories,
+     Information Technology. 5, 2 (2019).                                                            methods, and technologies. MIT press.
+ [2] Akhtar, M.S. et al. 2020. How intense are you? predicting intensities of emo-              [33] Fujiwara, T. et al. 2020. The Effect of Social Media on Elections: Evidence from
+     tions and sentiments using stacked ensemble. IEEE Computational Intelligence                    the United States. Available at SSRN. (2020).
+     Magazine. 15, 1 (2020), 64–75.                                                             [34] Gorwa, R. and Guilbeault, D. 2020. Unpacking the social media bot: A typology
+ [3] El Alaoui, I. et al. 2018. A novel adaptable approach for sentiment analysis on big             to guide research and policy. Policy & Internet. 12, 2 (2020), 225–248.
+     social data. Journal of Big Data. 5, 1 (2018), 12.                                         [35] Groshek, J. and Koc-Michalska, K. 2017. Helping populism win? Social media use,
+ [4] Alashri, S. et al. 2018. The 2016 US Presidential Election on Facebook: an ex-                  filter bubbles, and support for populist presidential candidates in the 2016 US
+     ploratory analysis of sentiments. Proceedings of the 51st Hawaii International                  election campaign. Information, Communication & Society. 20, 9 (2017), 1389–1407.
+     Conference on System Sciences (2018).                                                      [36] Guo, F. et al. 2020. Bibliometric Analysis of Affective Computing Researches
+ [5] Ansari, M.Z. et al. 2020. Analysis of political sentiment orientations on twitter.              during 1999∼ 2018. International Journal of Human–Computer Interaction. 36, 9
+     Procedia Computer Science. 167, (2020), 1821–1828.                                              (2020), 801–814.
+ [6] Aoki, N. 2020. An experimental study of public trust in AI chatbots in the public          [37] Hand, L.C. and Ching, B.D. 2020. Maintaining neutrality: A sentiment analysis of
+     sector. Government Information Quarterly. 37, 4 (2020), 101490.                                 police agency Facebook pages before and after a fatal officer-involved shooting
+ [7] Arbatli, E. and Rosenberg, D. 2020. United we stand, divided we rule: how political             of a citizen. Government Information Quarterly. 37, 1 (2020), 101420.
+     polarization erodes democracy. Democratization. (2020), 1–23.                              [38] Harfoush, R. 2009. Yes We Did! An inside look at how social media built the Obama
+ [8] Bansal, B. and Srivastava, S. 2018. On predicting elections with hybrid topic based             brand. New Riders.
+     sentiment analysis of tweets. Procedia Computer Science. 135, (2018), 346–353.             [39] Heiss, R. et al. 2019. What drives interaction in political actors’ Facebook posts?
+ [9] Barclay, F.P. et al. 2018. Political opinion expressed in social media and election             Profile and content predictors of user engagement and political actors’ reactions.
+     outcomes-US presidential elections 2012. GSTF Journal on Media and Communi-                     Information, Communication & Society. 22, 10 (2019), 1497–1513.
+     cations (JMC). 1, 2 (2018), 15–22.                                                         [40] Hernandez, E. et al. 2020. Affective polarization and the salience of elections.
+[10] Barclay, F.P. et al. 2014. Political opinion expressed in social media and election             Electoral Studies. (2020), 102203.
+     outcomes-us presidential elections2012. Journal on Media and Communications                [41] Hewage, T.N. et al. 2018. Big Data Techniques of Google, Amazon, Facebook and
+     (JMC). 1, 2 (2014), 15–22.                                                                      Twitter. Journal of Communications. 13, 2 (2018), 94–100.
+[11] Barron-Estrada, M.L. et al. 2019. Emotion Recognition for Education using Senti-           [42] Jaidka, K. et al. 2019. Predicting elections from social media: a three-country,
+     ment Analysis. Research in Computing Science. 148, (2019), 71–80.                               three-method comparative study. Asian Journal of Communication. 29, 3 (2019),
+[12] Becker-Asano, C. and Wachsmuth, I. 2010. Affective computing with primary                       252–273.
+     and secondary emotions in a virtual human. Autonomous Agents and Multi-Agent               [43] Janssen, M. et al. 2017. Factors influencing big data decision-making quality.
+     Systems. 20, 1 (2010), 32.                                                                      Journal of Business Research. 70, (2017), 338–345.
+[13] Bene, M. 2017. Go viral on the Facebook! Interactions between candidates and               [44] Jiang, J. et al. 2020. Political polarization drives online conversations about
+     followers on Facebook during the Hungarian general election campaign of 2014.                   COVID-19 in the United States. Human Behavior and Emerging Technologies.
+     Information, Communication & Society. 20, 4 (2017), 513–529.                                    2, 3 (2020), 200–211.
+[14] Bindu, N. et al. 2019. From conventional governance to e-democracy: Tracing                [45] Keshavarz, H. and Abadeh, M.S. 2017. ALGA: Adaptive lexicon learning using
+     the evolution of e-governance research trends using network analysis tools.                     genetic algorithm for sentiment analysis of microblogs. Knowledge-Based Systems.
+     Government Information Quarterly. 36, 3 (2019), 385–399.                                        122, (2017), 1–16.
+[15] Bright, J. et al. 2020. Does Campaigning on Social Media Make a Difference?                [46] Kiritchenko, S. et al. 2014. Sentiment analysis of short informal texts. Journal of
+     Evidence from candidate use of Twitter during the 2015 and 2017 UK Elections.                   Artificial Intelligence Research. 50, (2014), 723–762.
+     Communication Research. 47, 7 (2020), 988–1009.                                            [47] Krämer, B. 2017. Populist online practices: The function of the Internet in right-
+[16] Budiharto, W. and Meiliana, M. 2018. Prediction and analysis of Indonesia Presi-                wing populism. Information, Communication & Society. 20, 9 (2017), 1293–1309.
+     dential election from Twitter using sentiment analysis. Journal of Big data. 5, 1          [48] Liu, B. 2012. Sentiment analysis and opinion mining. Synthesis lectures on human
+     (2018), 51.                                                                                     language technologies. 5, 1 (2012), 1–167.
+[17] Cambria, E. 2016. Affective computing and sentiment analysis. IEEE intelligent             [49] Liu, D. and Lei, L. 2018. The appeal to political sentiment: An analysis of Donald
+     systems. 31, 2 (2016), 102–107.                                                                 Trump’s and Hillary Clinton’s speech themes and discourse strategies in the 2016
+[18] Cambria, E. et al. 2017. Affective computing and sentiment analysis. A practical                US presidential election. Discourse, context & media. 25, (2018), 143–152.
+     guide to sentiment analysis. Springer. 1–10.                                               [50] López-Chau, A. et al. 2021. Sentiment Analysis in Crisis Situations for Better
+[19] Cambria, E. et al. 2020. SenticNet 6: Ensemble application of symbolic and sub-                 Connected Government: Case of Mexico Earthquake in 2017. Web 2.0 and Cloud
+     symbolic AI for sentiment analysis. Proceedings of the 29th ACM International                   Technologies for Implementing Connected Government. IGI Global. 162–181.
+     Conference on Information & Knowledge Management (2020), 105–114.                          [51] López-Chau, A. et al. 2020. Sentiment Analysis of Twitter Data Through Ma-
+[20] Campion, A. et al. 2020. Managing Artificial Intelligence Deployment in the                     chine Learning Techniques. Software Engineering in the Era of Cloud Computing.
+     Public Sector. Computer. 53, 10 (2020), 28–37.                                                  Springer. 185–209.
+[21] Ceron, A. et al. 2015. Using sentiment analysis to monitor electoral campaigns:            [52] López-López, P.C. et al. 2020. Social media mining, debate and feelings: digital
+     Method matters—evidence from the United States and Italy. Social Science Com-                   public opinion’s reaction in five presidential elections in Latin America. Cluster
+     puter Review. 33, 1 (2015), 3–20.                                                               Computing. (2020), 1–12.
+[22] Chatterjee, A. et al. 2019. Understanding emotions in text using deep learning             [53] Moore, M. 2016. Facebook, the Conservatives and the Risk to Fair and Open
+     and big data. Computers in Human Behavior. 93, (2019), 309–317.                                 Elections in the UK. The Political Quarterly. 87, 3 (Jul. 2016), 424–430. DOI:https:
+[23] Chauhan, P. et al. 2020. The emergence of social media data and sentiment                       //doi.org/10.1111/1467-923X.12291.
+     analysis in election prediction. Journal of Ambient Intelligence and Humanized             [54] Muñiz, C. et al. 2016. ¿Están los políticos políticamente comprometidos? Análisis
+     Computing. (2020), 1–27.                                                                        del compromiso político 2.0 desarrollado por los candidatos a través de Facebook.
+[24] Chibuwe, A. 2020. Social Media and Elections in Zimbabwe: Twitter War between                   Cuadernos.info. 39 (Dec. 2016), 135–150. DOI:https://doi.org/10.7764/cdi.39.970.
+     Pro-ZANU-PF and Pro-MDC-A Netizens. Communicatio. (2020), 1–24.                            [55] Muzee, H. and Enaifoghe, A.O. 2020. Social media and elections in Uganda: The
+[25] Colegio Electoral de Estados Unidos confirma la victoria de Joe Biden: 2020. .                  case of Bobi Wine and the Arua primary elections. Social Media and Elections in
+                                                                                                     Africa, Volume 1. Springer. 195–213.
+
+
+
+
+                                                                                           13
+DG.O’21, June 09–11, 2021, Omaha, NE, USA                                                                                                                          David Valle-Cruz et al.
+
+
+[56] Ndlela, M.N. 2020. Social media algorithms, bots and elections in africa. Social           [68] Twizeyimana, J.D. and Andersson, A. 2019. The public value of E-Government–A
+     Media and Elections in Africa, Volume 1. Springer. 13–37.                                       literature review. Government information quarterly. 36, 2 (2019), 167–178.
+[57] Oyebode, O. and Orji, R. 2019. Social media and sentiment analysis: The nige-              [69] Uysal, E. et al. 2017. Sentiment analysis for the social media: A case study for
+     ria presidential election 2019. 2019 IEEE 10th Annual Information Technology,                   turkish general elections. Proceedings of the SouthEast Conference (2017), 215–218.
+     Electronics and Mobile Communication Conference (IEMCON) (2019), 140–146.                  [70] Valle-Cruz, D. et al. 2020. Assessing the public policy-cycle framework in the age
+[58] Picard, R.W. 2003. Affective computing: challenges. International Journal of                    of artificial intelligence: From agenda-setting to policy evaluation. Government
+     Human-Computer Studies. 59, 1–2 (2003), 55–64.                                                  Information Quarterly. 37, 4 (2020), 101509.
+[59] Poria, S. et al. 2017. A review of affective computing: From unimodal analysis to          [71] Valle-Cruz, D. et al. 2020. Does Twitter affect Stock Market Decisions? Financial
+     multimodal fusion. Information Fusion. 37, (2017), 98–125.                                      Sentiment Analysis in Pandemic Seasons: A Comparative Study of H1N1 and
+[60] Rezapour, R. et al. 2017. Identifying the overlap between election result and can-              COVID-19. (2020).
+     didates’ ranking based on hashtag-enhanced, lexicon-based sentiment analysis.              [72] Valle-Cruz, D. et al. 2020. Impression analysis of trending topics in Twitter with
+     2017 IEEE 11th International Conference on Semantic Computing (ICSC) (2017),                    classification algorithms. Proceedings of the 13th International Conference on
+     93–96.                                                                                          Theory and Practice of Electronic Governance (2020), 430–441.
+[61] Sampietro, A. and Valera Ordaz, L. 2015. Emotional Politics on Facebook. An Ex-            [73] Vepsäläinen, T. et al. 2017. Facebook likes and public opinion: Predicting the 2015
+     ploratory Study of Podemos’ Discourse during the European Election Campaign                     Finnish parliamentary elections. Government Information Quarterly. (2017).
+     2014. RECERCA. Revista de pensament i anàlisi. 17, (2015), 61–83.                          [74] Vinciarelli, A. and Mohammadi, G. 2014. A survey of personality computing.
+[62] Samuel-Azran, T. et al. 2017. Engagement and Likeability of Negative Messages                   IEEE Transactions on Affective Computing. 5, 3 (2014), 273–291.
+     on Facebook during Israel’s 2013 Elections. The Journal of Social Media in Society.        [75] Wang, M.-H. 2020. Positioning and Categorizing Mass Media Using Reaction
+     6, 1 (2017), 42–68.                                                                             Emojis on Facebook. The Computer Journal. (2020).
+[63] Sandoval-Almazan, R. and Valle-Cruz, D. 2020. Sentiment Analysis of Facebook               [76] Wang, Z. et al. 2020. A review of emotion sensing: Categorization models and
+     Users Reacting to Political Campaign Posts. Digital Government: Research and                    algorithms. Multimedia Tools and Applications. (2020), 1–30.
+     Practice. 1, 2 (2020), 1–13.                                                               [77] Wirtz, B.W. et al. 2019. Artificial intelligence and the public sector—applications
+[64] Santos, O.C. 2016. Emotions and personality in adaptive e-learning systems: an                  and challenges. International Journal of Public Administration. 42, 7 (2019), 596–
+     affective computing perspective. Emotions and personality in personalized services.             615.
+     Springer. 263–285.                                                                         [78] Wogu, I.A.P. et al. 2020. The Social Media, Politics of Disinformation in Established
+[65] Skoric, M.M. and Zhu, Q. 2016. Social media and offline political participation:                Hegemonies, and the Role of Technological Innovations in 21st Century Elections:
+     Uncovering the paths from digital to physical. International Journal of Public                  The Road Map to US 2020 Presidential Elections. International Journal of Electronic
+     Opinion Research. 28, 3 (2016), 415–427.                                                        Government Research (IJEGR). 16, 3 (2020), 65–84.
+[66] Terán, L. and Mancera, J. 2019. Dynamic profiles using sentiment analysis and              [79] Yaqub, U. et al. 2017. Analysis of political discourse on twitter in the context
+     twitter data for voting advice applications. Government Information Quarterly.                  of the 2016 US presidential elections. Government Information Quarterly. 34, 4
+     36, 3 (2019), 520–535.                                                                          (2017), 613–626.
+[67] Turing, I.B.A. 1950. Computing machinery and intelligence-AM Turing. Mind. 59,             [80] Zuiderwijk, A. et al. 2021. Implications of the use of artificial intelligence in public
+     236 (1950), 433.                                                                                governance: A systematic literature review and a research agenda. Government
+                                                                                                     Information Quarterly. (2021), 101577.
+
+
+
+
+                                                                                           14
+

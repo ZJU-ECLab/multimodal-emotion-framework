@@ -1,0 +1,670 @@
+                                                                                                        SPECIAL SECTION ON GREEN INTERNET OF THINGS
+
+
+Received November 21, 2019, accepted December 15, 2019, date of publication December 19, 2019,
+date of current version December 31, 2019.
+Digital Object Identifier 10.1109/ACCESS.2019.2960832
+
+
+
+
+A Novel Emotion Control System for Embedded
+Human–Computer Interaction in Green Iot
+CHAO GONG                1 , FUHONG LIN                 1 , AND XINGSHUO AN                 2
+1 School of Computer and Communication Engineering, University of Science and Technology Beijing, Beijing 100083, China
+2 North China Institute of Computing Technology, Beijing 100083, China
+
+Corresponding author: Fuhong Lin (fhlin@ustb.edu.cn)
+This work was supported in part by the National Science Foundation Project of China under Grant 61931001 and Grant 61873026, and in
+part by the National Key Research and Development Program of China under Grant 2017YFC0820700.
+
+
+
+
+  ABSTRACT The green Internet of Things (IoT) technology has increased the need for a more
+  emotion-connected human-computer interaction. The lower network latency and longer battery life ensure
+  the continuous and real-time work of human-computer interaction systems in embedded environments.
+  However, the lack of emotional dynamics limits the empathy capability of human-computer interactions.
+  In this paper, we propose a novel emotion control system for embedded human-computer interaction in
+  green IoT. The Van Der Pol emotional dynamics with nonlinear resilience is proposed for the modeling
+  of human emotional mechanisms. Moreover, respectively for the autonomous and stochastic-excitation
+  situation, we analyze the stability of the solution, based on which four kinds of the emotional health status
+  are defined. Finally, we obtain the steady-state solution and design its feedback controller. Results of the
+  numerical simulation and prototype demonstrate the validity and practical operability of the theory.
+
+
+  INDEX TERMS Green IoT, emotion control, emotional dynamics, Van Der Pol oscillator, human-computer
+  interaction.
+
+I. INTRODUCTION                                                                                 representations, such as speech, facial expression and physio-
+The power of cloud computing and the massive scale of big                                       logical signals, are collected to characterize and measure the
+data have made the success of artificial intelligence (AI)                                      category and intensity of emotions and a series of satisfactory
+[1], [2], in a manner of high performance computing and high                                    results have been achieved [12]. However, emotion control
+power consumption. However, with the emergence of edge                                          has always been an unsolved problem in the research of
+computing [3] and the rise of green Internet of Things (IoT)                                    human-computer interaction, which is due to the following
+technology [4], the core of AI is gradually sinking from the                                    three reasons.
+cloud to the user’s closer end [5]. The lower latency [6]                                          • The control response has to be low-latency to meet the
+and longer battery [7] life of the green IoT network has                                              timeliness requirements, which can not be satisfied by
+spawned the new demand for a more advanced artificial intel-                                          the cloud ‘‘brain’’.
+ligence capable of empathy in some embedded environments                                           • Emotion control requires a rich means of stimulating or
+with strong human interaction [8]. Applying green IoT tech-                                           interfering with human senses.
+niques [9] to the controllable human-computer interaction to                                       • The first condition for a system to be controlled is to
+achieve an emotion-friendly green IoT will be an important                                            grasp its dynamics, which is precisely unfinished in
+technological upgrade and industrial revolution in the fusion                                         current emotional researches.
+of IoT and AI.
+                                                                                                   The edge computing paradigm provides low latency
+   Empathy is the core of human-computer interaction,
+                                                                                                computing services around the user [13], enabling the first
+including both the positive recognizability [10] and the
+                                                                                                problem to be solved now. The full range of human sen-
+reverse controllability [11] of emotions. Emotion recognition
+                                                                                                sory coverage brought by the IoT’s broader embedded appli-
+has always been a hot topic for research. Different emotional
+                                                                                                cations [14] (such as the sound, lighting, temperature in
+                                                                                                smart homes [15] and the speed, driving intensity, music in
+   The associate editor coordinating the review of this manuscript and                          autonomous vehicles [16], etc.) and the energy security for
+approving it for publication was Zhenyu Zhou              .                                     its green revolution [17] makes the second problem no longer
+
+                     This work is licensed under a Creative Commons Attribution 4.0 License. For more information, see http://creativecommons.org/licenses/by/4.0/
+185148                                                                                                                                                               VOLUME 7, 2019
+C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+exist. However, the lack of intrinsic dynamics of human                       computer vision and machine learning to encode facial
+emotions has still not been resolved.                                         expressions in real time and studied the emotional effects of
+   In this paper, we propose a novel emotion control system                   facial expressions on receptors. Villani et al. [23] evaluated
+for embedded human-computer interaction in green IoT to                       and studied using video games as a treatment tool for patients
+achieve mathematical modeling, stability analysis and feed-                   with emotional disorders such as depression, and exerted
+back control of human emotions. First, we establish a Van                     emotional interventions on patients through different gaming
+Der Pol emotional dynamics model with nonlinear resilience                    experiences. These methods have achieved the purpose of
+based on human emotional characteristics. Then, we analyze                    emotional intervention to a certain extent. However, the inter-
+the trajectory stability of the model in the autonomous situ-                 nal principle of emotion is always unknown, and all these
+ation and define the emotional health state, including Stable                 work can only be regarded as external clues, which makes
+State, Gradual Dead State, Dead State and Explosion State.                    it difficult to accurately and effectively control emotions.
+Finally, we discuss the steady-state response of the emotional                   In order to achieve control over human emotions, it is
+dynamic model in the case of random excitation (broadband                     necessary to have an in-depth understanding of the opera-
+Gaussian white noise), and design the feedback controller                     tional mechanisms of emotions, or the emotional dynamics.
+based on the steady-state solution of the emotional state                     Bringmann et al. [24] modeled the emotional system based on
+displacement and the transfer velocity.                                       a parametric time-varying vector-autoregressive model (TV-
+   The remainder of the paper is organized as follows.                        VAR) to simulate the temporal dependence of emotions and
+In Section II, we summarize the related work. In Section III,                 to demonstrate the availability of the system. Krone et al. [25]
+an emotional dynamics model with nonlinear resilience was                     proposed a vector autoregressive Bayesian sentiment dynam-
+proposed. In Section IV, the stability of the model under                     ics model to predict the basic emotions with long-term depen-
+autonomous conditions is analyzed, and the health state of                    dence based on short time sequences. Jenke and Peer [26]
+emotions is defined. In Section V, we discuss the stability                   used dynamic field theory, combined with theoretical knowl-
+performance of the model in the face of stochastic excitations                edge and data-driven experimental methods, to model the
+and design a feedback controller to maintain its stability. The               dynamic characteristics of emotions, deepening the under-
+results of numerical simulation and prototype are reported in                 standing of emotional mechanisms. The above research fully
+Section VI, followed by the conclusion.                                       exploited the time-dependent attributes of emotions and mod-
+                                                                              eled the emotional system as a shock-recovery model with
+II. RELATED WORK                                                              some steady-state characteristics. However, the stability of
+In the field of psychology research, there are many studies                   emotions is not a simply unchanged state, but an orbital
+on emotional regulation. Kraaij and Garnefski [18] studied                    stability [27]. The above-mentioned hypothetical model can-
+the psychometric properties of the Behavioral Emotion Reg-                    not simulate the periodic oscillation of the emotional state.
+ulation Questionnaire (BERQ) and its relationship with well-                  Moreover, there is no further attempt to explore the stability
+being. The results show the importance of subject behav-                      control problem.
+ior control in psychological intervention strategies. Brett Q.
+Ford et al. [19] studied the effects of emotion revaluation                   III. THE VAN DER POL EMOTIONAL DYNAMICS MODEL
+on negative emotion control and explored the use of this                      WITH NONLINEAR RESILIENCE
+outcome in the US election to control voter political behav-                  Based on years of research in biopsychology and brain
+ior. Williams et al. [20] demonstrated the importance of the                  science, we know that brain emotions have the following
+Interpersonal Emotion Regulation (IER) in emotional reg-                      dynamic characteristics: 1.
+ulation through a study of the social network of the new                         1) The emotional state oscillates according to a certain
+dormitory and found the independence between different                              period, rather than being static. Even if it is not subject
+emotions. Although there have been many years of experi-                            to external shocks, the emotional state will still fluctu-
+ence in the study of emotional control from a psychological                         ate constantly [28].
+perspective, it is difficult to obtain practical application in                  2) After an external shock, the emotional system can
+human-computer interaction and machine emotion control.                             always return to a stable orbit [29].
+   In the practical application of human-computer emotional                      3) The recovery of the emotional state is not linear and
+interaction and emotional regulation, researchers are more                          the recovery rate is not constant, indicating that it has
+likely to evaluate the emotional state through some exter-                          nonlinear resilience [30].
+nal observable and quantitative information. If certain fea-
+                                                                                 According to the first and second features above, we model
+tures of the information will result in negative emotions,
+                                                                              the emotional displacement state x based on the Van der Pol
+we can achieve the purpose of emotion control by artificially
+                                                                              equation [31].
+changing the external environment created by the feature.
+Elhai et al. [21] explored the relationship between human                                  ẍ − (µ − x 2 )ẋ + ω02 x = F(t), u ∈ R1        (1)
+emotional state and the use frequency of smartphones, and
+designed an emotional adjustment strategy by controlling                      where F(t) is the external emotional stimulus, −(µ − x 2 )ẋ
+the use time of smartphones. Haines et al. [22] combined                      is the damping term of the emotional dissipative system, µ
+
+VOLUME 7, 2019                                                                                                                          185149
+                                               C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+is the environmental parameter and ω02 x is the resilience             and
+item of the emotional recovery system. When x or ẍ is                                   
+                                                                                             g1 (x, µ)
+                                                                                                        
+                                                                                                                     0
+                                                                                                                                 
+small, the damping term is negative. In the opposite case,                   g(x, µ) =                  =                          .
+                                                                                             g2 (x, µ)     −x12 x2 − µx12 − µx13
+the damping term is positive. When F(t) is zero, the system
+will automatically adjust to stable vibration according to the            Then, according to
+initial state. When F(t) is not zero, the system’s resilience                                                     
+                                                                                                 0              −1
+will return the system to stable vibration. The particularity                         |λE − A| =                     =0,
+                                                                                                 ω02           λ−µ
+of the Van der Pol vibration is that its phase trajectory in
+the phase plane is an isolated closed curve (limit cycle). The         we can get the characteristic equation of matrix A as
+corresponding periodic motion is uniquely determined by the
+physical parameters of the system, independent of the initial                                    λ2 − λµ + ω02 = 0.
+state. It is worth noting that the Van der Pol system does
+                                                                          We have
+not meet the stability conditions of Lyapunov, but the orbit
+is stable, satisfying the Poincaré stability.                                                     1 = µ2 − 4ω02 ,
+   According to the third feature of the emotional system,
+we replace the linear recovery item ω02 x in Eq. (1) with a            and the conjugate eigenvalues when |µ| < 2ω0
+nonlinear function g(x) = ω02 x + µx 2 + µx 3 and get                                             √
+                                                                                             µ ± i −1
+                                                                                 λ1,2 (µ) =              = α(µ) ± iβ(µ).          (7)
+          ẍ − (µ − x 2 )ẋ + g(x) = F(t), u ∈ R1 .           (2)                                 2
+  Next, we will analyze the stability of the emotional                    When 1 ≥ 0, |µ| ≥ 2ω0 , there is no central manifold in the
+dynamic system under different external stimulus situations            system. The nonlinear term g(x, µ) of the system has a weak
+and propose corresponding stability control strategies.                influence on the phase trajectories outside the central mani-
+                                                                       fold. At this point, we can directly analyze its corresponding
+IV. STABILITY AND HEALTH STATUS OF EMOTIONAL
+                                                                       first approximation equation to study the system Eq. (4).
+SYSTEM IN AUTONOMOUS SITUATIONS                                                                       ẋ = Ax.                              (8)
+In the autonomous situation, the external input of the system
+is F(t) = 0, and the state equation of the system is                      According to the theory of first-order linear differential
+                                                                       equations, λ1 and λ2 are negative when µ ≤ 0. The system
+    ẍ − (µ − x 2 )ẋ + ω02 x + µx 2 + µx 3 = 0, u ∈ R1 .     (3)      only has a stable manifold and the 0 solution (equilibrium
+   Introducing state variables x1 = x, x2 = ẋ, Eq. (3)                point) is a stable node. Such emotional systems will quickly
+transforms into a state equation form                                  decay to the equilibrium point (0 solution) regardless of
+                                                                       the initial state or external incentives. We call this kind of
+         ẋ = [x˙1 x˙2 ]T                                              emotional system state the Dead state, which is dangerous
+                                                    
+                                  x2                                   and a healthy emotional system should avoid.
+            =
+                 ω02 x1 + (µ − x12 )x2 − µx12 − µx13                      When µ > 0, λ1 and λ2 are both positive. There is no stable
+            = f (x, µ).                                       (4)      manifold in the system, and the 0 solution (equilibrium point)
+                                                                       is an unstable node. Such emotional systems will quickly
+  We can get
+                                                                       produce self-oscillation away from the equilibrium point until
+                 f (0, µ) = 0,    ∀µ ∈ R1                     (5)      the emotional explosion. We call this kind of emotional sys-
+                                                                       tem state the Explosion State, which can result in irreversible
+where ẋ = 0 when x = 0 indicating that 0 solution is the              damage.
+equilibrium point of the system.                                          When 1 < 0 and |µ| < 2ω0 , λ1 and λ2 are conjugate roots
+   If the 0 solution of the emotional system described by              and
+Eq. (4) is stable, it means that the system will remain silent
+                                                                                                             dα         1
+regardless of the initial state or whatever emotional stimulus              α(0) = 0, β(0) = ω0 > 0, c =        |µ=0 = > 0. (9)
+is applied, which is called the dead emotion system. On the                                                  dµ         2
+contrary, when the 0 solution is unstable, we will study                  According to the two-dimensional Hopf bifurcation theo-
+whether there are other stable solutions.                              rem [32], the equilibrium point of the equation Eq. (4) loses
+   Eq. (4) can be expressed as                                         stability at µ = 0 because the system satisfies the condition
+          
+             0 1
+                      
+                        x1                  0
+                                                                      Eqs. (5), (7) and (9). And when acµ < 0, the system appears
+     ẋ =                    +                            . (6)        Hopf bifurcation, and its stability (depending on whether
+            −ω02 µ      x2        −x12 x2 − µx12 − µx13
+                                                                       a stable limit cycle can occur) is opposite to that of the
+  Take the first-order approximation equation Jacobian                 equilibrium point.
+matrix as                                                                                                                    !
+                               
+                                  0   1
+                                                                                     1 ∂3 f       ∂3 f      ∂3 g      ∂3 g
+          A(µ) = Dx f (0, µ) =            ,                                a(µ) =              +           + 2      +
+                                 −ω02 µ                                              16 ∂x13      ∂x1 ∂x22  ∂x1 ∂x2     ∂x23
+
+185150                                                                                                                            VOLUME 7, 2019
+C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+                                                 !
+                          ∂ f      ∂2 f    ∂2 f        ∂2 g
+                         2
+                     1                                                           When the system is excited by a stochastic stimulus F(t),
+                 +                       +         −
+                   16ω0 ∂x1 ∂x2 ∂x12        ∂x22      ∂x1 ∂x2                 the system state equation can be expressed as
+                               !
+                   ∂2 g ∂2 g       ∂2 f ∂2 g ∂2 f ∂2 g                                          ẍ + ε 2 h(x)ẋ + g(x) = εF(t),
+                                                            
+                                                                                                                                               (13)
+                        +        −            +
+                   ∂x12   ∂x22      ∂x12 ∂x12     ∂x22 ∂x22                   where h(x) is the damping function, and
+             1 2x1 x2 + 2µx1 + 6µx12
+           =− −                                                                                          h(x) = x 2 − µ,
+             8          8ω0
+                                                                              g(x) is the nonlinear resilience function
+    a = a(0) = − 18 when (x1 , x2 , µ) = (0, 0, 0).
+    The system has a stable limit cycle with an average radius                                      g(x) = w20 x + µx 2 + µx 3 .
+r̃ and an angular frequency ω̃.
+                                                                                 ε is a small parameter and 0 < ε  1. To make the sys-
+                         r̃ = 2µ 1/2
+                                       .                           (10)       tem’s response limited, the power consumed by the damping
+                                                                              should be of the same order of magnitude as the power of
+                        ω̃ = (ω02 − µ/4)1/2 .                      (11)
+                                                                              the stochastic excitation. So the damping term is proportional
+    Therefore, when µ < 0, no bifurcation occurs and the                      to ε 2 , and the stimulus is proportional to ε. To convert the
+equilibrium point is the stable focus. The system will go to                  equation into a standard form of differential equation, we take
+0 solution inexhaustibly, and we call this emotional system                   the energy envelope (total energy) of the system as
+state the Gradual Dead State. The gradual dead state is desen-                                                   1 2
+sitized and the system is no longer sensitive to any incentives.                                       E(t) =      ẋ + V (x),                 (14)
+                                                                                                                 2
+It is a dangerous sign that the system reaches the gradual dead
+                                                                              in which
+state.                                                                                                           Z x
+    When µ ≥ 0, the system produces a bifurcation and a                                                V (x) =         g(ξ )dξ.
+stable limit cycle is generated. The equilibrium point is the                                                     0
+stable center. The system has a periodic solution and is in                      Take the transformation
+constant amplitude self-excited oscillation. The system will                                     (
+adjust itself to the steady-state self-excited vibration regard-                                  V (x) = E cos2 8
+                                                                                                         √                                     (15)
+less of the initial state or external excitation. We call this                                    ẋ = − 2E sin 8
+emotional system state the Stable State, which is healthy.
+                                                                              and according to the first equation in Eq. (15), we get
+    In summary, we get                                                                                           √
+                                                                                             2V (x) sin 8         2Eg(x) sin 8
+             µ ≤ −2ω0                                                                                      8̇ −                 ,
+           
+                                Dead State                                             Ė =                                                    (16)
+           
+           
+           −2ω < µ < 0 Gradual Dead State
+                                                                                               cos 8
+                                                                                                   3                cos2 8
+                  0                                                           which can also be expressed as
+                                                            (12)
+            0 ≤ µ < 2ω0        Stable State                                                                     √
+                                                                                                 cos3 8            Eg(x) cos 8
+           
+           
+             µ ≥ 2ω0                                                                    8̇ =                                   .
+           
+                                Explosion State                                                             Ė +    √                          (17)
+                                                                                              2V (x) sin 8            2V (x)
+V. STEADY-STATE RESPONSE ANALYSIS AND STABILITY                                 From the second equation in Eq. (15), we get
+CONTROL WITH BROADBAND GAUSSIAN WHITE NOISE
+                                                                                                   sin 8      √
+EXCITATIONS                                                                                 ẍ = − √ Ė − 2E cos 88̇.        (18)
+The undisturbed environment does not exist in reality and                                             2E
+the emotional system is always subject to stochastic external                 Substituting Eq. (13) into Eq. (18), there is
+excitations. The stochastic steady-state response research has                   sin 8     √                  √
+more practical significance. Typically, external noises of the                 − √ Ė − 2E cos 88̇ = ε 2 2Eh sin 8−g(x)+εy(t).
+affective system are substantially uniform stochastic signals                      2E
+                                                                                                                             (19)
+with a significantly greater frequency bandwidth than the
+emotional system. The relaxation time of the emotional sys-                      Substituting Eqs. (16) and (17) into Eq. (19), the system
+tem is significantly larger than the correlation time of stochas-             state equation can be transformed into first order differential
+tic excitations, which can be approximated as Gaussian white                  equations as
+noises and
+                                                                                               Ė = α1 (E, 8) + β1 (E, 8)F(t),                 (20)
+                           E[F(t)] = 0,                                                        8̇ = α2 (E, 8) + β2 (E, 8)F(t),                 (21)
+                             SF (ω) = K ,
+                                                                              in which
+                  E[F(t)F(t − τ )] = 2π K ,
+                                     √
+                             F(t) = 2π K N (t),                                           α1 (E, 8) = −ε 2 · 2Eh sin2 8,
+                                                                                                                                   |g(x)|
+in which N (t) is the Gaussian white noise of unit intensity.                             α2 (E, 8) = ε 2 · h sin 8 cos 8 +               ,
+                                                                                                                                    V (x)
+VOLUME 7, 2019                                                                                                                                185151
+                                                      C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+                          √
+          β1 (E, 8) = −ε 2E sin 8,                                                            B11 (y, t) = β102 (y, t)
+                          cos 8                                                                            = ε 2 · 4π KE sin2 8,                  (29)
+          β2 (E, 8) = −ε √ .
+                             2E                                                               B12 (y, t) = β1 (y, t)β2 (y, t)
+  Set the system state vector as                                                                           = ε 2 · 2π K sin 8 cos 8,              (30)
+                    y = [y1 y2 ] = [E 8] ,
+                                   T              T
+                                                                   (22)                       B21 (y, t) = B12 (y, t),                            (31)
+and Eqs. (20) and (21) can be expressed as                                                    B22 (y, t) = β202 (y, t)
+                                                                                                                 cos2 8
+                  d                                                                                        = ε2 · π K   .                (32)
+                     y = α(y, t) + β(y, t)F(t).                    (23)                                            E
+                  dt
+                                                                                 The above process is the first step approximation of the
+  Set
+                                  √                                           stochastic averaging method.
+                   β 0 (y, t) =    2π K β(y, t),                                 The Eq. (20) indicates that E is a slow variable. The
+                                                                              existence of |g(x)|
+                                                                                            V (x) in Eq. (21) makes 8 a fast variable. α(y, t)
+and there is                                                                  and β(y, t) are both periodic functions of the fast variable 8,
+                d                                                             so we can average them over a period by the fast variable.
+                   y = α(y, t) + β 0 (y, t)N (t).         (24)
+                dt                                                            This is the second step approximation. The averaged state
+   In addition, N (t) can be regarded as the formal derivative                equation will not depend on 8, which means that the system
+of the unit Wiener process W (t), which means                                 has achieved dimensionality reduction. The solution to the
+                                                                              slow variable E can be used to approximate the solution of
+                        dW (t) = N (t)dt.                                     the original system.
+  So we obtain                                                                   The It ô stochastic differential equation for the one-
+                                                                              dimensional Markov diffusion process E is
+               dy = α(y, t)dt + β 0 (y, t) ◦ dW (t),               (25)
+                                                                                                   dE = α10 dt + β10 dW (t).                      (33)
+in which ◦ represents the Stratonovich stochastic differential
+equation. After adding the Wong-Zakai correction, Eq. (25)                      After being averaged over a period of the fast variable
+can be transformed into the following It ô stochastic differen-              8, the corresponding FPK equation has the drift coefficient
+tial equation                                                                 A1 (E, 8) and the diffusion coefficient B1 (E, 8) as
+
+               dy = α 0 (y, t)dt + β 0 (y, t)dW (t),               (26)                         Ā1 (E) = ε 2 (−2H (E) + π K ),                   (34)
+
+in which                                                                      in which
+                                          ∂
+                                                                                                            Z 2π
+                           X                                                                           1
+           α10 = α1 + π           K βj       β1                                            H (E) =                 h(E, 8) sin2 8d8,
+                                         ∂yj                                                          2π     0
+                             j
+                = ε (−2 Eh sin2 8 + π K )
+                    2                                                         and
+                                                                                                                         Z 2π
+                j = 1, 2                                                                                          1
+                                                                                         B̄11 (E) = ε · 4π KE ·
+                                                                                                       2
+                                                                                                                                sin2 8d8
+                        X       ∂                                                                                2π        0
+           α2 = α2 + π
+            0
+                          K βj     β2
+                               ∂yj                                                                = ε 2 · 2π KE.
+                             j
+                           πK                 |g(x)|                             The transition probability density of E(t) satisfy
+                = ε 2 (h −    ) sin 8 cos 8 +
+                            E                  V (x)
+                                                                                     ∂p        ∂                 1 ∂2
+                  j = 1, 2                                                               = − [Ā1 (E, t)p] +            [B̄11 (E, t)p], (35)
+                                                                                     ∂t       ∂E                 2 ∂E 2
+   The Gaussian white noise F(t) has a very small correlation                 in which p represents p(E, t|E0 , t0 ).
+time, while y(t) has a very large relaxation time equivalent to                  In order to obtain the joint transition probability density
+                   ∂α
+the magnitude of [ ∂y j ]−1 ∝ ε12 . Therefore, we can easily find             of the displacement variable and velocity variable, we first
+                     k
+a non-overlapping time interval with the length between the                   calculate
+correlation time of F(t) and the relaxation time of y(t). The
+y(t) observed at each discrete moment on the endpoints of                                       p(x, E, t) = p(x, t|E)p(E, t),
+these intervals will be an approximate Markov process. The
+                                                                              where p(x, t|E) represents the transition probability density
+FPK equation that its transition probability density satisfies
+                                                                              of x for the given energy E. It is equal to the ratio of the time
+can be obtained from the It ô equation Eq. (26), whose drift
+                                                                              that the system displacement stays at x over the entire period
+coefficient and diffusion coefficient are respectively
+                                                                              T (E) under the condition E.
+                A1 (y, t) = α10 (y, t),                            (27)                                              1
+                                                                                             p(x, t|E) =          √             .
+                A2 (y, t) = α20 (y, t),                            (28)                                      T (E) 2(E − V (x))
+185152                                                                                                                                   VOLUME 7, 2019
+C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+So we have
+                                      p(E, t)
+                 p(x, E, t) =        √             .               (36)
+                                T (E) 2(E − V (x))
+   In order to find the time period T (E) corresponding to the
+fast variable 8 over 2π , Eq. (14) indicates that
+                                 dx
+                      dt = ± √             .                       (37)
+                              2(E − V (x))
+   We integrate both sides and get
+                         Z
+                                   dx
+               T (E) = 2     √
+                           R   2(E − V (x))
+                         √ Z b        dx
+                     =2 2        √           ,                     (38)
+                              0    E − V (x)
+where R represents the domain of x within a period of T (E)
+and b means V (b) = E.
+   According to Eq. (14), the joint probability density of the
+displacement x and the velocity ẋ can be obtained as
+                                                                              FIGURE 1. The emotion system phase trajectory with different µ.
+                               p(E, t)
+                 p(x, ẋ, t) =           1 2         .             (39)
+                                T (E) E= 2 ẋ +V (x)                          VI. NUMERICAL SIMULATION AND PROTOTYPE
+                                                                              A. NUMERICAL SIMULATION
+   Then we can get their edge probability density as                          In order to analyze the steady-state response of the emotional
+                          Z +∞                                                dynamic system under different environments (with different
+               p(x, t) =        p(x, ẋ, t)dẋ,                    (40)       environmental parameter µ) and the influence of the applied
+                           −∞
+                          Z +∞                                                control on the system stability, we first perform the Monte
+               p(ẋ, t) =       p(x, ẋ, t)dx.                     (41)       Carlo numerical simulation on the system to verify the theo-
+                                 −∞                                           retical effectiveness.
+   Since F(t) is Gaussian white noise, E(T ) described by
+                                                                              1) AUTONOMOUS SITUATION
+Eq. (35) is a one-dimensional temporally homogeneous dif-
+fusion process. When t → ∞, E(t) will tend to be a smooth                     Setting ω0 = 1 and the initial condition as x1 = 1, x2 = 1,
+diffusion process. Setting ∂p∂t = 0 and considering Eq. (35) for
+                                                                              we can get the phase trajectory of the emotional state vector
+E’s boundary condition E = 0, p < ∞, E → Infty, p → 0,                        x without excitations as shown in Fig. 1. Fig. 1(a) indicates
+∂p                                                                            that when 0 < µ = 0.5 < 2ω0 , the system is in the Stable
+ ∂t → 0, we can integrate to get the steady-state probability
+density of E(t) as                                                            State and the phase trajectory quickly approaches the stable
+                                                                              limit cycle, which represents a stable periodic solution of
+                                  Z E
+                                                                              the emotional system. From Fig. 1(b) we can see that when
+                                                  
+                       C               2Ā1 (s)
+           p(E) =             exp               ds ,       (42)               −2ω0 < µ = −0.05 < 0, the system is in the Gradual Dead
+                    B̄11 (E)        0 B̄11 (s)
+                                                                              State and the emotional state gradually converges to 0 after
+where C is the normalization constant. The steady-state prob-                 the amplitude-decreased fluctuation, which means that it is
+ability density p(x) of x can be obtained from Eqs. (39)                      slowly deactivated. Fig. 1(c) means that when µ = 3 >
+and (40). The expected displacement state of the emotional                    2ω0 , the system is in the Explosion State and the emotional
+system can be expressed as                                                    state quickly deviates from the equilibrium point, causing
+                          Z +∞                                                the system to crash quickly. As shown in Fig. 1(d), when
+                  E{x} =        xp(x)dx.                 (43)                 µ = −3 < −2ω0 , the system is in the Dead State and the
+                                 −∞                                           emotional state quickly collapses to 0 resulting in a quickly
+   In order to maintain the stability of the periodic solution                deactivated system.
+when subjected to stochastic external excitations, we set up a                   The simulation results of the autonomous situation show
+feedback controller in the emotional system as                                that different environmental parameters µ can affect the
+                                                                              emotional system state. Moreover, with the change of µ,
+            u = εk1 (x − E{x}) + εk2 (x − E{x})3 ,                 (44)       the stability and health status of the emotional system will
+                                                                              also change according to the theoretical predictions. This
+where k1 and k2 indicate the control gain and E{x} indicates                  proves the validity of the emotional dynamics model we have
+the expectation.                                                              established.
+
+VOLUME 7, 2019                                                                                                                                  185153
+                                                      C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+FIGURE 2. Probability density of emotional displacement x.
+
+
+
+
+                                                                              FIGURE 4. Discrete phase trajectory of the uncontrolled system.
+
+
+
+
+FIGURE 3. Phase trajectory in the case of Gaussian white noise excitation.
+
+
+2) STOCHASTIC EXCITATION SITUATION
+Let ω0 = 1, ε = 0.1, ε 2 2π K = 0.01 and the initial condition
+is set to x = 1, ẋ = 1. When µ = 0.5, we can get the emo-
+                                                                              FIGURE 5. Discrete phase trajectory of the controlled system.
+tional displacement probability density as shown in Fig. 2 and
+the phase trajectory of the emotional system under the con-
+dition of wideband Gaussian stochastic excitation as shown                    phase trajectory of the controlled system as shown in Fig. 5.
+in Fig. 3. We can see that the emotional displacement x peaks                 We can see that the system has a diffusion limit cycle at this
+around x = 2 and x = −2 respectively. Reflected in the                        time and returns to the Stable State. These results demonstrate
+phase trajectory, the steady-state response of the system has                 the effectiveness of our feedback controller.
+a diffused limit cycle and the radius on the x axis is close to
+r = 2. The emotional state is in a healthy and stable state                   B. PROTOTYPE
+with a periodic oscillation. The numerical simulation results                 We also build an application example to apply our pro-
+in Fig. 2 are very close to the theoretical results, which proves             posed emotional dynamics theory and control mechanism
+the correctness of our proposed emotional dynamics theory.                    to the emotion regulation in human-computer interactions.
+   In the case of µ = 0.5 above, the system is in a steady                    The experiment is carried out in a closed condition, with
+state and there is no need to apply external control. Next,                   the unchanged external environment such as the light and
+we set the environment parameter to µ = −0.05 under the                       sound. The experimental subjects are played with video clips
+condition that other parameters are unchanged and get the                     with different sentiment-directed intensities, e.g. hilarious or
+phase trajectory of the system as shown in Fig. 4. We can                     horrific movie clips and even video clips that have strong
+see that the phase trajectory gradually collapses to the origin               memory associations with the subject (e.g. birthday par-
+and the system state changes to the Gradual Dead State.                       ties and graduation records). We normalize the emotional
+   If no additional controls are applied to the system, its emo-              strength x ∈ {0, 1} and take k1 = 1, k2 = 1, ε = 0.5,
+tional dynamism will gradually ‘‘dead’’. We enter a feedback                  so the control also satisfy u ∈ {0, 1}. These video clips are
+control with k1 = 0.4, k2 = 0.1, E{x} = 1.5 and get the                       divided into 5 levels {0.2, 0.4, 0.6, 0.8, 1.0} according to the
+
+185154                                                                                                                                   VOLUME 7, 2019
+C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+                                                                              theoretical values of the anger intensity at 4 moments are
+                                                                              not much different from the actual measurement (recognition)
+                                                                              value. In fact, the average error of all moments is 27%.
+                                                                              This proves that the emotional control mechanism we have
+                                                                              established can play a practical role in the mitigation of anger
+                                                                              in human-computer interaction. Fig. 7 shows the results of the
+                                                                              happy-excitation experiment. We can see that the theoretical
+                                                                              values of the happy intensity at 4 moments are similar to the
+                                                                              actual measurement (recognition) value. The average error
+                                                                              of all moments is 36%, higher than that of the previous
+                                                                              experiment but still acceptable. Two sets of experimental
+                                                                              results prove that our proposed emotion control mechanism
+                                                                              is practical and effective.
+
+                                                                              VII. CONCLUSION
+                                                                              In this paper we have made full use of the device-side
+                                                                              computing power and battery life given by the green IoT
+                                                                              and presented a novel emotion control system for embed-
+                                                                              ded human-computer interaction. We first improved the
+                                                                              Van der Pol oscillator and equipped it with the nonlinear
+                                                                              resilience. Then, we discussed the characteristics of its solu-
+                                                                              tion without external excitations. And according to the dif-
+FIGURE 6. Regulation results of the anger emotion over time.                  ferent orbital stability of the phase trajectory, four health
+                                                                              states are defined for the emotional system, including the
+                                                                              Stable State, the Gradual Dead State, the Dead State and
+                                                                              the Explosion State. Subsequently, we apply the Gaussian
+                                                                              white noise as the stochastic incentives usually faced in the
+                                                                              real world by the emotional system and use the stochastic
+                                                                              averaging method to solve the steady-state solution. Finally,
+                                                                              we design a state feedback controller for the emotional
+                                                                              system based on the steady-state solution. This makes an
+                                                                              emotion-friendly IoT possible and provides a theoretical basis
+                                                                              for the more advanced human-computer interaction in the
+                                                                              IoT environment.
+                                                                              REFERENCES
+                                                                               [1] D. E. O’Leary, ‘‘Artificial intelligence and big data,’’ IEEE Intell. Syst.,
+                                                                                   vol. 28, no. 2, pp. 96–99, Mar./Apr. 2013.
+                                                                               [2] M. Parra-Royon and J. M. Benítez, ‘‘Delivering data mining services in
+                                                                                   cloud computing,’’ in Proc. IEEE World Congr. Services (SERVICES),
+                                                                                   vol. 2642-939X, Jul. 2019, pp. 396–397.
+                                                                               [3] A. Meloni, P. Pegoraro, L. Atzori, A. Benigni, and S. Sulis,
+                                                                                   ‘‘Cloud-based IoT solution for state estimation in smart grids:
+                                                                                   Exploiting virtualization and edge-intelligence technologies,’’
+                                                                                   Comput. Netw., vol. 130, pp. 156–165, Jan. 2018. [Online]. Available:
+                                                                                   http://www.sciencedirect.com/science/article/pii/S1389128617303912
+                                                                               [4] M. Maksimovic, ‘‘Greening the future: Green Internet of Things (G-IoT)
+                                                                                   as a key technological enabler of sustainable development,’’ in Internet
+                                                                                   of Things and Big Data Analytics Toward Next-Generation Intelligence.
+FIGURE 7. Regulation results of the anger emotion over time.                       Springer, 2018, pp. 283–313.
+                                                                               [5] Z. Zhou, X. Chen, E. Li, L. Zeng, K. Luo, and J. Zhang, ‘‘Edge intel-
+emotional excitation intensity. We calculate the feedback                          ligence: Paving the last mile of artificial intelligence with edge com-
+                                                                                   puting,’’ May 2019, arXiv:1905.10083. [Online]. Available: https://arxiv.
+control quantity according to the emotional dynamics theory                        org/abs/1905.10083
+to select video clips to achieve the emotional regulation. The                 [6] F. Lin, Y. Zhou, I. You, J. Lin, X. An, and X. Lü, ‘‘Content recommendation
+emotion recognition of the subject is performed in real time                       algorithm for intelligent navigator in fog computing based IoT environ-
+                                                                                   ment,’’ IEEE Access, vol. 7, pp. 53677–53686, 2019.
+through the facial expression and the recognition results are                  [7] F. Song, M. Zhu, Y. Zhou, I. You, and H. Zhang, ‘‘Smart collaborative
+compared with the theoretical results.                                             tracking for ubiquitous power IoT in edge-cloud interplay domain,’’ IEEE
+   Fig. 6 shows the results of the anger-relieving emo-                            Internet Things J., to be published.
+                                                                               [8] A. A. Penilla and A. S. Penilla, ‘‘Methods and vehicles for captur-
+tion control experiment. We can see that the anger of the                          ing emotion of a human driver and moderating vehicle response,’’
+subjects gradually eased after being controlled. And the                           U.S. Patent 10 453 453, Oct. 22, 2019.
+
+VOLUME 7, 2019                                                                                                                                        185155
+                                                              C. Gong et al.: Novel Emotion Control System for Embedded Human–Computer Interaction in Green IoT
+
+
+
+
+ [9] D. Han, S. Li, and Z. Chen, ‘‘Hybrid energy ratio allocation algo-                [27] E. A. Butler, ‘‘Interpersonal affect dynamics: It takes two (and time) to
+     rithm in a multi-base-station collaboration system,’’ IEEE Access, vol. 7,             tango,’’ Emotion Rev., vol. 7, no. 4, pp. 336–341, 2015.
+     pp. 147001–147009, 2019.                                                          [28] P. Kuppens and P. Verduyn, ‘‘Emotion dynamics,’’ Current Opinion Psy-
+[10] M. M. Hassan, M. G. R. Alam, M. Z. Uddin, S. Huda, A. Almogren,                        chol., vol. 17, pp. 22–26, Oct. 2017. [Online]. Available: http://www.
+     and G. Fortino, ‘‘Human emotion recognition using deep belief network                  sciencedirect.com/science/article/pii/S2352250X16302019
+     architecture,’’ Inf. Fusion, vol. 51, pp. 10–18, Nov. 2019.                       [29] G. Luong, C. M. Arredondo, and C. Wrzus, ‘‘Age differences in emotion
+[11] B. Q. Ford and J. J. Gross, ‘‘Why beliefs about emotion matter:                        regulation dynamics: Anticipatory, reactivity, and recovery processes,’’ in
+     An emotion-regulation perspective,’’ Current Directions Psychol. Sci.,                 Emotion Regulation. Evanston, IL, USA: Routledge, 2018, pp. 226–249.
+     vol. 28, no. 1, pp. 74–81, 2019.                                                  [30] D. Pincus and A. Metten, ‘‘Nonlinear dynamics in biopsychosocial
+[12] C. Gong, F. Lin, X. Zhou, and X. Lü, ‘‘Amygdala-inspired affective                     resilience,’’ Nonlinear Dyn., Psychol., Life Sci., vol. 14, no. 4, p. 353, 2010.
+     computing: To realize personalized intracranial emotions with accurately          [31] S. Vaidyanathan, ‘‘Output regulation of the forced Van der Pol chaotic
+     observed external emotions,’’ China Commun., vol. 16, no. 8, pp. 115–129,              oscillator via adaptive control method,’’ Int. J. Pharmtech. Res., vol. 8,
+     2019.                                                                                  no. 6, pp. 106–116, 2015.
+[13] H. Hongwen, Z. Chengcheng, X. Shenggang, and F. Lin, ‘‘A novel secure             [32] B. D. Hassard, B. Hassard, N. D. Kazarinoff, Y.-H. Wan, and Y. W. Wan,
+     data transmission scheme in industrial Internet of Things, China commu-                Theory and Applications of Hopf Bifurcation, vol. 41. Cambridge, U.K.:
+     nications,’’ China Commun., vol. 17, no. 1, pp. 73–88, 2020.                           Cambridge Univ. Press, 1981.
+[14] S. Li, L. Da Xu, and S. Zhao, ‘‘5G Internet of Things: A survey,’’ J. Ind.
+     Inf. Integr., vol. 10, pp. 1–9, Jun. 2018.
+[15] V. Sivaraman, H. Gharakheili, C. Fernandes, N. Clark, and T. Karliychuk,                                      CHAO GONG was born in Shandong, China,
+     ‘‘Smart IoT devices in the home: Security and privacy implications,’’ IEEE                                    in 1990. He received the B.S. degree from the
+     Technol. Soc. Mag., vol. 37, no. 2, pp. 71–79, Jun. 2018.                                                     University of Science and Technology Beijing,
+[16] B. V. Philip, T. Alpcan, J. Jin, and M. Palaniswami, ‘‘Distributed real-time                                  in 2014, China, where he is currently pursuing
+     IoT for autonomous vehicles,’’ IEEE Trans. Ind. Informat., vol. 15, no. 2,                                    the Ph.D. degree with the School of Computer
+     pp. 1131–1140, Feb. 2019.                                                                                     and Communication Engineering. His research
+[17] F. Lin, Y. Zhou, X. An, I. You, and K. Choo, ‘‘Fair resource allocation in                                    interests include affective computing and deep
+     an intrusion-detection system for edge computing: Ensuring the security of                                    learning.
+     Internet of Things devices,’’ IEEE Consum. Electron. Mag., vol. 7, no. 6,
+     pp. 45–50, Nov. 2018.
+[18] V. Kraaij and N. Garnefski, ‘‘The behavioral emotion regulation question-
+     naire: Development, psychometric properties and relationships with emo-                                      FUHONG LIN received the M.S. and Ph.D.
+     tional problems and the cognitive emotion regulation questionnaire,’’ Pers.
+                                                                                                                  degrees in electronics engineering from Beijing
+     Individual Differences, vol. 137, pp. 56–61, Jan. 2019. [Online]. Available:
+                                                                                                                  Jiaotong University, Beijing, China, in 2006 and
+     http://www.sciencedirect.com/science/article/pii/S0191886918304318
+[19] B. Q. Ford, M. Feinberg, P. Lam, I. B. Mauss, and O. P. John, ‘‘Using                                        2010, respectively. He is currently an Asso-
+     reappraisal to regulate negative emotion after the 2016 U.S. presidential                                    ciate Professor with the Department of Computer
+     election: Does emotion regulation trump political action?’’ J. Pers. Social                                  and Communication Engineering, University of
+     Psychol., vol. 117, no. 5, pp. 998–1015, 2018.                                                               Science and Technology Beijing, China. His two
+[20] W. C. Williams, S. A. Morelli, D. C. Ong, and J. Zaki, ‘‘Interpersonal                                       articles won top 100 most-cited Chinese articles
+     emotion regulation: Implications for affiliation, perceived support, rela-                                   published in international journals, in 2015 and
+     tionships, and well-being,’’ J. Pers. Social Psychol., vol. 115, no. 2, p. 224,                              2016. His research interests include edge/fog com-
+     2018.                                                                             puting, network security, and big data. He received the track Best Paper
+[21] J. D. Elhai, M. F. Tiamiyu, J. W. Weeks, J. C. Levine, K. J. Picard, and B.       Award from the IEEE/ACM ICCAD 2017. He won the Provincial and Min-
+     J. Hall, ‘‘Depression and emotion regulation predict objective smartphone         istry Science and Technology Progress Award two, in 2017. He served as the
+     use measured over one week,’’ Pers. Individual Differences, vol. 133,             Co-Chair of the first and third IET International Conference on Cyberspace
+     pp. 21–28, Oct. 2018. [Online]. Available: http://www.sciencedirect.              Technology and the General Chair of the second IET International Confer-
+     com/science/article/pii/S0191886917303136                                         ence on Cyberspace Technology. He was the Leading Editor of the special
+[22] N. Haines, Z. Bell, S. Crowell, H. Hahn, D. Kamara,
+                                                                                       issue Recent Advances in Cloud-Aware Mobile Fog Computing for wireless
+     H. McDonough-Caplan, T. Shader, and T. P. Beauchaine, ‘‘Using
+                                                                                       communications and mobile computing. He currently serves as a Reviewer
+     automated computer vision and machine learning to code facial
+     expressions of affect and arousal: Implications for emotion dysregulation         of more than 10 international journals including the IEEE TRANSACTIONS
+                                                                                       ON INDUSTRIAL INFORMATICS, IEEE ACCESS, Information Sciences, the IEEE
+     research,’’ Develop. Psychopathol., vol. 31, no. 3, pp. 871–886, 2019.
+[23] D. Villani, C. Carissoli, S. Triberti, A. Marchetti, G. Gilli, and G. Riva,       INTERNET OF THINGS JOURNAL, The Computer Journal, and China
+     ‘‘Videogames for emotion regulation: A systematic review,’’ Games Health          Communications.
+     J., vol. 7, no. 2, pp. 85–99, 2018, doi: 10.1089/g4h.2017.0108.
+[24] L. F. Bringmann, E. Ferrer, E. L. Hamaker, D. Borsboom, and
+     F. Tuerlinckx, ‘‘Modeling nonstationary emotion dynamics in dyads using                                       XINGSHUO AN was born in Shandong, China,
+     a time-varying vector-autoregressive model,’’ Multivariate Behav. Res.,                                       in 1988. He received the M.S. and Ph.D. degrees
+     vol. 53, no. 3, pp. 293–314, 2018.                                                                            from the University of Science and Technology
+[25] T. Krone, C. J. Albers, P. Kuppens, and M. E. Timmerman, ‘‘A multivariate                                     Beijing, in 2014 and 2019, respectively. He is cur-
+     statistical model for emotion dynamics,’’ Emotion, vol. 18, no. 5, p. 739,                                    rently engaged in scientific research works with
+     2018.                                                                                                         the North China Institute of Computing Technol-
+[26] R. Jenke and A. Peer, ‘‘A cognitive architecture for modeling emotion                                         ogy, China. His research interests include fog com-
+     dynamics: Intensity estimation from physiological signals,’’ Cognit. Syst.                                    puting and network security.
+     Res., vol. 49, pp. 128–141, Jun. 2018. [Online]. Available: http://www.
+     sciencedirect.com/science/article/pii/S1389041717300220
+
+
+
+
+185156                                                                                                                                                     VOLUME 7, 2019
+

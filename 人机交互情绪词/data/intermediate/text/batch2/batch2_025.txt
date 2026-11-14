@@ -1,0 +1,821 @@
+                                                                                                              TYPE Original Research
+                                                                                                              PUBLISHED 27 July 2022
+                                                                                                              DOI 10.3389/fpsyg.2022.949556
+
+
+
+
+                                          Construction of self-learning
+OPEN ACCESS                               classroom history teaching
+                                          mode based on
+EDITED BY
+Deepak Kumar Jain,
+Chongqing University of Posts and
+Telecommunications, China
+
+REVIEWED BY
+                                          human-computer interaction
+Jun Zheng,
+Baotou Teachers’ College, China
+Ruonan Li,
+                                          emotion recognition
+Xijing University, China
+Gongxing Yan,
+Chongqing Vocational Institute of         Changwei Ji1* and Shuyan Zhao2
+Engineering, China
+                                          1
+                                           College of Culture and Tourism, Heihe University, Heihe, China, 2 Academic Affairs Office, Heihe
+*CORRESPONDENCE                           University, Heihe, China
+Changwei Ji
+jicw935@nenu.edu.cn
+
+SPECIALTY SECTION                         Due to the continuous epidemic in recent years, the traditional teaching
+This article was submitted to
+Educational Psychology,                   mode of history classroom has been gradually replaced by the teaching
+a section of the journal                  mode of self-learning classroom. The teaching mode of autonomous learning
+Frontiers in Psychology
+                                          classroom has become a popular teaching mode in recent years. However, in
+RECEIVED 21 May 2022                      the autonomous learning classroom under the current history teaching mode,
+ACCEPTED 04 July 2022
+PUBLISHED 27 July 2022
+                                          the lecturer cannot always pay attention to the various states of the students.
+CITATION
+                                          It is also difficult to understand and receive the information the teacher
+Ji C and Zhao S (2022) Construction of    wants to convey in real time. For this reason, human-computer interaction
+self-learning classroom history
+                                          emotion recognition technology has been proposed and developed. In order
+teaching mode based on
+human-computer interaction emotion        to construct and realize the teaching mode of self-learning classroom history,
+recognition.                              this paper studies the emotion recognition technology of human-computer
+Front. Psychol. 13:949556.
+doi: 10.3389/fpsyg.2022.949556
+                                          interaction. The research results show that the introduction of human-
+                                          computer interaction emotion recognition technology into the construction of
+COPYRIGHT
+© 2022 Ji and Zhao. This is an            autonomous learning classroom teaching mode can fully understand students’
+open-access article distributed under     emotional behavior. It improves the accuracy of students’ emotion recognition
+the terms of the Creative Commons
+Attribution License (CC BY). The use,
+                                          by 2.67%, enables students to maintain a good learning motivation, and make
+distribution or reproduction in other     reasonable plans and arrangements for the historical time and progress of
+forums is permitted, provided the         learning. At the same time, it enhances the history teaching intensity and
+original author(s) and the copyright
+owner(s) are credited and that the        autonomous learning ability, and improves the original single learning mode.
+original publication in this journal is   By establishing a new teaching-teacher-student relationship, it creates a good
+cited, in accordance with accepted
+academic practice. No use, distribution
+                                          and active autonomous classroom atmosphere.
+or reproduction is permitted which
+does not comply with these terms.         KEYWORDS
+
+                                          human-computer interaction, emotion recognition, autonomous learning, teaching
+                                          mode, history class
+
+
+
+                                          Introduction
+                                              The concept of autonomous learning classroom is the most concerned teaching mode
+                                          concept since the new century, and it is also a basic feature of the new educational
+                                          philosophy. However, because the self-learning classroom emphasizes the enthusiasm
+                                          and initiative of students to receive knowledge, it still does not get rid of the shadow of
+                                          teacher-centered theory (Chau et al., 2021). It regards students as the object of teaching
+
+
+
+
+Frontiers in Psychology                                         01                                                             frontiersin.org
+Ji and Zhao                                                                                                     10.3389/fpsyg.2022.949556
+
+
+
+
+rather than the main body of autonomous learning, which is              solve this problem, this paper studies the combination of
+easy to cause the deviation of students’ learning of historical         the two.
+knowledge. Coupled with the inherent drawbacks of the                       There are more and more human-computer interaction
+traditional teaching model, it has led to a wealth of research          systems in the teaching field, and it is an inevitable trend
+on autonomous learning classrooms. However, the research                in the future to improve the service quality of human-
+on human-computer interaction emotion recognition is very               computer interaction emotion recognition and make it more
+lacking. Therefore, it is very important to combine human-              intelligent. In order to promote the development of human-
+computer interaction emotion recognition and autonomous                 computer interaction emotion recognition technology, many
+learning classroom teaching mode.                                       people have carried out research on it (Grange and Barki,
+    Self-directed learning classrooms can be carried out in             2020). In order to effectively optimize the accuracy of emotion
+the form of individual self-study, cooperative learning, and            recognition, Chen et al. (2021) proposed a novel emotion
+inquiry learning. It attaches great importance to the connection        recognition framework based on machine learning. The core
+with real life, and to a large extent can facilitate students to        of the framework is to select the optimal classifier for
+discuss and exchange. In order to promote the construction              different emotional data, fuse the classification results of each
+and development of history teaching classrooms, many people             classifier, and obtain the global classification result. To enable
+have conducted research on this. Zhang W employed a mixed               machines to recognize human emotional states and respond
+methods design to investigate the impact of seven classroom             intelligently to human needs, Jaratrotkamjorn (2021) proposed
+assessment features on students’ self-regulated learning, and           an emotion recognition system through a multimodal approach
+further explored the influencing factors (Zhang, 2017). Since           that integrates information from facial and speech expressions.
+second language motivation can have a crucial impact on                 Since the domain difference between training data and test
+learners’ learning outcomes, Chen (2022) took the second                data is still a major challenge to achieve improved systems to
+language motivational self-system as a theoretical framework            achieve emotion recognition performance, Zheng introduced a
+to explore the influence of learners on their second language           new multi-scale difference adversarial network. It is designed
+learning performance. Zheng et al. (2020) compared the                  to narrow the gap between the source and target domains
+impact of two mind mapping strategies combined with                     (Zheng et al., 2021). Since the current facial recognition features
+teaching methods on student learning outcomes. Because                  are not well-defined, Kommineni et al. (2021) proposed a
+motivation and success in computer science courses are                  method that can improve high performance computing in
+influenced by the strength of students’ self-efficacy beliefs           terms of facial expression recognition accuracy. Because the
+about their learning ability, students with weaker beliefs              increasing use of computing devices and applications in human
+may have difficulty succeeding in computer science courses.             daily life has triggered the need for natural human-computer
+Srisupawong et al. (2018) investigated the factors that enhance         interaction, Mukeshimana et al. (2020) proposed emotion
+or hinder computer self-efficacy among computer science                 recognition using multiple features using a semi-serial fusion
+students. Dignath (2021) applied a generic model of teacher             method. Since speech emotion recognition has become the
+competence to the specific context in which teachers promote            core of most human-computer interaction applications in the
+autonomous learning in the classroom, and investigated                  modern world, Zvarevashe and Olugbara (2020) developed a
+teacher competence profiles in terms of competence and                  custom 2D convolutional neural network that can perform
+how teacher competence modulates the effectiveness of self-             feature extraction and classification of sounds. In order to
+regulated learning. As the COVID-19 crisis continues, the               make human-machine interfaces more effective and develop
+need to resume virtual learning opportunities is seriously              human-like systems, Peerzade et al. (2018) elaborated the
+felt (García et al., 2021). Khodaei et al. (2022) aimed to              basics of speech emotion recognition systems and reviews
+determine the impact of online flipped classroom on self-               different feature extraction and classification techniques for
+directed learning readiness and metacognitive awareness of              the systems.
+nursing students. Since teachers play a key role in supporting              Emotion recognition has important implications for
+children’s metacognition and learning in the curriculum,                teachers and students in autonomous learning classrooms
+Loon et al. (2021) aimed to gain insight into teachers’                 using human-computer interaction systems. Some excellent
+teaching with cognitive and metacognitive strategies, and               human-computer interaction emotional technologies not
+the relationship between teacher-oriented and child-centered            only meet the learning needs of teachers and students,
+teaching practices and children’s self-monitoring accuracy,             but also judge the emotional state of students according
+learning regulation, and learning performance. From this point          to the results of emotion recognition, so as to provide
+of view, the research results on the autonomous learning                teachers with more intimate teaching suggestions and
+classroom are already very rich, but none of these research             program services. Therefore, emotion recognition is very
+results have combined the autonomous learning classroom                 important for human-computer interaction and autonomous
+with the history teaching mode for research. In order to                learning classrooms, but in the field of current teaching
+
+
+
+
+Frontiers in Psychology                                            02                                                        frontiersin.org
+Ji and Zhao                                                                                                         10.3389/fpsyg.2022.949556
+
+
+
+
+models, there are still big problems in the development                     Overall framework of human-computer
+and application of human-computer interaction emotion                       intelligent interaction system
+recognition technology and autonomous learning classrooms.
+In order to solve these problems, this paper studies the                        In the design of the interaction system between service
+construction of history teaching mode in autonomous                         robots and humans, if we want to give robots and humans
+learning classroom based on human-computer interaction                      to interact emotionally, it is a key link for robots to perceive
+emotion recognition.                                                        and understand human emotional expressions (Yu and Wang,
+                                                                            2017). Human emotion expression mainly includes expressions,
+                                                                            language and body movements. In this paper, the recognition of
+Construction content of                                                     facial expressions is mainly used to allow robots to understand
+autonomous learning classroom                                               human emotion expressions and give corresponding interactive
+history teaching mode                                                       feedback (Kim et al., 2021). The overall design block diagram of
+                                                                            the human-computer intelligent interaction system is shown in
+The overall framework of the                                                Figure 2.
+human-computer interaction emotion                                              As can be seen from Figure 2, the intelligent interaction
+recognition system                                                          system based on facial expression recognition is mainly
+                                                                            composed of a machine module, an interactive object module,
+     The application of facial expression recognition in intelligent        a facial expression recognition module, and a voice and action
+robots is mainly reflected in intelligent human-computer                    interaction module. When the interactive object produces
+interaction systems (Bota et al., 2019). The intelligent human-             various expressions in the self-learning class, the machine will
+computer interaction system based on expression recognition                 take a screenshot and save it in time for the facial expression
+is mainly composed of face detection, expression feature                    recognition module to detect and extract features. Then in the
+extraction, expression classification and interaction strategy              facial expression recognition module, the module will locate
+modules. In order to construct a teaching model for autonomous              and track the key feature points of the face after detecting the
+learning of classroom history, this paper studies the human-                face. In this way, effective features can be extracted to represent
+computer interaction emotion recognition system, and its                    facial expression changes. While positioning and tracking,
+overall framework is shown in Figure 1.                                     the module will send the facial expression features captured
+     As can be seen from Figure 1, the main process of the                  from the face to the built-in classifier for cause classification.
+human-computer interaction emotion recognition system is                    The reasons are mainly divided into two categories, one
+five steps: human-computer interaction, capturing face images,              is voice interaction, and the other is action interaction.
+feature extraction, emotion recognition, and returning the                  After understanding the classification of students’ expressions,
+recognition results. The specific process of human-computer                 secondary emotion recognition will be performed by calling
+interaction emotion recognition is as follows. When students                the local database. This secondary recognition process can
+study in the autonomous learning class of the history teaching              enhance the discrimination of students’ facial expressions. It
+mode, the intelligent machine will capture the student’s                    can improve the facial expression recognition rate to a certain
+face image through the camera. And it feeds it into the                     extent, so as to keep in the transformation and development
+feature extraction module to identify students’ states and                  of teachers’ teaching mode and improve students’ autonomous
+emotions when they study history. In the feature extraction                 learning ability.
+module, the intelligent machine will extract the texture and
+shape features of the captured face image through the face
+recognition model. And it eliminates various interference factors
+other than the face image, so as not to affect the later                    Schematic diagram of the ﬁeld of view of
+face image feature extraction and classification. After feature             the infrared camera
+extraction and classification, the feature extraction module
+communicates its results to the expression recognition module                   Typically, an infrared sensor acquires a depth map of the
+in the form of geometric features of the shape model. In the                scene by emitting energy into the scene and then receiving
+expression recognition module, the combined output shape and                the scene’s reflection of the emitted energy (Shimonishi
+texture features are used for expression recognition. And it                and Kato, 2017). At present, a relatively mature infrared
+classifies different emotions, and it is enough to get specific             sensor can obtain scene depth data. It is equipped with
+results for teachers’ reference and continuous improvement                  a depth camera, including an infrared emission device and
+of teaching methods, so as to increase students’ interest                   an infrared camera, which can directly obtain depth image
+in learning.                                                                data with very high resolution. In order to construct the
+
+
+
+
+Frontiers in Psychology                                                03                                                        frontiersin.org
+Ji and Zhao                                                                                                           10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 1
+   The overall framework of human-computer interaction emotion recognition.
+
+
+
+
+   FIGURE 2
+   Overall frame diagram of human-computer intelligent interaction system.
+
+
+
+
+history teaching mode of autonomous learning classroom                           As can be seen from Figure 3, objects farther from the sensor
+based on human-computer interaction emotion recognition,                     have a larger cross-sectional area of the field of view than objects
+this paper uses a deep data action recognition method based                  that are closer. This means that the height and width of the
+on infrared sensors. The specific camera field of view is shown              image do not correspond one-to-one with the physical location
+in Figure 3.                                                                 of the sensor’s field of view, but the depth value of each pixel
+
+
+
+
+Frontiers in Psychology                                                04                                                          frontiersin.org
+Ji and Zhao                                                                                                        10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 3
+   Schematic diagram of the ﬁeld of view of the infrared camera.
+
+
+
+
+corresponds to the distance of objects in the field of view from         emotions of the learning subject (Zhang et al., 2018). It also
+the sensor. In the autonomous learning classroom under the               conducts research on classroom situations of autonomous
+history teaching mode, students cannot be static all the time.           learning, so as to understand students’ emotions at all times.
+Because students are changing all the time, especially in the            By changing the teaching plan in time, it creates a good
+process of continuous learning, it is necessary to identify the          learning atmosphere. In order to improve students’ autonomous
+static and dynamic movements of students. For the expression             learning ability, this paper analyzes the different needs in the
+of a static posture and gesture action, it roughly includes the          construction of history teaching mode of autonomous learning
+following elements: the expression of static posture is related          classroom based on human-computer interaction emotion
+to the combination of the spatial position of the skeleton               recognition. This paper studies the emotion recognition
+joint points. The understanding of gesture actions is expressed          system based on context, and its specific modules are shown
+based on the motion trajectories of one or more joint points.            in Figure 4.
+The expression of action has the property of time duration,                   As can be seen from Figure 4, the emotion recognition
+which means that the recognition of student action needs to              system based on contextualization is mainly divided into two
+be based on the duration of a certain time. An action may be             parts: face vision and sceneization. Face vision includes four
+expressed by a combination of several sub-actions. For gesture           modules: face detection, face preprocessing, face training, and
+recognition, in addition to tracking the trajectory of some joint        face recognition. Scenography includes two modules: learning
+points in space and measuring the linear velocity, it may also           atmosphere and teaching mode. The face detection module
+be necessary to calculate the angular velocity of the elbow joint        is the basic module of the whole system. Its function is to
+movement. Using gestures as the means of interaction has the             find faces in pictures with complex backgrounds and obtain
+characteristics of being natural, concise and rich. To a certain         the positions of faces. The face preprocessing module further
+extent, the students’ body movements also express the students’          processes the results obtained by face detection. The purpose
+various thoughts and emotions in the study of history. For this          is to obtain a normalized face image, which is convenient for
+reason, students’ hand movements should also be constantly               subsequent feature extraction operations. The core function of
+paid attention to when constructing the history teaching mode            the face training module is to perform feature extraction on
+in the autonomous learning classroom.                                    normalized images, and the extracted face features will be stored
+                                                                         as feature files in the form of text files. The core function of face
+                                                                         recognition is to compare the extracted features with the existing
+Situation-based emotion recognition                                      feature files to determine whether the currently obtained facial
+system                                                                   emotions exist in the feature files. The atmosphere module and
+                                                                         the teaching mode module are mainly changed according to the
+    While constructing the history teaching mode of the                  feature extraction information of the visual part of the face. The
+autonomous learning classroom, we cannot only analyze the                emotion recognition system based on situationalization can help
+
+
+
+
+Frontiers in Psychology                                             05                                                          frontiersin.org
+Ji and Zhao                                                                                                       10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 4
+   Module diagram of emotion recognition system based on contextualization.
+
+
+
+
+history lecturers to a large extent to recognize various emotions         create learning situations according to specific history teaching
+of students and change their teaching mode in time.                       models, and put forward and bring in corresponding historical
+                                                                          questions. The students should think accordingly and answer
+                                                                          the questions raised by the teacher according to the questions
+                                                                          raised by the teacher. In this interactive process between
+The implementation process of the                                         teachers and students, students’ interest in history learning
+self-learning classroom history teaching                                  will be continuously improved. In the history teaching mode
+mode                                                                      of autonomous learning into the classroom, students’ learning
+                                                                          method is mainly based on group cooperation and exploration.
+    In order to study the construction of the teaching mode               Only when students encounter problems that cannot be solved
+of autonomous learning classroom history based on human-                  by themselves, teachers will give timely help. This kind of history
+computer interaction emotion recognition (Jiang, 2017), it is             teaching mode can stimulate students’ learning potential to a
+necessary to conduct in-depth research on the implementation              great extent and improve the efficiency of teachers’ teaching.
+process of the autonomous learning classroom history mode. In
+order to better construct the autonomous learning classroom
+under the history teaching mode, this paper studies its
+                                                                          Construction algorithm of the
+implementation process, and the specific implementation                   history teaching mode of
+process is shown in Figure 5.                                             self-learning classroom
+    As can be seen from Figure 5, the implementation process
+of the self-learning classroom history teaching mode mainly               (1) Joint speed
+includes two main subjects: teacher activities and student
+activities. In the process of implementing the history teaching
+mode in the autonomous learning classroom, teachers need                                      θ = J (p + k e ) + βv                       (1)
+                                                                                                   1      p q
+to conduct a detailed analysis of the syllabus requirements
+and teaching objectives of history teaching. And it conveys
+                                                                          β and k are scalar coefficients; e is the difference between the
+the clear historical learning objectives to the students through                 p                          q
+the specific syllabus to help students learn. When teachers               expected trajectory and the actual trajectory at the end; v is the
+teach history in autonomous learning classrooms, they need to             gradient of the obstacle avoidance potential function.
+
+
+
+
+Frontiers in Psychology                                              06                                                        frontiersin.org
+Ji and Zhao                                                                                                              10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 5
+   Self-learning classroom history called mode implementation process.
+
+
+
+
+(2) Joint distance                                                            (5) Repulsion coefficient
+    There is a distance between joints and between joints and
+obstacles (Li et al., 2017). The calculation formula is:                                                  
+                                                                                                          
+                                                                                                           0 d>D
+                                                                                                          
+                s                                                                              k(d) =       k                                   (5)
+                                                                                                           0
+                                                                                                          
+                            2          2           2
+                                                                                                          
+          D=        (x − x ) + (y − y ) + (z − z )               (2)                                        D 0<d<D
+                      i   j      i   j      i   j
+
+Among them, i represents the joint point, j represents the                    Among them, k is a constant value, which can be determined
+                                                                                              0
+obstacle, and x, y, and z represent the joint distance at                     through multiple experiments.
+different positions.                                                          (6) Gradient of obstacle avoidance potential function
+(3) Obstacle avoidance potential function
+
+                                                                                                           n
+                                                                                                           X K
+                                                                                                             X
+                                  n+1 K                                                            v=∂               f (χ )                     (6)
+                                  X  X                                                                                ij
+                  H(θ ) = α                 F         (θ )       (3)                                       i=1 j=1
+                              m                 mij
+                                  i=1 j=1
+                                                                              Among them, ∂ is a constant value, which is determined by the
+(4) Same-sex charge repulsion                                                 actual situation.
+                                                                              (7) Angular acceleration
+
+
+                                  q q r
+                                   1 2                                                        θ (t) = θ (t) + β(I − J)v                         (7)
+                          F=                                     (4)                           a       a0               a
+                                            3
+                               4π ς |r|
+                                   0                                          (8) Trajectory optimization objective function
+                                                                                  The trajectory optimization objective function has the
+Among them, q and q are the electric quantities of the two                    shortest running time (Peng et al., 2020), and its calculation
+                  1        2                                                  formula is:
+charges, and r is the distance between the two charges. According
+to the formula, the repulsive force between two charges is
+                                                                                                                n
+proportional to the product of their electric charge and inversely                                   min T =
+                                                                                                                X
+                                                                                                                      h                         (8)
+proportional to the distance between them.                                                                             a
+                                                                                                                a=1
+
+
+
+
+Frontiers in Psychology                                                  07                                                          frontiersin.org
+Ji and Zhao                                                                                                            10.3389/fpsyg.2022.949556
+
+
+
+
+(9) Fitness function
+    The design of the fitness function adopts the weighted                                                 L
+summation method of each evaluation function, and its
+                                                                                                           X
+                                                                                                  E=−            p ln p                      (18)
+calculation formula is:                                                                                           j    j
+                                                                                                           j=l
+
+                                                                            (15) Normalized histogram
+                                n
+                                X              i
+                      F(h) =          h +ζ f                     (9)
+                                       a  i                                                          L
+                                a=1                                                                  X
+                                                                                              HI =         min(H (j), H (j))                 (19)
+                                                                                                                S      N
+                                                                                                     j=1
+Among them, ζ is the undetermined coefficient, which needs to
+                i                                                                                                             2
+be determined according to the specific situation.                                                   L     (H (j) − H (j))
+                                                                                                     X       S       N
+(10) Variant individuals                                                                    HCE =                                            (20)
+                                                                                                     j=1    H (j) − H (j)
+                                                                                                             S       N
+                          u                 c
+               X = X + r(X − X) ∗ (1 − g/G)                     (10)
+                                                                            H and H represent the normalized histograms of skin and
+                                                                             S        N
+                                                                            non-skin, respectively.
+(11) Color saturation
+    Colors of various hues and saturations can be obtained by
+changing the respective intensity ratios of the three primary               Construction method of the history
+colors. The calculation formula is:
+                                                                            teaching mode in the autonomous
+                                                                            learning classroom
+                           C = rR + gG + bB                     (11)
+                                                                            Literature research method
+                    r+g+b = 1                                   (12)
+                                                                                 The literature research method mainly refers to the method
+Among them, C represents a certain color, R, G, B represent the             of collecting, identifying and arranging literature, and forming
+three primary colors, and r, g, and b represent the proportional            a scientific understanding of the facts through the study of
+coefficients of each primary color.                                         literature. At the same time, the method of literature research
+(12) Normalized RGB color space                                             is also an ancient and vigorous scientific research method.
+    The normalized RGB color space represents the                           By going to the library to look up books, journals and
+proportional relationship of the three primary colors in                    newspapers about self-learning classrooms, history teaching
+the color, and its calculation formula is:                                  models and human-computer interaction emotion recognition,
+                                                                            this paper browses the relevant teaching websites that build
+                                R                                           history teaching models. It collects, organizes and reads and
+                          r =                                   (13)        analyzes the relevant materials and policies and regulations
+                              R+G+B
+                                G                                           for the construction of the history teaching mode of the
+                          g =                                   (14)
+                              R+G+B                                         autonomous learning classroom. By sorting and classifying
+                                B                                           the collected data, it lays a theoretical foundation for writing
+                          b =                                   (15)
+                              R+G+B                                         this article.
+
+(13) Color space conversion
+                                                                            Experimental analysis method
+                           (R − G) + (R − B)
+      H = arccos( s                                       )     (16)            In order to obtain effective data information, this paper
+                                  2
+                     2 (R − G) + (R − B)(G − B)                             conducts investigation, research and experiment on the class
+                                                                            of a middle school. This paper selects students from classes
+                                      (R − G) + (R − B)                     1–8 from the middle school to experience different history
+      H = 2π − arccos( s                                      ) (17)
+                                          2                                 teaching modes, and evaluates these teaching modes after the
+                           2 (R − G) + (R − B)(G − B)
+                                                                            end. At the same time, participate in the quiz after experiencing
+                                                                            different teaching modes to obtain specific experimental data.
+(14) Information entropy                                                    The number of students in classes 1–8 is the same. The
+
+
+
+
+Frontiers in Psychology                                                08                                                          frontiersin.org
+Ji and Zhao                                                                                                        10.3389/fpsyg.2022.949556
+
+
+
+
+data in this paper is mainly based on the evaluation of                     these two teaching modes. In terms of belief, self-efficacy and
+different teaching modes by the middle school students,                     knowledge acceptance, Mode 3, Mode 4 and Mode 5 all have
+combined with the online survey data. In order to make                      the highest proportions. Among them, the proportion of mode
+the research more convenient, this paper names the different                4 is much higher than that of mode 1, mode 2 and mode 3.
+history teaching modes, respectively. It is mainly named Mode               However, it is still inferior to Mode 5, indicating that students
+1, Mode 2, Mode 3, Mode 4, and Mode 5. Among them,                          have a stronger sense of learning belief in Mode 4. Overall,
+mode 5 is the history teaching mode of autonomous learning                  students rated History Teaching Mode 5 as the highest among
+classroom constructed based on human-computer interaction                   the five teaching modes, and they agreed that Mode 5 was
+emotion recognition.                                                        the best teaching mode. However, the evaluation of Mode 5 in
+                                                                            terms of harvesting degree is relatively low, and it still needs
+                                                                            continuous improvement.
+Data analysis method
+
+    In order to facilitate the specific results and the construction
+and development of the history teaching model, this paper will
+use the 100% system to analyze the collected data specifically,             Comparative analysis between different
+so as to facilitate the construction and research of the history            history teaching modes
+teaching model in the autonomous learning classroom.
+                                                                                 With the continuation of the epidemic and the continuous
+                                                                            development and changes of the times, the history teaching
+Experimental on the teaching mode                                           mode of independent learning classrooms has become the
+of classroom history in autonomous                                          focus of social attention. How to impart unlimited historical
+learning                                                                    knowledge in limited autonomous learning classrooms is an
+                                                                            urgent problem to be solved in the current social development.
+Students’ evaluation of different teaching                                  In order to better build a history teaching model for autonomous
+modes                                                                       learning classrooms, this paper compares and analyzes different
+                                                                            history teaching models, and the specific data are shown in
+     By improving students’ autonomous learning ability and                 Figure 7.
+creating a good learning environment, it is the main purpose of                  As can be seen from Figure 7, this paper mainly compares
+constructing the history teaching mode of autonomous learning               and analyzes different history teaching modes from six aspects:
+classroom. In order to make the construction of self-learning               exploration time, cooperation process, reward and punishment
+classroom history teaching mode more meaningful, based on                   system, comprehensive teaching, feedback and problem solving.
+the evaluation of the overall learning under different history              In terms of exploration time and reward and punishment
+teaching modes by the subject of learning, this paper studies               system, Mode 1 and Mode 5 have the lowest proportions because
+the construction of a history teaching mode for autonomous                  their proportions are only between 50 and 60%. This shows
+learning in classrooms based on human-computer interaction                  that students need to spend more time in the two history
+emotion recognition. The specific evaluation data is shown in               teaching modes to understand the historical knowledge taught
+Figure 6.                                                                   by teachers. And there is no better reward and punishment
+     It can be seen from Figure 6 that students mainly evaluate             system to encourage students to learn, which easily causes
+different history teaching modes in seven aspects: learning                 students to be disgusted with learning history. In terms of the
+status, gain, learning ability, participation rate, belief, self-           cooperation process, the proportion of Mode 3 is the highest, as
+efficacy, and knowledge acceptance. In terms of learning status,            high as about 90%, indicating that students are more likely to
+the proportion of mode 1 is the lowest, only about 50%, far                 cooperate and learn with other students in the teaching mode
+less than the proportion of other teaching modes. In terms of               of Mode 3. In terms of teaching integrity, the proportion of
+harvest, the proportion of Mode 2 is more than 80%, which                   Mode 2 and Mode 4 is about 50%, which is the lowest among
+is much higher than that of other teaching modes. It shows                  all teaching modes. It means that if teachers teach knowledge
+that students can gain a lot from the teaching of Mode 2. In                in these two teaching modes, it is easy to cause students to
+terms of learning ability, Mode 1 and Mode 3 have the lowest                accept incomplete historical knowledge. In terms of feedback
+proportions, which shows that students cannot improve their                 and problem solving, Mode 2 and Mode 5 have the lowest
+autonomous learning ability well in these two teaching modes.               proportions compared to other teaching modes, indicating that
+In terms of participation rate, Mode 2 and Mode 5 have the                  teachers and students are prone to lack of interaction and
+two highest proportions of all teaching modes. It shows that                knowledge bias in these two modes. Overall, Mode 1 is the
+students feel that they can get a strong sense of participation in          best, and Mode 5 is the worst of all modes. It needs continuous
+
+
+
+
+Frontiers in Psychology                                                09                                                      frontiersin.org
+Ji and Zhao                                                                                                     10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 6
+   Students’ evaluation of different teaching modes.
+
+
+
+
+   FIGURE 7
+   Comparative analysis between different history teaching modes.
+
+
+
+
+improvement and development to enhance the interaction                   their different efficacy and characteristics. In order to better
+between teachers and students.                                           construct the history teaching mode of autonomous learning
+                                                                         classroom, this paper compares and analyzes the effectiveness of
+                                                                         different teaching modes, and the specific analysis data is shown
+                                                                         in Figure 8.
+Comparative analysis of the effectiveness                                    This paper mainly compares and analyzes different history
+of different teaching modes                                              teaching modes from seven aspects: interest, independence,
+                                                                         creativity, coordination, adaptability, interaction and learning.
+    There are many different types of history teaching modes             It can be seen from Figure 8 that in terms of interest, the
+at present, and different types of history teaching modes have           proportions of Mode 2 and Mode 3 are the lowest. It shows
+
+
+
+
+Frontiers in Psychology                                             10                                                      frontiersin.org
+Ji and Zhao                                                                                                           10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 8
+   Comparative analysis of effectiveness between different teaching modes.
+
+
+
+
+that students may be difficult to obtain higher interest in                  autonomous learning classroom based on human-computer
+these two teaching modes, so that they can easily lose their                 interaction emotion recognition, this paper conducts in-depth
+interest in learning history. In terms of independence, the                  research on the recognition rate of different emotions in
+proportion of Mode 1, Mode 3 and Mode 4 is about 20%                         different teaching modes. It is in order to provide teachers with
+higher than that of Mode 2. It shows that the independence of                a good reference of history teaching mode, and it constantly
+these three modes is relatively high, which can greatly improve              improves its own teaching mode. Its specific data is shown in
+the teaching efficiency. In terms of creativity, coordination                Figure 9.
+and adaptability, the proportions of mode 1 and mode 3                           As can be seen from Figure 9, students’ emotions are roughly
+are far inferior to the other three teaching modes, and                      divided into seven types: neutral, happy, angry, contemptuous,
+the effectiveness in these aspects is the lowest. In terms of                surprised, disgusted, and fearful. In the recognition of neutral
+interactivity, the proportions of Mode 1, Mode 3 and Mode                    emotions, the recognition rates of Mode 1 and Mode 3 are
+5 are relatively high compared to the other two teaching                     the lowest, indicating that these two modes are difficult to
+modes, indicating that students can get close interaction with               respond to neutral emotions. In the recognition of happy and
+history teachers in these three modes. In terms of learning,                 angry emotions, the recognition rate of Mode 4 and Mode 5 is
+the proportions of Mode 2 and Mode 3 are the lowest among                    over 85%, which is the highest recognition rate of happy and
+all history teaching modes, indicating that it is difficult for              angry emotions among all historical teaching modes. In terms
+students to learn more historical knowledge in these two                     of the recognition of contemptuous emotion, the recognition
+teaching modes. On the whole, the proportions of Mode 4                      rates of Mode 1 and Mode 2 are the lowest compared with
+and Mode 5 are the two teaching modes with relatively high                   other teaching modes, indicating that these two teaching modes
+proportions and stable in all aspects among all historical                   cannot accurately identify the students’ emotions of contempt.
+teaching modes, which are more suitable for teachers and                     In the recognition of surprise emotion, the recognition rates of
+students to experience personally.                                           Mode 3, Mode 4 and Mode 5 are relatively high among all the
+                                                                             history teaching modes. It shows that these three modes can be
+                                                                             well-applied to the recognition of surprise emotion. In terms
+The recognition rate of different                                            of the recognition of nausea, Mode 2 has a higher recognition
+emotions in different teaching modes                                         rate than Mode 1 and Mode 3, about 70%. In the recognition of
+                                                                             fear emotion, the recognition rate of mode 5 is far lower than
+    Identifying different emotions is the biggest support and                that of mode 2 and mode 4. It shows that if people want to
+theoretical basis for improving and constructing the history                 recognize fear, it is best to reduce the use of the history teaching
+teaching mode of different autonomous learning classrooms.                   mode of Mode 5. But overall, Mode 5 has the highest accuracy
+In order to better construct the history teaching mode of                    in other emotion recognition among all teaching modes. To
+
+
+
+
+Frontiers in Psychology                                                11                                                          frontiersin.org
+Ji and Zhao                                                                                                            10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 9
+   Recognition rates of different emotions for different teaching modes.
+
+
+
+
+a large extent, it meets the needs of current human-computer                    history teaching mode of Mode 1 and Mode 5. On the whole,
+interaction emotion recognition.                                                Mode 5 is a history teaching mode that is more applicable in all
+                                                                                classes. Because the students in each class generally scored more
+                                                                                than 85% in the teaching mode of Mode 56, which is the highest
+Score rate of student history under                                             among all modes.
+different teaching modes
+
+    The main purpose of teaching history to students by using
+                                                                                Experimental results of the
+different teaching modes in self-learning classrooms is to enable               self-learning classroom history
+students to receive a good history education to the greatest                    teaching mode
+extent. And the best way to test whether students are getting a
+good history education is after they have experienced different                      The history teaching mode of self-learning classroom is a
+teaching modes. By giving these students a quiz in the classroom,               new teaching mode that has emerged in recent years. It can
+their specific score data was compiled for easy analysis. Its                   greatly reduce teachers’ teaching pressure and improve teaching
+specific score data is shown in Figure 10.                                      efficiency, thereby improving students’ interest in learning and
+    As can be seen from Figure 10, this paper conducted a                       improving students’ learning efficiency. However, the current
+classroom quiz for students in Class 1, Class 2, Class 3, Class 4,              history teaching mode of autonomous learning classroom
+Class 5, Class 6 and Class 7. On the whole, the students in Class               has great defects. It is because it cannot feel the emotional
+1 have the lowest scoring rate in Mode 2 and Mode 3, indicating                 changes of students’ learning to a great extent. In order to
+that these two teaching modes are not suitable for the use of                   solve this problem, this paper constructs the history teaching
+Class 1. The score rate of Class 2 under the teaching modes of                  mode of autonomous learning classroom based on the emotion
+Mode 1, Mode 2, and Mode 4 is relatively low, indicating that                   recognition technology of human-computer interaction.
+the history teaching of Class 2 is not suitable for using these three                (1) This paper studies the evaluations made by students for
+modes. The equivalence rate of Class 3 in the teaching modes of                 different teaching modes. The main purpose of constructing the
+Mode 1, Mode 3, and Mode 5 is relatively high, mostly around                    history teaching mode of autonomous learning classroom in
+80% or above. It shows that compared with other modes, these                    this paper is to provide students with a good history learning
+three modes are the most suitable for the history teaching of                   environment. The results of the research on student evaluations
+Class 3. Class 4 and 5 have the highest scoring rates in Mode                   show that the students’ learning status under the teaching mode
+4 and Mode 5 compared to the other three teaching modes. It                     of Mode 1 is relatively poor, and they cannot concentrate on
+shows that the history teaching of Class 4 and Class 5 is the most              learning historical knowledge. Students have a relatively high
+suitable for the two teaching modes of Mode 4 and Mode 5. Class                 degree of harvest in the history teaching mode under Mode 2,
+6 and Class 7 have the lowest scoring rate in Mode 3, Mode 4, and               and can gain a lot of historical knowledge and other things.
+Mode 5, while the scoring rate in Mode 1 and Mode 5 is relatively               Students’ learning ability under the teaching mode of Mode 3
+high. It shows that Class 6 and Class 7 are most suitable for the               is the lowest, and it is difficult to improve their autonomous
+
+
+
+
+Frontiers in Psychology                                                    12                                                      frontiersin.org
+Ji and Zhao                                                                                                        10.3389/fpsyg.2022.949556
+
+
+
+
+   FIGURE 10
+   Score rate of student history under different teaching modes.
+
+
+
+
+learning ability to a large extent. Students’ belief, self-efficacy        and cannot accurately identify the emotion. On the whole,
+and knowledge acceptance of the history teaching modes under               except for Mode 5, several other history teaching modes have
+Mode 3, Mode 4 and Mode 5 are relatively high, and Mode 5 is a             more or less some advantages and disadvantages. Only Mode 5
+history teaching mode that students generally evaluate highly.             largely meets the needs of current human-computer interaction
+     (2) This paper compares and analyzes different history                emotion recognition.
+teaching modes. The research results show that students need                    (5) This paper studies the scoring rate of students’ history
+to spend more time in mode 1 and mode 2 to understand                      under different teaching modes. The research results show that,
+the historical knowledge taught by teachers, and the learning              on the whole, the teaching modes of Mode 2 and Mode 3 are
+efficiency in these two modes is relatively poor. Students were            not suitable for use in Class 1. The history teaching of class 2
+more likely to cooperate in mode 3 than in the other modes.                is not suitable for the three modes of teaching mode 1, mode 2
+It shows that if students study in the teaching mode of Mode 2             and mode 4. The history teaching mode of Mode 2 and Mode 4
+and Mode 4, it is easy to accept the phenomenon of incomplete              is the least suitable for the history teaching of Class 3 among all
+historical knowledge. The feedback and problem solving of                  modes, but it is suitable for the history teaching of Class 4 and
+teachers and students in Mode 2 and Mode 5 are relatively poor.            5. Class 6 and Class 7 are more suitable for the history teaching
+Overall, Mode 5 is the worst performing of all modes and needs             mode of Mode 1 and Mode 5. On the whole, in addition to Mode
+continuous improvement and development.                                    5, several other teaching modes have their own shortcomings.
+     (3) This paper compares and analyzes the effectiveness of
+different teaching modes. The results of the study showed that
+Mode 2 and Mode 3 were the least interesting. The independence             Conclusion
+of mode 1, mode 3 and mode 4 is about 20% higher than
+that of mode 2, indicating that the independence of these three                With the continuous development of human-computer
+modes is relatively high. Mode 1 and Mode 3 have relatively                interaction emotion recognition technology, many people
+low proportions in terms of creativity, coordination and                   hope to use this technology to build a history teaching
+adaptability, which cannot fully cultivate students’ autonomy.             mode in autonomous learning classrooms, so as to cultivate
+The interactivity of Mode 5 is the highest among all teaching              students’ autonomous learning ability. It reduces the pressure
+modes, and students can get close interaction with history                 of teaching history teachers. However, due to the current
+teachers in this mode. On the whole, Mode 5 is a history                   social and economic constraints, the research on human-
+teaching mode that is more suitable for teachers and students              computer interaction emotion recognition technology is still
+to experience personally among all the history teaching modes.             very limited. It is not to mention that it is applied to the
+     (4) Research on the recognition rate of different teaching            construction of the history teaching mode of the autonomous
+modes for different emotions. The results of the study showed              learning classroom. However, because of the unexpected
+that Mode 1 and Mode 3 had the lowest recognition rates for                emergence and continuation of the epidemic, the issue of
+neutral emotions, and it was difficult to respond to them. Mode            applying human-computer interaction emotion recognition
+4 and Mode 5 have better recognition rates for happy and angry             technology to the construction of a history teaching model
+emotions, and can easily identify these two emotions. Mode 1               for autonomous learning classrooms has been put on the
+and Mode 2 have a relatively low recognition rate for contempt,            agenda. In order to promote the construction, research and
+
+
+
+
+Frontiers in Psychology                                               13                                                        frontiersin.org
+Ji and Zhao                                                                                                                               10.3389/fpsyg.2022.949556
+
+
+
+
+development of the history teaching mode in the autonomous                               Author contributions
+learning classroom, this paper applies the human-computer
+interaction emotion recognition technology to its construction.                              CJ: writing—original draft preparation. SZ: editing data
+In addition, in order to better construct the history teaching                           curation and supervision. All authors contributed to the article
+mode, this paper also studies the overall framework of the                               and approved the submitted version.
+human-computer interaction emotion recognition system and
+the overall framework of the human-computer intelligent
+interaction system. At the same time, this paper uses the infrared                       Conﬂict of interest
+camera field of view technology and the emotion recognition
+system based on context to provide technical support for the                                 The authors declare that the research was conducted in the
+history teaching model constructed in this paper. At the end                             absence of any commercial or financial relationships that could
+of this paper, it also studies the implementation process of the                         be construed as a potential conflict of interest.
+history teaching mode in the autonomous learning classroom.
+Of course, there are still some shortcomings in this paper, which
+will be improved and perfected in the future development.
+                                                                                         Publisher’s note
+                                                                                             All claims expressed in this article are solely those of the
+Data availability statement                                                              authors and do not necessarily represent those of their affiliated
+                                                                                         organizations, or those of the publisher, the editors and the
+    The original contributions presented in the study are                                reviewers. Any product that may be evaluated in this article, or
+included in the article/supplementary material, further inquiries                        claim that may be made by its manufacturer, is not guaranteed
+can be directed to the corresponding author/s.                                           or endorsed by the publisher.
+
+
+
+
+References
+  Bota, P. J., Wang, C., and Fred, A. A. (2019). Review, current                           Kim, T. Y., Ko, H., Kim, S. H., and Kim, H. D. (2021).
+challenges, and future possibilities on emotion recognition using machine                Modeling    of  recommendation        system    based    on   emotional
+learning and physiological signals. IEEE Access 7, 140990–141020.                        information and collaborative filtering. Sensors 21:1997. doi: 10.3390/
+doi: 10.1109/ACCESS.2019.2944001                                                         s21061997
+  Chau, K. Y., Law, K. M., and Tang, Y. M. (2021). Impact of self-                         Kommineni, J., Mandala, S., and Sunar, M. S. (2021). Accurate
+directed learning and educational technology readiness on synchronous                    computing of facial expression recognition using a hybrid feature extraction
+E-learning. J. Org. End User Comput. 33, 1–20. doi: 10.4018/JOEUC.                       technique. J. Supercomput. 77, 5019–5044. doi: 10.1007/s11227-020-
+20211101.oa26                                                                            03468-8
+  Chen, R. (2022). Motivations of second language learning: application of L2              Li, C., Hou, Y., and Wang, P. (2017). Joint distance maps based action
+motivational self system in the EFL classroom. J. High. Educ. Res. 3, 51–55.             recognition with convolutional neural networks. IEEE Signal Process. Lett. 24,
+doi: 10.32629/jher.v3i1.638                                                              624–628. doi: 10.1109/LSP.2017.2678539
+  Chen, X., Cao, M., and Wei, H. (2021). Patient emotion recognition in                    Loon, M., Bayard, N. S., and Steiner, M. (2021). Connecting teachers’
+human computer interaction system based on machine learning method and                   classroom instructions with children’s metacognition and learning in
+interactive design theory. J. Med. Imaging Health Informat. 11, 307–312.                 elementary school. Metacogn. Learn. 16, 623–650. doi: 10.1007/s11409-020-
+doi: 10.1166/jmihi.2021.3293                                                             09248-2
+  Dignath, C. (2021). For unto every one that hath shall be given: teachers’               Mukeshimana, M., Ndikumagenge, J., and Nkunzimana, B. H. (2020). Emotion
+competence profiles regarding the promotion of self-regulated learning moderate          recognition using a multi-view learning method. Zambia ICT J. 4, 1–5.
+the effectiveness of short-term teacher training. Metacogn. Learn. 16, 555–594.          doi: 10.33260/zictjournal.v4i1.99
+doi: 10.1007/s11409-021-09271-x
+                                                                                           Peerzade, G. N., Deshmukh, R. R., and Waghmare, S. D. A. (2018).
+  García, N. O., Velásquez, M. D., Romero, C. T., Monedero, J. O., and Khalaf, O.        Review speech emotion recognition. Int. J. Comp. Sci. Eng. 6, 400–402.
+(2021). Remote academic platforms in times of a pandemic. Int. J. Emerg. Technol.        doi: 10.26438/ijcse/v6i3.400402
+Learn. 16, 121–131. doi: 10.3991/ijet.v16i21.25377
+                                                                                           Peng, X., Chen, G., and Tang, Y. (2020). Trajectory optimization
+  Grange, C., and Barki, H. (2020). The nature and role of user beliefs                  of an electro-hydraulic robot. J. Mech. Sci. Technol. 34, 4281–4294.
+regarding a website’s design quality. J. Org. End User Comput. 32, 75–96.                doi: 10.1007/s12206-020-0919-4
+doi: 10.4018/JOEUC.2020010105
+                                                                                           Shimonishi, T., and Kato, D. (2017). Akari infrared camera survey
+  Jaratrotkamjorn, A. (2021). Bimodal emotion recognition using                          of the large magellanic cloud. Publ. Korean Astron. Soc. 32, 83–85.
+deep belief network. ECTI Transact. Comp. Inf. Technol. 15, 73–81.                       doi: 10.5303/PKAS.2017.32.1.083
+doi: 10.37936/ecti-cit.2021151.226446
+                                                                                           Srisupawong, Y., Koul, R., and Neanchaleay, J. (2018). The relationship between
+  Jiang, W. (2017). Reform of Chinese architecture history teaching system based         sources of self-efficacy in classroom environments and the strength of computer
+on Viterbi algorithm. Tech. Bull. 55, 219–224.                                           self-efficacy beliefs. Educ. Inf. Technol. 23, 1–23. doi: 10.1007/s10639-017-
+                                                                                         9630-1
+   Khodaei, S., Hasan, V. S., and Gholami, M. (2022). The effect of the online
+flipped classroom on self-directed learning readiness and metacognitive awareness          Yu, J., and Wang, Z. F. A. (2017). Video, text, and speech-driven realistic 3-
+in nursing students during the COVID-19 pandemic. BMC Nurs. 21, 1–10.                    D virtual head for human-machine interface. IEEE Trans. Cybern. 45, 991–1002.
+doi: 10.1186/s12912-022-00804-6                                                          doi: 10.1109/TCYB.2014.2341737
+
+
+
+
+Frontiers in Psychology                                                             14                                                                   frontiersin.org
+Ji and Zhao                                                                                                                            10.3389/fpsyg.2022.949556
+
+
+
+
+  Zhang, W. (2017). Using classroom assessment to promote self-regulated                    Zheng, X., Johnson, T. E., and Zhou, C. A. (2020). pilot study examining
+learning and the factors influencing its (in)effectiveness. Front. Educ. China 12,        the impact of collaborative mind mapping strategy in a flipped classroom:
+261–295. doi: 10.1007/s11516-017-0019-0                                                   learning achievement, self-efficacy, motivation, and students’ acceptance.
+  Zhang, Y., Marie, P. B., and Chris, W. (2018). Discovering political topics in          Educ. Technol. Res. Dev. 68, 3527–3545. doi: 10.1007/s11423-020-
+Facebook discussion threads with graph contextualization. Ann. Appl. Stat. 12,            09868-0
+1096–1123. doi: 10.1214/18-AOAS1191                                                         Zvarevashe, K., and Olugbara, O. O. (2020). Recognition of speech
+  Zheng, W., Zheng, W., and Zong, Y. (2021). Multi-scale discrepancy adversarial          emotion using custom 2D-convolution neural network deep learning
+network for crosscorpus speech emotion recognition. Virt. Reality Intell. Hard. 3,        algorithm. Intell. Data Anal. 24, 1065–1086. doi: 10.3233/IDA-
+65–75. doi: 10.1016/j.vrih.2020.11.006                                                    194747
+
+
+
+
+Frontiers in Psychology                                                              15                                                              frontiersin.org
+

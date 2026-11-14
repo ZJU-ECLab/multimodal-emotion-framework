@@ -1,0 +1,1350 @@
+Pieter M. A. Desmet, Faculty of Industrial Design Engineering, Delft University of
+Technology, the Netherlands
+Haian Xue, Faculty of Industrial Design Engineering, Delft University of
+Technology, the Netherlands
+Steven F. Fokkinga, Faculty of Industrial Design Engineering, Delft University of
+Technology, the Netherlands
+
+
+
+
+The Same Person Is Never the Same:
+Introducing Mood-Stimulated
+Thought/Action Tendencies for
+User-Centered Design
+
+Abstract How people think and act is influenced by their transient mood                           Keywords
+state. Different moods stimulate different (thought/action) tendencies,                           User-centered design
+                                                                                                  Mood-stimulated tendencies
+such as the tendency to be attentive (when cheerful), to be cautious (when
+                                                                                                  Dynamic user profiling
+anxious), or to be impatient (when agitated). To support an understanding                         Affective personas
+of how mood can inform user-centered design, this paper reports an ex-
+ploratory study that revealed the diverse scope of these mood-stimulated
+human tendencies. The questionnaire study (N = 43) examined the rela-
+tionships between 20 moods and 68 distinct tendencies. Significant mood
+effects were found for all tendencies, indicating that different moods are
+­associated with different tendencies. A Correspondence Analysis generated                        Received February 5, 2019
+                                                                                                  Accepted July 26, 2019
+ a visual overview of these relationships. In addition, a Factor Analysis found
+ nine generic dimensions of mood-stimulated tendencies. In user-­centered
+ design, these results can support communications about user mood with                            Emails
+ team-members, end-users and other stakeholders. Based on the study re-                           Pieter M. A. Desmet
+                                                                                                  p.m.a.desmet@tudelft.nl
+ sults, a creative design tool is introduced. It aims to enable designers and
+                                                                                                  Haian Xue
+ service providers to become better aware of, and adequately respond to, the                      (corresponding author)
+ dynamics of mood-stimulated user preferences, feelings, and actions during                       h.xue@tudelft.nl
+
+ the design process.                                                                              Steven F. Fokkinga
+                                                                                                  s.f.fokkinga@tudelft.nl
+
+
+
+
+Copyright © 2019, Tongji University and Tongji University Press.
+Publishing services by Elsevier B.V. This is an open access article under the
+CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).
+The peer review process is the responsibility of Tongji University and Tongji University Press.
+
+http://www.journals.elsevier.com/she-ji-the-journal-of-design-economics-and-innovation
+https://doi.org/10.1016/j.sheji.2019.07.001
+
+
+
+
+The Same Person Is Never the Same                                                                                             167
+1 Stephen W. Draper and              Introduction
+Donald A. Norman, introduction
+to User Centered System Design:      A design activity is user-centered when it gives explicit attention to the end-users and
+New Perspectives on Human-­          their needs, expectations, values, skills, and limitations during every stage of the
+Computer Interaction, ed. Donald
+A. Norman and Stephen W.
+                                     design process. The ultimate goal of user-centeredness is to ensure that the re-
+Draper (Hillsdale: Erlbaum,          sulting designs are useful, usable, meaningful, enjoyable, or otherwise appropriate
+1986), 2–3; Donald A. Norman,        to the user. In the 30 years since Donald Norman coined the term—inspired by his
+The Design of Everyday Things
+(New York: Doubleday/Currency,
+                                     observation that even simple products can be surprisingly non-intuitive or frus-
+1990), 1–8.                          trating to use1—user-centered design has gained wide acceptance as a standard for
+2 John Pruitt and Tamara Adlin,
+                                     good design practice and is now taught in design schools across the globe.
+The Persona Lifecycle: Keeping             To design in a user-centered manner, the team needs a comprehensive under-
+People in Mind Throughout            standing of the target users. A variety of research methods have been introduced
+Product Design (San Francisco:
+Morgan Kaufmann, 2006), 11.
+                                     to obtain such user-relevant information, such as observations, interviews, experi-
+                                     ence sampling, focus groups, diary studies, and cultural probes. The raw user data
+3 Mary Beth Rosson and John
+                                     acquired through these methods must be synthesized to offer a holistic under-
+M. Carroll, “Scenario–Based
+Design,” in Human-Computer           standing of the user in the context. Several effective techniques have been devel-
+Interaction: Development Process,    oped for this purpose, of which two are widely used: personas and usage scenarios.
+ed. Andrew Sears and Julie A.
+                                     Personas are “fictitious, specific, concrete representations of target users.”2 These
+Jacko (Boca Raton: CRC Press,
+2009), 146–47.                       invented users serve to communicate a wide range of demographic and personality
+                                     characteristics, including age, gender, cultural background, educational level, occu-
+4 For a review, see Meryl
+Paula Gardner, “Mood States          pation, personality type, needs, goals, desires, concerns and values. User scenarios
+and Consumer Behavior: A             are narratives that describe how these users might interact with the design in the
+Critical Review,” Journal of
+                                     (social and physical) context of use. They provide a chronological overview of all the
+Consumer Research 12, no. 3
+(1985): 283–90, DOI: https://doi.    things that may happen in the usage situation.3 Scenarios communicate situational
+org/10.1086/208516; Joseph P.        user insights—what users tend to think, judge, value, and feel, and how they tend
+Forgas, “Mood Effects on Cogni-
+                                     to behave in the particular situation of user-design interaction. These situational
+tion: Affective Influences on the
+Content and Process of Informa-      insights may also include information about the expected user’s mood state. For
+tion Processing and Behavior,”       example, when developing a new airport check-in procedure, the user scenario
+in Emotions and Affect in Human
+                                     may mention that some people arrive on the scene in an anxious or stressed mood,
+Factors and Human-Computer
+Interaction, ed. Myounghoon Jeon     and others arrive in a cheerful or relaxed mood. Since mood affects preferences,
+(Orlando: Academic Press, 2017),     experiences, and behavior, this information can inform the user-centered design
+95–103.
+                                     process. In the case of the check-in procedure, the design team can aim to develop
+5 Pieter M. A. Desmet, “Design       a desk and procedure that accommodates the needs of users who are in an anxious
+for Mood:Twenty Activity-Based
+                                     mood, those who are in a relaxed mood, or both. In this paper, we zoom in and
+Opportunities to Design for
+Mood Regulation,” International      focus on user mood state as a salient ingredient of situational user profiling. Research
+Journal of Design 9, no. 2 (2015):   has shown that people’s perceptions, behaviors, and preferences are influenced
+2–5, available at http://www.
+                                     by their momentary mood state.4 Little is known, however, about the nature of
+ijdesign.org/index.php/IJDesign/
+article/view/2167.                   these influences. Some studies have investigated a few generic influences exerted
+                                     by positive versus negative moods,5 but a clear overview of the diverse influence of
+                                     human moods on user preference and behavior, is not available. As a consequence,
+                                     it is currently not clear how knowledge about the user’s momentary mood state
+                                     can support design ideation and evaluation—even when we know that users are
+                                     expected to be anxious, cheerful, relaxed, or gloomy, we do not know how to make
+                                     use of that information in the design process.
+                                           To overcome this knowledge gap, we report a questionnaire study that was
+                                     designed to map out the landscape of mood-stimulated human thought/action
+                                     tendencies. The outcome is a detailed overview of the relationships between moods
+                                     and thought/action tendencies, and a list of nine basic mood-stimulated tendencies.
+                                     First, we introduce the concept of thought/action tendencies as a means to opera-
+                                     tionalize the pervasive influence of mood on a person’s preferences, thoughts and
+                                     actions. Next, we report the main study and discuss the results and implications.
+                                     To illustrate design opportunities, we present a creative design tool that aims to
+                                     enable designers to become aware of mood-stimulated tendencies. In the general
+                                     discussion section, we reflect on the implications of the findings and provide ideas
+
+
+
+
+168                                  she ji The Journal of Design, Economics, and Innovation   Volume 5, Number 3, Autumn 2019
+on the ways the landscape of mood-stimulated tendencies can serve as a valuable           6 William N. Morris, Mood:
+                                                                                          The Frame of Mind (New York:
+resource for user-centered design.                                                        Springer-Verlag New York Inc.,
+                                                                                          1989), 1–3.
+
+                                                                                          7 Robert E.Thayer, J. Robert
+Mood and Thought/Action Tendencies                                                        Newman, and Tracey M. McClain,
+Moods are low-intensity, diffuse (pleasant or unpleasant) feeling states that typically   “Self-Regulation of Mood: Strat-
+                                                                                          egies for Changing a Bad Mood,
+last for hours or days.6 The palette of human moods is diverse. We can, for example,      Raising Energy, and Reducing
+be cheerful, grumpy, calm, nervous, relaxed, excited, glum, or irritable. These           Tension,” Journal of Personality
+moods can be categorized and studied as discrete states with distinct prototypical        and Social Psychology 67, no.
+                                                                                          5 (1994): 911, DOI: https://doi.
+features and effects. At the same time, our mood is constantly changing from one          org/10.1037//0022-3514.67.5.910.
+state to another. These mood dynamics are influenced by our general bodily con-
+                                                                                          8 For a detailed review of how
+dition (for example energy vs. tiredness, tension vs. calmness),7 our activities and      major life events and daily hassles
+the situations we encounter, our daily hassles and uplifts (a delayed train, running      and uplifts influence moods, see
+into an old friend, or a sunny day, for example), as well as our previous experiences     Allen D. Kanner et al., “Com-
+                                                                                          parison of Two Modes of Stress
+and anticipated (future) events.8 Moods have a pervasive influence on people’s            Measurement: Daily Hassles and
+perceptions and behavior.9 For example, when in a good mood, people are kinder to         Uplifts versus Major Life Events,”
+others (and to themselves), more generous and willing to lend a helping hand, more        Journal of Behavioral Medicine 4,
+                                                                                          no. 1 (1981): 20–22, DOI: https://
+inclined to accentuate the positive aspects of ambiguous situations, more open to         doi.org/10.1007/BF00844845;
+new activities and ideas, and more creative than when they are in a bad mood.10           Darryl J. Maybery et al., “The Pos-
+Likewise, in human–product interactions, mood influences which products people            itive Event Scale: Measuring Uplift
+                                                                                          Frequency and Intensity in an
+choose to interact with,11 how they want to interact with these products,12 which         Adult Sample,” Social Indicators
+interaction possibilities they explore,13 and what kinds of information they process      Research 78, no. 1 (2006): 61–64,
+during interaction.14 These influences are explained by the dispositional theory of       DOI: https://doi.org/10.1007/
+                                                                                          s11205-005-4096-8.
+mood, which proposes that moods are best seen as temporary heightened disposi-
+tions to perceive and react to multiple objects in particular ways.15 For example,        9 Scott W. Kelly and K. Douglas
+                                                                                          Hoffman, “An Investigation of Pos-
+a person who is in an irritable mood has an increased tendency to react angrily
+                                                                                          itive Affect, Prosocial Behaviors
+to other people who cross her path. This tendency is essentially temporary (and           and Service Quality,” Journal of
+mood-specific) because she would have reacted very differently to the same people         Retailing 73, no. 3 (1997): 422–23,
+                                                                                          DOI: https://doi.org/10.1016/
+had she been in a cheerful or relaxed mood.
+                                                                                          S0022-4359(97)90025-7; William
+      Based on the idea that different moods dispose people to different (re)actions,     N. Morris, “The Mood System,”
+we suggest that user-centered design ideally involves an explicit awareness of the        in Well-Being: Foundations of
+                                                                                          Hedonic Psychology, ed. Daniel
+variety of moods that end-users may bring into the usage of a product or service.
+                                                                                          Kahneman, Ed Diener, and
+Moreover, we argue that mood-specific human dispositions can offer a terminology          Norbert Schwarz (New York:
+to operationalize the broad cognitive, affective, and behavioral influence of different   Russell Sage Foundation, 1999),
+                                                                                          171–72.
+mood states for design professionals. In the current study, we adopted the concept
+of thought/action tendencies to explore and specify these effects of user moods.          10 Alice M. Isen and Paula F.
+                                                                                          Levin, “Effect of Feeling Good on
+      The term “action tendency” was popularized by Nico Frijda to discuss the di-
+                                                                                          Helping: Cookies and Kindness,”
+verse behavioral urges that accompany affective states. Action tendencies are states      Journal of Personality and Social
+of readiness to engage in behavior of a particular kind.16 Examples are the ten-          Psychology 21, no. 3 (1972): 387,
+                                                                                          DOI: https://doi.org/10.1037/
+dency to flee (fear), to attack (anger), or to sulk (grumpiness). Barbara Fredrickson
+                                                                                          h0032317; F. Gregory Ashby,
+broadened the concept by expanding the term to “thought/action tendency,” high-           Vivian V.Valentin, and U.Turken,
+lighting that mood- and emotion-stimulated tendencies can also be mental, such            “The Effects of Positive Affect and
+                                                                                          Arousal on Working Memory and
+as the tendency to be open to new experiences, or the tendency to savor an experi-
+                                                                                          Executive Attention: Neurobiolo-
+ence.17 In line with the dispositional theory of mood, thought/action tendencies are      gy and Computational Models,” in
+seen as temporary dispositions to think, act and respond in a certain way. Hence,         Emotional Cognition: From Brain
+                                                                                          to Behaviour, ed. Simon C. Moore
+mood-stimulated tendencies18 are not thoughts or actions in themselves—they are
+                                                                                          and Mike Oaksford (Amsterdam:
+inclinations to certain types of thought and behavior. For example, when in a grumpy      John Benjamins, 2002), 245–48;
+mood, we generally tend to be more closed-minded and reluctant to participate             Sonja Lyubomirsky, Laura King,
+socially than when in a cheerful mood. Conversely, when in a cheerful mood, we            and Ed Diener, “The Benefits of
+                                                                                          Frequent Positive Affect: Does
+more readily take risks and engage in new experiences. These examples illustrate          Happiness Lead to Success?,”
+that mood-stimulated tendencies are pervasive: they are not directed at a specific        Psychological Bulletin 131, no.
+person or object, but toward anything or anyone we happen to encounter. Compare           6 (2005): 840, DOI: https://doi.
+                                                                                          org/10.1037/0033-2909.131.6.803.
+this to emotions, which are directed at a particular cause or object of the emotion,19
+
+
+
+
+The Same Person Is Never the Same                                                                                      169
+11 For example, see Soussan            for example, when we are angry, we are angry with someone, and when we are
+Djamasbi and Diane M. Strong,
+“The Effect of Positive Mood on
+                                       afraid, we are afraid of something. Humans have a wide repertoire of thought/action
+Intention to Use Computerized          tendencies, such as the readiness to be defensive, offensive, agreeable, mindful, or
+Decision Aids,” Information &          impulsive. Because the concept of thought/action tendencies offers a clear termi-
+Management 45, no. 1 (2008): 43,
+DOI: https://doi.org/10.1016/j.
+                                       nology to operationalize the broad impact of mood on humans, with the present
+im.2007.10.002; Soussan Dja-           research we sought to generate an overview of mood-simulated thought/action
+masbi, Diane M Strong, and Mark        tendencies.
+Dishaw, “Affect and Acceptance:
+Examining the Effects of Positive
+Mood on the Technology Accep-
+tance Model,” Decision Support         Main Study: Mood-Stimulated Thought/Action Tendencies
+Systems 48, no. 2 (2010): 391–93,
+DOI: https://doi.org/10.1016/j.
+                                       This study includes a list of 20 different mood states, which, in a series of mood
+dss.2009.10.002.                       granularity studies, were found to represent a broad overview of the human mood
+12 For example, see Stephan
+                                       repertoire: miserable, sentimental, gloomy, lethargic, grumpy, agitated, anxious, stressed,
+Wensveen, Kees Overbeeke,              serious, boisterous, rebellious, vigorous, giggly, amiable, cheerful, relaxed, dreamy, peaceful,
+and Tom Djajadiningrat, “Push          productive, and jubilant.20 Elaborate descriptions of these moods can be found in an
+Me, Shove Me and I Show You
+How You Feel: Recognising
+                                       online typology.21 This typology is currently, to our knowledge, the most detailed
+Mood from Emotionally Rich             mood categorization available in the literature. The study aim was to investigate
+Interaction,” in DIS ’02 Proceed-      which tendencies are associated with these 20 moods. The overall objective was to
+ings of the 4th Conference on
+Designing Interactive Systems:
+                                       obtain an overview of the variety of tendencies, that is, to determine the landscape
+Processes, Practices, Methods,         of mood-related tendencies. More specifically, we investigated (research question
+and Techniques (New York: ACM,         1) whether these tendencies differentiate between the 20 mood states, and (re-
+2002), 337, DOI: https://doi.
+org/10.1145/778712.778759.
+                                       search question 2) whether generic dimensions of mood-related tendencies can be
+                                       identified.
+13 For example, see Viswanath
+Venkatesh and Cheri Speier,
+“Computer Technology Training          Method
+in the Workplace: A Longitudinal       The study examined the associations between 68 distinct thought/action tendencies
+Investigation of the Effect of
+                                       and 20 moods in a controlled online study. For each of the 1360 mood × tendency
+Mood,” Organizational Behavior
+and Human Decision Processes 79,       combinations, participants rated the likelihood that that particular tendency would
+no. 1 (1999): 23, DOI: https://doi.    occur when in that particular mood using a three-point scale (1 = no, does not
+org/10.1006/obhd.1999.2837.
+                                       occur; 2 = can occur, but not necessarily; 3 = yes, does occur).
+14 For example, see Mimi Zhang
+and Bernard J. Jansen, “Influences     Respondents
+of Mood on Information Seeking
+Behavior,” in Proceedings of the       Forty-three second-year Master’s students at Faculty of Industrial Design
+CHI ’09 Extended Abstracts on          ­Engineering, Delft University of Technology participated in this study. Of these,
+Human Factors in Computing
+                                        27 were female. They represented eight different nationalities (of which 21 were
+Systems (Boston, MA: ACM,
+2009), 3395. DOI: https://doi.          Dutch). Participants were recruited from a design course. They volunteered to par-
+org/10.1145/1520340.1520492.            ticipate and were given a gift (a booklet) in return for their participation.
+15 Matthias Siemer, “Mood
+Experience: Implications of            Material
+a Dispositional Theory of
+                                       Cognitive emotion psychologists have extensively studied emotion-relevant
+Moods,” Emotion Review 1, no.
+3 (2009): 257, DOI: https://doi.       thought/action tendencies, resulting in various lists and overviews. We first exam-
+org/10.1177/1754073909103594.          ined whether these emotion-related tendencies are also applicable to moods. We
+16 Nico H. Frijda, The Emotions        started with a published overview of 40 tendencies, which was assembled on the
+(Cambridge, UK: Cambridge              basis of an elaborate review of emotion literature.22 A pilot study explored the
+University Press, 1986), 71.
+                                       degree to which the various tendencies apply to the 20 moods. The results indi-
+17 Barbara L. Fredrickson, “What       cated that many of these tendencies are emotion-specific and cannot be applied to
+Good Are Positive Emotions?,”
+                                       moods because they imply a focused subject–stimulus relationship. We therefore
+Review of General Psychology 2,
+no. 3 (1998): 303, DOI: https://doi.   decided to develop a set of mood-specific tendencies. This set was based on data ob-
+org/10.1037/1089-2680.2.3.300.         tained with an elaborate phenomenological mood inquiry and the resulting holistic
+18 We will use the word “ten-          mood typology.23 First, each author independently formulated a longlist by ex-
+dencies” as a shortened form of        tracting tendencies from the rich descriptions provided for each of 20 mood states.
+“thought/action tendencies” in         The procedure was to read the data transcripts and extract all words (or word com-
+the rest of the paper.
+                                       binations) that refer to mental or physical actions or tendencies. Combining the
+
+
+
+
+170                                    she ji The Journal of Design, Economics, and Innovation         Volume 5, Number 3, Autumn 2019
+three longlists enabled us to generate an inclusive list of thought/action tendencies    19 For example, see Brian
+                                                                                         Parkinson et al., Changing
+associated with the variety of moods. The second step was a discussion in which we       Moods:The Psychology of Mood
+compared, clustered, and reformulated the items to reach a similar level of abstrac-     and Mood Regulation (London,
+tion, resulting in a list of 80 initial thought/action tendencies. Then, over a period   UK: Longman, 1996), 7–8; Nico
+                                                                                         H. Frijda, “Mood,” in Oxford
+of a month, the authors independently rated the 1600 mood × tendency combina-            Companion to Emotion and the
+tions (20 moods × 80 thought/action tendencies), with three options: (1) this mood       Affective Sciences, ed. David
+stimulates this tendency; (2) this mood does not stimulate this tendency; (3) this       Sander and Klaus R. Scherer
+                                                                                         (New York: Oxford University
+mood may, but does not necessarily, stimulate this tendency. The results were
+                                                                                         Press, 2009), 258.
+analyzed and discussed in four workshops, each lasting approximately four hours.
+                                                                                         20 Haian Xue, Pieter M. A.
+Rating disagreements were discussed until reaching consensus. Subsequently, ten-
+                                                                                         Desmet, and Steven F. Fokkinga,
+dencies were omitted from the list of which authors agreed that they are not ex-         “Mood Granularity for Design:
+pected to be influenced by any of the moods. These workshops resulted in a refined       Introducing a Holistic Typology
+                                                                                         of Twenty Mood States” (unpub-
+set of 68 distinct thought/action tendencies (see Table 1).
+                                                                                         lished manuscript available upon
+                                                                                         request, last modified January
+Procedure                                                                                27, 2019).
+
+The questionnaire was divided into ten parts to prevent fatigue-induced validity         21 Pieter M. A. Desmet, Haian
+issues. Participants filled out a maximum of one part per day during a two-week          Xue, and Steven F. Fokkinga,
+                                                                                         “Twenty Moods: A Holistic
+period. Each part included two mood states, in which both mood order and ten-
+                                                                                         Typology of Human Mood
+dency order were randomized between respondents. The first part introduced the           States” (unpublished manuscript
+study, explaining the aim and procedure. In the ensuing parts, each mood was in-         available upon request, last
+                                                                                         modified January 27, 2019).
+troduced with a formal definition and four images that illustrated/represented the
+mood, drawn from the holistic mood typology.24 In line with a standard procedure         22 Johnny J. R. Fontaine and
+                                                                                         Klaus R. Scherer, “Emotion Is
+for this kind of questionnaire, respondents were asked to first recall (and write
+                                                                                         for Doing:The Action Tendency
+down) an occasion in which they vividly felt the given mood, before filling out the      Component,” in Components of
+questionnaire.25 In order to familiarize them with the scale, they were asked to fill    Emotional Meaning: A Source-
+                                                                                         book, ed. Johnny J. R. Fontaine,
+out a short exercise questionnaire in a group setting. The results were discussed
+                                                                                         Klaus R. Scherer, and Cristina
+with and among the group members, ensuring that all participants sufficiently            Soriano (Oxford: Oxford Univer-
+understood the task. Next, respondents filled out the first part of the questionnaire    sity Press, 2013), 172–74.
+while a researcher was present in the room, giving them the opportunity to ask           23 Xue et al., “Mood Granularity
+questions during and after filling out that first part. The remaining nine parts were    for Design.”
+filled out online, at a time and place convenient to the participant. Each day, every    24 Desmet et al., “Twenty
+participant received a personal code which gave them access to the study interface,      Moods.”
+in which they could fill in the questionnaire at their own pace. Most respondents        25 For an example of this
+completed the ten questionnaire parts in a period of two to three weeks; some took       procedure, see Marcel Zeelen-
+an additional week to complete the task.                                                 berg et al., “The Experience of
+                                                                                         Regret and Disappointment,”
+                                                                                         Cognition & Emotion 12, no.
+Results                                                                                  2 (1998): 225, DOI: https://doi.
+An overview of the seven tendencies that were rated highest for each of the var-         org/10.1080/026999398379727.
+
+ious moods can be found in Appendix A. Only the first seven are reported here to         26 Sten-Erik Clausen, Applied
+balance between overview and completeness; the complete overview is available            Correspondence Analysis: An
+                                                                                         Introduction (Thousand Oaks:
+from the corresponding author. To study the associations between tendencies and          Sage, 1988), 23.
+mood states, a (one-way) repeated measures ANOVA was conducted for each ten-
+dency, with Mood (20 levels) as a within-participants factor and the Thought/Action
+­Tendency as the dependent variable. These analyses showed a statistically signif-
+ icant main Mood effect for all Thought/Action Tendencies (F (19, 830), p < 0.001),
+ which indicates that all tendencies differentiated mood states from one another
+ (Research question 01). Test values are shown in Appendix B.
+      To obtain an overview of the landscape of mood-stimulated tendencies,
+ and to answer the second research question (i.e. whether generic dimensions of
+ mood-stimulated tendencies can be identified), we used two exploratory methods:
+ Correspondence Analysis (CA) and Factor Analysis (FA). Both techniques decompose
+ the variance in a model into lower-dimensional representations, aiming to identify
+ a reduced number of factors that can explain most of the variability in the model.26
+
+
+
+
+The Same Person Is Never the Same                                                                                     171
+27 For a discussion, see Laura
+                                     These exploratory methods are especially valuable for large data tables like the
+Doey and Jessica Kurta, “Corre-
+spondence Analysis Applied to        one generated in this study.27 The methods have different advantages. CA provides
+Psychological Research,” Tutori-     a direct visual overview of associations among the variables, which is particularly
+als in Quantitative Methods for
+                                     useful for the study’s aim of gaining insights into the scope of mood-stimulated
+Psychology 7, no. 1 (2011): 6–7,
+DOI: https://doi.org/10.20982/       tendencies. FA collapses a large number of variables into a few interpretable under-
+tqmp.07.1.p005.                      lying factors, which is particularly useful for the study’s second aim of exploring
+28 Ibid., 6.                         whether generic dimensions for mood-stimulated tendencies can be identified.
+
+29 For example, see Michelle
+Yik, James A. Russell, and James
+                                     Analysis Step 1: Correspondence Analysis
+H. Steiger, “A 12-Point Circum-      A CA was performed (with SPSS Statistics software) with two factors (symmetrical
+plex Structure of Core Affect,”
+                                     normalization): Mood (20 levels) and Thought/Action Tendency (68 levels). The
+Emotion 11, no. 4 (2011): 706,
+DOI: https://doi.org/10.1037/        two-dimensional solution (Figure 1) visualizes the associations between mood states
+a0023980; and James A. Russell,      and reported tendencies. Moods that are plotted close to each other stimulate
+“A Circumplex Model of Affect,”      similar tendencies. The goal of CA is to explain the most inertia (or variance) in the
+Journal of Personality and Social
+Psychology 39, no. 6 (1980): 1167,   model with the least number of dimensions.28 The two dimensions in Figure 1 re-
+DOI: https://doi.org/10.1037/        spectively account for 82 per cent of the total inertia: 58 per cent by the horizontal
+h0077714.                            (inertia = 0.36) and 24 per cent by the vertical axis (inertia = 0.39; a third dimension
+                                     would contribute an additional 8 per cent). The distance between points in the
+                                     biplot is an expression of the similarity in their patterns, which applies for both the
+                                     mood states and the thought/action tendencies.
+                                           Corresponding with similar multidimensional scaling analyses in affect
+                                     studies, the biplot shows the two basic affect dimensions valence (left is positive,
+                                     right is negative) and arousal (bottom is low activation, top is high activation).29
+                                     The left side of the biplot shows tendencies that are typically associated with pos-
+                                     itive mood states, such as the tendency to be interested, enthusiastic, creative,
+                                     carefree, and open-minded. The right side of the biplot shows action modes that
+                                     are typically associated with negative mood states, such as the tendency to see the
+                                     bad, to worry, and to be pessimistic. At the top, we find activated tendencies, such
+                                     as the tendency to be loud, to act impulsively, and to move restlessly. In contrast, at
+                                     the bottom, we find deactivated tendencies, such as the tendency to engage in calm
+                                     activities, to save energy, and to move calmly.
+                                           The moods show a nice distribution in the biplot, indicating a broad differenti-
+                                     ation in terms of associated action modes, one that is more granular than described
+                                     with the basic positive-negative and activated-calm dimensions. In agreement with
+                                     the table in Appendix A, the biplot indicates that that different moods are asso-
+                                     ciated with distinct profiles of tendencies. The biplot also indicates that some of
+                                     these profiles are more similar to each other than others. For example, the profile
+                                     of tendencies associated to Amiable is more distinct from the profile of Miserable
+                                     than from the profile of Cheerful. In other words, when we are cheerful, we have
+                                     tendencies that, to some degree, are similar to the tendencies that we have when
+                                     we are amiable, but very different from those we have when we are miserable.
+                                     Some moods are positioned close together: (1) Relaxed, Peaceful, and Dreamy; (2)
+                                     Gloomy and Lethargic; (3) Jubilant and Giggly. This may indicate that their profiles
+                                     of thought/action tendencies cannot be distinguished from each other. To examine
+                                     whether and how their tendency profiles differ, repeated measures ANOVAs were
+                                     conducted for each tendency, with Mood as the within-participants factor and the
+                                     Thought/Action Tendencies as dependent variables.
+                                           Gloomy and Lethargic: The ANOVA found an overall significant main Mood effect
+                                     (F (15, 68) = 3.13, p < 0.001), indicating that Gloomy and Lethargic have different
+                                     tendency profiles. Significant differences were found for seven tendencies (F (1, 82)):
+                                     Compared to Lethargic, the tendency profile of Gloomy includes higher levels of
+                                     tendencies to “worry” (0.62; F = 14.68, p < 0.01), “have meandering thoughts” (0.60;
+                                     F = 14.01, p < 0.01), “contemplate” (0.57; F = 10.08, p < 0.05), “be pessimistic” (0.50;
+
+
+
+
+172                                  she ji The Journal of Design, Economics, and Innovation   Volume 5, Number 3, Autumn 2019
+                                                                                                 Figure 1 Mood tendency space
+                                                                                                 (correspondence biplot of
+                                                                                                 mood states and thought/action
+                                                                                                 tendencies). © 2019 by Pieter M.
+                                                                                                 A. Desmet.
+
+
+
+
+F = 11.10, p < 0.01), and “be polite” (0.36; F = 5.45, p < 0.05), and lower levels of
+­tendencies to “be indifferent” (–0.36; F = 6.40, p < 0.05) and “unwind” (–0.36; F = 4.12,
+ p < 0.05).
+      Jubilant and Giggly: The ANOVA did not find an overall significant main Mood
+ effect (F (16, 68) = 1.23, p = 0.34), indicating that no differences were found between
+ the tendency profiles of Jubilant and Giggly.
+      Relaxed, Peaceful, and Dreamy: The ANOVA did not find an overall significant
+ main Mood effect for Relaxed versus Peaceful (F (17, 68) = 1.07, p = 0.46), or for
+ Dreamy versus Peaceful (F (16, 68) = 1.32, p = 0.27). However, a significant effect was
+ found for Relaxed versus Dreamy (F (16, 68) = 2.08, p = 0.05). Significant differences
+ were found for 18 tendencies (F (1, 83). Here we name the six tendencies on which
+ the mood states differ most. Compared to Dreamy, the tendency profile of Relaxed
+ includes higher levels of tendency to “be attentive” (0.73; F = 19.41, p < 0.01), “seek
+ company” (0.69; F = 24.75, p < 0.001), and “be open to communication” (0.68;
+ F = 14.91, p < 0.001). In contrast, the motivational profile of Dreamy includes higher
+ levels of tendency to “be closed to communication” (–0.87; F = 30.29, p < .001), “be
+ inattentive” (–0.83; F = 25.96, p < 0.01), and “be indifferent” (–0.63; F = 16.13, p < 0.01).
+
+Analysis Step 2: Factor Analysis
+FA uses inter-correlations among large numbers of observed variables in order to
+identify a smaller number of underlying factors. The underlying premise is that
+the observed variables have similar patterns of responses because they are associ-
+ated with a latent—not directly measured—variable. In the present study, FA was
+used to identify underlying generic patters of mood-stimulated tendencies. We
+
+
+
+
+The Same Person Is Never the Same                                                                                            173
+Table 1. Factor loadings of the 68 action modes included in the study, including accounted variance in the data and eigenvalues.
+Extraction method: Principal Component Analysis. Rotation method: Varimax with Kaiser Normalization.
+
+           Thought/Action Tendencies.                                     Factors (Pearson Correlations)
+                 You tend to…
+                                                  1        2       3          4         5         6           7            8          9
+
+Be intolerant                                    0.73             –0.21
+See the bad                                      0.70             –0.28
+Be impolite                                      0.69                                                                                0.20
+Be impatient                                     0.69             –0.23
+Be closed-minded                                 0.68             –0.24      0.22
+Be destructive                                   0.65
+Tense up                                         0.62             –0.25                                                             –0.24
+Be pessimistic                                   0.62             –0.26      0.24                            0.25
+Worry                                            0.61             –0.29      0.21                            0.27                   –0.26
+Be rigid                                         0.60
+Oppose your situation                            0.58
+Be reluctant                                     0.54             –0.22      0.30                            0.20
+Cancel plans                                     0.52                        0.41
+Move restlessly                                  0.39    0.36
+Engage in energetic activity                              0.74
+Seek out new experiences                                 0.70     0.25
+Take risks                                               0.65                          0.23
+Expend your energy                                       0.62
+Engage in spontaneous activity                           0.62     0.31
+Seek the center of attention                             0.62                                                                        0.27
+Act impulsively                                  0.31    0.62
+Be loud                                                  0.60               –0.20                           –0.34
+Make new plans                                           0.58     0.22                                       0.28
+Be enthusiastic                                 –0.35    0.57     0.33                                      –0.21
+Engage in pleasure-oriented activity            –0.28    0.50     0.46
+Seek the company of others                               0.49     0.25      –0.23                0.34
+Respond instantly                                        0.47               –0.31      0.27                 –0.22
+Be creative                                     –0.26    0.43     0.34                 0.26
+Be kind                                         –0.35             0.76
+Be tolerant                                     –0.33             0.70
+Be polite                                       –0.21             0.69                 0.22
+Be open–minded                                  –0.37     0.31    0.66
+Be flexible                                     –0.24    0.32     0.63
+See the good                                    –0.46    0.24     0.63
+Be patient                                      –0.23    –0.21    0.62                                                               0.25
+Be optimistic                                   –0.46    0.37     0.56
+Open up to communication                                 0.43     0.52      –0.28                                         0.22
+Embrace your situation                          –0.47    0.27     0.51
+Be carefree                                     –0.31    0.42     0.47                –0.21                                          0.23
+Unwind                                                   0.29     0.45                                                               0.42
+Take your time                                                    0.43       0.31                                                    0.39
+
+                                                                                                                    (Continued on next page…)
+
+
+
+
+174                                    she ji The Journal of Design, Economics, and Innovation          Volume 5, Number 3, Autumn 2019
+Table 1. (Continued)
+
+           Thought/Action Tendencies.                              Factors (Pearson Correlations)
+                 You tend to…
+                                            1       2        3         4         5         6         7      8       9
+
+Seek to isolate yourself                   0.26                       0.72
+Be quiet                                           –0.36              0.67                          0.21
+Respond with delay                                                    0.66
+Close off to communication                 0.37                       0.66                                 –0.24
+Be reserved                                0.22    –0.27              0.63
+Avoid the center of attention              0.20    –0.33              0.56
+Save your energy                                   –0.30              0.51                0.23
+Be cautious                                0.28                       0.31      0.26                0.23           –0.27
+Concentrate                                                                     0.72
+Engage in productive activity                      0.31                         0.66
+Be constructive                                             0.29                0.65
+Not waste time                                                                  0.60                               –0.20
+Engage in activities that require effort           0.50                         0.52
+Take the lead                                      0.45                         0.49
+Engage in organized activities                     0.27                         0.47      0.32
+Think before acting                                                   0.23      0.46      0.24      0.36
+Seek out familiar experiences                                         0.20                0.71
+Follow the lead of someone else                                                           0.68
+Follow familiar routines                           –0.21              0.38                0.66
+Have meandering thoughts                   0.24                       0.28                          0.64
+Be contemplative                                                      0.30                          0.61
+Be attentive to what’s going on                    0.26     0.31                                           0.70
+Be inattentive to what’s going on          0.24                       0.42                                 –0.61
+Be interested in what’s going on                   0.34     0.42                                           0.60
+Be indifferent about what’s going on       0.27                       0.38                                 –0.59
+Move calmly                                –0.25   –0.33    0.25      0.31                          0.26           0.48
+Engage in calm activities                          –0.32    0.23      0.34                0.30      0.30           0.37
+Percentage of Variance                     11.9    11.4     9.7       7.4       5.4       3.4       3.1     3.1     2.4
+Eigenvalue                                 16.9     7.6     5.0       3.2       2.0       1.3       1.3     1.2     1.1
+
+
+performed an exploratory factor analysis (with SPSS Statistics software), which is
+suitable when there is no pre-formulated hypothesis about the nature and number
+of underlying factors. We used principal components extraction and Varimax rota-
+tion. Bartlett’s test of sphericity, which tests the overall significance of all the cor-
+relations within the correlation matrix, was significant (χ2 (2278) = 31992.8,
+p < 0.001), indicating that it was appropriate to use the factor analytic model on
+this set of data. The cut-off point was based on eigenvalues (> 1), which resulted in
+nine factors. Table 1 shows the factor loadings of the tendencies (loadings of 0.2 or
+higher are shown). The factor loadings are the correlation coefficients between the
+measured tendencies and the factors. The first factor was robust, with a high eigen-
+value of 16.8, and it accounted for 11.9% of the variance in the data. Factor two had
+an eigenvalue of 7.6 and accounted for a further 11.4% of the variance. The eigen-
+values for factors three up to nine ranged between 5.0 and 1.1, together accounting
+for a further 34.5% of the total variance.
+
+
+
+
+The Same Person Is Never the Same                                                                                       175
+30 For example, see Randy J.            The factor analysis revealed that nine factors were sufficient to explain the
+Larsen and Edward Diener,
+“Promises and Problems with
+                                   underlying structure of thought/action tendencies associated to mood states. Factor
+the Circumplex Model of            one, which was labeled as the tendency to be critical, consists of 14 tendencies,
+Emotion,” in Review of Per-        and is mainly defined by the tendencies to see the bad and be intolerant, impolite,
+sonality and Social Psychology:
+Emotion, ed. Margaret S. Clark
+                                   and inpatient. In addition, it includes the tendencies to worry and tense up. Factor
+(Thousand Oaks: Sage, 1992),       two was labeled as the tendency to be impulsive. This factor is mainly defined by
+25–59; David Watson and Lee        the tendencies to engage in energetic activities, seek out new experiences, and take
+Anna Clark, The Panas-X:
+                                   risks. In addition, it has a pleasure focus, represented by the tendencies to be en-
+Manual for the Positive and Neg-
+ative Affect Schedule—Expanded     thusiastic and engage in pleasure-oriented activity. Factor three was labeled as the
+Form (Iowa:The University of       tendency to be easy-going. It includes the tendencies to be kind, tolerant, polite,
+Iowa, 1994), DOI: https://doi.
+                                   and open-minded. In addition, it is defined by the tendencies to be carefree and
+org/10.17077/48vt-m4t2.
+                                   optimistic and to embrace one’s situation. Factor four was labeled as the tendency
+                                   to seclude. It is defined by the tendencies to seek isolation, be quiet, close off from
+                                   communication, and save one’s energy. Factor five was labeled as the tendency to
+                                   be diligent, including the tendencies to be concentrated and constructive. In ad-
+                                   dition, it includes the tendencies to take the lead and engage in activities that are
+                                   organized and require effort. Factor six was labeled as the tendency to prefer the
+                                   familiar, including the tendencies to prefer familiar experiences, follow the lead,
+                                   and adhere to familiar routines. Factor seven was labeled as the tendency to be
+                                   pensive, represented by having meandering thoughts, being contemplative, and
+                                   being quiet. Factor eight was labeled as the tendency to be present. The positive
+                                   pole is defined by the tendencies to be attentive to and interested in what’s going
+                                   on around one, and the negative pole is defined by the tendencies to be inatten-
+                                   tive and indifferent. The ninth and final factor was labeled as the tendency to be
+                                   serene, including the tendencies to unwind, take one’s time, and move calmly.
+
+
+                                   Initial Conclusions and Discussion
+                                   The aim of this study was to uncover the landscape of mood-stimulated thought/
+                                   action tendencies. The results demonstrate that this landscape is both diverse and
+                                   distinct, as shown in Figure 1. It is diverse because it includes a wide variety of
+                                   tendencies—to take risks or be careful, to embrace one’s situation or oppose it, to
+                                   be open to communication or closed off—and many more. The first research ques-
+                                   tion asked whether these tendencies differentiate between mood states. Significant
+                                   mood effects for all 68 tendencies indicated such differentiation. In other words,
+                                   these tendencies are not random—different moods are associated with different
+                                   tendencies. We found that each of the 18 (out of 20) mood states represents a
+                                   unique and distinct constellation of tendencies (except for Relaxed & Peaceful and
+                                   Jubilant & Giggly). The results of the study reveal that mood-stimulated tenden-
+                                   cies are much more diverse than they are generally assumed in affective studies,
+                                   which focus mostly on two, or in some cases three, affect dimensions.30 The second
+                                   research question asked whether it is possible to identify generic dimensions of
+                                   mood-stimulated tendencies. The factor analysis (Table 1) identified nine basic
+                                   response tendencies.
+                                        While the relationship between emotions and thought/action tendencies has
+                                   been widely studied, this is the first study that also finds a clear indication that
+                                   there is a similar relationship with moods. We anticipate that both the detailed
+                                   overview in Figure 1 and the reduced list of nine key mood-related tendencies
+                                   can be used as resources to describe and understand the user’s situational state
+                                   in experience-focused design projects. The nine general tendencies can be used
+                                   to explicitly include and operationalize mood in personas and/or user scenarios.
+                                   For a given design brief, combinations of these tendencies can be used to describe
+                                   the particular user’s situational mind-set. We can illustrate with the example of
+
+
+
+
+176                                she ji The Journal of Design, Economics, and Innovation   Volume 5, Number 3, Autumn 2019
+the airport check-in procedure that was mentioned in the introduction. One user
+group is expected to enter the scene with an anxious or stressed mood, and another
+group with a cheerful or relaxed mood. From the study results, we can infer that
+the first group will have the general tendency to prefer the familiar and be pensive.
+This means that they may like to be “taken by the hand” so that they know exactly
+what will happen, where they should go, and what they need to do next. Moreover,
+they tend to be absent-minded, which can be taken into consideration when devel-
+oping interaction protocols. The second group (cheerful), tends to be easygoing and
+present. We can therefore expect them to be attentive, open to communication, and
+tolerant to their situation. Obviously, these different tendencies call for different
+product features and interactions. If we optimize a design only for people who are
+cheerful, it may not be enjoyed by those who are in an anxious mood, and the other
+way around. Depending on the required degree of granularity, both the nine basic
+tendencies and the mood tendency space in Figure 1 offer a direct entry point into
+the thought/action tendencies that are associated with different moods.
+
+
+Mood-Empathy Game for Designers
+With the study results at hand, we were curious to see how designers could make
+use of the generated knowledge. As a first exploration, we introduced the mood
+tendency space (Figure 1) to a group of design students. They were invited to take
+the image as a source of inspiration and to creatively explore design opportunities.
+Here, we report one of the design outcomes, which was developed by design student
+Amy den Dekker: the Mood-Empathy Game for Designers. This game is a tool-supported
+creative session facilitator. It was designed to inspire designers and support an
+increase in their general understanding of the mood phenomenon (Figure 2). The
+game-based sessions can be used in the context of design education and design stu-
+dios. Designers (or design students) are guided through a playful group activity that
+stimulates them to empathize with the variety of thought/action tendencies that
+are associated with different moods. With dynamic enactments, they explore how
+mood influences people’s motivations, behaviors, perceptions, and preferences, and
+how this can affect human-product interactions. Ultimately, the session helps the
+designers to explore how these insights can inform their design efforts.
+     The tool consists of a tube that contains a white ball, a colorful mood palette
+visual, and three kinds of playing cards: 20 mood cards (see Figure 3 for examples),
+three role cards, and five step cards. The game is played with four to seven designers
+who focus on a given design project (design goal, context, user). The session consists
+of five steps, as explained by the five consecutive step cards (Figure 4).
+     • Step 1, getting started: Players open the tube and explore the material.
+     • Step 2, selecting moods: Together, players select three or four moods from
+        the mood palette visual. They can select moods from the user scenario for
+        the design task at hand, or use other criteria to select moods, such as inspira-
+        tion or simple diversity.
+     • Step 3, deciding roles: Players divide up the three roles (observer, listener,
+        actor), keeping in mind that the session needs at least one observer, one lis-
+        tener, and two actors. The assignments for the different roles are explained
+        by the three role cards.
+     • Step 4, empathize: This is core of the session. The actors decide in which
+        order they will act out the moods. For each mood, they carefully read the
+        representing mood card. Next, they stand up and behave as if they are in that
+        mood by means of explorative improvisation. They can interact with each
+        other and/or with the white ball. The watcher and listener carefully observe
+        and can ask questions to encourage the actors to further explore the mood’s
+
+
+
+
+The Same Person Is Never the Same                                                          177
+Figure 2 The Mood-Empathy
+Game for designers. © 2019 by
+Amy den Dekker.
+
+
+
+
+Figure 3 Six examples of mood
+cards (front and back). © 2019 by
+Amy den Dekker.
+
+
+
+
+Figure 4 Scenario for playing
+the Mood-Empathy game for
+designers. © 2019 by Amy den
+Dekker.
+
+
+
+
+(1) get started                       (2) select moods                     (3) decide roles            (4a) empathize; actors prepare
+
+
+
+
+(4b) empathize, act out (lethargic)   (4b) empathize, act out (cheerful)   (4c) observer makes notes   (5) discus and reflect on design
+                                                                                                       implications
+
+
+
+                                              effects. This process is repeated for all the moods the players have selected.
+                                            • Step 5, discussion: In the final step, players share experiences and observa-
+                                              tions, focusing on response tendencies, body postures, and other expres-
+                                              sions, interactions, and perceptions associated with the selected moods. The
+                                              aim is to explore how these observations can inform the design process, that
+                                              is, what kind of design qualities can be meaningful or relevant for the given
+                                              mood-associated tendencies.
+
+                                      We foresee this game (or similar games and tools) serving several purposes.
+                                      First, role-playing and active improvisation can support creativity and empathy
+                                      with users. Second, the collaborative effort stimulates an understanding of
+
+
+
+
+178                                   she ji The Journal of Design, Economics, and Innovation          Volume 5, Number 3, Autumn 2019
+mood-­stimulated thought/action tendencies that is shared among team members.              31 Randy J. Larsen and David
+                                                                                           M. Buss, Personality Psychology:
+Third, game-based learning can reach design students who may not be directly               Domains of Knowledge About
+inspired by the text-based forms of knowledge-transfer.                                    Human Nature, 3rd ed. (New
+                                                                                           York: McGraw Hill, 2008), 9.
+
+                                                                                           32 Ibid., 108.
+General Discussion
+                                                                                           33 Marcin Zajenkowski, Ewa
+This study revealed a notable variability of mood-influenced thought/action ten-           Goryńska, and Mikołaj Winiews-
+dencies. This variability implies that the same person is never the same: any person’s     ki, “Variability of the Relation-
+                                                                                           ship between Personality and
+thought/action repertoire is not static but constantly moving around the mood              Mood,” Personality and Individual
+tendency space (Figure 1). In other words, people’s momentary moods frame their            Differences 52, no. 7 (2012): 861,
+preferences and states of readiness to think and (inter)act with people, environ-          DOI: https://doi.org/10.1016/j.
+                                                                                           paid.2012.01.007.
+ments, and objects in a particular way. In line with the findings of our study, we
+propose that mood information can make a relevant contribution to the practice
+of user profiling (in terms of personas and user scenarios). At first sight, the sugges-
+tion may sound counterintuitive, because a user cannot be characterized in terms
+of being in particular mood. Our moods are constantly changing, evolving from
+one state to another. While an intended user may be gloomy today, she may just
+as well be cheerful, grumpy, relaxed, or anxious tomorrow. Nonetheless, for some
+design briefs it may be possible to formulate profiles of probable user moods. For
+example, in the earlier-used airport example, we might expect that a sub-group
+of customers would be stressed or anxious (late check-in), and another sub-group
+of customers who are cheerful (leisure travelers with ample time), or another,
+serious (business travelers). Given this notion of probable moods, the design team
+can choose a strategy. They can, for example, decide to accommodate for all three
+moods, or diversify by providing different design options that cater to the different
+sub-groups. Either way, the mood tendency space and other study results can help
+them understand the temporal dispositions of their intended users. To give an
+example, the study results show that stressed users tend to be impatient, impolite,
+and rigid—information the design team could probably use in some way. We envi-
+sion that the study results can also be used as a means for evaluating existing de-
+signs or design ideas. For example, the design of a primary school classroom can be
+evaluated in terms of “mood-flexibility,” that is the degree to which it functions as
+a safe and functional space for students in various moods. According to Figure 1, we
+can infer that children who are in a gloomy mood will likely have the tendency to
+avoid being the center of attention, whereas children who are in a boisterous mood
+will have the tendency to seek attention. Does the classroom sufficiently accom-
+modate these passing tendencies? And should it? In other words, gaining greater
+insight into the diverse nature of mood-stimulated thought/action tendencies can
+enable design teams to include considerations about user mood in the formulation
+of their design intentions.
+      Mood-stimulated thought/action tendencies bear some resemblance to the per-
+sonality construct. Personality traits can be loosely defined as “forces that influence
+how we think, act, and feel”31 or “average tendencies to behave in certain ways.”32
+This means that our baseline or set-point disposition is not neutral, it depends on
+our personality. Zajenkowski and colleagues examined the variability of the rela-
+tionship between personality and mood in different situations. They concluded that
+personality may be less static and more influenced by mood than is postulated in
+personality studies: “In empirical studies it is usually assumed that personality influ-
+ences mood, however one may wonder whether the correlations could be interpreted
+in the opposite direction. Namely, it would be interesting to determine whether the
+self-report personality measure is partially contaminated by mood experienced in
+particular situations.”33 This statement is supported by our study findings and also
+resonates with our intuitive understanding of personality. It seems too restrictive
+
+
+
+
+The Same Person Is Never the Same                                                                                       179
+34 For a review of the “Big Five”     to qualify a person in terms of, for example, the degree to which he or she is open
+personality traits, see Oliver P.
+John and Sanjay Srivastava, “The
+                                      to new experiences (one of the Big Five personality traits) because this degree may
+Big Five Trait Taxonomy: History,     be as dynamic as the person’s mood.34 Our study predicts that someone will not be
+Measurement, and Theoretical          open to new experiences when in an anxious mood, while the same person will be
+Perspectives,” in Handbook of
+Personality:Theory and Research,
+                                      open to new experiences when in a jubilant mood. In fact, the mood tendency space
+2nd ed., ed. Lawrence A. Pervin       in Figure 1 shows a remarkable overlap with the five-factor model of personality: (1)
+and Oliver P. John (Amsterdam:        openness to experience—being open to new experiences, seeking spontaneous activ-
+Elsevier, 1999).
+                                      ities, being enthusiastic; (2) conscientiousness—concentrating, being constructive,
+35 Lewis R. Goldberg, “The            seeking out organized activities; (3) extraversion—seeking the center of attention,
+Development of Markers for
+                                      engaging in energetic activities, taking the lead; (4) agreeableness—being tolerant,
+the Big-Five Factor Structure,”
+Psychological Assessment 4, no.       being kind, being polite, being open-minded; and (5) neuroticism—worrying, seeing
+1 (1992): 27, 41, DOI: https://doi.   the bad, being pessimistic, being cautious.35 Our point is that since these thought/
+org/10.1037//1040-3590.4.1.26.
+                                      action tendencies represent qualities of interaction, they are important for design.
+36 Marc Hassenzahl, “The              We should therefore be very careful when including particular static personality
+Thing and I: Understanding the
+                                      qualities in user profiling because it would be like designing a broken clock—only
+Relationship between User and
+Product,” in Funology: From Us-       showing the correct time twice a day.
+ability to Enjoyment, ed. Mark A.            The most advanced and influential understanding of within-user differences
+Blythe, et al. (Dordrecht: Kluwer
+                                      (i.e., how the same user might think, act, and feel differently) in the field of design
+Academic Publishers, 2003), 39,
+DOI: https://doi.org/10.1007/1-       is that of Marc Hassenzahl. Hassenzahl proposes that the same user is potentially in
+4020-2967-5_4.                        two general mental states or usage modes, namely goal mode and action mode.36 In goal
+37 Marc Hassenzahl, Robert            mode, users typically describe themselves as “serious” and “planning,” and prefer
+Kekez, and Michael Burmester,         pragmatic design features that efficiently help them achieve their goals. By con-
+“The Importance of a Software’s
+                                      trast, in action mode, user goals are typically volatile—users describe themselves as
+Pragmatic Quality Depends on
+Usage Modes,” in Proceedings of       “playful” and “spontaneous” and are more likely to prefer hedonic design features,
+the 6th International Conference      and enjoy interacting with them as an end in itself.37 As a complement, the study
+on Work with Display Units
+                                      results that we have presented in this paper offer a dynamic and enriched under-
+(WWDU 2002), ed. H. Luczak,
+A. E. Cakir, and G. Cakir (Berlin:    standing of within-user differences. First, Hassenzahl claims that “the particular
+ERGONOMIC Institut für                usage mode is triggered by the situation itself.”38 This may be true in many cases.
+Arbeits- und Sozialforschung,
+                                      Understanding within-user differences through moods, however, suggests that the
+2002), 275; Hassenzahl, “Thing
+and I,” 39–40.                        user’s immediate situation may not always be the only influencing factor. One’s
+                                      mood changes constantly from one state to another, which is influenced by one’s
+38 Hassenzahl, “Thing and I,”
+39–40.                                perceived overall balance between life demands and resources;39 all the hassles and
+                                      uplifts one has experienced in the recent past, is experiencing at the moment, or
+39 William N. Morris, “A
+Functional Analysis of the Role       expecting to have in the near future can contribute to a greater or lesser extent to
+of Mood in Affective Systems,” in     this perceived balance. In this sense, mood states can be neither directly pinpointed
+Review of Personality and Social      to a usage situation nor specified for a given design brief. We have to accept user
+Psychology, ed. Margaret S. Clark
+(Thousand Oaks: Sage Publica-         mood dynamics and the variety of related thought/action tendencies as a universal
+tions, 1992), 256.                    component of user profiling. A person can be patient today but might just as well
+                                      be impatient tomorrow—despite being in the same situation, doing the same task,
+                                      or spending time with the same people. On one day a person might isolate herself,
+                                      while on another day she may like being the center of attention. Second, while the
+                                      goal-action dichotomy offers a concise and useful way to understand the within-­
+                                      user differences, because of its simplicity, much detailed information that may be
+                                      very valuable for design is often ignored. Given the diversity presented in the re-
+                                      sults, two usage modes alone cannot always adequately inform designers. Thus, we
+                                      expect the landscape of mood-related thought/action tendencies will offer designers
+                                      an enriched and more specific guide for capturing within-user differences.
+                                             In addition, future research into these diverse mood-related thought/action
+                                      tendencies may also be a rich source of inspiration for tangible interaction design.
+                                      With the advancement of interactive technologies and tangible interaction design
+                                      practices, the designer’s form-giving efforts are going beyond creating beauty in
+                                      terms of visual (or multisensory) qualities, and have moved into the aesthetics of
+                                      interaction.40 This is still relatively new, and thus new strategies are needed to help
+
+
+
+
+180                                   she ji The Journal of Design, Economics, and Innovation   Volume 5, Number 3, Autumn 2019
+                                                                                         40 Tom Djajadiningrat et al.,
+designers continue the transition from traditional visual design aesthetics. One
+                                                                                         “Tangible Products: Redressing
+such strategy is to “design actions before products,” where designers force them-        the Balance between Appear-
+selves to be explicit about user actions before linking them to physical products to     ance and Action,” Personal and
+                                                                                         Ubiquitous Computing 8, no. 5
+be designed.41 We believe that these study results can further contribute to tangible
+                                                                                         (2004): 296–97, DOI: https://doi.
+interaction design in this sense as well. Designers who play the mood-empathy            org/10.1007/s00779-004-0293-8.
+game—and using the white ball, especially—are more likely to focus on under-
+                                                                                         41 Mads Vedel Jensen, Jacob
+standing and envisioning actions that users will consider desirable in different         Buur, and Tom Djajadiningrat,
+mood states before designing physical properties of the interactive systems, thereby     “Designing the User Actions
+                                                                                         in Tangible Interaction,” in
+creating a richer, more diverse, and more inclusive experience for users overall.
+                                                                                         CC ’05 Proceedings of the
+     Mood awareness is especially relevant for certain types of design challenges        4th Decennial Conference on
+where human-human interaction plays a significant role—for example in design             Critical Computing: Between
+related to public spaces and public transport, for environments such as schools          Sense and Sensibility, ed. Olav
+                                                                                         W. Bertelsen et al. (New York:
+and hospitals, and in sectors like entertainment and hospitality. Empathy has been       ACM, 2005), 13, DOI: https://doi.
+widely recognized as a key factor of service quality.42 In a study examining how         org/10.1145/1094562.1094565.
+service organizations can manage customer experiences that promote differenti-           42 Anantharanthan Parasur-
+ation and customer loyalty, Leonieke Zomerdijk and Christopher Voss found that           aman,Valarie A. Zeithaml, and
+the interaction between front-line service employees and customers is one of the         Leonard L. Berry, “SERVQUAL:
+                                                                                         A Multiple-Item Scale for
+most important factors influencing the customer experience. At the same time,            Measuring Consumer Percep-
+they found that design agencies and consultants rarely investigate how service           tions of Service Quality,” Journal
+employees navigate this in practice.43 Experienced service employees likely know         of Retailing 64, no. 1 (1988): 23;
+                                                                                         Anantharanthan Parasuraman,
+how to dynamically adapt their service style to the moods of their customers:            Valarie A. Zeithaml, and Leonard
+grumpy customers will want efficient service, and cheerful customers might ap-           L. Berry, “A Conceptual Model of
+preciate suggestions for new experiences. This is something we are all intuitively       Service Quality and Its Impli-
+                                                                                         cations for Future Research,”
+aware of, and we adjust our responses to situations like these in our daily inter-       Journal of Marketing 49, no.
+actions because it is part of our psychological makeup. Even though experienced          4 (1985): 47, DOI: https://doi.
+service providers may be intuitively familiar the landscape of mood-stimulated           org/10.2307/1251430.
+
+thought/action tendencies presented in this paper, these findings can be of value        43 Leonieke G. Zomerdijk
+to students who do not yet have the required experience, and enhance the devel-          and Christopher A.Voss,
+                                                                                         “Service Design for Experience-­
+opment of empathy-building courses and workshops. Some have found that “a                Centric Services,” Journal
+heightened awareness of the fundamental behavioral science principles underlying         of Service Research 13, no. 1
+human ­interactions can be translated directly into service design.”44 We suggest        (2010): 75, DOI: https://doi.
+                                                                                         org/10.1177/1094670509351960.
+that having a clear overview of how human mood affects a person’s perceptions,
+thoughts, and actions, can ideally help designers and service providers recognize        44 Lori S. Cook et al., “Human
+                                                                                         Issues in Service Design,” Journal
+moods and develop an empathetic response repertoire.                                     of Operations Management
+     The study reported here takes the first steps towards exploring how an under­       20, no. 2 (2002): 159, DOI:
+standing of mood dynamics can be of use to user-centered designers. We leave             https://doi.org/10.1016/S0272-
+                                                                                         6963(01)00094-8.
+many questions unanswered, requiring additional research. For example, the par-
+ticipants in this study all had a similar age and level of education. Will the results
+be replicated for other populations? How do the generic thought/action tendencies
+manifest in human-design interaction? It is also not clear in what form and with
+what means the research results will be most useful for design practice—would a
+visual representation, as in Figure 1 be most useful? The nine generic dimensions
+that were found with the cluster analysis? Or some other, more practical applica-
+tion, such as the Mood-empathy Game? And most importantly, case studies will
+more appropriately explore whether, what, and how an increased understanding of
+mood-stimulated thought/action tendencies can contribute to design that is useful,
+usable, meaningful, and enjoyable.
+
+
+Acknowledgments
+This research was supported by MaGW VICI, grant number 453-16-009, of The
+­Netherlands Organization for Scientific Research (NWO) awarded to Pieter M. A.
+ Desmet. The authors thank the study participants, Amy den Dekker and the other
+
+
+
+
+The Same Person Is Never the Same                                                                                     181
+      design students who developed mood-focused design projects based on the study
+      results, and the editor and the anonymous reviewers for their valuable comments
+      on an earlier version of this paper.
+
+
+      Appendix A: Thought/action tendencies with strongest associations with
+      each of the 20 moods
+
+      Mood          Top seven though/action tendencies (Mean ratings)
+
+      Agitated      Tense up (2.9); be impatient (2.9); see the bad (2.8); be intolerant (2.7); act impulsively (2.7);
+                    be impolite (2.6); be closed-minded (2.6)
+
+      Amiable       Be kind (3.0); be optimistic (3.0); embrace your situation (3.0); be open-minded (2.9); see the
+                    good (2.9); be open for communication (2.9); be tolerant (2.8)
+
+      Anxious       Worry (2.9); see the bad (2.8); tense up (2.8); have meandering thoughts (2.6); avoid being in
+                    the center of attention (2.6); be pessimistic (2.6); be impatient (2.5)
+
+      Boisterous    Energetic activities (3.0); expend your energy (3.0); be enthusiastic (2.9); be loud (2.8); be
+                    optimistic (2.8); engage in pleasurable activities (2.8); act impulsively (2.8)
+
+      Cheerful      Be open-minded (3.0); be optimistic (3.0); embrace your situation (3.0); see the good (3.0); be
+                    enthusiastic (3.0); be open for communication (3.0); engage in pleasurable activities (3.0)
+
+      Dreamy        Take your time (2.9); move calmly (2.9); embrace your situation (2.9); be quiet (2.9); see the
+                    good (2.8); be care-free (2.8); be open-minded (2.7)
+
+      Giggly        Be enthusiastic (3.0); be open for communication (2.9); be optimistic (2.8); embrace your
+                    situation (2.8); see the good (2.8); be open minded (2.8); seek company (2.8)
+
+      Gloomy        Be quiet (2.9); be pessimistic (2.9); meandering thoughts (2.8); worry (2.8); see the bad (2.8);
+                    be reserved (2.7); isolate yourself (2.7)
+
+      Grumpy        Be impatient (2.8); see the bad (2.8); be closed-minded (2.8); be intolerant (2.8); tense up
+                    (2.7); be pessimistic (2.6); be impolite (2.6)
+
+      Jubilant      Be optimistic (3.0); be enthusiastic (3.0); be open-minded (3.0); see the good (2.9); embrace
+                    your situation (2.9); engage in pleasurable activity (2.9); be open for communication (2.9)
+
+      Lethargic     Be quiet (2.9); be indifferent (2.8); respond with delay (2.8); close off to communication
+                    (2.8); save energy (2.8); be reluctant (2.7); cancel plans (2.7)
+
+      Miserable     Pessimistic (2.9); meandering thoughts (2.9); worry (2.9); close for communication (2.9); see
+                    the bad (2.9); isolate yourself (2.8); be quiet (2.8); be reserved (2.8)
+
+      Peaceful      See the good (3.0); embrace your situation (3.0); take your time (2.9); be kind (2.9); be quiet
+                    (2.9); engage in calm activities (2.8); move calmly (2.8)
+
+      Productive    Be concentrated (3.0); engage in productive activity (2.9); not waste time (2.8); embrace
+                    your situation (2.8); be optimistic (2.7); be creative (2.7); be constructive (2.7)
+
+      Rebellious    Take risks (2.8); act impulsively (2.8); expend your energy (2.6); be impatient (2.6); take the
+                    lead (2.6); be intolerant (2.6); engage in energetic activities (2.5)
+
+      Relaxed       Take your time (3.0); see the good (2.9); embrace your situation (2.9); move calmly (2.9); be
+                    open-minded (2.9); be kind (2.9); be care-free (2.8)
+
+      Sentimental Take time (2.7); be quiet (2.7); meandering thoughts (2.5); seek familiar routines (2.5); seek
+                  familiar experiences (2.5); avoid center of attention (2.5); contemplate (2.5)
+
+      Serious       Concentrated (2.9); think before act (2.8); be constructive (2.8); not waste time (2.6);
+                    embrace your situation (2.6); be polite (2.6); productive activity (2.6)
+
+      Stressed      Tense up (3.0); worry (3.0); be impatient (2.7); be rigid (2.7); see the bad (2.6); cancel plans
+                    (2.5); move restlessly (2.5)
+
+      Vigorous      Be optimistic (2.9); enthusiastic (2.9); activities effort (2.9); energetic activities (2.8); be
+                    concentrated (2.8); expend your energy (2.7); take risks (2.7)
+
+
+
+
+182   she ji The Journal of Design, Economics, and Innovation                       Volume 5, Number 3, Autumn 2019
+Appendix B: F values for 68 mood-stimulated thought/action tendencies
+
+Thought-action tendency                F (19, 830)   p       Thought-action tendency                    F (19, 830)   p
+
+Act impulsively                        24.95         0.000   Embrace your situation                     64.18         0.000
+
+Avoid the center of attention          22.60         0.000   Engage in activities that require effort   29.63         0.000
+
+Be attentive to what’s going on        14.04         0.000   Engage in calm activities                  34.18         0.000
+
+Be care-free                           51.82         0.000   Engage in energetic activities             54.47         0.000
+
+Be cautious                            13.50         0.000   Engage in organized activity               9.32          0.000
+
+Be closed-minded                       51.94         0.000   Engage in pleasure-oriented activity       31.17         0.000
+
+Be constructive                        19.44         0.000   Engage in productive activity              23.87         0.000
+
+Be contemplative                       16.40         0.000   Engage in spontaneous activity             27.00         0.000
+
+Be creative                            34.36         0.000   Expend your energy                         29.40         0.000
+
+Be destructive                         24.08         0.000   Follow familiar routines                   10.99         0.000
+
+Be enthusiastic                        81.99         0.000   Follow the lead of someone else            4.44          0.000
+
+Be flexible                            34.98         0.000   Have meandering thoughts                   15.17         0.000
+
+Be impatient                           37.98         0.000   Make new plans                             15.15         0.000
+
+Be impolite                            32.76         0.000   Move calmly                                45.83         0.000
+
+Be inattentive to what’s going on      11.78         0.000   Move restlessly                            16.77         0.000
+
+Be indifferent about what’s going on   15.12         0.000   Not waste time                             21.04         0.000
+
+Be interested in what’s going on       31.16         0.000   Oppose to your situation                   19.63         0.000
+
+Be intolerant                          44.81         0.000   Respond instantly                          24.88         0.000
+
+Be kind                                41.85         0.000   Respond with delay                         24.75         0.000
+
+Be loud                                46.57         0.000   Save your energy                           25.74         0.000
+
+Be open to communication               33.90         0.000   See the bad                                90.77         0.000
+
+Be open-minded                         65.70         0.000   See the good                               91.26         0.000
+
+Be optimistic                          108.25        0.000   Seek out familiar experiences              5.84          0.000
+
+Be patient                             33.91         0.000   Seek out new experiences                   29.15         0.000
+
+Be pessimistic                         77.86         0.000   Seek the center of attention               20.15         0.000
+
+Be polite                              20.03         0.000   Seek the company of others                 18.36         0.000
+
+Be quiet                               51.90         0.000   Seek to isolate yourself                   37.02         0.000
+
+Be reluctant                           38.87         0.000   Take risks                                 27.79         0.000
+
+Be reserved                            28.92         0.000   Take the lead                              30.03         0.000
+
+Be rigid                               27.64         0.000   Take your time                             21.28         0.000
+
+Be tolerant                            37.46         0.000   Tense up                                   48.48         0.000
+
+Cancel plans                           30.20         0.000   Think before acting                        10.8          0.000
+
+Close off to communication             42.55         0.000   Unwind                                     19.78         0.000
+
+Concentrated                           18.08         0.000   Worry                                      73.18         0.000
+
+
+
+
+The Same Person Is Never the Same                                                                                         183
+      Appendix C: Mean ratings of 20 moods for nine generic thought/action
+      tendencies
+
+      Moods                                               The tendency to:
+
+                   Be         Be        Be easy-   Seclude     Be         Prefer      Be        Be      Be
+                   critical   impulsive going                  diligent   the         pensive   present serene
+                                                                          familiar
+
+      Agitated     2.54       1.68      1.23       1.78        1.60       1.81        1.86      1.50    1.71
+
+      Amiable      1.12       2.16      2.78       1.40        2.03       2.08        1.62      2.65    1.79
+
+      Anxious      2.46       1.44      1.39       2.40        1.66       2.50        2.56      1.76    2.37
+
+      Boisterous   1.42       2.68      2.37       1.15        1.85       1.69        1.27      2.11    1.20
+
+      Cheerful     1.17       2.60      2.79       1.21        2.08       1.99        1.45      2.68    1.50
+
+      Dreamy       1.13       1.65      2.62       2.25       1.53        1.83        2.38      1.55    1.96
+
+      Giggly       1.25       2.54      2.55       1.16       1.70        1.71        1.30      2.51    1.29
+
+      Gloomy       2.19       1.30      1.51       2.60       1.43        2.21        2.71      1.27    2.46
+
+      Grumpy       2.54       1.51      1.27       2.21       1.46        1.83        1.94      1.25    2.07
+
+      Jubilant     1.27       2.70      2.63       1.17       1.98        1.71        1.31      2.50    1.30
+
+      Lethargic    2.09       1.22      1.52       2.65       1.27        2.33        2.13      1.21    2.51
+
+      Miserable    2.48       1.34      1.39       2.64       1.31        2.16        2.71      1.28    2.45
+
+      Peaceful     1.13       1.65      2.73       2.14       1.74        2.07        2.09      2.36    2.10
+
+      Productive   1.51       1.97      2.17       2.04       2.65        1.91        1.71      1.64    1.83
+
+      Rebellious   2.16       2.35      1.71       1.45       1.92        1.47        1.74      1.99    1.61
+
+      Relaxed      1.11       1.75      2.80       1.93       1.65        2.27        2.08      2.20    2.21
+
+      Sentimental 1.49        1.58      2.09       2.19       1.54        2.29        2.50      1.70    2.02
+
+      Serious      1.53       1.65      2.10       1.96       2.61        2.10        1.98      2.17    1.89
+
+      Stressed     2.47       1.67      1.35       2.06       1.97        2.20        2.22      1.35    2.07
+
+      Vigorous     1.39       2.45      2.28       1.37       2.55        1.71        1.57      2.31    1.31
+
+
+
+
+      References
+      Ashby, F. Gregory, Vivian V. Valentin, and U. Turken. “The Effects of Positive Affect and
+           Arousal on Working Memory and Executive Attention: Neurobiology and Computational
+           Models.” In Emotional Cognition: From Brain to Behaviour, edited by Simon C. Moore and
+           Mike Oaksford, 245–88. Amsterdam: John Benjamins, 2002.
+      Clausen, Sten-Erik. Applied Correspondence Analysis: An Introduction. Thousand Oaks: Sage, 1988.
+      Cook, Lori S., David E. Bowen, Richard B. Chase, Sriram Dasu, Doug M. Stewart, and David
+           A. Tansik. “Human Issues in Service Design.” Journal of Operations Management 20, no. 2
+           (2002): 159–74. DOI: https://doi.org/10.1016/S0272-6963(01)00094-8.
+      Desmet, Pieter M. A. “Design for Mood: Twenty Activity-Based Opportunities to Design for
+           Mood Regulation.” International Journal of Design 9, no. 2 (2015): 2–5. http://www.ijdesign.
+           org/index.php/IJDesign/article/view/2167.
+      Desmet, Pieter M. A., Haian Xue, and Steven F. Fokkinga. “Twenty Moods: A Holistic Typology
+
+
+
+
+184   she ji The Journal of Design, Economics, and Innovation                    Volume 5, Number 3, Autumn 2019
+     of Human Mood States.” Unpublished manuscript, available upon request, last modified
+     January 27, 2019.
+Djajadiningrat, Tom, Stephan Wensveen, Joep Frens, and Kees Overbeeke. “Tangible Products:
+     Redressing the Balance between Appearance and Action.” Personal and Ubiquitous Com-
+     puting 8, no. 5 (2004): 294–309. DOI: https://doi.org/10.1007/s00779-004-0293-8.
+Djamasbi, Soussan, and Diane M. Strong. “The Effect of Positive Mood on Intention to Use
+     Computerized Decision Aids.” Information & Management 45, no. 1 (2008): 43–51. DOI:
+     https://doi.org/10.1016/j.im.2007.10.002.
+Djamasbi, Soussan, Diane M Strong, and Mark Dishaw. “Affect and Acceptance: Examining
+     the Effects of Positive Mood on the Technology Acceptance Model.” Decision Support Sys-
+     tems 48, no. 2 (2010): 383–94. DOI: https://doi.org/10.1016/j.dss.2009.10.002.
+Doey, Laura, and Jessica Kurta. “Correspondence Analysis Applied to Psychological Re-
+     search.” Tutorials in Quantitative Methods for Psychology 7, no. 1 (2011): 5–14. DOI: https://doi.
+     org/10.20982/tqmp.07.1.p005.
+Draper, Stephen W., and Donald A. Norman. Introduction to User Centered System Design: New
+     Perspectives on Human-Computer Interaction, edited by Donald A. Norman and Stephen W.
+     Draper, 1–6. Hillsdale: Erlbaum, 1986.
+Fontaine, Johnny J. R., and Klaus R. Scherer. “Emotion Is for Doing: The Action Tendency
+     Component.” In Components of Emotional Meaning: A Sourcebook, edited by Johnny J. R. Fon-
+     taine, Klaus R. Scherer, and Cristina Soriano, 170–85. Oxford: Oxford University Press,
+     2013.
+Forgas, Joseph P. “Mood Effects on Cognition: Affective Influences on the Content and Pro-
+     cess of Information Processing and Behavior.” In Emotions and Affect in Human Factors and
+     Human-­Computer Interaction, edited by Myounghoon Jeon, 95–103. Orlando: Academic
+     Press, 2017.
+Fredrickson, Barbara L. “What Good Are Positive Emotions?” Review of General Psychology 2, no.
+     3 (1998): 300–319. DOI: https://doi.org/10.1037/1089-2680.2.3.300.
+Frijda, Nico H. The Emotions. Cambridge, UK: Cambridge University Press, 1986.
+Gardner, Meryl Paula. “Mood States and Consumer Behavior: A Critical Review.” Journal of
+     Consumer Research 12, no. 3 (1985): 283–90. DOI: https://doi.org/10.1086/208516.
+Goldberg, Lewis R. “The Development of Markers for the Big-Five Factor Structure.” Psycholog-
+     ical Assessment 4, no. 1 (1992): 26–42. DOI: https://doi.org/10.1037//1040-3590.4.1.26.
+Hassenzahl, Marc. “The Thing and I: Understanding the Relationship between User and
+     Product.” In Funology: From Usability to Enjoyment, edited by Mark A. Blythe, Kees
+     ­Overbeeke, Andrew F. Monk, Peter C. Wright, 31–42. Dordrecht: Kluwer Academic Pub-
+     lishers, 2003. DOI: https://doi.org/10.1007/1-4020-2967-5_4.
+Hassenzahl, Marc, Robert Kekez, and Michael Burmester. “The Importance of a Software’s
+     Pragmatic Quality Depends on Usage Modes.” In Proceedings of the 6th International Con-
+     ference on Work with Display Units (WWDU 2002), edited by H. Luczak, A. E. Cakir, and G.
+     Cakir, 275–76. Berlin: ERGONOMIC Institut für Arbeits- und Sozialforschung, 2002.
+Isen, Alice M., and Paula F. Levin. “Effect of Feeling Good on Helping: Cookies and Kind-
+     ness.” Journal of Personality and Social Psychology 21, no. 3 (1972): 384–88. DOI: https://doi.
+     org/10.1037/h0032317.
+Jensen, Mads Vedel, Jacob Buur, and Tom Djajadiningrat. “Designing the User Actions in Tan-
+     gible Interaction.” In CC ’05 Proceedings of the 4th Decennial Conference on Critical Computing:
+     Between Sense and Sensibility, edited by Olav W. Bertelsen et al, 9–18. New York: ACM, 2005.
+     DOI: https://doi.org/10.1145/1094562.1094565.
+John, Oliver P., and Sanjay Srivastava. “The Big Five Trait Taxonomy: History, Measurement,
+     and Theoretical Perspectives.” In Handbook of Personality: Theory and Research, 2nd ed.,
+     edited by Lawrence A. Pervin and Oliver P. John, 102–38. Amsterdam: Elsevier, 1999.
+Kanner, Allen D., James C. Coyne, Catherine Schaefer, and Richard S. Lazarus. “Comparison of
+     Two Modes of Stress Measurement: Daily Hassles and Uplifts versus Major Life Events.”
+     Journal of Behavioral Medicine 4, no. 1 (1981): 1–39. DOI: https://doi.org/10.1007/BF00844845.
+
+
+
+
+The Same Person Is Never the Same                                                                         185
+      Kelly, Scott W., and K. Douglas Hoffman, “An Investigation of Positive Affect, Prosocial Be-
+           haviors and Service Quality.” Journal of Retailing 73, no. 3 (1997): 407–27. DOI: https://doi.
+           org/10.1016/S0022-4359(97)90025-7.
+      Larsen, Randy J., and David M. Buss. Personality Psychology: Domains of Knowledge About Human
+           Nature, 3rd ed. New York: McGraw Hill, 2008.
+      Larsen, Randy J., and Edward Diener. “Promises and Problems with the Circumplex Model
+           of Emotion.” In Review of Personality and Social Psychology: Emotion, edited by Margaret S.
+           Clark, 25–59. Thousand Oaks: Sage, 1992).
+      Lyubomirsky, Sonja, Laura King, and Ed Diener. “The Benefits of Frequent Positive Affect:
+           Does Happiness Lead to Success?” Psychological Bulletin 131, no. 6 (2005): 803–55. DOI:
+           https://doi.org/10.1037/0033-2909.131.6.803.
+      Maybery, Darryl J., Jenny Jones-Ellis, Jason Neale, and Alexandra Arentz. “The Positive Event
+           Scale: Measuring Uplift Frequency and Intensity in an Adult Sample.” Social Indicators
+           Research 78, no. 1 (2006): 61–83. DOI: https://doi.org/10.1007/s11205-005-4096-8.
+      Morris, William N. Mood: The Frame of Mind. New York: Springer-Verlag New York Inc., 1989.
+      Morris, William N. “A Functional Analysis of the Role of Mood in Affective Systems.” In Review
+           of Personality and Social Psychology, edited by Margaret S. Clark, 256–93. Thousand Oaks:
+           Sage Publications, 1992.
+      Morris, William N. “The Mood System.” In Well-Being: Foundations of Hedonic Psychology, edited
+           by Daniel Kahneman, Ed Diener, and Norbert Schwarz, 169–89. New York: Russell Sage
+           Foundation, 1999.
+      Norman, Donald A. The Design of Everyday Things. New York: Doubleday/Currency, 1990.
+      Parasuraman, Anantharanthan, Valarie A. Zeithaml, and Leonard L. Berry. “A Conceptual
+           Model of Service Quality and Its Implications for Future Research.” Journal of Marketing
+           49, no. 4 (1985): 41–50. DOI: https://doi.org/10.2307/1251430.
+      Parasuraman, Anantharanthan, Valarie A. Zeithaml, and Leonard L. Berry. “SERVQUAL: A
+           Multiple-Item Scale for Measuring Consumer Perceptions of Service Quality.” Journal of
+           Retailing 64, no. 1 (1988): 12–40.
+      Parkinson, Brian, Peter Totterdell, Rob B. Briner, and Shirley Reynolds. Changing Moods: The
+           Psychology of Mood and Mood Regulation. London, UK: Longman, 1996.
+      Pruitt, John, and Tamara Adlin. The Persona Lifecycle: Keeping People in Mind Throughout Product
+           Design. San Francisco: Morgan Kaufmann, 2006.
+      Rosson, Mary Beth, and John M. Carroll. “Scenario–Based Design.” In Human-Computer Interac-
+           tion: Development Process, edited by Andrew Sears and Julie A. Jacko, 145–64. Boca Raton:
+           CRC Press, 2009 .
+      Russell, James A. “A Circumplex Model of Affect.” Journal of Personality and Social Psychology 39,
+           no. 6 (1980): 1161–78. DOI: https://doi.org/10.1037/h0077714.
+      Sander, David, and Klaus R. Scherer, eds. Oxford Companion to Emotion and the Affective Sciences.
+           New York: Oxford University Press, 2009.
+      Siemer, Matthias, “Mood Experience: Implications of a Dispositional Theory of Moods.” Emo-
+           tion Review 1, no. 3 (2009): 256–63. DOI: https://doi.org/10.1177/1754073909103594.
+      Thayer, Robert E., J. Robert Newman, and Tracey M. McClain. “Self-Regulation of Mood:
+           Strategies for Changing a Bad Mood, Raising Energy, and Reducing Tension.”
+           Journal of Personality and Social Psychology 67, no. 5 (1994): 910–25. DOI: https://doi.
+           org/10.1037//0022-3514.67.5.910.
+      Venkatesh, Viswanath, and Cheri Speier. “Computer Technology Training in the Workplace:
+           A Longitudinal Investigation of the Effect of Mood.” Organizational Behavior and Human
+           Decision Processes 79, no. 1 (1999): 1–28. DOI: https://doi.org/10.1006/obhd.1999.2837.
+      Watson, David, and Lee Anna Clark. The Panas-X: Manual for the Positive and Negative
+           Affect Schedule—Expanded Form. Iowa: The University of Iowa, 1994. DOI: https://doi.
+           org/10.17077/48vt-m4t2.
+      Wensveen, Stephan, Kees Overbeeke, and Tom Djajadiningrat. “Push Me, Shove Me and
+           I Show You How You Feel: Recognising Mood from Emotionally Rich Interaction.”
+
+
+
+
+186   she ji The Journal of Design, Economics, and Innovation              Volume 5, Number 3, Autumn 2019
+     In DIS ’02 Proceedings of the 4th Conference on Designing Interactive Systems: Processes,
+     Practices, Methods, and Techniques, 335–40. New York: ACM, 2002. DOI: https://doi.
+     org/10.1145/778712.778759.
+Xue, Haian, Pieter M. A. Desmet, and Steven F. Fokkinga. “Mood Granularity for Design: Intro-
+     ducing a Holistic Typology of Twenty Mood States.” Unpublished manuscript, available
+     upon request, last modified January 27, 2019.
+Yik, Michelle, James A. Russell, and James H. Steiger. “A 12-Point Circumplex Structure of
+     Core Affect.” Emotion 11, no. 4 (2011): 705–31. DOI: https://doi.org/10.1037/a0023980.
+Zajenkowski, Marcin, Ewa Goryńska, and Mikołaj Winiewski. “Variability of the Relation-
+     ship between Personality and Mood.” Personality and Individual Differences 52, no. 7 (2012):
+     858–61. DOI: https://doi.org/10.1016/j.paid.2012.01.007.
+Zeelenberg, Marcel, Wilco W. van Dijk, Antony S.R. Manstead, and Joopvan der Pligt. “The
+     Experience of Regret and Disappointment.” Cognition & Emotion 12, no. 2 (1998): 221–30.
+     DOI: https://doi.org/10.1080/026999398379727.
+Zhang, Mimi, and Bernard J. Jansen. “Influences of Mood on Information Seeking Behavior.”
+     In Proceedings of the CHI ’09 Extended Abstracts on Human Factors in Computing Systems, 3395–
+     3400. Boston, MA: ACM, 2009. DOI: https://doi.org/10.1145/1520340.1520492.
+Zomerdijk, Leonieke G., and Christopher A. Voss. “Service Design for Experience-­
+     Centric Services.” Journal of Service Research 13, no. 1 (2010): 67–82. DOI: https://doi.
+     org/10.1177/1094670509351960.
+
+
+
+
+The Same Person Is Never the Same                                                                    187
+

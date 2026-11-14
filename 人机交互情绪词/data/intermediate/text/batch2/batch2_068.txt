@@ -1,0 +1,642 @@
+IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE, VOL. 14, NO. 3, MAY 2010                                                                      589
+
+
+
+
+    Toward Emotion Aware Computing: An Integrated
+    Approach Using Multichannel Neurophysiological
+        Recordings and Affective Visual Stimuli
+    Christos A. Frantzidis, Charalampos Bratsas, Member, IEEE, Christos L. Papadelis, Evdokimos Konstantinidis,
+                              Costas Pappas, and Panagiotis D. Bamidis, Member, IEEE
+
+
+    Abstract—This paper proposes a methodology for the robust                        and the sensing abilities to infer user’s attributes [1]. It is there-
+classification of neurophysiological data into four emotional states                 fore imperative and unsurprising that computerized systems
+collected during passive viewing of emotional evocative pictures                     rapidly prevail in various socioemotional life aspects, such as
+selected from the International Affective Picture System. The pro-
+posed classification model is formed according to the current neu-                   e-health, education, telemonitoring of elderly people, and learn-
+roscience trends, since it adopts the independency of two emotional                  ing [3], [6], [7]. There are however many challenges that should
+dimensions, namely arousal and valence, as dictated by the bidirec-                  be faced toward the achievement of successful HCI. Among
+tional emotion theory, whereas it is gender-specific. A two-step clas-               them, the increasing heterogeneity of computer users, and the
+sification procedure is proposed for the discrimination of emotional                 stricter demands for reduced user frustration while interacting
+states between EEG signals evoked by pleasant and unpleasant
+stimuli, which also vary in their arousal/intensity levels. The first                with computers, which both are causing a shift of the adaptation
+classification level involves the arousal discrimination. The valence                requirements from the human user to the computer [8].
+discrimination is then performed. The Mahalanobis (MD) distance-                        To be more realistic and robust, the HCI should follow the
+based classifier and support vector machines (SVMs) were used for                    basic principles of communication among human beings [9].
+the discrimination of emotions. The achieved overall classification                  Thus, machines should be equipped with socioemotional skills
+rates were 79.5% and 81.3% for the MD and SVM, respectively, sig-
+nificantly higher than in previous studies. The robust classification                in order to naturally adapt to their users’ emotional mood ex-
+of objective emotional measures is the first step toward numerous                    pressing feelings, such as frustration, confusion, disliking, or
+applications within the sphere of human–computer interaction.                        interest [10]. These arguments put recently, alongside the signif-
+   Index Terms—Affective computing, EEG, emotion theory,                             icance of embedding emotion recognition to HCI systems, gave
+human–computer interaction (HCI), Mahalanobis, neurophysio-                          birth to a newly introduced facet of human intelligence named
+logical recordings, support vector machines (SVMs).                                  as “emotional intelligence” within the more general field of
+                                                                                     ambient intelligence (AmI) [11]. The core element of emotional
+                             I. INTRODUCTION                                         intelligence is one’s ability to recognize the affective state of the
+                                                                                     person communicating with, so as to alter his/her own behavior
+      URING the past few years, there has been a rapid develop-
+D     ment in the field of human–computer interaction (HCI).
+New methodologies in user interfaces were introduced aim-
+                                                                                     according to this information. Embedding a subset of human
+                                                                                     emotional skills to machines will lead to the next generation of
+                                                                                     HCI technology, which will facilitate computers with the abil-
+ing to improve the interaction between the human and the ma-                         ity to adapt their function in a more human-like, effective, and
+chine [1], [2]. Nowadays, computers are no longer viewed as                          efficient way [1].
+merely computational tools, but as the enabling technology for                          But before dealing with emotion aware computing, a pre-
+new ways of cyber communication [3], cyber relationships [4],                        requisite of vital importance is to meet the theoretical assump-
+and cyber socialization [5], since they are equipped with all the                    tions associated with human emotion and emotional reactions.
+necessary communication channels to interact with the users,                         According to a currently widely accepted view, a simple but
+                                                                                     yet effective theory [12], [13], employed a bidirectional emo-
+                                                                                     tional model defined by two basic parameters/variables, namely,
+                                                                                     the affective degree of pleasantness and arousal. The model re-
+   Manuscript received July 10, 2009; revised October 23, 2009. First published
+February 17, 2010; current version published June 3, 2010. This work was             gards the various emotional states as being subordinate divisions
+supported by a grant from the Greek General Secretariat for Research and             placed in a 2-D emotional space formed by these two affective
+Technology and by the M.Sc. in Medical Informatics Programme, Aristotle              variables. Its divisions are correlated to the species survival,
+University of Thessaloniki, Greece.
+   C. A. Frantzidis, C. Bratsas, E. Konstantinidis, C. Pappas, and P. D. Bamidis     since emotions are based on either an appetitive or a defensive
+are with the Laboratory of Medical Informatics, Medical School, Aristotle            motivational system, according to the judged degree of pleas-
+University of Thessaloniki, Thessaloniki 54124, Greece (e-mail: christos.            antness/unpleasantness it elicits (valence dimension). The acti-
+frantzidis@gmail.com; mpampis@med.auth.gr; evdokimosk@gmail.com;
+cpappas@med.auth.gr; bamidis@med.auth.gr).                                           vation level of the active motivational system defines the arousal
+   C. L. Papadelis is with the Center for Mind/Brain, University of Trento,          dimension, whether the emotional state is regarded as calm or
+Trento 38068, Italy (e-mail: christos.papadelis@unitn.it).                           exciting [14]. To standardize an experimental framework for
+   Color versions of one or more of the figures in this paper are available online
+at http://ieeexplore.ieee.org.                                                       human emotions’ research, the International Affective Picture
+   Digital Object Identifier 10.1109/TITB.2010.2041553                               System (IAPS) was developed by Lang [15]. The IAPS system
+
+                                                                  1089-7771/$26.00 © 2010 IEEE
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+590                                                       IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE, VOL. 14, NO. 3, MAY 2010
+
+
+
+is based on the 2-D emotional theory, and provides normative                   classification rates obtained by the employed classifiers indicate
+ratings for pleasantness/valence and arousal. It is a collection               the robustness of both the proposed framework and the classi-
+of emotion evocative pictures, and has been widely used for                    fication procedure. In contrast to previous methodologies being
+assessing the human emotional processing in neurophysiolog-                    tested on single persons, our approach was tested on a large
+ical studies [16], [17], while providing normative ratings for                 group of subjects from both genders.
+pleasantness/valence and arousal.                                                 The remaining of this paper is structured as follows. Details
+   In the field of HCI, there have been very few attempts apply-               about the experimental procedure and the methodology used for
+ing cognitive models to experimental protocols used for eliciting              the feature extraction, selection, and classification are provided
+emotional reactions [18], [19]. Previous research attempts that                in Section II. The classification results acquired for each of
+ignored these models have employed several human–computer                      the classifiers is given next in Section III and discussed in the
+communicative ways, such as facial expressions [20], face de-                  Section IV of the paper.
+tection [21], vocal emotional cues [22], gesture recognition [23],
+[24], human motion analysis [25], and eye tracking [26]. These
+studies used techniques that were based on externally expressed                                    II. MATERIALS AND METHODS
+emotions that do not necessarily capture innermost (actual) emo-
+tions difficult to be detected even during interaction between                 A. Experiment Overview
+humans. Neurophysiological recordings seem to unveil this hid-                    The work conducted was part of the AFFECTION collabo-
+den information providing emotional patterns that characterize                 rative project [36], between the Medical School of the Aristotle
+stimuli of different arousal or valence [27]. Emotional stimuli                University of Thessaloniki, Greece, and the Brain Science In-
+rated with different degrees of arousal or pleasantness evoke                  stitute of RIKEN, Japan. Twenty-eight healthy, right-handed
+event-related potentials (ERPs) with different characteristics in              volunteers (equal number of male and female subjects) partici-
+terms of amplitude or latency [28], [29]. The neurophysiolog-                  pated in the experiment with a mean age of 28.2 ± 7.5 for males
+ical methods seem to be also sensitive in differentiating how                  and 27.1 ± 5.2 for females (mean ± SD). All subjects had nor-
+subjects perceive differently the same emotional stimuli. Re-                  mal or corrected to normal vision and no history of psychiatric
+cent studies reported differences between males and females in                 or neurological illness. The study was approved by the local
+ERPs characteristics during the presentation of IAPS emotional                 medical ethics committee.
+stimuli [30]–[33].                                                                The protocol employed emotion evocative visual stimuli se-
+   Although neurophysiological recordings provide more ob-                     lected from the IAPS collection in which the pictures (stim-
+jective measures for assessing the emotional state of the user,                uli) can be depicted according to their valence and arousal rat-
+the problem of emotion classification is highly complex and                    ings forming a 2-D Cartesian emotional space, as depicted in
+has so far been faced only by using either simple classifiers                  Fig. 1. The pictures were divided according to their distribution
+or only statistical methods. Sophisticated classifiers and data                in four emotional categories: the upper right quadrant, denoted
+mining techniques can help in this direction. The first research               as HVHA, containing pleasant [high valence (HV)] and highly
+attempts using classifiers for emotions discrimination focused                 arousing stimuli [high arousal (HA)]; the upper left quadrant
+on the development of systems that were tested only on single                  (LVHA) containing unpleasant [low valence (LV)] and highly
+persons [27], [34], or were based on features gathered from au-                arousing stimuli; the low right quadrant (HVLA) containing
+tonomic responses [27], [34], [35]. Although they classified the               pleasant and low arousal stimuli (LA); and the low left one
+arousal emotional state quite successfully (with scores >80%),                 (LVLA) containing unpleasant and LA stimuli. One hundred
+their classification scores for the valence dimension were rela-               and sixty pictures were totally presented to each subject, 40 from
+tively poor (50% for the unpleasant feelings) [27], [34].                      each emotional category.
+   The objective of this paper is to propose a novel methodolog-                  Each single epoch consisted of a 500 ms prestimulus, and a 2 s
+ical architecture that employs advanced classifiers with features              poststimulus period. In the prestimulus period, a white fixation
+linked to the bidirectional theory of emotion. We hypothesize                  cross was presented on the screen in a black background. The
+that a careful combination of features extracted from neuro-                   stimulus appeared on the screen for 1 s after which the fixation
+physiological signals recorded noninvasively from the human                    cross came up again (see Fig. 2). The duration of the experiment
+brain can provide much higher classification scores than previ-                was less than 5 min. During the experiment, the subjects were
+ously proposed systems that were based on peripheral physio-                   seated comfortably in an armchair. The pictures were presented
+logical measurements. To our best knowledge, this is the first                 to the subjects in a random order avoiding habituation effects
+attempt to classify the emotional state of a user by using ad-                 [10], on a PC screen placed in front of their eyes at a distance
+vanced classifiers and data mining techniques applied to neuro-                of 80 cm. Stimulus delivery was controlled by the Presentation
+physiological recordings. A likely success of this argument will               software (Neurobehavioral Systems, Albany, CA).
+open up new ways of approaching the introduction of a user-
+independent emotional classifier considering both the arousal
+and valence dimensions. Our approach employs (and compares)                    B. Neurophysiological Recordings
+a distance-based classifier (Mahalanobis), and (with) three dif-                  EEG was recorded with Ag/AgCl electrodes placed at 19
+ferent support vector machine (SVM) kernels for the emotional                  sites on the scalp according to the 10–20 International System.
+classification, using a two-step discrimination procedure. The                 The sampling rate was set at 500 Hz. Reference electrodes were
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+FRANTZIDIS et al.: TOWARD EMOTION AWARE COMPUTING                                                                                                         591
+
+
+
+                                                                                    D. Feature Extraction
+                                                                                       1) EEG: The averaged ERPs extracted from three central
+                                                                                    electrodes (Fz, Cz, and Pz) located in the anterior–posterior
+                                                                                    midline were further analyzed. Recordings from only few elec-
+                                                                                    trodes were analyzed for simplicity. Our aim was to propose
+                                                                                    an effective, but also simple methodology suitable for real-life
+                                                                                    applications. Therefore, a compromise should have been made
+                                                                                    between the robust identification of emotional state, keeping the
+                                                                                    number of electrodes as minimal as possible. Five components
+                                                                                    were analyzed for each electrode. Each component is symbol-
+                                                                                    ized according to its polarity with a P for positive or N for
+                                                                                    negative deflection and with a number representing its latency
+                                                                                    considering the stimulus onset. Therefore, amplitude and la-
+                                                                                    tency features were extracted for the P100, N100, P200, N200,
+                                                                                    and P300 ERP components.
+                                                                                       2) Event-Related Oscillations: The oscillatory activity for
+Fig. 1. Stimuli distribution in the 2-D emotional space formed by the arousal       the delta, theta, and alpha frequency bands was obtained us-
+and valence dimensions for female (upper) and male (down) subjects.
+                                                                                    ing the discrete wavelet transform (DWT) as described in [40].
+                                                                                    DWT was used instead of traditional filtering techniques (e.g.,
+                                                                                    digital filtering), since it employs varying time window anal-
+                                                                                    ysis, offering thus high and accurate time resolution for each
+                                                                                    frequency band [40]. By using DWT, there is also no need for
+                                                                                    signal stationarity that is important when dealing with biosig-
+                                                                                    nals [41].
+                                                                                       The initial step of the wavelet analysis is the choice of the
+                                                                                    wavelet function. Each function shares common properties. The
+                                                                                    family of biorthogonal wavelets of order three was used herein
+                                                                                    because it is the most suitable choice when dealing with the
+                                                                                    ERP wavelet analysis [40] as well as with their properties that
+                                                                                    constitute them as the most appropriate choice:
+                                                                                       1) symmetry and smoothness in order to avoid phase distor-
+                                                                                          tion and discontinuity effects;
+Fig. 2. Visualization of the experimental procedure adopted in this study. The         2) resemblance with the ERP waveforms;
+visual stimuli are presented for 1 s in random order, while a fixation cross
+appears between successive stimuli for 1.5 s. A single epoch is also depicted in       3) maximum time-frequency resolution;
+this figure as well as with its components (prestimulus period for 0.5 s, picture      4) semiorthogonality.
+display for 1 s and poststimulus period for 1 s).                                      The general type of the wavelet function is as follows:
+                                                                                                                               
+                                                                                                                   1      t−b
+positioned at the mastoids. Electrode impedances were main-                                               ψ(t) =  ψ                              (1)
+                                                                                                                    |a|     a
+tained during the recordings at less than 10 kΩ. Four additional
+electrodes were used for tracking vertical and horizontal eye                       where “a” is the “scaling parameter”, since its variations are
+movements.                                                                          used to capture the signal’s frequency content, and “b” is the
+                                                                                    translation parameter used for time localization. These param-
+C. Preprocessing                                                                    eters are taken at discrete values in DWT analysis in order to
+                                                                                    reject redundant information and to provide computational effi-
+   The signals were offline preprocessed by using the MATLAB-
+                                                                                    ciency [42]. The multiresolution scheme [43] was used in this
+based EEGLAB tool [37]. The EEG signals were initially band-
+                                                                                    study.
+pass filtered using a low-pass IIR filter with cutoff frequency of
+                                                                                       The 500-Hz sampling frequency allowed six levels of de-
+40 Hz, a high-pass IIR filter with cutoff frequency of 0.5 Hz, and
+                                                                                    composition (frequency bands). The EEG bands obtained were:
+a notch filter at 50 Hz. The ocular artifacts were then removed by
+                                                                                    32–64 Hz (gamma), 16–32 Hz (beta), 8–16 Hz (alpha), 4–8 Hz
+using an adaptive filter based on the least mean squares (LMS)
+                                                                                    (theta), and 0.5–4 Hz (delta), from which only three were ana-
+algorithm [38]. The LMS algorithm was selected, since it af-
+                                                                                    lyzed (delta, theta, and alpha). Periodic data padding was set in
+fects minimally the slow wave brain activity (delta and theta)
+                                                                                    order to limit boundary effects.
+that is under consideration in comparison with other artifact re-
+moval techniques [39]. Each trial’s (ERP’s) duration was 2.5 s.
+                                                                                    E. Feature Selection
+Each emotional state (HVHA, LVLA, HVLA, and LVHA) used
+40 trials. The averaged trials (ERPs) were finally estimated for                       Feature selection is one of the most important steps in pat-
+each subject and each emotional state.                                              tern recognition or pattern classification and data mining, since
+
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+592                                                        IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE, VOL. 14, NO. 3, MAY 2010
+
+
+
+there is difficulty in measuring classification information in all                    the male subjects. Similarly, the MD2.3 and MD2.4 are
+features [44], [45]. It was thus employed here aiming to provide                      used for the females, high and low, respectively.
+a subset of features better describing the problem under con-                      2) Support Vector Machine: Given the training data x as well
+sideration. The features extracted from the EEG signal analysis                 as with their labels y [47], the SVM classifier seeks the optimal
+that served as inputs to this selection phase were the ampli-                   solution of the problem described next
+tudes and latencies of ERP components [three channels × five
+components × two features (amplitude and latency)], and the
+EROs amplitudes [three channels × three frequency bands ×
+one feature (amplitude)].                                                                                    1 T     l
+                                                                                                  min =        w w+C     ξι
+   In this study, the classification of the biosignals was conducted                             (w ,b,ξ )   2       i=1
+by means of the SVM for which the SVMAttributeEval through
+the Waikato environment for knowledge analysis (WEKA) data                                      subject to yi (wT ϕ(χι ) + b) ≥ 1 − ξi
+mining environment was chosen for the SVM as an attribute                                                    ξi ≥ 0.                                    (4)
+evaluator and ranker as a search method [46]. The SVMAt-
+tributeEval evaluates the worth of each attribute by using an
+SVM classifier, while the ranker is used for ranking the selected
+attributes by using their individual evaluations. The ranker is                    The function ϕ(.) accepts as input argument the training vec-
+commonly used in conjunction with attribute evaluators [46].                    tors and maps them into a higher dimensional space, where the
+The LIBSVM Library was used for the SVM classifier. Taking                      SVM seeks for a linear separating hyperplane with the max-
+the Mahalanobis distance (MD) function (see next) into account                  imal margin [48]. The ξ and b are parameters involved in the
+as the classifier, repeated measures of the analysis of variance                minimization function. The penalty parameter C is set to be non-
+(ANOVA) was performed by considering the valence and the                        negative, whereas K(xi , xj ) is the kernel function. The kernel
+arousal as within subjects’ factor and gender as between sub-                   functions used in this study are the following:
+jects’ factor. The ERPs’ and EROs’ features able to differentiate                  1) linear: K(xi ,xj ) = xi Txj ;
+either arousal or valence better than a predefined threshold were                  2) polynomial: K(xi ,xj ) = (γxi Txj +r)d, γ > 0;
+                                                                                   3) radial basis function (RBF):K(xi , xj ) = e−γ x i −x j  ,
+                                                                                                                                                  2
+selected. The threshold parameter was set at 0.025. [47].
+                                                                                       γ>0
+F. Classification of Neurophysiological Data                                       The next step utilized four distinct classifiers based on the MD
+                                                                                function. For each instance, the classifier to be used was defined
+   1) Mahalanobis Distance: This minimum distance classifier
+                                                                                by the gender’s subject and the valence information extracted
+was employed for the emotional classification of the biosignals.
+                                                                                from the decision tree. Different features originating from each
+It is a simple yet robust technique, which is defined by the
+                                                                                one of the four types of analyses were used for each one of
+following (2)
+                                                                                these classifiers in order to detect more accurately the arousal
+           
+                                                                                dimension. The emotion recognition architecture as well as the
+    dM = (x − µ)Σi−1 (x − µ)T ,           i = 1, . . . , M. (2)
+                                                                                entire procedure is depicted in Fig. 3.
+   Here, x is each instance for classification and µ is the vec-                   The C, γ, d, and r are kernel parameters. The choice of these
+tor containing the centroids for each feature in the form of a                  parameters is a crucial step toward an accurate classification. As
+multivariate feature vector as defined by                                       indicated in [49], the parameter definition was heuristically per-
+                                                                                formed. After a series of experiments, the kernel parameters are
+x = (x1 , x2 , . . . , xN )T , µ = (µ1 , µ2 , . . . , µN )T ,                   illustrated in Fig. 3. In this figure, an overview of the proposed
+                    where N is the total number of features.             (3)    attribute selection and classification scheme is presented. More
+                                                                                specifically, this figure visualizes the experimental model, which
+Σ denotes the covariance matrix of the normally distributed                     was formed according to the current trends in emotional theory
+training set for each class i that should be classified. The number             and gender differences in affective picture processing [30], [50].
+of the different classes that should be classified is denoted as M.             Therefore, the classification scheme is divided into two steps,
+   Therefore, the proposed classification scheme regarding the                  since the two affective variables are orthogonal and are also re-
+MD classifier is the following two-step procedure:                              garded as independent ones in the emotional theory [51]. More-
+   1) During the first stage, use either the MD1.1 or the MD1.2                 over, the classifiers are gender specific, since sex differences
+      according to the gender information. Each one employs                     occur during affective picture processing [50], [33]. The param-
+      a different set of feature vectors in order to be gender                  eter values for the three SVM kernels are also reported. The
+      specific. Classify each instance by labeling it as either                 number of selected attributes (NSA) used in each classifier is
+      high or low regarding the arousal dimension.                              also presented.
+   2) The valence discrimination is then performed given both                      The classification scheme and the values of the involved pa-
+      the output of the first step and the gender information.                  rameters are depicted analytically in the forthcoming section,
+      Therefore, the MD2.1 is used for the stimuli labeled as                   whereas the best results achieved for each kernel function are
+      highly arousing and derived from the male participants,                   also presented. Moreover, the results obtained by the MD metric
+      while the MD2.2 is used for the low arousing stimuli from                 are also depicted.
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+FRANTZIDIS et al.: TOWARD EMOTION AWARE COMPUTING                                                                                                                593
+
+
+
+                                                                                                                  TABLE I
+                                                                                        CLASSIFICATION RATES FOR EACH CLASSIFIER, STAGE, AND GENDER
+
+
+
+
+                                                                                   Fig. 4. Mahalanobis classifier’s performance for both the male (blue) and the
+                                                                                   female (red) subjects during each attribute’s addition for the arousal discrimina-
+                                                                                   tion step (left) and for the valence discrimination step for high arousing stimuli
+                                                                                   (middle) and for the low arousing stimuli (right).
+
+
+                                                                                   value only if the total number of the feature vectors used is
+                                                                                   smaller than the number of the columns of the covariance ma-
+Fig. 3. Stimuli distribution in the 2-D emotional space formed by the arousal      trix. The application of this convergence criterion is visualized
+and valence dimensions for female (left) and male (right) subjects. The pro-       in Fig. 4, where the performance of each Mahalanobis classifier
+posed feature selection and classification framework, which is derived from the    used in the proposed two-step architecture is reported.
+bidirectional emotional model regarding the arousal and valence dimensions
+as independent emotional variables. Mahalanobis and the SVM (three kernels)           Regarding the SVM classifiers, a ten-fold cross validation is
+classifiers are also presented. NSA index is also reported for each one discrim-   used. A more detailed description of the classification schemes
+ination scheme.                                                                    is given in Table II. The accuracy rates are reported in Table III,
+                                                                                   where the precision and recall features are presented as well as
+                               III. RESULTS                                        with the receiver operating characteristic (ROC) areas. The per-
+                                                                                   centage of the true and false positive labeling is also described.
+   The classification rates are presented in Table I. The arousal
+                                                                                   The true positive percentage is the number of items, which are
+classification for the whole (112) emotional set is initially per-
+                                                                                   correctly classified to the positive class, whereas the false pos-
+formed in the first step employing two independent and gender-
+                                                                                   itive percentage is the number of items, which are incorrectly
+specific schemes. So, both the male and female classification
+                                                                                   classified to the positive class.
+blocks have as input an equal number (56) of data instances of
+                                                                                      Toward the evaluation of the system’s accuracy, the overall
+neurophysiological importance, since there is an equal number
+                                                                                   classification rates are reported in Table IV, for each emotional
+of male and female participants in this study. After deriving
+                                                                                   category and for both classifiers (Mahalanobis and SVM) as
+the arousal dimension, the valence discrimination is performed
+                                                                                   derived by the proposed two-step classification framework. Re-
+by taking into consideration the obtained arousal and gender
+                                                                                   garding the SVM classifier, the kernel with the higher accuracy
+information.
+                                                                                   rate was selected for each one of the six discrimination schemes
+   Regarding the Mahalanobis classifiers, the classification steps
+                                                                                   (see Fig. 3).
+involved the successive addition of a feature vector each time
+until the convergence of each classification scheme is reached.
+However, the number of features used in such a classifier is                                                     IV. DISCUSSION
+limited by the size of the covariance matrix. Excessive num-                          In this piece of work, a classification (and a comparison)
+ber of feature vectors may potentially cause scaling effects and                   framework is proposed for the robust emotional discrimina-
+serious accuracy problems. Therefore, the convergence crite-                       tion of neurophysiological signals in line with the bidirectional
+rion adopted for this distance-based classification assumes the                    theory of emotions. The adopted emotional theory suggests
+addition of a new feature vector, in case it evokes a further im-                  that an emotional state may be described by two distinct vari-
+provement of the classification rate or strengthens its current                    ables, which is the activation level it elicits and the degree of
+
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+594                                                       IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE, VOL. 14, NO. 3, MAY 2010
+
+
+
+                              TABLE II                                                                      TABLE IV
+ DETAILED DESCRIPTION OF THE CLASSIFICATION STATISTICS FOR THE SVM                  SUMMARIZED DESCRIPTION OF THE CLASSIFICATION PERFORMANCE
+      CLASSIFIERS USED IN THE TWO-STEP CLASSIFICATION SCHEME                    OBTAINED BY EACH CLASSIFIER FOR THE FOUR EMOTIONAL CATEGORIES FOR
+                                                                                                 BOTH MALE AND FEMALE SUBJECTS
+
+
+
+
+                                                                               pleasantness/unpleasantness. Therefore, in close conjunction
+                                                                               with this emotional model, the proposed framework introduces
+                                                                               a two-step classification scheme. The first step is used to clas-
+                                                                               sify the elicited emotion as either high or low arousing, whereas
+                                                                               the second step further categorizes the emotional data as pleas-
+                                                                               ant or unpleasant. The gender information is also considered,
+                                                                               since there are growing evidence of differences in the emotional
+                                                                               processing between males and females [33], [50].
+                                                                                  The novelty of this study lies on the use of EEG features in
+                                                                               combination with a proposed two-step user-independent classi-
+                                                                               fication framework that integrates the basic notions of the bidi-
+                                                                               rectional emotional model. The proposed system architecture
+                                                                               is implemented by means of a distance-based (Mahalanobis)
+                                                                               classifier as well as with three SVM kernels (linear, polyno-
+                                                                               mial ad RBF). These classifiers were chosen instead of simpler
+                                                                               ones [k-NN, Euclidean distance, discriminant function analysis
+                                                                               (DFA)] due to their robustness, though their computational cost
+                                                                               is quite high. Moreover, the Mahalanobis classifier eliminates
+                                                                               the scaling of the coordinate axis as well as and correlation
+                                                                               effects between the used features [52].
+                                                                                  The SVM classifiers’ training was performed using a ten-fold
+                                                                               cross validation. Both the Mahalanobis classifier and the SVM
+                                                                               kernels seem to have comparable performance. The reliable
+                                                                               estimation of the emotional states by using the Mahalanobis
+                           TABLE III                                           classifier, requires an adequate number of feature vectors (in
+ACCURACY RATES FOR THE THREE SVM CLASSIFIERS DURING THE TWO-STEP
+              EMOTIONAL CLASSIFICATION FRAMEWORK                               this study 112), since the classification is based on the estimated
+                                                                               mean value of the feature vectors and the covariance matrix.
+                                                                                  The idea of the neurophysiological measurements’ contribu-
+                                                                               tion to the enhancement of the communication between users
+                                                                               and machines is not an innovative one [3], [27], [34], [53].
+                                                                               Early attempts focused on the development of user-dependent
+                                                                               classifiers by using multiple data segments from only a single
+                                                                               subject [27], [34]. These studies employed “intentionally ex-
+                                                                               pressed emotions,” such as those expressed by an actress [34].
+                                                                               The main goal of these studies was to highlight the advantages
+                                                                               of the biosignal monitoring in the HCI field. Several limitations
+                                                                               need to be confronted prior to their introduction in realistic
+                                                                               systems. The development of an application should deal with
+                                                                               stimuli presented in real life. It is necessary to simulate the
+                                                                               likely variation of neurophysiological responses to the same
+                                                                               emotional category or the overlapping responses occurred be-
+                                                                               tween different emotional states. There has been a recent shift
+                                                                               in research work [18] toward the use of the IAPS collection,
+                                                                               which provides a standardized database of photographic stimuli
+                                                                               of realistic scenes as well as, their normative ratings for both the
+                                                                               arousal and valence dimension. Due to the use of external stim-
+                                                                               uli, the simple classifiers [27], [34] adopted in the first works are
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+FRANTZIDIS et al.: TOWARD EMOTION AWARE COMPUTING                                                                                                           595
+
+
+
+                            TABLE V                                            four emotional states. There is definitely a need to further inves-
+   RECENT HCI STUDIES CONTAINING CLASSIFICATION FRAMEWORK FOR
+                       MULTIPLE SUBJECTS
+                                                                               tigate this issue in an upcoming work. It is also important to note
+                                                                               that the high classification rates of this study were derived from
+                                                                               analyzing data recorded from many different subjects, but only
+                                                                               on a single occasion and not repeatedly. It is however known that
+                                                                               the neurophysiological responses to the same stimulus present
+                                                                               day-to-day variations even when the participant exhibits the
+                                                                               same emotion. Future studies should focus on the reduction of
+                                                                               the intra-subject variability resulting in the formation of users’
+                                                                               neurophysiological profiles, which will give rise to personalized
+                                                                               emotion-aware applications. Future attempts may also focus on
+                                                                               simultaneous recordings from both the central and autonomic
+                                                                               nervous system, thereby enhancing the system reliability.
+
+                                                                                                            V. CONCLUSION
+                                                                                  A novel methodology utilizing the bidirectional cognitive
+no longer robust. It has been shown that a neural net classifier               model in order to elicit neurophysiological emotional responses,
+[like the multilayer perceptron (MLP)] in combination with a                   which are then classified by means of data mining approaches
+large amount of data will provide high classification accuracy                 was presented in this study. This integrative approach aimed
+for both the arousal and valence dimension [18].                               to deal with a plethora of open issues in the field of emotion
+   Despite the promising improvements of the previously de-                    aware computing by enriching the multiphysiological affective
+veloped classifiers when dealing with such types of stimuli,                   arsenal with a robust classification framework in close connec-
+the need for long-time tuning and the user-dependency are still                tion to current trends of emotional theory and to recent findings
+open issues. Several studies [35], [49], [54], [55], developed                 dealing with the neuronal mechanisms involved in the affective
+user-independent emotional classifiers with high classification                picture processing by the central nervous system. It is impera-
+rates (see Table V). Especially, two of them [49], [55] seem                   tive that formulating the scientific basis of emotion recognition
+very promising, since they reported very high classification                   may lead to an explosion of related applications. To this end,
+scores. They however required autonomic responses from long                    the importance of this work toward the robust discrimination
+presented stimuli (45-min movie clips) in order to elicit emo-                 of neurophysiological signals into emotional states/conditions
+tions [55], or they focused on emotional states during specific                evoked as responses to realistic stimuli cannot be overlooked.
+tasks, such as driving [49]. All these studies used features de-
+rived from measurements of the autonomic nervous system.
+There is, however, strong evidence that features extracted from                                                REFERENCES
+measurements of the central nervous system are more valuable                    [1] M. Pantic and L. J. M. Rothkrantz, “Toward an affect-sensitive multimodal
+indicators of the temporal brain activity [53], [11]. Despite the                   human–computer interaction,” Proc. IEEE, vol. 91, no. 9, pp. 1370–1390,
+potential beneficiary role of adopting such EEG features toward                     Sep. 2003.
+                                                                                [2] S. Petridis and M. Pantic, “Audiovisual laughter detection based on tempo-
+the enhancement of the HCI quality, no systematic attempts have                     ral features,” in Proc. 10th Int. Conf. Multimodal Interfaces (ICMI 2008),
+so far been made [47].                                                              Chania, Greece, Oct. 20–22, pp. 37–44.
+   The proposed system may provide both a theoretical and a                     [3] C. Lisetti, F. Nasoz, C. LeRouge, O. Ozyer, and K. Alvarez, “Developing
+                                                                                    multimodal intelligent affective interfaces for tele-home health care,” Int.
+classification framework of key importance to applications in the                   J. Hum.-Comput. Stud., vol. 59, no. 1–2, pp. 245–255, Jul. 2003.
+field of the HCI. The neurophysiological patterning combined                    [4] S. Favre, H. Salamin, J. Dines, and A. Vinciarelli, “Role recognition
+with the proposed classification procedure may be used in real-                     in multiparty recordings using social affiliation networks and discrete
+                                                                                    distributions,” in Proc. 10th Int. Conf. Multimodal Interfaces (ICMI 2008),
+life architectures, which will be able to detect the emotional                      Chania, Greece, Oct. 20–22, pp. 29–36.
+state of the users.                                                             [5] F. Pianesi, N. Mana, A. Cappelletti, B. Lepri, and M. Zancanaro, “Mul-
+   Then, anthropomorphic avatars may adapt its facial charac-                       timodal recognition of personality traits in social interactions,” in Proc.
+                                                                                    10th Int. Conf. Multimodal Interfaces (ICMI 2008), Chania, Greece, Oct.
+teristics in order either to mirror the user’s emotional mood in                    20–22, pp. 29–36.
+case of educational applications, such as virtual games, tutors,                [6] C. A. Frantzidis, C. Bratsas, M. Klados, E. Konstantinidis, C. D. Lithari,
+and specific web folkosonomies [7], [56], [57] or to take actions                   A. B. Vivas, C. Papadelis, E. Kaldoudi, C. Pappas, and P. D. Bamidis,
+                                                                                    “On the classification of emotional biosignals evoked while viewing af-
+toward neutralizing their negative feeling in case of telemedicine                  fective pictures: An integrated data mining based approach for healthcare
+(remote monitoring) applications [2]–[6].                                           applications,” IEEE Trans. Inf. Technol. Biomed., vol. 14, no. 2, 2010.
+   Despite its novelty, the proposed methodology presents cer-                      DOI: 10.1109/TITB.2009.2038481.
+                                                                                [7] A. Luneski, E. I. Konstantinidis, M. Hitoglou-Antoniadou, and P. D.
+tain limitations. The selected electrode locations of the EEG                       Bamidis, “Affective computer-aided learning for autistic children,” pre-
+signals used for further analysis were based on findings from                       sented at the 1st Workshop Child, Comput. Interact. (ICMI 2008), Chania,
+previous works in the field [11], [28], [38], [47]. No effort was                   Greece, Oct. 20–23.
+                                                                                [8] E. Hudlicka, “To feel or not to feel: The role of affect in human–computer
+made to select the optimal electrode locations and the minimum                      interaction,” Int. J. Hum.-Comput. Stud., vol. 59, no. 1–2, pp. 1–32, Jul.
+number of electrodes that will optimize the classifying of the                      2003.
+
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+596                                                            IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE, VOL. 14, NO. 3, MAY 2010
+
+
+
+ [9] B. Reeves and C. Nass, The Media Equation: How People Treat Comput-              [31] A. Gasbarri, B. Arnone, A. Pompili, F. Pacitti, C. Pacitti, and L. Cahill,
+     ers. Cambridge, U.K.: Cambridge Univ. Press, 1996.                                    “Sex related hemispheric lateralization of electrical potentials evoked by
+[10] R. W. Picard, “Affecting Computing for HCI,” in Proc. 8th Int. Conf.                  arousing negative stimuli,” Brain Res., vol. 1138, pp. 178–186, Mar.
+     Human-Comput. Interact.: Ergonom. User Interfaces, vol. I, Lawrence                   2007.
+     Erlbaum Associates, Inc., Mahwah, NJ, 1999.                                      [32] B. Rozenkrants and J. Polich, “Affective ERP processing in a visual odd-
+[11] P. D. Bamidis, C. A. Frantzidis, E. I. Konstantinidis, A. Luneski, C. Lithari,        ball task: Arousal, valence and gender,” Clin. Neurophysiol., vol. 119,
+     M. A. Klados, C. Bratsas, C. L. Papadelis, and C. Pappas, “An inte-                   no. 10, pp. 2260–2265, Oct. 2008.
+     grated approach to emotion recognition for advanced emotional intelli-           [33] C. Lithari, C. Frantzidis, C. Papadelis, A. B. Vivas, M. Klados,
+     gence,” in Lecture Notes in Computer Science, Affective Dialogue Systems,             C. Kourtidou-Papadeli, C. Pappas, A. A. Ioannides, and P. D. Bamidis,
+     vol. 3068, Berlin, Germany/Heidelberg: Springer-Verlag, 2009, pp. 36–48.              “Are females more sensitive to emotional stimuli? A neurophysiological
+[12] J. A. Russell, “A circumplex model of affect,” J. Pers. Soc. Psychol.,                study across arousal and valence dimensions,” Brain Topography, vol. 23,
+     vol. 39, no. 6, pp. 1161–1178, Dec. 1980.                                             no. 1, pp. 27–40, Mar. 2010.
+[13] D. Watson and A. Tellegen, “Toward a consensual structure of mood,”              [34] J. Healey and R. W. Picard, “Digital processing of affective signals,” in
+     Psychol. Bull., vol. 98, no. 2, pp. 219–235, Sep. 1985.                               Proc. 1998 IEEE Int. Conf. Acoust., Speech Signal Process., May 12–15,
+[14] M. M. Bradley, M. Codispoti, B. N. Cuthbert, and P. J. Lang, “Emotion and             vol. 6, pp. 3749–3752.
+     motivation. I: Defensive and appetitive reactions in picture processing,”        [35] F. Nasoz, C. L. Lisetti, K. Alvarez, and N. Finkelstein, “Emotion recogni-
+     Emotion, vol. 1, no. 3, pp. 276–298, Sep. 2001.                                       tion from physiological signals for user modeling of affect,” presented at
+[15] P. J. Lang, M. M. Bradley, and B. N. Cuthbert, “International affective               the 3rd Workshop Affective and Attitude User Modeling, Pittsburgh, PA,
+     picture system (IAPS): Technical manual and affective ratings,” NIMH                  2003.
+     Center for the Study of Emotion and Attention, Gainesville, FL, 1997.            [36] The Affection Project: Enabling multi-channel physiological sensing for
+[16] H. T. Schupp, “Affective picture processing: The late positive potential is           direct adaptation of computer user interfaces in affective interaction
+     modulated by motivational relevance,” Psychophysiology, vol. 37, no. 2,               paradigms. (2008, Nov.). [Online]. Available: http://kedip.med.auth.gr/
+     pp. 257–261, Mar. 2003.                                                               affection
+[17] A. Keil, M. M. Bradley, O. Hauk, B. Rockstroh, T. Elbert, and P. J. Lang,        [37] A. Delaurme and S. Makeig, “EEGLAB: An open source toolbox for
+     “Large-scale neural correlates of affective picture processing,” Psy-                 analysis of single-trial EEG dynamics including independent compo-
+     chophysiology, vol. 39, no. 5, pp. 641–649, Mar. 2003.                                nent analysis,” J. Neurosci. Methods, vol. 134, no. 1, pp. 9–21, Mar.
+[18] A. Haag, S. Goronzy, P. Schaich, and J. Williams, “Emotion recog-                     2004.
+     nition using bio-sensors: First steps towards an automatic system,”              [38] A. G. Correa, E. Laciar, H. D. Patiño, and M. E. Valentinuzzi, “Arti-
+     in Lecture Notes in Computer Science, Affective Dialogue Systems,                     fact removal from EEG signals using adaptive filters in cascade,” pre-
+     vol. 3068, Berlin, Germany/Heidelberg: Springer-Verlag, 2004, pp. 36–                 sented at the 16th Argentine Bioeng. Congr. the 5th Conf. Clin. Eng., J.
+     48.                                                                                   Phys.: Conf. Series. Bristol, U.K.: IOP Publishing, 2007, vol. 90, 012081.
+[19] G. Chanel, J. Kronegg, D. Grandjean, and T. Pun, “Emotion assessment:                 DOI: 10.1088/1742-6596/90/1/012081.
+     Arousal evaluation using EEG’s and peripheral physiological signals,” in         [39] M. A. Klados, C. Frantzidis, A. B. Vivas, C. Papadelis, C. Pappas,
+     Lecture Notes in Computer Science, Multimedia Content Representation,                 and P. D. Bamidis. (2009, Jul. 8). A framework combining delta event-
+     Classification and Security. vol. 4105, Berlin, Germany/Heidelberg:                   related oscillations (EROs) and synchronization effects (ERD/ERS) to
+     Springer-Verlag, 2006, pp. 530–537.                                                   study emotional processing, Comput. Intell. Neurosci. [Online], Available:
+[20] S. V. Ioannou, A. T. Raouzaiou, V. A. Tzouvaras, T. P. Mailis, K. C. Kar-             http://www.hindawi.com
+     pouzis, and S. D. Kollias, “Emotion recognition through facial expression        [40] G. A. Giannakakis, N. N. Tsiaparas, M.-F. S. Xenikou, C. Papageorgiou,
+     analysis based on a neurofuzzy network,” Neural Netw., vol. 18, no. 4,                and K. S. Nikita, “Wavelet entropy differentiations of event related po-
+     pp. 423–435, May 2005.                                                                tentials in dyslexia,” presented at the 8th IEEE Int. Conf. BioInformatics
+[21] M.-H. Yang, D. J. Kriegman, and N. Ahuja, “Detecting faces in images: A               Bioeng. (BIBE 2008), Athens, Greece, Oct. 8–10.
+     survey,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 24, no. 1, pp. 34–58,     [41] R. Q. Quiroga, O. W. Sakowitz, E. Basar, and M. Schurmann, “Wavelet
+     Jan. 2002.                                                                            transform in the analysis of the frequency composition of evoked poten-
+[22] P.-Y Oudeyer, “The production and recognition of emotions in speech:                  tials,” Brain Res. Protoc., vol. 8, no. 1, pp. 16–24, Aug. 2001.
+     Features and algorithms,” Int. J. Hum.-Comput. Stud., vol. 59, no. 1–2,          [42] H. Adeli, Z. Zhou, and N. Dadmehr, “Analysis of EEG records in an
+     pp. 157–183, Jul. 2003.                                                               epileptic patient using wavelet transform,” J. Neurosci. Methods, vol. 123,
+[23] V. I. Pavlovic, “Visual interpretation of hand gestures for human–computer            no. 1, pp. 69–87, Feb. 2003.
+     interaction: A review,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 19,        [43] S. G. Mallat, “Multiresolution approximations and wavelet orthonormal
+     no. 7, pp. 677–695, Jul. 1997.                                                        bases of L2(R),” Trans. Amer. Math. Soc., vol. 315, no. 1, pp. 69–87, Sep.
+[24] M. Miki, C. Miyajima, T. Nishino, N. Kitaoka, and K. Takeda, “An in-                  1989.
+     tegrative recognition method for speech and gestures,” in Proc. 10th Int.        [44] B. Krishnapuram, “A Bayesian approach to joint feature selection and
+     Conf. Multimodal Interfaces (ICMI 2008), Chania, Greece, Oct. 20–22,                  classifier design,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 26, no. 9,
+     pp. 93–96.                                                                            pp. 1105–1111, Sep. 2004.
+[25] W. Hu, T. Tan, L. Wang, and A. Maybank, “A survey on visual surveillance         [45] E. Kaimakamis, C. Bratsas, L. Sichletidis, C. Karvounis, and N. Maglav-
+     of object motion and behaviors,” IEEE Trans. Syst., Man, Cybern. C, Appl.             eras, “Screening of patients with obstructive sleep apnea syndrome using
+     Rev., vol. 34, no. 3, pp. 334–362, Aug. 2004.                                         C4.5 algorithm based on nonlinear analysis of respiratory signals dur-
+[26] A. T. Duchowski, “A breadth-first survey of eye-tracking applications,”               ing sleep,” presented at the 31st IEEE Int. Conf. Eng. Med. Biol. Soc.,
+     Behav. Res. Methods, Instrum. Comput., vol. 34, no. 4, pp. 455–470, Nov.              Minneapolis, MN, Sep. 2–6, 2009, Piscataway, NJ: IEEE Press.
+     2002.                                                                            [46] I. Guyon, J. Weston, S. Barnhill, and V. Vapnik, “Gene selection for cancer
+[27] R. W. Picard, E. Vyzas, and J. Healey, “Toward machine emotional                      classification using support vector machines,” Mach. Learn., vol. 46,
+     intelligence: Analysis of affective physiological state,” IEEE Trans.                 no. 1–3, pp. 389–422, Jan. 2002.
+     Pattern Anal. Mach. Intell., vol. 23, no. 10, pp. 1175–1191, Oct.                [47] C. A. Frantzidis, C. D. Lithari, A. B. Vivas, C. L. Papadelis, C. Pappas, and
+     2001.                                                                                 P. D. Bamidis, “Towards emotion aware computing: A study of arousal
+[28] B. N. Cuthbert, H. T. Schupp, M. M. Bradley, N. Birbaumer, and P. J.                  modulation with multichannel event related potentials, delta oscillatory
+     Lang, “Brain potentials in affective picture processing: Covariation with             activity and skin conductiviy responses,” presented at the 8th IEEE Int.
+     autonomic arousal and affective report,” Biol. Psychol., vol. 52, no. 2,              Conf. BioInformatics Bioeng. (BIBE 2008), Athens, Greece, Oct. 8–10.
+     pp. 95–111, Mar. 2000.                                                           [48] C. Cortes and V. Vapnik, “Support-vector networks,” Mach. Learn.,
+[29] C. Amrhein, A. Muhlberger, P. Pauli, G. Wiedermann et al., “Modulation                vol. 20, no. 3, pp. 273–297, Sep. 1995.
+     of event-related brain potentials during affective picture processing: A         [49] C. D. Katsis, N. Katertsidis, G. Ganiatsas, and D. I. Fotiadis, “Toward emo-
+     complement to startle reflex and skin conductance response?,” Int. J.                 tion recognition in car-racing drivers: A biosignal processing approach,”
+     Psychophysiol., vol. 54, no. 3, pp. 231–240, Nov. 2004.                               IEEE Trans. Syst., Man, Cybern. A, Syst. Hum., vol. 38, no. 3, pp. 502–512,
+[30] P. J. Lang, M. M. Bradley, and B. N. Cuthbert, “Motivated attention:                  May 2008.
+     Affect, activation and action,” in Attention and Orienting: Sensory and          [50] M. M. Bradley, M. Codispoti, D. Sabatinelli, and P. J. Lang, “Emotion and
+     Motivational Processes, P. J. Lang, R. F. Simons, and M. T. Balaban, Eds.             motivation. I: Defensive and appetitive reactions in picture processing,”
+     Hillsdale, NJ: Erlbaum, 1997.                                                         Emotion, vol. 1, no. 3, pp. 300–319, Sep. 2001.
+
+
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+FRANTZIDIS et al.: TOWARD EMOTION AWARE COMPUTING                                                                                                                    597
+
+
+
+[51] P. J. Lang, M. M. Bradley, and B. N. Cuthbert, “Emotion, motivation, and                                    Evdokimos Konstantinidis received the Diploma
+     anxiety: Brain mechanisms and psychophysiology,” Biol. Psychiatry,                                          degree in electronic engineering from the Tech-
+     vol. 44, no. 12, pp. 1248–1263, Dec. 1998.                                                                  nological Educational Institute of Thessaloniki,
+[52] F. Cincotti, D. Mattia, C. Babiloni, F. Carducci, S. Salinari, L. Bianchi,                                  Thessaloniki, Greece, in 2004, and the M.Sc. de-
+     M. G. Marciani, and F. Babiloni, “The use of EEG modifications due to                                       gree in medical informatics from Aristotle Univer-
+     motor imagery for brain-computer interfaces,” IEEE Trans. Neural Syst.                                      sity of Thessaloniki (AUTH), Thessaloniki, Greece,
+     Rehabill. Eng., vol. 11, no. 2, pp. 131–133, Jun. 2003.                                                     in 2008. He is currently working toward the Ph.D. de-
+[53] P. D. Bamidis, C. Papadelis, C. Kourtidou-Papadeli, C. Pappas, and A. B.                                    gree in the Laboratory of Medical Informatics, Med-
+     Vivas, “Affective computing in the era of contemporary neurophysiology                                      ical School, AUTH.
+     and health informatics,” Interacting Comput., vol. 16, no. 4, pp. 715–721,                                      His current research interests include health and
+     Aug. 2004.                                                                                                  medical information system design, affective com-
+[54] K. H. Kim, S. W. Bang, and S. R. Kim, “Emotion recognition system                 puting, and medical data acquisition systems.
+     using short-term monitoring of physiological signals,” Med. Biol. Eng.
+     Comput., vol. 42, no. 3, pp. 419–427, Apr. 2006.
+[55] C. L. Lisetti and F. Nasoz, “Using noninvasive wearable computers to
+     recognize human emotions from physiological signals,” EURASIP J.
+     Appl. Signal Process., vol. 2004, no. 11, pp. 1672–1687, Apr. 2004.
+[56] S. K. D’Mello, S. D. Craig, J. Sullins, and A. C. Graesser, “Predicting
+     affective states expressed through an emote-aloud procedure from autotu-
+     tor’s mixed-initiative dialogue,” Int. J. Artif. Intell. Educ., vol. 16, no. 1,                             Costas Pappas received the M.D. and Ph.D. degrees,
+     pp. 3–28, Jan. 2006.                                                                                        in 1971 and 1975, respectively, both from Aristo-
+[57] M. N. K. Boulos and S. Wheeler, “The emerging Web 2.0 social soft-                                          tle University of Thessaloniki (AUTH), Thessaloniki,
+     ware: An enabling suite of sociable technologies in health and health care                                  Greece.
+     education,” Health Inf. Libraries J., vol. 24, no. 1, pp. 2–23, Mar. 2007.                                      In 1989, he founded the Laboratory of Medical
+                                                                                                                 Informatics, Medical School, AUTH, where he is
+                                                                                                                 currently the Director. His research interests include
+                         Christos A. Frantzidis received the Diploma de-                                         neurophysiology (analysis of bioelectric signals, neu-
+                         gree in electrical and computer engineering, in 2006,                                   ral networks, and simulation of biological systems)
+                         and the M.Sc. degree in medical informatics, in                                         and medical informatics (health information systems,
+                         2008, both from Aristotle University of Thessaloniki                                    signal/image processing, expert systems, and educa-
+                         (AUTH), Thessaloniki, Greece. He is currently work-           tional information systems).
+                         ing toward the Ph.D. degree in applied neuroscience              Dr. Pappas has also been the President of the Regional Health Authority of
+                         with the Laboratory of Medical Informatics, Medical           West Macedonia, Greece (2001–2004).
+                         School, AUTH.
+                             His current research interests include affective
+                         and physiological computing, human–computer in-
+                         teraction, medical expert systems, and nonlinear
+(bio)medical informatics with emphasis on neurophysiological sensing.
+
+
+                                                                                                                   Panagiotis D. Bamidis (M’09) received the Diploma
+                          Charalampos Bratsas (M’06) received the Diploma                                          degree in physics from the Aristotle University of
+                          degree in mathematics, in 1999, the M.Sc. degree in                                      Thessaloniki (AUTH), Thessaloniki, Greece in 1990,
+                          medical informatics, in 2002, and the Ph.D. degree,                                      the M.Sc. (with distinction) degree in medical physics
+                          in 2008, all from Aristotle University of Thessaloniki                                   from the University of Surrey, Guildford, U.K., in
+                          (AUTH), Thessaloniki, Greece.                                                            1992, and the Ph.D. degree in bioelectromagnetic
+                              He has been involved in various projects in the                                      brain function analysis and imaging from the Open
+                          area of medical informatics. He was also engaged in                                      University, Milton Keynes, U.K., in 1996.
+                          knowledge management and semantic representation                                             He is currently an Assistant Professor in the
+                          of medical computational problems. He is currently                                       Laboratory of Medical Informatics, Medical School,
+                          with the Laboratory of Medical Informatics, AUTH,                                        AUTH. His research interests include health informa-
+                          where he is engaged in R&D, and also an Associated           tion management, affective and physiological computing and human–computer
+Teaching Staff in information systems at Hellenic Open University, Patras,             interaction, (bio)medical informatics with emphasis on neurophysiological sens-
+Greece. His research interests include semantic web, applications of artificial        ing and ambient assisted living, collaborative e-learning, content sharing and
+intelligence, neuroinformatics, collaborative e-learning, and medical education        repurposing, and medical education informatics.
+informatics.
+
+
+
+                           Christos L. Papadelis received the Diploma degree
+                           in electrical engineering, in 1998, and the M.Sc. and
+                           Ph.D. degrees in medical informatics, in 2001 and
+                           2005, respectively, all from Aristotle University of
+                           Thessaloniki, Thessaloniki, Greece.
+                               From 2005 to 2008, he was a Researcher in the
+                           Laboratory of Human Brain Dynamics, RIKEN In-
+                           stitute, Japan. He is currently a Postdoctoral Fellow
+                           Researcher in the Laboratory of Magnetoencephalog-
+                           raphy, Center for Mind/Brain Sciences, University of
+                           Trento, Trento, Italy. He is an Associate Editor of the
+Journal of Information Technology Research, and a Reviewer in more than ten
+peer-reviewed journals. His research interests include the localization of high-
+frequency oscillations, the localization accuracy of inverse modeling techniques
+in magnetoencephalography (MEG) analysis, and clinical electrophysiology.
+
+
+
+          Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:14:41 UTC from IEEE Xplore. Restrictions apply.
+

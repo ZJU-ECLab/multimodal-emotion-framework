@@ -1,0 +1,564 @@
+                                             Available online at www.sciencedirect.com
+                                             Available online at www.sciencedirect.com
+                                       Available online at www.sciencedirect.com
+
+
+                                                 ScienceDirect
+                                              Procedia Computer Science 00 (2019) 000–000
+                                              Procedia
+                                           Procedia    Computer
+                                                    Computer    Science
+                                                             Science 17900 (2019)
+                                                                         (2021)   000–000
+                                                                                781–788                             www.elsevier.com/locate/procedia
+                                                                                                                    www.elsevier.com/locate/procedia
+
+      5th International Conference on Computer Science and Computational Intelligence 2020
+      5th International Conference on Computer Science and Computational Intelligence 2020
+   Enhancing Player Experience in Game With Affective Computing
+   Enhancing Player Experience in Game With Affective Computing
+   Doyo Setionoaa , David Saputraaa , Kaleb Putraaa , Jurike V. Moniagaaa , Andry Chowandaa,∗
+   Doyo Setiono
+         a
+                  , David Saputra , Kaleb Putra , Jurike V. Moniaga , Andry Chowandaa,∗
+                Computer Science Department, School of Computer Science, Bina Nusantara University, Jakarta, 11480, Indonesia
+               a Computer Science Department, School of Computer Science, Bina Nusantara University, Jakarta, 11480, Indonesia
+
+
+
+
+Abstract
+Abstract
+This research aims to implement Affective Computing as part of game design by capturing, processing, and interpreting the player’s
+This  research
+emotions    to aims
+               enhanceto the
+                          implement
+                              player’sAffective    Computing
+                                         experience in           as part
+                                                          the game.   Weofargue
+                                                                             gameby design by capturing,
+                                                                                       implementing        processing,
+                                                                                                      affective                      gamethe
+                                                                                                                            interpreting
+                                                                                                                       and in the
+                                                                                                                 computing                   willplayer’s
+                                                                                                                                                   statis-
+emotions to
+tically        enhance
+         enhance   the the
+                       playersplayer’s
+                                 game experiences.inTwo   the game.
+                                                              almostWe     argue by
+                                                                       identical  gamesimplementing
+                                                                                          designed andaffective  computing
+                                                                                                          developed  to prove    the claim.
+                                                                                                                             in the  game willOne statis-
+                                                                                                                                                    game
+tically   with thethe
+imbuedenhance          playerscomputing
+                    affective                 system byTwo
+                                 game experiences.            almost players
+                                                           capturing   identical  games designed
+                                                                                emotions            and
+                                                                                           from their     developed
+                                                                                                       facial        to prove
+                                                                                                              expressions                           game
+                                                                                                                                              One when
+                                                                                                                                     claim.input,
+                                                                                                                                thegame
+                                                                                                                           as the
+imbued
+the otherwith
+           game theonly
+                    affective   computing
+                         implement     a touchsystem  bysystem
+                                                 screen    capturing   players
+                                                                  for the       emotions
+                                                                           input.  Both games          facialevaluated
+                                                                                                 theirwere
+                                                                                           from then          expressions  as the
+                                                                                                                       in two              input,
+                                                                                                                                   gameof 50
+                                                                                                                                groups              when
+                                                                                                                                                 respon-
+the other
+dents      game
+       in each     only A
+                 group.  implement
+                            combinationa touch   screen system
+                                            of Game    Experiencesfor the input.   Bothand
+                                                                       Questionnaire     games then
+                                                                                            Immersiveness   evaluated in
+                                                                                                      were Game           two groups
+                                                                                                                    Questionnaire     used       respon-
+                                                                                                                                             50evaluate
+                                                                                                                                          of to
+dents  in each
+the game         group.
+             player      A combination
+                     experiences    in thisofresearch.
+                                                Game Experiences
+                                                         The result Questionnaire
+                                                                       concludes thatand    Immersiveness
+                                                                                         most  of the game Game     Questionnaire
+                                                                                                              experiences   score inused     to evaluate
+                                                                                                                                        the game     with
+FERgame
+the   system player  experiences
+                implemented      wasinstatistically
+                                        this research.   The result
+                                                    increased          concludes
+                                                                compared      to thethat
+                                                                                      onemost  of the
+                                                                                          with-out       FER experiences
+                                                                                                    thegame                 score in the
+                                                                                                               system implemented,           game
+                                                                                                                                         except   forwith
+                                                                                                                                                       Q3
+FER
+(p    systemand Q9
+    = 0.06),    implemented      was statistically increased compared to the one with-out the FER system implemented, except for Q3
+                       (p = 0.08).
+(p = 0.06), and Q9 (p = 0.08).
+
+©c 2021
+   2020 The
+          The Authors.
+                Authors. Published
+                           Published byby Elsevier
+                                           Elsevier B.V.
+                                                     B.V.
+c 2020
+This
+This  is  The
+      is an
+         an     Authors.
+             open
+             open  accessPublished
+                   access  article     by Elsevier
+                            article under
+                                    under   the
+                                            the CC   B.V.
+                                                 CC BY-NC-ND
+                                                     BY-NC-ND      license
+                                                                    license (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+                                                                             (https://creativecommons.org/licenses/by-nc-nd/4.0)
+This is  an open
+Peer-review
+Peer-review        access
+               under
+                under      article under
+                      responsibility
+                        responsibility  ofofthethe
+                                           the   CC BY-NC-ND
+                                                scientific         license
+                                                           committee
+                                                   scientific  committee     (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+                                                                        of theof5theInternational  Conference
+                                                                                      5th International          on Computer
+                                                                                                          Conference            Science Science
+                                                                                                                        on Computer        and Compu- and
+Peer-review
+Computational
+tational       under  responsibility
+                   Intelligence
+          Intelligence   2020.     2020of the scientific committee of the 5th International Conference on Computer Science and Compu-
+tational Intelligence 2020.
+Keywords: Affective Computing; Facial Expression Recognition; Virtual Pet Simulation; Game Experiences
+Keywords: Affective Computing; Facial Expression Recognition; Virtual Pet Simulation; Game Experiences
+
+
+
+1. Introduction
+1. Introduction
+   Game experience has been one of the metrics to measure how successful the game will be. Positive experiences
+   Game experience
+perceived               hasduring
+            by the players  been one     of theresulted
+                                    the game    metricsintothe
+                                                             measure
+                                                                positivehow   successful
+                                                                          review            the game
+                                                                                   of the game,         willtobe.
+                                                                                                   leading        increase experiences
+                                                                                                               an Positive  of the game
+perceived   by the players during   the game   resulted  in the positive  review   of the  game,   leading
+sales. On the other hand, negative experiences resulted in the brink of the death of the game. The game     to an increase  of the game
+                                                                                                                        experiences   are
+sales. On  the other hand,  negative   experiences   resulted  in the brink  of  the death   of the game.   The  game
+generally composed by the interactions transpire within games. Players can interact with the other players, Non-Player  experiences   are
+generally  composed    by the  interactions  transpire  within  games.   Players   can  interact  with  the other
+Characters (NPCs), environments, and also the other objects inside the games. Enhancing game player experiences    players, Non-Player
+Characters    (NPCs),
+can be achieved    withenvironments,
+                         several methods.and also  the other objects
+                                              The prevalent    methodsinside     the games.
+                                                                          to enhance     gameEnhancing       game player
+                                                                                                 player experiences         experiences
+                                                                                                                       involved   by not
+can be  achieved   with  several  methods.    The  prevalent   methods    to enhance     game    player  experiences
+limited to generating realistic environment (e.g. objects, worlds), creating abundant contents (e.g. quests, story,    involved   by not
+                                                                                                                                       or
+limited  to  generating  realistic environment     (e.g.  objects,  worlds),  creating    abundant    contents
+worlds), composing a marvellous game story. Those methods ostensibly will increase the player experiences while  (e.g. quests,  story, or
+worlds),  composing    a  marvellous    game   story. Those   methods    ostensibly    will  increase   the  player
+playing games as the player’s emotions were involved and played by the interaction within games. Hence, the player’s experiences   while
+emotionsgames
+playing          as the player’s
+           also paramount         emotions
+                             to the          were involved
+                                     player experiences       andthey
+                                                           when    played
+                                                                       are by   the interaction
+                                                                            playing   in the game  within
+                                                                                                     1,2 games. Hence, the player’s
+                                                                                                        . Players can feel angry if the
+emotions also paramount to the player experiences when they are playing in the game 1,2 . Players can feel angry if the
+
+ ∗ Corresponding author. +6221- 5345830
+ ∗ Corresponding author. +6221- 5345830
+   E-mail address: achowanda@binus.edu
+   E-mail address: achowanda@binus.edu
+1877-0509  c 2020 The Authors. Published by Elsevier B.V.
+1877-0509
+1877-0509
+This is an c 2021
+            © 2020
+           open     The
+                access  Authors.
+                         Authors.
+                    Thearticle           CC by
+                                   Published
+                                   Published
+                               under the     by  Elsevier B.V.
+                                                 Elsevier B.V.
+                                             BY-NC-ND     license (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+This  isan
+This is  anopen
+            openaccess
+                  access  article
+                       article    under
+                               under     the BY-NC-ND
+                                             CC BY-NC-ND        license   (https://creativecommons.org/licenses/by-nc-nd/4.0)
+Peer-review  under responsibility of the CC
+                                         scientific       license
+                                                    committee     (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+                                                               of the 5th International Conference on Computer Science and Computational Intelli-
+Peer-review under responsibility of the scientific committee of the 5th International Conference on Computer Science and
+Peer-review
+gence  2020. under responsibility of the scientific committee of the 5th International Conference on Computer Science and Computational Intelli-
+Computational Intelligence 2020
+gence 2020.
+10.1016/j.procs.2021.01.066
+782                                  Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788
+2                                   Doyo et al / Procedia Computer Science 00 (2019) 000–000
+
+game quest or task is too challenging to be done, or sad when the characters in the game story die, also players can feel
+happy when they got a legendary item. During the games, players are naturally conveying their emotions, voluntarily
+responding to the interactions that happened in the game. Those emotions are perceivable via their facial expressions,
+words and voice prosody (e.g. when they are swearing, or cheering), also from the frequency or force they use when
+they are pressing the game input button (e.g. touchscreen, joystick, mouse, or keyboard). Those captured emotions
+can be used as a part of game design to enhance the players game experiences 3,4,2,5 .
+    The term of Affective Computing was coined in the early of 90s to describe the field of “Computing that relates
+to, arises from, or deliberately influences emotions” 6 . Affective Computing framework allows a system or a computer
+to capture, process, interpret and convey emotions. This research aims to implement Affective Computing as part of
+game design by capturing, processing, and interpreting the player’s emotions to enhance the player’s experience in
+the game. However, it is a cumbersome task to blend the emotions factor to games without decreasing the experiences
+that have been offered by the game itself. Interpreting wrong emotions, or conveying inappropriate emotions resulted
+in the breaking of the interaction, leading to the diminishing of the player game experience. The research questions
+of using Affective Computing as the part of game design are: RQ1: Which emotions should be captured to enhance
+the players game experience?; RQ2: How to fuse the elements of the emotions in the game?; and RQ3: Will affective
+computing enhance the players game experience? In this paper, we argue by implementing affective computing in the
+game will statistically enhance the players game experiences (H1 ). The paper is organised as follows: Next section
+describes the recent works done in the field of affective computing in the game as well as what have been done to
+increase the game player experiences. The proposed method of this research is thoroughly illustrated in the Proposed
+Method section. Moreover, the discussion of the results is comprehensively described in the Results and Discussion
+section. Finally, the conclusion of the implication of the research and the future research direction are described in the
+last section.
+
+
+2. Recent Work
+
+    While Affective Computing topic has been around for more than two decades, implementing Affective Computing
+is still considered as in the infancy state. The ultimate goal of the game is to make players satisfy when, and after
+playing the game. The game designers are competing to create a game that offers the best game player experiences.
+This section aims to comprehensively describe the recent work done in enhancing game player experiences. Subsection
+Enhancing Player Experience explains the efforts done to enhance the player experiences in the game. In contrast,
+subsection Affective Computing in Game describes what the recent implementation in affective computing is, what is
+affective computing in the game means, and how it helps the game to improve the game player experiences.
+
+2.1. Enhancing Player Experience
+
+   The paramount aspect when playing a game is the player’s experiences. Positive game experiences lead to the
+increase of the game popularity and vice versa. Several techniques have been done to enhance the player experiences
+in the game. The renowned methods to increase the player experiences in the game are, but not limited to: building
+a realistic environment, creating a masterpiece story, and crafting complex scenarios, objects, and characters in the
+game. Those methods are currently being implemented by most of the commercial game companies. In addition
+to those techniques, recently researchers and game designers are also working in collaborating social aspect in the
+game 7,3,4 , implementing mixed reality concept in the game 8 , and integrating emotions (i.e. affect) as the element of
+game design 9,3,4,5,2 .
+   Social presence in digital game worlds evidently enhances the players experience in the game. Several research
+have shown, by imbuing social aspects in the game, statistically increasing the game player experiences both as
+individual and as a group 7,3,4 . Similar results also can be concluded from the research done by Hudson, et al. 10 ,
+where social interaction in the game increasing in satisfaction and loyalty, leading to the increasing of game player
+experiences. Inculcating social aspects also empirically enhance the player’s immersiveness and engagement, resulting
+in a positive game player experiences. Another method to increasing game player experience is to integrating mixed
+reality concept in the game, where the players are able to interact with objects in both realities (i.e. the real world)
+and virtual location (i.e. the game worlds). Research has shown that using location-based system (e.g. GPS) in the
+                                      Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788                 783
+                                    Doyo et al / Procedia Computer Science 00 (2019) 000–000                                3
+
+game, where the locations in the game world blend into locations in the real world, were increasing the players
+experiences 11,12,8,13 . With GPS, the devices (e.g. mobile phones) are able to point the location of the players exactly,
+and the game will adjust the game states, worlds, and events based on the player’s location. Eventually, it will increase
+the player’s immersiveness and engagement during the game. Imbuing emotions to the game design elements also
+evidently enhancing the game player experiences. Similar to the other methods, emotions play an important part in
+the player’s immersiveness and engagement during the game. Affect system can be implemented to regulate NPC’s
+emotions system 3,4 , building dynamic game balancing 5,2 , and conveying the emotions 9 . A comprehensive discussion
+on affective computing in the game is thoroughly presented in the next subsection.
+
+2.2. Affective Computing in Game
+
+   In contrast with the affective computing framework implementation in general (e.g. in the health system, or security
+system), affective computing framework implementation in a game environment is still in the state of infancy. It is
+a cumbersome task to implement affect (i.e. emotions) to a socially ignorant computer 6,4 . Moreover, research in
+implementing Affective Computing in the game is still considered as blue-sky research, where the implementation in
+a real-world is still a challenge. There are several variables and aspects of the affect that are still unknown for its effect
+on the game player experiences. The combination of variables and aspects in the affect also still have not all been
+explored yet. Hence, this makes the implementation of affective computing in the game is still either simple to avoid
+unknown complex effect in the game player experiences, or done in an ad-hoc manner, where the variables settings
+are only best performed in particular scenarios in the game. Affective computing framework can be implemented in
+several methods in the game: capture and recognising the emotions, process the emotions and conveying the emotions.
+Emotions can be captured via facial expressions, voice prosody (e.g. pitch, intonation, and pattern) or the combination
+of those two 3,4 . Emotions can be processed using computational models of emotions 14,15,3,4 so the NPCs are able
+to regulate their emotions bases on their environments and act based on their regulated emotions 3,4 . In addition,
+the emotions also can be conveyed by the NPCs via their facial expressions, actions, and also voice prosody 3,4,16 .
+Most of the results of affective computing framework implementation in the game were consistent with the initial
+alternative hypothesis where a game with affective computing involved, statistically providing more immersiveness
+and engagements aspects, leading to the increasing the game player experiences.
+
+
+3. Proposed Method
+
+
+
+
+                                                    Fig. 1. Proposed Method
+
+
+   There are four phases in the proposed methods of this research (see Fig.1): Literature review and user requirements
+gathering, game design, game development, and evaluation. As the first step, a literature review was performed to
+understand what has been done in this area, and what are the problems and gaps. In this research. This research aims
+to implement Affective Computing as part of game design by capturing, processing, and interpreting the player’s
+emotions to enhance the player’s experience in the game. From the literature, it can be concluded that it is quite a
+challenging task to blend the emotions factor to the games without decreasing the experiences that have been offered
+by the games itself. Hence, a simple yet rich interaction game was proposed in this research. A pet simulation game
+was proposed as a platform to evaluate the implementation of Affective Computing as part of game design. An initial
+user requirements gathering was performed using a questionnaire to understand the needs of players. Next step is to
+design the game, where the mechanics, interactions, also Affective Computing aspect were designed in this step. The
+784                                          Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788
+4                                           Doyo et al / Procedia Computer Science 00 (2019) 000–000
+
+game design method implemented in this research inspired by Schell’s art of game design 17 . The logical next step
+after designing a game is to develop the game, and finally, the game was evaluated. The game was developed using
+Unity game engine with C# programming language. The Affective Computing element chosen in this research is to
+capture, process, and interpret the player’s emotions during the game using Affective AffDex SDK for Unity 18 . Three
+emotions were chosen in this research considering the implementation and practicality aspect for players (see section
+Results and Discussion for the details).
+
+Table 1. Questionnaire for Evaluation
+                         CODE                                        QUESTION
+                          Q1            I felt that I really empathised/felt for with the game.
+                          Q2            I was interested in seeing how the game’s events would progress.
+                          Q3            I enjoyed the graphics and imagery of the game.
+                          Q4            The controls were not easy to pick up.
+                          Q5            I became unaware that I was even using any controls.
+                          Q6            I was unaware of what was happening around me.
+                          Q7            I felt detached from the outside world.
+                          Q8            How immersed did you feel?
+                          Q9            I felt competent.
+                          Q10           I was fast at reaching the game’s targets.
+                          Q11           It felt like a rich experience.
+                          Q12           I felt time pressure.
+                          Q13           I felt annoyed.
+
+   Two groups of respondents were involved in the evaluation phase to test the hypotheses statistically (H0 : Affective
+Computing implementation in the game is not increasing the players game experiences; H1 : Affective Computing
+implementation in the game is increasing the players game experiences), the first group played the game with the
+Affective Computing element imbued in the game system, where the second group played the game with-out the
+Affective Computing element implemented. Each respondent played games twice as group one and group two. More-
+over, each respondent filled a five Likert scale (0-4) questionnaire inspired by Game Experience Questionnaire 19 and
+Player Immersiveness Questionnaire 20 . The items chosen in both questionnaire were the one that applies in this re-
+search (see Table 1). To reduce and avoid respondents bias, the order of the groups (i.e. with and with-out Affective
+Computing element imbued) were randomised for every respondent.
+
+4. Results and Discussion
+
+    A pet simulation game was designed and developed to evaluate the implementation of Affective Computing in
+game. The Affective Computing system imbued in the game is responsible for capturing, processing, and interpret-
+ing the player’s emotions via their facial expressions when they are playing the game. The rationale to choose a pet
+simulation game is that the game itself quite simple yet offer rich interaction between players and the game environ-
+ments (e.g. NPCs, objects, worlds). The game was developed in the PC (Personal Computer) platform, as a proof of
+concept before deploying it to a mobile phone, where most of the players will enjoy playing this kind of game. An
+initial questionnaire to gather the user requirements was conducted to 100 respondents via the online form with the
+majority of male respondents (59%), aged 18-25 (72%), students (77%), fluent in computer (100%), and spent more
+than 5 hours a day in a computer (54%), like to play game (82%). The result indicates that most of the people prefer
+to play a virtual pet game in a mobile device (72%), but they also do not mind if playing in a computer (62%). Most
+of the respondents prefer cat as their virtual pet (59%), and interested in playing a game with the Affective Computing
+aspect implemented in the game (92%). Based on the results, the game proposes in this research as the evaluation and
+exploration tool is A pet simulation game, with a cat as the virtual pet, and deployed in a PC. The goal of the game
+is to take care of their virtual cat by providing foods, play with it, take care if the pet is sick, maintain the virtual cat
+hygiene. Two versions of the game were deployed with a slightly different in the core mechanics; one was with Af-
+fective Computing system imbued in the game, the other one was with-out Affective Computing system implemented
+                                          Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788                    785
+                                        Doyo et al / Procedia Computer Science 00 (2019) 000–000                                   5
+
+in the game. Table 2 illustrates the games core mechanics and game balancing, with (Game B) and with-out (Game
+A) Affective Computing system imbued. The differences between game A (with-out Facial Expression Recognition
+(FER) or Affective Computing) and game B (with FER or Affective Computing) are in Happiness, Coin, and Control
+Components. In game A, a random function used to calculate the changes of Happiness and Coins, while in game B,
+the value of Happiness and Coins are defined by the performance of the player’s facial expression when matching the
+pet’s facial expression. Moreover, the control used in the game A only a touch screen control, while in the game B,
+the player can use a touch screen control in the main game, and FER in the mini-games.
+
+
+Table 2. Questionnaire for Evaluation
+      Parameters                        With FER                             With-out FER
+                                                          +15/medicine
+                                                          +35/injection
+         Health                                              +5/bath
+                                                               -20/s
+                                                         -rand(1,3)/hurt
+                                                           +3/can food
+                                                         +10/mini game
+       Happiness                                            +20/bath
+                                                              -1/10s
+                         -rand(5,10)/lost mini game         −(100 − (P() ∗ 100)/2)
+                         +rand(5,10)/mini game              −(100 − (P() ∗ 100)/2)
+                                                          -25/can food
+           Coin
+                                                         -150/medicine
+                                                         -250/injection
+         Control         Touch Screen (Main & Mini Games) Touch Screen (Main Game) & FER (Mini Games)
+
+
+
+
+        Fig. 2. The Game Play - Top-Left: Main Game, Top-Right: Shop Menu, Bottom-Left: Mini Game 1, Bottom-Right: Mini Game 2
+786                                   Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788
+6                                    Doyo et al / Procedia Computer Science 00 (2019) 000–000
+
+    FER input system imbued in game B in addition to a touch screen input system. Both games have a main game
+and mini-games. The player can take care, interact with, and manage the virtual cat in the main game (see Fig. 2 top
+left and right side). In addition to the main game, two mini-games to enrich the gameplay, an endless run mini-game
+(see Fig. 2 bottom left), and expression match mini-game (see Fig. 2 bottom right). In the mini-games in game B,
+players are able to use their facial expressions as the game input. Preliminary research has been done to answer RQ1
+and RQ2, where some of the simulations were done to determine which emotions should be captured and imbued
+to the game elements. Three expressions were chosen to be captured and implemented to the game; they are Anger,
+Happiness, and Sadness (see Fig. 3). Based on the preliminary research, those three expressions were relatively easy
+yet challenging to be expressed by the user. This condition was perfect for designing a good game balancing.
+
+
+
+
+                                                Fig. 3. The Expressions to Match
+
+    A set of experiments with questionnaire was designed to evaluate, answer RQ3:, and test the hypotheses statis-
+tically (H0 : Affective Computing implementation in the game is not increasing the players game experiences, and
+H1 : Affective Computing implementation in the game is increasing the players game experiences). A total of 50 re-
+spondents participated in the evaluation phase, with a total of 100 sessions conducted. Each respondent played both
+Game A and B with randomised order between games. Every time the respondent finished with either game, they
+were asked to fill in a five Likert scale (0-4) questionnaire inspired by Game Experience Questionnaire 19 and Player
+Immersiveness Questionnaire 20 . A Shapiro-Wilk Normality test was applied to the questionnaire results, where the
+result indicates that the data is more likely to come from a non-normal population (W = 0.69, p < 0.01). Hence, a
+non-rank statistic test was applied to test the hypotheses. Fig. 4 right side indicates the box plot of the average score in
+the questionnaire for both groups (i.e. game A and game B). The result indicates that the group played with the game
+with FER (i.e. game A) scored significantly higher in the game experiences score compared to the game with-out FER
+(i,e. game B). A Wilcoxon signed-rank test was applied to the questionnaire results to test the hypotheses statistically.
+In overall, the game with FER imbued in the system provide statistically higher game experiences score compared
+to the game with-out FER (p < 0.01). Fig. 4 left side illustrates the questionnaire score from respondents in both
+groups. The result concludes that most of the game experiences score in the game with FER system implemented
+was statistically increased compared to the one with-out the FER system implemented, except for Q3 (p = 0.06), and
+Q9 (p = 0.08). Whereas, Q1, Q2, Q4, Q5, Q6, Q7, Q8, Q11, Q12, Q13 have significant statistically increase in the
+game with FER system imbued compare to the one with-out the system (p < 0.01, and Q10 with p < 0.05). Thus this
+answers the research question RQ3 posed in this research.
+
+
+5. Conclusion and Future Work
+
+   This research aims to imbued Affective Computing components to the game by using Facial Expression Recogni-
+tion to capture, process, and interpret the player’s emotions as game input to enhance the player’s experience in the
+game. In the preliminary research done, to answer research question RQ1: Which emotions should be captured to
+enhance the players game experience?, three emotions were chosen to be captured from the player’s facial expres-
+sions via camera. The three expressions chosen were relatively easy yet challenging to be expressed by the user. This
+condition was perfect for designing proper game balancing. To answer question RQ2: How to fuse the elements of
+the emotions in the game?, the facial expression recognition system then was implemented to the game as a game
+input in the mini-games. To test the hypotheses posed in the research and to answer RQ3: Will affective computing
+enhance the players game experience?, a PC pet simulation game was designed and developed. There are two types
+of games to be played by two groups of identical respondents. The results indicated that the players who played the
+                                           Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788                           787
+                                         Doyo et al / Procedia Computer Science 00 (2019) 000–000                                          7
+
+
+
+
+        Fig. 4. Results - Left side: Detailed Questionnaire Score in Two Groups, Right Side: Average Questionnaire Score in Two Groups
+
+
+
+game with the Facial Expression System implemented as the game input scored statistically higher game experiences
+compared to the one with-out FER imbued. The exceptions were to the aspect of the graphics and imagery of the game
+(Q3), and I felt competent (Q9). Where the respondents felt the graphics and imagery of the game were statistically
+no differences between two games, and the players were not feeling their competences were statistically increasing
+with the FER system imbued in the game. Albeit, the player’s competences were not statistically different between
+two games; they felt that they were faster to reach the game’s target (Q10). A comprehensive evaluation and analysis
+might need to be done to understand if the players felt more comfortable to navigate the game worlds, and interact
+with the game mechanics with the combination of Facial Expression Recognition and touch screen as the game inputs.
+For the future research directions, other combinations of emotions that can be implemented to the game system and
+explore which one is the best combination to increase the player game experiences. Moreover, the game is planned to
+be deployed in a mobile device in the future.
+
+
+References
+
+ 1. Lazarro, N.. Why we play games: Four keys to more emotion without story. In: Game developer’s conference, San Jose. XEO Design Inc;
+    2004, p. 1–4.
+ 2. Akbar, M.T., Ilmi, M.N., Rumayar, I.V., Moniaga, J., Chen, T.K., Chowanda, A.. Enhancing game experience with facial expression
+    recognition as dynamic balancing. Procedia Computer Science 2019;157:388–395.
+ 3. Chowanda, A., Blanchfield, P., Flintham, M., Valstar, M.. Computational models of emotion, personality, and social relationships for
+    interactions in games. In: Proceedings of the 2016 International Conference on Autonomous Agents & Multiagent Systems. 2016, p. 1343–
+    1344.
+ 4. Chowanda, A., Flintham, M., Blanchfield, P., Valstar, M.. Playing with social and emotional game companions. In: International Conference
+    on Intelligent Virtual Agents. Springer; 2016, p. 85–95.
+ 5. Moniaga, J.V., Chowanda, A., Prima, A., Rizqi, M.D.T., et al. Facial expression recognition as dynamic game balancing system. Procedia
+    Computer Science 2018;135:361–368.
+ 6. Picard, R.W.. Affective computing. MIT press; 2000.
+ 7. Kaye, L.K.. Exploring flow experiences in cooperative digital gaming contexts. Computers in Human Behavior 2016;55:286–291.
+ 8. Prasetio, Y.L., Wijaya, R., Sjah, M.P., Christian, M.R., Chowanda, A.. Location-based game to enhance player’s experience in survival
+    horror game. Procedia computer science 2017;116:206–213.
+ 9. Wiemeyer, J., Nacke, L., Moser, C., et al. Player experience. In: Serious Games. Springer; 2016, p. 243–271.
+10. Hudson, S., Matson-Barkat, S., Pallamin, N., Jegou, G.. With or without you? interaction and immersion in a virtual reality experience.
+    Journal of Business Research 2019;100:459–468.
+11. Neustaedter, C., Judge, T.K.. See it: a scalable location-based game for promoting physical activity. In: Proceedings of the ACM 2012
+    conference on Computer Supported Cooperative Work Companion. 2012, p. 235–238.
+12. Onencan, A., Kortmann, R., Kulei, F., Enserin, B.. Mafuriko: Design of nzoia basin location based flood game. Procedia engineering 2016;
+    159:133–140.
+788                                         Doyo Setiono et al. / Procedia Computer Science 179 (2021) 781–788
+8                                         Doyo et al / Procedia Computer Science 00 (2019) 000–000
+
+13. Paavilainen, J., Korhonen, H., Alha, K., Stenros, J., Koskinen, E., Mayra, F.. The pokémon go experience: A location-based augmented
+    reality mobile game goes mainstream. In: Proceedings of the 2017 CHI conference on human factors in computing systems. 2017, p. 2493–
+    2498.
+14. Ochs, M., Sabouret, N., Corruble, V.. Simulation of the dynamics of nonplayer characters’ emotions and social relations in games. IEEE
+    Transactions on Computational Intelligence and AI in Games 2009;1(4):281–297.
+15. Broekens, J., Hudlicka, E., Bidarra, R.. Emotional appraisal engines for games. In: Emotion in Games. Springer; 2016, p. 215–232.
+16. Gunkel, D.J.. Gaming the System: Deconstructing Video Games, Games Studies, and Virtual Worlds. Indiana University Press; 2018.
+17. Schell, J.. The Art of Game Design: A book of lenses. CRC press; 2008.
+18. McDuff, D., Mahmoud, A., Mavadati, M., Amr, M., Turcot, J., Kaliouby, R.e.. Affdex sdk: a cross-platform real-time multi-face expression
+    recognition toolkit. In: Proceedings of the 2016 CHI conference extended abstracts on human factors in computing systems. 2016, p. 3723–
+    3726.
+19. IJsselsteijn, W.A., de Kort, Y.A., Poels, K.. The game experience questionnaire. Eindhoven: Technische Universiteit Eindhoven 2013;:3–9.
+20. Jennett, C., Cox, A.L., Cairns, P., Dhoparee, S., Epps, A., Tijs, T., et al. Measuring and defining the experience of immersion in games.
+    International journal of human-computer studies 2008;66(9):641–661.
+

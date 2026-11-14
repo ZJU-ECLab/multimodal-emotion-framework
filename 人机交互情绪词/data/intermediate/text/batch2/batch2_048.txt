@@ -1,0 +1,345 @@
+                                 2011 International Conference on User Science and Engineering (i-USEr)
+
+
+                                    Graceful Interaction Design:
+                          Measuring Emotional Response towards Movement Quality
+
+           Wan Norizan Wan Hashim, Nor Laila Md Noor, Wan Adilah Wan Adnan, and Fauzi Mohd Saman
+                                     Faculty of Computer and Mathematical Sciences
+                                               Universiti Teknologi MARA
+                                                  Shah Alam, Malaysia
+        wannorizan@hotmail.com1, norlaila@tmsk.uitm.edu.my2, adilah@tmsk.uitm.edu.my3, fauzi@tmsk.uitm.edu.my4
+
+
+Abstract— Graceful interaction design has been conceptualize to                   should be created for a particular engagement and what are
+enrich human computer engagement. The design elements of the                      design elements that invoke emotions. In addition, the
+graceful interaction model was adapted from the theory of Laban                   question of how to measure the emotional value provoked by a
+Movement Analysis where movement quality has been proposed.                       user with particular emotional design is also unknown.
+To test for the validity of using movement quality, prior work
+pertaining to the use of accurate measures that capture the                       B. Research Aim
+emotional response towards movement quality must be done.
+                                                                                       Experience design based on aesthetic interaction
+However, there is an ongoing argument on how emotions can be
+defined, represented and measured with empirically based                          conception has been studied both in an IT artifact [8] and non-
+studies. This study reports on the work on the measurement of                     IT artifact context [9]. Empirical studies have shown that the
+emotional response in graceful interaction by using subjective                    physical experience of aesthetics is based on a feeling or an
+feelings through subjective checklist ratings. An experiment was                  inner picture of how humans move [10]. Even when you have
+conducted to engage participants in graceful interactions                         not seen yourself in a mirror, it is possible to get the feeling
+provided by several IT artifacts that were designed with built-in                 that you move in a beautiful way related to your own
+movement qualities as prescribed by the graceful interaction                      impression or imagination of what is a beautiful movement.
+design. Thirty participants were selected in the experiment given                 For these reasons, we argue that everyday experience,
+subjective checklist ratings instruments organized in a 5-point
+                                                                                  including simple online interaction, such as shopping online or
+Semantic Differential scale to fill in during and after performing
+the experimental tasks given. An interview was also conducted to                  browsing for some information on the web, one would have an
+counter check the emotional response given. The results obtained                  aesthetic experience if the processes include all the aspects
+showed that there is a similarity in the results obtained from the                mentioned above. This is what we call graceful interaction
+subjective checklist rating when compared to analysis of the
+                                                                                       In order to investigate further the relation between the
+interview conducted. This result gives a good indication that
+subjective checklist ratings can reflect participant’s emotions                   design of movement as design element and the user’s
+when engaging to graceful interaction.                                            emotional expression of the design, an experimental study was
+                                                                                  carried out. In particular the study was designed to investigate
+     Keywords - graceful interaction; product emotion; movement                   the influence of movement as design element in human
+quality; Human Computer Interaction (HCI)                                         computer engagement. There are two main questions in
+                                                                                  relation to the aim of this study:
+                         I.     INTRODUCTION
+                                                                                  (i) Does movement design element influence user’s
+A. Background
+                                                                                       emotional response in graceful interaction?
+     Reference [1] and [2] stressed the increasing importance                     (ii) How to measure emotional response towards movement
+of design that exploit an artifact’s emotional value. Their                            quality in graceful interaction?
+insight towards artifact’s emotional value is echoed by many
+other researches in product design including interaction
+design. For a successful interaction design, creating an artifact                                 II.    EMOTION THROUGH EXPRESSION
+that stimulates a user’s emotion is becoming more important                            Emotions work through neuro-chemical transmitters
+[3]. In optimizing the emotional values of the artifacts that                     which influence areas of the brain, successively leading
+have a static visual elements, the method produces aesthetic                      behavior and modifying how information is perceived and
+appearance by using design elements such as form and color                        decisions are made [1]. It is found in studies of movement
+have been used. With the development of digital technology,                       that movement can express emotion [11], [12] in different
+design elements have also become interactive and dynamic in                       ways using formal design elements that create movement such
+order to engage various human emotions, especially in the                         as direction and tempo. This area of studies is increasing in
+human computer interaction. As a result, the application of                       which is concentrating on how to improve engagement value
+movement as a dynamic design element in digital artifact                          by getting it closer to human – human communication [2].
+interaction design study is growing [4]-[7]. Yet, those studies
+do not present a solid connection as to what kind of emotion                          Potential approaches to investigate and measure emotion
+                                                                                  such as subjective measures, or more objectives method (the
+
+
+
+
+978-1-4577-1655-3/11/$26.00 © 2011 IEEE                                      13
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:17:45 UTC from IEEE Xplore. Restrictions apply.
+use of biometric or physiological sensory data) [1], [12]-[17]                    conducted a subjective interview after a task completion to
+have been studied and discussed in literature. Indirectly, the                    gain more information on the emotional response.
+number and diversification of instruments and approaches in
+emotions measurement research is expanding. However, there
+is no empirical study to prove which components are                                                     IV.    EMPIRICAL RESEARCH
+appropriate or necessary in defining and measuring emotions                       A. Instruments
+especially in interaction design. It is to say that emotions are                       Initially, 54 prototypes were designed based on variation
+best defined as a comprehensive experience consisting of the                      of movement design element which was derived from Laban
+following      components:      behavioral     reactions    (e.g.                 movement theory such as rhythm, tempo, sequence and
+approaching),       expressive   reactions     (e.g.    smiling),                 direction [24]. Table I shows the descriptions for each formal
+physiological reactions (e.g. heart pounding), and subjective                     quality of movements applied in the design element, and Table
+feelings (e.g. feeling amused) [17].                                              II shows the combination of each quality in the prototype.
+                                                                                       From test analysis, only 18 prototypes were finally used
+                  III.    GRACEFUL INTERACTION                                    in this study as instrument materials. These prototypes are
+     Graceful interaction was first discussed within the narrow                   mainly made of combination of movement quality tempo
+scope of producing natural dialogue between human and the                         (fast-slow), direction (up-down, left-right) and sequence
+computer in natural language interface [18]. However, in                          (animate, rotate, zoom). From pilot test analysis, only 18
+those early days graceful interaction was not been discussed in                   prototypes were finally used in this study as instrument
+the HCI literature and the vagueness of how to produce                            materials. Fig. 1 shows one of the screenshot of the prototype.
+graceful interaction is not addressed for some time. When
+                                                                                       Ten subjective items, which are used to represent
+direct manipulation was introduced in the 1990s, the
+                                                                                  emotional responses according to the positive dimension of
+technological and intellectual landscape of HCI began to
+                                                                                  model of affect [25] which are arousal/high (arouse,
+progress from linguistic to manual interaction via graphical
+                                                                                  astonished, excited, delighted, happy) and pleasure/low
+objects.     The subject of graceful interaction was then
+                                                                                  (pleased, glad, content, relaxed, clam), were synthesized and
+philosophized in the context of achieving quality engagement
+                                                                                  then were used to developed a checklist to rate interfaces
+through the dynamic property of a human computer
+                                                                                  according to the study suitability to emotionally express the
+interaction that would normally be recognised as “pleasing or
+                                                                                  prototypes.
+attractive, especially in form, movement or action” [19].
+     Early work of graceful interaction is seen in [20] and [21].                            TABLE I.      FORMAL QUALITIES OF MOVEMENT
+The former worked on gracefulness of speech in the man-
+machine interaction describing graceful interaction from a                                       Quality                         Characteristic
+system perspective that involves dealing appropriately with                            Rhythm
+anything a user happens to say. The latter worked on the                               (balance the uniformity and    Calm-dynamic
+                                                                                       diversity)
+human environment interaction and studied the way a person
+                                                                                                                      Faster/quick – narrow, small, thin
+interacts with an intelligent environment that is both effective                       Tempo
+                                                                                                                      object
+and effortless to him/her while appearing to be rational and                           (attention)
+                                                                                                                      Slower – larger, wider, thicker object
+elegant to anyone else observing him/her while interacting                                                            Cause-effect
+                                                                                       Sequence
+with the system.         However, our concern for graceful                             (expectations)
+                                                                                                                      Ordered pattern of events
+interaction design involving human movement interaction                                                               (animation, rotation, zooming)
+                                                                                                                      Upward – positive associations, an
+aligns with [18], [22] and is confined to IT artifacts that reside                                                    increase in magnitude
+on desktop applications where users interact with the                                  Direction
+                                                                                                                      Downward – negative associations
+                                                                                       (attention)
+computer using a keyboard, a mouse or a joystick. We believe                                                          Right - forward
+that it is in the desktop environment that the abundance of                                                           Left – reversal
+applications and users pose multitude challenges to the design
+of graceful interaction.
+     In this paper we report the result of our study pertaining
+to the measurement of emotional response towards graceful
+interaction experience. We conducted an experimental work
+to determine graceful interaction design elements based on the
+model in [22], [23]. In this experiment we opted for the
+method of assessing emotional response from participants of
+the experiment through the use of rating scale. Participants
+were given rating scale instruments to fill in during a task
+implementation and a after a task completion. In addition, we
+
+                                                                                                     Figure 1. Screenshot of the prototype.
+
+
+
+
+                                                                             14
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:17:45 UTC from IEEE Xplore. Restrictions apply.
+      TABLE II. FORMAL QUALITIES OF MOVEMENT                                                                     V.     RESULTS
+      COMBINATION FOR 18 PROTOTYPES
+                                                                                      Fig. 2 and 3 shows how all the subjective items are rated
+        Prototype           Movement (num. of combination)                        for each of the eighteen prototypes. The overall results from
+           W1             Fast animate down (3)                                   the graphs show that using movement as design element can
+           W2             Fast animate left right (4)                             provoke user’s emotional response in graceful interaction.
+           W3             Fast zoom up (3)
+           W4             Fast left (2)                                               A further analysis was made to look into significance of
+           W5             Fast right left (3)                                     combining two or more graceful interaction design elements
+           W6             Fast rotate (2)                                         that was represented as movement.          The results were
+           W7             Fast rotate up down (4)                                 categorized into three different categories of website design
+           W8             Fast up (2)                                             movement combinations (2Move: 2-movement combinations;
+           W9             Fast zoom right left (4)                                3Move: 3-movement combinations, and 4Move: 4-movement
+           W10            Slow zoom up down (4)                                   combinations).
+           W11            Slow animate (2)
+           W12            Slow animate up down (4)                                    From Table III, there are significant differences in the
+           W13            Slow down (2)                                           emotional response for Category 2Move, (df = 6, n = 30), χ2 =
+           W14            Slow right (2)                                          14.7, p < 0.05, Kendall W = 0.08, and Category 3Move, (df =
+           W15            Slow rotate right (3)                                   4, n = 30), χ2 = 13.8, p < 0.05, Kendall W = 0.12. However,
+           W16            Slow rotate right left (4)
+                                                                                  there is no significant difference for Category 4Move, (df = 5,
+           W17            Slow up down (3)
+           W18            Slow zoom (2)
+                                                                                  n = 30), χ2 = 4.6, p>0.05, Kendall W = 0.03.
+                                                                                      Friedman comparison analysis was carried out to compare
+      The subjective checklist developed was organized in a 5-                    the ranks for each movement combination for each category.
+point Semantic Differential (SD) scale (1-Not at all; 2-Very                      Higher mean rank from Table IV shows FastRotate from
+little; 3-Neither; 4-Somewhat; 5-To a great extent). Simple                       2Move category, FastAnimateDown from 3Move category
+subjective semi structured interview covered about user’s                         and FastRotateUpDown from 4Move category has higher
+emotional response towards the prototype design and                               mean rank. Therefore, the results suggest that these
+preferences of design elements also been used in this study.                      combinations of movement are best fit for graceful interaction
+B. Participants                                                                   that can provoke most users’ emotional expression.
+     Thirty undergraduate students from the Faculty of
+Cognitive Sciences and Human Development from University
+Malaysia Sarawak participated in the evaluation. All of them
+have prior experience as web users and had voluntarily
+registered as a participant for this study.
+C. Procedures
+     The participants were grouped randomly and three
+evaluation sessions were held separately for each group.
+During each session a briefing was given before the
+participants began their evaluation exercise. The eighteen
+prototypes were navigated by each participant in a systematic
+and controlled manner. The navigation involved using a                            Figure 2. Mean rating for arouse/high dimension from each of the prototype.
+mouse-over activity in the left menu area. Participants were
+asked to rate their feelings into the checklist according to the
+given scale. They were given a break after the navigation is
+completed and five minutes break, to refresh their minds. The                                                                                            W1
+order of the prototype and checklist were also changed to                               5
+                                                                                                                                                         W2
+avoid bias. Ten minutes subjective interview was held after                             4
+the breaks. Each evaluation session took approximately forty-                           3                                                                W3
+five minutes to complete.                                                               2                                                                W4
+D. Analysis                                                                             1                                                                W5
+     Median values were calculated for all assessments based                                                                                             W6
+on the SD scale. The Friedman Test was used to calculate
+statistically significant differences between the sites. The                                Pleased Glad ContentRelaxed Calm                             W7
+Friedman Test was conducted using PASW Statistics version
+18 in order to compare the user’s emotional response on                           Figure 3. Mean rating for pleasure/low dimension from each of the prototype.
+different website design movement.
+
+
+
+
+                                                                             15
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:17:45 UTC from IEEE Xplore. Restrictions apply.
+              TABLE III.      FRIEDMAN TEST RESULT                                     TABLE V.      RESULTS FROM THE SUBJECTIVE INTERVIEW.
+
+                            2Move          3Move          4Move                                              Preference of           Preference of
+                                                                                          Participant        combination of          Movement Quality
+      n                            30             30              30                                         design elements         Tempo
+      Kendall's W               0.081          0.115           0.031                            1            Two and less            Medium
+      Chi-square               14.655         13.790           4.596                            2            Two and less            Fast
+      Df                            6              4               5                            3            Two and less            Fast
+      Asymp. Sig.               0.023          0.008           0.467                            4            Two and less            Medium
+                                                                                                5            Two and less            Fast
+      TABLE IV. FRIEDMAN TEST RESULT ACCORDING                                                  6            Two and less            Fast
+      TO MOVEMENT COMBINATION.                                                                  7            Two and less            Fast
+                                                                                                8            Two and less            Fast
+                                                            Mean                                9            Two and less            Fast
+      Category            Prototype
+                                                            Rank                               10            Two and less            Medium
+                          FastLeft                           3.43                              11            Two and less            Medium
+                                                                                               12            Two and less            Medium
+                          FastRotate                         4.88
+                                                                                               13            More than two           Fast
+                          FastUp                             4.23                              14            Two and less            Slow
+      2Move               SlowAnimate                        3.15                              15            Two and less            Fast
+                          SlowDown                           3.67                              16            Two and less            Fast
+                                                                                               17            Two and less            Slow
+                          SlowRight                          4.43
+                                                                                               18            Two and less            Fast
+                          SlowZoom                           4.20                              19            Two and less            Slow
+                          FastAnimateDown                    3.55                              20            Two and less            Fast
+                          FastZoomUp                         3.27                              21            Two and less            Fast
+                                                                                               22            Two and less            Fast
+      3Move               FastRightLeft                      2.22                              23            Two and less            Medium
+                          SlowRotateRight                    3.23                              24            Two and less            Fast
+                          SlowUpDown                         2.73                              25            Two and less            Fast
+                                                                                               26            Two and less            Fast
+                          FastAnimateLeftRight               3.17
+                                                                                               27            Two and less            Slow
+                          FastRotateUpDown                   3.93                              28            Two and less            Fast
+                          FastZoomRightLeft                  3.45                              29            Two and less            Fast
+      4Move                                                                                    30            Two and less            Fast
+                          SlowZoomUpdown                     3.27
+                          SlowAnimateUpDown                  3.32
+                          SlowRotateRightLeft                3.87                                            VI.     CONCLUSION
+                                                                                      This study represents an early empirical work on graceful
+     Furthermore, the result also shows that 2Move category                       interaction design. Despite its simplicity, the result obtained
+has higher rank mean compared to other categories. This                           has shown that movement quality is recognized as an element
+result indicates that combination of two movements has higher                     to enhance the emotional value of an artifact. The result
+emotional response from users. An analysis of participants’                       provides empirical support to the possibilities of applying
+response during the interview was analyzed and summarized                         movement quality as a design element of graceful interaction
+in Table V.                                                                       with digital artifact. Overall, these findings highlight the
+                                                                                  potential use of movement quality to invoke positive
+     Findings from interview show that almost all of the                          engagement with the computers which leans towards aesthetic
+participants prefer two or less combination of movements.                         interaction. In addition this study also shows positive results
+This is somehow related to minimalist design concept of “less                     on the use of semantic differential scale as an emotional
+is more”. In terms of the tempo element, the fast tempo is the                    response measuring instrument.
+choice of the majority (66.7%), followed by the medium
+tempo (20%) and slow tempo (13.3%). This indication of                                 There are several limitations of this work. The first is that
+participants preference is in line with the result obtained from                  the prototype websites used in the experiment do not provide
+the semantic differential scale (Table IV) where the 2Move                        enough content for the participants to make sense of their
+(Category 1) shows significant emotional response towards the                     interaction as these websites are merely used to invoke
+movement element. On the other hand, participants do not                          emotional response towards the movement only. The future
+concern at all about direction and sequence element of                            research direction to continue this work will be on studies
+movement.                                                                         related to the proposed dimension of emotion response and
+                                                                                  movement design element used in this study need to be further
+                                                                                  refined by user study to obtain more specific relationship
+                                                                                  between emotion and movement in graceful interaction. In
+                                                                                  addition the instruments to measure emotional response must
+                                                                                  be further tested for its reliability.
+
+
+
+
+                                                                             16
+
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:17:45 UTC from IEEE Xplore. Restrictions apply.
+                         ACKNOWLEDGMENT                                             [12] L. C. Vaughan, “Understanding movement,” in Conference on Human
+                                                                                         Factors in Computing Systems, Atlanta, Georgia , 1997, pp. 548-549.
+     This work is part of an ongoing doctoral project in                            [13] M. Hassenzahl, and N. Tractinsky, “User experience - A research
+collaboration with the Faculty of Computer Science and                                   agenda,” Behaviour & Information Technology, vol. 25, 2006, pp. 91-
+Mathematics, Universiti Teknologi MARA. This work is                                     97.
+supported by the Excellence Fund of Universiti Teknologi                            [14] I. Koskinen, K. Battarbee, and T. Mattelm ki, (eds.). Empathic Design.
+                                                                                         Helsinki: IT-Press, 2003.
+MARA.
+                                                                                    [15] C. H. Noble and M. Kumar, “Using product design strategically to create
+                                                                                         deeper consumer connections,” Business Horizons, vol. 51, 2008, pp.
+                                                                                         441-450.
+                              REFERENCES
+                                                                                    [16] A. Rafaeli and I. Vilnai-Yavetz, “Instrumentality, aesthetics and
+[1]  D. A. Norman, Emotional Design: Why We Love (or Hate) Everyday                      symbolism of physical artifacts as triggers of emotion,” Theoretical
+     Things. New York: Basic Books, 2004.                                                Issues in Ergonomics Science, vol. 5, 2004, pp. 91-112.
+[2] P. M. A. Desmet. (2002). Designing Emotions [Online]. Available:                [17] P. M. A. Desmet, “Measuring emotion; development and application of
+     http://www.designingemotion.nl                                                      an instrument to measure emotional responses to products,” in
+[3] T. J. Nam, J. H. Lee, and S. Y. Park, “Physical movement as design                   Funology: From Usability to Enjoyment, M. A. Blythe, K. Overbeeke,
+     element to enhance emotinal value of a product,” in International                   A. F. Monk, and P. C. Wright (Eds.), Dordrecht, Boston, London:
+     Association of Societies of Design Research Conference, Hong Kong,                  Kluwer Academic, 2005.
+     2007, pp. 1-17.                                                                [18] P. Hayes, “Expanding the horizons of natural language interfaces” in
+[4] W. Weerdesteijn, P. Desemet, and M. Gielen, “Moving design: To                       18th Annual Meeting of the Association for Computational Linguistics
+     design emotion through movement,” The Design Journal, Vol. 8, 2005,                 and Parasession on Topics in Interactive Discourse, Philadelphia, US,
+     pp. 28-40.                                                                          1980, pp.71-74.
+[5] J. Moen, “Towards people based movement interaction and kinaesthetic            [19] J. Moen and J. Sandsjö, “BodyBug - Design of kinaesthetic interaction,”
+     interaction experiences,” in 4th Decennial Conference on Critical                   in Digital Proceedings of NORDES in the Making. Copenhagen,
+     Computing: between Sense and Sensibility, Aarhus, Denmark, 2005, pp.                Denmark, 2005.
+     121-124.                                                                       [20] P. J. Hayes and D. R. Reddy, “Steps toward graceful interaction in
+[6] H. Ishii, S. Ren, and P. Frei, “Pinwheels: Visualizing information flow              spoken and written man machine communication,” International
+     in an architectural space,” in Conference on Human Factors in                       Journal of Man-Machine Studies, 1983, pp. 231-284.
+     Computing Systems, Seattle, Washington, 2001.                                  [21] M. Wiberg, “Graceful Interaction in Intelligent Environments”. in The
+[7] N. Jafarinaimi, J. Forlizzi, A. Hurst, and J. Zimmerman, “Breakaway:                 International Symposium on Intelligent Environments, Cambridge, 2006.
+     An ambient display designed to change human behavior,” in Conference           [22] W. D. Wan Norizan, M. N. Nor Laila, and W. A. Wan Adilah, “The
+     on Human Factors in Computing Systems, Oregon, US, 2005.                            design of aesthetic interaction: towards a graceful interaction
+[8] J. Clerk Maxwell and A Treatise. Electricity and Magnetism, 3rd ed.,                 framework,” in International Conference on Interaction Sciences, Seoul,
+     vol. 2. Oxford: Clarendon, 1892, pp. 68–73.                                         Korea, 2009.
+[9] M. S. El-Nasr, J. F. Morie, and A. Drachen, Affective computing and             [23] W. D. Wan Norizan, M. N. Nor Laila, and W. A. Wan Adilah, “A
+     interaction: Psychological, cognitive and neuroscientific perspectives.             framework for graceful interaction: Applying laban effort theory to
+     New York:IGI Global, 2011.                                                          define graceful movement quality,” in International Conference on User
+[10] P. M. A. Desmet, R. Porcelijn, and M. B. van Dijk, “Emotional design:               Science and Engineering, Shah Alam, Malaysia, 2010.
+     Application of a research-based design approach,” Knowledge,                   [24] D. M. Frohlich, “The history and future of direct manipulation,”
+     Techology, and Policy, vol 20, num 3, 2007, pp. 141-155.                            Behaviour and Information Technology, vol 12 (6), 1993, pp. 315-29.
+[11] M. Bacigalupi, “The craft of movement in interaction design,” in               [25] J. A. Russell, “A circumplex model of affect”, Journal of Personality
+     Advanced Visual Interfaces conference, L'Aquila, Italy, 1998.                       and Social Pscyhology, vol 39, 1980, pp. 1161-1178.
+
+
+
+
+                                                                               17
+
+         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:17:45 UTC from IEEE Xplore. Restrictions apply.
+

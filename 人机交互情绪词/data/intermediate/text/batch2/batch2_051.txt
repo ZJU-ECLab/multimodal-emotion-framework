@@ -1,0 +1,788 @@
+Hindawi
+Journal of Healthcare Engineering
+Volume 2022, Article ID 6005446, 12 pages
+https://doi.org/10.1155/2022/6005446
+
+
+
+
+Research Article
+Human-Computer Interaction for Recognizing Speech
+Emotions Using Multilayer Perceptron Classifier
+
+          Abeer Ali Alnuaim ,1 Mohammed Zakariah,2 Prashant Kumar Shukla,3 Aseel Alhadlaq,1
+          Wesam Atef Hatamleh,4 Hussam Tarazi,5 R. Sureshbabu,6 and Rajnish Ratna 7
+          1
+            Department of Computer Science and Engineering, College of Applied Studies and Community Services, King Saud University,
+            P.O. BOX 22459, Riyadh 11495, Saudi Arabia
+          2
+            College of Computer and Information Sciences, King Saud University, P.O. Box 51178, Riyadh 11543, Saudi Arabia
+          3
+            Department of Computer Science and Engineering, Koneru Lakshmaiah Education Foundation, Vaddeswaram, Guntur 522502,
+            Andhra Pradesh, India
+          4
+            Department of Computer Science, College of Computer and Information Sciences, King Saud University, P.O. Box 51178,
+            Riyadh 11543, Saudi Arabia
+          5
+            Department of Computer Science and Informatics, School of Engineering and Computer Science, Oakland University,
+            Rochester Hills, MI 318 Meadow Brook Rd, Rochester, MI 48309, USA
+          6
+            Department of ECE, Kamaraj College of Engineering and Technology, Virudhunagar, TN, India
+          7
+            Gedu College of Business Studies, Royal University of Bhutan, Thimphu, Bhutan
+
+          Correspondence should be addressed to Rajnish Ratna; rajnish.gcbs@rub.edu.bt
+
+          Received 17 February 2022; Revised 28 February 2022; Accepted 4 March 2022; Published 28 March 2022
+
+          Academic Editor: M.A. Bhagyaveni
+
+          Copyright © 2022 Abeer Ali Alnuaim et al. This is an open access article distributed under the Creative Commons Attribution
+          License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is
+          properly cited.
+          Human-computer interaction (HCI) has seen a paradigm shift from textual or display-based control toward more intuitive control
+          modalities such as voice, gesture, and mimicry. Particularly, speech has a great deal of information, conveying information about the
+          speaker’s inner condition and his/her aim and desire. While word analysis enables the speaker’s request to be understood, other
+          speech features disclose the speaker’s mood, purpose, and motive. As a result, emotion recognition from speech has become critical in
+          current human-computer interaction systems. Moreover, the ﬁndings of the several professions involved in emotion recognition are
+          diﬃcult to combine. Many sound analysis methods have been developed in the past. However, it was not possible to provide an
+          emotional analysis of people in a live speech. Today, the development of artiﬁcial intelligence and the high performance of deep
+          learning methods bring studies on live data to the fore. This study aims to detect emotions in the human voice using artiﬁcial
+          intelligence methods. One of the most important requirements of artiﬁcial intelligence works is data. The Ryerson Audio-Visual
+          Database of Emotional Speech and Song (RAVDESS) open-source dataset was used in the study. The RAVDESS dataset contains
+          more than 2000 data recorded as speeches and songs by 24 actors. Data were collected for eight diﬀerent moods from the actors. It
+          was aimed at detecting eight diﬀerent emotion classes, including neutral, calm, happy, sad, angry, fearful, disgusted, and surprised
+          moods. The multilayer perceptron (MLP) classiﬁer, a widely used supervised learning algorithm, was preferred for classiﬁcation. The
+          proposed model’s performance was compared with that of similar studies, and the results were evaluated. An overall accuracy of 81%
+          was obtained for classifying eight diﬀerent emotions by using the proposed model on the RAVDESS dataset.
+
+
+
+
+1. Introduction                                                          states. Nonetheless, SER remains a challenging endeavor due
+                                                                         to extracting practical emotional elements. SER is handy for
+Fewer emotions are critical in human-computer interaction                investigating human-computer identiﬁcation. This indicates
+[1]. Past years had increased interest in speech emotion                 that the system must comprehend the user’s feelings to deﬁne
+recognition (SER), which uses speech cues to analyze emotion             the system’s activities appropriately. Numerous activities,
+2                                                                                             Journal of Healthcare Engineering
+
+including voice-to-text translation, feature extraction, feature   board structure [15], speech synthesis, computer games,
+selection, and classiﬁcation of those characteristics to deter-    voicemail ﬁltering, intelligent toys, lie detectors, automatic
+mine emotions, must be handled by a well-developed                 research in ﬁlms and television shows, and telephone
+framework that incorporates all of these elements [2]. Clas-       banking, among other things.
+siﬁcation of features is another problematic process requiring         The current work aims to develop a simple, eﬃcient, and
+multiple emotional systems to execute the categorization           highly accurate model capable of classifying the emotions
+correctly.                                                         from speech data. In order to reach our goal, we have
+    Speech contains two forms of information: textual and          changed the state-of-the-art MLP designs. Because the
+emotional. To achieve a harmonious human-computer in-              training dataset was not supplemented to correct the im-
+teraction experience, the computer should automatically            balance between classes, it was possible to test the model’s
+recognize the emotional content of voice signals. For ex-          learning capacity with data limitations.
+ample, the voice may gauge a client’s emotions in a customer           The list of contributions of the current work is as follows:
+service system. It has been shown to increase children’s
+                                                                         (i) A novel MLP network with the number of layers
+social-emotional abilities and academic skills when used
+                                                                             diﬀerent from that of the state-of-art designs was
+with an educational assistant system [3]. Parents and in-
+                                                                             designed.
+structors are capable of resolving issues promptly. The
+operating system is capable of detecting emotions through               (ii) The usage of the adaptive learning rate instead of a
+speech. When the driver’s mood is excessively nervous or                     constant one makes the model converge to opti-
+furious, the system will provide an early warning. This may                  mum values.
+help lessen the likelihood of traﬃc accidents. Automatic               (iii) The model used the short-time Fourier transform
+speech emotion identiﬁcation has a broad range of appli-                     and Mel-spectrum features.
+cations in various industries.                                         (iv) The model classiﬁed 8 diﬀerent emotions with 81%
+    Emotion-oriented computing intends to automatically                      accuracy on test data.
+recognize and synthesize emotions expressed by speech,
+                                                                        (v) The proposed model can achieve the desired results
+facial expression, or any other biological channel [4–6].
+                                                                             with fewer training data—there is no need to apply
+There is a wealth of research available on automated emotion
+                                                                             augmentation.
+identiﬁcation in facial expressions [7–9]. Nevertheless, since
+emotion identiﬁcation using face acknowledgment is                     (vi) The training time was quite short, a few minutes,
+computationally intensive, real-time implementation is                       since it is a simple model compared to state-of-the-
+impractical due to the need for high-quality cameras to                      art models.
+capture facial photos. Apart from human facial expressions,            The organization of the current paper is as follows:
+language is a more promising mode of emotion identiﬁ-              Section 2 of this study discusses prior eﬀorts in the same
+cation. In addition, voice emotions play a signiﬁcant role in      topic. Sections 3 and 4 describes the dataset, the feature
+multimodal human-computer contact [10, 11]. Therefore,             extraction process, the proposed algorithm, and the ex-
+language emotion detection is critical since voice is the          perimental design. Section 5 discusses the performance and
+primary medium of human communication. As a result, this           makes comparisons to previous works. The paper concludes
+article will discuss many features of speech emotion rec-          with a conclusion in Section 5.
+ognition (SER) approaches. The purpose of SER is to provide
+a sincere relationship.
+    By conversing with the machine using speech rather than        2. Literature Review
+conventional input methods, one can ensure that the ma-
+chine understands the vocal content and more subtle in-            Cognitive psychologists’ theories of emotions provide a
+dicators such as emotions, which any human hearer would            valuable beginning point for demonstrating human feelings.
+readily respond to. If engines can understand emotional            While other theoretical models of emotion exist, the models
+information, the link between man and machine will become          employed most often are dimensional [16] and deﬁnite ones
+more signiﬁcant. SER evolved from a minor problem to a             [17, 18]. Categorical representation of emotions has been
+critical subject in human-computer interaction and speech          increasingly utilized in aﬀective computing for practical
+processing during the previous decade. SER oﬀers a broad           reasons. For instance, a previous study [19] implemented
+range of possible uses. For instance, human-computer in-           algorithms that distinguish eight distinct emotion types based
+terfaces might be programmed to behave diﬀerently                  on facial expressions. Oudeyer [20] created such algorithms to
+depending on the user’s emotional state. This may be par-          generate and identify ﬁve emotions using voice characteris-
+ticularly critical in cases where voice is the dominant ma-        tics. According to Ekman and Friesen [13], six fundamental
+chine engagement [12]. As a result, SER is a necessary             categorical emotions are universal, and their facial expres-
+condition for humanizing the following apps and increasing         sions are exhibited and recognized in all societies.
+their attractiveness among prospective users: robots [13],              ML paradigms play a signiﬁcant role in many papers on
+intelligent call centers, intelligent spoken teaching struc-       SER published in the literature [21]. Numerous articles detail
+tures, intelligent aircraft cockpits, prosody for dialogue         the research conducted utilizing a variety of categorization
+systems [14], ticket reservation systems, therapeutics, di-        approaches. In a previous study [22], support vector ma-
+agnostic tools, data mining for medical examination, in-car        chines (SVMs) and decision trees (DTs) are related to
+Journal of Healthcare Engineering                                                                                                 3
+
+identifying meaningful emotional states based on prosodic,         technique for signal processing that introduces new and
+disﬂuent, and lexical signals derived from practical oral hu-      fascinating elements for the analysis of voice emotion.
+man-human interactions. A previous study [23] also used the        Several works in the literature discuss feature extraction for
+SVM approach to categorize emotional speech using two              emotion detection: [38] uses a fast correlation-based Filter to
+databases: Berlin German and Chinese. In another study [24],       select the characteristics that will be used in a neural network
+the authors built a hybrid system capable of recognizing           classiﬁer; [39] uses a professional to conduct the sampling;
+people’s emotions using their looks and speech information.        [40] uses a nonlinear dimensionality reduction to perform
+Shami and Verhelst [25] explored three machine learning            the recognition procedure; Picard et al. [41] presented and
+approaches—K-nearest neighbors (KNN), support vector               equated several procedures for feature-based recognition of
+machines (SVMs), and AdaBoost decision trees—and applied           the emotional state from this record.
+them to four emotional speech databases: Kismet, BabyEars,             There were also some recent works in the same domain
+Danish, and Berlin. Rani et al. [26] conducted a comparative       with the recurrent neural networks along with the CNN. A
+analysis of four machine learning (ML) techniques (KNN             recurrent neural network (RNN) can be used to infer as-
+algorithm, regression trees (RTs), Bayesian networks, and          sociations from 3D spectrogram data across diﬀerent
+SVMs) applied to the area of emotion identiﬁcation utilizing       timesteps and frequencies [42]. “Fusion-ConvBERT” is a
+physiological information. Another previous study [27]             parallel fusion model proposed by Lee et al. [43] that
+proposed a technique for recognizing human voice emotional         comprised bidirectional encoder representations derived
+conditions through a neural network classiﬁer.                     from transformers and convolutional neural networks to-
+     As with eﬀective databases, most emotional dialogue           gether. Zhang et al. [44] built a deep convolution neural
+acknowledgment systems are English-based. For languages            network (DCNN) and a bidirectional long short-term
+like Basque and Spanish, techniques for voice recognition          memory with attention (BLSTMwA) model (DCNN-
+have been created, which are signiﬁcantly less emotive. The        BLSTMwA) that can be utilized as a pretrained model for
+study by Luengo et al. [28] is notable for Basque. Spanish         subsequent emotion recognition tasks.
+literature includes works such as [29]. Another example is the
+work by Hozjan and Kacic [30], who investigated multilingual       3. Materials and Methods
+feeling identiﬁcation in a variety of languages, including
+Spanish. 26 high-level (AHL) and 14 database-speciﬁc               3.1. The Dataset. The Ryerson Audio-Visual Database of
+emotional (DSE) variables were employed in this study. AHL         Emotional Speech and Song (RAVDESS) dataset [45]
+is the arithmetical depiction of low-level characteristics (low-   originally contains 7356 ﬁles that include videos and audios
+level features are composed of pitch, pitch derivatives, energy,   of speeches and songs. Since our work is based on speech and
+and a period of speech sections). DSE characteristics are a        the original dataset size is very large, which is 24.8 GB, it is
+collection of speaker-speciﬁc emotional characteristics. Ar-       decided to use the simpliﬁed version of the dataset on Kaggle
+tiﬁcial neural networks were used to recognize emotions, and       [46]. This version of the dataset contains only speech data
+the max-correct assessment approach was used to acquire the        that are formatted as 16 bit, 48 kHz, .wav speech data ﬁles.
+ﬁndings. Identiﬁcation using max-correct with AHL features             In this dataset, there are 1440 speech ﬁles that are
+was 55.21% on average, whereas identiﬁcation using DSE             prepared by 24 diﬀerent actors, and their changers are also
+characteristics was 45.76%. These assessed if cultural and         balanced as 12 males and 12 females. For each actor, there
+linguistic diﬀerences aﬀect emotional speech qualities. This       are 60 trials, so the total is 1440 ﬁles instead of 7356 ﬁles. In
+component has been examined in several research studies,           addition, the data size is decreased to 590 MB since there is
+including [20], [31], and [32]. In [31], an experimental in-       only speech data audio instead of videos.
+vestigation was conducted comparing the Spanish and                    Song ﬁles are also included in our implementation to
+Swedish cultures. However, it should be noted that there is no     improve performance. Song contains fearful, sad, happy,
+reference in the literature to the Basque language being ex-       calm, and angry emotions with 1012 ﬁles, where the song ﬁle
+amined in the context of cross-cultural research on speech. In     of actor 18 does not exist. Therefore, the dataset contains
+addition, a few everyday speech elements are presented in          2452 audio ﬁles of emotions.
+research using the Spanish language, and the majority of               The dataset is created by 2 statements in a neutral North
+cross-cultural studies published in the literature are depen-      American accent to avoid the eﬀects of words and focus more
+dent on facial expression studies.                                 on emotions. These statements are “kids are talking by the
+     It is necessary to include Schroder’s [33] study, which       door” and “dogs are sitting by the door”. In addition, the ﬁle
+includes a lengthy bibliography of sources of emotional            names are coded with respect to identiﬁers, which are mo-
+speech traits. The majority of these references are connected      dality (audio, video, or both), vocal channel (speech or song),
+to English, and the characteristics cited by the writers are       emotion, emotional intensity (strong or normal), statement
+mostly seen in the literature. To the writers’ knowledge, the      (one of two statements), repetition (ﬁrst or second) and actor
+study by Navas et al. [34] is exceptional in terms of emo-         (one of 24 actors; odd numbered ones are males). Some of the
+tional dialogue elements for Basque, and it also includes          samples are displayed here wherein Figure 1 shows the audio
+some of the most often seen traits. For Spanish, the state is      sample for happy emotion, Figure 2 shows its spectrogram,
+similar; there are a few references, and some of the most          Figure 3 shows the sad emotion audio ﬁle, and its spectrogram
+prevalent elements are often utilized [24, 35]. On the other       is shown in Figure 4. The speech emotions are classiﬁed as
+hand, a few previous studies [36 and 37] proposed a novel          calm, happy, sad, angry, fearful, surprise, disgust, and neutral.
+4                                                                                                          Journal of Healthcare Engineering
+
+                                                      Waveplot for audio with happy emotion
+                       0.15
+                       0.10
+                       0.05
+                       0.00
+                      -0.05
+                      -0.10
+                      -0.15
+                                0     0.5             1          1.5              2          2.5       3             3.5
+                                                                       Time
+                                                Figure 1: Audio sample of happy emotion.
+
+
+                                                                                                                           20
+                  10000
+
+                     8000                                                                                                  0
+
+                Hz   6000
+                                                                                                                           -20
+                     4000
+
+                     2000                                                                                                  -40
+
+                        0
+                            0       0.5           1            1.5            2        2.5         3           3.5
+                                                                     Time
+                                          Figure 2: Spectrogram for an audio with happy emotion.
+
+
+                       0.06
+                       0.04
+                       0.02
+                       0.00
+                      -0.02
+                      -0.04
+                      -0.06
+                                0     0.5             1          1.5              2          2.5       3             3.5
+                                                                       Time
+                                                 Figure 3: Audio sample of sad emotion.
+
+
+                                                      Spectrogram for audio with sad emotion
+                                                                                                                           20
+                  10000
+                                                                                                                           10
+                     8000                                                                                                  0
+                                                                                                                           -10
+                Hz   6000
+                                                                                                                           -20
+                     4000                                                                                                  -30
+                                                                                                                           -40
+                     2000
+                                                                                                                           -50
+                        0
+                            0       0.5           1            1.5            2        2.5         3           3.5
+                                                                     Time
+                                           Figure 4: Spectrogram for an audio with sad emotion.
+
+
+3.2. Preprocessing. To be able to perform preprocessing, data               sample from the data can be seen in Figure 5. The char-
+are investigated by data visualization methods. The bal-                    acteristics of the data are observed by using librosa library,
+ancing is checked, and the number of data is also checked. A                which is commonly used to process audio data.
+Journal of Healthcare Engineering                                                                                                  5
+
+
+                 0.15
+                 0.10
+                 0.05
+                 0.00
+                -0.05
+                -0.10
+                -0.15
+
+                        0         0.5             1             1.5            2            2.5            3
+                                                               Time
+                                                            MFCC
+                                                                                                                100
+                                                                                                                0
+                                                                                                                -100
+                                                                                                                -200
+                                                                                                                -300
+                                                                                                                -400
+                                                                                                                -500
+                                                                                                                -600
+
+                        0       0.5           1          1.5             2           2.5          3
+                                                        Time
+                                 Figure 5: Male happy speech data and its corresponding MFCC.
+
+
+    Then the number of speech data was also mentioned.                vector. The vector that has 3 diﬀerent properties is given as
+However, this dataset also includes song data, which are also         an input to the model.
+audio data. To increase the performance of the model, song
+data are also included during data preprocessing. Then the
+                                                                      3.4. MFCC. The ﬁrst step in any speech recognition system is
+balance of the data was checked to see if there is any need to
+                                                                      to extract features in order to be able to identify components
+make a balancing process. The number of each sample for
+                                                                      of the audio signal that are good for identifying linguistic
+each class can be seen in Figure 6, and the numbers cor-
+                                                                      content and discarding other content carrying information
+respond to neutral, calm, happy, sad, angry, fearful, disgust,
+                                                                      such as background noise, emotion, etc. One of the most
+and surprised emotions, respectively. It can be also seen that
+                                                                      widely used feature extraction methods is the Mel-frequency
+the data are split by 25% as training and testing data.
+                                                                      cepstral coeﬃcients method, shown in Figure 7. The audio
+    Since there is no song ﬁle for actor 18, there is a bal-
+                                                                      path lies within the envelope of the short-term power
+ancing problem here; however, we did not perform any
+                                                                      spectrum. MFCCs occur to represent this envelope. MFCCs
+oversampling or undersampling operations here as we
+                                                                      were introduced by Davis and Mermelstein in the 1980s for
+thought it was highly unnecessary, and we tried to challenge
+                                                                      use in automatic speech and speaker recognition.
+the model’s capability. It was also possible to reduce the
+                                                                           The Mel-frequency cepstrum is a representation of the
+number of classes, which increases the performance; how-
+                                                                      short-term power spectrum of a sound based on a linear
+ever, it was decided that the number of classes be 8.
+                                                                      cosine transform of a log power spectrum on a nonlinear
+                                                                      Mel-frequency scale. The Mel-frequency cepstral coeﬃcients
+                                                                      consist of a kind of cepstral representation of the audio clip.
+3.3. Feature Extraction. For the feature extraction process,
+                                                                      The main diﬀerence between the cepstrum and the Mel-
+librosa, pandas, and NumPy libraries are used. To be able to
+                                                                      frequency cepstrum is that in the MFC, the frequency bands
+apply the convolutional neural network, images of Mel
+                                                                      are evenly spaced on the Mel scale, which approximates the
+spectrums are also obtained, but the results were not suf-
+                                                                      response of the human auditory system closer to the linearly
+ﬁcient to process them. Instead of processing images of
+                                                                      spaced frequency bands used in a normal spectrum.
+spectrums, one-dimensional features are extracted.
+    First, the mean of MFCC features is calculated; then
+short-time Fourier transform (STFT) and Mel spectrogram               3.5. Chroma Feature. Chroma features are an interesting
+features are obtained by setting the sample rate of audio ﬁles,       and powerful representation of musical sound where the
+and the number of MFCC is set to 40. This process takes the           spectrums are projected into 12 diﬀerent boxes representing
+longest time for all applications. Then, the obtained feature         the 12 diﬀerent halftones of the musical octave. In music or
+vectors are added sequentially and turned into a single               speech phonics, chroma-based features, also called “pitch
+6                                                                                                                              Journal of Healthcare Engineering
+
+                                                                                          Train Targets
+
+                                                250
+
+
+
+
+                           Number of samples
+                                                200
+                                                150
+                                                100
+                                                    50
+                                                     0
+                                                                0        1       2        3            4         5         6          7
+                                                                                              Lables
+                                                                                          Test Targets
+
+                                                    80
+
+
+
+
+                                Number of samples
+                                                    60
+
+                                                    40
+
+                                                    20
+
+                                                     0
+                                                                0        1       2        3            4         5        6           7
+                                                                                              Lables
+                                                                    Figure 6: Training and testing data by 25% split.
+
+
+                0.02
+
+                0.01
+
+                0.00
+
+               -0.01
+
+               -0.02
+                       0                                  0.5        1          1.5         2              2.5       3          3.5        4
+                                                                                          Time
+
+
+
+
+                                                         Figure 7: MFCC extraction for happy sound data in RAVDESS dataset.
+
+
+class proﬁles,” are a powerful tool for analyzing music and                                      learning algorithm. A perceptron represents a one-neuron
+sound whose pitches can be meaningfully categorized.                                             model, and a multilayer perceptron is a structure made of an
+Chroma features are speciﬁcally aimed at representing the                                        input layer, hidden layers, and an output layer, as shown in
+harmonic content of a short-lived sound window. Chroma                                           Figure 8. It is a supervised learning algorithm that learns the
+features can show a high degree of robustness to changes in                                      function (.): Rm ⟶ R0 by training across a dataset. It is a
+timbre and are closely related to the musical aspect of                                          nonlinear architecture for classiﬁcation, or regression, given
+harmony. The various music processing tools are the chroma                                       a set of X � x1 , x2 , x3 , . . . xm features and a target y corre-
+feature vector, chroma energy normalized statistics (CENS),                                      sponding to the data.
+constant-Q transform (CQT), short-time Fourier transform                                             The input layer receives the data as input at the be-
+(STFT), etc. [47]                                                                                ginning, and then they are multiplied by weights to make the
+                                                                                                 second layer, which is a hidden layer. Here, there are also
+                                                                                                 activation functions that make the model learn nonlinear
+3.6. Model Architecture. The MLP is one of the most used                                         data. After the activation function operation, the calculation
+and basic neural network architectures, and it can be also                                       goes through the whole hidden layers until the last output
+used for classiﬁcation tasks. The MLP is also a supervised                                       layer. There are diﬀerent types of activation functions such as
+Journal of Healthcare Engineering                                                                                                   7
+
+              Input                                                                          Bias
+              layer
+                                Hidden                                                        +1
+  xpk           1        Wij     layer                                                                     Bias
+
+                                                     Output                                   X1            +1
+                                         bpj
+                                   1                  layer
+  xp2           2
+
+                                               vjk                                            X2            a1
+                                                                                                                         f (X)
+                                                                              Features (X)
+                                   j                          ŷpk
+                                                                                              X3            a2       Output
+  xpi           i
+
+                                   L
+                                                                                                            ak
+                                                                                              Xn
+  xp12          N
+                                                                                  Figure 9: One hidden layer MLP [49].
+Figure 8: The basic structure of a multilayered perceptron [48].
+                                                                     score, recall, precision, and accuracy metrics, which are the
+the logistic activation function, hyperbolic tangent activa-         most widely used evaluation metrics, are preferred. These
+tion function, rectiﬁed linear unit activation function, etc. In     evaluation metrics are based on model prediction and actual
+our application, the rectiﬁed linear unit activation function        data label attachment. By comparing these two situations, 4
+is used. At the output layer, the size is deﬁned by the number       diﬀerent situations are formed:
+of classes.                                                                (i) True positive: it is the case where data that the model
+    The hidden layer is the next layer after the input layer, as               predicts as True are actually True
+shown in Figure 9. It is called the hidden layer because it is            (ii) True negative: it is the case where data that the
+not exposed to direct input. The number of hidden layers                       model predicts as False are actually False
+created determines the depth of the model. As the number of
+hidden layers increases, the depth of the model increases.               (iii) False positive: it is the case where data that the
+The rise of eﬃcient libraries in computing power and de-                       model predicts as False are actually True
+veloping technologies has allowed the creation of very deep              (iv) False negative: it is the case where data that the
+neural networks.                                                               model predicts as True are actually False
+    If the last hidden layer is the output layer, it is called the
+                                                                          The matrix created by the evaluation of the model on a
+output layer. It outputs a value or vector corresponding to
+                                                                     set of data is called the confusion matrix, as shown in Table 1.
+the format required for the problem. Output can be de-
+                                                                     Considering 4 diﬀerent situations, accuracy, precision, re-
+termined by changing the output layer according to the
+                                                                     call, and F1-score metrics can be created. Each oﬀers dif-
+problem. For example, for regression problems, the output
+                                                                     ferent information about model performance.
+may consist of a single neuron; for binary classiﬁcation
+                                                                          Accuracy can be brieﬂy described as the ratio of all the
+purposes, it may consist of 2 neurons; or for multiple
+                                                                     correct answers (TP and TN) to all the answers, as shown in
+classiﬁcation problems, it may consist of more than one
+neuron.                                                                                                  TP + TN
+                                                                                  Accuracy �                         .            (1)
+    At the end of the ﬁrst feedforward operation, the error is                                      TP + TN + FP + FN
+estimated with respect to labels. The error function is called
+                                                                         Despite its frequent use, accuracy has a downside: it does
+as the cost function, and there are diﬀerent types of cost
+                                                                     not work well in unevenly distributed groups. Recall is the
+functions such as mean squared error, mean absolute error,
+                                                                     ratio of the positive classes (TP) we detected correctly to all
+and the cross entropy cost function. In this work, since the
+                                                                     positives (2). Precision is the ratio of the positive classes we
+objective is classiﬁcation, the cross entropy cost function is
+                                                                     detect correctly (TP) to all the data we label/name as true
+used. Then back propagation is performed to update
+                                                                     (TP + FP).
+weights, which is carried out by gradient descent. For this
+optimization, stochastic gradient descent is commonly used;                                               TP
+                                                                                             Recall �           ,                 (2)
+however, for this work, an Adam optimizer is used. After                                                TP + FN
+training the model for some time and epochs, the model
+learns how to classify the data.                                                                          TP
+                                                                                       Precision �              .                 (3)
+                                                                                                        TP + FP
+3.7. Evaluation Metrics. To understand how successful a                  Increasing the Recall metric of our system in order to
+classiﬁcation problem or process is, we need to analyze our          improve model performance may cause our Precision value
+results with various evaluation criteria. In this study, F1-         to decrease. The important thing here is the priorities of your
+8                                                                                                                   Journal of Healthcare Engineering
+
+                   Table 1: Confusion matrix.                                      1.75
+
+True positive                                      False negative                  1.50
+False positive                                     True negative
+                                                                                   1.25
+
+system. One needs to ﬁne-tune this balance by analyzing the                        1.00
+                                                                       Loss
+priorities. Another evaluation method that can be an al-                           0.75
+ternative to Accuracy is the F1-score, which is more suitable
+to use for unbalanced distributed datasets. F1-score is the                        0.50
+harmonic average of Precision and Recall. F1 penalizes the                         0.25
+higher value, thus preventing it from manipulating the lower
+of the two higher values.                                                          0.00
+                                                                                               0           10         20          30        40   50
+                                                                                                                    Number of iterations
+4. Results
+                                                                                                        Figure 10: Training loss curve.
+For the training and testing parts, the data are split by 25% so
+that the performance can be checked on the data that were
+not seen by the model before. We could also perform the                            0      83       0        2      6      2       0    0    1
+                                                                                                                                                 80
+validation process here, but due to lack of data, several
+combinations are tried on separating them from training                            1      0        88       0      1      1       2    1    0    70
+data by 20% to 30%; however, the validation data did not
+make a dramatic impact on test results; therefore, the data                        2      5        0       32      1      2       0    3    5    60
+are just split as training and testing datasets.
+    To construct the model, the scikit-learn library and MLP                       3      5        0        2     76      3       1    10   1    50
+
+                                                                      True lable
+classiﬁer function are used. The activation function is se-
+lected as the rectiﬁed linear unit activation function, and an                            2        4        2      7     73       0    1    5    40
+                                                                                   4
+Adam optimizer is used. During the optimization, diﬀerent
+                                                                                                                                                 30
+types of optimizers, such as the stochastic gradient descent                       5      0        1        0      3      0       40   1    2
+and quasi-Newton method (lbfgs), are used. In addition,                                                                                          20
+diﬀerent types of activation functions, such as the identity                       6      3        4        1     14      3       3    65   1
+function, logistic sigmoid function, and hyperbolic tan                                                                                          10
+function, are also used.                                                           7      0        0        6      0      3       0    2    37
+    The shape of the hidden layer is set to 750 × 750 × 750,                                                                                     0
+                                                                                          0        1        2      3      4       5    6    7
+which makes the model a bit complex compared to its
+                                                                                                                Predicted lable
+default layer size, which is only 100. However, due to this
+complexity, parameters for training are kept low, for ex-            Figure 11: Confusion matrix for the test dataset (0: neutral, 1: calm,
+ample, the batch size is set to 128 and the maximum iteration        2: happy, 3: sad, 4: angry, 5: fearful, 6: disgust, and 7: surprised).
+number is set to 50. In addition, the learning rate is also
+optimized by setting the adaptive learning rate instead of the       understand the model performance on each class, a classi-
+constant learning rate, which is the default application.            ﬁcation report is used as in the table.
+    After setting the related parameters, training is applied           Table 3 shows that the overall accuracy reached 81% on
+on the model by the training dataset; it took just a few             average and the highest performance is observed on calm
+minutes to train the model, and the loss function graph can          emotion while the lowest performance is observed on happy
+be seen in the ﬁgure.                                                emotion.
+    As can be seen in Figure 10, the performance is quite well
+on training data, loss is decreased even after 20 iterations,        5. Discussion and Comparison
+and early stopping was used in case of nonincreased per-
+formance; however, since the loss kept getting lower, which          Classiﬁcation of emotions by only speech data is not an easy
+cannot be seen in the ﬁgure due to small changes, the model          task even today; note that the number of emotions is eight
+stopped at the maximum iteration number.                             for this dataset, which is quite high compared to the number
+    Then, to be able to observe the performance of the MLP           of data that we have. Therefore, to obtain better results, it is
+model, it is tested by the test dataset, which is not seen by the    always better to combine datasets and obtain a larger one
+model during training. After applying the prediction, the            and a more generalizable dataset to show better performance
+confusion matrix below is observed.                                  of the model. However, this work is focused on classifying
+    From the confusion matrix in Figure 11 and the results           these eight emotions and obtaining a suﬃcient result
+for each emotion in Table 2, it can be easily said that the          compared to existing works on this dataset.
+model is learned on the training dataset and performed well              The most challenging part of this task was to use this
+on the test dataset since it can distinguish most of the audio       amount of data to train a model and perform the classiﬁ-
+data with respect to 8 diﬀerent classes. Since it is a bit hard to   cation task for eight emotions. It gives much better results
+Journal of Healthcare Engineering                                                                                                                     9
+
+                                       Table 2: Confusion matrix of MLP classiﬁer on RAVDESS [50].
+Emotion            Angry            Calm             Disgust          Fearful          Happy           Neutral            Sad              Surprised
+Angry              80.77            0.96               4.81            1.92             5.77            0.96             0.00                 4.81
+Calm                0.00            84.09              0.00             4.55            2.27             3.41             3.41                2.27
+Disgust             7.84             3.92             50.98             3.92            1.96            3.92             5.88                21.57
+Fearful            10.89            0.00               0.99            63.37            7.92            1.98             9.90                 4.95
+Happy               7.23             4.82              1.20             4.82           73.49            0.00              0.00                8.43
+Neutral             0.00            11.11              0.00             3.70            1.85            64.81            9.26                 9.26
+Sad                 1.03            11.34              2.06            13.40            3.09            1.03             59.79                8.25
+Surprised           2.86             0.00              2.86             8.57            8.57            0.00             8.57                68.57
+
+
+  Table 3: Classiﬁcation report of the prediction on test data.             Table 4: Comparison of accuracy of the proposed work with that of
+                                                                            previous works.
+                           Precision         Recall            F1-score
+Neutral                      0.88             0.88               0.88       Models                                                 Accuracy (%)
+Calm                         0.91             0.95               0.93       [50]                                                      69.49
+Happy                        0.71             0.67               0.69       [51]                                                      76.36
+Sad                          0.70             0.81               0.75       Proposed model                                              81
+Angry                        0.84             0.78               0.81
+Fearful                      0.87             0.85               0.86
+Disgust                      0.78             0.69               0.73                                                        dis- sur-
+                                                                                        neutral calm happy sad angry fearful gust prised
+Surprised                    0.71             0.77               0.74
+Accuracy                                                         0.81            neutral 0.65 0.04 0.12 0.00 0.15 0.02 0.01 0.01
+Macroaverage                 0.80             0.80               0.80                                                                           0.8
+Weighted average             0.81             0.81               0.81
+                                                                                   calm 0.01 0.71 0.06 0.03 0.01 0.02 0.09 0.07
+                                                                                                                                                0.7
+for a lower number of emotions; however, the challenge was
+                                                                                  happy 0.04 0.09 0.70 0.01 0.07 0.03 0.03 0.02                 0.6
+to classify all these emotions. The model could perform well
+without any data augmentation, and we were also concerned
+that if it did, it would not converge properly, and hence, it                       sad 0.00 0.01 0.01 0.81 0.00 0.10 0.02 0.05                 0.5
+would not yield superior results in the test dataset. As
+mentioned before, a better idea is to create a larger dataset                     angry 0.04 0.01 0.06 0.00 0.88 0.01 0.00 0.00                 0.4
+and apply state-of-the-art models on it. However, even by
+using our simple model, we have reached high accuracy                                                                                           0.3
+results.                                                                          fearful 0.01 0.02 0.04 0.03 0.01 0.89 0.00 0.02
+
+                                                                                                                                                0.2
+                                                                                 disgust 0.00 0.07 0.12 0.01 0.01 0.02 0.73 0.04
+5.1. Comparative Analysis. There exists a work which was
+                                                                                                                                                0.1
+carried out in 2021; it focused on combining several datasets
+                                                                                surprised 0.01 0.05 0.02 0.01 0.00 0.03 0.07 0.81
+(RAVDESS, TESS, and SAVEE) [47]. This is the application
+which we also suggest since the model becomes more                                                                                              0.0
+generalized and is able to learn better. It also classiﬁed the              Figure 12: Confusion matrix of the proposed method on RAV-
+same emotions and used MLP and convolutional neural                         DESS [48].
+network (CNN) models in it. Totally, it had 5732 unique
+voice ﬁles from these 3 diﬀerent datasets, and it split their
+data as 25% for testing and 75% for training.                               proposed a method called head fusion to improve speech
+    As a result of their application, it has reached 86.81%                 emotion recognition accuracy. They have proposed a new
+accuracy by using the CNN model and reached 83.32%                          method that is based on multihead self-attention and used
+accuracy by the MLP classiﬁer. However, compared to our                     convolutional layers (attention-based convolutional neural
+results, it is better, but we implemented it on a much smaller              network). As a result of their proposed method and ex-
+dataset. They also have their MLP classiﬁer result by using                 periments on IEMOCAP (interactive emotional dyadic
+only the RAVDESS dataset, and they reached 69.49% for                       motion capture) and RAVDESS datasets, they have reached
+eight emotions, which is quite low since we have reached                    76.18% weighted accuracy and 76.36% unweighted accuracy.
+81% by using only the RAVDESS dataset (Table 4). They also                  It can be seen that our result is better than that of this
+tested their result on their CNN model, and the result is only              implementation since we have reached 81% accuracy (Ta-
+72.59%, which is also quite low compared to our result.                     ble 4). However, they also injected 50 types of common
+    In addition, in another work that was published in 2021,                noises, which is a diﬀerent way of implementation and
+they worked on improving the accuracy and robustness on                     solving this task. Figure 12 shows the confusion matrix of the
+IEMOCAP and RAVDESS datasets [51]. In their work, they                      proposed method on RAVDESS. Table 5 indicates that the
+10                                                                                            Journal of Healthcare Engineering
+
+                  Table 5: Comparison of performance of the model on diﬀerent emotions with previous works.
+             Neutral (%)    Calm (%)      Happy (%)     Sad (%)      Angry (%)      Fearful (%)      Disgust (%)      Surprised (%)
+[50]           64.81          84.09         73.49        59.79         80.77           63.37            50.98             68.57
+[51]             65            71            70            81           88              89               73                81
+Proposed       88.29          90.72         71.11         70.3         83.9            86.95            78.31             71.15
+
+
+proposed model outperforms the already-mentioned pre-             Conflicts of Interest
+vious works when we focus on each class of emotions
+separately.                                                       The authors declare that there are no conﬂicts of interest
+                                                                  regarding the publication of this paper.
+6. Conclusions
+                                                                  Acknowledgments
+This work is focused on improving the performance of a
+machine learning model in the speech dataset, which is the        The authors extend their appreciation to the Researchers
+Ryerson Audio-Visual Database of Emotional Speech and             Supporting Project number (RSP-2021/314), King Saud
+Song. The dataset contains both speech and song data, with a      University, Riyadh, Saudi Arabia.
+total of 2452 audio ﬁles with 8 diﬀerent emotions (calm,
+fearful, happy, surprise, sad, disgust, angry, and neutral
+emotions). The data are not balanced enough, but they are         References
+also not highly unbalanced. However, we did not perform            [1] M. Chen, P. Zhou, and G. Fortino, “Emotion communication
+any oversampling or undersampling operations on the data               system,” IEEE Access, vol. 5, pp. 326–337, 2016.
+to see how well the proposed model will learn from the             [2] M. El Ayadi, M. S. Kamel, and F. Karray, “Survey on speech
+unbalanced data.                                                       emotion recognition: features, classiﬁcation schemes, and
+    The most challenging part of this work was the lack of             databases,” Pattern Recognition, vol. 44, no. 3, pp. 572–587,
+data, that is, why diﬀerent types of approaches failed                 2011.
+during training of a model such as decision trees, CNNs,           [3] Z. Khan and W. Sohn, “Abnormal human activity recognition
+random forests, etc. The best performance was obtained                 system based on R-transform and kernel discriminant tech-
+by the MLP classiﬁer in previous works. Several param-                 nique for elderly home care,” IEEE Transactions on Consumer
+                                                                       Electronics, vol. 57, no. 4, pp. 1843–1850, 2011.
+eters of a default MLP classiﬁer are altered in this study,
+                                                                   [4] P. C. Petrantonakis and L. J. Hadjileontiadis, “Emotion rec-
+such as the design of the MLP classiﬁer’s hidden layer                 ognition from EEG using higher order crossings,” IEEE
+(750,750,750). Since the number of layers is quite high, it            Transactions on Information Technology in Biomedicine,
+can cause overﬁt for high iteration rates; that is why the             vol. 14, no. 2, pp. 186–197, 2009.
+number of iterations during training is kept low so that           [5] C. A. Frantzidis, C. Bratsas, M. A. Klados et al., “On the
+overﬁtting is avoided. Otherwise, this model will cause                classiﬁcation of emotional biosignals evoked while viewing
+overﬁt on training data for high iteration numbers on                  aﬀective pictures: an integrated data-mining-based approach
+data-augmented datasets. For the preprocessing part,                   for healthcare applications,” IEEE Transactions on Informa-
+diﬀerent approaches are also applied here. For CNN                     tion Technology in Biomedicine, vol. 14, no. 2, pp. 309–318,
+application, MFCC images are used but did not result in                2010.
+better performance, so the dataset is kept as a one-di-            [6] Y. P. Chi-Hong Wang, J. Tzyy-Ping, W. Tien-Lin, J. Shyh-
+                                                                       Kang, D. Jeng-Ren, and C. Jyh-Horng, “EEG-based emotion
+mensional array. Feature extraction is the part that takes
+                                                                       recognition in music listening,” IEEE Transactions on Bio-
+most of the time in this implementation, which took
+                                                                       medical Engineering, vol. 57, no. 7, pp. 1798–1806, 2010.
+longer than that taken to train the model. The mean of             [7] Z. Zeng, M. Pantic, G. I. Roisman, and T. S. Huang, “A survey
+MFCC features is calculated, and then short-time Fourier               of aﬀect recognition methods: audio, visual, and spontaneous
+transform and Mel spectrogram features are obtained.                   expressions,” IEEE Transactions on Pattern Analysis and
+    After the training process of the MLP classiﬁer, the               Machine Intelligence, vol. 31, no. 1, pp. 39–58, 2008.
+model is tested on the test dataset, which is 25% of the           [8] M. El-Wakdy, “Speech recognition using a wavelet transform
+original data that was not used during training. As a result,          to establish fuzzy inference system through subtractive
+an overall accuracy of 81% is obtained, whose performance is           clustering and neural network(ANFIS),” in Proceedings of the
+better than that of both the classiﬁcation report and con-             WSEAS International Conference, vol. 12, Heraklion, Greece,
+fusion matrix that was used. The highest performance is                July 2008.
+observed in calm emotion while the lowest performance is           [9] S. Ranjan, “Exploring the discrete wavelet transform as a tool
+                                                                       for Hindi speech recognition,” International Journal of
+observed in happy emotion.
+                                                                       Computer Theory and Engineering, vol. 2, no. 4, pp. 642–646,
+                                                                       2010.
+Data Availability                                                 [10] M. Wöllmer, A. Metallinou, F. Eyben, B. Schuller, and
+                                                                       S. Narayanan, “Context-sensitive multimodal emotion rec-
+The dataset used in this study can be accessed from “https://          ognition from speech and facial expression using bidirectional
+www.kaggle.com/uwrfkaggler/ravdess-emotional-speech-                   lstm modeling,” in Proceedings of the INTERSPEECH 2010,
+audio.”                                                                pp. 2362–2365, Makuhari, Japan, 2010.
+Journal of Healthcare Engineering                                                                                                           11
+
+[11] S. Firoz, S. Raji, and A. Babu, “Discrete wavelet transforms        [30] V. Hozjan and Z. Kačič, “Context-independent multilingual
+     and artiﬁcial neural networks for speech emotion recogni-                emotion recognition from speech signals,” International
+     tion,” International Journal of Computer Theory and Engi-                Journal of Speech Technology, vol. 6, no. 3, pp. 311–320, 2003.
+     neering, vol. 2, no. 3, pp. 319–322, 2010.                          [31] A. Abelin and J. Allwood, Cross Linguistic Interpretation of
+[12] C. C. Chibelushi, F. Deravi, and J. S. D. Mason, “A review of            Emotional Prosody, ITRW on Speech and Emotion, New-
+     speech-based bimodal recognition,” IEEE Transactions on                  castle, UK, 2000.
+     Multimedia, vol. 4, no. 1, pp. 23–37, 2002.                         [32] A. Tickle, Englishand Japanese Speaker’s Emotion Vocaliza-
+[13] K. Schaaﬀ and T. Schultz, “Towards an EEG-based emotion                  tions and Recognition: a Comparison Highlighting Vowel
+     recognizer for humanoid robots,” in Proceedings of the RO-               Quality, ISCA Archive, ISCA Tutorial and Research Work-
+     MAN 2009-The 18th IEEE International Symposium on Robot                  shop (ITRW) on Speech and Emotion, Newcastle, UK, 2000.
+     and Human Interactive Communication, pp. 792–796,                   [33] M. Schröder, “Speech and emotion research: an overview of
+     Toyama, Japan, September 2009.                                           research frameworks and a dimensional approach to emo-
+[14] S. Fujie, D. Yagi, Y. Matsusaka, H. Kikuchi, and T. Kobayashi,           tional speech synthesis,” Dr Thesis, Saarland University,
+     Spoken Dialogue System Using Prosody as Para-Linguistic                  Saarbrücken, Germany, 2004.
+     Information, Interspeech, Nara, Japan, 2004.                        [34] E. Navas, I. Hernáez, A. Castelruiz, J. Sánchez, and I. Luengo,
+[15] T. Vogt, E. André, and J. Wagner, “Automatic recognition of             “Acoustical analysis of emotional speech in standard Basque
+     emotions from speech: a review of the literature and rec-                for emotions recognition,” in Proceedings of the Iberoamer-
+     ommendations for practical realisation,” Aﬀect Emot. human-              ican Congress on Pattern Recognition, pp. 386–393, Havana,
+     computer Interact., pp. 75–91, 2008.                                     Cuba, October 2004.
+[16] P. J. Lang, “A bio-informational theory of emotional imag-          [35] R. Córdoba, J. M. Montero, J. M. Gutiérrez, J. A. Vallejo,
+     ery,” Psychophysiology, vol. 16, no. 6, pp. 495–512, 1979.               E. Enriquez, and J. M. Pardo, “Selection of the most signiﬁcant
+[17] P. Ekman, “Expression and the nature of emotion,” Ap-                    parameters for duration modelling in a Spanish text-to-speech
+     proaches to Emot, vol. 3, no. 19, p. 344, 1984.                          system using neural networks,” Computer Speech & Language,
+[18] K. R. Scherer, “Vocal aﬀect expression: a review and a model             vol. 16, no. 2, pp. 183–203, 2002.
+     for future research,” Psychological Bulletin, vol. 99, no. 2,       [36] R. Tato, R. Santos, R. Kompe, and J. M. Pardo, “Emotional
+     pp. 143–165, 1986.                                                       space improves emotion recognition,” in Proceedings of the
+[19] C. N. Moridis and A. A. Economides, “Toward computer-
+                                                                              7th International Conference on Spoken Language Processing,
+     aided aﬀective learning systems: a literature review,” Journal
+                                                                              Denver, CO, USA, September 2002.
+     of Educational Computing Research, vol. 39, no. 4, pp. 313–
+                                                                         [37] A. Batliner, K. Fischer, R. Huber, J. Spilker, and E. Nöth,
+     337, 2008.
+                                                                              Desperately Seeking Emotions or: Actors, Wizards, and Human
+[20] O. Pierre-Yves, “The production and recognition of emotions
+                                                                              Beings, ITRW on Speech and Emotion, Newcastle, UK, 2000.
+     in speech: features and algorithms,” International Journal of
+                                                                         [38] D. Gharavian, M. Sheikhan, A. Nazerieh, and S. Garoucy,
+     Human-Computer Studies, vol. 59, no. 1–2, pp. 157–183, 2003.
+                                                                              “Speech emotion recognition using FCBF feature selection
+[21] F. Dellaert, T. Polzin, and A. Waibel, “Recognizing emotion in
+                                                                              method and GA-optimized fuzzy ARTMAP neural network,”
+     speech,” in Proceedings of the 4th International Conference on
+                                                                              Neural Computing & Applications, vol. 21, no. 8, pp. 2115–
+     Spoken Language Processing. ICSLP’96, vol. 3, pp. 1970–1973,
+     Philadelphia, PA, USA, October 1996.                                     2126, 2012.
+[22] J. G. Taylor, K. Scherer, and R. Cowie, “Emotion and brain: u,”     [39] V. Petrushin, “Emotion in speech: recognition and applica-
+     ’Neural Networks, vol. 18, no. 4, pp. 313–316, 2005.                     tion to call centers,” Proceedings of Artiﬁcial Neural Networks
+[23] Y. Chavhan, M. L. Dhore, and P. Yesaware, “Speech emotion                In Engineering, vol. 710, p. 22, 1999.
+     recognition using support vector machine,” International Journal    [40] S. Zhang and X. Zhao, “Dimensionality reduction-based
+     of Computing and Applications, vol. 1, no. 20, pp. 6–9, 2010.            spoken emotion recognition,” Multimedia Tools and Appli-
+[24] J. M. Montero, J. Gutiérrez-Arriola, J. Colás, E. Enriquez, and        cations, vol. 63, no. 3, pp. 615–646, 2013.
+     J. M. Pardo, “Analysis and modelling of emotional speech in         [41] R. W. Picard, E. Vyzas, and J. Healey, “Toward machine
+     Spanish,” Proc. of ICPhS, vol. 2, pp. 957–960, 1999.                     emotional intelligence: analysis of aﬀective physiological
+[25] M. Shami and W. Verhelst, “An evaluation of the robustness               state,” IEEE Transactions on Pattern Analysis and Machine
+     of existing supervised machine learning approaches to the                Intelligence, vol. 23, no. 10, pp. 1175–1191, 2001.
+     classiﬁcation of emotions in speech,” Speech Communication,         [42] Z. Zhao, “Combining a parallel 2D CNN with a self-attention
+     vol. 49, no. 3, pp. 201–212, 2007.                                       dilated residual network for CTC-based discrete speech
+[26] P. Rani, C. Liu, N. Sarkar, and E. Vanman, “An empirical                 emotion recognition,” Neural Networks, vol. 141, pp. 52–60,
+     study of machine learning techniques for aﬀect recognition in            2021.
+     human-robot interaction,” Pattern Analysis & Applications,          [43] S. Lee, D. K. Han, and H. Ko, “Fusion-ConvBERT: parallel
+     vol. 9, no. 1, pp. 58–69, 2006.                                          convolution and BERT fusion for speech emotion recogni-
+[27] P. Partila and M. Voznak, “Speech emotions recognition using             tion,” Sensors, vol. 20, no. 22, p. 6688, 2020.
+     2-d neural classiﬁer,” in Nostradamus 2013: Prediction,             [44] H. Zhang, R. Gou, J. Shang, F. Shen, Y. Wu, and G. Dai, “Pre-
+     Modeling and Analysis of Complex Systems, pp. 221–231,                   trained deep convolution neural network model with atten-
+     Springer, Berlin, Germany, 2013.                                         tion for speech emotion recognition,” Frontiers in Physiology,
+[28] I. Luengo, E. Navas, I. Hernáez, and J. Sánchez, “Automatic            vol. 12, Article ID 643202, 2021.
+     emotion recognition using prosodic parameters,” in Pro-             [45] S. Livingstone and F. Russo, “The Ryerson audio-visual da-
+     ceedings of the 9th European Conference on Speech Commu-                 tabase of emotional speech and song (RAVDESS): a dynamic,”
+     nication and Technology, Lisbon, Portugal, September 2005.               Multimodal Set Of Facial And Vocal Expressions In North
+[29] T. L. Nwe, S. W. Foo, and L. C. De Silva, “Speech emotion                American English, vol. 13, 2018.
+     recognition using hidden Markov models,” Speech Commu-              [46] https://www.kaggle.com/uwrfkaggler/ravdess-emotional-
+     nication, vol. 41, no. 4, pp. 603–623, 2003.                             speech-audio.
+12                                                                    Journal of Healthcare Engineering
+
+[47] M. Kattel, A. Nepal, A. K. Shah, and D. Shrestha, “Chroma
+     feature extraction,” in Proceedings of the Conference: Chroma
+     Feature Extraction using Fourier Transform, January 2019.
+[48] J. J. M. Moreno, “Artiﬁcial neural networks applied to fore-
+     casting time series,” Psicothema, vol. 23, no. 2, pp. 322–329,
+     2011.
+[49] 2022           https://scikit-learn.org/stable/modules/neural_
+     networks_supervised.html.
+[50] U. Raghu Vamsi, B. Yuvraj Chowdhary, M. Harshitha, S. Ravi
+     Theja, and J. Divya Udayan, “Speech emotion recognition(ser)
+     using multilayer perceptron and deep learning techniques,”
+     IEEE Access, 2021.
+[51] M. Xu, F. Zhang, and W. Zhang, “Head fusion: improving the
+     accuracy and robustness of speech emotion recognition on the
+     IEMOCAP and RAVDESS dataset,” IEEE Access, vol. 9,
+     pp. 74539–74549, 2021.
+

@@ -1,0 +1,999 @@
+                                                                Interacting with Computers 23 (2011) 372–383
+
+
+
+                                                                Contents lists available at ScienceDirect
+
+
+                                                         Interacting with Computers
+                                                journal homepage: www.elsevier.com/locate/intcom
+
+
+
+
+                                                                                                                                                                      Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+Affective responses to system messages in human–computer-interaction:
+Effects of modality and message type
+Hans-Rüdiger Pﬁster a,⇑, Sabine Wollstädter a, Christian Peter b
+a
+    Leuphana University Lüneburg, Institute of Experimental Industrial Psychology – LueneLab, Wilschenbrucher Weg 84, D-21335 Lüneburg, Germany
+b
+    Fraunhofer Institute for Computer Graphics, J. Jungius Str. 11, 18059 Rostock, Germany
+
+
+
+a r t i c l e          i n f o                          a b s t r a c t
+
+Article history:                                        Affective responses of users to system messages in human–computer interaction are a key to study user
+Received 31 August 2010                                 satisfaction. However, little is known about the particular affective patterns elicited by various types of
+Received in revised form 9 May 2011                     system messages. In this experimental study we examined if and how different system messages, pre-
+Accepted 16 May 2011
+                                                        sented in different modalities, inﬂuence users’ affective responses. Three types of messages, input
+Available online 23 May 2011
+                                                        requests, status notiﬁcations, and error messages, were presented either as text or speech, and either
+                                                        alone or in combination with icons or sounds, while users worked on several typical computer tasks.
+Keywords:
+                                                        Affective responses following system messages were assessed employing a multi-modal approach, using
+System messages
+Affect
+                                                        subjective rating scales as well as physiological measures. Results show that affective responses vary sys-
+Physiological responses                                 tematically depending on the type of message, and that spoken messages generally elicit more positive
+Affective computing                                     affect than written messages. Implications on how to enhance user satisfaction by appropriate message
+Usability                                               design are discussed.
+Interface design                                                                                                          Ó 2011 Elsevier B.V. All rights reserved.
+
+
+
+1. Introduction                                                                           what kind of messages users actually prefer when interacting with
+                                                                                          computers.
+   For humans it is natural to use a great variety of modalities for                         In this study, we examine basic affective responses to common
+communication, such as voice, gesture, and facial expression. How-                        system messages delivered in different modalities. Affective states
+ever, human–computer interaction (HCI) in common applications                             not only inﬂuence a user’s general attitude towards an application,
+such as text processing or spread sheet calculation has largely re-                       they may also elicit behavioral tendencies on how to respond to
+lied on written textual information when conveying information                            messages, for example, by redirecting one’s attention, or by
+about the system. In human face-to-face communication, in con-                            increasing one’s propensity for risky actions (see Keltner and
+trast, speech, prosody, and non-verbal signals are essential to con-                      Lerner, 2010; Yiend, 2010). In contrast to other studies, we do
+vey information about the speaker’s intention, and in particular                          not focus on responses to exceptional system states such as fail-
+about mental states such as emotions. Affective signals and re-                           ures, or on the issue of how to intentionally modify users’ affective
+sponses are of paramount importance in coordinating human dis-                            states (Partala and Surakka, 2004), but on the question of how to
+course. However, to integrate these ﬁndings into HCI research and                         optimally convey ordinary system messages, such as error signals
+the design of interfaces has turned out to be more complex than                           or status notiﬁcations, in order to increase user satisfaction, and
+expected (Ward and Marsden, 2004; Peter and Beale, 2008).                                 consequently reduce errors and increase productivity.
+   We focus on common system messages and assume that typical                                Affective responses will be considered as a multi-modal con-
+messages such as status or error notiﬁcations not only convey fac-                        struct on two levels, on the level of physiological changes (Christie
+tual information, but might also trigger affective responses. Hence,                      and Friedman, 2004; Fairclough and Venables, 2006) as well as on
+system messages are double-edged events. On the one hand, they                            the level of subjective evaluations (Bradley and Lang, 2000; Isom-
+are imperative to ensure efﬁcient interaction and to avoid errors;                        ursu et al., 2007). In the following section, we ﬁrst clarify our ap-
+on the other hand, system messages constitute interruptions                               proach and terminology. Then, we brieﬂy sketch the various roles
+which might be experienced as annoying and might be detrimental                           of affect in HCI, before describing our research design.
+to performance (Bailey and Konstan, 2006; Speier et al., 2003;
+Carver, 2006). However, there is little evidence on what type of                          1.1. Affect, emotion, and physiological parameters
+affective responses are elicited by task-related interrupts, and
+                                                                                             We distinguish between affect, emotion proper, and mood (for
+    ⇑ Corresponding author. Tel.: +49 (0)4131 677 7759; fax: +49 (0)4131 677 7735.        similar and diverging approaches see Keltner and Lerner, 2010;
+      E-mail address: pﬁster@uni-lueneburg.de (H.-R. Pﬁster).                             Davis and Lang, 2003; Moffat, 1997). Affect is taken as a general
+
+0953-5438/$ - see front matter Ó 2011 Elsevier B.V. All rights reserved.
+doi:10.1016/j.intcom.2011.05.006
+                                             H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                     373
+
+
+category for any valenced feeling state, be it conscious or uncon-               (Peter and Herbon, 2006; van den Broek et al., 2010). Peter and
+scious, with or without particular cognitive appraisals, and with                Herbon (2006) present a broad review of studies involving physio-
+or without speciﬁc physiological or neuronal correlates. Subjec-                 logical readings and point out that a possible explanation of con-
+tively, affect is usually experienced as a general feeling of pleasure           tradictory ﬁndings might be that different stimuli were used in
+or displeasure (Barrett, 2006; Cabanac, 1992; Russell, 2003). An                 different tasks in most studies, and that the meaning of a physio-
+affective response is an immediate and for the most part automatic               logical response might be highly context speciﬁc.
+reaction to an eliciting event, such as a fearful reaction upon seeing               Generally, stronger feelings of arousal are frequently found to
+a snake, or a ﬁt of frustration after experiencing the third computer            be correlated with increased activity of the sympathetic part of
+crash in a row.                                                                  the autonomous nervous systems (ANS), involving increased elec-
+
+
+
+
+                                                                                                                                                           Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+    In contrast, we conceive of an emotion proper as a conscious                 trodermal activity, independent of valence (Bradley and Lang,
+mental state, constituted by particular cognitive appraisals impos-              2000). Positive valence tends to be correlated with increased heart
+ing meaning on the currently perceived situation, and directed to-               rate (Bradley and Lang, 2000) and body temperature (Cabanac,
+wards a speciﬁc object; emotions such as anger, pride and shame                  1992), but also a decrease in heart rate has been reported (Van
+are typical examples (Ortony et al., 1988). Speciﬁc emotions will                Reekum et al., 2004).
+involve a valenced affective response as a constituent part, similar                 In sum, it is currently not possible to unambiguously map dis-
+to what Russell (2003) and Barrett (2006) call core affect. Mood, on             crete emotions onto distinguishable patterns of physiological
+the other hand, is conceptualized as a non-speciﬁc and non-direc-                parameters, in spite of tremendous efforts in affective computing
+ted background feeling of longer duration and lower intensity                    research (Tao and Tan, 2009). It is, however, possible to gauge gen-
+(Moffat, 1997). Mood can work as a ﬁlter or as a disposition to                  eral affect via physiological measures such as heart rate or skin
+experience particular emotions (Forgas, 1995).                                   conductance, indicating a general valence or activation component
+    A common component of all affective constructs is the notion of              of affective responses. It should be noted that physiological mea-
+valence, that is, any affective response involves an evaluation of               sures have been successfully used to assess non-emotional states
+the eliciting event with respect to its being pleasant or unpleasant             in HCI, such as stress and mental workload (Ward and Marsden,
+(Russell, 2003). This basic affective response is assumed to be quick            2003), and we do not claim that physiological changes are solely
+and automatic in most cases (Zajonc, 1984). In this study, we will               associated with affective responses.
+be concerned with this kind of immediate affective responses of users
+caused by standard system messages of various kinds. If users re-                1.2. Affect in HCI and usability research
+spond affectively to system messages, this may inﬂuence further
+cognitive processes such as attention (Yiend, 2010), problem solv-                  Affect and emotion have for a long time been neglected in HCI
+ing, creativity, or motivation (Isen, 1999). Designers need to take              research, but during the last decade many researchers have
+these effects into account when trying to optimize HCI.                          acknowledged that emotion and affect are important factors in
+    In addition to valence, many researchers agree that arousal is a             human–computer interaction, and an impressive amount of ﬁnd-
+second relevant dimension making up the affective space, consti-                 ings has accumulated to date (Peter and Beale, 2008; Tao and
+tuting the so-called circumplex model (Barrett, 2006; Russell,                   Tan, 2009; Brave and Nass, 2002; Hazlett and Benedek, 2007;
+2003; Lang et al., 1998). The two dimensions valence (i.e., pleasant             Hudlicka, 2003; McNeese, 2003; Picard, 1997; Reeves and Nass,
+versus unpleasant) and arousal (i.e., excited versus calm) are as-               1996).
+sumed to be largely orthogonal; typical emotions such as anger,                     The particular role of affect in HCI can be seen from several per-
+fear, or happiness may be located within this circumplex, although               spectives (Moffat, 1997; Hudlicka, 2003). First, users naturally re-
+a unique mapping of discrete emotions to speciﬁc dimensional                     spond towards computers in an affective way. From this
+coordinates has turned out to be elusive. Whereas Russell’s model                perspective, computers are entities not different from other objects
+depicts valence as a single bipolar dimension, it should be noted                or events with the potential to elicit affective responses under cer-
+that evidence exists that positive and negative valence might be                 tain circumstances. A computer that does not work, just as a car
+independent, allowing for the simultaneous experience of pleasant                that does not run as the driver wishes, will cause frustration and
+and unpleasant feelings (Larsen et al., 2004).                                   anger. We call this the user perspective, referring to affective re-
+    As an extension of the two-dimensional model of affect, domi-                sponses particular events exert on the user. More generally, any
+nance (dominant versus submissive) has been suggested as a third                 emotional effects which are caused by computers, for example, es-
+dimension (Russell and Mehrabian, 1977). This tri-partite structure              thetic feelings caused by the delicate design of a laptop or feelings
+goes back to studies on the semantic differential (Osgood et al.,                of pride caused by its expensive features, can be subsumed under
+1957) which consistently found the three factors evaluation (i.e.,               this perspective (Helander and Tham, 2003; Norman, 2004; Mah-
+valence), potency (i.e., dominance), and arousal in people’s ratings             lke and Thüring, 2007). Blends of cognitive, motivational, and
+of various stimuli on the semantic differential. In the context of               affective states may also play an important role; for example, Baker
+HCI, the feeling of dominance, implying power and control, might                 et al. (2010) demonstrate the prevalence of cognitive-affective
+indicate that users consider themselves to be able to achieve their              states such as boredom and frustration in computer-based
+goals and to cope with potential computer problems, possibly indi-               learning.
+cating a high degree of self-efﬁcacy (Bandura, 1997). In contrast,                  Second, the user might perceive the computer as if it were an-
+low dominance might indicate helplessness, when users feel sub-                  other human being (Reeves and Nass, 1996). We refer to this phe-
+jected to the machine as is often the case with novices.                         nomenon as the social perspective, interpreting human–computer
+    Since the early days of emotion research, many researchers as-               interaction as a social situation. Social situations, not surprisingly,
+sume a close correspondence between the subjective experience of                 are saturated with emotional experiences (Ward and Marsden,
+affective states and the intensity and pattern of physiological reac-            2004; Ferdig and Mishra, 2004; von Scheve and von Luede,
+tions (James, 1884; Levenson, 2003). However, to date empirical                  2005), causing feelings such as anger, shame, and contempt. This
+evidence on the speciﬁcity of physiological patterns as signatures               applies to the situation of an individual user interacting with a
+of speciﬁc emotions is mixed at best (Christie and Friedman,                     computer in isolation, but might be even more relevant when sev-
+2004; Levenson, 2003; Cacioppo et al., 2000; Mauss et al., 2005).                eral individuals communicate or collaborate simultaneously via
+Also, the relationship between physiological measures and valence                computers in social networks or virtual groups (Bridsall, 2007;
+and arousal is somewhat incongruous, in particular in HCI research               Pﬁster and Oehl, 2009; Pﬁster et al., 2003).
+374                                           H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383
+
+
+    Third, the computer might even be able to recognize the feel-                     Question 1. Do different types of system messages cause spe-
+ings of the user. The computer might try to monitor the continuous                    ciﬁc affective responses?
+ﬂow of the users’ affective states, interpret his feelings, and re-                   Question 2. Is the affective impact of system messages moder-
+spond accordingly. This approach originated in research on affec-                     ated by the way or mode they are delivered?
+tive computing (Tao and Tan, 2009; Picard, 1997; Paiva et al.,                        Question 3. Are there differences between affective responses at
+2007; Picard and Klein, 2002), aiming at the development of sys-                      the level of subjective experience and at the level of physiolog-
+tems that are not only able to assess relevant affective patterns,                    ical changes?
+but also to respond in a way that is perceived as emotional by hu-
+man users. Following Fairclough (2009) we call this the biocyber-                     Concerning Question 1, three types of system messages will be
+
+
+
+
+                                                                                                                                                            Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+netic perspective. Ideally, the computer would act as if it were a                studied: input messages, status notiﬁcations, and error messages;
+sentient being, though one of the more benevolent and caring                      details will be given in the method section. We consider these mes-
+types. In a full-ﬂedged biocybernetic cycle, the computer needs                   sages to be common and normal events in everyday computer
+to understand the user’s emotion, and it must be able to respond                  applications; we are not interested in rare events such as fatal er-
+in an adequate manner. Both aims pose severe problems, and de-                    rors or safety–critical incidents. We will refer to this aspect as mes-
+spite enthusiastic attempts neither the problem of automated                      sage category.
+emotion recognition (van den Broek et al., 2010; Zeng et al.,                         Concerning Question 2, it is essential to know the conditions
+2009; Allanson and Fairclough, 2004; Fasel and Luettin, 2003; Pan-                that elicit and moderate affective responses. A plausible assump-
+tic and Patras, 2006; Ward et al., 2002) nor the problem of system                tion is that the mode of communication, that is, written (visual)
+initiated emotion feedback and regulation (Partala and Surakka,                   or spoken (acoustic), is a key moderator; we will refer to this as-
+2004; Klein et al., 2002) has at present been effectively solved (Pai-            pect as global modality in this paper. In particular, we assume that
+va et al., 2007; Bartneck and Lyons, 2009).                                       voice in contrast to text will lead to more pleasant responses. For
+    In this study, we focus on the user perspective, that is on normal            example, Qiu and Benbasat (2005) examined the effect of text-to-
+events such as system messages in HCI and examine the affective                   speech voice in e-commerce systems and found that text-to-
+responses these events elicit in humans. Findings about the rela-                 speech fosters consumers’ feelings of ﬂow, that is, a pleasant and
+tionship of system messages and affective responses might provide                 playful feeling concerning one’s interaction with the system (see
+information about conditions fostering positive responses. This, in               also Frauenberger and Stockman, 2009; Mafﬁolo and Chateau,
+turn, might provide means to increase user satisfaction by deliver-               2003; Kallinen and Ravaja, 2005).
+ing messages in an appropriate mode, and thus contribute to the                       Moreover, in addition to the basic textual message, further
+design of adaptive feedback procedures as part of the biocybernetic               information may be presented in combination with the message
+cycle (Zhang et al., 2010).                                                       content, such as a sound or an image. An annoying sound might
+                                                                                  lead to more arousal and negative affect, whereas an additional im-
+1.3. Research questions                                                           age might be less surprising and disturbing, triggering less
+                                                                                  unpleasant responses. Providing a richer set of symbols has been
+    We assume that computer users strive for positive affect or at                assumed to increase vividness and social presence, and thereby
+least try to maintain a dispassionate state, that is, they prefer states          generate a more positive user experience; however, empirical evi-
+of dominance (system control), of low or moderate arousal (calm-                  dence supporting this assumption is still preliminary (Hess et al.,
+ness), and of positive valence (pleasantness) with respect to their               2009; Dennis et al., 2008). In this study three variants will be
+current interaction with the system; correspondingly, they try to                 examined: Presenting the system message alone, presenting the
+avoid states of low dominance (helplessness), high arousal (ner-                  message in combination with an icon, and presenting the message
+vousness), and negative valence (unpleasantness). This assumption                 in combination with a sound. We will refer to this aspect as speciﬁc
+might not apply to the use of computers for entertainment, such as                modality, and assume that providing a richer set of symbols will
+computer games (Mandryk et al., 2006; Lin et al., 2008), when high                foster positive affect.
+arousal, excitement, and, generally, the experience of intense affect                 Concerning question 3, the relationship between verbal reports
+is a primary objective. Here, we focus on ordinary ofﬁce applica-                 about the subjective affective experience and physiological mea-
+tions, and assume that most system generated stimuli will be of                   sures is still unclear. Hence, subjective ratings as well as a set of
+rather low affective intensity, and the user’s main objective is to               physiological parameters will be assessed in order to explore their
+successfully perform his or her task without being interrupted by                 connections in the context of HCI in standard applications.
+annoying messages.
+    When using a typical computer application, such as a word pro-                2. Method
+cessing or spreadsheet program, a user’s affective state will be
+inﬂuenced by a variety of external and internal stimuli. Among                        In an experiment we varied message category, global modality,
+others, the ongoing process of achieving one’s task, for example,                 and speciﬁc modality. Three kinds of system messages were used
+writing a report, will be a major determinant of affect (Carver,                  to elicit affect: input requests, status notiﬁcations, and error mes-
+2006); furthermore, incidental events such as a ringing phone, or                 sages. Messages were presented either visually, i.e., as text, or
+an interruption by one’s colleague will elicit affective responses.               acoustically, i.e., as speech, as well as presented either alone or
+While cognitive effects of interruptions on task performance have                 in combination with an icon or a sound. In order to control for task
+been studied since many years (Speier et al., 2003, 1999), their                  effects, participants were required to work on three typical com-
+inﬂuence on affective processes in the user has been neglected.                   puterized tasks, a spreadsheet calculation, an information search,
+In this study, we investigate breaks in the form of messages con-                 and a typing training task. Affective responses were measured
+veyed by the computer while the user tries to accomplish her or                   using physiological indicators as well as subjective rating scales.
+his task. Incidental interruptions usually hinder one’s progress,
+leading to unpleasant feelings (Bailey and Konstan, 2006; Speier                  2.1. Participants
+et al., 2003; Carver, 2006). However, there is still a lack of evidence
+on what type of affective responses are caused by system inter-                      Fifty-four students (41 female, 13 male, age from 19 to 38 years
+rupts, in particular, by common system messages.                                  with a mean of 24.9 years) participated in the study. Participants
+    This study focuses on three related research questions:                       obtained credits as part of their study requirements.
+                                                               H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                        375
+
+
+2.2. Design
+
+    A three-factorial design with global modality, speciﬁc modality,
+and message category as experimental factors was applied. The
+factor global modality was varied on two levels, either as a written
+(i.e., visual modality) or a spoken (i.e., acoustic modality) message.
+The factor speciﬁc modality was varied on three levels, that is, the
+message was either presented alone, or the message included an
+appropriate symbol (an icon) in addition to the written or spoken
+
+
+
+
+                                                                                                                                                                                Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+message, or the presentation included an additional alerting sound
+(a beep).
+    The factor message category was varied on three levels: The
+message was either an input request, that is, the user was required                                Fig. 2. Sequence of tasks, instructions, and measurements taken across one
+to enter information, or a status notiﬁcation, informing the user                                  experimental trial.
+about some state parameter of the system, or an error message,
+informing about an erroneous input of the user (Fig. 1).
+    Global modality was realized as a between-subjects factor,                                     experimental sets with different mappings of message-condition
+whereas speciﬁc modality and message category were varied                                          to task were constructed, balancing all within-subject factorial
+within-subjects, yielding a 2 (global modality)  3 (speciﬁc modal-                                combinations across tasks. For example, a participant assigned to
+ity)  3 (message category) factorial design with repeated                                         experimental set one received the simple written or spoken input
+measurement on speciﬁc modality and message category. Thus,                                        request during the typing training, the input plus symbol request
+each participant received all 3  3 = 9 combinations of message                                    during the information search task, and the input plus sound re-
+category with speciﬁc modality.                                                                    quest was presented during the spreadsheet calculation task. Like-
+    In order to prevent artifacts due to task demands and to aug-                                  wise, if the error message is presented alone when performing the
+ment generalizability, participants worked on three different tasks                                typing task, input request and status notiﬁcation messages were
+as described above: A spreadsheet calculation, an information                                      combined with a symbol or with a sound, respectively. In the sub-
+search task, and a typing training task. During each task, all three                               sequent trial, the error message was then combined with a symbol
+kinds of message categories were presented at predeﬁned process-                                   or sound, and input and status message were accordingly pre-
+ing steps (Fig. 2).                                                                                sented alone or in another combination (see Fig. 1).
+    In order to balance task effects, the particular message condi-                                   Furthermore, order of tasks was balanced across participants,
+tions were assigned to different tasks for each participant. Three                                 that is, participants either worked on the typing task ﬁrst, followed
+
+
+                                modality
+                                                            written (or spoken)           written (or spoken) + symbol              written (or spoken) + sound
+                         category
+                                          spreadsheet      Do you want to save                    Do you want to               Do you want to save
+                                          calculation           changes?                         save changes?                        changes?
+                                                                                                   More than ten hits.         More than ten hits.
+                                          information
+                                                        More than ten hits. Do you                 Do you want to view         Do you want to view
+
+
+
+                    input request
+                                          search
+                                                        want to view the entire list? the entire list?                 the entire list?
+                                          keyboard                                                 Please choose a             Please choose a
+                                          typing             Please choose a                       Username.                   Username.
+                                          training               Username.
+                                                        With the changes you are         With the changes you are             With the changes
+                                          spreadsheet   about to make your travel        about to make your travel            you are about to
+                                          calculation     costs will be more than costs will be more than doubled. make your travel costs will
+
+
+
+
+                    status notification
+                                                                  doubled.                                            be more than doubled.
+                                          information        No matches could                  No matches could be            No matches could be
+                                          search                  be found.                    found.                         found.
+                                          keyboard                                           The tutorial is finished         The tutorial is
+                                          typing               The tutorial is              now.                              finished now.
+                                          training             finished now.
+                                                         Changes in this field are           Changes in this field            Changes in this field
+                                          spreadsheet
+                                                        just possible by using the           are just possible by             are just possible by
+                                          calculation
+                                                             formula manager.      using the formula manager.         using the formula manager.
+                                                                                             Check your input.                Check your input.
+                                          information
+
+
+
+                    error message
+                                                        Check your input. Please             Please tip ‘Surname,             Please tip ‘Surname,
+                                          search
+                                                        tip ‘Surname, first Name’. first Name’.                       first Name’.
+                                          keyboard                                           You made a spelling              You made a spelling
+                                          typing           You made a spelling               mistake.                         mistake.
+                                          training                mistake.
+
+Fig. 1. Messages used depending on global modality (written or spoken), message category (input, status, error), and speciﬁc modality; column two shows icons of message-
+plus-symbol condition.
+376                                          H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383
+
+
+by the calculation task, and ﬁnally on the search task; or they be-              (2007), phasic skin conductance was measured within a 3-s inter-
+gan with the calculation task, then the search task, followed by the             val after stimulus-onset. The skin conductance response (SCR),
+typing task; or beginning with the search task, followed by the typ-             serving as dependent variable, was computed as the difference be-
+ing and calculation tasks.                                                       tween the post-stimulus maximum amplitude and the level of skin
+   In sum, order of tasks, order of message categories, and order of             conductance at stimulus onset. Skin conductivity was measured
+speciﬁc modality conditions was systematically balanced across                   using the Varioport Measurement System from Becker Meditec™
+participants, thus avoiding position effects and task artifacts.                 by placing two Ag–AgCl sensors on the right food plantar in order
+Global modality, however, was varied between two independent                     to avoid interference with ﬁnger activity. The SCL coupler of the
+groups in order to avoid interference between spoken and written                 Varioport System applied a constant 0.5 Volts across the elec-
+
+
+
+
+                                                                                                                                                        Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+messages (for example, waiting for a voice when only a text is                   trodes, changes were measured in units of lS (microSiemens).
+presented).                                                                          Heart rate (HR) is another indicator for physiological activity
+                                                                                 elicited by affective stimuli, and one of the most common, reliable
+2.3. Measures                                                                    and valid method for assessing cardiovascular changes (Fahrenberg
+                                                                                 and Wientjes, 2002). Heart rate has been shown to be correlated
+2.3.1. Subjective ratings of affect                                              with pleasantness of affective stimuli (Bradley and Lang, 2000; Da-
+    Subjective affect assessments were obtained using an assess-                 vis and Lang, 2003), with pleasant stimuli being associated with in-
+ment screen which displayed the Self Assessment Manikin (SAM)                    creased heart rate. Heart rate was measured using sensors secured
+scale introduced by Bradley and Lang (1994), a reliable and valid                to the rib cage with the non-commercial EREC system from the Fra-
+method to measure affect via self-report (Isomursu et al., 2007;                 unhofer IGD research institute, Rostock, Germany (for details see
+Bradley and Lang, 1994). The SAM is a non-verbal pictorial assess-               Peter et al., 2005). Phasic change in heart rate (measured in bpm)
+ment technique that directly measures three affective dimensions:                served as dependent variable. It was computed as the difference
+valence, arousal, and dominance. Participants indicated their cur-               between the maximum post-stimulus value and a pre-stimulus va-
+rent affective state online on the screen by a mouse click on a scale            lue. The pre-stimulus value was computed as the average during a
+mark located below and between the ﬁgures, yielding a nine-point                 5 s period previous to stimulus onset. The post-stimulus value was
+rating scale (1 = unhappy, low arousal and dominance; 9 = happy,                 determined as the maximum response within a 5 s interval after
+high arousal and dominance).                                                     stimulus onset.
+    The assessment screen was presented 3 s after a target event                     Skin temperature (ST) changes constitute a somewhat delayed
+(e.g., an error message) happened, and disappeared as soon as                    and less reliable indicator of physiological activity (Boucsein,
+the participant had rated his or her feelings on each scale. The                 2000). Venables and Christie (1980) showed that decreased tem-
+three self-report scales were presented once for every system mes-               perature may lead to extended time parameters, e.g. recovery time,
+sage presentation, so that the working process was interrupted                   of SCR. We measured ﬁnger temperature using a temperature sen-
+three times. In the typing task, however, because of frequent un-                sor ﬁxed on the middle ﬁnger of the nondominant hand; measure-
+planned typing errors triggering an error message, the assessment                ment equipment and software was again provided by the
+procedure was applied only every seventh message.                                Fraunhofer IGD research institute, Rostock, Germany (Peter et al.,
+                                                                                 2005). Maximum change in skin temperature (in °C) within a 5 s
+2.3.2. Physiological measures                                                    interval after stimulus-onset, relative to the average computed
+    The physiological parameters assessed were skin conductance,                 across 5 s prior to stimulus-onset, served as dependent variable.
+heart rate, and skin temperature. These measures were chosen be-
+cause of their prominence in affect and HCI research (Ward and                   2.4. Procedure and material
+Marsden, 2003; Andreassi, 2007), and, most important, because
+they are relatively unobtrusive. Many approaches involving physi-                    The experiment was conducted individually with each partici-
+ological sensing to infer affective states have been proposed to col-            pant. After participants arrived at the laboratory, they were
+lect physiological data, but all imply a trade-off between accuracy              randomly assigned to one of the global modality conditions, as well
+and completeness and leaving room for natural unobstructed                       as to one of the three experimental sets (order of task/message pre-
+interaction (van den Broek et al., 2010; Peter et al., 2005; Barreto             sentation). Participants were then seated in front of the computer,
+et al., 2007; Gao et al., 2009). Unfortunately, usability and comforts           and sensors and chest strap were attached and connected. When
+of these devices is often deﬁcient. Particularly when investigating              the technical functioning of the physiological measurements had
+mild affective responses, the equipment chosen should be as unob-                been veriﬁed, participants were informed about the following tasks
+trusive for participants as possible. These considerations lead us to            and were asked to complete questionnaires about computer
+focus on skin conductance and skin temperature, which are also                   experience and demographic variables. All instructions during
+the preferred parameters in many HCI-related studies, and heart                  the experiment were automatically presented at the appropriate
+rate as a further, slightly more obtrusive measure. Due to their                 stages via the computer interface. During the tasks, system
+obtrusiveness, measures such as EEG or fMRI are considered less                  messages were presented following the schema described above
+useful when HCI-related applications are of interest. Devices for                (Fig. 2). Following each single system message, participants an-
+heart rate and skin temperature measurement were available as                    swered the three SAM-assessments, which appeared in the middle
+an integrated measurement system from the Fraunhofer IGD re-                     of the screen 3 s after the system message, and then continued to
+search institute, Rostock, Germany (EREC; Peter et al., 2005; elec-              work on the task again.
+trodermal activity was measures using the Varioport system                           The three tasks were (a) to perform a typing training on key-
+from Becker Meditec™. Physiological recordings were taken con-                   board use with a simple word processing program, (b) to correct
+tinuously during the complete duration of working on each task.                  calculation errors in a spreadsheet program representing ﬁctitious
+    Skin conductance (SC), indicating electrodermal activity (EDA), is           employee travel costs, and (c) to search for addresses of ﬁctitious
+usually considered as a reliable indicator of an affective response              clients in a data base program; order of tasks was balanced across
+(Boucsein, 2000; Dawson et al., 2007). Skin conductance has been                 participants. Each task required approximately 5 min to complete.
+found to correlate with arousal, elicited by stimuli that are either                 During each task, participants received three system messages.
+positively or negatively valenced (Bradley and Lang, 2000; Keil                  Input requests required an immediate activity from the partici-
+et al., 2008). Following recommendations of Dawson et al.                        pant, fulﬁlling the request. Status notiﬁcations informed about
+                                                      H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                                377
+
+
+the status of the current task, but no immediate activity was re-                         sions did not change according to these checks, we only report tra-
+quired. Error messages implied indirect activities, because partici-                      ditional ANOVA results.
+pants might be asked to correct a previous erroneous activity. For                           Concerning the subjective affect ratings, the normality and
+example, during keyboard training, an input request would ask to                          homogeneity of variance requirements of ANOVA are met; if viola-
+enter one’s user name, a status notiﬁcation would inform the par-                         tions of sphericity occurred it was checked if conclusions change
+ticipant that the practice lesson is ﬁnished, and an error message                        after Greenhouse-Geisser correction which was not the case. It
+would inform that he or she made a typing error. During the calcu-                        has also been argued that subjective rating scales should be treated
+lation task, the input request would ask if the participant wants to                      as ordinal scales; hence, we conducted parallel tests using a pro-
+save changes, the status notiﬁcation would inform about implied                           portional odds ordinal regression model treating the response var-
+
+
+
+
+                                                                                                                                                                               Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+changes in travel costs, and the error message would signal that                          iable as an ordered categorical scale (Agresti, 2002). Results from
+changes need to be made via a speciﬁc formula tool. Depending                             these ordinal analyses were virtually identical to the ANOVA anal-
+on condition, each message was either presented alone, or in com-                         yses, hence we only report the traditional ANOVA tests.
+bination with an icon, or in combination with a beep sound. As de-                           For an overview, all means are shown in Table 1, and all ANOVA
+scribed above, order of message category and order of combination                         tests are summarized in Table 2.
+with icon or sound was balanced across trials (Fig. 1).
+    In the condition with spoken messages, the message was pre-                           3.1. Physiological measurements
+sented by a female voice. Pitch was artiﬁcially reduced, yielding
+a fairly neutral voice. Note that voice per se can be an affective sig-                   3.1.1. Heart rate change
+nal (Scherer et al., 2003), but this was not controlled in this study.                        Change in heart rate as response to the message event was ana-
+                                                                                          lyzed by a 2 (global modality)  3 (speciﬁc modality)  3 (message
+                                                                                          category) analysis of variance with repeated measurements for
+3. Results                                                                                speciﬁc modality and message category, and controlling for exper-
+                                                                                          imental set. A signiﬁcant main effect was found for message cate-
+    As outlined above, six dependent variables were analyzed as                           gory (F(2, 104) = 5.57, p = .005, g2p (partial eta-squared) = .11).
+indicators of affect, three of which are physiological measurements                       Heart rate increased signiﬁcantly for input requests in contrast to
+(heart rate, electrodermal activity, and skin temperature), and                           status (p = .008) and error messages (p = .009) according to post-
+three of which are subjective ratings of affective feelings (valence,                     hoc multiple comparisons with Sidak correction; status and error
+arousal, and dominance). We report analyses separately for each                           messages did not differ signiﬁcantly. Although there was a notice-
+dependent variable with respect to the independent variables glo-                         able tendency for greater heart rate changes when messages were
+bal modality (written or spoken message presentation), speciﬁc                            spoken in contrast to written messages, this difference was not sig-
+modality (simple message, message plus symbol, or message plus                            niﬁcant (Fig. 3a). Only the simple effect of global modality for the
+sound), and message category (input request, status notiﬁcation,                          input request condition showed a signiﬁcant increase in heart rate
+or error message).                                                                        for spoken in contrast to written messages (F(1, 50) = 4.66,
+    All analyses are based on a sample of 54 participants, 27 partic-                     p = .036). Speciﬁc modality showed no effect on heart rate change.
+ipants for each condition of global modality; with repeated mea-                          In sum, heart rate increases when an input request occurs, and this
+surement on speciﬁc modality and messages category with three                             increase is somewhat stronger for spoken messages.
+levels each, yielding 486 observations per dependent variable. A
+total of around four percent missing observations occurred due                            3.1.2. Skin conductance response
+to technical failures or non-responding participants. Since these                            Because of a large proportion of SCR values being zero or close
+missing values were randomly distributed across conditions, they                          to zero, indicating a non-response, we decided to dichotomize this
+were replaced by the median of the total sample in order not to                           non-normally distributed variable. All phasic responses smaller
+loose statistical power due to listwise deletion, and in order to                         than 0.05 lS were coded as non-responses, and all values larger
+keep a balanced design, which is a recommended trade-off if less                          than 0.05 lS as responses elicited by the stimulus event (Dawson
+than ﬁve percent of data are missing at random (Tabachnick and                            et al., 2007). A logistic regression model with this dichotomized
+Fidell, 2007).                                                                            response as dependent variable, the experimental conditions as
+    Outliers of physiological variables were deﬁned as values more                        predictors, and participants as a random factor to control for
+extreme than two standard deviations and discarded. Note that the                         repeated measurement, yields a signiﬁcant effect of message
+physiological variables are not normally distributed, and sphericity                      category, v2(2) = 23.26, p < .001, with the error category yielding
+is violated for most within-subjects effects. Thus, for all analyses it                   signiﬁcantly larger skin conductance responses (z = 3.26, p = .001)
+was checked if results change after a Greenhouse-Geisser correc-                          in contrast to input or status messages (Fig. 3b). Global modality
+tion, and for all signiﬁcant main effects a non-parametric test                           yields a marginal effect, v2(1) = 3.59, p < .058, indicating that with
+(Kruskal or Friedman test) was performed. Since statistical conclu-                       spoken messages SCR decreases slightly. No effect for speciﬁc
+
+
+Table 1
+Means and Standard Deviations (in Parentheses) of Dependent Variables.
+
+  Measure                 Written                                                                        Spoken
+                          Input                     Status                    Error                      Input                   Status                    Error
+  HR (bpm)                1.138 (2.781)             0.707 (2.081)             0.885 (2.260)              2.442 (5.190)           0.964 (3.699)             0.955 (3.893)
+  SC (lS)                 0.018 (0.043)             0.018 (0.065)             0.039 (0.071)              0.013 (0.047)           0.019 (0.068)             0.037 (0.090)
+  TM (°C)                 0.094 (0.043)             0.093 (0.045)             0.097 (0.034)              0.110 (0.049)           0.093 (0.048)             0.098 (0.048)
+  Valence                 5.36 (1.46)               4.79 (1.48)               4.67 (1.51)                5.83 (1.65)             5.43 (1.70)               5.02 (1.72)
+  Arousal                 4.88 (1.62)               4.89 (1.64)               5.15 (1.59)                4.48 (1.57)             4.77 (1.49)               5.16 (1.62)
+  Dominance               4.91 (1.58)               4.35 (1.68)               4.12 (1.649                5.23 (1.58)             4.90 (1.54)               4.47 (1.63)
+
+Note: N = 27 for written and spoken global modality, respectively. HR (heart rate), SC (skin conductance response), and TM (temperature) denote phasic values (differences).
+Valence, arousal, and dominance are measured on a 9-point scale.
+378                                                     H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383
+
+
+Table 2
+Summary of 2  3  3 ANOVA analysis: cells show F-value with degrees of freedom (in Parentheses), and p-value.
+
+                                    HR                     SC                         TM                               Valence                  Arousal             Dominance
+  Global modality                   1.92 (1, 50)           0.032 (1, 50)              0.67 (1, 50)                     5.15 (1, 50)             0.33 (1, 50)        2.49 (1, 50)
+                                    p = .172               p = .856                   p = .417                         p = .028*                p = .569            p = .121
+  GM  SM                           1.55 (2, 104)          2.20 (2, 104)              0.34 (2, 104)                    0.05 (2, 104)            0.80 (2, 104)       0.42 (2, 104)
+                                    p = 0.216              p = .116                   p = .710                         p = .949                 p = .452            p = .660
+  GM  MC                           2.21 (2, 104)          0.21 (2, 104)              2.26 (2, 104)                    0.42 (2, 104)            1.05 (2, 104)       0.47 (2, 104)
+                                    p = 0.115              p = .815                   p = .109                         p = .658                 p = .355            p = .629
+  Speciﬁc modality                  0.35 (2, 104)          1.49 (2, 104)              1.33 (2, 104)                    0.55 (2, 104)            0.05 (2, 104)       1.72 (2, 104)
+
+
+
+
+                                                                                                                                                                                    Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+                                    p = 0.708              p = .229                   p = .268                         p = .576                 p = .950            p = .184
+  SM  MC                           0.38 (4, 208)          0.56 (4, 208)              1.86 (4, 208)                    0.48 (4, 208)            0.70 (4, 208)       0.48 (4, 208)
+                                    p = 0.819              p = .690                   p = .119                         p = .754                 p = .594            p = .747
+  Message                           5.57 (2, 104)          9.42 (2, 104)              2.34 (2, 104)                    11.8 (2, 104)            5.75 (2, 104)       17.1 (2, 104)
+  Category                          p = 0.005*             p < .001*                  p = .102                         p < .001*                p = .004*           p < .001*
+  GM  SM  MC                      0.41 (4, 208)          1.47 (4, 208)              1.79 (4, 208)                    1.22 (4, 208)            0.26 (4, 208)       1.61 (4, 208)
+                                    p = .798               p = .211                   p = .131                         p = .302                 p = .902            p = .173
+
+Note:  Indicates interaction effects (GM = global modality, SM = speciﬁc modality, MC = message category).
+*
+  Signiﬁcant effect (a = 5%).
+
+
+
+
+                                                    (a) Heart Rate                                                      (b) Skin Conductance
+                              3.0                                                                              0.5
+                                                                            written                                                                       written
+                                                                            spoken                                                                        spoken
+                              2.5
+                                                                                                               0.4
+
+
+
+
+                                                                                           P(SCR > 0.05 μ S)
+                              2.0
+                                                                                                               0.3
+
+                    Δ [bpm]
+                              1.5
+                                                                                                               0.2
+                              1.0
+
+                                                                                                               0.1
+                              0.5
+
+
+                              0.0                                                                              0.0
+                                         input          status             error                                     input             status             error
+                                                    Message Category                                                             Message Category
+
+
+                                             (c) Skin Temperature
+                          0.12                                              written
+                                                                            spoken
+
+                          0.10
+
+
+                          0.08
+
+
+                    Δ°C   0.06
+
+
+                          0.04
+
+
+                          0.02
+
+
+                          0.00
+                                         input          status             error
+                                                    Message Category
+
+Fig. 3. Means of physiological measures as a function of global modality (written versus spoken) and message category (input, status, error). Error bars indicate standard
+errors.
+
+
+modality was found. These ﬁndings are conﬁrmed by a 2 (global                                   sages were not signiﬁcantly different (all post-hoc multiple com-
+modality)  3 (speciﬁc modality)  3 (message category) analysis                                parisons with Sidak adjustment of p-values). No effect for speciﬁc
+of variance with repeated measurements for speciﬁc modality                                     modality nor for global modality was found. It has also been
+and message category, and controlling for experimental set, yield-                              proposed to normalize the phasic SCR with respect to the tonic
+ing a signiﬁcant effect of message category (F(2, 104) = 9.42,                                  base level (Dawson et al., 2007); an analysis of variance with
+p < .001, g2p ¼ 0:18). Increase in skin conductivity was signiﬁcantly                           the normalized values as dependent variable again yields a
+greater after error messages in contrast to status notiﬁcations                                 signiﬁcant message category main effect, F(2, 98) = 5.91, p = .004,
+(p < .001) and to input requests (p = .003), input and status mes-                              g2p ¼ 0:12.
+                                                H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                    379
+
+
+3.1.3. Skin temperature change                                                      speciﬁc modality and message category, controlling for experimen-
+   Skin temperature was analyzed by a 2 (global modality)  3                       tal set, and subjective arousal rating as dependent variable re-
+(speciﬁc modality)  3 (message category) analysis of variance                      vealed a signiﬁcant main effect for message category
+with repeated measurements for speciﬁc modality and message                         (F(2, 104) = 5.75, p = .004, g2p ¼ :11). According to post-hoc compar-
+category, and controlling for experimental set. The effect of mes-                  isons (with Sidak correction for multiple comparisons), subjective
+sage category turned out to be marginally signiﬁcant (p = 0.10),                    arousal is rated as signiﬁcantly higher following error messages
+with input requests leading to a slightly higher skin temperature.                  compared to input (p = .017) and status messages (p = .025) (see
+Also, a marginal interaction effect between global modality and                     Fig. 4b). Though there appears to be a slight tendency for written
+message category (p = .11) as well as between speciﬁc modality                      messages to elicit more arousal, this difference is not signiﬁcant.
+
+
+
+
+                                                                                                                                                             Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+and message category (p = .12) could be detected. Only the simple
+effect of global modality for the input condition turned out to be                  3.2.3. Dominance
+signiﬁcant (F(1, 50) = 4.18, p = .046; see Fig. 3c), showing a higher                   A 2 (global modality)  3 (speciﬁc modality)  3 (message
+average in skin temperature when input requests were spoken in                      category) analysis of variance with repeated measurements for
+contrast to being written. Altogether, however, skin temperature                    speciﬁc modality and message category, controlling for experimen-
+appears not to be particularly responsive with respect to system                    tal set, and subjective dominance rating as dependent variable
+messages.                                                                           revealed a highly signiﬁcant main effect for message category
+   A multivariate analysis conﬁrms the previous ﬁndings. With                       (F(2, 104) = 17.09, p < .001, g2p ¼ :33). The message category effect
+heart rate change, electrodermal activity, and skin temperature                     is clear cut: Feelings of dominance are signiﬁcantly stronger fol-
+combined as a multivariate vector of three dependent variables,                     lowing input requests (p = .005) in contrast to status notiﬁcations,
+and applying a multivariate mixed model analysis (Pinheiro and                      which are in turn signiﬁcantly larger compared to error messages
+Bates, 2000), we ﬁnd a signiﬁcant effect of message category                        (p = .011; means are 5.07, 4.62, and 4.30 for input, status, and error
+(v2(1) = 7.95, p < .019, according to a likelihood-ratio test compar-               messages, respectively; see Fig. 4c). The effect of global modality,
+ing a Null-model containing only experimental set as a covariate,                   though showing a noticeable tendency of spoken messages to trig-
+with a model containing message category as an additional predic-                   ger stronger feelings of dominance, does not reach signiﬁcance. No
+tor); no further main or interaction effects turned out to be                       effect of speciﬁc modality was detected. The pattern of dominance
+signiﬁcant.                                                                         ratings is similar to the valence rating pattern, though the global
+                                                                                    modality effect is not signiﬁcant.
+3.1.4. Summary of physiological parameter changes                                       A multivariate analysis conﬁrms the previous ﬁndings. With va-
+   Phasic heart rate and skin temperature changes show a similar                    lence, arousal, and dominance combined as a multivariate depen-
+response pattern to messages events, with a clear tendency to in-                   dent vector, and applying a multivariate mixed model analysis
+crease after input messages in contrast to status notiﬁcations and                  (Pinheiro and Bates, 2000), we ﬁnd a signiﬁcant effect of global
+error messages. Electrodermal activity shows a reverse pattern,                     modality (v2(1) = 5.24, p = .022, according to a likelihood-ratio test
+with signiﬁcantly increased skin conductance following error mes-                   comparing a Null-model, containing experimental set as only pre-
+sages. Furthermore, there is a particular tendency for spoken mes-                  dictor, with a model containing global modality as an additional
+sages, in contrast to written messages, to increase heart rate and                  predictor), as well as a signiﬁcant effect of message category
+skin temperature following input requests. No effects could be de-                  ((v2(1) = 21.57, p < .001); no further main or interaction effects
+tected with respect to speciﬁc modality. In sum, physiological re-                  turned out to be signiﬁcant.
+sponses are clearly sensitive to particular message categories:
+Heart rate and skin temperature increase, maybe indicating a neu-                   3.2.4. Summary of subjective affective ratings
+tral or slightly positively valenced orienting response, whereas in-                    The analysis of subjective ratings of affective responses, mea-
+creased skin conductance presumably indicates heightened                            sured 3 s after a system message event, yields a typical pattern
+arousal after error messages (Bradley and Lang, 2000).                              (Fig. 4). Spoken messages tend to elicit larger positive ratings, that
+                                                                                    is, more pleasant and more dominant feelings, than do written
+3.2. Subjective affective ratings                                                   messages. Also, for valence as well as for arousal and dominance,
+                                                                                    the message category has a strong impact: Input requests are, all
+3.2.1. Valence                                                                      in all, evaluated as more pleasant than status and error messages;
+   A 2 (global modality)  3 (speciﬁc modality)  3 (message cat-                   an analogous pattern applies to dominance, respectively. Error
+egory) analysis of variance with repeated measurements for spe-                     messages, not surprisingly, yield the least pleasant and least dom-
+ciﬁc modality and message category was conducted with                               inant feelings, but elicit stronger arousal.
+subjective valence ratings as dependent variable, controlling for                       For a proper interpretation, the base line measurements of
+experimental set. The main effect of global modality turned out                     affective ratings before starting the experimental trials must be ta-
+to be statistically signiﬁcant, F(1, 50) = 5.15, p = .028, g2p ¼ :10. Spo-          ken into account. Formally, the neutral midpoint of the nine-point
+ken messages obtained higher mean valence ratings than written                      bipolar rating scales is ﬁve. The empirical base line ratings of va-
+messages (Mspoken = 5.43, Mwritten = 4.94); in particular, the simple               lence (M = 6.41, SD = 1.35) as well as of dominance (M = 5.37,
+effect between written and spoken messages for the status mes-                      SD = 1.39), measured at the start of the experiment before respond-
+sage condition was signiﬁcant, t(52) = 2.56, p = .007. Also, the main               ing to any target events, are well above the average of ratings elic-
+effect of message category on valence ratings was signiﬁcant,                       ited as response to a message event during experimental trials.
+F(2, 104) = 11.76, p < .001, g2p ¼ :23, with input messages obtaining               That is, positivity of affect generally drops once participants start
+higher ratings than status or error messages (post-hoc compari-                     working on the experimental tasks. Presumably, this is due to
+sons with Sidak correction showed signiﬁcant differences between                    the experimental setting and demand characteristics, which for
+input and status messages, p = .002, and between input and error                    most participants do not constitute a pleasant overall experience.
+messages, p < .001; see Fig. 4a).                                                       The arousal ratings shows a somewhat individual pattern,
+                                                                                    partly opposite to the valence and dominance ratings. While sub-
+3.2.2. Arousal                                                                      jective arousal is generally more or less in the vicinity of normal
+   A 2 (global modality)  3 (speciﬁc modality)  3 (message                        base line arousal (M = 4.56, SD = 1.63), it increases when error
+category) analysis of variance with repeated measurements for                       messages are presented. Whereas valence and dominance show a
+380                                                          H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383
+
+
+                                                        (a) Valence                                                          (b) Arousal
+                                     6.5                                                                  6.5
+                                                                                  written                         written
+                                                                                  spoken                          spoken
+                                     6.0                                                                  6.0
+
+                                     5.5                                                                  5.5
+
+
+
+
+                         Valence                                                                Arousal
+                                     5.0                                                                  5.0
+
+
+
+
+                                                                                                                                                                                 Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+                                     4.5                                                                  4.5
+
+                                     4.0                                                                  4.0
+
+                                     3.5                                                                  3.5
+
+                                     3.0                                                                  3.0
+                                           input            status                error                           input           status        error
+                                                       Message Category                                                     Message Category
+
+
+                                                   (c) Dominance
+                                     6.5
+                                                                                  written
+                                                                                  spoken
+                                     6.0
+
+                                     5.5
+
+
+
+
+                         Dominance
+                                     5.0
+
+                                     4.5
+
+                                     4.0
+
+                                     3.5
+
+                                     3.0
+                                           input            status                error
+                                                       Message Category
+
+Fig. 4. Means of subjective ratings as a function of global modality (written versus spoken) and message category (input, status, error). Error bars indicate standard errors.
+
+
+common response with respect to message category and global                                      measures are virtually uncorrelated among each other. In particu-
+modality, arousal shows an opposite response with maximum                                        lar, no correlations are found between physiological parameters
+intensity following error messages. Arousal is also not affected by                              and ratings.
+global modality. Apparently, subjective arousal as assessed in this                                  This is in contrast with established ﬁndings that skin conduc-
+study might indicate a variant of negative affective activation,                                 tance should be at least somewhat positively related with arou-
+caused merely by annoying error messages.                                                        sal, and heart rate with valence (Bradley and Lang, 2000).
+                                                                                                 Arousal and skin conductance do show a small positive correla-
+3.3. Relationships between subjective ratings and physiological                                  tion in the expected direction (r = .19), but it is not signiﬁcant
+measures                                                                                         (p = .172). Also, valence and skin conductance are somewhat
+                                                                                                 negatively related (r = .18, p = .198), suggesting that in this par-
+   In order to examine the relationships among the measures of                                   ticular study it is mainly negative stimuli that trigger electroder-
+affective responses, in particular among physiological and subjec-                               mal activity; the large negative correlation between valence and
+tive variables, Table 3 shows the correlations among all six depen-                              arousal ratings (r = .59) conﬁrms this conjecture. Also, interest-
+dent variables. Whereas all subjective ratings are highly and                                    ingly, dominance is strongly and positively related with valence
+signiﬁcantly correlated, showing a strong positive correlation be-                               (r = .67), indicating that system messages such as input requests
+tween valence and dominance, and a strong negative correlation                                   and status notiﬁcation might increase feelings of control and
+of both valence and dominance with arousal, the physiological                                    efﬁcacy of users.
+
+Table 3
+Correlations among affective response measures.
+
+                                              Valence                    Arousal                          Dominance                Heart rate            Skin conductivity
+     Arousal                                  .59**
+     Dominance                                 .67**                     .55**
+     Heart rate                               .01                       .08                             .06
+     Skin conductivity                        .18                        .19                             .01                       .07
+     Temperature                               .10                       .14                             .08                      .02                  .05
+**
+     Correlations signiﬁcant at a = .01; N = 54.
+                                              H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                    381
+
+
+   In sum, physiological indicators of affect show a systematic pat-              are, in comparison, less pleasant, associated with less control and
+tern as a function of message category and global modality, but                   with higher physiological agitation. However, this ﬁnding needs
+their relationship with subjective reports of affect is less clear.               to be qualiﬁed as the effect of what we referred to as global modal-
+We can think of two possible reasons. First, ordinary system mes-                 ity depends on the type of system message. Input requests and, to a
+sages constitute very weak affective stimuli; as a consequence,                   lesser degree, status notiﬁcations, are susceptible to changes in
+automatic visceral responses will be very weak also. As discussed                 modality, whereas error message appear to be immune to this kind
+previously when analyzing the SCR measures, we must assume                        of modality change.
+that in many instances the message stimulus did not trigger an                        What we referred to as speciﬁc modality, that is, a combination
+affective response at all. Second, it is still unclear how general ﬁnd-           of messages with symbols or sounds, did not yield any signiﬁcant
+
+
+
+
+                                                                                                                                                           Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+ings about relationships between physiological parameters and                     effect on affective responses. It remains to be seen if variations in
+subjective ratings actually are. What has been found when using                   iconic representations, for example, using enlarged icons with ex-
+a large variety of affective pictures or sounds, may not generalize               plicit affective content, or variations in sound might be more effec-
+to highly speciﬁc contexts such as users interacting with standard                tive. However, we conjecture that variations in iconic or acoustic
+computer applications. Both reasons might contribute why the cor-                 content or intensity would most likely lead to higher arousal, more
+relations among physiological and rating variables are virtually                  irritation, and generally to more unpleasant responses, as users
+zero in this experiment.                                                          rarely like to be interrupted and conceive of system messages usu-
+                                                                                  ally as an unpleasant disruption. How to minimize annoyances
+                                                                                  stemming from technically mediated interruptions might be a re-
+4. Discussion                                                                     search issue in its own right (Speier et al., 2003; Grandhi and Jones,
+                                                                                  2010).
+4.1. Summary of ﬁndings
+                                                                                  4.2. Limitations of the study
+    To summarize, we found that the assumption that users experi-
+ence considerably different affective patterns in response to sys-
+                                                                                      Though we did our best to ensure internal validity by balancing
+tem messages could be largely conﬁrmed, yielding a positive
+                                                                                  treatments across different tasks and participants, a number of
+answer to our research question one. Different message categories
+                                                                                  limitations remain to be addressed. The sample constitutes a con-
+such as input requests, status notiﬁcations, and error messages eli-
+                                                                                  venience sample of psychology students, so generalizing to other
+cit different patterns of affective responses. This is found with re-
+                                                                                  populations should be made with care. More important, the selec-
+spect to subjective ratings as well as to physiological parameters.
+                                                                                  tion of experimental tasks and the selection of message categories
+Input requests increase heart rate and skin temperature, and error
+                                                                                  represent only a small sample of possible tasks and messages. It
+messages increase skin conductivity. Input requests and to a lesser
+                                                                                  may well turn out that affective responses change systematically
+extent status notiﬁcations lead to more pleasant and more domi-
+                                                                                  with tasks and message categories not examined here. In particu-
+nant feelings compared to error messages, which are associated
+                                                                                  lar, the operationalization of a speciﬁc message implies several de-
+with unpleasantness and feelings of relatively low dominance. Er-
+                                                                                  sign decisions; for example, length of message, size and font of
+ror messages, on the other hand, increase feelings of subjective
+                                                                                  text, and kind of voice for auditory messages. It is well known that
+arousal. Note that these ﬁndings are relative comparisons contrast-
+                                                                                  people react strongly and affectively to human voices (Mafﬁolo and
+ing different message categories; compared to the pre-experimen-
+                                                                                  Chateau, 2003), and variation in the quality of the voice conveying
+tal base line, ratings of valence and dominance generally drop
+                                                                                  the message is a good candidate to manipulate affect.
+during experimental trials. A plausible explanation is that perform-
+                                                                                      It should be noted that for some participants skin conductance
+ing the experimental trials, in particular being continuously as-
+                                                                                  and skin temperature yielded fairly ﬂat measurement proﬁles,
+sessed by a variety of instruments, is slightly stressful and
+                                                                                  indicating either low or delayed responsiveness to target events.
+unpleasant, and the particular tasks are probably boring for most
+                                                                                  As this reduces systematic variance, statistical results will be
+participants. Additionally, being interrupted constantly during task
+                                                                                  rather conservative, and one might presume that true physiological
+performance by system messages might be an annoying experi-
+                                                                                  activity is stronger than what could be measured. A phasic analysis
+ence per se.
+                                                                                  might be limited when the affective stimuli are very weak, as is to
+    It turns out that subjective ratings and physiological changes
+                                                                                  be expected in ofﬁce software, in contrast to applications such as
+are not correlated in this experiment, giving a preliminary answer
+                                                                                  computer or adventure games (Zillman and Vorderer, 2000).
+to research question three. As can be seen in Table 3, the correla-
+                                                                                      With respect to the instruments used to measure affective re-
+tions between heart rate, temperature, and skin conductance on
+                                                                                  sponses, the usual caveats apply. Subjective ratings of affect should
+the one hand, and the ratings of valence, dominance, and arousal
+                                                                                  be interpreted with caution, since peoples introspective abilities
+on the other hand, are virtually zero. Not surprisingly, valence
+                                                                                  are questionable, and the semantics of a pictorial scale such as
+and dominance are correlated positively, whereas arousal is nega-
+                                                                                  SAM might be heterogeneous among participants; also, tendencies
+tively correlated with valence and dominance. This interpretation
+                                                                                  such as self-serving bias and social conformity might reduce valid-
+conforms with our assumption that dominance is a positively val-
+                                                                                  ity. On the other hand, subjective ratings do provide valuable infor-
+enced feeling of control and self-efﬁcacy, whereas arousal signiﬁes
+                                                                                  mation, and growing evidence suggests that for most purposes this
+a negatively valenced feeling of irritation. On the other hand, the
+                                                                                  kind of self-report is a viable measurement instrument (Isomursu
+fact that skin conductance and heart rate do not correlate as ex-
+                                                                                  et al., 2007). At present, a multi-modal approach as employed in
+pected from previous research, might be attributed to the particu-
+                                                                                  this study, combining subjective self-report with more objective
+lar context, that is, very weak stimuli in an ordinary computer task.
+                                                                                  measurements such as physiological parameters, seems to be the
+    Are users’ affective responses sensitive to the particular way
+                                                                                  most promising approach (Hazlett and Benedek, 2007).
+system messages are presented? Our ﬁndings referring to research
+question two suggest that the modality used to convey the infor-
+mation, that is, as a written text or as a spoken communication,                  5. Conclusions
+does indeed to a certain extent inﬂuence affective responses. By
+and large, spoken messages trigger more pleasant affect and are                      This study aims to contribute to the growing literature on affec-
+associated with feelings of control, whereas written messages                     tive computing (Paiva et al., 2007) and on affect in HCI (Peter and
+382                                                    H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383
+
+
+Beale, 2008). With advanced interfaces and computerized services                               Engineering Psychophysiology: Issues and Applications. Erlbaum, Mahwah, NJ,
+                                                                                               pp. 289–309.
+becoming more and more available (Zhang et al., 2010), it is of ma-
+                                                                                           Bradley, M.M., Lang, P.J., 1994. Measuring emotions: the self-assessment manikin
+jor importance to better understand the impact on users’ affect and                            and the semantic differential. Journal of Behavior Therapy and Experimental
+emotion. We focused on basic affective responses of users when                                 Psychiatry 25, 49–59.
+experiencing ordinary system messages such as input requests,                              Bradley, M.M., Lang, P.J., 2000. Measuring emotion: behavior, feeling, and
+                                                                                               physiology. In: Lane, R.D., Nadel, L. (Eds.), Cognitive Neuroscience of Emotion.
+status notiﬁcations, and error messages. Employing a multi-modal                               Oxford University Press, New York, pp. 242–276.
+approach, measuring subjective ratings as well as physiological                            Brave, S., Nass, C., 2002. Emotion in human–computer interaction. In: Jacko, J.A.,
+parameters commonly associated with affective responses, it could                              Sears, A. (Eds.), The Human–Computer Interaction Handbook. Erlbaum,
+                                                                                               Mahwah, NJ, pp. 81–96.
+be established that system messages trigger detectable changes in                          Bridsall, W.F., 2007. Web 2.0 as a social movement. In: Webology.
+
+
+
+
+                                                                                                                                                                                           Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+users’ affective responses.                                                                Cabanac, M., 1992. Pleasure: the common currency. Journal of Theoretical Biology
+    Moreover, the mode in which message information is conveyed                                155, 173–200.
+                                                                                           Cacioppo, J.T., Berntson, G.G., Larsen, J.T., Poehlmann, K.M., Ito, T.A., 2000. The
+does inﬂuence affective responses. In particular, we may conclude                              psychophysiology of emotion. In: Lewis, R., Haviland-Jones, J.M. (Eds.),
+that presenting information as spoken messages, in contrast to                                 Handbook of Emotions. Guilford, New York, pp. 173–191.
+standard textual messages, will shift affective responses towards                          Carver, C.S., 2006. Approach, avoidance, and self-regulation of affect and action.
+                                                                                               Motivation & Emotion 30, 105–110.
+more pleasant and more dominant feelings, especially concerning                            Christie, I.C., Friedman, B.H., 2004. Autonomic speciﬁcity of discrete emotion and
+input and status messages. Designers should try to use the human                               dimensions of affective space: a multivariate approach. International Journal of
+voice to convey information when appropriate. It might be beneﬁ-                               Psychophysiology 51, 143–153.
+                                                                                           Dabbish, L., Kraut, R., 2008. Awareness displays and social motivation for
+cial to exchange simple sound notiﬁcations such as beeps with
+                                                                                               coordinating communication. Information Systems Research 19, 221–238.
+voice notiﬁcations, which can be very short but friendly. In partic-                       Davis, M., Lang, P.J., 2003. Emotion. In: Gallagher, M., Nelson, R.J. (Eds.), Handbook
+ular with respect to error messages and warnings we suggest to                                 of Psychology: Biological Perspectives. Wiley, Hoboken, NJ, pp. 405–439.
+use speech notiﬁcation, as this might, if carefully designed, make                         Dawson, M.E., Schell, A.M., Filion, D.L., 2007. The electrodermal system. In:
+                                                                                               Cacioppo, J.T., Tassinary, L.G., Berntson, G.G. (Eds.), Handbook of
+the user feel more dominant and in control.                                                    Psychophysiology. Cambridge University Press, Cambridge, US, pp. 159–181.
+    System messages are a special kind of interruptions, which have                        Dennis, A.R., Fuller, R.M., Valacich, J.S., 2008. Media, tasks, and communication
+for the most part been studied in terms of increasing mental load                              processes: a theory of media synchronicity. MIS Quarterly 32, 575–600.
+                                                                                           Fahrenberg, J., Wientjes, C.J.E., 2002. Recording methods in applied environments.
+and its detrimental effects on attention and performance (Dabbish                              In: Backs, R.W., Boucsein, W. (Eds.), Engineering Psychophysiology: Issues and
+and Kraut, 2008; Xie and Salvendy, 2000). Bailey and Konstan                                   Applications. Erlbaum, Mahwah, NJ, pp. 111–132.
+(2006) are among the few studies demonstrating affective effects,                          Fairclough, S.H., 2009. Fundamentals of physiological computing. Interacting with
+                                                                                               Computers 21, 133–145.
+that is, negative feelings, of interruptions. However, affective pro-                      Fairclough, S.H., Venables, L., 2006. Prediction of subjective states from
+cesses may also themselves contribute to an increase in mental                                 psychophysiology: a multivariate approach. Biological Psychology 71, 100–110.
+load, and from our ﬁndings we would advocate to address this is-                           Fasel, B., Luettin, J., 2003. Automatic facial expression analysis: a survey. Pattern
+                                                                                               Recognition 36, 259–275.
+sue more closely (Yiend, 2010).                                                            Ferdig, R.E., Mishra, P., 2004. Emotional responses to computers: experiences in
+    Mapping particular instantiations of system messages into an                               unfairness, anger, and spite. Journal of Educational Multimedia and Hypermedia
+affective space constituted by basic dimensions such as valence,                               13, 143–161.
+                                                                                           Forgas, J., 1995. Mood and judgment: the affect infusion model (AIM). Psychological
+dominance, and arousal, and possibly supplemented by physiolog-
+                                                                                               Bulletin 117, 39–66.
+ical components, might allow interface designers to choose appro-                          Frauenberger, C., Stockman, T., 2009. Auditory display design – an investigation of a
+priate modalities and formats to convey system messages in a                                   design pattern approach. International Journal of Human–Computer Studies 67,
+more optimal way, aiming at eliciting pleasant, or at least avoiding                           907–922.
+                                                                                           Gao, Y., Barreto, A., Adjouadi, M., 2009. Comparative analysis of noninvasively
+unpleasant, affective responses in users. Knowledge about feasible                             monitored biosignals for affective assessment of a computer user. In: McGoron,
+ways to improve user satisfaction by tailoring system messages in                              A., Li, C., Lin, W.-C. (Eds.), 25th Southern Biomedical Engineering Conference
+an affectively suitable way will, we presume, make up one impor-                               2009, IFMBE Proceedings 24. Springer, Berlin, pp. 255–260.
+                                                                                           Grandhi, S., Jones, Q., 2010. Technology-mediated interruption management.
+tant component of a future full-ﬂedged affective computing                                     International Journal of Human–Computer Studies 68, 288–306.
+environment.                                                                               Hazlett, R.L., Benedek, J., 2007. Measuring emotional valence to understand the
+                                                                                               user’s experience of software. International Journal of Human–Computer
+                                                                                               Studies 65, 306–314.
+References                                                                                 Helander, M.G., Tham, M.P., 2003. Hedonomics – affective human factors design.
+                                                                                               Ergonomics 46, 1269–1272.
+Agresti, A., 2002. Categorical Data Analysis, second ed. Wiley, New York.                  Hess, T., Fuller, M., Campbell, D., 2009. Designing interfaces with social presence:
+Allanson, J., Fairclough, S.H., 2004. A research agenda for physiological computing.           using vividness and extraversion to create social recommendations agents.
+    Interacting with Computers 16, 857–878.                                                    Journal of the Association for Information Systems 10, 889–919.
+Andreassi, J.L., 2007. Psychophysiology: Human Behavior and Physiological                  Hudlicka, E., 2003. To feel or not to feel: the role of affect in human–computer
+    Response, ﬁfth ed. Erlbaum, Mahwah, NJ.                                                    interaction. International Journal of Human–Computer Studies 59, 1–32.
+Bailey, B.P., Konstan, J.A., 2006. On the need for attention-aware systems:                Isen, A.M., 1999. Positive affect. In: Dalgleish, T., Power, M.J. (Eds.), Handbook of
+    measuring effects of interruption on task performance, error rate, and                     Cognition and Emotion. Wiley, Chichester, pp. 521–539.
+    affective state. Computers in Human Behavior 22, 685–708.                              Isomursu, M., Tähti, M., Väinämö, S., Kuutti, K., 2007. Experimental evaluation of
+Baker, S.J.d.R., D’Mello, S.K., Rodrigo, M.M.T., Graesser, A.C., 2010. Better to be            ﬁve methods for collecting emotions in ﬁeld settings with mobile applications.
+    frustrated than bored: the incidence, persistence, and impact of learners’                 International Journal of Human–Computer Studies 65, 404–418.
+    cognitive-affective states during interactions with three different computer-          James, W., 1884. What is an emotion? Mind 9, 188–205.
+    based learning environments. International Journal of Human–Computer                   Kallinen, K., Ravaja, N., 2005. Effects of the rate of computer-mediated speech on
+    Studies 68, 223–241.                                                                       emotion-related subjective and physiological responses. Behaviour &
+Bandura, A., 1997. Self-Efﬁcacy. The Exercise of Control. Freeman, New York.                   Information Technology 24, 365–373.
+Barreto, A., Zhai, J., Adjouadi, M., 2007. Non-intrusive physiological monitoring for      Keil, A., Smith, J.F., Mitchell, T.R., Beach, L.R., Wangelin, B.C., Sabatinelli, D., Bradley,
+    automated stress detection in human–computer interaction. In: Lew, M., Sebe,               M.M., Lang, P.J., 2008. Electrocortical and electrodermal responses covary as a
+    N., Huang, T.S., Bakker, E.M. (Eds.), Proceedings of HCI 2007. Lecture Notes in            function of emotional arousal: a single-trial analysis. Psychophysiology 45,
+    Computer Science. Springer, Heidelberg, pp. 29–38.                                         516–523.
+Barrett, L.F., 2006. Valence as a basic building block of emotional life. Journal of       Keltner, D., Lerner, J.S., 2010. Emotion. In: Gilbert, D.T., Fiske, S.T., Lindzey, G. (Eds.),
+    Research in Personality 40, 35–55.                                                         The Handbook of Social Psychology. Wiley, New York, pp. 317–352.
+Bartneck, C., Lyons, M.J., 2009. Facial expression analysis, modeling, and synthesis:      Klein, J., Moon, Y., Picard, R.W., 2002. This computer responds to user frustration:
+    overcoming the limitations of artiﬁcial intelligence with the art of the soluble.          theory, design, and results. Interacting with Computers 14, 119–140.
+    In: Vallverdu, J., Casacuberta, D. (Eds.), Handbook of Research on Synthetic           Lang, P.J., Bradley, M.M., Cuthbert, B.N., 1998. Emotion, motivation, and anxiety:
+    Emotions and Sociable Robotics: New Applications in Affective Computing and                brain mechanisms and psychophysiology. Biological Psychiatry 44, 1248–1263.
+    Artiﬁcial Intelligence. IGI Global, Hershey, PA, pp. 33–53.                            Larsen, J.T., McGraw, A.P., Mellers, B.A., Cacioppo, J.T., 2004. The agony of victory and
+Boucsein, W., 2000. The use of psychophysiology for evaluating stress–strain                   thrill of defeat: mixed emotional reactions to disappointing wins and relieving
+    processes in human–computer interaction. In: Backs, R.W., Boucsein, W. (Eds.),             losses. Psychological Science 15, 325–330.
+                                                          H.-R. Pﬁster et al. / Interacting with Computers 23 (2011) 372–383                                                     383
+
+
+Levenson, R.W., 2003. Autonomic speciﬁcity and emotion. In: Davidson, R.J.,                   Qiu, L., Benbasat, I., 2005. An investigation into the effects of text-to-speech voice
+     Scherer, K.R., Goldsmith, H.H. (Eds.), Handbook of Affective Sciences. Oxford                and 3D avatars on the perception of presence and ﬂow of live help in electronic
+     University Press, New York, pp. 212–224.                                                     commerce. ACM Transactions on Computer–Human Interaction 12, 329–355.
+Lin, T., Imamiya, A., Mao, X., 2008. Using multiple data sources to get closer insights       Reeves, B., Nass, C., 1996. The Media Equation: How People Treat Computers,
+     into user cost and task performance. Interacting with Computers 20, 364–374.                 Television, and New Media like Real People and Places. Cambridge University
+Mafﬁolo, V., Chateau, N., 2003. The emotional quality of speech in voice services.                Press, Stanford, CA.
+     Ergonomics 46, 1375–1385.                                                                Russell, J.A., 2003. Core affect and the psychological construction of emotion.
+Mahlke, S., Thüring, M., 2007. Studying antecedents of emotional experiences in                   Psychological Review 110, 145–172.
+     interactive contexts. In: CHI 2007 Proceedings. ACM Press, New York, pp. 915–            Russell, J.A., Mehrabian, A., 1977. Evidence for a three-factor theory of emotion.
+     918.                                                                                         Journal of Research in Personality 11, 273–294.
+Mandryk, R.L., Inkpen, K.M., Calvert, T.W., 2006. Using psychophysiological                   Scherer, K.R., Johnstone, T., Klasmeyer, G., 2003. Vocal expression of emotion. In:
+     techniques to measure user experience with entertainment technologies.                       Davidson, R.J., Scherer, K.R., Goldsmith, H.H. (Eds.), Handbook of Affective
+
+
+
+
+                                                                                                                                                                                        Downloaded from academic.oup.com/iwc/article/23/4/372/738932 by College of Science Zhejiang University user on 25 September 2026
+     Behaviour & Information Technology 25, 141–158.                                              Science. Oxford University Press, New York, pp. 433–456.
+Mauss, I.B., Levenson, R.W., McCarter, L., Wilhelm, F.H., Gross, J.J., 2005. The tie that     Speier, C., Valacich, J.S., Vessey, I., 1999. The inﬂuence of task interruption on
+     binds? Coherence among emotion experience, behavior, and physiology.                         individual decision making: an information overload perspective. Decision
+     Emotion 5, 175–190.                                                                          Sciences 30, 337–360.
+McNeese, M.D., 2003. New visions of human–computer interaction: making                        Speier, C., Vessey, I., Valacich, J.S., 2003. The effects of interruptions, task
+     affect compute. International Journal of Human–Computer Studies 59, 33–                      complexity, and information presentation on computer-supported decision
+     53.                                                                                          making performance. Decision Sciences 34, 771–797.
+Moffat, D., 1997. Personality parameters and programs. In: Trappl, R., Petta, P. (Eds.),      Tabachnick, B.G., Fidell, L.S., 2007. Using Multivariate Statistics, ﬁfth ed. Pearson,
+     Creating Personalities for Synthetic Actors. Springer, Berlin, pp. 120–165.                  Boston.
+Norman, D.A., 2004. Emotional Design: Why We Love (or hate) Everyday Things.                  Tao, J., Tan, T., 2009. Affective Information Processing. Springer, London.
+     Basic Books, New York.                                                                   van den Broek, E.L., Lisy, V., Janssen, J.H., Westerink, J.H.D.M., Schut, M.H.,
+Ortony, A., Clore, G.L., Collins, A., 1988. The Cognitive Structure of Emotions.                  Tuinenbreijer, K., 2010. Affective man-machine interface: unveiling human
+     Cambridge University Press, Cambridge, MA.                                                   emotions through biosignals. In: Fr, A., Filipe, J., Gamboa, H. (Eds.), Biomedical
+Osgood, C.E., Suci, G.J., Tannenbaum, P.H., 1957. The Measurement of Meaning.                     Engineering Systems and Technologies. Communications in Computer and
+     University of Illinois Press, Urbana, IL.                                                    Information Science. Springer, Berlin, pp. 21–47.
+Paiva, A., Prada, R., Picard, R.W., 2007. Affective Computing and Intelligent                 Van Reekum, C.M., Johnstone, T., Banse, R., Etter, A., Wehrle, T., Scherer, K.R., 2004.
+     Interaction. Springer, Berlin.                                                               Psychophysiological responses to appraisal dimensions in a computer game.
+Pantic, M., Patras, I., 2006. Dynamics of facial expression: recognition of facial                Cognition and Emotion 18, 663–688.
+     actions and their temporal segments from face proﬁle image sequences. IEEE               Venables, P.H., Christie, M.J., 1980. Electrodermal activity. In: Martin, I., Venables,
+     Transactions on Systems, Man, and Cybernetics – Part B: Cybernetics 36, 433–                 P.H. (Eds.), Techniques in Psychophysiology. Wiley, New York, pp. 4–67.
+     449.                                                                                     von Scheve, C., von Luede, R., 2005. Emotion and social structures: towards an
+Partala, T., Surakka, V., 2004. The effects of affective interventions in human–                  interdisciplinary approach. Journal for the Theory of Social Behaviour 35, 303–
+     computer interaction. Interacting with Computers 16, 295–309.                                328.
+Peter, C., Beale, R., 2008. Affect and emotion in human–computer interaction.                 Ward, R.D., Marsden, P.H., 2003. Physiological responses to different WEB page
+     Lecture notes in computer science. In: LNCS. Springer, Berlin.                               designs. International Journal of Human–Computer Studies 59, 199–212.
+Peter, C., Herbon, A., 2006. Emotion representation and physiology assignments in             Ward, R.D., Marsden, P.H., 2004. Affective computing: problems, reactions and
+     digital systems. Interacting with Computers 18, 139–170.                                     intentions. Interacting with Computers 16, 707–713.
+Peter, C., Ebert, E., Beikirch, H., 2005. A wearable multi-sensor system for mobile           Ward, R.D., Cahill, B., Marsden, P.H., Johnson, C.A., 2002. Physiological responses to
+     acquisition of emotion-related physiological data. In: Tao, J., Tan, T., Picard, R.W.        HCI events – what produces them and how detectable are they? In: Proceedings
+     (Eds.), Proceedings of the 1st International Conference on Affective Computing               of HCI 2002, pp. 90–93.
+     and Intelligent Interaction ACII 2005. Springer, Berlin, pp. 691–698.                    Xie, B., Salvendy, G., 2000. Review and reappraisal of modelling and predicting
+Pﬁster, H.-R., Oehl, M., 2009. The impact of goal focus, task type and group size on              mental workload in single- and multi-task environments. Work & Stress 14, 74–
+     synchronous net-based collaborative learning discourses. Journal of Computer                 99.
+     Assisted Learning 25, 161–176.                                                           Yiend, J., 2010. The effects of emotion on attention: a review of attentional
+Pﬁster, H.-R., Mühlpfordt, M., Müller, W., 2003. Lernprotokollunterstütztes Lernen –              processing of emotional information. Cognition & Emotion 24, 3–47.
+     ein Vergleich zwischen unstrukturiertem und systemkontrolliertem                         Zajonc, R.B., 1984. On the primacy of affect. American Psychologist 39, 117–123.
+     diskursivem Lernen im Netz [Learning with learning protocols – a comparison              Zeng, Z., Pantic, M., Roisman, G.I., Huang, T.S., 2009. A survey of affect recognition
+     between unstructured and system-controlled net-based discoursive learning].                  methods: audio, visual, and spontaneous expressions. IEEE Transactions on
+     Zeitschrift für Psychologie – Journal of Psychology 211, 98–109.                             Pattern Analysis and Machine Intelligence 31, 39–58.
+Picard, R.W., 1997. Affective Computing. The MIT Press, Cambridge, MA.                        Zhang, T., Kaber, D.B., Zhu, B., Swangnetr, M., Mosaly, P., Hodge, L., 2010. Service
+Picard, R.W., Klein, J., 2002. Computers that recognize and respond to user emotion:              robot feature design effects on user perceptions and emotional responses.
+     theoretical and practical implications. Interacting with Computers 14, 141–169.              Intelligent Service Robotics 3, 73–88.
+Pinheiro, J.C., Bates, D.M., 2000. Mixed-Effects Models in S and S-PLUS. Springer,            Zillman, D., Vorderer, P., 2000. Media Entertainment: The Psychology of its Appeal.
+     New York.                                                                                    Erlbaum, Mahwah, NJ.
+

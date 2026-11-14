@@ -1,0 +1,739 @@
+Neural Comput & Applic (2014) 25:1467–1477
+DOI 10.1007/s00521-014-1637-6
+
+ ORIGINAL ARTICLE
+
+
+
+Fuzzy model of dominance emotions in affective computing
+Kaveh Bakhtiyari • Hafizah Husain
+
+
+
+
+Received: 7 March 2014 / Accepted: 19 May 2014 / Published online: 1 June 2014
+Ó Springer-Verlag London 2014
+
+
+Abstract To date, most of the human emotion recogni-                 slightly lower recognition accuracy of 86 %. The recorded
+tion systems are intended to sense the emotions and their            false positive rates of this model for four emotions were
+dominance individually. This paper discusses a fuzzy                 measured at 16.7 %. The resulted accuracy and its false
+model for multilevel affective computing based on the                positive rate are among the top three accurate human
+dominance dimensional model of emotions. This model                  emotion recognition (affective computing) systems.
+can detect any other possible emotions simultaneously at
+the time of recognition. One hundred and thirty volunteers           Keywords Fuzzy emotion  Dominance emotion 
+from various countries with different cultural backgrounds           Multilevel emotion  Human–computer interaction 
+were selected to record their emotional states. These vol-           Affective computing
+unteers have been selected from various races and different
+geographical locations. Twenty-seven different emotions
+with their strengths in a scale of 5 were questioned through         1 Introduction
+a survey. Recorded emotions were analyzed with the other
+possible emotions and their levels of dominance to build             Computer systems are now attempting to interact more
+the fuzzy model. Then this model was integrated into a               naturally with the users as human beings. Graphical user
+fuzzy emotion recognition system using three input devices           interface (GUI) is becoming more flexible and intelligent to
+of mouse, keyboard and the touch screen display. Support             be adapted with human interests. The adaptive systems
+vector machine classifier detected the other possible emo-           applications learn the user interactions to make a user
+tions of the users along with the directly sensed emotion.           friendly platform. Human emotions are the other user
+The binary system (non-fuzzy) sensed emotions with an                parameters which are being considered in a wide area.
+incredible accuracy of 93 %. However, it only could sense               The importance of affective computing (AC) is reflected
+limited emotions. By integrating this model, the system              by its wide applications in different areas such as computer
+was able to detect more possible emotions at a time with             games (entertainments), computer-based tutors (e-learn-
+                                                                     ing), machine and system controlling (industrial areas),
+                                                                     criminology and computer privacy/security. [1]. For
+K. Bakhtiyari (&)                                                    instance, the emotional states of students during a presen-
+Department of Computer and Cognitive Science, Faculty of
+                                                                     tation in an online tutor reflect the usability and perfor-
+Engineering, University of Duisburg-Essen, 47048 Duisburg,
+North Rhine-Westphalia, Germany                                      mance of the class with students. This information even
+e-mail: academic@bakhtiyari.com                                      can help teachers or intelligent systems to adapt to the
+                                                                     training system for a better educational ambiance to deliver
+K. Bakhtiyari  H. Husain
+                                                                     knowledge as much as possible to the students [1, 2].
+Department of Electrical, Electronics and Systems Engineering,
+Faculty of Engineering and Built Environment, Universiti                Nowadays, most of the digital device manufacturers are
+Kebangsaan Malaysia (UKM), 43600 Bangi, Selangor, Malaysia           trying to soften the gap between human and computer by
+H. Husain                                                            designing more natural and real interfaces. They work
+e-mail: hafizah@eng.ukm.my                                           based on gesture recognitions, and some new smart phones
+
+
+                                                                                                                       123
+1468                                                                                Neural Comput & Applic (2014) 25:1467–1477
+
+
+respond to its users’ questions by employing voice recog-        lack of dominance factor is due to complexity of recognition
+nition techniques. These interactions are simulated from         systems by analyzing a broader set of probable emotions.
+the human–human interactions in the social life. Beside all      Dominance is also a very important factor; therefore, it can-
+these technology improvements, the lack of emotions is           not be simply ignored in affective computing. Firstly, human
+very clear. If digital systems feel our emotions, they can be    emotions are not constant and they do not occur and exist in
+replaced with pets or even friends. Future digital handheld      one single level. For example, if you feel happy for 2 days,
+devices would be smart by recognizing the human emo-             the level and strength of feeling would not be the same for
+tions to understand environment, situations, users and           every moment that you have the same emotion. In the other
+people. Therefore, they would be able to interact properly       words, emotions are more than the binary values of 0 and 1.
+with human. From the aspect of social science, the               All the eight basic emotions (Joy, Anticipation, Anger, Dis-
+replacement of human with digital systems can be a serious       gust, Sadness, Surprise, Fear and Acceptance) according to
+threat to human life. However, it is a great mutation in         the Sanskrit texts and the other sub-emotions are following
+technology and human–computer interaction (HCI).                 the dominance definition [12]. Emotions have a fuzzy basis,
+   Recently, the accuracy of human emotion recognition           and discrete calculation would not be a proper solution for
+has been improved by utilizing advanced analysis methods         evaluation and detection. Figure 1 has illustrated the three
+and techniques including image processing, voice recog-          dimensions of Arousal, Valence (Pleasure) and Dominance
+nition, natural language processing (NLP), keystroke             (Control).
+dynamics, mouse movements, touch screen interactions,                Secondly, users as human beings may not have only one
+electroencephalography (EEG) devices, measuring heart            emotion at a time; they may have different emotions in
+rates, body heat, blood pressure and so on [3–7]. Some of        different strengths. This fact is usually neglected in the
+these methods (e.g., image processing, voice recognition         currently developed human emotion recognition systems as
+and NLP) are time- and resource-consuming. They need             they attempt to find only one current emotion and perhaps
+some special perquisites such as availability of video           the strongest emotion at a time [13]. It is very clear that our
+camera (webcam) or microphone, and some other methods            lifestyle is affected by various emotions, and we are living
+require highly technical equipment such as EEG or heart          with the combination of them. The happiness at the time of
+rate measuring devices [2]. These are medical machines           receiving a gift and the happiness at the time being in a
+that need technical training to be installed and used, and       theme park can be at a same level (dominance). However,
+sometimes, the part of skin for installation should be           they are presented in two different qualities, because the
+shaved because of the inferences and noises. Processing          combinations of other possible emotions are different in
+and analyzing of keyboard keystroke dynamics, mouse              those two cases [14].
+movements and touch screen interactions are the three                Thirdly, psychological research showed a difference in
+methods which are mostly available on every computer [8].        human emotional change pattern based on cultural and
+They are also available in portable digital devices such as      language backgrounds of people [15]. These differences
+handhelds, tablets and mobile phones. This research has          say that a specific emotional pattern which is extracted
+focused on these three methods for affective computing to        from a person from a specific geographical area cannot be
+evaluate the presented fuzzy model because of their              extended to the other part of the world.
+availability, popularity and efficiency in cost and resources.       This research attempts to analyze human emotions based
+                                                                 on a fuzzy model which is able to recognize the human
+1.1 What are the emotions and research challenges?
+
+Emotions are discussed by three factors in psychology:
+Valence (Pleasure), Arousal and Dominance (Control) also
+known as PAD [1, 9–11]. The first factor is Valence or
+Pleasure, which shows the pleasure level, whether it is a
+positive or a negative emotion. The second factor is
+Arousal which talks about the amount of energy of emo-
+tions. In literature, different amount of energy has been
+named such as happiness, sadness and so on. And the third
+factor is Dominance, which describes the strength level of
+each emotion. It says how strong an emotion is.
+   The last factor of Dominance (Control) is usually ignored
+in most of the research. Many scholars in affective computing    Fig. 1 The three dimensions of Valence (Pleasure), Arousal and
+only considered the Arousal and Valence of emotion. The          Dominance (Control) for an emotion
+
+
+123
+Neural Comput & Applic (2014) 25:1467–1477                                                                            1469
+
+
+emotions at five levels. Also, it estimates the other possible   make it an open research area. This paper covers the last
+emotions with their dominance levels at the same time.           two problems about different cultural backgrounds and the
+                                                                 coincidence of emotions at a time.
+
+2 Related works                                                  2.2 Body gesture recognition
+
+There are lots of research that concentrate on affective         Body gesture is the different poses of body parts such as
+computing using various methods as mentioned earlier:            hands, feet, head, lips, eyes and so on. It is a nonverbal
+keyboard keystroke dynamics, mouse movements ana-                communication like facial expression. Body gesture rec-
+lyzing, touch screen interactions processing, facial             ognition uses image processing techniques like facial
+expression recognition, voice recognition, NLP, gesture          expression recognition. So, this method inherits the main
+recognition, EEG signal processing, etc. None of these           challenges and problems of image processing such as high
+methods alone could overcome the discussed problems              resource and time consumption.
+in Sect. 1.1. Despite these deficiencies, there are still           The history of body gestures goes back to more
+some valuable studies on human emotions in HCIs. In              than 500 years ago. Body gesture also follows the
+this section, very few highlighted studies are reviewed          cultural and societal rules and regulations to express
+to provide a better understanding of the current chal-           the emotions. In some countries, people rarely use
+lenges. It also tries to present an outlook of affective         body gestures, and in some other countries, it is very
+computing in the future.                                         often. Even though it is popular to use body gesture in
+                                                                 our social experience, the gestures are different in
+2.1 Facial expression recognition                                style among different cultures, countries and societies.
+                                                                 Understanding the level of emotions by gestures is
+Facial expressions are the result of muscle changes on a         usually mixed with facial expressions. The combina-
+human face, which show specific emotions. Human face by          tion of facial expression and body gestures can rep-
+itself is a complete emotion expressing system. Facial           resent a clearer emotion and its appropriate level.
+expressions processing can find out how a person feels and          Body gesture recognition is becoming more popular
+what his/her emotion is. Facial expression is classified as a    in the digital industry. For instance, some new smart
+nonverbal communication. People can communicate by               TVs are the example of this technology, which has
+their face without saying a word.                                replaced the remote control with the hand gestures.
+   Facial expression recognition is a method based on            Glowinski et al. presented one of the most recent
+image processing technique. An image of human face is            researches in body gesture recognition, but they were
+captured by a camera, and then, the software would               not truly successful in accurate recognition of major
+process it to extract the feature points and analyze them        emotions. Their best achieved accuracy was 81 %
+to recognize the proper emotion. Kao and Fahn [16]               resulted on a few emotions [18]. This level of vision
+exercised different machine learning methods, and they           recognition with intensity criteria is a new research
+finally accessed the accuracy of 90 % on emotion rec-            topic that it is just taken off.
+ognition. Researchers, such as Kao and Fahn, usually
+tried to detect the emotion without defining its domi-           2.3 Natural language processing (NLP)
+nance level to show how strong it is. Despite the classical
+research, Konar et al. used type-2 fuzzy in facial               Natural language processing is a verbal communication
+expression recognition to recognize the emotions at dif-         that processes the text by analyzing the words and the
+ferent levels. He was successful in gaining the accuracy         structure of the sentence to recognize the author
+up to 88.66 %, but they could only recognize the emo-            emotional state. It is also another sample of not a very
+tions in three discrete levels. Same as the other                successful method of affective computing. This idea
+researchers, they ignored the cultural and language dif-         was emerged when the number of SMS increased as
+ferences on various people. Training the system based on         today SMS is becoming one of the important commu-
+a specific user may not guarantee its usability on the           nication channels [19]. Li et al. tried Ortony, Clore and
+other people [17].                                               Collins (OCC) model with 16 rules to enhance the
+   High processing time-, resource-consuming and cultural        original model of 22 rules. However, they only
+differences are the main challenges of facial expression         achieved the highest accuracy of 74.1 % for the emo-
+recognition techniques. Facial expression usually presents       tion of Anger and least accuracy in Pity for 58.1 %
+the one and only strongest emotion at a time, so finding the     [20]. But their research still suffers from the discussed
+other possible emotions is still a challenge. These problems     challenges in this paper.
+
+
+                                                                                                                 123
+1470                                                                             Neural Comput & Applic (2014) 25:1467–1477
+
+
+2.4 Voice recognition                                          2.7 Keyboard keystroke dynamics
+
+The voice recognition method works on processing the           Keyboard typing has its own timing features, which
+user’s voice and tries to understand how he/she feels. The     describes the time differences between key presses, key ups
+analysis of the sound spectrum and tone changes is             and key downs of different keys on the keyboard. Keyboard
+extracted as features and then marked as fingerprint to be     keystroke dynamics were being discussed as an authenti-
+matched with emotions.                                         cation system from 1980s. Monrose et al. were one of the
+   Lots of research has been done on this methodology for      groups who could achieve a very good and reliable accu-
+affective computing, but still they could not get any better   racy in authentication through the keyboard keystroke
+accuracy of 78.64 % that Xiao et al. achieved in 2007 [21].    dynamics in 2000 by 92.14 % [19]. They presented the
+Xiao et al. used a hierarchal classification to analyze the    human emotion changes as their own problem for authen-
+sounds, but they neither used any fuzzy model nor domi-        tication. It implied that human emotions can directly
+nance level recognition. Most of the affordable studies        impact on keystroke dynamics. So, later on, other
+were on mixing voice recognition with the other methods        researchers tried to recognize human emotions by analyz-
+such as mixing with body gesture recognition [7], NLP [22,     ing keystroke dynamics. In some research, facial expres-
+23] and facial expression recognition [24, 25].                sion recognition, body gesture and the other methods are
+                                                               also joint with keyboard keystroke dynamics to make more
+2.5 Electroencephalography (EEG) signal processing             reliable results in affective computing systems [2, 29, 30].
+
+Electroencephalography (EEG) measures and records the          2.8 Touch screen interactions
+voltage of ionic current flows in neuron (electrical activi-
+ties of neurons) along the human scalp. As a matter of fact,   ‘‘Touch Communicates Distinct Emotions’’ is a title of one
+this device was only used in medical and neurology pur-        psychological research paper. It says that people can
+poses. As its price decreased over time, it has become an      communicate by touching each other in the social life. This
+affordable research tool in various research areas including   is a nonverbal communication channel [31]. This touch can
+computer science and artificial intelligence. The idea of      be either on a human or an object. What if the object would
+recognizing the human emotions was experienced by EEG          be the computer touch screen monitor?
+in many research papers [3, 26]. One of the best researches       In addition to mouse and keyboard, touch screen dis-
+in human emotion recognition was done by Schaff and            plays have also been used as a mean of affective comput-
+Schultz [27] with 66 % of accuracy. Of course, this accu-      ing. Touch screens are growing faster from desktop
+racy is not that impressive, but they proved the possibility   computers to digital handheld devices such as PDAs and
+and the ability of obtaining high accuracy in emotion          cellular phones. Nowadays, it has been replacing classic
+recognition using EEG machines.                                mouse and keyboard.
+   One of the most impressive results of EEG was the real-        This research area is pretty much similar to mouse
+time processing and analyzing of human emotions con-           movements as human fingers play as the mouse pointer.
+ducted by Liu et al. They addressed and covered the            Also, while the user is typing on touch keyboard, the same
+challenge of the time-consuming process of the other           rules and analysis of keyboard keystroke dynamics can be
+methods by EEG signal processing [3].                          extended to the touch screen keyboard interactions.
+                                                                  But still beside all those similarities, touch screen dis-
+2.6 Mouse movements                                            plays have their own specific feature: z-index value, which
+                                                               measures the intensity of pressure that it is not available in
+The users of computer and digital systems equipped with        mouse and keyboard. Even though finger is like the mouse
+mice may have noticed that they move the mouse randomly        pointer, the users do not necessarily touch the monitor
+and without any specific purpose when they are bored, and      constantly as they are moving from one object to another.
+sometimes very fast and straight when they are in a rush.         There is also some research individually only on touch
+Researchers monitored the mouse movements and tried to         screen displays to recognize human emotions that they
+extract some features and parameters to process and ana-       were less successful with higher false positive rates than
+lyze if they can detect the users’ emotions.                   the other methods [28].
+   A mouse features are usually limited to maximum
+combinations of three buttons and some movements. There        2.9 General background
+is only a few research in this topic. In addition, they have
+gotten pretty much similar results with the other mentioned    All of the reviewed literature in affective computing shows
+methodologies [28].                                            that the discussed challenges in Sect. 1 are still addressed.
+
+
+123
+Neural Comput & Applic (2014) 25:1467–1477                                                                                  1471
+
+
+As a matter of fact, a very few research has been done so       interactions, the users were asked every 4 h to select their
+far to detect the dominance of emotions. This paper pre-        appropriate emotions (only one at a time) and their domi-
+sents a fuzzy model to provide a solution toward multilevel     nance levels in the scale of 5 (from 0 to 4) through the
+affective computing (ML-AC) with the ability of detecting       prototype application. At the end of the data collection,
+other possible emotions with their levels of dominance.         which took about 2 months, support vector machine
+                                                                (SVM) with non-linear Gaussian Kernel was chosen as the
+                                                                classification and machine learning technique on the
+3 Research methodology                                          recorded data in RapidMiner software for evaluation. Split
+                                                                ratio for learning/training and testing was set to 80–20 %,
+In this paper, fuzzy recognition of human emotions has          respectively. In this system, the users had a chance to select
+been investigated to detect emotions in different domi-         a very few emotions; therefore, the recognition process by
+nance levels and energy. It gives a relative answer to the      SVM usually came out with one single emotion as the
+question of ‘‘How much happy am I?’’ The answer may not         result. Then, a fuzzy model was required to be integrated
+be very accurate, but it differentiates very extremely happy    into the system. Therefore, the system can detect more
+and normal happy people from each other [32]. This              emotions with their appropriate levels at the time of exis-
+research has used keyboard keystroke dynamics, mouse            tence of each other emotions.
+movements and touch screen displays for data collection.            This emotions’ fuzzy model classifies the emotions into
+Two types of methodologies were also employed to ana-           five different levels from 0 to 4. Zero (0) shows 0 % of the
+lyze the collected data. The first methodology was expe-        emotion, or in the other word, it does not exist; however,
+rience sampling methodology (ESM) that it is using              four shows the highest level of emotion. PANAS is a
+prototype software to collect the required data from key-       standard to find negative or positive emotions of people
+board, mouse and touch screen monitors [8]. Later, we used      [33]. PANAS uses 20 emotions, and we included the seven
+a survey based on PANAS standard on human emotions to           missed basic emotions in this list which are not listed in
+design the fuzzy model.                                         PANAS and used this standard to evaluate the system. The
+    At the first stage, a prototype application was developed   list of these 27 emotions is as follows:
+to record the keyboard keystroke dynamics of the users.
+The keystroke dynamics are including the time duration of
+                                                                Joy             Surprise         Excited           Enthusiastic
+key down-to-down, up-to-down and down-to-up. Also,
+                                                                Inspired        Active           Anticipation      Fear
+finger printings of the users were collected to identify and
+                                                                Upset           Proud            Nervous           Afraid
+differentiate the users [2]. Keyboard fingerprint is the time
+                                                                Anger           Acceptance       Strong            Irritable
+interval of the keystroke dynamics for 20 specific words
+                                                                Determined      Disgust          Interested        Guilty
+which are common in English such as ‘‘the’’, ‘‘an’’ and
+                                                                Alert           Attentive        Sadness           Distressed
+‘‘is’’. [2, 19].
+                                                                Hostile         Ashamed          Jittery
+    The developed application was also programmed to
+record the mouse movements and touch screen interactions
+of the users while working on the computer. The selected
+features for mouse movements were time intervals between
+                                                                   One hundred and thirty people from different domains
+two clicks, mouse travel pixels, the direct distance between
+                                                                participated in this project to have their emotional states
+two clicks, keystroke dynamics of the right clicks, left
+                                                                recorded in the system. Recorded data features through the
+clicks and double clicks [28].
+                                                                survey were users’ age, sex, birth location, current location,
+    Touch screen interactions have the same features of the
+                                                                language as well as the emotional scales of 27 emotions.
+mouse movement plus one more feature: ‘‘z-index,’’ which
+                                                                The participants were distributed as follows:
+refers to the pressure amount of the finger on the screen
+which is usually between 0 and 255. This value varies from        Men: 51 %—average age: 30.13 years old
+one touch screen manufacturer to another. However, not all        Women: 49 %—average age: 28.29 years old
+touch screen monitors are able to detect the z-index value.       People were originally from:
+Also, on the tested touch screen, despite mouse move-             Europe: 18.37 %
+ments, the finger travel distance between two touches was         Middle East: 44.18 %
+not measurable and detectable, and only the direct dis-           South East Asia: 13.17 %
+tances were recorded [31].                                        East Asia: 7.75 %
+    At the time of recording the above features of keyboard       People were living in:
+keystroke dynamics, mouse movements and touch screen              Europe: 27.90 %
+
+
+
+                                                                                                                   123
+1472                                                                                             Neural Comput & Applic (2014) 25:1467–1477
+
+
+  South East Asia: 34.88 %                                       patterns with each other. As it can be seen, these emotions
+  East Asia: 16.37 %                                             are in a same group in terms of positive and negative
+  Middle East: 11.62 %                                           emotions (valence). Figure 2 shows a similar change pat-
+                                                                 tern for emotions, when the level of Joy is increasing from
+   Forty-five percent of people were living in different
+                                                                 0 to 4 from the first row to the fifth. Figure 2 is also
+regions of their own country.
+                                                                 included with the tabular data.
+   Through the collected data, we found that men’s emo-
+                                                                    Conversely, the above values demonstrate the proba-
+tions (self-reported) were stronger than women’s, or at
+                                                                 bility of existence of the other emotions. For example,
+least they felt them stronger. The strongest emotion was
+                                                                 when Joy is about 50 % (Joy = 2), it can be estimated that
+Active in a range of 3.24 out of 4, and the least one was
+                                                                 Disgust may exist at the dominance level of 21 % (Dis-
+Unfriendly with the value of 1.62 out of 4. It showed that
+                                                                 gust = 0.84/4) or even Fear at the level of 26 %
+most of the people thought that they were super active and
+                                                                 (Fear = 1.04/4), but Acceptance can be accepted at this
+less unfriendly in their normal life.
+                                                                 level at the same time about 53.75 % of Joy (Accep-
+   Later, the generated model based on the emotional states
+                                                                 tance = 2.15/4), as we also experienced that convincing
+of 130 volunteers was integrated into a binary affective
+                                                                 people are easier when they feel joy. The following
+computing system based on keyboard keystroke dynamics,
+                                                                 membership function rules are only the samples which can
+mouse movements and touch interactions in order to rec-
+                                                                 be reasoned based on Fig. 2.
+ognize the user’s emotions while they are interacting with
+computer. The initial binary affective computing system            F1: IF Joy INCREASES FROM 2 TO 3, THEN
+was successful in emotion recognition with the best accu-          Anticipation INCREASES FROM 1.7 TO 2.14.
+racy of more than 90 % for one emotion at a time. At this          F2: IF Joy INCREASES FROM 2 TO 3, THEN
+stage, the integration of this model into this existing system     Acceptance STAYS AT THE AVERAGE OF 2.13.
+was intended to provide the detection of more than one             F3: IF Joy DECREASES FROM 4 TO 3, THEN
+possible emotion at a time with their relevant dominance           Surprise DECREASES FROM 2.08 TO 1.08.
+level. For this section of research, 50 users were selected
+                                                                    The following figures show the extracted analyzed data
+for testing the fuzzy system while they interact with
+                                                                 from our research based on the growth of basic emotions
+computers.
+                                                                 (Figs. 3, 4, 5, 6, 7, 8, 9).
+                                                                    All the above values range between 0 and 4. Further-
+                                                                 more, we compared the emotions change pattern of people
+4 Results and analysis                                           in different regions of the world. As mentioned in Sect. 1.1,
+                                                                 some psychological research indicates different emotions’
+Here, the results of the research are discussed in two parts.    concepts in different parts of the world. We have used our
+First, the individual change pattern of each emotion is
+explained and graphed, and finally, the model was evalu-
+ated on a human emotion recognition system based on a                                       4
+hybrid of keyboard keystroke dynamics, mouse movements                                     3.5
+                                                                                            3
+
+
+
+                                                                             Fuzzy Value
+and touch screen interactions [8].
+                                                                                           2.5
+                                                                                            2
+4.1 Analysis of emotions
+                                                                                           1.5
+                                                                                            1
+Here, we have discussed only eight basic emotions
+                                                                                           0.5
+according to the psychological studies, and the other
+                                                                                            0
+emotions are related and categorized under these eight                                            1       2            3      4      5
+emotions. These are Joy, Anticipation, Anger, Disgust,                 Joy                        0       1            2      3      4
+Sadness, Surprise, Fear and Acceptance.                                Anticipation              0.6     1.75          1.7   2.14   2.58
+                                                                       Anger                     1.73    0.83      0.95      0.88   1.25
+   In this research, some similar change patterns were
+                                                                       Disgust                   1.4     0.62      0.84      0.64   0.83
+found among some emotions. Basically, both negative and
+                                                                       Sadness                   2.13    1.04      1.34      0.91   0.83
+positive emotions have similar change patterns, but among
+                                                                       Surprise                  0.66    0.85      1.06      1.08   2.08
+those basic emotions, some of them were closely related.               Fear                      1.2     1.37      1.04      0.91   0.66
+For instance, Disgust and Anger have a similar change rate             Acceptance                1.06     1.7      2.15      2.11   2.83
+pattern with each other, and Sadness is closer to them in
+                                                                                                                Time
+comparison with the other emotions. On the other hand,
+Acceptance and Anticipation have very similar change             Fig. 2 Emotions change pattern based on the growth of ‘‘Joy’’
+
+
+123
+Neural Comput & Applic (2014) 25:1467–1477                                                                                                          1473
+
+                              4                                                                        4
+                            3.5                                                                       3.5
+
+
+
+
+              Fuzzy Value
+                              3                                                                        3
+
+
+
+                                                                                       Fuzzy Value
+                            2.5                                                                       2.5
+                              2                                                                        2
+                            1.5                                                                       1.5
+                              1                                                                        1
+                            0.5
+                                                                                                      0.5
+                              0
+                                   1      2             3      4      5                                0
+                                                                                                             1      2             3      4      5
+      Joy                         1.42   1.92          1.97   2.41   2.9         Joy                        2.04   2.11          2.37   1.16    1.2
+      Anticipation                 0      1             2      3      4          Anticipation               1.55   2.14          2.25   1.16    1.6
+      Anger                       0.6    0.92          1.2    1.22   1.27        Anger                      0.35   1.25          2.06   2.33    3.6
+      Disgust                     0.6    0.92          0.88   0.74   1.09        Disgust                     0      1             2      3      4
+      Sadness                     1.21   0.92          1.26   1.19   1.81        Sadness                    0.77   1.42          1.68    2      3.2
+      Surprise                    0.25   1.36          1.05   1.54   1.36        Surprise                   0.68   1.48          1.62   0.83    2.2
+      Fear                        0.92   1.04          1.23   0.9    1.27        Fear                       0.76   1.25          1.43    2      1.2
+      Acceptance                  1.5    1.96          1.97   2.38   2.36        Acceptance                 1.74   2.22          2.75   1.33    2.2
+                                                Time                                                                      Time
+
+Fig. 3 Emotions change pattern based on the growth of ‘‘Anticipa-           Fig. 5 Emotions change pattern based on the growth of ‘‘Disgust’’
+tion’’ from 0 to 4                                                          from 0 to 4
+
+                                                                                                       4
+                              4
+                                                                                                      3.5
+                            3.5
+                                                                                                       3
+
+
+
+                                                                                        Fuzzy Value
+                              3
+
+
+
+            Fuzzy Value
+                                                                                                      2.5
+                            2.5
+                              2                                                                        2
+                            1.5                                                                       1.5
+                              1                                                                        1
+                            0.5                                                                       0.5
+                              0                                                                        0
+                                   1      2             3      4      5                                      1      2             3      4      5
+      Joy                         2.01   2.31      1.85       2.3    1.25         Joy                       2.2    2.2           2.03   1.64    0.4
+      Anticipation                1.42    2        2.42       2.1    1.62         Anticipation              1.53   1.82          2.06    2      1.4
+      Anger                        0      1             2      3      4           Anger                     0.42   0.51          1.56   2.35    3.2
+      Disgust                     0.21   0.86      1.23       1.7     3           Disgust                   0.33   0.54          1.33   1.35    2.4
+      Sadness                     0.65    1        2.09       1.8    3.25         Sadness                    0      1             2      3      4
+      Surprise                    0.59   1.62      1.42       1.4    1.62         Surprise                  1.04   0.85          1.46   0.78    1.6
+      Fear                        0.63   1.2       1.66        2     0.85         Fear                      0.73   0.8           1.7    1.42    1.6
+      Acceptance                  1.8    2.13      2.42        2     1.87         Acceptance                1.73   2.11          2.4    1.78    1.8
+                                                Time                                                                      Time
+
+Fig. 4 Emotions change pattern based on the growth of ‘‘Anger’’             Fig. 6 Emotions change pattern based on the growth of ‘‘Sadness’’
+from 0 to 4                                                                 from 0 to 4
+
+
+research data to confirm whether the different emotions’                    cultural and language backgrounds on emotions. This
+concepts cause different emotions change pattern or not.                    graph might even predict the approximate location of the
+For this purpose, three regions, namely Europe, Middle                      user who is interacting with computer by tracking his/her
+East and South East (SE) Asia were selected. Then, the                      emotional pattern, which has not been yet investigated.
+users’ data with the emotion of Joy at the dominance value
+equal to 2 (or 50 %) were analyzed. Table 1 shows the                       4.2 Fuzzy model on human emotion recognition
+classified values by regions.
+   Figure 10 demonstrates the graphed values in Table 1.                    The above data and classification were used as a fuzzy
+The emotional pattern of Europe and Middle East are                         model in our affective computing system using 50
+similar; however, South East Asia follows a very different                  participants for emotion recognition. Besides the
+pattern of changes to these two regions. This graph proves                  detected emotions by the system, the other possible
+the psychological studies based on the influences of                        emotions with their dominance values were also
+
+
+                                                                                                                                               123
+1474                                                                                                        Neural Comput & Applic (2014) 25:1467–1477
+
+                            4                                                                          4
+                           3.5                                                                        3.5
+                            3                                                                          3
+
+
+
+             Fuzzy Value                                                                Fuzzy Value
+                           2.5                                                                        2.5
+                            2                                                                          2
+                           1.5                                                                        1.5
+                                                                                                       1
+                            1
+                                                                                                      0.5
+                           0.5
+                                                                                                       0
+                            0                                                                                1         2             3       4      5
+                                  1      2            3      4      5
+                                                                                  Joy                       1.48      1.72          1.96   2.42    2.38
+       Joy                       1.73   2.14        2.19    2.42    4
+                                                                                  Anticipation              1.04      1.83          2.06     1.9   2.07
+       Anticipation              1.33   1.81          2.3   2.26    3
+                                                                                  Anger                     0.52      1.61           1     1.11     1
+       Anger                     0.57    1          1.84    1.36    0
+                                                                                  Disgust                   0.32      0.94          1.03   0.92    0.69
+       Disgust                   0.44   0.74        1.42    1.21    0             Sadness                   0.84      1.66          1.06     1.4   1.07
+       Sadness                   1.08   1.07          1.8   1.05    0             Surprise                  0.32      1.22          1.29   1.14    1.69
+       Surprise                   0      1            2      3      4             Fear                      0.72      1.27          1.12   1.14    0.92
+       Fear                      0.76   0.92        1.57    1.42    0             Acceptance                 0         1             2       3      4
+       Acceptance                1.53   2.33          2.3   2.36    4                                                        Time
+                                             Time
+                                                                          Fig. 9 Emotions change pattern based on the growth of ‘‘Accep-
+Fig. 7 Emotions change pattern based on the growth of ‘‘Surprise’’        tance’’ from 0 to 4
+from 0 to 4
+
+
+                            4                                             Table 1 Classified values of ‘‘Joy’’ at 50 % for different regions
+                           3.5                                                                               Europe            Middle East         SE Asia
+                            3
+
+
+
+
+             Fuzzy Value
+                                                                          Anticipation                       1.14              1.8                 1.66
+                           2.5
+                                                                          Anger                              0.42              1.09                1.5
+                            2
+                           1.5
+                                                                          Disgust                            0.71              0.71                1.16
+                            1                                             Sadness                            1                 1.66                0.5
+                           0.5                                            Surprise                           0.57              1.33                1.33
+                            0                                             Fear                               0.85              1.33                0.66
+                                  1      2            3      4      5     Acceptance                         2                 2.09                2.33
+       Joy                       2.09   2.15          2.1   1.55   1.37
+       Anticipation              1.72   1.71        2.05    2.11   1.5
+       Anger                     0.77   0.79        1.78    1.11    2
+       Disgust                   0.61   0.74        1.05    1.22   1.5    emotions [34, 35]. For example, consider a user with
+       Sadness                   0.87   1.23        1.94    1.33   1.62   two emotions: Joy—50 % and Fear—20 %. From the
+       Surprise                  0.77   1.15        1.52    1.22   1.62   first aspect of the evaluation, if the system could
+       Fear                       0      1            2      3      4     detect Joy and Fear, then the evaluation is success-
+       Acceptance                1.85   2.12          2.1    2     2.12   fully accomplished. However, from the second aspect,
+                                               Time                       not only Joy and Fear should be detected correctly,
+                                                                          but also the detected dominance level of the other
+Fig. 8 Emotions change pattern based on the growth of ‘‘Fear’’ from       emotions would be considered in the precision of the
+0 to 4
+                                                                          system [36].
+                                                                             To evaluate the results, the result of the system was
+detected and tested via the prototype application [8].                    compared with the binary (non-fuzzy) human emotion
+SVM classification method with the non-linear                             recognition. Bakhtiyari et al. [8] gained an accuracy of
+Gaussian kernel at the split ratio of 80 % for training                   93 % on a binary affective computing system. Later, the
+and 20 % for testing has been used. The accuracy of                       fuzzy model was applied to detect dominance level and
+the detected emotions was evaluated from two dif-                         other possible related emotions. After applying the fuzzy
+ferent aspects. The first aspect evaluated whether the                    model, the accuracy of the system from the first aspect
+names of the recognized emotion or emotions are                           decreased a bit to 86 % (as seen in Table 2) in comparison
+correct or not. From the second aspect, it evaluated                      with the binary detection as it was dependent on the
+the system by the dominance percentage of detected                        emotions. This model estimated more than one emotion at
+
+
+123
+Neural Comput & Applic (2014) 25:1467–1477                                                                                                   1475
+
+                4
+                                                                       Classic Method - Combining three…                                     93%
+               3.5
+                                                                                      Facial Expression                                   90%
+                3
+
+
+
+ Fuzzy Value
+                                                                                   Normal Input Devices                                  87%
+               2.5
+                                                         Europe                   ML-AC (Fuzzy Model)                                    86%
+                2
+                                                                                          Body Gesture                                 81%
+                                                         Middle East
+               1.5
+                                                                                      Voice Recognition                                78.64%
+                                                         SE Asia
+                1                                                                                 NLP                              74.10%
+               0.5                                                                                EEG                            66%
+                0
+                                                                                                          0%   20%   40%   60%    80%     100%
+
+                                                                       Fig. 11 Comparison between the proposed model and other related
+                                                                       works
+Fig. 10 Classified graph of ‘‘Joy’’ at 50 % for different regions
+                                                                       play an import role in classification section. Therefore, the
+Table 2 Human emotions classification accuracy after applying the      data were maintained as is for the classification.
+fuzzy model
+Selected emotion      Detected emotion
+                                                                       5 Discussion
+                      Neutral      Afraid      Sadness       Nervous
+
+Neutral               0.68         –           –             –         Binary (non-fuzzy and non-dominance) affective comput-
+Afraid                –            0.85        –             –         ing by combining three methods of analysis of keyboard
+Sadness               –            –           0.86          –         keystroke dynamics, mouse movements and touch screen
+Nervous               –            –           –             0.65      interaction showed 93 % of accuracy, which is among the
+                                                                       best achievements [8]. Facial expression and then using the
+                                                                       normal input devices (such as keyboard, mouse and touch
+a time, which can be possible in parallel with the other               screen) independently got then next best accuracies in our
+emotions.                                                              test. Then by applying the fuzzy model, the accuracy has
+   By integrating the fuzzy model, a lower false positive              been decreased to 86 %. Still it is among the top accuracies
+rate from 0 to 16.7 % has been achieved in detecting the               in affective computing. Meanwhile, it has the advantage of
+emotions’ dominance level.                                             representing the strength level of the emotions as it is
+                                                                       shown in Fig. 11. The measured false positive rate in this
+4.3 Outliers handling                                                  system was maximum 16.7 %, which was less than the
+                                                                       other methods in average.
+In order to improve the reliability of the research result,               Although fuzzy model decreased the accuracy of rec-
+outliers were also handled in the research methodology.                ognition, it provided a solution to available research
+Outliers could happen in two sections of this research: (1)            problems in affective computing. The fuzzy model enables
+data collection via survey and (2) data collection via                 affective computing systems to detect the level of emotions
+prototype.                                                             and to estimate the other possible emotions of the users.
+   Data collection via survey: At this stage, all collected            This fuzzy model can be extended by intensity to open a
+data were normalized to check if there are any out of range            new era of computing to bring the analog life into the
+outliers. In our 130 participants with 27 recorded emotions            digital world. This intensity can be used in terms of
+(3,510 data entity), there were less than 4 % of outliers              interaction intensity. This approach is a new outlook in the
+which were ignored for the rest of research.                           computing area in the future of HCIs.
+   Data collection via prototype: The prototype application
+was developed to not only record the required data, but also
+to monitor the input data. In the recorded data set, there             6 Conclusion and future work
+was no missing value or incomplete records due to the
+application control. In order to detect the outliers, each             A fuzzy model was presented through a new solution based
+individual user’s recorded data had to be normalized sep-              on the statistics and probability for human emotion rec-
+arately. Due to the atomic emotional changes while inter-              ognition. It overcomes some of the problems of emotion
+acting with computer, the normalization and removing the               detection at different levels and other possible emotions at
+outliers would generate a perfect emotional data; however,             a same time. This model is able to recognize the other
+the atomic changes could not be ignored easily, and they               possible emotions simultaneously and worked more
+
+
+                                                                                                                                   123
+1476                                                                                        Neural Comput & Applic (2014) 25:1467–1477
+
+
+naturally by recognition of arousal, valence and dominance               8. Bakhtiyari K, Taghavi M, Husain H (2014) Implementation of
+of emotions. This fuzzy model detected the emotions with                    emotional-aware computer systems using typical input devices.
+                                                                            In: Nguyen NT, Attachoo B, Trawiński B, Somboonviwat K (eds)
+the accuracy of 86 %. In addition, it gained a maximum                      6th Asian conference on intelligent information and database
+16.7 % of false positive rate for recognizing the dominance                 systems, Bangkok, Thailand, 7-9 April 2014. Springer Interna-
+level of the emotions in scale of 5.                                        tional Publishing, pp 364–374. doi:10.1007/978-3-319-05476-6_
+   This model can be extended, improved and even inte-                      37
+                                                                         9. Strongman KT (2003) The psychology of emotion. Department of
+grated into different recognition methods. Future research                  Psychology, University of Canterbury, 5th edn. Wiley,
+work will be expanded on human emotion recognition by                       Christchurch
+the extracted model for each region of the world by com-                10. Derks D, Fischer AH, Bos AER (2008) The role of emotion in
+paring the accuracies and error rates of different regions.                 computer-mediated communication: a review. Comput Hum
+                                                                            Behav 24(3):766–785. doi:10.1016/j.chb.2007.04.004
+This model can also be extended for affective computing in              11. Mehrabian A (1996) Pleasure-arousal-dominance: a general
+recommender systems which is still an open challenge [37].                  framework for describing and measuring individual differences in
+   Fuzzy affective computing can be applied in many wide                    temperament. Curr Psychol 14(4):261–292. doi:10.1007/
+areas, and this model can be a step forward into the more                   BF02686918
+                                                                        12. Griffiths PE (2003) Basic emotions, complex emotions, Machi-
+real emotion understanding for digital systems in order to                  avellian emotions. R Inst Philos Suppl 52:28. doi:10.1017/
+interact with human naturally. For the next step in our                     S1358246100007888
+research, we intend to integrate this model into a hybrid               13. Gendron M, Barrett LF (2009) Reconstructing the past: a century
+recommender system for an e-commerce purpose. Another                       of ideas about emotion in psychology. Int Soc Res Emotion
+                                                                            1(4):24. doi:10.1177/1754073909338877
+ongoing research using this model is building a computa-                14. Hartel CEJ, Ashkanasy NM, Zerbe WJ (2007) Functionality,
+tional investing system. This system recommends the                         intentionality and morality, vol 3. Research on emotion in orga-
+possible decisions to the investors by considering multiple                 nization, 1st edn. Elsevier, Amsterdam
+factors including the fuzzy affective computing [38].                   15. Lewis M, Haviland-Jones JM, Barrett LF (2010) The cultural
+                                                                            psychology of the emotions—ancient and renewed. In: Richard
+                                                                            A. Shweder JH, Horton R, Joseph C (eds) Handbook of emotions,
+Acknowledgments We thank the students of Universiti Kebangsaan              3rd edn. Guilford Press, New York, p 19
+Malaysia (The National University of Malaysia) and University of        16. Kao CY, Fahn CS (2012) A design of face detection and facial
+Duisburg-Essen for their collaborations and participations in this          expression recognition techniques based on boosting schema.
+research and emotions’ survey. Special thanks to Mona Taghavi for           Appl Mech Mater 121:617–621
+her initial review and comments on this paper.                          17. Konar A, Chakraborty A, Halder A, Mandal R, Janarthanan R
+                                                                            (2012) Interval type-2 fuzzy model for emotion recognition from
+                                                                            facial expression. Percept Mach Intell 114–121
+                                                                        18. Glowinski D, Camurri A, Volpe G, Dael N, Scherer K (2008)
+References                                                                  Technique for automatic emotion recognition by body gesture
+                                                                            analysis. In: IEEE computer society conference on computer
+ 1. Cowie R, Douglas-Cowie E, Tsapatsoulis N, Votsis G, Kollias S,          vision and pattern recognition workshops, Providence, RI, USA
+    Fellenz W, Taylor JG (2001) Emotion recognition in human-           19. Monrose F, Rubin AD (2000) Keystroke dynamics as a biometric
+    computer interaction. IEEE Signal Process Mag 18(1):32–80               for authentication. Futur Gener Comput Syst 16(4):351–359
+ 2. Epp C, Lippold M, Mandryk RL (2011) Identifying emotional           20. Li H, Pang N, Guo S, Wang H (2008) Research on textual
+    states using keystroke dynamics. Paper presented at the Pro-            emotion recognition incorporating personality factor. In: IEEE
+    ceedings of the 2011 annual conference on Human factors in              international conference on robotics and biomimetics, Sanya,
+    computing systems, Vancouver, BC, Canada                                China. IEEE, pp 2222–2227
+ 3. Liu Y, Sourina O, Nguyen MK (2010) Real-time EEG-based              21. Xiao Z, Dellandrea E, Dou W, Chen L (2007) Automatic hier-
+    human emotion recognition and visualization. In: International          archical classification of emotional speech. In: Ninth IEEE
+    conference on cyberworlds, Alberta, Canada. IEEE, pp 262–269            international symposium on multimedia workshops, pp 291–296
+ 4. Milanova M, Sirakov N (2008) Recognition of emotional states in     22. Klecková J (2009) Important nonverbal attributes for spontaneous
+    natural human–computer interaction. In: IEEE international              speech recognition. In: Fourth international conference on sys-
+    symposium on signal processing and information technology               tems. IEEE, pp 13–16
+    (ISSPIT), Ho Chi Minh City, Vietnam. IEEE, pp 186–191               23. Pittermann J, Schmitt A, El Sayed NF (2008) Integrating lin-
+ 5. Bashir MG, Nagarajan R, Hazry D (2010) Facial emotion                   guistic cues into speech-based emotion recognition. In: 4th
+    detection using GPSO and Lucas-Kanade algorithms. Paper                 International Conference on Intelligent Environments, University
+    presented at the international conference on computer and com-          of Washington, Seattle, USA. IET, pp 1–4
+    munication engineering (ICCCE)                                      24. Wang Y, Guan L (2008) Recognizing human emotional state
+ 6. Kao ECC, Liu CC, Yang TH, Hsieh CT, Soo VW (2009)                       from audiovisual signals*. IEEE Trans Multimed 10(5):936–946
+    Towards text-based emotion detection. In: International confer-     25. Huang T (2008) Audio-visual human computer interface. In:
+    ence on information management and engineering (ICIME),                 IEEE international symposium on consumer electronics, Uni-
+    Kuala Lumpur, Malaysia. IEEE, pp 70–74                                  versity of Illinois, USA. IEEE
+ 7. Amarakeerthi S, Ranaweera R, Cohen M (2010) Speech-based            26. Guangying Y, Shanxiao Y (2010) Emotion recognition of elec-
+    emotion characterization using postures and gestures in CVEs. In:       tromyography based on support vector machine. In: Third inter-
+    International conference on cyberworlds, Alberta, Canada. IEEE,         national symposium on intelligent information technology and
+    pp 72–76                                                                security informatics, Jinggangshan, China. IEEE, pp 298–301
+
+
+
+
+123
+Neural Comput & Applic (2014) 25:1467–1477                                                                                          1477
+
+27. Schaaff K, Schultz T (2009) Towards emotion recognition from          PANAS scales. J Personal Soc Psychol 54(6):1063–1070. doi:10.
+    electroencephalographic signals. In: Affective computing and          1037/0022-3514.54.6.1063
+    intelligent interaction and workshops (ACII), Memphis, TN,        34. Yusoff N, Salim S (2010) SCOUT and affective interaction
+    USA. IEEE, pp 1–6                                                     design: Evaluating physiological signals for usability in emo-
+28. Schuller B, Rigoll G, Lang M (2004) Emotion recognition in the        tional processing. In: 2nd international conference on computer
+    manual interaction with graphical user interfaces. In: IEEE           engineering and technology (ICCET). IEEE, pp V1-201-V201-
+    international conference on multimedia and expo. IEEE,                205
+    pp 1215–1218                                                      35. Kong X, Yang Y (2009) Measuring emotions in interactive
+29. Seniuk A, Blostein D (2009) Pen acoustic emissions for text and       contexts. In: IEEE 10th international conference on computer-
+    gesture recognition. In: 10th international conference on docu-       aided industrial design and conceptual design. IEEE, pp 526–530
+    ment analysis and recognition. ACM, pp 872–876                    36. Mower E, Mataric M, Narayanan S (2010) A framework for
+30. Wang R, Fang B (2008) Affective computing and biometrics              automatic human emotion classification using emotion profiles.
+    based HCI surveillance system. In: International symposium on         IEEE Trans Audio Speech Lang Process 99:1
+    information science and engineering, China. IEEE, pp 192–195      37. Rajaraman A, Ullman J (2011) Recommendation systems. In:
+31. Hertenstein MJ, Keltner D, App B, Bulleit BA, Jaskolka AR             Mining of massive datasets. Cambridge University Press,
+    (2006) Touch communicates distinct emotions. Emotion 6(3):528         Cambridge
+32. Jaimes A, Sebe N (2007) Multimodal human–computer interac-        38. Taghavi M, Bakhtiyari K, Scavino E (2013) Agent-based com-
+    tion: a survey. Comput Vis Image Underst 108(1–2):116–134.            putational investing recommender system. Paper presented at the
+    doi:10.1016/j.cviu.2006.10.019                                        Proceedings of the 7th ACM conference on recommender sys-
+33. Watson D, Clark LA, Tellegen A (1988) Development and val-            tems, Hong Kong, China. doi:10.1145/2507157.2508072
+    idation of brief measures of positive and negative affect: the
+
+
+
+
+                                                                                                                             123
+

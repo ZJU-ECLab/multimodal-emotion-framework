@@ -1,0 +1,959 @@
+                                                                                                                        TYPE Original Research
+                                                                                                                        PUBLISHED 05 April 2024
+                                                                                                                        DOI 10.3389/frobt.2024.1337380
+
+
+
+
+                                                 Assimilation of socially assistive
+OPEN ACCESS                                      robots by older adults: an
+EDITED BY
+Karolina Zawieska,
+Aarhus University, Denmark
+                                                 interplay of uses, constraints and
+REVIEWED BY
+Matteo Luperto,
+                                                 outcomes
+University of Milan, Italy
+Izidor Mlakar,
+University of Maribor, Slovenia                  Oded Zafrani 1,2*, Galit Nimrod 2,3,4, Maya Krakovski 1,2,
+*CORRESPONDENCE                                  Shikhar Kumar 1,2, Simona Bar-Haim 2,5 and Yael Edan 1,2
+Oded Zafrani,
+                                                 1
+ odedzaf@post.bgu.ac.il                          Department of Industrial Engineering and Management, Ben-Gurion University of the Negev,
+                                                 Beer-Sheva, Israel , 2 Agricultural Biological Cognitive Initiative, Ben-Gurion University of the Negev,
+RECEIVED 12 November 2023                        Beer-Sheva, Israel, 3 Department of Communication Studies, Ben-Gurion University of the Negev,
+ACCEPTED 11 March 2024                           Beer-Sheva, Israel, 4 The Center for Multidisciplinary Research in Aging, Ben-Gurion University of the
+PUBLISHED 05 April 2024                          Negev, Beer-Sheva, Israel, 5 Department of Physical Therapy, Ben-Gurion University of the Negev,
+                                                 Beer-Sheva, Israel
+CITATION
+Zafrani O, Nimrod G, Krakovski M, Kumar S,
+Bar-Haim S and Edan Y (2024), Assimilation of
+socially assistive robots by older adults: an
+interplay of uses, constraints and outcomes.
+                                                 By supporting autonomy, aging in place, and wellbeing in later life, Socially
+Front. Robot. AI 11:1337380.
+doi: 10.3389/frobt.2024.1337380                  Assistive Robots are expected to help humanity face the challenges posed
+COPYRIGHT
+                                                 by the rapid aging of the world’s population. For the successful acceptance
+© 2024 Zafrani, Nimrod, Krakovski, Kumar,        and assimilation of SARs by older adults, it is necessary to understand the
+Bar-Haim and Edan. This is an open-access        factors affecting their Quality Evaluations Previous studies examining Human-
+article distributed under the terms of the
+Creative Commons Attribution License (CC
+                                                 Robot Interaction in later life indicated that three aspects shape older adults’
+BY). The use, distribution or reproduction in    overall QEs of robots: uses, constraints, and outcomes. However, studies were
+other forums is permitted, provided the          usually limited in duration, focused on acceptance rather than assimilation,
+original author(s) and the copyright owner(s)
+are credited and that the original publication
+                                                 and typically explored only one aspect of the interaction. In the present study,
+in this journal is cited, in accordance with     we examined uses, constraints, and outcomes simultaneously and over a long
+accepted academic practice. No use,              period. Nineteen community-dwelling older adults aged 75–97 were given a
+distribution or reproduction is permitted
+which does not comply with these terms.
+                                                 SAR for physical training for 6 weeks. Their experiences were documented
+                                                 via in-depth interviews conducted before and after the study period, short
+                                                 weekly telephone surveys, and reports produced by the robots. Analysis revealed
+                                                 two distinct groups: (A) The ‘Fans’ - participants who enjoyed using the SAR,
+                                                 attributed added value to it, and experienced a successful assimilation process;
+                                                 and (B) The ‘Skeptics’ - participants who did not like it, negatively evaluated
+                                                 its use, and experienced a disappointing assimilation process. Despite the
+                                                 vast differences between the groups, both reported more positive evaluations
+                                                 of SARs at the end of the study than before it began. Overall, the results
+                                                 indicated that the process of SARs’ assimilation is not homogeneous and
+                                                 provided a profound understanding of the factors shaping older adults’ QE
+                                                 of SARs following actual use. Additionally, the findings demonstrated the
+                                                 theoretical and practical usefulness of a holistic approach in researching
+                                                 older SARs users.
+
+                                                 KEYWORDS
+
+                                                 acceptance, aging, assimilation, human-robot interaction, older adults, quality
+                                                 evaluation, socially assistive robots, wellbeing
+
+
+
+
+Frontiers in Robotics and AI                                            01                                                                 frontiersin.org
+Zafrani et al.                                                                                                               10.3389/frobt.2024.1337380
+
+
+
+
+1 Introduction                                                                    assimilation research suggested that an assimilation pattern can be
+                                                                                  predicted according to the level of acceptance.
+     Population aging is expected to be the most significant
+demographic transformation of the twenty-first century (Morina
+and Grima, 2021). This trend yields numerous social and                           2.2 Human-Robot Interaction (HRI) in later
+economic challenges related to health and quality of life in                      life
+old age (Zhu and Walker, 2021). Embodied technological
+solutions, and Socially Assistive Robots (SARs) in particular,                        Research on HRI in later life suggests that three main aspects
+are expected to play a central role in facing these challenges                    shape older adults’ overall QE of robots: uses, constraints, and
+(Cortellessa et al., 2021; Sorrentino et al., 2022). Therefore, it is             outcomes (Zafrani and Nimrod, 2019). Below are the principal
+necessary to understand the factors affecting older adults’ Quality               insights concerning each factor.
+Evaluations (QEs) of SARs.                                                            Uses. This category includes explorations of a) users’ acceptance
+     Previous studies that examined Human-Robot Interaction                       of new robotics technology, b) processes of adaptation to such
+(HRI) in later life indicated that older adults’ overall QE of robots             technologies, and c) factors affecting user experience. Studies
+is shaped by three aspects: their uses, constraints to beneficial use,            suggested that although older adults were excited about the idea
+and use outcomes (Zafrani and Nimrod, 2019). However, previous                    of robots, their acceptance of robotics technologies was ambivalent
+research has two significant weaknesses: 1) studies typically focused             (Hebesberger et al., 2017; González-González et al., 2021). For
+on only one aspect of the interaction between robots and older adults             example, older adults worried that robotic technologies would
+(i.e., examining uses, constraints, and outcomes separately); and 2)              replace and even control humans, even though they perceived them
+most studies were limited in duration, and thus mainly focused                    as a future extension of existing communications technologies such
+on acceptance aspects rather than assimilation. The present study                 as the internet and smartphones and expected them to be widely
+aimed to bridge the gaps in the existing literature. Accordingly,                 adopted (Liu et al., 2021). In addition, although they believed that
+we carried out an assimilation study examining how the QE is                      robotic systems could support daily activities, older adults said they
+shaped following actual interaction with the SAR by a simultaneous                did not want to use robots (Wang et al., 2017).
+exploration of uses, constraints, and outcomes in real-life conditions                Older adults sought robots for object manipulation, physical
+over a long period.                                                               training, information management, and chores, but preferred
+                                                                                  humans for leisure activities, information delivery, and personal
+                                                                                  care (Shen and Wu, 2016; Getson and Nejat, 2021). In this context,
+2 Literature review                                                               they were less receptive to personal assistance such as dressing and
+                                                                                  bathing but more open to using robotic systems for simple tasks
+2.1 Quality evaluation of socially assistive                                      such as managing reminders and communicating (e.g., Robillard
+robots (SARs)                                                                     and Kabacińska, 2020; Huang and Huang, 2021; Fiorini et al., 2023;
+                                                                                  Wengefeld et al., 2022).
+     Technology QE deals with people’s emotions, perceptions, and                     Although older adults know they are using machines, these
+responses created, derived, and shaped as a result of interaction or              users often attribute human qualities to robots and expect them
+anticipated interaction with a system, product, device, or service                to exhibit human intelligence and behavior (Frennert et al., 2017;
+(Hartson and Pyla, 2012; Lindblom and Andreasson, 2016). The                      Onnasch and Roesler, 2021). In addition, older users expect the
+literature on the subject distinguishes between pragmatic and                     robotic technologies to be useful and adaptable to their needs
+hedonic aspects of evaluation (e.g., Hassenzahl, 2003; Mlekus et al.,             (Olatunji et al., 2020; Kim et al., 2021). A longitudinal study that
+2020). The pragmatic aspects of QE relate to the functionality,                   investigated adaptation to robots demonstrated that giving robots
+usability, usefulness, and utility of potential tasks that help users             a function in the daily routine of older adults may lead to greater
+achieve their goals effectively and satisfactorily (da Silva et al., 2019;        appreciation and approval (De Graaf et al., 2015; Luperto et al.,
+Hassenzahl and Tractinsky, 2006). Hedonic aspects refer to the users              2022). Furthermore, if users did not ascribe specific functions to
+themselves and reflect the emotional benefits they experience when                robots, they enjoyed the interaction less, gradually lost interest
+interacting with the technology (Hornbæk and Hertzum, 2017;                       (Torta et al., 2014; Søraa et al., 2022), and eventually returned to
+van de Sand et al., 2020). Positive QEs are necessary to promote                  their previous habits without robots (Frennert et al., 2017).
+acceptance of SARs—a crucial condition for the assimilation process                   Constraints. This category includes explorations of a)
+and the realization of the benefits of using robots (e.g., Bensch et al.,         antecedent constraints, namely, factors that limit or reduce
+2017 Naneva et al., 2020).                                                        motivation to use robotic systems, and b) intervening constraints
+     Acceptance of technology is defined as “the demonstrable                     that come between the desire to use robotic systems and the
+willingness within a user group to employ information technology                  actualization thereof. Among the prominent antecedent constraints
+for the tasks it is designed to support” (Dillon and Morris, 1996;                were uneasiness with robots (Erel et al., 2021; Gasteiger et al., 2021)
+Dillon, 2001). The assimilation of technology is defined as the                   and a perception that they had no added value compared to existing
+extent to which the use of technology becomes routinized in daily                 modern technologies (Caleb-Solly et al., 2014; Wu et al., 2016;
+activities (De Mattos and Laurindo, 2017; Purvis et al., 2001). The               Tonkin, 2021). Yet, the stigma associated with using a robot in old
+ability to successfully assimilate new technology depends on users’               age was probably the most dominant antecedent constraint. Healthy
+absorption or purchase of information and their ability to exploit this           older adults perceived the potential robot user as someone frail,
+information (Kouki et al., 2010). The combination of acceptance and               lonelier, and more in need of care than them (Pripfl et al., 2016;
+
+
+
+Frontiers in Robotics and AI                                                 02                                                            frontiersin.org
+Zafrani et al.                                                                                                              10.3389/frobt.2024.1337380
+
+
+
+
+Bradwell et al., 2021). Therefore, trying to dissociate themselves               use. In contrast to lab experiments, the most common methodology
+from these negative stereotypes of old age, they rejected the use                in HRI research, a longitudinal study may help researchers learn
+of robots.                                                                       and interpret people’s behavior, including how they acquire new
+    Major intervening constraints found in the literature were                   knowledge about technology and to what extent they use and
+usability and affordability. Concern over robot costs was commonly               retain it over time (King, 2006). Furthermore, it provides more
+discussed (Abbott et al., 2019; Koh et al., 2021a). Usability, i.e., the         accurate insights regarding the assimilation of new technologies into
+extent to which specified users can use a product or service to                  the users’ lives (Cullen, 2018; Nagarajan et al., 2020). It also helps
+achieve specific goals (Nielsen and Madsen, 2012), was of significant            reduce the robot’s novelty and establish its functioning in more
+worry. Operational difficulties were also an intervening constraint.             realistic situations where the participants are alone with the robot
+For example, some studies described users’ dissatisfaction with                  (Yamazaki et al., 2014).
+the robots’ response speed, verbal skills, and comprehension of                      Accordingly, this study applied the holistic approach (Zafrani
+instructions (Pripfl et al., 2016; Wang et al., 2019).                           and Nimrod, 2019) to answer the following questions:
+    Outcomes. The literature indicated various outcomes from
+                                                                                   1. What are the uses, constraints, and outcomes that
+using robots in later life, mostly divided between benefits and
+                                                                                      older adults experience while assimilating a SAR into
+risks. Interacting with robots was experienced as enjoyable
+                                                                                      their lives?
+(Lazar et al., 2016) and cognitively stimulating (Tsardoulias et al.,
+                                                                                   2. Do the uses, constraints, and outcomes change during the
+2017; Louie and Nejat, 2020). It had positive and beneficial
+                                                                                      assimilation period? If so, how?
+effects on older adults’ psychological wellbeing (Henschel et al.,
+                                                                                   3. How do older adults’ experiences with a SAR over a long
+2021), including better communication with friends and family                         period and in real-life conditions shape their QE of that SAR
+members (Tsardoulias et al., 2017), elevated mood (Khosla et al.,                     in particular and of SARs in general?
+2012), and decreased frustration and stress (Van Patten et al.,
+2020). Functional benefits often included the robotic technologies’
+(e.g., Paro, Nao) contribution to older persons’ quality of life                 3 Methods
+and independence (Tsardoulias et al., 2017; Coşar et al., 2020;
+Koh et al., 2021; Wang et al., 2021). For example, studies have                  3.1 The robotic system
+found that robots support physical exercise and rehabilitation
+(Avioz-Sarig et al., 2021; Krakovski et al., 2021; Zafrani et al., 2023).             To answer the research questions, we used a SAR developed
+In addition, a longitudinal study that used SAR to monitor,                      in our lab (Figure 1). This SAR—named ‘Gymmy’ to elicit the
+assist, and provide social, cognitive, and physical stimulation                  associations of the word “gym”—was designed to serve as a
+in elderly homes, provided empirical evidence that SAR can                       personal trainer that would support aging individuals’ physical
+be successfully used for long-term support for older adults                      activity. During the training sessions, the robot demonstrates a
+(Luperto et al., 2023).                                                          series of physical exercises and follows their execution. The users
+    The literature also addressed the risks and negative impacts                 perform the exercise with the robot, and a camera monitors their
+arising from the use of robots by older people. Regarding                        movements. If needed, the robot corrects the execution. In addition,
+psychological risks, concerns related to discomfort or stress resulting          during the physical training, cognitive training sessions, such as
+from the robot’s appearance, speech, and motion were mainly                      memory and thinking exercises, are randomly presented to the
+discussed (Hussain and Zeadally, 2019; Salvini et al., 2021). Ethical            users. Furthermore, the system offers users relaxation exercises to
+ramifications such as invasion of privacy and feelings of a                      release stress and relieve pressure, according to Jacobson’s relaxation
+loss of control may result from using robots (Caine et al., 2012;                technique (Jacobson, 1938). The system includes a humanoid
+Kernaghan, 2014). For example, the presence of cameras and hearing               mechanical-looking robot (Poppy Torso) and a computer system
+sensors on the robot may cause a feeling of being spied on or                    (NUC mini-PC) to demonstrate the exercises, an RGB-D (red-
+under surveillance, which in turn may lead to stress and anxiety                 green-blue-depth) camera to monitor the user’s performance (Intel
+(Salvini et al., 2021). Moreover, physical interactions with SARs such           RealSense™ D435), speakers and a touch screen for instructions
+as walking support robots (Cifuentes et al., 2014), person-following             and feedback (for additional information about the development of
+robots (Olatunji et al., 2020), and mobility robots (Leaman and                  the system, see Krakovski et al., 2021; Zafrani et al., 2023, or watch
+La, 2017) may create hazards such as accidents or malfunctions                   https://www.youtube.com/watch?v=zQ4T1NhS25Q).
+(Mansfeld et al., 2018).                                                              This robotic system we developed was used in our previous
+    The holistic approach suggested by Zafrani and Nimrod (2019)                 studies where each study had its own novelty. In Krakovski et al.
+postulates that simultaneous exploration of uses, constraints, and               (2021) we presented the development of “Gymmy”, and conducted
+outcomes (including both positive and negative effects), rather                  1-day experiments in home environments to examine the effect of
+than focusing on one or two of these issues, may explain how                     users’ characteristics (age, gender, education and attitude toward
+they correlate with one another and provide a broader and more                   robots), on the acceptance of the robotic trainer. In Zafrani et al.
+accurate picture of users’ experiences. Moreover, it stresses that               (2023) we conducted an online survey to explore the anticipated
+extended simultaneous exploration may explain how the HRI and                    interaction through video viewing of a SAR (Gymmy). The novelty
+the resulting QE change according to users’ experience, to what                  of this work is that we investigated how the QE is shaped
+extent the interaction is integrated into their daily lives, what factors        following actual interaction with a SAR (Gymmy) by a simultaneous
+affect the frequency of use and its benefits, and what constrains                exploration of uses, constraints, and outcomes in real-life conditions
+beneficial use and leads to decreased frequency or even cessation of             over a long period.
+
+
+
+Frontiers in Robotics and AI                                                03                                                            frontiersin.org
+Zafrani et al.                                                                                                          10.3389/frobt.2024.1337380
+
+
+
+
+                                                                             between 75 and 97, mean = 81.05, SD = 6.19) who resided in
+                                                                             cities (N = 12) or ‘kibbutzim’ (i.e., a rural community defined by
+                                                                             its commitment to mutual aid, community living, and social justice,
+                                                                             N = 7) in the southern part of Israel participated in this study.
+                                                                             Nine participants were men (47%), and 10 were women (53%).
+                                                                             Nine participants were married, eight were widows, one was in
+                                                                             a permanent relationship, and one was divorced. All participants
+                                                                             had children (range = two to five, mean = 3.31, SD = 1.05). The
+                                                                             majority had secondary education, and eight had post-secondary
+                                                                             education. Most participants were not born in Israel (N = 17), and
+                                                                             14 were secular. All participants were retired except for one who still
+                                                                             worked full-time.
+
+
+
+                                                                             3.3 Data collection
+    FIGURE 1                                                                      For all study participants, a unit of Gymmy was installed in
+    ‘Gymmy’—personal training robot.
+                                                                             their homes for 6 weeks. In-depth semi-structured interviews were
+                                                                             conducted with each participant at their homes before and after
+                                                                             the study. The first session with the participants opened with oral
+                                                                             and written explanations about the study. After signing a consent
+3.1.1 Physical exercises                                                     form, the participants filled out a demographic, sociodemographic,
+    Gymmy’s physical training focused on exercises for the upper             and health background questionnaire (Appendix A). Then, each
+body, which matched the functionality of the Poppy robot’s                   participant was given detailed explanations about Gymmy, watched
+torso version. These exercises improve muscle strength and help              a video that presented its functions, and was interviewed. In
+older adults maintain their independence and perform daily                   these in-depth interviews (Appendix B), participants shared
+activities such as lifting objects. A total of 14 physical training          their biographical and occupational backgrounds, daily routines,
+exercises were developed (Avioz-Sarig, 2019; Krakovsky et al.,               and Information and Communication Technology (ICT)
+2021; Figure 2) according to the recommendations of the National             use. The main goal of these interviews was to explore their
+Institute on Aging (NIH; https://go4life.nia.nih.gov/exercise-               expectations of SARs in general and from Gymmy in particular.
+type/strength/retrieved July 2019).                                          Therefore, they were also asked questions about the advantages,
+                                                                             disadvantages, risks, and benefits that they believed existed in
+3.1.2 Cognitive exercises                                                    SARs and questions that specifically focused on their expectations
+    Gymmy’s cognitive training was designed to address different             from Gymmy.
+aspects of memory, processing speed, and concentration,                           To prevent participants’ exhaustion, Gymmy’s installation was
+which are crucial for older adults’ ability to live independently            done several days after the preliminary interview. This session
+(Eggenberger et al., 2015; Arora, 2021). Three cognitive games were          included installation (15–20 min), guidance (25–30 min), and
+randomly integrated during the physical training sessions. These             demonstration of full training with Gymmy (about 15 min). It was
+games were chosen based on the literature (e.g., Nacke et al., 2009;         explained to the participants that the use of the robot is according
+Ezzati et al., 2016). Each game started with instructions, and then,         to their will, only when they want, and in a proactive way, that is,
+using the touch screen, users confirmed that they were ready to start        if the user wants to use Gymmy, he/she has to press the dedicated
+the game.                                                                    power button. In addition, it was explained to the participants
+                                                                             that communication with the robot is multimodal, based on
+3.1.3 Relaxation exercises                                                   speech, movement (hand waving), and touch (Krakovski et al.,
+    Designed according to Jacobson’s relaxation technique                    2021). Throughout the study period, participants were offered
+(Jacobson, 1938), Gymmy’s relaxation exercises were provided to              unlimited technical support. After 6 weeks, at the end of the study
+release stress and relieve pressure. This tool is essential for older        period, concluding interviews were conducted with the participants
+adults’ wellbeing (Rudnik et al., 2021) and allows them to perform           (Appendix C). These interviews examined their overall experience
+relaxation exercises for three muscle systems: arms, neck, and face.         with Gymmy vis-à-vis their initial expectations. Thus, they were
+                                                                             asked direct questions about the frequency of use, difficulties of
+                                                                             use, and the advantages, disadvantages, risks, and benefits that
+3.2 Participants and sample description                                      they thought existed in using Gymmy. All interviews were audio-
+                                                                             recorded and transcribed verbatim.
+     Participants were recruited through mailing lists of retirees,               In addition to the in-depth interviews, a short weekly telephone
+public announcements, and snowball sampling. Criteria for                    survey (Appendix D) was conducted with study participants. They
+participation were age 75 years and over, namely, the “old-old”              were asked to rate their level of satisfaction with Gymmy and the
+category (Kubota et al., 2012; Boot et al., 2020) and independent            extent to which they faced operational problems using a five-point
+living. Nineteen community-dwelling older adults (age ranged                 Likert scale ranging from 1 (“not at all”) to 5 (“a lot”). Lastly,
+
+
+
+Frontiers in Robotics and AI                                            04                                                            frontiersin.org
+Zafrani et al.                                                                                                                 10.3389/frobt.2024.1337380
+
+
+
+
+    FIGURE 2
+    (A, B)- raise arms horizontally separately, (C)-raise arms and bend elbows forward 90, (D)-raise arms and bend elbows, (E)-bend elbows, (F)- raise arms
+    forward static (G)-raise arms horizon-tally, (H)-raise arms horizontally and turn hands, (I)-raise arms forward and turn hands, (J)-raise arms forward
+    separately, (K)-raise arms 90 and up, (L)-open and close arms 90, (M)-raise arms forward and to sides, (N)- raise arms forward.
+
+
+
+
+the robot automatically produced usage reports, which included                   coding method was inductive, using open coding and axial coding
+accurate information about the frequency and usage dates. Due to                 techniques to make connections and group the codes into categories
+a limited number of Gymmy units, the data were collected in five                 according to content (e.g., risks, benefits). Applying this method
+cycles, with four-five participants in each cycle.                               allowed the findings to emerge from the text without any preexisting
+                                                                                 concepts. The analysis was performed by the first two authors
+                                                                                 and then meticulously reviewed by the other authors. The authors
+3.4 Data analysis                                                                discussed and re-analyzed unclear codes and discrepancies to
+                                                                                 strengthen validity (Hammersley, 1992). Accordingly, the meta
+    Analysis began with the qualitative data collected in the                    matrix was reorganized several times and expanded with new
+interviews and followed Miles and Huberman’s (1994) strategies of                categories and codes.
+noting patterns, contrasting and comparing, and clustering. This                      As the qualitative analysis revealed two distinct groups of
+phase started with within-case analysis and proceeded to cross-                  study participants representing different assimilation patterns, the
+case analysis. Hence, each participant’s pre-use and concluding                  quantitative data (i.e., the usage reports) were used to further explore
+interviews were first independently coded. Then, they were                       the differences between the groups. Accordingly, the next chapter
+compared with other participants’ interviews to elicit similarities,             will combine quantitative and qualitative findings. Pseudonyms were
+contrasts, and overlaps in relation to the codes found. The                      used to guarantee anonymity.
+
+
+
+Frontiers in Robotics and AI                                                05                                                               frontiersin.org
+Zafrani et al.                                                                                                                10.3389/frobt.2024.1337380
+
+
+
+
+4 Findings
+     The analysis revealed two distinct assimilation patterns: (A)
+The ‘Fans’ - participants who enjoyed using Gymmy very much,
+trusted it, attributed added value to it, and experienced a successful
+assimilation process, and (B) The ‘Skeptics’ - participants who did
+not like Gymmy, experienced a disappointing assimilation process,
+and therefore expressed no interest in using it after the research
+period was over. The identified groups differed in their background,
+attitudes towards robots before and after using Gymmy, and actual
+use experience. The following sections describe in detail the process
+of assimilation of the two groups, including their characteristics,
+attitudes, and experiences.
+
+
+
+4.1 The ‘Fans’
+4.1.1 Personal background
+    The average age of the nine participants who liked Gymmy
+ranged between 75 and 97 years, with a mean age of 82.88 years
+(SD = 7.57), and their mean number of years of education was 12.1
+(SD = 2.89). Most (N = 7) of these participants came to the study
+without experience or knowledge of robotics. Before the period
+of use of Gymmy, six participants in this group performed only
+basic physical activity several times a week, such as walking, two
+participants did not exercise at all, and one participant exercised in
+a gym. In addition, their use of various media focused mainly on
+traditional uses such as making phone calls and watching television.
+
+4.1.2 Attitudes towards SARs before use
+     Seven participants from the ‘Fans’ group came to the study
+without actual attitudes towards SARs because, as mentioned,
+they had no previous experience or knowledge of SARs. Yet, all
+participants in this group showed great curiosity and a desire to
+experience the use of robotics. Helen (W, 86, Widow) explained:
+“Even at my age, I still want to learn new things … I have curiosity, it
+is always good to know more things, and it is just interesting, to keep
+evolving, not to stand still,” and Daphna (W, 97, Widow) shared: “I
+agreed to participate in the study because I am interested in new
+things, I am very interested in it.”
+                                                                                   FIGURE 3
+                                                                                   Word clouds that describe the actual use experience of the ‘Fans’
+4.1.3 Actual use experience                                                        (green) and the ‘Skeptics’ (red). Note: The bigger the word in the word
+    Participants in the ‘Fans’ group loved Gymmy very much                         cloud, the more frequently it appeared in the interviews.
+
+(Figure 3; Figure 4), trusted it, appreciated its pragmatic and hedonic
+aspects, its ‘unique use characteristics’ and its ‘advantages,’ used
+it regularly throughout the study period (Figure 5), experienced
+‘positive evaluations’ towards it, and even reported ‘positive                  there is no need to have Einstein’s intelligence to operate it.” Another
+outcomes’ from its use. Moreover, this group of participants directly           factor that played an essential role in the participants’ experience was
+connected Gymmy’s ‘unique use characteristics’ to the ‘advantages’              Gymmy’s convenience of use. This factor contained two interrelated
+they found in it. That is, its unique use characteristics are its               characteristics, Gymmy’s accessibility and availability. Gymmy was
+advantages, and its advantages lie in the characteristics of its                placed in the most accessible place for the participants, i.e., in their
+unique use. Its unique uses characteristics included pragmatic                  homes. Therefore, they could exercise “without leaving their home.”
+aspects)easy to operate, convenient to use, and provides guidance and           Additionally, the fact that Gymmy was always available allowed them
+demonstration) and a hedonic aspect (has humanity).                             to use it whenever they wanted. Sami (M, 86, Married), for example,
+    A powerful influence on the participants’ experience was that               pointed out that “compared to a human trainer, who will not come to
+Gymmy was easy to operate. The participants did not experience                  your home whenever you want, Gymmy is always available to you.”
+any use problems or difficulties during the study period (Figure 3).                Another unique characteristic of Gymmy noted by these
+Miley (W, 75, Married) indicated that using it was “super easy …                participants was that it provided guidance and demonstration
+
+
+
+Frontiers in Robotics and AI                                               06                                                                frontiersin.org
+Zafrani et al.                                                                                                             10.3389/frobt.2024.1337380
+
+
+
+
+    FIGURE 4
+    Six-weeks self-report use trends among the two groups of study participants.
+
+
+
+
+regarding how to perform the exercises. As Helen (W, 86, Widow)                 affectionate adjectives such as “so sweet,” “amazing,” “very nice,”
+avowed: “I really like getting guidance on what to do.” Finally,                “pleasant,” “gentle,” and “friendly.” In addition, they praised it
+Gymmy’s humanity was frequently discussed when participants                     with compliments for being an “excellent idea,” “interesting,” and
+regarded it as a human presence at home. For example, Paula (W,                 “intriguing.” Moreover, they indicated that Gymmy suited their daily
+91, Divorced) always anthropomorphized Gymmy when she talked                    needs and provided a good physical and cognitive training level. They
+about training with it and described the routine of her encounters              experienced enthusiasm and enjoyment and had a positive experience
+with Gymmy as a human routine for all intents and purposes: “Every              thanks to it.
+time I met him, I said hello to him, I made the movements with him,                 Participants described Gymmy’s suitability for their daily needs
+and it answered me very well,” and explained: “I did the exercises              in a variety of superlatives and explained that it “suited me exactly,”
+according to what he said.”                                                     “came to me at the right time,” and was “exactly what I needed.”
+    The ‘positive evaluations’ described by the ‘Fans’ were for                 Helen (W, 86, Widow) detailed that “Gymmy allows me to do exactly
+Gymmy itself, the experience of its use, and the functions it                   what I can, it suits me very well … it keeps me busy in a pleasant
+offered. First, the participants chose to describe it with many                 way.” This adequacy between the participants’ needs and the use of
+
+
+
+
+Frontiers in Robotics and AI                                               07                                                            frontiersin.org
+Zafrani et al.                                                                                                              10.3389/frobt.2024.1337380
+
+
+
+
+    FIGURE 5
+    Average weekly uses among the two types of study participants according to the SAR’s reports.
+
+
+
+
+Gymmy was made possible thanks to the fact that Gymmy provided                       As the awareness and motivation to exercise increased, so did the
+the ‘Fans’ with a good level of physical and cognitive training. From the        frequency with which participants exercised. That is, the awareness,
+point of view of physical training, participants in this group noted             motivation, and the fact that Gymmy was accessible and available led
+that they experienced “diversity in the type of physical activity,”              to an increase in the participants’ total physical activity time during
+that “Gymmy’s movements were nice,” and that “the number                         the study period. When asked by the interviewer in the concluding
+of repetitions was good.” From a cognitive training perspective,                 interview if the robot made them perform more physical activity,
+participants reported that the assignments were “good,” “clear,” and             most of the participants in this group answered ‘yes,’ and shared a
+“without problems.”                                                              variety of positive responses, such as “Of course it added.”—Luca
+     In the concluding interview, when these participants were asked             (M, 79, Married); “Certainly, definitely, now more.”—Helen (W,
+to describe the period of their use of Gymmy, they pointed out                   86, Widow).
+that they experienced enthusiasm and enjoyment and had a positive
+experience thanks to it. Enthusiasm and enjoyment referred to                    4.1.4 Attitudes towards SARs after use
+positive feelings that Gymmy and its features aroused among the                      The use of Gymmy led to a positive overall evaluation of SARs
+participants during the study period. For example, Daphna (W, 97,                among Gymmy’s ‘Fans’ and positively influenced their perceptions.
+Widow) shared that “moving the muscles and making an effort is the               These participants shared in the concluding interviews that they
+best thing I can do.”                                                            believe that using SARs “can undoubtedly” help the older adults.
+     The feelings of pleasure experienced during the study period                “For older adults? For sure! A thousand percent, it will make a great
+directly affected the participants’ sense at the end of the study                contribution to a person,” stated Tom (M, 76, Widow). Similarly,
+period, which they defined as a positive experience. For example,                Luca (M, 79, Married) highlighted that “robotics can benefit older
+Alex (W, 79) remembered longingly: “Gymmy made me smile in                       people in many areas … it can save time, money … it can only
+the morning when it said good morning, my name is Gymmy …                        be beneficial.” Further evidence that the use of Gymmy positively
+I approached it happily; it was pleasant and comfortable for me. It              affected the perception and evaluation of SARs among this group
+was a good experience. I’m a little sad because Gymmy is leaving;                of participants stemmed from the question about the dangers and
+I really like it.”                                                               risks of robots asked during the concluding interviews. Without
+     As a result of the successful use they experienced, the ‘Fans’              exception, all the participants in this group indicated that “there are
+obtained several interrelated ‘positive outcomes.’ They reported                 no risks at all,” only “positive things.”
+that Gymmy strengthened their awareness and motivation to
+exercise and increased their exercising frequency. Gymmy’s presence
+in the participants’ homes contributed to their general exercise                 4.2 The ‘skeptics’
+awareness. As Nina (W, 77, Widow) shared: “It is really a problem
+to move the body … I was more aware that I had to get                            4.2.1 Personal background
+up from the computer.” In addition to awareness, they noted                          The average age of the ten participants in the ‘Skeptics’ group
+that Gymmy motivated participants to exercise more. Participants                 ranged from 75 to 86 years, with a mean age of 79.4 years (SD =
+explained that Gymmy was actually like a training partner, one                   4.41). This group’s mean number of years of education was 13.5 (SD
+who “moves with me,” “spurred,” “encouraged,” and “pushed me to                  = 2.28). Hence, they were somewhat younger and more educated
+exercise at home.”                                                               than the ‘Fans.’ Compared to the first group, most (N = 8) of
+
+
+
+Frontiers in Robotics and AI                                                08                                                            frontiersin.org
+Zafrani et al.                                                                                                             10.3389/frobt.2024.1337380
+
+
+
+
+the ‘Skeptics’ also came to the study with knowledge, previous                  claimed that the robots may threaten users’ cognitive abilities in
+experience, and familiarity with the world of robotics. This may                knowledge tasks they can perform independently, as Gabriel (M, 80,
+explain why they expressed some skepticism during the preliminary               Married) shared: “We will think less, and the robots will think for
+in-depth interviews and mentioned many disadvantages that they                  us.”
+believed existed in using SARs and a variety of potential risks that                 The risk of being replaced by robots was discussed in the
+may result from this use. Most of the ‘Skeptics’’ exercise habits before        employment context. “This is a pretty difficult problem for the
+the study were extensive and diverse. Finally, the media use of all             world … if robots come into our lives … people will lose their jobs
+participants in this group included both basic and advanced uses                etc.,” explained Sarah (W, 83, Widow). Michael (M, 82, Married)
+of ICT.                                                                         even portrayed the future as an apocalyptic scenario and explained:
+                                                                                “Robots pose a danger of replacing people … you will have no job,
+4.2.2 Attitudes towards SARs before use                                         and you will have nothing.”
+     Eight participants in this group joined the study with previous
+knowledge and experience with SARs. The accumulated knowledge                   4.2.3 Actual use experience
+came from “books,” “movies,” and “lectures on the subject,” and as a                 The ‘Skeptics’ first days of using Gymmy can be described as a
+result of experiences shared with them by acquaintances. It seemed              success. The participants learned how to use it, were satisfied with
+that their early familiarity and being ‘knowledgeable’ about robotics           it, and experienced enthusiasm. However, the excitement was only
+made them come to the study with a sense of skepticism. Michael (M,             temporary and preliminary, a finding reflected in the usage data
+82, Married), for example, shared: “We must find a way to balance               produced by Gymmy (Figure 5) and in the participants’ words. For
+the wisdom of the robots so that they cannot do everything …                    example, Daniel (M, 75, Married) explained: “At first it was nice …
+otherwise we will close the hospitals, kill the people, and use only            it was a new experience to play with a robot.” In fact, the initial
+robots,” and summarized: “I hope I can get along with Gymmy.”                   enthusiasm cooled down and turned into disappointment, which
+     In accordance with these sentiments, they described several                was reflected in the participants’ negative evaluations (Figure 3).
+disadvantages that characterize the use of SARs and risks that they             These evaluations were due to several pragmatic factors (too simple
+believed may be caused by this use. The ‘disadvantages’ included:               and not challenging enough, technical problems, too slow, and few
+robots are not a substitute for a human, and robots depend on the               activities) and a result of one non-hedonic factor (lack of humanity).
+person who programs them. Robots are not a substitute for a human                    The biggest disappointment with Gymmy among the ‘Skeptics’
+was frequently discussed when comparing the interaction with a                  was that the participants perceived its use as too simple and not
+robot to that with a human. Participants repeatedly emphasized that             challenging, and even boring. As Clara (W, 75, Married) said: “I
+“robots lack human contact.” Maggie (W, 77, Widow), for example,                was expecting something more challenging, but it was not … it
+explained that: “There is no substitute for a look in the eyes and              is too simple for my abilities.” This was true for physical training,
+a hug, for laughing together, for all the things that a human being             cognitive training, and relaxation exercises. This simplicity and lack
+gives.” In addition, the ‘Skeptics’ explained that SARs could not be a          of challenge made the participants feel that the use of Gymmy was
+worthy substitute for humans as they cannot experience and express              “somewhat frustrating,” “nagging,” and “not fun.”
+emotions whereas “human and emotion cannot be separated,” as                         Another major issue noted by the participants was technical
+highlighted by Clara (W, 75, Married). The participants noted that,             problems. The ‘Skeptics’ showed less patience for technical faults,
+like other modern technologies, robots depend on the person who                 a tendency clearly reflected in their weekly reports (Figure 4) and
+programs them for better or worse. Therefore, participants said they            directly affected their sense of disappointment. “The difficulty is
+hope the programmer has “lofty goals and aims to help users.”                   that there were some exercises where the robot did not catch my
+     Along with the disadvantages, participants also noted three                movements,” noted Nathan (M, 75, Married). Too slow referred to
+potential ‘risks’ that may result from using SARs: Invasion of privacy,         the time it took Gymmy to turn on and perform the exercises and the
+impairment of independence in daily functioning, and risk of being              waiting time between them. Maggie (W, 77, Widow), for example,
+replaced by robots. Invasion of privacy was discussed in terms of               noted that “it takes a long time for Gymmy to wake up.” In addition,
+informational privacy. Participants shared their concerns about their           Daniel (M, 75, Married) said: “The exercises should be much faster
+understanding of how the information shared with the robot is                   … more vigorous.” Nathan (M, 75, Married) commented that the
+processed and used (or misused). For example, Nathan (M, 75,                    waiting time between exercises “is very long, so I did a run-in-place
+Married) said: “Actually, I have no idea what the robot is doing, and           activity meanwhile.”
+I am afraid there will be an invasion of my private life.”                           Few activities were discussed in the context of two aspects:
+     The second risk discussed by the participants was impairment of            First, regarding a too-small pool of physical exercises, and second,
+independence in daily functioning, both physically and cognitively.             regarding the fact that the physical training was for the upper
+From a physical perspective, this risk was derived from the                     limbs only. Regarding the first aspect, several participants expressed
+participants’ concern about being replaced by robots in daily                   disappointment that the physical training time was too short. “I
+activities at home. The participants claimed that robots might                  just started, and immediately it was over,” indicated Arik (M, 86,
+threaten their autonomy by replacing them in home tasks they                    Widow). In terms of the second aspect, participants perceived the
+should perform by themselves. Sofie (W, 77, Married), for example,              physical training for upper limbs only as a disadvantage, were
+clarified: “I get along great without it, I leave it for the future.”           disappointed by this, and hoped for additional activities that would
+From a cognitive perspective, the fact that robots are an extremely             allow them to train their lower body. For example, Clara (W, 75,
+‘intelligent’ technology that can efficiently perform cognitive actions         Married) mentioned that “the lower part of the body did not
+was a potential risk, according to participants’ perceptions. They              participate … it was completely missing.”
+
+
+
+Frontiers in Robotics and AI                                               09                                                           frontiersin.org
+Zafrani et al.                                                                                                                 10.3389/frobt.2024.1337380
+
+
+
+
+     Lack of humanity as a factor that caused a negative evaluation               ‘Gymmy,’ they thought SARs could be dangerous, apart from two
+among the ‘Skeptics’ stemmed from the fact that they expected the                 participants, all the others stated that they were “not afraid of using
+communication with Gymmy to be as similar as possible to human-                   them” nor did they think they might be hazardous.
+human interaction. Therefore, when expectations did not match
+reality, most experienced disappointment. Daniel (M, 75, Married),
+for example, described that “it would have been perfect if it had said,           5 Discussion
+‘Come on, Daniel, time to practice.’” In almost the same way, Maggie
+(W, 77, Widow) explained: “The only thing I wanted was that the                        Following the users’ experiences in real-life conditions and over
+robot would talk to me … but it did not talk.”                                    time made it possible to identify two distinct assimilation patterns
+     Following all the factors listed above, most ‘Skeptics’ felt that            in terms of uses, constraints (both antecedent and intervening), and
+Gymmy “does not provide any added value” and that “there is no                    outcomes (both benefits and disappointments). The two patterns
+novelty in it.” Accordingly, Gymmy “did not live up to expectations,”             suggested that the process of SARs’ assimilation is not homogeneous
+and they felt “no desire for permanent adoption.” For instance, Clara             and provided a more profound understanding of the factors affecting
+(W, 75, Married) concluded sarcastically: “There was nothing special              older adults’ QE of SARs following actual use. Below is a discussion
+here; I did not shed a tear because Gymmy was leaving.”                           of the two assimilation patterns vis-à-vis the three main topics
+     Notwithstanding the disappointment these users experienced,                  explored regarding HRI in later life, namely: uses, constraints, and
+and despite their disinterest in adopting ‘Gymmy’ permanently, their              outcomes (Zafrani and Nimrod, 2019).
+attitude towards it after use was that it had a ‘potential for others.’                Uses. In the present study, the two groups of users reported a
+Although Gymmy was less relevant for them, they believed that                     completely different use experience. Whereas the ‘Fans’ experienced
+it could certainly help lonely older adults and older adults with                 Gymmy as easy and convenient to operate and use, the ‘Skeptics’
+disabilities. Help for lonely older adults referred to the perception             experienced it as too simple, unchallenging, and boring. A possible
+that Gymmy can act as a kind of companion or friend. As Gabriel                   explanation for this gap in the user experience lies in the participants’
+(M, 80, Married) explained: “This robot can be an advantage for                   exercise habits before the study. Gymmy provided the ‘Fans’ with
+lonely persons … Gymmy can definitely guide them and make                         a new value-added function to their daily routines, i.e., physical
+them exercise.” Another perception that participants shared about                 activity, which they either did not engage in at all or did so to a
+Gymmy was that it could help older adults with disabilities. The fact             very limited extent prior to the study. In contrast, this function was
+that Gymmy is placed at home and can be used at any time allows                   adequately implemented in the Skeptics’ daily routines. Accordingly,
+“people who cannot leave their homes” or “people who are confined                 they did not attribute added value to the use of Gymmy, which, in
+to a wheelchair” to exercise.                                                     turn, led to decreased intensity of use.
+                                                                                       This explanation is consistent with previous research suggesting
+4.2.4 Attitudes towards SARs after use                                            that user attributes significantly affect the user experience (e.g.,
+     This group’s skepticism in the opening interviews seemed                     Morillo-Mendez et al., 2021). It also echoes studies demonstrating
+to impact their evaluation of robots after the study period.                      that older adults expect robots to be tailored to their needs
+Nevertheless, the disadvantages and risks that this group of users                (Tsardoulias et al., 2017; Karkovsky et al., 2021). If they cannot
+associated with SARs appeared to be somewhat moderated by their                   ascribe new valuable functions to the robot, they will evaluate the
+experiences with Gymmy. Accordingly, their evaluations of SARs                    interaction with it less favorably and eventually abandon its use
+at the end of the study were, in most cases, a little more positive               (Frennert et al., 2017).
+than they were before it began. For example, Maggie (W, 77, Widow)                     The present study’s findings also supported previous research,
+explained before the study period that “robots have advantages and                according to which direct experience with SARs promotes
+disadvantages, but you have to get used to it, it is something so new.”           acceptance (Shen and Wu, 2016). Most of the participants in the
+At the end of the study, when asked if, after using Gymmy, she is                 ‘Fans’ group came to the study without any explicit attitudes towards
+more open to future experiences with robots, she replied: “I think                SARs because, as mentioned, they had had no prior familiarity with
+so … I’m open to that.” Not all Skeptics, however, demonstrated                   the field of robotics. However, at the end of the study period, they
+greater openness and better evaluations of robots after the study.                developed positive attitudes towards SARs in general. Moreover,
+For example, Sofie (W, 77, Married), who said in the opening                      despite the disappointment with Gymmy, the direct interaction
+interview that she was doing fine without a robot, maintained the                 with it reduced the ambivalence towards SARs among the ‘Skeptics.’
+same mindset after the study was over: “I never had any issues that               These participants came to the study with firm negative attitudes
+required the use of robots.”                                                      towards SARs and mentioned a variety of disadvantages and risks
+     Notwithstanding the differences mentioned above, all ‘Skeptics’              that they believed were associated with their use. Nevertheless, their
+noted ‘potential benefits’ they believed could result from using SARs.            overall evaluations of SARs at the end of the study period were more
+The benefits included assistance to the older population in general and           positive than beforehand.
+to lonely older adults and older adults with disabilities in particular.               Constraints. The discussion of constraints refers solely to the
+Similar to the ‘Fans,’ but less decisively, the ‘Skeptics’ also believed          ‘Skeptics,’ as the ‘Fans’ hardly reported any constraints. The gap
+that using SARs could help the older population. At the same time,                between the ‘Fans’ and the ‘Skeptics’ resulted not only from the
+their focus was on sub-populations within the older population. Like              differences in exercise habits, but also from a most significant
+their attitude towards the specific potential of Gymmy, they believed             antecedent constraint found among the ‘Skeptics.’ As stated above,
+that SARs could help mostly lonely older adults and older adults                  unlike the ‘Fans,’ most of the participants in the ‘Skeptics’ group
+with disabilities. Finally, when the ‘Skeptics’ were asked if, after using        joined the study with previous attitudes towards SARs, which were
+
+
+
+Frontiers in Robotics and AI                                                 10                                                             frontiersin.org
+Zafrani et al.                                                                                                              10.3389/frobt.2024.1337380
+
+
+
+
+constructed by contents to which various media exposed them.                    that Gymmy raised their awareness and motivation to exercise and
+In such contents, robots are often demonized and presented as                   increased their exercise frequency.
+attempting to take over the world and replace humans (e.g., the                     Among the ‘Skeptics,’ Gymmy’s specific potential benefits were
+Terminator; Bartneck et al., 2007). These negative connotations, in             the same as the potential benefits of SARs in general. They believed
+turn, can trigger negative attitudes and emotions toward robots                 that Gymmy, like any SAR, could assist the older population,
+(Lee et al., 2012).                                                             especially lonely and frail older adults. It can be assumed that this
+    This gap may also stem from the characteristics of the sample.              perception was related to the antecedent constraint mentioned above
+As mentioned above, the ‘Skeptics’ were somewhat more educated                  regarding the stigma of this group associated with using a robot in
+than the ‘Fans.’ It is thus reasonable to argue that older adults               old age.
+with a higher level of education and prior knowledge of robotic                     Overall, the application of simultaneous exploration of uses,
+technologies would be characterized by a more realistic perception              constraints, and outcomes over time and in real-life conditions
+and greater awareness of their shortcomings. Simultaneously, the                explained how these topics correlate with one another and
+education variable may also affect the degree of exposure to                    presented a broader and more accurate picture of factors shaping
+various media content (Huffman, 2018) and the ability to acquire                older adults’ QE of SARs. Specifically, this exploration explained
+and absorb information and content from modern technologies                     how the QE may vary according to the assimilation pattern,
+(Simoni et al., 2016). Therefore, the initial negative attitudes of the         the factors affecting the use and the benefits gained, and the
+‘Skeptics’ could result from exposure to content in the various                 constraints to beneficial use. Moreover, this study showed an
+media, from being more educated, or from the correlation between                inevitable connection between these three topics, as the interchange
+these variables.                                                                between uses and constraints seems to influence outcomes.
+    Another antecedent constraint found among the ‘Skeptics’ came               Accordingly, it is suggested that future research should apply a
+from the stigma associated with using a robot in old age (Neven,                similar approach.
+2010; Bradwell et al., 2021), which is one of the most dominant                     The findings also suggest two integrative practical
+constraints found in the literature on HRI in later life (Zafrani and           recommendations for improving SARs’ evaluation by older adults.
+Nimrod, 2019). The ‘Skeptics’ tended to perceive the prospective                First, to promote a more positive QE, acceptance, and successful
+robot user as a much older person who needs substantial support                 assimilation process, developers and designers of SARs for
+with everyday tasks. This negative perception limited the Skeptics’             older adults are advised to consider the needs of older adults and
+motivation to use SARs even before the study and may have helped                take steps to reduce their fears, concerns, and sense of inconvenience
+them dissociate themselves from ageist stereotypes.                             about robots. The features that make the robots pleasant to use
+    Intervening constraints found were technical problems and                   should be stressed in all educational and marketing communication
+slow operation. The ‘Skeptics’ showed less patience for these issues            targeting older people. Moreover, a proper training session on the
+than the ‘Fans’—a finding reflected in the concluding interviews                SAR and its functions should be provided, during which participants
+that seemed to affect their evaluations of Gymmy. These findings                are given relevant information and allowed to ask questions to
+support previous literature indicating that usability, including                remove their doubts and fears. Second, it is essential to invest efforts
+various operative difficulties in robot performance, constitutes a              in developing and designing SARs that are adjustable to the user’s
+significant intervening constraint (Pripfl et al., 2016; Wang et al.,           needs, functional, convenient, simple, provide added value, easy to
+2019) that leads to dissatisfaction and negative QE (De Graaf et al.,           use, and have unique features such as a multi-modal communication
+2015; Wang et al., 2019).                                                       (Kirby et al., 2009; Krakovski, 2022).
+    Outcomes. The discussion of outcomes is divided into negative
+and positive outcomes (i.e., benefits). Similar to the constraints, the
+entire negative outcomes category was relevant only to the ‘Skeptics.’
+These outcomes were reflected in the fact that throughout most of               6 Limitations and future research
+the study period, they experienced a host of negative sentiments
+(dissatisfaction, boredom, frustration, resentment, and lack of                     Despite its many strengths, this study has several limitations
+enjoyment, patience, and interest) and were overall disappointed                that should be acknowledged. First of all, the study was limited
+with using Gymmy.                                                               to one specific SAR designed for a particular purpose (physical
+    Besides describing the negative outcomes, the participants                  training), and thus the findings cannot be generalized to other
+addressed the benefits gained from using Gymmy and the potential                robotic systems. Using a SAR intended for another purpose or
+benefits that they believed existed in SARs following the study. Here,          using a multi-purpose SAR might have yielded different results.
+the division between the ‘Fans’ and the ‘Skeptics’ was noteworthy:              In addition, most of the participants in the study were healthy
+Whereas the benefits mentioned by the ‘Fans’ were directed at                   older adults without physical or cognitive impairments. Therefore,
+themselves, the benefits described by the ‘Skeptics’ were directed at           we cannot generalize its findings to frail older adults. Finally, the
+others. The positive feelings reported by the ‘Fans’ echoed previous            study was conducted during the COVID-19 pandemic, which may
+research on HRI in later life, suggesting that interacting with                 have affected the participants’ exercise patterns, general mood, and
+robots was experienced by older adults as an enjoyable activity                 assessments.
+(De Graaf et al., 2015; Lazar et al., 2016) that had positive effects on            Future research should expand the present study to explore
+their mood (McGlynn et al., 2017) and wellbeing (Henschel et al.,               factors affecting QE of SARs among additional older audiences
+2021). The ‘Fans’ noted additional benefits related to the central              including “oldest old” (85+ years; Le et al., 2014) participants, older
+function that Gymmy provided - physical training. They reported                 individuals residing in other countries and cultural environments,
+
+
+
+Frontiers in Robotics and AI                                               11                                                             frontiersin.org
+Zafrani et al.                                                                                                                                           10.3389/frobt.2024.1337380
+
+
+
+
+and older adults with different levels of education, income, previous                            Funding
+experience with robots, media usage and exposure, self-efficacy,
+and physical and cognitive functioning. Such studies should also                                     The author(s) declare financial support was received for
+follow up assimilation processes for longer periods to explore how                               the research, authorship, and/or publication of this article. This
+uses, constraints, and outcomes continue to evolve over time, and                                work was conducted as part of the corresponding author’s Ph.D.
+compare assimilation of SARs by using additional types of robots,                                dissertation at the Department of Industrial Engineering and
+including multi-function vs single-function SARs, stationary vs                                  Management, Ben-Gurion University of the Negev, Israel, and
+mobile SARs, and proactive vs reactive SARs.                                                     supported by the Israeli Ministry for Science and Technology
+                                                                                                 (grant number: 3-15713) and partially supported by Ben-Gurion
+                                                                                                 University of the Negev through the Agricultural, Biological and
+Data availability statement                                                                      Cognitive Robotics Initiative, the Marcus Endowment Fund, and the
+                                                                                                 W. Gunther Plaut Chair in Manufacturing Engineering.
+    The original contributions presented in the study are included in
+the article/Supplementary material, further inquiries can be directed
+to the corresponding author.                                                                     Acknowledgments
+                                                                                                    The authors wish to thank Shai Givati, Moshe Bardea and Amit
+Ethics statement                                                                                 David for their help in carrying out this research.
+
+    The studies involving humans were approved by Ben-
+Gurion University of the Negev ethics commit. The studies were
+conducted in accordance with the local legislation and institutional                             Conflict of interest
+requirements. The participants provided their written informed
+consent to participate in this study. Written informed consent was                                   The authors declare that the research was conducted in the
+obtained from the individual(s) for the publication of any potentially                           absence of any commercial or financial relationships that could be
+identifiable images or data included in this article.                                            construed as a potential conflict of interest.
+
+
+
+Author contributions                                                                             Publisher’s note
+    OZ: Writing–original draft, Methodology, Investigation,                                          All claims expressed in this article are solely those of the
+Analysis. GN: Writing–review and editing, Methodology,                                           authors and do not necessarily represent those of their affiliated
+Investigation, Analysis. MK: Writing–review and editing, Software.                               organizations, or those of the publisher, the editors and the
+SK: Writing–review and editing, Software. SB-H: Writing–review                                   reviewers. Any product that may be evaluated in this article, or claim
+and editing, Investigation. YE: Writing–review and editing,                                      that may be made by its manufacturer, is not guaranteed or endorsed
+Methodology, Investigation, Analysis.                                                            by the publisher.
+
+
+
+References
+  Abbott, R., Orr, N., McGill, P., Whear, R., Bethel, A., Garside, R., et al. (2019).            social care based on a large scale analysis of stakeholder positions. Health Policy Technol.
+How do “robopets” impact the health and wellbeing of residents in care homes? A                  10 (3), 100544. doi:10.1016/j.hlpt.2021.100544
+systematic review of qualitative and quantitative evidence. Int. J. Older People Nurs. 14
+                                                                                                   Caine, K., Šabanovic, S., and Carter, M. (2012). The effect of monitoring
+(3). doi:10.1111/opn.12239
+                                                                                                 by cameras and robots on the privacy enhancing behaviors of older adults.
+  Arora, S. (2021). Cognitive and mental health of older adults in India:                        In Proceedings of the seventh annual ACM/IEEE International Conference on
+examining differences between urban and rural regions, Doctoral dissertation.                    Human-Robot Interaction (pp. 343–350). Boston, Massachusetts, USA, March, 2012,
+Palo Alto University.                                                                            doi:10.1145/2157689.2157807
+  Avioz-Sarig, O. (2019). Robotic system for physical training of older adults, Master’s           Caleb-Solly, P., Dogramadzi, S., van den Heuvel, H., Ellender, D., and Fear, T. (2014).
+Thesis. Beersheba, Israel: Ben-Gurion University of the Negev.                                   “A mixed-method approach to evoke creative and holistic thinking about robots in
+                                                                                                 a home environment,” in Proceedings of the 2014 of the ACM/IEEE International
+  Avioz-Sarig, O., Olatunji, S., Sarne-Fleischmann, V., and Edan, Y. (2021). Robotic
+                                                                                                 Conference on Human-Robot Interaction (HRI), Bielefeld Germany, March, 2014.
+system for physical training of older adults. Int. J. Soc. Robotics 13 (5), 1109–1124.
+                                                                                                 doi:10.1145/2559636.2559681
+doi:10.1007/s12369-020-00697-y
+                                                                                                   Cifuentes, C. A., Rodriguez, C., Frizera-Neto, A., Bastos-Filho, T. F., and Carelli, R.
+  Bartneck, C., Suzuki, T., Kanda, T., and Nomura, T. (2007). The influence of people’s
+                                                                                                 (2016). Multimodal human–robot interaction for walker-assisted gait. IEEE Syst. J. 10
+culture and prior experiences with Aibo on their attitude towards robots. AI Soc., 21(1),
+                                                                                                 (3), 933–943. doi:10.1109/jsyst.2014.2318698
+217–230. doi:10.1007/s00146-006-0052-7
+                                                                                                    Cortellessa, G., de Benedictis, R., Fracasso, F., Orlandini, A., Umbrico, A., and Cesta,
+  Bensch, S., Jevtic, A., and Hellström, T. (2017). “On interaction quality in human-
+                                                                                                 A. (2021). AI and robotics to help older adults: revisiting projects in search of lessons
+robot interaction,” in ICAART 2017 Proceedings of the 9th International Conference
+                                                                                                 learned. Paladyn. J. Behav. Robotics 12 (1), 356–378. doi:10.1515/pjbr-2021-0025
+on Agents and Artificial Intelligence, Porto, Portugal, February, 2017.
+                                                                                                    Coşar, S., Fernandez-Carmona, M., Agrigoroaie, R., Pages, J., Ferland, F., Zhao, F.,
+  Boot, W., Charness, N., Czaja, S. J., and Rogers, W. A. (2020). Designing for older
+                                                                                                 et al. (2020). ENRICHME: perception and interaction of an assistive robot for the elderly
+adults: case studies, methods, and tools. CRC Press.
+                                                                                                 at home. Int. J. Soc. Robotics 12, 779–805. doi:10.1007/s12369-019-00614-y
+  Bradwell, H. L., Aguiar Noury, G. E., Edwards, K. J., Winnington, R., Thill, S., and
+                                                                                                   Cullen, S. G. (2018). Interorganizational relationships and hospital adoption of surgical
+Jones, R. B. (2021). Design recommendations for socially assistive robots for health and
+                                                                                                 robots, Doctoral dissertation. The University of Alabama at Birmingham.
+
+
+
+
+Frontiers in Robotics and AI                                                                12                                                                             frontiersin.org
+Zafrani et al.                                                                                                                                             10.3389/frobt.2024.1337380
+
+
+
+
+   da Silva, M. P., Gonçalves, A. L., and Dantas, M. A. R. (2019). A conceptual model               Kim, S., and Choudhury, A. (2021). Exploring older adults’ perception and use of
+for quality of experience management to provide context-aware eHealth services. Future            smart speaker-based voice assistants: a longitudinal study. Comput. Hum. Behav. 124,
+Gener. Comput. Syst. 101, 1041–1061. doi:10.1016/j.future.2019.07.033                             106914. doi:10.1016/j.chb.2021.106914
+  de Graaf, M. M., Allouch, S. B., and Klamer, T. (2015). Sharing a life with harvey:               Kirby, R., Simmons, R., and Forlizzi, J. (2009). “Companion: a constraint-optimizing
+exploring the acceptance of and relationship-building with a social robot. Comput.                method for person-acceptable navigation,” in RO-MAN 2009-The 18th IEEE
+Hum. Behav. 43, 1–14. doi:10.1016/j.chb.2014.10.030                                               International Symposium on Robot and Human Interactive Communication,
+                                                                                                  Toyama, Japan, September, 2009, 607–612. doi:10.1109/ROMAN.2009.
+  de Mattos, C. A., and Laurindo, F. J. B. (2017). Information technology
+                                                                                                  5326271
+adoption and assimilation: focus on the suppliers portal. Comput. Ind. 85, 48–57.
+doi:10.1016/j.compind.2016.12.009                                                                   Koh, W. Q., Ang, F. X. H., and Casey, D. (2021a). Impacts of low-cost robotic pets for
+                                                                                                  older adults and people with dementia: scoping review. JMIR Rehabilitation Assistive
+   Dillon, A. (2001). User acceptance of information technology. Encycl. Hum. factors
+                                                                                                  Technol. 8 (1), e25340. doi:10.2196/25340
+ergonomics 1, 1105–1109. .
+                                                                                                    Koh, W. Q., Felding, S. A., Budak, K. B., Toomey, E., and Casey, D. (2021b). Barriers
+   Dillon, A., and Morris, M. G. (1996). User acceptance of new information technology:
+                                                                                                  and facilitators to the implementation of social robots for older adults and people with
+theories and models. in M. Williams (Ed.), Annual review of information science and
+                                                                                                  dementia: a scoping review. BMC Geriatr. 21 (1). doi:10.1186/s12877-021-02277-9
+technology, Information Today, Medford, NJ, USA.
+                                                                                                     Kouki, R., Poulin, D., and Pellerin, R. (2010). The impact of contextual factors on ERP
+   Eggenberger, P., Schumacher, V., Angst, M., Theill, N., and de Bruin, E.
+                                                                                                  assimilation: exploratory findings from a developed and a developing country. J. Glob.
+D. (2015). Does multicomponent physical exercise with simultaneous cognitive
+                                                                                                  Inf. Technol. Manag. 13 (1), 28–55. doi:10.1080/1097198X.2010.10856508
+training boost cognitive performance in older adults? A 6-month randomized
+controlled trial with a 1-year follow-up. Clin. Interventions Aging 10, 1335.                      Krakovski, M. (2022). Adaptive personalized robotic trainer for upper body Exercises,
+doi:10.2147/CIA.S87732                                                                            Master’s Thesis. Beersheba, Israel: Ben-Gurion University of the Negev.
+  Erel, H., Dado, O., Manor, A., and Zuckerman, O. (2021). The multifaceted                         Krakovski, M., Kumar, S., Givati, S., Bardea, M., Zafrani, O., Nimrod, G., et al. (2021).
+nature of robotic companionship when presented as a secondary function.                           “Gymmy”: designing and testing a robot for physical and cognitive training of older
+In Extended Abstracts of the 2021 CHI Conference on Human Factors in                              adults. Appl. Sci. 11 (14), 6431. doi:10.3390/app11146431
+Computing Systems (pp. 1–6). Yokohama Japan, May, 2021, doi:10.1145/
+                                                                                                     Kubota, K., Kadomura, T., Ohta, K., Koyama, K., Okuda, H., Kobayashi, M., et al.
+3411763.3451582
+                                                                                                  (2012). Analyses of laboratory data and establishment of reference values and intervals
+  Ezzati, A., Katz, M. J., Zammit, A. R., Lipton, M. L., Zimmerman, M. E., Sliwinski,             for healthy elderly people. J. Nutr. Health & Aging 16 (4), 412–416. doi:10.1007/s12603-
+M. J., et al. (2016). Differential association of left and right hippocampal volumes with         011-0355-3
+verbal episodic and spatial memory in older adults. Neuropsychologia 93, 380–385.
+                                                                                                    Lazar, A., Thompson, H. J., Piper, A. M., and Demiris, G. (2016). “Rethinking the
+doi:10.1016/j.neuropsychologia.2016.08.016
+                                                                                                  design of robotic pets for older adults,” in Proceedings of the 2016 ACM Conference
+   Frennert, S., Eftring, H., and Östlund, B. (2017). Case report: implications of doing          on Designing Interactive Systems, Brisbane QLD Australia, June, 2016, 1034–1046.
+research on socially assistive robots in real homes. Int. J. Soc. Robotics 9 (3), 401–415.        doi:10.1145/2901790.2901811
+doi:10.1007/s12369-017-0396-9
+                                                                                                    Le, T., Chaudhuri, S., White, C., Thompson, H., and Demiris, G. (2014). Trust in
+   Gasteiger, N., Hellou, M., and Ahn, H. S. (2021). Factors for personalization and              health information sources differs between young/middle and oldest old. Am. J. Health
+localization to optimize human–robot interaction: a literature review. Int. J. Soc.               Promot. 28 (4), 239–241. doi:10.4278/ajhp.120921-ARB-459
+Robotics. doi:10.1007/s12369-021-00811-8
+                                                                                                    Leaman, J., and La, H. M. (2017). A Comprehensive Review of smart wheelchairs:
+  Getson, C., and Nejat, G. (2021). Socially assistive robots helping older                       past, present, and future. IEEE Trans. Human-Machine Syst. 47 (4), 486–499.
+adults through the pandemic and life after COVID-19. Robotics 10 (3), 106.                        doi:10.1109/thms.2017.2706727
+doi:10.3390/robotics10030106
+                                                                                                     Lee, H. S., Kim, W. S., Hong, H. J., Ban, M. J., Lee, D., Koh, Y. W., et al.
+  González-González, C. S., Violant-Holz, V., and Gil-Iranzo, R. M. (2021).                       (2012). Robot-assisted Supraomohyoid neck dissection via a modified face-lift or
+Social robots in hospitals: a systematic review. Appl. Sci. 11 (13), 5976.                        retroauricular approach in early-stage cN0 squamous cell carcinoma of the oral cavity: a
+doi:10.3390/app11135976                                                                           comparative study with conventional technique. Ann. Surg. Oncol. 19 (12), 3871–3878.
+                                                                                                  doi:10.1245/s10434-012-2423-2
+  Hammersley, M. (1992). Some reflections on ethnography and validity. Qual. Stud.
+Educ. 5 (3), 195–203. doi:10.1080/0951839920050301                                                  Lindblom, J., and Andreasson, R. (2016). Current challenges for UX evaluation of
+                                                                                                  human-robot interaction. Advances in ergonomics of manufacturing. Manag. Enterp.
+  Hartson, R., and Pyla, P. S. (2012). The UX Book: process and guidelines for ensuring a
+                                                                                                  Future, 267–277. doi:10.1007/978-3-319-41697-7_24
+quality user experience. Amsterdam, Netherlands: Elsevier.
+                                                                                                    Liu, Q., Tao, J., Gao, L., He, X., Wang, Y., Xia, W., et al. (2021). Attitudes of front-line
+  Hassenzahl, M. (2003). The thing and I: understanding the relationship between user
+                                                                                                  nurses toward hospice care during the COVID-19 pandemic. Am. J. Hospice Palliat.
+and product. In Funology (pp. 31–42). Berlin, Germany, Springer.
+  Hassenzahl, M., and Tractinsky, N. (2006). User experience - a research agenda.
+                                                                                                           ®
+                                                                                                  Medicine 38 (2), 204–210. doi:10.1177/1049909120968533
+                                                                                                    Louie, W. Y. G., and Nejat, G. (2020). A social robot learning to facilitate an assistive
+Behav. Inf. Technol. 25 (2), 91–97. doi:10.1080/01449290500330331
+                                                                                                  Group-Based activity from non-expert caregivers. Int. J. Soc. Robotics 12 (5), 1159–1176.
+  Hebesberger, D., Koertner, T., Gisinger, C., and Pripfl, J. (2017). A long-term                 doi:10.1007/s12369-020-00621-4
+autonomous robot at a care hospital: a mixed methods study on social acceptance
+                                                                                                     Luperto, M., Monroy, J., Renoux, J., Lunardini, F., Basilico, N., Bulgheroni, M., et al.
+and experiences of staff and older adults. Int. J. Soc. Robotics 9 (3), 417–429.
+                                                                                                  (2023). Integrating social assistive robots, IoT, virtual communities and smart objects
+doi:10.1007/s12369-016-0391-6
+                                                                                                  to assist at-home independently living elders: the MoveCare project. Int. J. Soc. Robotics
+   Henschel, A., Laban, G., and Cross, E. S. (2021). What makes a robot social? A review          15 (3), 517–545. doi:10.1007/s12369-021-00843-0
+of social robots from science fiction to a home or hospital near you. Curr. Robot. Rep.,
+                                                                                                     Luperto, M., Romeo, M., Monroy, J., Renoux, J., Vuono, A., Moreno, F. A.,
+1–11. doi:10.1007/s43154-020-00035-0
+                                                                                                  et al. (2022). User feedback and remote supervision for assisted living with mobile
+  Hornbæk, K., and Hertzum, M. (2017). Technology acceptance and user experience.                 robots: a field study in long-term autonomy. Robotics Aut. Syst. 155, 104170.
+ACM Trans. Computer-Human Interact. 24 (5), 1–30. doi:10.1145/3127358                             doi:10.1016/j.robot.2022.104170
+  Huang, T., and Huang, C. (2021). Attitudes of the elderly living independently                     Mansfeld, N., Hamad, M., Becker, M., Marin, A. G., and Haddadin, S. (2018).
+towards the use of robots to assist with activities of daily living. Work 69 (1), 55–65.          Safety map: a unified representation for biomechanics impact data and robot
+doi:10.3233/wor-205166                                                                            instantaneous dynamic properties. IEEE Robotics Automation Lett. 3 (3), 1880–1887.
+                                                                                                  doi:10.1109/lra.2018.2801477
+  Huffman, S. (2018). The digital divide revisited: what is next? Education 138 (3),
+239–246.                                                                                            McGlynn, S. A., Kemple, S., Mitzner, T. L., King, C.-H. A., and Rogers, W. A. (2017).
+                                                                                                  Understanding the potential of PARO for healthy older adults. Int. J. Human-Computer
+   Hussain, R., and Zeadally, S. (2019). Autonomous cars: research results,
+                                                                                                  Stud. 100, 33–47. doi:10.1016/j.ijhcs.2016.12.004
+issues, and future challenges. IEEE Commun. Surv. Tutorials 21 (2), 1275–1313.
+doi:10.1109/comst.2018.2869360                                                                      Miles, M. B., and Huberman, A. M. (1994). Drawing valid meaning from qualitative
+                                                                                                  data: toward a shared craft. Educ. Res. 13 (5), 20–30. doi:10.3102/0013189x013005020
+  Jacobson, E. (1938). Progressive relaxation. Chicago: Univer.
+                                                                                                     Mlekus, L., Bentler, D., Paruzel, A., Kato-Beiderwieden, A. L., and Maier, G.
+  Kernaghan, K. (2014). The rights and wrongs of robotics: ethics and robots in public
+                                                                                                  W. (2020). How to raise technology acceptance: user experience characteristics as
+organizations. Can. Public Adm. 57 (4), 485–506. doi:10.1111/capa.12093
+                                                                                                  technology-inherent determinants. Gruppe. Interakt. Organ. Z. Für Angew. Organ.
+   Khosla, R., Chu, M. T., Kachouie, R., Yamada, K., and Yamaguchi, T.                            (GIO) 51 (3), 273–283. doi:10.1007/s11612-020-00529-7
+(2012). “Embodying care in matilda: an affective communication robot for the
+                                                                                                     Morillo-Mendez, L., Schrooten, M. G., Loutfi, A., and Mozos, O. M. (2021). “Age-
+elderly in Australia,” in Proceedings of the 2nd ACM SIGHIT International
+                                                                                                  related differences in the perception of eye-gaze from a social robot,” in International
+Health Informatics Symposium, Miami Florida USA, January, 2012, 295–304.
+                                                                                                  Conference on Social Robotics, Singapore, November, 2021.
+doi:10.1145/2110363.2110398
+
+
+
+
+Frontiers in Robotics and AI                                                                 13                                                                              frontiersin.org
+Zafrani et al.                                                                                                                                                10.3389/frobt.2024.1337380
+
+
+
+
+  Morina, F., and Grima, S. (2021). The performance of pension funds and their impact                  Søraa, R. A., Tøndel, G., Kharas, M. W., and Serrano, J. A. (2022). What do older adults
+on economic growth in OECD countries. In New challenges for future sustainability and                want from social robots? A qualitative research approach to human-robot interaction
+wellbeing. Emerald Publishing Limited. doi:10.1108/978-1-80043-968-920211003                         (HRI) studies. Int. J. Soc. Robotics, 1. doi:10.1007/s12369-022-00914-w
+   Nacke, L. E., Nacke, A., and Lindley, C. A. (2009). Brain training for                              Sorrentino, A., Radi, L., Cavallo, F., Becchimanzi, C., Pistolesi, M., Tosi, F., et al.
+silver gamers: effects of age and game form on effectiveness, efficiency, self-                      (2022). “Design and development of a telepresence and monitoring service to empower
+assessment, and gameplay experience. CyberPsychology Behav. 12 (5), 493–499.                         the older adults,” in Ambient assisted living: Italian forum 2020 (Cham: Springer
+doi:10.1089/cpb.2009.0013                                                                            International Publishing), 18–36. doi:10.1007/978-3-031-08838-4_2
+  Nagarajan, H. P., Panicker, S., Mokhtarian, H., Coatanéa, E., and Haapala,                           Tonkin, M. V. (2021). Socially responsible design for social robots in public spaces
+K. R. (2020). Improving worker health and safety in wire arc additive                                (Doctoral dissertation). UTS.
+manufacturing: a graph-based approach. Procedia CIRP 90, 461–466.
+                                                                                                       Torta, E., Werner, F., Johnson, D. O., Juola, J. F., Cuijpers, R. H., Bazzani, M., et al.
+doi:10.1016/j.procir.2020.01.116
+                                                                                                     (2014). Evaluation of a small socially-assistive humanoid robot in intelligent homes for
+   Naneva, S., Sarda Gou, M., Webb, T. L., and Prescott, T. J. (2020). A systematic review           the care of the elderly. J. Intelligent Robotic Syst. 76 (1), 57–71. doi:10.1007/s10846-013-
+of attitudes, anxiety, acceptance, and trust towards social robots. Int. J. Soc. Robotics 12,        0019-0
+1179–1201. doi:10.1007/s12369-020-00659-4
+                                                                                                        Tsardoulias, E. G., Kintsakis, A. M., Panayiotou, K., Thallas, A. G., Reppou, S.
+  Neven, L. (2010). ‘But obviously not for me’: robots, laboratories and the defiant                 E., Karagiannis, G. G., et al. (2017). Towards an integrated robotics architecture
+identity of elder test users. Sociol. Health & Illn. 32 (2), 335–347. doi:10.1111/j.1467-            for social inclusion – the RAPP paradigm. Cognitive Syst. Res. 43, 157–173.
+9566.2009.01218.x                                                                                    doi:10.1016/j.cogsys.2016.08.004
+   Nielsen, L., and Madsen, S. (2012). The usability expert’s fear of agility: an empirical             Van de Sand, F., Frison, A. K., Zotz, P., Riener, A., and Holl, K. (2020). The intersection
+study of global trends and emerging practices. In Proceedings of the 7th Nordic                      of user experience (UX), customer experience (CX), and brand experience (BX). User
+Conference on Human-Computer Interaction: Making Sense Through Design (pp.                           Exp. Is Brand Exp., 71–93. doi:10.1007/978-3-030-29868-5_5
+261–264). Copenhagen Denmark, October, 2012.
+                                                                                                       van Patten, R., Keller, A. V., Maye, J. E., Jeste, D. V., Depp, C., Riek, L. D., et al.
+  Olatunji, S., Oron-Gilad, T., Sarne-Fleischmann, V., and Edan, Y. (2020). User-                    (2020). Home-based cognitively assistive robots: maximizing cognitive functioning and
+centered feedback design in person-following robots for older adults. Paladyn, J. Behav.             maintaining independence in older adults without dementia. Clin. Interventions Aging
+Robotics 11 (1), 86–103. doi:10.1515/pjbr-2020-0007                                                  15, 1129–1139. doi:10.2147/cia.s253236
+  Onnasch, L., and Roesler, E. (2021). A Taxonomy to structure and analyze                              Wang, R. H., Sudhama, A., Begum, M., Huq, R., and Mihailidis, A. (2017). Robots to
+human–robot interaction. Int. J. Soc. Robotics 13 (4), 833–849. doi:10.1007/s12369-020-              assist daily activities: views of older adults with alzheimer’s disease and their caregivers.
+00666-5                                                                                              Int. Psychogeriatrics 29 (1), 67–79. doi:10.1017/s1041610216001435
+  Pripfl, J., Körtner, T., Batko-Klein, D., Hebesberger, D., Weninger, M., Gisinger,                    Wang, W., Chen, Y., Li, R., and Jia, Y. (2019). Learning and comfort in human–robot
+C., et al. (2016). “Results of a real world trial with a mobile social service                       interaction: a review. Appl. Sci. 9 (23), 5152. doi:10.3390/app9235152
+robot for older adults,” in 2016 11th ACM/IEEE International Conference on
+                                                                                                        Wang, X., Shen, J., and Chen, Q. (2021). How PARO can help older people in
+Human-Robot Interaction (HRI), Christchurch, New Zealand, March, 2016, 497–498.
+                                                                                                     elderly care facilities: a systematic review of RCT. Int. J. Nurs. Knowl., doi:10.1111/2047-
+doi:10.1109/HRI.2016.7451824
+                                                                                                     3095.12327
+  Purvis, R. L., Sambamurthy, V., and Zmud, R. W. (2001). The assimilation of
+                                                                                                        Wengefeld, T., Schuetz, B., Girdziunaite, G., Scheidig, A., and Gross, H. M. (2022).
+knowledge platforms in organizations: an empirical investigation. Organ. Sci. 12 (2),
+                                                                                                     The morphia project: first results of a long-term user study in an elderly care scenario
+117–135. doi:10.1287/orsc.12.2.117.10115
+                                                                                                     from robotic point of view. In ISR Europe 2022; 54th International Symposium on
+  Robillard, J. M., and Kabacińska, K. (2020). Realizing the potential of robotics for               Robotics (pp. 1–8). Munich, Germany. June, 2022.
+aged care through co-creation. J. Alzheimer’s Dis. 76 (2), 461–466. doi:10.3233/JAD-
+                                                                                                       Wu, Y. H., Cristancho-Lacroix, V., Fassert, C., Faucounau, V., de Rotrou, J.,
+200214
+                                                                                                     and Rigaud, A. S. (2016). The attitudes and perceptions of older adults with mild
+  Rudnik, A., Anikiej-Wiczenbach, P., Szulman-Wardal, A., Conway, P., and Bidzan,                    cognitive impairment toward an assistive robot. J. Appl. Gerontology 35 (1), 3–17.
+M. (2021). Offering psychological support to university students in Poland during the                doi:10.1177/0733464813515092
+COVID-19 pandemic: lessons learned from an initial evaluation. Front. Psychol. 12.
+                                                                                                         Yamazaki, R., Nishio, S., Ishiguro, H., Nørskov, M., Ishiguro, N., and Balistreri, G.
+doi:10.3389/fpsyg.2021.635378
+                                                                                                     (2014). Acceptability of a teleoperated android by senior citizens in Danish society. Int.
+  Salvini, P., Paez-Granados, D., and Billard, A. (2021). Safety concerns emerging from              J. Soc. Robotics 6 (3), 429–442. doi:10.1007/s12369-014-0247-x
+robots navigating in crowded pedestrian areas. Int. J. Soc. Robotics. doi:10.1007/s12369-
+                                                                                                        Zafrani, O., and Nimrod, G. (2019). Towards a holistic approach to
+021-00796-4
+                                                                                                     studying Human–Robot interaction in later life. Gerontologist 59 (1), e26–e36.
+   Shen, Z., and Wu, Y. (2016). Investigation of practical use of humanoid robots in                 doi:10.1093/geront/gny077
+elderly care centres. In Proceedings of the Fourth International Conference on Human
+                                                                                                       Zafrani, O., Nimrod, G., and Edan, Y. (2023). Between fear and trust: older adults’
+Agent Interaction (pp. 63–66). Biopolis Singapore, October, 2016.
+                                                                                                     evaluation of socially assistive robots. Int. J. Human-Computer Stud. 171, 102981.
+   Simoni, Z. R., Gibson, P., Cotten, S. R., Stringer, K., and Coleman, L. O. (2016). Does           doi:10.1016/j.ijhcs.2022.102981
+place matter? The effects of concentrated poverty on the computer use of elementary
+                                                                                                       Zhu, H., and Walker, A. (2021). Why China needs an active social policy on ageing.
+students. J. Urban Technol., 23(3), 3–21. doi:10.1080/10630732.2015.1073901
+                                                                                                     Asian Popul. Stud., 1–16. doi:10.1080/17441730.2021.1955444
+
+
+
+
+Frontiers in Robotics and AI                                                                    14                                                                              frontiersin.org
+

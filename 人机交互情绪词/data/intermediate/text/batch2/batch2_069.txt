@@ -1,0 +1,1085 @@
+IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23, NO. 10,   OCTOBER 2001                                      1175
+
+
+
+
+           Toward Machine Emotional Intelligence:
+           Analysis of Affective Physiological State
+                  Rosalind W. Picard, Senior Member, IEEE, Elias Vyzas, and Jennifer Healey
+
+       AbstractÐThe ability to recognize emotion is one of the hallmarks of emotional intelligence, an aspect of human intelligence that has
+       been argued to be even more important than mathematical and verbal intelligences. This paper proposes that machine intelligence
+       needs to include emotional intelligence and demonstrates results toward this goal: developing a machine's ability to recognize human
+       affective state given four physiological signals. We describe difficult issues unique to obtaining reliable affective data and collect a large
+       set of data from a subject trying to elicit and experience each of eight emotional states, daily, over multiple weeks. This paper presents
+       and compares multiple algorithms for feature-based recognition of emotional state from this data. We analyze four physiological
+       signals that exhibit problematic day-to-day variations: The features of different emotions on the same day tend to cluster more tightly
+       than do the features of the same emotion on different days. To handle the daily variations, we propose new features and algorithms
+       and compare their performance. We find that the technique of seeding a Fisher Projection with the results of Sequential Floating
+       Forward Search improves the performance of the Fisher Projection and provides the highest recognition rates reported to date for
+       classification of affect from physiology: 81 percent recognition accuracy on eight classes of emotion, including neutral.
+
+       Index TermsÐEmotion recognition, physiological patterns, feature selection, Fisher Projection, affective computing, emotional
+       intelligence.
+
+                                                                                æ
+
+1    INTRODUCTION
+
+I  T is easy to think of emotion as a luxury, something that is
+   unnecessary for basic intelligent functioning and difficult
+to encode in a computer program; therefore, why bother
+                                                                                    increasing deployment of adaptive computer systems, e.g.,
+                                                                                    software agents and video retrieval systems that learn from
+                                                                                    users, the ability to sense and respond appropriately to user
+giving emotional abilities to machines? Recently, a con-                            affective feedback is of growing importance. Emotional
+stellation of findings, from neuroscience, psychology, and                          intelligence consists of the ability to recognize, express, and
+cognitive science, suggests that emotion plays surprising                           have emotions, coupled with the ability to regulate these
+critical roles in rational and intelligent behavior. Most                           emotions, harness them for constructive purposes, and skillfully
+people already know that too much emotion is bad                                    handle the emotions of others. The skills of emotional
+for rational thinking; much less well-known is that                                 intelligence have been argued to be a better predictor than
+neuroscience studies of patients who essentially have their                         IQ for measuring aspects of success in life [4].
+emotions disconnected reveal that those patients have                                   Machines may never need all of the emotional skills that
+strong impairments in intelligent day-to-day functioning,                           people need; however, there is evidence that machines will
+suggesting that too little emotion can impair rational                              require at least some of these skills to appear intelligent
+thinking and behavior [1]. Apparently, emotion interacts                            when interacting with people. A relevant theory is that of
+with thinking in ways that are nonobvious but important                             Reeves and Nass at Stanford: Human-computer interaction
+for intelligent functioning. Emotion-processing brain re-
+                                                                                    is inherently natural and social, following the basics of
+gions have also been found to perform pattern recognition
+                                                                                    human-human interaction [5]. For example, if a piece of
+before the incoming signals arrive at the cortex: A rat can be
+                                                                                    technology talks to you but never listens to you, then it is
+taught to fear a tone even when its auditory cortex is
+                                                                                    likely to annoy you, analogous to the situation where a
+removed, and similar emotion-oriented processing is
+                                                                                    human talks to you but never listens to you. Nass and
+believed to take place in human vision and audition [2].
+                                                                                    Reeves have conducted dozens of experiments of classical
+    Scientists have amassed evidence that emotional skills
+                                                                                    human-human interaction, taking out one of the humans
+are a basic component of intelligence, especially for learning
+                                                                                    and putting in a computer, and finding that the basic
+preferences and adapting to what is important [3], [4]. With
+                                                                                    human-human results still hold.
+                                                                                        Recognizing affective feedback is important for intelli-
+. R.W. Picard is with the MIT Media Lab, 20 Ames Street, Cambridge, MA              gent human-computer interaction. Consider a machine
+  02139. E-mail: picard@media.mit.edu.                                              learning algorithm that has to decide when to interrupt
+. E. Vyzas is located at 12 Ermou Road, Vouliagmeni, Athens, Greece 16671.
+  E-mail: evyzas@media.mit.edu.
+                                                                                    the user. A human learns this by watching how you
+. J. Healey is with the IBM T.J. Watson Research Center, PO Box 218,                respond when you are interrupted in different situations:
+  Yorktown Heights, NY 10598. E-mail: jahealey@us.ibm.com.                          Did you receive the interruption showing a neutral,
+Manuscript received 29 Dec. 1999; revised 3 Aug. 2000; accepted 5 Mar.              positive, or negative response? Without such regard for
+2001.                                                                               your response, the human may be seen as disrespectful,
+Recommended for acceptance by K.W. Bowyer.
+For information on obtaining reprints of this article, please send e-mail to:       irritating, and unintelligent. One can predict a similar
+tpami@computer.org, and reference IEEECS Log Number 111150.                         response toward computers that interrupt users oblivious to
+               Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+                                                                0162-8828/01/$10.00 ß 2001 IEEE
+1176                              IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+their positive or negative expressions. The computer could                    shaking your hand can feel its clamminess (related to skin
+potentially appear more intelligent by recognizing and                        conductivity); a friend leaning next to you may sense your
+appropriately adapting to the user's emotion response.                        heart pounding; students can hear changes in a professor's
+   Although not all computers will need emotional skills,                     respiration that give clues to stress; ultimately, it is muscle
+those that interact with and adapt to humans in real-time                     tension in the face that gives rise to facial expressions.
+are likely to be perceived as more intelligent if given such                  People read many physiological signals of emotion.
+skills. The rest of this paper focuses on giving a machine                       Physiological pattern recognition of emotion has impor-
+one of the key skills of emotional intelligence: the ability to               tant applications in medicine, entertainment, and human-
+recognize emotional information expressed by a person.                        computer interaction. Affective states of depression, anxi-
+                                                                              ety, and chronic anger have been shown to impede the work
+1.1 Human Emotion Recognition                                                 of the immune system, making people more vulnerable to
+Human newborns show signs of recognizing affective                            viral infections, and slowing healing from surgery or disease
+expressions such as approval and disapproval long before                      ([4, chapter 11]). Physiological pattern recognition can
+they acquire language. Affect recognition is believed to play                 potentially aid in assessing and quantifying stress, anger,
+an important role in learning and in developing the ability                   and other emotions that influence health. Certain human
+to attend to what is important and is likely a key part of the                physiological patterns show characteristic responses to
+difference between normal child development and devel-                        music and other forms of entertainment, e.g., skin con-
+opment of autistic children, who typically have impaired                      ductivity tends to climb as a piece of music ªpeps you upº
+affect recognition [6]. For example, instead of attending to                  and fall as it ªcalms you down.º This principle was utilized
+the parent's speech with exaggerated inflection, the autistic                 in a wearable ªaffective DJº to allow more personalized
+child might tune in to an unimportant sound, missing the                      music selections than the one-size-fits-all approach of a disc
+guidance provided by the affective cues.                                      jockey [8]. Changes in physiological signals can also be
+   Emotion modulates almost all modes of human commu-                         examined for signs of stress arising while users interact with
+nicationÐword choice, tone of voice, facial expression,                       technology, helping detect where the product causes
+gestural behaviors, posture, skin temperature and clammi-                     unnecessary irritation or frustration, without having to
+ness, respiration, muscle tension, and more. Emotions can                     interrupt the user or record her appearance. This is a new
+significantly change the message: sometimes it is not what                    area for pattern recognition research: detecting when
+was said that was most important, but how it was said. Faces                  products cause user stress or aggravation, thereby helping
+tend to be the most visible form of emotion communication,                    developers target areas for redesign and improvement.
+but they are also the most easily controlled in response to                      Physiological sensing is sometimes considered invasive
+different social situations when compared to the voice and                    because it involves physical contact with the person.
+other modes of expression. Affect recognition is most likely                  However, not only is technology improving with conduc-
+to be accurate when it combines 1) multiple kinds of signals                  tive rubber and fabric electrodes that are wearable,
+from the user with 2) information about the user's context,                   washable, and able to be incorporated in clothes and
+situation, goals, and preferences. A combination of low-                      accessories [9] but also there are new forms of noncontact
+level pattern recognition, high-level reasoning, and natural                  physiological sensing on the horizon. In some cases,
+language processing is likely to provide the best emotion                     physiological sensors are perceived as less invasive than
+inference [7].                                                                alternatives, such as video. Video almost always commu-
+   How well will a computer have to recognize human                           nicates identity, appearance, and behavior, on top of
+emotional state to appear intelligent? Note that no human                     emotional information. Students engaged in distance learn-
+can perfectly recognize your innermost emotions, and                          ing may wish to communicate to the lecturer that they are
+sometimes people cannot even recognize their own emo-                         furrowing their brow in confusion or puzzlement but not
+tions. No known mode of affect communication is lossless;                     have the lecturer know their identity. They might not object
+some aspects of internal feelings remain private, especially                  to having a small amount of muscle tension anonymously
+if you wish them to be that way or if you sufficiently                        transmitted, whereas they may object to having their
+disguise them. What is available to an external recognizer is                 appearance communicated.
+what can be observed and reasoned about, and this always                         New wearable computers facilitate different forms of
+comes with some uncertainty. Nonetheless, people recog-                       sensing than traditional computers. Wearables often afford
+nize each other's emotions well-enough to communicate                         natural contact with the surface of the skin; however, they
+useful feedback. Our aim is to give computers recognition                     do not easily afford having a camera pointed at the user's
+abilities similar to those that people have.                                  face. (It can be done with a snugly fitted hat and stiff brim to
+                                                                              mount the camera for viewing the wearer's face, a form
+1.2  Importance of Physiological Emotion                                      factor that can be awkward both physically and socially.) In
+     Recognition                                                              wearable systems, physiological sensing may be set up so
+When designing intelligent machine interfaces, why not                        that it involves no visible or heavy awkward supporting
+focus on facial and vocal communicationÐaren't these the                      mechanisms; in this case, the physiological sensors may be
+modes that people rely upon? There are cases where such                       less cumbersome than video sensors.
+modes will be preferable, as well as other behavior-based
+modes, such as gestural activity or time to complete a task.                  1.3 Related Research
+However, it is a mistake to think of physiology as some-                      The affect recognition problem is a hard one when you look
+thing that people do not naturally recognize. A stranger                      at the few benchmarks which exist. In general, people can
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                        1177
+
+
+recognize an emotional expression in neutral-content                          discriminate emotions. Schachter and Singer's experiments
+speech with about 60 percent accuracy, choosing from                          showed that, if a bodily arousal state was induced, then
+among about six different affective labels [10]. Computer                     subjects could be put into two distinct moods simply by
+algorithms match or slightly beat this accuracy, e.g., [11],                  being put in two different situations. They argued that
+[12]. Note that computer speech recognition that works at                     physiological responses such as sweaty palms and a rapid
+about 90 percent accuracy on neutrally-spoken speech tends                    heart beat inform our brain that we are aroused and then
+to drop to 50-60 percent accuracy on emotional speech [13].                   the brain must appraise the situation we are in before it can
+Improved handling of emotion in speech is important for                       label the state with an emotion such as fear or love [27].
+recognizing what is said, as well as how it was said.                             Since the classic work of Schachter and Singer, there has
+   Facial expression recognition is easier for people, e.g.,                  been a debate about whether or not emotions are accom-
+70-98 percent accurate on six categories of facial expressions                panied by specific physiological changes other than simply
+exhibited by actors [14] and the rates computers obtain                       arousal level. Ekman et al. [28] and Winton et al. [29]
+range from 80-98 percent accuracy when recognizing                            provided some of the first findings showing significant
+5-7 classes of emotional expression on groups of 8-32 people                  differences in autonomic nervous system signals according
+[15], [16]. Other research has focused not so much on                         to a small number of emotional categories or dimensions,
+recognizing a few categories of emotional expressions but                     but there was no exploration of automated classification.
+on recognizing specific facial actionsÐthe fundamental                        Fridlund and Izard [30] appear to have been the first to
+muscle movements that comprise Paul Ekman's Facial                            apply pattern recognition (linear discriminants) to classifi-
+Action Coding SystemÐwhich can be combined to describe                        cation of emotion from physiological features, attaining
+all facial expressions. Recognizers have already been built                   rates of 38-51 percent accuracy (via cross-validation) on
+for a handful of the facial actions [17], [18], [19], [20], and               subject-dependent classification of four different facial
+the automated recognizers have been shown to perform                          expressions (happy, sad, anger, fear) given four facial
+comparably to humans trained in recognizing facial actions                    electromyogram signals. Although there are over a dozen
+[18]. These facial actions are essentially facial phonemes,                   published efforts aimed at finding physiological correlates
+which can be assembled to form facial expressions. There                      when examining small sets of emotions (from 2-7 emotions
+are also recent efforts that indicate that combining audio                    according to a recent overview [31]), most have focused on
+and video signals for emotion recognition can give                            t-test or analysis of variance comparisons, combining data
+improved results [21], [22], [23].                                            over many subjects, where each was measured for a
+   Although the progress in facial, vocal, and combined                       relatively small amount of time (seconds or minutes).
+facial/vocal expression recognition is promising, all of the                  Relatively few of the studies have included neutral control
+results above are on presegmented data of a small set of                      states where the subject relaxed and passed time feeling no
+sometimes exaggerated expressions or on a small subset of                     specific emotion, and none to our knowledge have collected
+hand-marked singly-occurring facial actions. The state-of-                    data from a person repeatedly, over many weeks, where
+the-art in affect recognition is similar to that of speech                    disparate sources of noise enter the data. Few efforts
+recognition several decades ago when the computer could                       beyond Fridlund's have employed linear discriminants,
+classify the carefully articulated digits, ª0; 1; 2; . . . ; 9,º              and we know of none that have applied more sophisticated
+spoken with pauses in between, but could not accurately                       pattern recognition to physiological features.
+detect these digits in the many ways they are spoken in                           The work in this paper is novel in trying to classify
+larger continuous conversations.                                              physiological patterns for a set of eight emotions (including
+   Emotion recognition research is also hard because                          neutral), by applying pattern recognition techniques be-
+understanding emotion is hard; after over a century of                        yond that of simple discriminants to the problem (we use
+research, emotion theorists still do not agree upon what                      new features, feature selection, spatial transformations of
+emotions are and how they are communicated. One of the                        features, and combinations of these methods) and by
+big questions in emotion theory is whether distinct                           focusing on ªfeltº emotions of a single subject gathered
+physiological patterns accompany each emotion [24]. The                       over sessions spanning many weeks. The results we obtain
+physiological muscle movements comprising what looks to                       are also independent of psychological debates on the
+an outsider to be a facial expression may not always                          universality of emotion categories [32], focusing instead
+correspond to a real underlying emotional state. Emotion                      on user-defined emotion categories.
+consists of more than its outward physical expression; it                         The contributions of this paper include not only a
+also consists of internal feelings and thoughts, as well as                   new means for pattern analysis of affective states from
+other internal processes of which the person having the                       physiology, but also the finding of significant classification
+emotion may not be aware.                                                     rates from physiological patterns corresponding to eight
+   The relation between internal bodily feelings and                          affective states measured from a subject over many weeks
+externally observable expression is still an open research                    of data. Our results also reveal significant discrimination
+area, with a history of controversy. Historically, James was                  among both most commonly described dimensions of
+the major proponent of emotion as an experience of bodily                     emotion: valence and arousal. We show that the day-to-
+changes, such as your heart pounding or your hands                            day variations in physiological signals are large, even when
+perspiring [25]. This view was challenged by Cannon [26]                      the same emotion is expressed, and this effect undermines
+and again by Schachter and Singer who argued that the                         recognition accuracy if it is not appropriately handled. This
+experience of physiological changes was not sufficient to                     paper proposes and compares techniques for handling
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1178                              IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+day-to-day variation and presents new results in affect                       potentially more sincere expressions of the user's state
+recognition based on physiology. The results lie between                      since they tend to be less mediated by cognitive and social
+the rates obtained for expression recognition from vocal and                  influences.
+facial features and are the highest reported to date for
+classifying eight emotional states given physiological                        2.1 Five Factors in Eliciting Emotion
+patterns.                                                                     In beginning this research, we thought it would be simple to
+                                                                              ask somebody to feel and express an emotion and to record
+                                                                              data during such episodes. Indeed, this is the approach
+2      GATHERING GOOD AFFECTIVE DATA                                          taken in most facial and vocal expression studies to date:
+In computer vision or speech recognition, it has become                       turn the camera and microphone on, ask the subject to
+easy to gather meaningful data; frame-grabbers, micro-                        express joy, anger, etc., record it, and label it by what was
+phones, cameras, and digitizers are reliable, easy to use, and                requested. However, obtaining high quality physiological
+the integrity of the data can be seen or heard by non-                        data for affect analysis requires attention to experimental
+specialists; however, nonspecialists do not usually know                      design issues not traditionally required in pattern recogni-
+what comprises a good physiological signal. Although                          tion research. Here, we outline five (not necessarily
+people recognize emotional information from physiology, it                    independent) factors that influence data collection, to serve
+is not natural to do so by looking at 1D signal waveforms.                    as a useful guide for researchers trying to obtain affect data.
+Not only does it take effort to learn what a good signal is,
+                                                                              We summarize the factors by listing their extreme condi-
+but the sensing systems (A/D converters and buffering-
+                                                                              tions, but there are also in-between conditions:
+data capture systems) for physiology do not seem to be as
+reliable as those for video and audio. Factors such as                           1.    Subject-elicited versus event-elicited: Does subject
+whether or not the subject just washed her hands, how                                  purposefully elicit emotion or is it elicited by a
+much gel she applied under an electrode, motion artifacts,                             stimulus or situation outside the subject's efforts?
+and precisely where the sensor was placed, all affect the                         2. Lab setting versus real-world: Is subject in a lab or in a
+readings. These are some of the technical factors that                                 special room that is not their usual environment?
+contribute to the difficulty in gathering accurate physiolo-                      3. Expression versus feeling: Is the emphasis on external
+gical data.                                                                            expression or on internal feeling?
+    Although dealing with the recording devices can be                            4. Open-recording versus hidden-recording: Does subject
+tricky, a much harder problem is that of obtaining the                                 know that anything is being recorded?1
+ground truth of the data, or getting data that genuinely                          5. Emotion-purpose versus other-purpose: Does subject
+corresponds to a particular emotional state. In vision or                              know that the experiment is about emotion?
+speech research, the subject matter is often objective: scene                     The most natural setup for gathering genuine emotions is
+depth, words spoken, etc. In those cases, the ground-truth                    opportunistic: The subject's emotion occurs as a conse-
+labels for the data are easily obtained. Easy-to-label data is                quence of personally significant circumstances (event-
+sometimes obtained in emotion research when a singular
+                                                                              elicited); it occurs while they are in some natural location
+strong emotion is captured, such as an episode of rage.
+                                                                              for them (real-world); the subject feels the emotion internally
+However, more often, the ground truthÐwhich emotion
+                                                                              (feeling); subject behavior, including expression, is not
+was presentÐis difficult to establish.
+                                                                              influenced by knowledge of being in an experiment or
+    Consider a task where a person uses the computer to
+                                                                              being recorded (hidden-recording, other-purpose). Such data
+retrieve images. Suppose our job is to analyze physiological
+signals of the user as he or she encounters pleasing or                       sets are usually impossible to get because of privacy and
+irritating features or content within the system. We would                    ethics concerns, but as recording devices are increasingly
+like to label the data according to the emotional state of the                prevalent, people may cease to be aware of them, and the
+user (ground truth). Here, the problem is complicated                         data captured by these devices can be as if the devices were
+because there is little way of knowing whether the person                     hidden. Researchers may try to create such opportunistic
+was truly pleased or irritated when encountering the                          situations; for example, showing an emotion-eliciting film
+stimuli intended to induce these states. We may have tried                    in a theater without telling subjects the true purpose of the
+to please, but the user was irritated because of something                    showing, and without telling them that they have been
+she remembered unrelated to the task. We may have tried                       videotaped until afterward. Even so, an emotion-inducing
+to irritate and not succeeded. If we ask the person how she
+                                                                                  1. When the presence of the camera or other recording device is hidden,
+felt, her answer can vary according to her awareness of her                   it is ethically necessary (via the guidelines of the MIT Committee on the Use
+feelings, her comfort in talking about feelings, her rapport                  of Humans as Experimental Subjects) to debrief the subject, let them know
+with the administrator(s) of the experiment, and more.                        why the secrecy was necessary, tell them what signals have been recorded,
+                                                                              and obtain their permission for data analysis, destroying the data if the
+When you ask is also importantÐsoon and often is likely to                    subject withholds permission. Unlike with video, it is not yet possible to
+be more accurate, but also more irritating, thereby changing                  record a collection of physiological signals without the subject being aware
+the emotional state. Thus, measurement of ground truth                        of the sensors in some form (although this is changing with new
+                                                                              technology.) However, subjects can be led to believe that their physiology
+disturbs the state of that truth. When it comes to faces or                   is being sensed for some reason other than emotions, which is often an
+voices, we can see if the person was smiling or hear if her                   important deception since a subject who knows you are trying to make
+voice sounded cheerful, but that still does not mean that she                 them frustrated may, therefore, not get frustrated. We have found that such
+                                                                              deception is acceptable to almost all subjects when properly conducted.
+was happy. With physiology, little is known about how                         Nonetheless, we believe deception should not be used unless it is necessary
+emotions make their impact, but the signals are also                          and then only in accord with ethical guidelines.
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                        1179
+
+
+movie scene will affect some viewers more than others and                        Emotion recognition is in an early stage of research,
+some maybe not at all.                                                        similar to early research on speech recognition, where it is
+    The opportunistic situation contrasts with the experi-                    valuable to develop person-dependent methods. For perso-
+ments typically used to gather data for facial or vocal                       nal computing applications, we desire the machine to learn
+expression recognition systems. The common setup is one                       an individual's patterns and not just some average response
+in which data of a subject-elicited external expression in a lab              formed across a group, which may not apply to the
+setting, in front of a visible open-recording camera or                       individual.
+microphone, and with knowledge that the data will be                             The subject in our experiments was a healthy graduate
+used for analysis of emotion (emotion-purpose) are gathered.                  student with two years acting experience plus training in
+Such expressions, made with or without corresponding                          visualization, who was willing to devote over six weeks to
+internal feelings, are ªrealº and important to recognize,                     data collection. The subject sat in her quiet workspace early
+even if not accompanied by true feelings. Social commu-                       each day, at roughly the same time of day, and tried to
+nication involves both unfelt emotions (emphasizing ex-                       experience eight affective states with the aid of a computer
+pression) and more genuine ones (emphasizing feeling.) A                      controlled prompting system, the ªSentograph,º developed
+protocol for gathering data may emphasize external                            by Clynes [33] and a set of personally-significant imagery
+expression or internal feeling; both are important. More-                     she developed to help elicit the emotional state.
+over, there is considerable overlap since physical expression                    The Clynes protocol for eliciting emotion has three
+can help induce the internal feeling, and vice-versa.                         features that contribute to helping the subject feel the
+    In this paper, we gathered real data following a subject-                 emotions and that make it appropriate for physiological data
+elicited, close to real-world (subject's comfortable usual                    collection: 1) It sequences eight emotions in a way that
+workplace), feeling, open-recording, and emotion-purpose                      supposedly makes it easier for many people to transition from
+methodology. The key one of these factors that makes our                      emotion to emotion. 2) It engages physical expressionÐask-
+data unique is that the subject tried to elicit an internal                   ing the subject to push a finger against a button with a dual
+feeling of each emotion.                                                      axis pressure sensor in an expressive wayÐbut in a way that
+2.2 Single-Subject Multiple-Day Data Collection                               limits motion artifacts being introduced to the physiological
+                                                                              signals. Physical expression gives somatosensory feedback to
+The data we gather is from a single subject over many
+                                                                              the subject, a process that can help focus and strengthen the
+weeks of time, standing in contrast to efforts that examine
+                                                                              feeling of the emotion [34]. 3) It prompts the subject to
+many subjects over a short recording interval (usually
+                                                                              repeatedly express the same emotion during an approxi-
+single session on only one day). Although the scope is
+limited to one subject, the amount of data for this subject                   mately three minute interval, at a rate dependent on
+encompasses a larger set than has traditionally been used in                  the emotion in order to try to intensify the emotional
+affect recognition studies involving multiple subjects. The                   experience [33].
+data are potentially useful for many kinds of analysis and                       The order of expression of the eight states: no emotion,
+will be made available for research purposes.                                 anger, hate, grief, platonic love, romantic love, joy, and reverence
+   There are many reasons to focus on person-dependent                        was found by Clynes to help subjects reliably feel each
+recognition in the early stages of affect recognition, even                   emotion; for example, it would probably be harder on most
+though some forms of emotion communication are not only                       subjects to have to oscillate between the positive and
+person-independent, but have been argued, namely, by                          negative states, e.g., joy, hate, platonic love, grief, etc.
+Paul Ekman, to be basic across different cultures. Ekman                      However, because interpretations for each of the emotions
+and colleagues acknowledge that even simply labeled                           may vary with each individual, we do not expect this order
+emotions like ªjoyº and ªangerº can have different                            to be optimal for everyone.
+interpretations across individuals within the same culture;                      Descriptive guidelines on the meaning of each emotion
+this complicates the quest to see if subjects elicit similar                  were developed by the subject before the experiment. The
+physiological patterns for the same emotion. When lots of                     subject reported the images she used to induce each state,
+subjects have been examined over a short amount of time,                      the degree to which she found each experience arousing
+researchers have had difficulty finding significant physio-                   (exciting, distressing, disturbing, tranquil), and the degree
+logical patterns, which may be in part because physiology                     to which she felt the emotion was positive or negative
+can vary subtly with how each individual interprets each                      (valence) (See Table 1). Daily ratings varied in intensity-
+emotion. By using one subject, who tried to focus on the                      both up and down, with no particular trend, but the overall
+same personal interpretation of the emotion in each session,                  character of each state was consistent over the weeks of data
+we hoped to maximize the chance of getting consistent                         collection.
+interpretations for each emotion. This also means that the                       The eight emotions in this study differ from those
+expressive data can be expected to differ for another subject                 typically explored. Although there is no widespread
+since the way another subject interprets and reacts to the                    agreement on the definition and existence of ªbasicº
+emotions may differ. Hence, a weakness of this approach is                    emotions and which names would comprise such a list,
+that the precise features and recognition results we obtain                   researchers on facial expressions tend to focus on anger, fear,
+with this data may not be the same for other subjects.                        joy, and sadness with disgust and surprise often examined as
+However, the methodology for gathering and analyzing the                      well as contempt, acceptance, and anticipation (e.g., [32]).
+data in this paper is not dependent on the subject; the                       Theorists still do not agree on what an emotion is and many
+approach described in this paper is general.                                  of them do not consider love and surprise to be emotions.
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1180                              IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+                                                         TABLE 1
+             The Subject's Descriptions of Imagery and Emotional Character Used for Each of the Eight Emotions
+
+
+
+
+Our work is less concerned with finding a set of ªbasicº                      the ring finger of the left hand, a skin conductance (S)
+emotions and more concerned with giving computers the                         sensor measuring electrodermal activity from the middle of
+ability to recognize whatever affective states might be                       the three segments of the index and middle fingers on the
+relevant in a personalized human-computer interaction.                        palm-side of the left hand (with 11mm Ag-AgCl electrodes
+The ideal states for a computer to recognize will depend on                   and K-Y Jelly used for low-conductivity gel), and a Hall
+the application. For example, in a learning-tutor applica-                    effect respiration sensor (R) placed around the diaphragm.
+tion, detecting expressions of curiosity, boredom, and                        The left hand was held still throughout data collection and
+frustration may be more relevant than detecting emotions                      the subject was seated and relatively motionless except for
+on the theorists' ªbasicº lists.                                              small pressure changes she applied with her right hand to
+   Clynes' set of eight was motivated by considering                          the finger rest. Sensors and sampling were provided by the
+emotions that have been communicated through centuries                        Thought Technologies ProComp unit, chosen because the
+of musical performance on several continents. We started                      unit is small enough to attach to a wearable computer and
+with his set not because we think it is the best for computer-                offers eight optically isolated channels for recording.
+human interaction (such a set is likely to vary with                          Signals were sampled at 20 Hz.2 The ProComp automati-
+computer applicationsÐentertainment, business, socializ-                      cally computed the heart rate (H) as a function of the inter-
+ing, etc.), but rather because this set together with its                     beat intervals of the blood volume pressure, B. More details
+method for elicitation had shown an ability to help subjects                  on this system and on our methodology are available [38].
+reliably feel the emotions and had shown repeatable signs                        Each day's session lasted around 25 minutes, resulting in
+of physical differentiation in how subjects' finger pressure                  around 28 to 33 thousand samples per physiological signal,
+applied to a finger rest differs with each emotion [33], [35], a              with each different emotion segment being around two to
+measurable outcome that suggests different states were                        five thousand samples long, due to the variation built into
+being achieved. It was important to our investment in long-                   the Clynes method of eliciting the emotional states [33].
+term data collection that we have a reliable method of                        Eight signal segments of the raw data (2,000 samples each)
+helping the user repeatedly generate distinct emotional                       from Data Set I are shown in Fig. 1. On roughly a third of
+states.                                                                       the 30 days for which we collected data, either one or more
+   For the purposes of this research, the specific emotions                   sensors failed during some portion of the 25-minute
+and their definitions are not as important as the fact that                   experiment because an electrode came loose or one or more
+1) the subject could relate to the named emotion in a                         channels failed to sample and save some of the data
+consistent, specific, and personal way and 2) the emotion                     properly. From the complete or nearly-complete sessions,
+categories span a range of high and low arousal and positive                  we constructed two overlapping Data Sets.
+and negative valence. These two dimensions are believed to                       Data Set I was assembled before the 30 days were over,
+be the most important dimensions for categorizing emo-                        and was formed as follows: Data segments of 2,000 samples
+tions [36] and continue to be used for describing emotions                    (100 seconds) in length were taken from each of the signals
+that arise in many contexts, including recent efforts to                      E; B; G, and R for each of the eight emotions, on each of
+categorize emotions arising when people look at imagery                       19 days where there were no failures in these segments of
+[37]. The arousal axis ranges from calm and peaceful to                       data collection. The 2,000 samples were taken from the end
+active and excited, while the valence axis ranges from                        of each emotion segment to avoid the transitional onset
+negative (displeasing) to positive (pleasing).                                where the subject was prompted to move to the next
+                                                                              emotion. A 20th day's data set was created out of a
+2.3  Experimental Method and Construction                                     combination of partial records in which some of the sensors
+     of Data Sets
+                                                                              had failed.
+Data were gathered from four sensors: a triode electro-
+myogram (E) measuring facial muscle tension along the                            2. The electromyogram is the only signal for which this sampling rate
+masseter (with Ag-AgCl electrodes of size 11mm each and                       should have caused aliasing. However, our investigation of the signal
+                                                                              showed that it registered a clear response when the jaw was clenched
+10-20 high-conductivity gel), a photoplethysmyograph                          versus relaxed; thus, it was satisfactory for gathering coarse muscle tension
+measuring blood volume pressure (B) placed on the tip of                      information.
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                          1181
+
+
+
+
+Fig. 1. Examples of physiological signals measured from a user while she intentionally expressed anger (left) and grief (right). From top to bottom:
+electromyogram (microvolts), blood volume pressure (percent reflectance), skin conductivity (microSiemens), and respiration (percent maximum
+expansion). Each box shows 100 seconds of response. The segments shown here are visibly different for the two emotions, which was not true in
+general.
+
+   Data Set II is a larger data set comprised of 20 days in                     motivated, intended to capture the underlying nature of
+which the sensors did not fail during any part of the                           specific signals, such as the way respiration is quasi-
+experiment for the five signals: E; B; G; R, and H. These                       periodic, while others are simple statistics and nonlinear
+20 days included 16 of the original days from Data Set I, but,                  combinations thereof. We do not expect the best classifier to
+for all 20 days, we used all of the samples available for each                  require all the features proposed below or even to require
+emotion, thereby including the transitional regions. Because                    such a huge number of features. Our effort is to advance the
+different emotions lasted for different lengths of time, the                    state-of-the-art in pattern recognition of affect from phy-
+2,000 samples in Data Set I were at times closer or farther                     siology by proposing a large space of reasonable features
+away from the beginning of an emotion segment. To avoid                         and systematically evaluating subsets of it and transforma-
+this bias and to maximize data available for training and                       tions thereof. Below, six statistical features are presented,
+testing, Data Set II includes all the samples for all the                       followed by 10 more physically-motivated features aimed at
+emotions and signals over 20 days, roughly 2,000 to                             compensating for day-to-day variations. Which features
+5,000 samples per emotion per signal per day. With an                           were found to be most useful (as a function of each of the
+average of twice the number of samples (or minutes of data)                     classifiers) will be summarized later in Table 9.
+as Data Set I, Data Set II resulted in an average 10 percent                       The six statistical features can be computed for each of
+gain in performance when we compared it to Data Set I                           the signals as follows: Let the signal fE; B; G; R; Hg from any
+                                                                                one of the eight emotion segments be designated by X. The
+across all the methods.
+                                                                                signal is gathered for eight different emotions each day, for
+                                                                                20 days. Let Xn represent the value of the nth sample of the
+3    FEATURE EXTRACTION, SELECTION, AND                                         raw signal, where n  1; . . . ; N, with N  2; 000 for Data
+     TRANSFORMATION                                                             Set I, and with N in the range of 2,000 to 5,000 for Data Set II.
+                                                                                Let X  ~ n refer to the normalized signal (zero mean, unit
+Because the signals involved have different and complex                         variance):
+sources, because there are not yet good models to describe
+them, and because of an interest in seeing how some                                                 ~ n  Xn ÿ X
+                                                                                                    X                     i  1; . . . ; 4;
+classical methods perform before an extensive modeling                                                      X
+effort is launched, we choose in this paper to explore a
+                                                                                where X and X are the means and standard deviations of
+feature-based approach to classification.
+                                                                                X as explained below. Following are six statistical features
+3.1 Proposed Feature Sets                                                       we investigated:
+The psychophysiology and emotion literature contains                               1.    the means of the raw signals
+several efforts to identify features of bodily changes (facial
+muscle movements, heartrate variations, etc.) that might                                                                   X
+                                                                                                                         1 N
+correlate with having an emotion (e.g., [31]). We gather a                                                       X           Xn ;                        1
+                                                                                                                         N n1
+variety of features, some from the literature and some
+that we propose. Several that we propose are physically
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1182                              IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+   2.   the standard deviations of the raw signals,                              In an effort to compensate for some of the nonemotion-
+                                                      !1=2                    related variations of the signals and to include more
+                              1 X  N
+                                                                              physically-motivated knowledge about the signal (such as
+                  X                 Xn ÿ X 2             ;         2
+                            N ÿ 1 n1                                         underlying periodic excitations), we also compute and
+                                                                              evaluate another set of 10 physiology-dependent features,
+                                                                              f1 ÿ f10 , described below.
+   3.   the means of the absolute values of the first                            From the interbeat intervals of the blood volume pressure
+        differences of the raw signals                                        waveform, the Procomp computes the heart rate, H, which is
+                                   X                                          approximately 1=the interbeat intervals. We applied a
+                               1 N  ÿ1
+                     X               jXn1 ÿ Xn j;                   3     500-point (25 sec) Hanning window, h, [41] to form a
+                             N ÿ 1 n1                                        smoothed heartbeat rate, b  H  h, then took the mean:
+
+                                                                                                                      X
+                                                                                                                    1 N
+   4.   the means of the absolute values of the first                                                       f1           bn :                           7
+        differences of the normalized signals                                                                       N n1
+
+                                                                              The average acceleration or deceleration of the heart beat
+                           1 X Nÿ1
+                                           ~ n  X ;
+                 ~X              ~ n1 ÿ X
+                                   X                                   4     rate was calculated by taking the mean of the first
+                         N ÿ 1 n1               X
+                                                                              difference:
+
+                                                                                                 1 N Xÿ1
+                                                                                                                         1
+   5.   the means of the absolute values of the second                                  f2              bn1 ÿ bn        bN ÿ b1 :                   8
+        differences of the raw signals                                                         N ÿ 1 n1               N ÿ1
+
+                                   X                                             The skin conductivity signal, S contains high frequency
+                               1 N  ÿ2
+                       X              jXn2 ÿ Xn j;                   5     fluctuations that may be noise; these fluctuations are
+                             N ÿ 2 n1
+                                                                              reduced by convolving with h, a 25 second Hanning
+                                                                              window, to form s  S  h. We also use a form of contrast
+   6.   the means of the absolute values of the second                        normalization to account for baseline fluctuations; this
+        differences of the normalized signals                                 measure was proposed by Rose [42] and found to be
+                                                                              valuable over years of psychophysiology [43], [44], where
+                           1 X Nÿ2
+                                           ~n  X :
+                                   ~ n2 ÿ X                                  max g and min g are, with respect to the whole day's data
+                 ~X               X                                   6
+                         N ÿ 2 n1             X                             (for all emotions that day):
+
+   The features (1), (2), (3), (4), (5), and (6) were chosen to                                                 s min s
+                                                                                                      f3                    :                           9
+cover and extend a range of typically measured statistics in                                                 max s ÿ min s
+the emotion physiology literature [39]. (Means and var-                       The mean of the first difference of the smoothed skin
+iances are already commonly computed; the first difference                    conductivity is also proposed:
+approximates a gradient.) Note that not all the features are
+independent; in particular, ~X and ~X are nonlinear                                                                    1
+                                                                                                f4   sn1 ÿsn          sN ÿ s1 :                   10
+combinations of other features. Also, the heart rate signal,                                                          N ÿ1
+H, is derived from the blood volume pressure signal, B, by a                     The respiration sensor measured expansion and contrac-
+nonlinear transformation performed automatically by the                       tion of the chest cavity using a Hall effect sensor attached
+ProComp sensing system. It did not require an additional                      around the chest with a velcro band. Let Nd be the number of
+sensor and, so, was dependent upon B. The dependencies                        samples collected that day. To account for variations in the
+are not linear; consequently, they are not obtainable by the                  initial tightness of the sensor placement from day to day, we
+linear combination methods used later to reduce the                           formed the mean of the whole day's respiration data:
+dimensionality of the feature space and can potentially be
+of use in finding a good transformation for separating the                                                          1 NX d
+
+                                                                                                         R;day           Rn ;                         11
+classes. The comparisons below will verify this.                                                                    Nd n1
+   One advantage of the features in (1), (2), (3), (4), (5), and
+(6) is that they can easily be computed in an online way [40],                and then subtracted this to get r  R ÿ R;day . Two
+which makes them advantageous for real-time recognition                       respiration features were then formed as:
+systems. However, the statistical features do not exploit
+                                                                                                                      X
+                                                                                                                    1 N
+knowledge we may have about the physical sources of the                                                      f5          rn                            12
+signals, and provide no special normalization for day-to-                                                           N n1
+day variations in the signals. Factors such as hand washing,                  and
+gel application, and sensor placement can easily affect the
+statistics. These influences combine with the subject's daily                                              1   Xÿ
+                                                                                                                N             2
+mood and with other cognitive and bodily influences in                                            f6              rn ÿ R;day :                        13
+                                                                                                         N ÿ 1 n1
+presently unknown ways, making them hard to model.
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                          1183
+
+
+                                                                                    Fisher Projection (FP) [48] is a well-known method of
+                                                                                reducing dimensionality by finding a linear projection of
+                                                                                the data to a space of fewer dimensions where the classes
+                                                                                are well-separated. Due to the nature of the Fisher
+                                                                                projection method, the data can only be projected down to
+                                                                                c ÿ 1 (or fewer if one wants) dimensions, assuming that
+                                                                                originally there are more than c ÿ 1 dimensions and c is the
+                                                                                number of classes. If the amount of training data is
+                                                                                inadequate, or if the quality of some of the features is
+                                                                                questionable, then some of the dimensions of the Fisher
+                                                                                projection may be a result of noise rather than a result of
+                                                                                differences among the classes. In this case, Fisher might find
+                                                                                a meaningless projection which reduces the error in the
+                                                                                training data but performs poorly in the testing data. For
+                                                                                this reason, we not only separate training and testing
+                                                                                data, but we also evaluate projections down to fewer
+                                                                                than c ÿ 1 dimensions. Note that if the number of features n
+                                                                                is smaller than the number of classes c, the Fisher projection
+Fig. 2. Power spectral density from 0.0-0.4 Hz in the respiration signal        is meaningful only up to at most n ÿ 1 dimensions.
+for eight emotions. The heights of the four bins shown here were used           Therefore, the number of Fisher projection dimensions d is
+as features f7 ÿ f10 .                                                          1  d  min n; c ÿ 1, e.g., when 24 features are used on all
+                                                                                eight classes, all d  1; 7 are tried, and when four features
+The four features f7 - f10 represent frequency information in                   are used on eight classes, all d  1; 3 are tried.
+the respiration signal. Each was computed using the power                           A Hybrid SFFS with Fisher Projection (SFFS-FP)
+spectral density function (PSD command) of Matlab, which                        method is proposed, implemented, and evaluated here for
+uses Welch's averaged periodogram. The features, illu-                          comparison. As mentioned above, the SFFS algorithm
+                                                                                proposes one subset of m features for each m, 2  m  n.
+strated in Fig. 2, represent the average energy in each of the
+                                                                                It selects, but does not transform the features. Instead of
+first four 0.1 Hz bands of the power spectral density
+                                                                                feeding the Fisher algorithm with all possible features, we
+range 0.0-0.4 Hz.
+                                                                                use the subsets that the SFFS algorithm proposes as input to
+3.2 Selecting and Transforming Features                                         the Fisher Algorithm. Note that the SFFS method is used
+We first compare two techniques that have appeared in the                       here as a preprocessor for reducing the number of features
+                                                                                fed into the Fisher algorithm, and not as a classification
+literature to establish a benchmark: Sequential Floating
+                                                                                method.
+Forward Search (SFFS) and Fisher Projection (FP). Next, we
+propose and compare a new combination of these, which
+we label SFFS-FP. This combination is motivated by the                          4    CLASSIFICATION
+dual roles of the two methods: SFFS selects from a set of                       This section describes and compares the results of a set of
+features, while Fisher Projection linearly transforms a set of                  classification experiments leading up to the best results
+features. Since feature selection is nonlinear, the cascade of                  (81 percent) shown in Tables 6 and 7.
+these two methods should provide a more powerful                                   The SFFS software employs a k-nearest-neighbor (k-NN)
+combination than either alone. This was confirmed in our                        classifier [49], so that it not only outputs the best set of
+experiments.                                                                    features according to this classifier, but their classification
+    The Sequential Floating Forward Search (SFFS) method                        accuracy as well. We used the k-NN classifier for bench-
+[45] is chosen because of its consistent success in previous                    marking the SFFS method, following the methodology of
+evaluations of feature selection algorithms, where it has                       Jain and Zongker [46]. For FP and SFFS-FP, we used a
+been shown to outperform methods such as Sequential                             MAP classifier, with details below.
+Forward Search (SFS), Sequential Backward Search (SBS),                            In all three comparisons, SFFS, FP, and SFFS-FP, we used
+Generalized SFS and SBS, and Max-Min in comparison                              the leave-one-out method for cross-validation because of
+                                                                                the relatively small amount of data available and the high
+studies [46]. Of course the performance of SFFS is data
+                                                                                dimensional feature spaces. In each case, the data point
+dependent and the data set here is new and different; SFFS
+                                                                                (vector of features for one day's data for one emotion) to be
+may not be the best method to use. Nonetheless, because of
+                                                                                classified was excluded from the data set before the SFFS,
+its well-documented success in other pattern recognition                        FP, or SFFS-FP was run. The best set of features or best
+problems, it will help establish a benchmark for this new                       transform (determined from the training set) was then
+application area. The SFFS method takes as input the values                     applied to the test data point to determine classification
+of n features. It then does a nonexhaustive search on the                       accuracy.
+feature space by iteratively including and omitting features.                      For each k, where we varied 1  k  20, the SFFS algorithm
+It outputs one subset of m features for each m, 2  m  n,                      output one set of m features for each 2  m  n. For SFFS-FP,
+together with its classification rate. The algorithm is                         we computed all possible Fisher projections for each of these
+described in detail in [47].                                                    feature sets. For both the FP and SFFS-FP methods, we then
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1184                                  IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+                              TABLE 2                                                                      TABLE 3
+            Classification Accuracy for Three Methods                                Number of Dimensions and Number of Features m Used
+              Applied to Data Set I, Starting with the                                  in the Fisher Projections and Feature Selection
+        24 Features X , X , X , ~X , X , ~X , X 2 E; B; G; R                         Algorithms that Gave the Results of Table 2
+
+
+
+
+The best-recognized emotions are denoted by their first initial: (N)eutral,       The denominator in the dimensions columns is the maximum number of
+(A)nger, (G)rief, (J)oy, (R)everence.                                             dimensions that could have been used; half of the time the results were
+                                                                                  better using a number less than this maximum (the numerator). When a
+                                                                                  range is shown for the number of features, m, then the performance was
+fit Gaussians to the data in the reduced d-dimensional                            the same for the whole range.
+feature space and applied Maximum a Posteriori (MAP)
+classification to the features in the Fisher-transformed space.                   performance improvement of SFFS-FP cannot be said
+The specific algorithm was:                                                       to be statistically significant in these cases, given that
+                                                                                  90-95 percent confidence is usually required for that
+   1.     The data point to be classified (the testing set only                   statement. Nonetheless, all the classifiers in this table
+          includes one point) is excluded from the data set.                      provide statistically significant improved performance over
+          The remaining data set is used as the training set.                     a random classifier (confidence > 99:99 percent).
+   2.     The Fisher projection matrix (used in either FP or                         Table 3 shows the number of dimensions and the
+          SFFS-FP) is calculated from only the training set.
+                                                                                  number of features, respectively, that gave the best results.
+          Then, both the training and testing set are projected
+                                                                                  From looking at these numbers, we can conclude that
+          down to the d dimensions found by Fisher.
+                                                                                  performance was sometimes improved by projecting down
+   3.     The data in the d-dimensional space is assumed to be
+                                                                                  to fewer than c ÿ 1 dimensions for a c class problem. We can
+          Gaussian. The respective means and covariance
+                                                                                  also see that a broad range of numbers of features led to the
+          matrices of the classes are estimated from the
+                                                                                  best results, but, in no case, were 20 or more features useful
+          training data.
+                                                                                  for constructing the best classifier.
+   4.     The posterior probability of the data point is
+          calculated.                                                             4.2 The Problem of Day-Dependence
+   5.     The data point is then classified as coming from the                    In visually examining several projections into 2D, we
+          class with the highest posterior probability.                           noticed that the features of different emotions from the
+4.1 Initial ResultsÐData Set I                                                    same day often clustered more closely than did features for
+                                                                                  the same emotions on different days. To try to quantify this
+Our first comparison was made on Data Set I using (1), (2),
+                                                                                  ªday dependence,º we ran a side experiment: How hard
+(3), (4), (5), and (6) computed on the four raw physiological
+                                                                                  would it be to classify what day each emotion came from, as
+signals, yielding 24 features: X , X , X , ~X , X , ~X ,
+                                                                                  opposed to which emotion was being expressed? Because
+X 2 E; B; G; R. The results of SFFS, Fisher, and SFFS-FP
+                                                                                  classifying days is not the main interest, we only ran one
+are shown in Table 2. Table 2 shows the results applied to
+                                                                                  comparison: Fisher Projection applied to the 24 features X ,
+all eight emotions, as well as the results applied to all sets of                 X , X , ~X , X , ~X , X 2 E; B; G; R computed on Data Set I.
+C emotions, where C  3; 4; 5. The best-recognized emo-                           Leave-one-out cross-validation was applied to every point,
+tions were (N)eutral, (A)nger, (G)rief, (J)oy, and (R)ever-                       and MAP classification was used on the classes (days or
+ence. The states of (H)ate and the states of love, (P)latonic                     emotions), as described above. When the classes were c 
+Love and Romantic (L)ove, were not well-discriminated by                          20 days (versus the c  8 emotions), then the recognition
+any of the classifiers.                                                           accuracy jumped to 83 percent, which is significantly better
+    How good are these resultsÐare the differences between                        than random guessing (5 percent) and significantly better
+the classifiers significant? For each pair of results here and                    than the 40 percent found for emotion classification using
+through the rest of the paper, we computed the probability                        these features.
+that the lower error rate really is lower, treating error rate                       The day dependence is likely due to three factors: 1) skin-
+over the 160 (or fewer) trials as a Bernoulli random variable.                    sensor interface influences-including hand washing, appli-
+For example, (last row of Table 2) we compared the 20 errors                      cation of slightly different amounts of gel, and slight
+made by Fisher to the 10 errors made by SFFS-FP, over the                         changes in positioning of the sensors; 2) variations in
+60 trials for the three emotions (AJR). The confidence that                       physiology that may be caused by caffeine, sugar, sleep,
+the performance was improved was 98 percent. Although                             hormones, and other nonemotional factors; 3) variations in
+the performance improvements of SFFS-FP over Fisher in                            physiology that are mood and emotion dependentÐsuch as
+the other rows range from 5 to over 8 percentage points, the                      an inability to build up an intense experience of joy if the
+confidences range from 77 percent to 87 percent; thus, the                        subject felt a strong baseline mood of sadness that day. The
+                Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                           1185
+
+
+
+
+Fig. 3. Illustration of a highly day-dependent feature for two emotions from two different days. (a) The feature values for (A)nger and (J)oy from two
+different days. (b) Addition of an extra dimension allows for a line b to separate Anger from Joy. The data can be projected down to line a, so the
+addition of the new dimension did not increase the final number of features. (c) In the case of data from three different days, the addition of two extra
+dimensions allows for a plane p to separate Anger from Joy. The data can again be projected down to line a, not increasing the final number of
+features.
+
+first factor is slightly more controllable by using disposable                   values may be highly day-dependent (Fig. 3a). To alleviate
+electrodes that come from the manufacturer containing a                          this problem, an extra dimension can be added before the
+premeasured gel, and always having the subject wash her                          features are input into the Fisher Algorithm (Fig. 3b). If the
+hands in the same way at the same time before each session,                      data came from three different days, two extra dimensions
+steps we did not impose. However, we made an effort to                           are added rather than one (Fig. 3c), etc. In the general case,
+place the sensors as similarly from day to day as manually                       D ÿ 1 extra dimensions are needed for data coming from
+possible and to manually apply the same amount of gel                            D different days; hence, we use 19 extra dimensions. The
+each day. Nonetheless, many of these sources of variation                        above can be also seen as using the minimum number of
+are natural and cannot be controlled in realistic long-term                      dimensions so that each of D points can be at equal distance
+measuring applications. Algorithms and features that can                         from all others. Therefore, the D ÿ 1 dimensional vector
+compensate for day-to-day variations are needed.                                 contains the coordinates of one such point for each day.
+                                                                                    The effect of the day matrix on classification can be seen
+4.3 Day Matrix for Handling Day-Dependence                                       in Table 4, where we run Fisher and SFFS-FP with and
+The 24 statistical features extracted from the signals are                       without the day matrix, and compare it to SFFS, running
+dependent on the day the experiment was held. We now                             with the same 24 features as above. Note that it is
+augment the 20  24 matrix of the 20 days' 24 features with                      meaningless to apply SFFS to the day matrix, so that
+a 20  19 day matrix, which appends a vector of length 19 to                     comparison is omitted. The use of the day matrix improves
+each vector of length 24. The vector is the same for all                         the classification by 3.1, 4.3, 6.9, and 9.4 percent; although
+emotions recorded the same day and differs among days.                           only the highest two of these improvements are significant
+(The vectors were constructed by generating 20 equidistant                       at > 90 percent and > 95 percent (the other confidences are
+points in a 19-dim space.) Let us briefly explain the                            71-78 percent).
+principle with an illustration in Fig. 3.                                           Table 4 also reveals that all the methods perform better
+   Consider when the data come from two different days                           on Data Set II than on Data Set I. The improvements range
+and only one feature is extracted. (This is the simplest way                     from 5 to 13 percentage points, with confidences 81 percent,
+to visualize, but it trivially extends to more features).                        94 percent, 97 percent, 98 percent, and 99 percent.
+Although the feature values of one class are always related
+to the values of the other classes in the same way, e.g., the                    4.4 Baseline Matrix for Handling Day-Dependence
+mean electromyogram signal for anger may always be                               We propose and evaluate another approach: use of a baseline
+higher than the mean electromyogram for joy, the actual                          matrix where the Neutral (no emotion) features of each day
+
+
+                                                             TABLE 4
+      Classification Accuracy for All Eight Emotions for Data Set I and Data Set II Improves with the Use of the Day Matrix
+
+
+
+
+These results were obtained with 24 statistical features, X , X , X , ~X ,       X,   ~X , X 2 E; B; G; R for both data sets. The day matrix adds
+19 dimensions to each feature that is input into the Fisher Algorithm.
+               Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1186                                IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+                            TABLE 5                                             each entry in the last row of this table with the same column
+       Data Set I, 7-Emotion (All but the Neutral State)                        entry in the first row, we find that all the results are
+       Classification Results, Comparing Three Methods                          significantly improved (confidence > 99:7 percent).
+             for Incorporating the Day Information                                  Next, we look at the results with the day matrix. It appears
+                                                                                to improve upon the performance of the statistical features in
+                                                                                the first two rows; however, the improvements are only a few
+                                                                                percentage points and are not significant (confidences 63-
+                                                                                89.5 percent). The additional features of the day matrix can
+                                                                                become a liability in the presence of the f1 ÿ f10 features,
+                                                                                which compensate much better for the day-to-day variations
+                                                                                (the decrease from 70 percent to 61.3 percent is significant at
+                                                                                95 percent confidence.) Without the day matrix, the f1 ÿ f10
+are used as a baseline for (subtracted from) the respective
+                                                                                features alone perform significantly better than the statistical
+features of the remaining seven emotions of the same day.
+This gives an additional 20  24 matrix for each of the seven                   features (confidence > 93 percent in all six comparisons.)
+nonneutral emotions. The resulting classification results on                        The best performance occurs when the methods have all
+seven emotions, run on Data Set I, are in Table 5, together                     forty features at their disposal and the individual best of
+with an additional trial of the day matrix for this case. All                   these occurs with SFFS-FP. The overall best rate of
+the results are significantly higher than random guessing                       81.25 percent is significantly higher (> 95 percent con-
+(14:3 percent) with confidence > 99:99 percent. Comparing                       fidence) than 16 of the cases shown in Table 6. The three
+among the various ways of handling day-dependence, we                           exceptions are in the last rowÐcompared to rates of
+find the most significant improvement to be SFFS-FP using                       78.8 percent and to 77.5 percent the confidences are only
+the baseline matrix, which at 54.3 percent is an improve-                       71 percent and 79 percent that 81.25 percent is a genuine
+ment over 45 percent (confidence 94 percent). The perfor-                       improvement.
+mance improvements of SFFS-FP over that of Fisher in the                            Table 7 affords a closer look at breaking points of the
+last two rows of the table are also statistically significant                   best-performing case: the SFFS-FP algorithm operating on
+(confidence 99 percent). Combining all the features (original                   the full set of 40 features. Summing columns, one sees that
+24 + baseline + day) appears to result in a decrease in
+                                                                                the greatest number of false classifications lie in the
+performance, suggesting the limitations of Fisher with too
+                                                                                categories of (P)latonic love and (J)oy. It is possible that
+many bad dimensions, where it cannot select out features,
+but only transform them. However, the decreases (from 54.3                      this reflects an underlying predilection on the part of this
+to 49.3 and 40.7 to 35.0) have 80 percent and 84 percent                        subject toward being in these two categories, even when
+confidence, so are not considered significant.                                  asked to experience a different emotion; however, one
+                                                                                should be careful not to read more into these numbers than
+4.5 Better Features for Handling Day-Dependence                                 is justified.
+The comparisons above were all conducted with the                                   Because of the longstanding debate regarding whether
+original six statistical features (1), (2), (3), (4), (5), and (6);             physiological patterns reveal valence differences (pleasing-
+we would now like to see how the features f1 ÿ f10                              displeasing aspects) of emotion, or only arousal differences,
+influence classification. We compare four spaces of features                    we consider here an alternate view of the results in Table 7.
+from which the algorithms can select and transform subsets:
+                                                                                Table 8 rearranges the rows and columns into groups
+the original six, X , X , X , ~X , X , ~X , for X 2 E; B; G; R
+                                                                                based on similar arousal rating or similar valence rating.
+for a total of 24 features; these same 24 features plus the
+same six statistics for X  H for a total of 30 features;                       From this, we see that both arousal and valence are
+features f1 ÿ f10 plus E which were shown to be useful in                      discriminated at rates significantly higher than random
+our earlier investigation [50], and the combination of all 40                   (confidence > 99:99 percent), and that the rate of discrimi-
+of these.                                                                       nation based on valence (87 percent) versus the rate
+   The results are in Table 6. First, we consider the case                      obtained based on arousal (84 percent) do not differ in a
+where all 40 features are available (the last row). Comparing                   statistically significant way.
+
+
+                                                                TABLE 6
+                                    Comparative Classification Rates for Eight Emotions for Data Set II
+
+
+
+
+The day matrix adds 19 features to the data input to the Fisher algorithm, offering no improvement when f1 ÿ f10 are available.
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                          1187
+
+
+                                                         TABLE 7
+ Confusion Matrix for the Method that Gave the Best Performance Classifying Eight Emotions with Data Set II (81.25 Percent)
+
+
+
+
+An entry's row label is the true class, the column label is what it was classified as.
+
+
+4.6 Finding Robust Features                                                     those that were rarely selected, but only within the context
+A feature-based approach presents not only a virtually                          of these experiments.
+unlimited space of possible features that researchers can                          There were surprises in that some features physiologists
+propose, but an intractable search of all possible subsets of                   have suggested to be important such as f3 were not found
+these to find the best features. When people hand-select                        to contribute to good discrimination. Although the results
+features, they may do so with an intuitive feel for which are                   here will be of interest to psychophysiologists, they must
+most important; however, hand-selection is rarely as                            clearly be interpreted in the context of the recognition
+thorough as machine selection and tends to overlook non-                        experiment here and not as some definitive statement about
+intuitive combinations that may outperform intuitive ones.                      a physical correlate of emotion.
+Machine selection is therefore preferable, even when it is
+suboptimal (nonexhaustive). Here, we analyze which
+                                                                                5    CONCLUSIONS
+features the machine searches selected repeatedly. The
+results of automatic feature selection from twelve experi-                      This paper has suggested that machine intelligence should
+ments involving SFFS (either SFFS as in Jain and Zongker's                      include skills of emotional intelligence, based on recent
+code, or SFFS-FP, or SFFS-FP with the Day Matrix) are                           scientific findings about the role of emotional abilities in
+summarized in Table 9.                                                          human intelligence, and on the way human-machine
+   From Table 9, we see that features such as the means of                      interaction largely imitates human-human interaction. This
+the heart rate, skin conductivity, and respiration were never                   is a shift in thinking from machine intelligence as one of
+selected by any of the classifiers running SFFS, so that they                   primarily mathematical, verbal, and perceptual abilities.
+need not have even been computed for these classifiers. At                      Emotion is believed to interact with all of these aspects of
+the same time, features such as the mean absolute normal-                       intelligence in the human brain. Emotions, largely over-
+ized first difference of the heart rate (~H ), the first difference            looked in early efforts to develop machine intelligence, are
+of the smoothed skin conductivity (f4 ), and the three higher                   increasingly regarded as an area for important research.
+frequency bands of the respiration signal (f8 ÿ f10 ), were                        One of the key skills of emotional intelligence for adaptive
+always found to contribute to the best results. Features that                   learning systems is the ability to recognize the emotional
+were repeatedly selected by classifiers yielding good                           communication of others. Even dogs can recognize their
+classification rates can be considered more robust than                         owner's affective expressions of pleasure or displeasureÐan
+
+
+                                                            TABLE 8
+                   Rearrangements of Table 7, Showing Confusion Matrices for Emotions Having Similar Valence
+                        Ratings (139=160  87 Percent) and Similar Arousal Ratings (135=160  84 Percent)
+
+
+
+
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1188                                IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+
+                                                        TABLE 9
+Summary (Along Rows) of when Each Feature Was Chosen in the SFFS-Based Methods of Table 6: The Standard SFFS (S), SFFS
+          Followed by Fisher Projection (SF), and SFFS Followed by Fisher Projection Using the Day Matrix (SFD)
+
+
+
+
+The features listed in the left-most column are grouped by signal for easier physiological interpretation: electromyogram (E), blood-volume pressure
+(B), heart rate (H), skin conductivity (S), and respiration (R). The totals at the right, when high, suggest that the feature may be a robust one
+regardless of the classification method.
+
+
+important piece of feedback. One of the difficulties research-                  versus having the subject try to generate an outward
+ers face in this area is the sheer difficulty of getting data                   expression. One weakness of both data-gathering methods is
+corresponding to real emotional states; we have found that                      that the subject elicited the emotion, versus a situation or
+efforts in this area are more demanding than traditional                        stimulus outside the subject eliciting it. Our group at MIT
+efforts to get pattern recognition data. We presented five                      has recently designed and built environments that focus on
+factors to aid researchers trying to gather good affect data.                   emotions not generated deliberately by the subject, e.g.,
+   The data gathered in this paper contrasts with that                          collecting affective data from users driving automobiles in
+gathered for most other efforts at affect pattern recognition                   city and highway conditions [38] and from users placed in
+not so much in the use of physiology versus video or audio,                     frustrating computer situations [51]; both of these areas aim
+but in its focus on having the subject try to generate a feeling                at data generation in an event-elicited, close to real-world,
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                        1189
+
+
+feeling, open-recording, other-purpose experiment, with effort                Because there were doubts in the literature that physiological
+to make the open recording so comfortable that it is                          information shows any differentiation other than arousal
+effectively ignored. Nonetheless, much work remains to                        level, these results are exciting. However, these results do not
+be done in gathering and analyzing affect data; attempts to                   imply that a computer can detect and recognize your
+create situations that induce emotion in subjects remain                      emotions with 81 percent accuracy because of the limited
+subject to uncertainty.                                                       set of emotions examined, because of the optimistic estimates
+    One facet of emotion recognition is developed here for                    of error given by the leave-one-out method because of the
+the first time: classification of emotional state from physio-                fact that this experiment, like others in the literature, has only
+logical data gathered from one subject over many weeks of                     looked at forced choice among presegmented data because of
+data collection. The corpus of person-dependent affect data                   the use of only one subject's long term data and because of
+is larger than any previously reported, and the methodology                   the nature of true emotion, which consists of more than
+we developed for its analysis is subject-independent. In                      externally measurable signals. We expect that joint pattern
+future work, the patterns of many individuals may be                          analysis of signals from face, voice, body, and the surround-
+clustered into groups, according to similarity of the                         ing situation is likely to give the most interesting emotion
+physiological patterns, and these results leveraged to                        recognition results, especially since people read all these
+potentially provide person-independent recognition.                           signals jointly.
+    Prior to our efforts, researchers have not reported the                      The greater than six-times-chance recognition accuracy
+way in which physiological features for different emotions                    achieved in this pattern recognition research is nonetheless
+from the same day tend to be more similar than features for                   a significant finding; it informs long-debated questions by
+the same emotions on different days. This side-finding of                     emotion theorists as to whether there is any physiological
+our work may help explain why so many conflicting results                     differentiation among emotions. Additionally, the finding
+exist on prior attempts to identify emotion-dependent                         of significant classification rates when the emotion labels
+physiological correlates. The day-dependent variations that                   are grouped either by arousal or by valence lends evidence
+we found and the ways we developed of handling them                           against the belief that physiological signals only differenti-
+may potentially be useful in handling across-subject                          ate with respect to arousal; both valence and arousal were
+variations. We proposed methods of normalizing features                       differentiated essentially equally by the method we
+and baselining, showing that the normalizing features gave                    developed.
+the best results, but have the drawback of not being easily                      A new question might be stated, ªWhat is the precise
+implemented in an online way because of the requirement                       bodily nature of the differentiation that exists among
+of having session-long summarizing information.                               different emotions and upon what other factors does this
+    We found that the Fisher Projection applied to a subset of                differentiation depend?º We expect that physiological
+features preselected by SFFS always outperformed Fisher                       patterning, in combination with facial, vocal, and other
+Projection applied to the full set of features when assessing                 behavioral cues, will lead to significant improvements in
+percentage of errors made by the classifiers. However, only                   machine recognition of user emotion over the coming
+a few of the improvements of SFFS-FP over FP were                             decade, and that this recognition will be critical for giving
+significant at > 95 percent; the rest had confidences ranging                 machines the intelligence to adapt their behavior to interact
+from 58-87 percent. From the significant improvements, we                     more smoothly and respectfully with people. However, this
+surmize that the Fisher Projection's ability to transform the                 ªrecognitionº will be on measurable signals, which we do
+feature space may work better when poorer-performing                          not expect to include one's innermost thoughts. Much work
+features are omitted up front. The combination is synergis-                   remains before emotion interpretation can occur at the level
+tic: fracturization followed by feature transformation, and                   of human abilities.
+may well apply in other domains.
+    Forty features were proposed and systematically eval-                     ACKNOWLEDGMENTS
+uated by multiple algorithms. The best and worst features
+                                                                              The authors would like to thank Rob and Dan Gruhl for
+have been identified for this subject. These are of interest in
+                                                                              help with hardware for data collection, the MIT Shake-
+the ongoing search for good features for affect recognition
+                                                                              speare Ensemble for acting support, Anil Jain and Doug
+and may aid in trying to understand the differential effects
+                                                                              Zongker for providing us their SFFS code, Tom Minka for
+of emotions on physiology.
+                                                                              help with its use, and the anonymous reviewers for helping
+    Although the precise rates found here can only be
+                                                                              improve the paper.
+claimed to apply to one subject, the methodology developed
+in this paper can be used for any subject. The method is
+general for finding the features that work best for a given                   REFERENCES
+subject and for assessing classification accuracies for that                  [1]   A.R. Damasio, Descartes' Error: Emotion, Reason, and the Human
+subject.                                                                            Brain. New York: Gosset/Putnam Press, 1994.
+                                                                              [2]   J. LeDoux, The Emotional Brain. New York: Simon & Schuster,
+    The results of 81 percent recognition accuracy on eight                         1996.
+categories of emotion are the only results we know of for                     [3]   P. Salovey and J.D. Mayer, ªEmotional Intelligence,º Imagination,
+such a classification and are better than machine recognition                       Cognition and Personality, vol. 9, no. 3, pp. 185-211, 1990.
+rates of a similar number of categories of affect from speech                 [4]   D. Goleman, Emotional Intelligence. New York: Bantam Books,
+                                                                                    1995.
+(around 60-70 percent) and almost as good as automated                        [5]   B. Reeves and C. Nass, The Media Equation. Cambridge Univ.
+recognition of facial expressions (around 80-98 percent).                           Press, Center for the Study of Language and Information, 1996.
+            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+1190                                   IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE,                      VOL. 23,   NO. 10,   OCTOBER 2001
+
+[6]    M. Sigman and L. Capps, Children with Autism: A Developmental               [31] J.T. Cacioppo, G.G. Berntson, J.T. Larsen, K.M. Poehlmann, and
+       Perspective. Cambridge, Mass.: Harvard Univ. Press, 1997                         T.A. Ito, ªThe Psychophysiology of Emotion,º Handbook of
+[7]    R.W. Picard, Affective Computing. Cambridge, Mass.: The MIT                      Emotions, M. Lewis and J.M. Haviland-Jones, eds., pp. 173-191,
+       Press, 1997.                                                                     2000.
+[8]    J. Healey, R.W. Picard, and F. Dabek, ªA New Affect-Perceiving              [32] D. Keltner and P. Ekman, ªThe Psychophysiology of Emotion,º
+       Interface and Its Application to Personalized Music Selection,º                  Handbook of Emotions, M. Lewis and J.M. Haviland-Jones, eds.,
+       Proc. Workshop Perceptual User Interfaces, Nov. 1998.                            pp. 236-249, 2000.
+[9]    R.W. Picard and J. Healey, ªAffective Wearables,º Personal                  [33] D.M. Clynes, Sentics: The Touch of the Emotions. Anchor Press/
+       Technologies, vol. 1, no. 4, pp. 231-240, 1997.                                  Doubleday, 1977.
+[10]   K.R. Scherer, ªSpeech and Emotional States,º Speech Evaluation in           [34] C.E. Izard, ªFour Systems for Emotion Activation: Cognitive and
+       Psychiatry, J.K. Darby, ed., chapter 10, pp. 189-220, Grune and                  Noncognitive Processes,º Psychological Rev., vol. 100, no. 1, pp. 68-
+       Stratton, Inc., 1981.                                                            90, 1993.
+[11]   R. Banse and K.R. Scherer, ªAcoustic Profiles in Vocal Emotion              [35] H. Hama and K. Tsuda, ªFinger-Pressure Waveforms Measured
+       Expression,º J. Personality and Social Psychology, vol. 70, no. 3,               on Clynes' Sentograph Distinguished Among Emotions,º Percep-
+       pp. 614-636, 1996.                                                               tual and Motor Skills, vol. 70, pp. 371-376, 1990.
+                                                                                   [36] H. Schlosberg, ªThree Dimensions of Emotion,º Psychological Rev.,
+[12]   T. Polzin, ªDetecting Verbal and Non-Verbal Cues in the
+                                                                                        vol. 61, pp. 81-88, Mar. 1954.
+       Communication of Emotions,º PhD thesis, School of Computer
+                                                                                   [37] P.J. Lang, ªThe Emotion Probe: Studies of Motivation and
+       Science, June 2000.
+                                                                                        Attention,º Am. Psychologist, vol. 50, no. 5, pp. 372-385, 1995.
+[13]   J. Hansen, Comm. during ICASSP '99 Panel on Speech Under                    [38] J.A. Healey, ªWearable and Automotive Systems for Affect
+       Stress. Proc. Int'l Conf. Acoustics, Speech, and Signal Processing '99,          Recognition from Physiology,º Technical Report 526, PhD thesis,
+       1999.                                                                            Mass. Inst. Technology, Cambridge, Mass., May 2000.
+[14]   J.N. Bassili, ªEmotion Recognition: The Role of Facial Movement             [39] E. Vyzas and R.W. Picard, ªAffective Pattern Classification,º Proc.
+       and the Relative Importance of Upper and Lower Areas of the                      AAAI 1998 Fall Symp., Emotional and Intelligent: The Tangled Knot of
+       Face,º J. Personality and Social Psychology, vol. 37, pp. 2049-2058,             Cognition, Oct. 1998.
+       1979.                                                                       [40] E. Vyzas and R.W. Picard, ªOffline and Online Recognition of
+[15]   Y. Yacoob and L.S. Davis, ªRecognizing Human Facial Expres-                      Emotion Expression from Physiological Data,º Proc. Workshop
+       sions from Log Image Sequences Using Optical Flow,º IEEE Trans.                  Emotion-Based Agent Architectures, Third Int'l Conf. Autonomous
+       Pattern Analysis and Machine Intelligence, vol. 18, no. 6, pp. 636-642,          Agents, pp. 135-142, May 1999.
+       June 1996.                                                                  [41] A.V. Oppenheim and R.W. Schafer, Discrete-Time Signal Processing.
+[16]   I. Essa and A. Gardner, ªProsody Analysis for Speaker Affect                     Englewood Cliffs, N.J.: Prentice-Hall, 1989.
+       Determination,º Proc. Workshop Perceptual User Interfaces '97,              [42] D.T. Lyyken, R. Rose, B. Luther, and M. Maley, ªCorrecting
+       pp. 45-46, Oct. 1997.                                                            Psychophysiological Measures for Individual Differences in
+[17]   I.A. Essa, ªAnalysis, Interpretation and Synthesis of Facial                     Range,º Psychophysiological Bulletin, vol. 66, pp. 481-484, 1966.
+       Expressions,º PhD thesis, Mass. Inst. of Technology, Media Lab,             [43] D.T. Lyyken and P.H. Venables, ªDirect Measurement of Skin
+       Cambridge, Mass., Feb. 1995.                                                     Conductance: A Proposal for Standardization,º Psychophysiology,
+[18]   J.F. Cohn, A.J. Zlochower, J. Lien, and T. Kanade, ªAutomated                    vol. 8, no. 5, pp. 656-672, 1971.
+       Face Analysis by Feature Point Tracking has High Concurrent                 [44] M.E. Dawson, A.M. Schell, and D.L. Filion, ªThe Electrodermal
+       Validity with Manual FACS Coding,º Psychophysiology, vol. 36,                    System,º Principles of Psychophysiology: Physical, Social, and
+       pp. 35-43, 1999.                                                                 Inferential Elements, J.T. Cacioppo and L.G. Tassinary, eds.,
+[19]   M. Bartlett, J.C. Hager, P. Ekman, and T.J. Sejnowski, ªMeasuring                pp. 295-324, 1990.
+       Facial Expressions by Computer Image Analysis,º Psychophysiol-              [45] P. Pudil, J. Novovicova, and J. Kittler, ªFloating Search Methods in
+       ogy, vol. 36, pp. 253-263, 1999.                                                 Feature Selection,º Pattern Recognition Letters, vol. 15, pp. 1119-
+[20]   G. Donato, M.S. Bartlett, J.C. Hager, P. Ekman, and T.J. Sejnowski,              1125, Nov. 1994.
+       ªClassifying Facial Actions,º IEEE Trans. Pattern Analysis and              [46] A. Jain and D. Zongker, ªFeature Selection: Evaluation, Applica-
+       Machine Intelligence, vol. 21, no. 10, pp. 974-989, Oct. 1999.                   tion, and Small Sample Performance,º IEEE Trans. Patern Analysis
+[21]   L.C. DeSilva, T. Miyasato, and R. Nakatsu, ªFacial Emotion                       and Machine Intelligence, vol. 19, no. 2, pp. 153-163, Feb. 1997.
+       Recognition Using Multi-Modal Information,º Proc. IEEE Int'l                [47] P. Pudil, J. Novovicova, and J. Kittler, ªSimultaneous Learning of
+       Conf. Information, Comm., and Signal Processing, pp. 397-401, Sept.              Decision Rules and Important Attributes for Classification
+       1997.                                                                            Problems in Image Analysis,º Image and Vision Computing,
+[22]   T.S. Huang, L.S. Chen, and H. Tao, ªBimodal Emotion Recognition                  vol. 12, pp. 193-198, Apr. 1994.
+       by Man and Machine,º Proc. ATR Workshop Virtual Communication               [48] R.O. Duda and P.E. Hart, Pattern Classification and Scene Analysis.
+       Environments, Apr. 1998.                                                         Wiley-Interscience, 1973.
+[23]   L.S. Chen, T.S. Huang, T. Miyasato, and R. Nakatsu, ªMultimodal             [49] T.M. Cover and P.E. Hart, ªNearest Neighbor Pattern Classifica-
+       Human Emotion/Expression Recognition,º Proc. Third Int'l Conf.                   tion,º IEEE Trans. Information Theory, vol. 13, pp. 21-27, Jan. 1967.
+       Automatic Face and Gesture Recognition, pp. 366-371, Apr. 1998.             [50] J. Healey and R.W. Picard, ªDigital Processing of Affective
+[24]   J.T. Cacioppo and L.G. Tassinary, ªInferring Psychological                       Signals,º Proc. IEEE Int'l Conf. Acoustics, Speech, and Signal
+       Significance from Physiological Signals,º Am. Psychologist, vol. 45,             Processing, 1998.
+       pp. 16-28, Jan. 1990.                                                       [51] J. Scheirer, J. Klein, R. Fernandez, and R.W. Picard, ªFrustrating
+                                                                                        the User on Purpose: A Step Toward Building an Affective
+[25]   W. James, William James: Writings 1878-1899, pp. 350-365, The
+                                                                                        Computer,º Interaction with Computers, 2001, to appear.
+       Library of Am., 1992. Originally published in 1890.
+[26]   W.B. Cannon, ªThe James-Lange Theory of Emotions: A Critical
+       Examination and an Alternative Theory,º Am. J. Psychology, vol. 39,
+       pp. 106-124, 1927.
+[27]   S. Schachter, ªThe Interaction of Cognitive and Physiological
+       Determinants of Emotional State,º Advances in Experimental
+       Psychology, L. Berkowitz, ed., vol. 1, pp. 49-80, 1964.
+[28]   P. Ekman, R.W. Levenson, and W.V. Friesen, ªAutonomic
+       Nervous System Activity Distinguishes Among Emotions,º
+       Science, vol. 221, pp. 1208-1210, Sept. 1983.
+[29]   W.M. Winton, L. Putnam, and R. Krauss, ªFacial and Autonomic
+       Manifestations of the Dimensional Structure of Emotion,º
+       J. Experimental Social Psychology, vol. 20, pp. 195-216, 1984.
+[30]   A.J. Fridlund and C.E. Izard, ªElectromyographic Studies of Facial
+       Expressions of Emotions and Patterns of Emotions,º Social
+       Psychophysiology: A Sourcebook, J.T. Cacioppo and R.E. Petty,
+       eds., pp. 243-286, 1983.
+                 Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+PICARD ET AL.: TOWARD MACHINE EMOTIONAL INTELLIGENCE: ANALYSIS OF AFFECTIVE PHYSIOLOGICAL STATE                                                          1191
+
+                         Rosalind W. Picard earned the bachelors                                      Elias Vyzas received the BEngr degree in
+                         degree in electrical engineering with highest                                mechanical engineering from Imperial College,
+                         honors from the Georgia Institute of Technology                              London, England in June 1994, and two MS
+                         in 1984. She was named a National Science                                    degrees, one in mechanical engineering and one
+                         Foundation Graduate Fellow and worked as a                                   in electrical engineering and computer science,
+                         member of the technical staff at AT&T                                        from MIT in January 1997. He received the
+                         Bell Laboratories from 1984-1987, designing                                  masters degree in mechanical engineering from
+                         VLSI chips for digital signal processing and                                 MIT in June 1999 and is currently completing
+                         developing new methods of adaptive image                                     service in the Greek Army. His research inter-
+                         compression. She earned the masters and                                      ests include affect and stress recognition from
+doctorate degrees, both in electrical engineering and computer science,         physiology, and assessment of mental workload and performance.
+from the Massachusetts Institute of Technology (MIT) in 1986 and 1991,
+respectively. In 1991, she joined the MIT Media Laboratory as an
+assistant professor. She was promoted to associate professor in 1995                                 Jennifer Healey received the BS (1993), the
+and awarded tenure at MIT in 1998. She is author or co-author of more                                MS (1995) and the PhD (2000) degrees from
+than 80 peer reviewed scientific articles in pattern recognition, multi-                             MIT in electrical engineering and computer
+dimensional signal modeling, computer vision, and human-computer                                     science. Her Master's thesis work in the field of
+interaction. She is a co-recipient with Tom Minka of a best paper prize                              optics and opto-electronics was completed at
+(1998) from the Pattern Recognition Society for work on machine                                      the Charles Stark Draper Laboratory. In 1995,
+learning with multiple models. Dr. Picard guest edited the IEEE                                      she joined the MIT Media Laboratory and helped
+Transactions on Pattern Analysis and Machine Intelligence special                                    launch the Affective Computing research pro-
+issue on Digital Libraries: Representation and Retrieval, and edited the                             ject. She held a postdoctoral position at IBM's
+proceedings of the First IEEE International Workshop on Content-Based                                Zurich Research Laboratory in artifical intelli-
+Access of Image and Video Libraries, for which she served as chair. Her         gence and knowledge management. She is currently a research staff
+award-winning book, Affective Computing, (MIT Press, 1997) lays the             member in the Human Language Technologies Group at IBM's
+groundwork for giving machines skills of emotional intelligence. She is a       T.J. Watson Research Center.
+senior member of the IEEE and a member of the IEEE Computer
+Society.
+
+
+
+                                                                                . For more information on this or any other computing topic,
+                                                                                please visit our Digital Library at http://computer.org/publications/dlib.
+
+
+
+
+              Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:54:46 UTC from IEEE Xplore. Restrictions apply.
+

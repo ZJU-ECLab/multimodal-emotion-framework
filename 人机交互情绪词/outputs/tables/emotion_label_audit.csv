@@ -1,0 +1,309 @@
+raw_label,canonical_label,action,reason,article_count,mentions
+acceptance,acceptance,keep,kept as supplied; no clear non-emotion rule matched,1,1
+activation,,remove,affective dimension rather than a discrete emotion,2,2
+active,,remove,not a discrete emotion,4,4
+admiration,admiration,keep,kept as supplied; no clear non-emotion rule matched,5,5
+adoration,adoration,keep,kept as supplied; no clear non-emotion rule matched,1,1
+aesthetic appreciation,aesthetic appreciation,keep,kept as supplied; no clear non-emotion rule matched,1,1
+affect,,remove,broad affective construct rather than a discrete emotion,1,1
+affective state,,remove,broad affective construct rather than a discrete emotion,1,1
+afraid,fear,map,adjective variant of fear,2,2
+agitated,agitation,map,adjective variant of agitation,1,1
+alert,,remove,not a discrete emotion,1,1
+amiable,amiability,map,adjective variant of amiability,1,1
+amused,amusement,map,adjective variant of amusement,1,1
+amusement,amusement,keep,kept as supplied; no clear non-emotion rule matched,4,4
+anger,anger,keep,kept as supplied; no clear non-emotion rule matched,36,36
+angry,anger,map,adjective variant of anger,7,7
+annoyance,annoyance,keep,kept as supplied; no clear non-emotion rule matched,2,2
+annoying,annoyance,map,adjective variant of annoyance,2,2
+anticipation,anticipation,keep,kept as supplied; no clear non-emotion rule matched,4,4
+anticipatory,anticipation,map,adjective variant of anticipation,1,1
+anxiety,anxiety,keep,kept as supplied; no clear non-emotion rule matched,12,12
+anxious,anxiety,map,adjective variant of anxiety,1,1
+arousal,,remove,affective dimension rather than a discrete emotion,10,10
+aroused,,remove,not a discrete emotion,1,1
+ashamed,shame,map,adjective variant of shame,1,1
+astonished,surprise,map,adjective variant of surprise,2,2
+attachment,attachment,keep,kept as supplied; no clear non-emotion rule matched,1,1
+attention,,remove,not a discrete emotion,1,1
+attentive,,remove,not a discrete emotion,1,1
+attentiveness,,remove,not a discrete emotion,1,1
+attractive,,remove,not a discrete emotion,1,1
+attractiveness,,remove,design or stimulus property rather than an emotion,2,2
+awe,awe,keep,kept as supplied; no clear non-emotion rule matched,1,1
+awkwardness,awkwardness,keep,kept as supplied; no clear non-emotion rule matched,3,3
+boisterous,boisterousness,map,adjective variant of boisterousness,1,1
+boredom,boredom,keep,kept as supplied; no clear non-emotion rule matched,13,13
+boring,boredom,map,adjective variant of boredom,1,1
+calm,calmness,map,adjective variant of calmness,11,11
+calmness,calmness,map,canonical noun form,2,2
+care,care,keep,kept as supplied; no clear non-emotion rule matched,1,1
+challenge,,remove,not a discrete emotion,1,1
+challenging,,remove,not a discrete emotion,1,1
+cheerful,cheerfulness,map,adjective variant of cheerfulness,2,2
+classic,,remove,not a discrete emotion,1,1
+closeness,closeness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+comfort,comfort,keep,kept as supplied; no clear non-emotion rule matched,1,1
+comfortable,comfort,map,adjective variant of comfort,1,1
+compassion,compassion,keep,kept as supplied; no clear non-emotion rule matched,2,2
+competent,,remove,not a discrete emotion,1,1
+complacent,complacent,keep,kept as supplied; no clear non-emotion rule matched,1,1
+comprehensible,,remove,not a discrete emotion,1,1
+computer anxiety,anxiety,map,anxiety with context qualifier,1,1
+concentration,,remove,not a discrete emotion,1,1
+concern,concern,keep,kept as supplied; no clear non-emotion rule matched,2,2
+confession,,remove,not a discrete emotion,1,1
+confidence,confidence,keep,kept as supplied; no clear non-emotion rule matched,2,2
+confident,confidence,map,adjective variant of confidence,1,1
+confusion,confusion,keep,kept as supplied; no clear non-emotion rule matched,11,11
+contempt,contempt,keep,kept as supplied; no clear non-emotion rule matched,7,7
+contemptuous,contempt,map,adjective variant of contempt,1,1
+content,contentment,map,adjective variant of contentment,3,3
+contented,contentment,map,adjective variant of contentment,1,1
+contentment,contentment,keep,kept as supplied; no clear non-emotion rule matched,2,2
+control,,remove,affective dimension rather than a discrete emotion,1,1
+convenience,,remove,design or usability property rather than an emotion,1,1
+convinced,,remove,not a discrete emotion,1,1
+courage,courage,keep,kept as supplied; no clear non-emotion rule matched,1,1
+craving,craving,keep,kept as supplied; no clear non-emotion rule matched,1,1
+crying,,remove,observable behavior rather than an emotion,1,1
+curiosity,curiosity,keep,kept as supplied; no clear non-emotion rule matched,3,3
+curious,curiosity,map,adjective variant of curiosity,1,1
+delight,delight,keep,kept as supplied; no clear non-emotion rule matched,1,1
+delighted,delight,map,adjective variant of delight,2,2
+dependable,,remove,not a discrete emotion,1,1
+depression,,remove,clinical mood condition rather than an emotion label,3,3
+desire,desire,keep,kept as supplied; no clear non-emotion rule matched,1,1
+determined,,remove,not a discrete emotion,1,1
+disappointed,disappointment,map,adjective variant of disappointment,1,1
+disappointment,disappointment,keep,kept as supplied; no clear non-emotion rule matched,6,6
+discomfort,discomfort,keep,kept as supplied; no clear non-emotion rule matched,2,2
+disgust,disgust,keep,kept as supplied; no clear non-emotion rule matched,24,24
+disgusted,disgust,map,adjective variant of disgust,2,2
+disgusting,disgust,map,adjective variant of disgust,1,1
+dislike,dislike,map,canonical noun form,1,1
+dissatisfaction,dissatisfaction,keep,kept as supplied; no clear non-emotion rule matched,4,4
+distress,distress,keep,kept as supplied; no clear non-emotion rule matched,4,4
+distressed,distress,map,adjective variant of distress,1,1
+dominance,,remove,affective dimension rather than a discrete emotion,2,2
+doubt,doubt,keep,kept as supplied; no clear non-emotion rule matched,1,1
+dreamy,dreaminess,map,adjective variant of dreaminess,1,1
+easy,,remove,not a discrete emotion,1,1
+easy to read,,remove,not a discrete emotion,1,1
+ebullient,happiness,map,positive emotion adjective; joy grouped with happiness for analysis,1,1
+elated,elation,map,adjective variant of elation,1,1
+elegance,,remove,not a discrete emotion,1,1
+elegant,,remove,not a discrete emotion,1,1
+embarrassment,embarrassment,keep,kept as supplied; no clear non-emotion rule matched,2,2
+emotional,,remove,not a discrete emotion,1,1
+empathic pain,empathic pain,keep,kept as supplied; no clear non-emotion rule matched,1,1
+empathy,empathy,keep,kept as supplied; no clear non-emotion rule matched,2,2
+energetic,,remove,not a discrete emotion,2,2
+engaged,,remove,not a discrete emotion,1,1
+engagement,,remove,not a discrete emotion,1,1
+engagement/flow,,remove,engagement or experiential state rather than an emotion,2,2
+enjoyment,enjoyment,keep,kept as supplied; no clear non-emotion rule matched,2,2
+ennui,ennui,keep,kept as supplied; no clear non-emotion rule matched,1,1
+enthusiasm,enthusiasm,keep,kept as supplied; no clear non-emotion rule matched,1,1
+enthusiastic,enthusiasm,map,adjective variant of enthusiasm,1,1
+entrancement,entrancement,keep,kept as supplied; no clear non-emotion rule matched,1,1
+envy,envy,keep,kept as supplied; no clear non-emotion rule matched,2,2
+escapism,escapism,keep,kept as supplied; no clear non-emotion rule matched,1,1
+excited,excitement,map,adjective variant of excitement,7,7
+excitement,excitement,keep,kept as supplied; no clear non-emotion rule matched,7,7
+exciting,excitement,map,adjective variant of excitement,1,1
+exhausting,,remove,not a discrete emotion,1,1
+fairness,fairness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+fascination,fascination,keep,kept as supplied; no clear non-emotion rule matched,2,2
+fear,fear,keep,kept as supplied; no clear non-emotion rule matched,30,30
+fear-confirmed,fear,map,fear-qualified label collapsed to fear,1,1
+fearful,fear,map,adjective variant of fear,3,3
+flow,,remove,experiential state rather than a discrete emotion,3,3
+forgiveness,forgiveness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+formal,,remove,not a discrete emotion,1,1
+fright,fear,map,near-synonym of fear,1,1
+frowning,,remove,observable behavior rather than an emotion,1,1
+frustration,frustration,keep,kept as supplied; no clear non-emotion rule matched,16,16
+fun,fun,keep,kept as supplied; no clear non-emotion rule matched,2,2
+giggly,amusement,map,adjective variant of amusement,1,1
+glad,happiness,map,adjective variant of joy; joy grouped with happiness for analysis,1,1
+gloating,gloating,keep,kept as supplied; no clear non-emotion rule matched,2,2
+gloomy,sadness,map,adjective variant of sadness,1,1
+grateful,gratitude,map,adjective variant of gratitude,1,1
+gratification,gratification,keep,kept as supplied; no clear non-emotion rule matched,1,1
+gratitude,gratitude,keep,kept as supplied; no clear non-emotion rule matched,4,4
+grief,grief,keep,kept as supplied; no clear non-emotion rule matched,2,2
+grumpy,irritation,map,adjective variant of irritation,1,1
+guilt,guilt,keep,kept as supplied; no clear non-emotion rule matched,4,4
+guilty,guilt,map,adjective variant of guilt,1,1
+happiness,happiness,keep,kept as supplied; no clear non-emotion rule matched,23,23
+happy,happiness,map,adjective variant of happiness,15,15
+happy-for,happy-for,keep,kept as supplied; no clear non-emotion rule matched,2,2
+harmonious,,remove,not a discrete emotion,1,1
+harmony,,remove,not a discrete emotion,1,1
+hate,hate,keep,kept as supplied; no clear non-emotion rule matched,4,4
+high arousal,,remove,affective dimension rather than a discrete emotion,2,2
+high valence,,remove,affective dimension rather than a discrete emotion,1,1
+hope,hope,keep,kept as supplied; no clear non-emotion rule matched,5,5
+hopeful,hope,map,adjective variant of hope,2,2
+horror,horror,keep,kept as supplied; no clear non-emotion rule matched,1,1
+hostile,hostility,map,adjective variant of hostility,1,1
+hostility,hostility,keep,kept as supplied; no clear non-emotion rule matched,1,1
+humorous,,remove,not a discrete emotion,1,1
+indifference,indifference,keep,kept as supplied; no clear non-emotion rule matched,2,2
+inspired,inspiration,map,adjective variant of inspiration,1,1
+interest,interest,keep,kept as supplied; no clear non-emotion rule matched,7,7
+interested,interest,map,adjective variant of interest,4,4
+interesting,interest,map,adjective variant of interest,1,1
+intrigue,intrigue,keep,kept as supplied; no clear non-emotion rule matched,1,1
+irritable,irritation,map,adjective variant of irritation,1,1
+irritating,irritation,map,adjective variant of irritation,1,1
+irritation,irritation,keep,kept as supplied; no clear non-emotion rule matched,1,1
+jittery,nervousness,map,near-synonym of nervousness,1,1
+joking,,remove,not a discrete emotion,1,1
+joviality,happiness,map,near-synonym of joy; joy grouped with happiness for analysis,1,1
+joy,happiness,map,joy grouped with happiness for analysis,18,18
+joy/pleasure,happiness,map,slash-separated joy label; joy grouped with happiness for analysis,1,1
+joyful,happiness,map,adjective variant of joy; joy grouped with happiness for analysis,2,2
+joyful activation,happiness,map,joy label with activation descriptor; joy grouped with happiness for analysis,1,1
+jubilant,happiness,map,adjective variant of joy; joy grouped with happiness for analysis,1,1
+kindness,kindness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+learnable,,remove,not a discrete emotion,1,1
+learning emotions,,remove,umbrella category rather than a discrete emotion,1,1
+lethargic,lethargy,map,adjective variant of lethargy,1,1
+like,liking,map,noun form of like,1,1
+liking,liking,keep,kept as supplied; no clear non-emotion rule matched,1,1
+lively,liveliness,map,adjective variant of liveliness,1,1
+loneliness,loneliness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+love,love,keep,kept as supplied; no clear non-emotion rule matched,8,8
+low arousal,,remove,affective dimension rather than a discrete emotion,2,2
+low valence,,remove,affective dimension rather than a discrete emotion,1,1
+maintained situational interest,maintained situational interest,keep,kept as supplied; no clear non-emotion rule matched,1,1
+mechanical,,remove,not a discrete emotion,1,1
+mildness,mildness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+miserable,sadness,map,adjective variant of sadness,1,1
+modern,,remove,not a discrete emotion,1,1
+monotonous,,remove,not a discrete emotion,1,1
+mood,,remove,broad affective construct rather than a discrete emotion,3,3
+motivated,,remove,not a discrete emotion,1,1
+natural,,remove,not a discrete emotion,1,1
+negative,,remove,broad valence category rather than a discrete emotion,4,4
+negative activation,,remove,affective dimension rather than a discrete emotion,1,1
+negative affect,,remove,broad valence category rather than a discrete emotion,3,3
+negative emotion,,remove,broad valence category rather than a discrete emotion,6,6
+negative emotions,,remove,broad valence category rather than a discrete emotion,4,4
+negative psychology,,remove,not a discrete emotion,1,1
+negative valence,,remove,affective dimension rather than a discrete emotion,2,2
+nervous,nervousness,map,adjective variant of nervousness,2,2
+nervousness,nervousness,map,canonical label,3,3
+neutral,,remove,absence or baseline state rather than an emotion,24,24
+neutral mood,,remove,absence or baseline state rather than an emotion,1,1
+no emotion (neutral),,remove,absence or baseline state rather than an emotion,1,1
+non-confusion,,remove,absence of an emotion or state rather than an emotion,1,1
+nostalgia,nostalgia,keep,kept as supplied; no clear non-emotion rule matched,1,1
+optimistic,optimism,map,adjective variant of optimism,1,1
+overwhelm,overwhelm,keep,kept as supplied; no clear non-emotion rule matched,1,1
+painful,pain,map,adjective variant of pain,1,1
+panic,panic,keep,kept as supplied; no clear non-emotion rule matched,2,2
+passionate,passion,map,adjective variant of passion,1,1
+peaceful,calmness,map,near-synonym of calmness,1,1
+pity,pity,keep,kept as supplied; no clear non-emotion rule matched,3,3
+platonic love,love,map,love with relationship qualifier,1,1
+playfulness,playfulness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+pleasant,pleasure,map,adjective variant of pleasure,2,2
+pleasant surprise,surprise,map,surprise with valence qualifier,1,1
+pleasantness,pleasure,map,noun variant of pleasure,1,1
+pleased,pleasure,map,adjective variant of pleasure,3,3
+pleasure,pleasure,keep,kept as supplied; no clear non-emotion rule matched,5,5
+positive,,remove,broad valence category rather than a discrete emotion,3,3
+positive activation,,remove,affective dimension rather than a discrete emotion,1,1
+positive affect,,remove,broad valence category rather than a discrete emotion,6,6
+positive emotion,,remove,broad valence category rather than a discrete emotion,6,6
+positive emotions,,remove,broad valence category rather than a discrete emotion,5,5
+positive valence,,remove,affective dimension rather than a discrete emotion,2,2
+power,,remove,affective dimension rather than a discrete emotion,1,1
+preoccupied,,remove,not a discrete emotion,1,1
+pressure,,remove,not a discrete emotion,1,1
+pride,pride,keep,kept as supplied; no clear non-emotion rule matched,7,7
+productive,,remove,not a discrete emotion,1,1
+productive confusion,confusion,map,confusion with productivity qualifier,1,1
+proud,pride,map,adjective variant of pride,3,3
+puzzled,confusion,map,adjective variant of confusion,1,1
+puzzlement,confusion,map,near-synonym of confusion,1,1
+quiet,,remove,not a discrete emotion,1,1
+rage,rage,keep,kept as supplied; no clear non-emotion rule matched,1,1
+realistic,,remove,not a discrete emotion,1,1
+realization,realization,keep,kept as supplied; no clear non-emotion rule matched,1,1
+rebellious,rebelliousness,map,adjective variant of rebelliousness,1,1
+regret,regret,keep,kept as supplied; no clear non-emotion rule matched,1,1
+relaxation,relaxation,map,canonical noun form,2,2
+relaxed,relaxation,map,adjective variant of relaxation,6,6
+reliable,,remove,not a discrete emotion,1,1
+relief,relief,keep,kept as supplied; no clear non-emotion rule matched,5,5
+remorse,remorse,keep,kept as supplied; no clear non-emotion rule matched,1,1
+reproach,reproach,keep,kept as supplied; no clear non-emotion rule matched,2,2
+resentment,resentment,keep,kept as supplied; no clear non-emotion rule matched,5,5
+reverence,reverence,keep,kept as supplied; no clear non-emotion rule matched,1,1
+rhythmic,,remove,not a discrete emotion,1,1
+romance,romance,keep,kept as supplied; no clear non-emotion rule matched,1,1
+romantic love,love,map,love with relationship qualifier,1,1
+sad,sadness,map,adjective variant of sadness,11,11
+sadness,sadness,keep,kept as supplied; no clear non-emotion rule matched,29,29
+satisfaction,satisfaction,keep,kept as supplied; no clear non-emotion rule matched,8,8
+satisfied,satisfaction,map,adjective variant of satisfaction,1,1
+schadenfreude,schadenfreude,keep,kept as supplied; no clear non-emotion rule matched,1,1
+security,security,keep,kept as supplied; no clear non-emotion rule matched,1,1
+self-assurance,confidence,map,near-synonym of confidence,1,1
+self-consciousness,self-consciousness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+sentimental,sentimentality,map,adjective variant of sentimentality,1,1
+serious,,remove,not a discrete emotion,1,1
+shame,shame,keep,kept as supplied; no clear non-emotion rule matched,8,8
+shock,shock,keep,kept as supplied; no clear non-emotion rule matched,1,1
+shy,shyness,map,adjective variant of shyness,1,1
+shyness,shyness,keep,kept as supplied; no clear non-emotion rule matched,1,1
+simple,,remove,not a discrete emotion,1,1
+simplicity,,remove,not a discrete emotion,1,1
+situational interest,situational interest,keep,kept as supplied; no clear non-emotion rule matched,1,1
+sleepy,,remove,not a discrete emotion,1,1
+smiling,,remove,observable behavior rather than an emotion,2,2
+soothing,,remove,not a discrete emotion,1,1
+sophistication,,remove,not a discrete emotion,1,1
+sorrow/sadness/grief,sadness,map,slash-separated sadness synonyms,1,1
+state anxiety,anxiety,map,anxiety with context qualifier,1,1
+stress,stress,keep,kept as supplied; no clear non-emotion rule matched,7,7
+stressed,stress,map,adjective variant of stress,1,1
+stressful,stress,map,adjective variant of stress,1,1
+strong,,remove,not a discrete emotion,1,1
+surprise,surprise,keep,kept as supplied; no clear non-emotion rule matched,26,26
+surprised,surprise,map,adjective variant of surprise,5,5
+symmetry,,remove,not a discrete emotion,1,1
+sympathy,sympathy,keep,kept as supplied; no clear non-emotion rule matched,1,1
+tension,tension,map,canonical noun form,2,2
+thinking,,remove,not a discrete emotion,1,1
+thrilled,excitement,map,adjective variant of excitement,1,1
+time consuming,,remove,not a discrete emotion,1,1
+tolerance,tolerance,keep,kept as supplied; no clear non-emotion rule matched,1,1
+touched,touched,keep,kept as supplied; no clear non-emotion rule matched,1,1
+triggered situational interest,triggered situational interest,keep,kept as supplied; no clear non-emotion rule matched,1,1
+triumph,triumph,keep,kept as supplied; no clear non-emotion rule matched,1,1
+trust,trust,keep,kept as supplied; no clear non-emotion rule matched,3,3
+trustable,,remove,not a discrete emotion,1,1
+trustworthiness,,remove,stimulus or person property rather than an emotion,1,1
+uncomfortable,discomfort,map,adjective variant of discomfort,1,1
+unexpected,,remove,not a discrete emotion,1,1
+unfriendly,,remove,not a discrete emotion,1,1
+unhappiness,sadness,map,near-synonym of sadness,1,1
+uniform,,remove,not a discrete emotion,1,1
+unpleasant,,remove,not a discrete emotion,1,1
+unpleasant surprise,surprise,map,surprise with valence qualifier,1,1
+unproductive confusion,confusion,map,confusion with productivity qualifier,1,1
+upset,distress,map,near-synonym of distress,1,1
+user friendly,,remove,not a discrete emotion,1,1
+valence,,remove,affective dimension rather than a discrete emotion,8,8
+vigorous,vigor,map,adjective variant of vigor,1,1
+warm,,remove,not a discrete emotion,1,1
+weakly negative,,remove,broad valence category rather than a discrete emotion,1,1
+weakly positive,,remove,broad valence category rather than a discrete emotion,1,1
+well-being,,remove,broad wellbeing construct rather than a discrete emotion,1,1
+wide awake,,remove,not a discrete emotion,1,1

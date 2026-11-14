@@ -1,0 +1,515 @@
+                                                                                                                                                                        ,QMHFWLQJ$IIHFWLYH&RPSXWLQJLQWR2QOLQH9LUWXDO
+                                                                                                                                                                                  7UDLQLQJ7KURXJK)36*DPHV
+
+
+
+
+2020 IEEE International Conference on Progress in Informatics and Computing (PIC) | 978-1-7281-7086-2/20/$31.00 ©2020 IEEE | DOI: 10.1109/PIC50277.2020.9350814
+                                                                                                                                                                                                               .DL\X'DL ;LQ:DQJ'DL[LQ'DL 5XL=KDQJ
+                                                                                                                                                                                                                            ν
+
+
+
+                                                                                                                                                                         1. National Demonstration Center for Experimental Computer Education, School of Computer Science, Fudan University, Shanghai,China
+                                                                                                                                                                                                                 2. MSE Graduate of Fudan University, Shanghai, China
+                                                                                                                                                                                                   3. College of Architecture and Urban planning, Tongji University, Shanghai, China
+                                                                                                                                                                        4. National Demonstration Center for Experimental Computer Education, School of Computer Science, Fudan University, Shanghai ,China
+                                                                                                                                                                                     N\GDL#IXGDQHGXFQZDQJ[LQGR]LHU#VKHQJTXJDPHVFRP#WRQJMLHGXFQ]KDQJUXL#IXGDQHGXFQ
+                                                                                                                                                                                                                          *corresponding author
+                                                                                                                                                                  
+                                                                                                                                                                      Abstract²7KHRQOLQH)36 )LUVW3HUVRQ6KRRWHU JDPHVDUHQRW                SURSRVHG E\ 5 3OXWFKLN >@ UXOHEDVHG PRGHO SURSRVHG E\
+                                                                                                                                                                  RQO\ ZLGHO\ XVHG LQ HQWHUWDLQPHQW EXW DOVR LQ VHULRXV JDPH            +LURKLGH8VKLGD6DOW 3HSSHUPRGHOSURSRVHGE\%RWHOKRHWF
+                                                                                                                                                                  VFHQDULRV VXFK DV PLOLWDU\ WUDLQLQJ ,Q )36 JDPHV $, LV XVXDOO\
+                                                                                                                                                                  XWLOL]HG WR EXLOG 13& 1RQ3OD\HU &KDUDFWHU  VXFK DV LPDJLQDU\                ,QWKHILHOGRIJDPHGHVLJQWKHEHOLHYDEOHDJHQWVDUHXVXDOO\
+                                                                                                                                                                  UROHVRIWHDPPDWHVRUHQHPLHV,QRUGHUWRSURYLGHXVHUVZLWKPRUH              FRQVWUXFWHGLQWKHIRUPRIEURDGDJHQW,QWKHDIIHFWLYHLPSDFW
+                                                                                                                                                                  FUHGLEOHDQGLQWHOOLJHQW$,WKHUHE\HQKDQFLQJWKHUHDOLVPRIWKH               EDVHGGHFLVLRQPRGHOSURSRVHGE\0DUF6SUDUDJHQDQG$]DG0
+                                                                                                                                                                  VLPXODWLRQ WKLV SDSHU DGGV DIIHFWLYH FRPSXWLQJ WR WKH DUWLILFLDO       0DGQLWKH$,LQWKHJDPHLVUHDOL]HGLQWKHIRUPRIDQDJHQW
+                                                                                                                                                                  LQWHOOLJHQFHV\VWHPRIWKHRQOLQHQHWZRUNHG)36JDPH³*ORULRXV                  7KH%D\HVLDQDIIHFWLRQPRGHOSURSRVHGE\&HOVRHWDORIWKH
+                                                                                                                                                                  0LVVLRQ2QOLQH´)LUVWLWLPSURYHGDKLHUDUFKLFDO2&&DIIHFWLYH                8QLYHUVLW\RI6RXWKHUQ&DOLIRUQLDUHIOHFWVWKHGHFLVLRQPDNLQJ
+                                                                                                                                                                  PRGHO>@DQGLQWHJUDWHGLWLQWRWKHRULJLQDOV\VWHPWRGULYH$,WR              HIIHFW RI HPRWLRQ RQ WKH DJHQW JURXS >@ ,Q JHQHUDO WKH $,
+                                                                                                                                                                  FRQWURO WKH GHFLVLRQPDNLQJ DQG EHKDYLRU RI WKH UROH WKURXJK            GULYHQ 13& ZLWK DIIHFWLYH FRPSXWLQJ LV PRUH FUHGLEOH DQG
+                                                                                                                                                                  DIIHFWLYH IDFWRUV )LQDOO\ WKH GHVLJQ DQG LPSOHPHQWDWLRQ RI WKH        LQWHOOLJHQWZKLFKHQKDQFHVWKHUHDOLVPRIWKHVFHQHVLPXODWLRQ
+                                                                                                                                                                  SURWRW\SHV\VWHPLQ8QUHDO(QJLQHDUHJLYHQDQGDFWXDOXVHUWHVW               DQGLPSURYHVXVHUH[SHULHQFH
+                                                                                                                                                                  GDWDDUHJLYHQ7KHUHVXOWVSURYHWKDWWKHV\VWHPKDVDJRRGHIIHFW
+                                                                                                                                                                  RQHQKDQFLQJXVHUH[SHULHQFH                                                       Glorious Mission Online LV &KLQD¶V ILUVW )36 JDPH ZLWK
+                                                                                                                                                                                                                                                   LQGHSHQGHQW LQWHOOHFWXDO SURSHUW\ ULJKWV WKDW LV ZLGHO\ XVHG LQ
+                                                                                                                                                                    Keywords²Affective Computing, Online Virtual Training, FPS                     HGXFDWLRQDQGWUDLQLQJVXFKDVPLOLWDU\WKHRU\ OHDUQLQJ,QWKH
+                                                                                                                                                                  Games, OCC Affective Model                                                       WKH SHUVRQDO WUDLQLQJ DQG WKH 39( 3OD\HU 96 (QYLURQPHQW 
+                                                                                                                                                                                                                                                   PRGH WKH XVHU¶V HQHPLHV DQG WHDPPDWHV DUH UHDOL]HG WKURXJK
+                                                                                                                                                                                                                                                   $,FRQWUROOHG13&%DVHGRQWKHGlorious Mission OnlineWKLV
+                                                                                                                                                                                                                                                   SDSHU LPSURYHG WKH KLHUDUFKLFDO 2&& DIIHFWLYH PRGHO
+                                                                                                                                                                                           , ,1752'8&7,21                                      GLIIHUHQWLDWHV WKH HPRWLRQ FODVVLILFDWLRQ LQWHQVLW\ DQG
+                                                                                                                                                                       ,QRQOLQHJDPHVDUWLILFLDOLQWHOOLJHQFHWHFKQRORJ\LVZLGHO\              DWWHQXDWLRQ KLHUDUFKLFDOO\ DQG GHVLJQV DQ DIIHFWLYH V\VWHP
+                                                                                                                                                                  XVHGWRGULYHWKH13& 1RQ3OD\HU&KDUDFWHUV WRLPSURYHWKH                    ZKLFK LV VXLWDEOH IRU UXQQLQJ LQ DQ RQOLQH JDPH HQYLURQPHQW
+                                                                                                                                                                  UHDOLVP RI VLPXODWLRQ 2QOLQH JDPHV DUH QRW RQO\ IRU                    LQFOXGLQJ IXQFWLRQDO PRGXOHV VXFK DV HPRWLRQ JHQHUDWLRQ
+                                                                                                                                                                  HQWHUWDLQPHQW EXW DOVR IRU HGXFDWLRQDO DQG PLOLWDU\ WUDLQLQJ            HPRWLRQ IORZ SURFHVVLQJ DQG DIIHFWLYH PHPRU\ VWRUDJH
+                                                                                                                                                                  VFHQDULRVZLWKWKHDGYDQWDJHVRIDWWUDFWLYHJDPLILFDWLRQGHVLJQ               FRPELQHG ZLWK WKH H[LVWLQJ PRGXOHV RI WKH JDPH UHDOL]H WKH
+                                                                                                                                                                  ,Q WKHVH VFHQDULRV VLPXODWLQJ KXPDQ HPRWLRQV LV WKH NH\ WR            GULYLQJ RI GHFLVLRQPDNLQJ DQG EHKDYLRU EDVHG RQ DIIHFWLYH
+                                                                                                                                                                  HQKDQFLQJLQWHOOLJHQFHDQGLPSURYLQJXVHUH[SHULHQFH                           IDFWRUVVXSSOHPHQWHGE\VRXQGH[SUHVVLRQVDQGRWKHUPHDQV
+                                                                                                                                                                                                                                                   )LQDOO\ D SURWRW\SH ZDV GHVLJQHG DQG LPSOHPHQWHG EDVHG RQ
+                                                                                                                                                                      3URIHVVRU3LFDUGRIWKH8QLWHG6WDWHVILUVWSURSRVHGWKHWHUP              8QUHDO(QJLQHZKLFKDFKLHYHGJRRGUHVXOWV
+                                                                                                                                                                  DIIHFWLYH FRPSXWLQJ DQG GHILQHGWKDW DIIHFWLYH FRPSXWLQJ LV
+                                                                                                                                                                  UHODWHGWRDIIHFWLRQGHULYHGIURPHPRWLRQVRUFDOFXODWLRQVWKDW                    
+                                                                                                                                                                  FDQDIIHFWHPRWLRQV7KHDIIHFWLYHFRPSXWLQJLVFRQVLGHUHGDQ
+                                                                                                                                                                  DGYDQFHGVWDJHRIDUWLILFLDOLQWHOOLJHQFHUHVHDUFKDQGRQHRIWKH                     ,, &216758&7,212)/2&&$))(&7,9(02'(/
+                                                                                                                                                                  QH[W LPSRUWDQW EUHDNWKURXJK GHYHORSPHQW ILHOG RI DUWLILFLDO                   $FFRUGLQJWRWKHFKDUDFWHULVWLFVRIRQOLQH)36JDPHVVXFK
+                                                                                                                                                                  LQWHOOLJHQFH-DSDQKDVEHHQVWXG\LQJ.DQVHL(QJLQHHULQJVLQFH                  DVWKHQHHGIRUDIIHFWLYHFRPSXWLQJZLWKUHDOWLPHSHUIRUPDQFH
+                                                                                                                                                                  WKHV7KH+XPDQ%UDLQ3URMHFW +%3 >@SURPRWHGE\WKH                    DQGWKHVWUXFWXUHRIWKHRULJLQDO$,V\VWHPRIGlorious Mission
+                                                                                                                                                                  (XURSHDQ&RPPLVVLRQ (& )XWXUH(PHUJLQJ7HFKQRORJ\ )(7                        Online WDNLQJ WKH DIIHFWLYH FRPSXWLQJ FKDUDFWHULVWLFV RI
+                                                                                                                                                                  SURJUDPLVDPXOWLGLVFLSOLQDU\JLDQWVFLHQWLILFUHVHDUFKSURMHFW                GLIIHUHQW$,VLQWRDFFRXQWˈWKHSDSHULPSURYHG2&&DIIHFWLYH
+                                                                                                                                                                  ZKRVH JRDO LV WR DOORZ PDFKLQHV WR VLPXODWH DQG XQGHUVWDQG             PRGHODQGHVWDEOLVKHG/2&& /D\HUHG2&& DIIHFWLYHPRGHO
+                                                                                                                                                                  KXPDQHPRWLRQV,QWHUPVRIDIIHFWLYHPRGHOVWKHUHDUH0DUF
+                                                                                                                                                                  6SUDUDJHQ DQG $]DG 0 0DGQL V GHFLVLRQ PRGHO EDVHG RQ                   A. Introduction to the OCC affection model
+                                                                                                                                                                  HPRWLRQ LQIOXHQFH >@ 2&& DIIHFWLYH PRGHOV >@ (NPDQ¶V                     7KH 2&& DIIHFWLYH PRGHO ZDV SURSRVHGE\ 2UWRQ\ &ORUH
+                                                                                                                                                                  HPRWLRQ FODVVLILFDWLRQ PRGHOV WKH +00 PRGHOV EDVHG RQ                   DQG&ROOLQVLQDQGLVWKHHDUOLVWDIIHFWLYHPRGHOSURSRVHG
+                                                                                                                                                                  +LGGHQ 0DUNRY >@ WKH WKUHHGLPHQVLRQDO DIIHFWLYH PRGHO                  IRUFRPSXWHULPSOHPHQWDWLRQ7KHPRGHOGLYLGHVWKHDIIHFWLYH
+                                                                                                                                                                        ,(((
+
+
+
+
+                                                                                                                                                                                                                                             236
+                                                                                                                                                                         Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+VWLPXOL LQWR WKUHH FDWHJRULHV WKH UHVXOW RI WKH HYHQW WKH                          )LUVWO\ WKLV SDSHU IROORZV WKH 2&($1 ILYHFDWHJRU\
+LQGLYLGXDO VDFWLRQVDQGWKHSHUFHSWLRQRIWKHREMHFWZLWKDWRWDO                     SHUVRQDOLW\ SUHIHUHQFH PRGHO WR DFKLHYH SHUVRQDOL]HG
+RIVSHFLILFW\SHVRIDIIHFWLRQVDQGDOVRGHILQHVWKHLQWHQVLW\                       FODVVLILFDWLRQZKLFKLPSURYHVWKHODFNRIQRQFRJQLWLYHIDFWRUV
+RI WKH DIIHFWLRQ WKH 2&& DIIHFWLYH PRGHO LV EDVHG RQ WKH                      RI WKH 2&& DIIHFWLYH PRGHO ,Q WKH 2= SURMHFW RI &DUQHJLH
+JHQHUDWLYH UHDVRQLQJ UXOHV ZKLFK FDQ VLPXODWH WKH DIIHFWLRQ                      0HOORQ 8QLYHUVLW\ >@>@ /R\DOO HW DO JDYH D SHUVRQDOL]HG
+JHQHUDWLRQ SURFHVV WKURXJK FRPSXWHU SURJUDPV DQG FDQ                              FODVVLILFDWLRQ RI WKH 2&($1 ILYH FDWHJRULHV RI SHUVRQDOLW\
+GHVFULEHWKHLQIOXHQFHRIRQHDIIHFWLRQRQDQRWKHUVRWKDWWKH                          SUHIHUHQFHPRGHOVDVVKRZQLQWKHIROORZLQJILJXUH
+DIIHFWLRQ FDQ KDYH D FRQVLVWHQW FRJQLWLYH VWUXFWXUH 8QGHU WKH
+LQIOXHQFHRIWKHVDPHHQYLURQPHQWDOVWLPXOLWKHILQDODIIHFWLRQ
+FDQEHJXDUDQWHHGWREHFRQVLVWHQW+RZHYHUWKH2&&PRGHO
+GRHV QRW PHQWLRQ WKH LQIOXHQFH RI QRQFRJQLWLYH IDFWRUV RQ
+DIIHFWLRQWKXVWKHPRGHOQHHGVWREHLPSURYHGFRQVLGHULQJQRQ
+FRJQLWLYHIDFWRUVLQSUDFWLFDODSSOLFDWLRQV
+    ,QDGGLWLRQWKHDIIHFWLYHFODVVLILFDWLRQRIWKH2&&PRGHOLV
+VXLWDEOH IRU DQDO\]LQJ VWDWLF DIIHFWLRQV )RU D FHUWDLQ PRPHQW                   )LJ 2&($1ILYHSHUVRQDOLW\SUHIHUHQFHV
+ZKHQDQHYHQWRFFXUVLWLVGLIILFXOWWRXVHWKH2&&PRGHO WR
+DQDO\]H DQG UHIOHFW WKH DIIHFWLYH VWDWH WKH SURFHVV RI WKH                         7KLV SDSHU XVHV WKH RSHQQHVV FRQVFLHQWLRXVQHVV
+DIIHFWLRQFKDQJLQJWKHWKUHVKROGUHTXLUHGIRUFKDQJHDQGWKH                           H[WUDYHUVLRQDJUHHDEOHQHVVDQGQHXURWLFLVPRI2&($1 V%LJ
+FRQWH[WXDOUHODWLRQVKLSRIHPRWLRQV$QRWKHUZHDNQHVVRI2&&                             )LYH 3HUVRQDOLW\ 0RGHO WRGLYLGH WKH SHUVRQDOLW\ VWUHQJWKLQWR
+PRGHO LV WKDW LW RQO\ FODVVLILHV DIIHFWLRQV EXW QRW REMHFWV                    ILYHW\SHV
+VWLPXODWHG E\ HPRWLRQV ,Q KXPDQ VRFLHW\ GLIIHUHQW FRXQWULHV
+DQG UHJLRQV GLIIHUHQW JURZWK HQYLURQPHQWV DQG RWKHU IDFWRUV                                                  ‫ ܫ‬ൌ ሾ௢ ǡ ௖ ǡ ௘ ǡ ௔ ǡ ݅௡ ሿ                        
+KDYHFDXVHGDYDULHW\RIDIIHFWLYHUHVSRQVHVWKXVHYHQXQGHU
+WKH VDPH DIIHFWLYH VWLPXODWLRQ FRQGLWLRQV WKH VDPH DIIHFWLYH                         :KHUH௢ ǡ ௖ ǡ ௘ ǡ ௔ ݅௡ UHSUHVHQW WKH SHUIRUPDQFH ELDV RI
+UHVXOWVPD\QRWQHFHVVDULO\EHSURGXFHG                                                 WKH ILYH IDFWRUV UHVSHFWLYHO\ 3DUDPHWHU µD¶ LV XVHG DV WKH
+    6RPHLPSURYHPHQWVWRWKH2&&DIIHFWLYHPRGHOKDYHEHHQ                               LQWHQVLW\IDFWRURIWKHSHUVRQDOL]HGLQIOXHQFHDQGWKHGHJUHHRI
+SURSRVHG)RUH[DPSOHDQLPSURYHG2&&DIIHFWLYHPRGHOWKDW                              LQIOXHQFH RI WKH SHUVRQDOL]HG GLVWLQFWLRQ RQ WKH FXUUHQW
+FDQEHWWHUXQGHUVWDQGKXPDQDIIHFWLRQZDVSURSRVHGLQE\                            FDOFXODWLRQFDQEHFRQWUROOHGE\DGMXVWLQJWKHYDOXHRID7KH
+<DVPLQ+HPPKQGH]-XOLHWD1RJXH](QULTXH6XFDUHWDO7KH\                              ILQDO FDOFXODWLRQ UHVXOW YDOXH ZLOO DIIHFW WKH HPRWLRQ
+FRPELQHGWKH2&&DIIHFWLYHPRGHOZLWKWKHG\QDPLFGHFLVLRQ                               FODVVLILFDWLRQUXOHVDQGWKHHPRWLRQFKDQJHWKUHVKROG
+QHWZRUN DQG WKHQ DSSOLHG LW WR WKH LQWHOOLJHQW WXWRULQJ V\VWHP                      $FFRUGLQJ WR 2&($1 SHUVRQDOLW\ WKH HPRWLRQ FDQ EH
+ ,76 RIPRELOHURERWV>@EXWWKLVLPSURYHGPRGHOVWLOOGRVH                          GLYLGHG LQWR VHYHUDO FRPPRQ W\SHV )RU WKHVH GLIIHUHQW
+QRW FRQVLGHU WKH LPSDFW RI QRQFRJQLWLYH IDFWRUV ,Q DGGLWLRQ                   LQGLYLGXDOVWKH2&&DIIHFWLYHFDWHJRU\LVGLYLGHGLQWRSRVLWLYH
+VRPHUHVHDUFKHUVKDYHSURSRVHGDSHUVRQDOL]HG2&&DIIHFWLYH                              HPRWLRQ DQG QHJDWLYH HPRWLRQ DQG WKH GLIIHUHQW HPRWLRQV
+PRGHO LPSURYHPHQW GHVLJQ >@ 7KH GHVLJQ LV EDVHG RQ WKH                       EHORQJLQJWRGLIIHUHQWYHFWRUVDUHGHILQHG7KHW\SHVDIIHFWHGE\
+PXOWLOD\HUHG DIIHFWLYH PRGHO RI FKDUDFWHUPRRGDIIHFWLRQ                           HDFK IDFWRU DUH DOVR GLIIHUHQW :KHQ ,[ RI D FHUWDLQ IDFWRU LV
+H[SUHVVLRQ SURSRVHG E\ .VKLUVDJDU 6 ZKLFK WDNHV WKH                             JUHDWHUWKDQWKHGLVWULEXWLRQRIWKHHPRWLRQW\SHVRIWKH
+SHUVRQDOL]HGIDFWRUVLQWRDFFRXQWDQGHVWDEOLVKHGDSHUVRQDOL]HG                        /2&&PRGHOLVDVIROORZV
+DIIHFWLYH PRGHO EDVHG RQ LQWHQVLW\ LW FRPSHQVDWHV IRU
+LQVXIILFLHQWFRQVLGHUDWLRQVRIQRQFRJQLWLYHIDFWRUV                                          7$%/(,,        ',675,%87,212)6(17,0(177<3(6:+(1,;!
+B. Constructing L-OCC emotion model                                                            3HUVRQDOL]DWLRQ
+                                                                                                                         3RVLWLYHHPRWLRQ               1HJDWLYHHPRWLRQ
+                                                                                                   IDFWRU
+    $LPLQJ DW WKH VKRUWFRPLQJV RI WKH 2&& DIIHFWLYH PRGHO                                                    KDSS\VDWLVILHGSURXG
+DSSOLHG WR RQOLQH )36 JDPHV WKLV SDSHU SURSRVHV WR EXLOG D                        ,R2SHQQHVV                                           GLVDSSRLQWHGGLVOLNH
+                                                                                                                      OLNH
+KLHUDUFKLFDO2&&HPRWLRQPRGHO /D\HUHG2&&DEEUHYLDWHG/                                    ,F
+                                                                                                                      FRQIHVVLRQVKDPHSLW\       KDSS\
+2&& ZKLFKFDUULHVRXWDKLHUDUFKLFDOFRQVWUXFWLRQLQWHUPVRI                              &RQVFLHQWLRXVQHVV
+SHUVRQDOL]DWLRQ DIIHFWLRQ W\SH DIIHFWLYH VWLPXODWLRQ LQWHQVLW\                                                HDV\         VDWLVILHG
+                                                                                              ,H([WUDYHUVLRQ                                       VK\
+DQGWLPH$VVKRZQLQWKHIROORZLQJWDEOH                                                                           FRPSODFHQW
+                                                                                                                      HQY\ JUDWLWXGH KRSH
+                                                                                              ,D$JUHHDEOHQHVV                                      JULHI
+                                                                                                                      ORYH
+    7$%/(,        ',6$'9$17$*(6$1',03529(0(1762)7+(2&&
+                            $))(&7,9(02'(/                                                  ,Q1HXURWLFLVP         DQJU\IHDU                   IHDUUHVHQWPHQW
+                                                                                                
+  'LVDGYDQWDJHVRIWKH2&&
+                                                 ,PSURYHG0HWKRG
+       DIIHFWLYHPRGHO                                                                       7KHHPRWLRQDOFKDQJHWKUHVKROG>@PHDQVWKDWZKHQWKH
+  6WDWLF DIIHFWLYH FODVVLILFDWLRQ    $GG DIIHFWLYH LQWHQVLW\ DIIHFWLYH           LQWHQVLW\ RI WKH HPRWLRQ UHDFKHV RU H[FHHGV WKLV YDOXH WKH
+  QRFKDQJH                            WKUHVKROG
+  7KH DIIHFWLYH VWDWH ZLOO QRW      6HOIDWWHQXDWLRQZLWKRXWVWLPXODWLRQ
+                                                                                          HPRWLRQ ZLOO EH DFWLYDWHG DQG WKH LQGLYLGXDO ZLOO VKRZ WKLV
+  ZHDNHQ                                                                                HPRWLRQDOVWDWH7KHJUHDWHUWKHHPRWLRQDODFWLYDWLRQWKUHVKROG
+  'LG QRW FRQVLGHU WKH LPSDFW RI   ,QFUHDVH WKH SHUVRQDOL]DWLRQ RI WKH         WKHPRUHVWDEOHDQGORQJWHUPWKHHPRWLRQLVRWKHUZLVHLWPHDQV
+  QRQFRJQLWLYHIDFWRUV                 %LJ)LYHSHUVRQDOLW\                            WKDW LW LV HDV\ WR FKDQJH ,WV YDOXH YDULHV DFFRUGLQJ WR WKH
+  $IIHFWLYHPRGHOLVLQDIODWVWDWH    +LHUDUFKLFDODIIHFWLYHPRGHO
+
+
+
+
+                                                                                    237
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+LQGLYLGXDOL]DWLRQ WKH VDPH DV VHQWLPHQW FODVVLILFDWLRQ $V                 LPSOHPHQWV ODUJHVFDOH $, IXQFWLRQV WKH FRQFXUUHQF\ LV QRW
+VKRZQLQWKHIROORZLQJILJXUH                                                   JRRGDQGLWLVGLIILFXOWWRH[SDQG$OWKRXJKWKH%HKDYLRU7UHHLV
+                                                                                   PRUH FRPSOH[ WKH SURFHVV LV EHWWHU FRQWUROOHG 7KH VRIWZDUH
+                                                                                  0LQG0DQDJHULVXVHGWRGHVLJQWKHQRGHRIWKH EHKDYLRUWUHH
+                                                                                   DQG WKHQ WKH IXQFWLRQ FRGH RI HDFK QRGH FDQ EH UHDOL]HG DQG
+                                                                                   ILQDOO\ WKH 00$3 GHVLJQ ILOH FDQ EH FRQYHUWHG LQWR /8$
+                                                                                   H[HFXWLRQFRGHWKURXJKFRGHWRROWKXVYLVXDOO\UHDOL]HWKH$,
+                                                                                   EHKDYLRUWUHH
+
+
+
+
+                                                                        
+)LJ 7KUHVKROGVIRUGLIIHUHQWNLQGVRIHPRWLRQV
+
+     ,QWKHDEVHQFHRIH[WHUQDOVWLPXOLDIIHFWLYHLQWHQVLW\QHHGV
+WR GHFD\ RYHU WLPH 7KLV GHFD\ LV VLPLODU WR WKH H[SRQHQWLDO
+IXQFWLRQܻ ൌ ݁ ି௑ ,QWKH/2&&HPRWLRQPRGHO;LVHTXDOWR
+$ WW $LVWKHDWWHQXDWLRQFRHIILFLHQWZKLFKYDULHVDFFRUGLQJ                )LJ %HKDYLRU7UHHRIWKH6ROGLHU7\SH$,RIGlorious Mission Online
+WR WKH LQGLYLGXDOL]DWLRQ WW LV WKH GXUDWLRQ ZLWKRXW H[WHUQDO
+VWLPXOL$VVKRZQEHORZ                                                             7KHSDSHULPSURYHVWKHIXQFWLRQVRIWKHRULJLQDO$,V\VWHP
+                                                                                   UHWDLQVWKHRULJLQDODXWRQRPRXV$,H[SDQGVWKHIROORZLQJ$,
+                                                                                   DQGDGGLQJDQHZW\SHRI$,WRSURYLGHHIIHFW$XWRQRPRXV$,
+                                                                                   LQFOXGHVDOOWKHIXQFWLRQVVXFKDVORJLFDOMXGJPHQWEHKDYLRUDO
+                                                                                   HIIHFW DIIHFWLYH FRPSXWLQJ DQG HIIHFW $XWRQRPRXV $, ZLOO
+                                                                                   VKDUHDIIHFWLYHPHPRULHV7KHUHDUHDODUJHQXPEHURIIROORZLQJ
+                                                                                   $,VXVLQJVLPSOLILHGYHUVLRQVRIORJLFDOIXQFWLRQVEHKDYLRUDO
+                                                                                   HIIHFWDQGHPRWLRQDOHIIHFW,QVWHDGRIFDOFXODWLQJWKHHPRWLRQV
+                                                                                   IROORZLQJ $,V GLUHFWO\ UHDG WKH DIIHFWLYH UHVXOWV JLYHQ E\ WKH
+                                                                                   DXWRQRPRXV$,VWKHUHE\DFFHOHUDWHWKHDIIHFWLYHFDOFXODWLRQLQ
+                                                                                   WKHQHWZRUNHQYLURQPHQW7KHHIIHFWW\SHRI$,RQO\UHWDLQVWKH
+                                                                                   IXQFWLRQVRIEHKDYLRUDODQGHPRWLRQDOHIIHFWZKLFKDUHXVHGWR
+                                                                                   KLJKOLJKWWKHDWPRVSKHUHRIEDWWOHILHOGDQGRQO\UHDGFRQWHQWRI
+                                                                                   WKHPHPRU\PRGXOHLQWKHDIIHFWLYHV\VWHP
+
+)LJ 6HOIGHFD\FKDUDFWHULVWLFVRIHPRWLRQDOLQWHQVLW\
+
+    7KHIRUPXODIRUFDOFXODWLQJHPRWLRQDOLQWHQVLW\LV
+
+                            ܻൌ       ൉ ݁ ି஺ሺ୲ି୲଴ሻ                         
+
+    :KHUH<LVWKHHPRWLRQDOLQWHQVLW\DIWHUWWLPHKDVHODSVHG
+) UHSUHVHQWV WKH LQLWLDO HPRWLRQDO LQWHQVLW\ DQG ) LV DOZD\V
+JUHDWHU WKDQ RU HTXDO WR WKH HPRWLRQDO FKDQJH WKUHVKROG RI
+HPRWLRQDO<                                                                      )LJ $,W\SHGLYLVLRQRIGlorious Mission Online
+    
+                                                                                       7KH DIIHFWLYH V\VWHP PDLQO\ LQFOXGHV WKUHH SDUWV HPRWLRQ
+     ,,, $'',1*$))(&7,21727+(25,*,1$/$,6<67(0                             JHQHUDWLRQ FDOFXODWLRQ DQG VWRUDJH DQG LV UHVSRQVLEOH IRU
+A. Overall design of the affective system                                          SURYLGLQJ LQWHUIDFH FDOOV VR WKDW RWKHU VXEV\VWHPV FDQ REWDLQ
+                                                                                   HPRWLRQDOGDWD7KHIXQFWLRQRIWKHQHWZRUNPRGXOHLVPDLQO\
+   ,Q WKH SHUVRQDO WUDLQLQJ RU 39( 3OD\HU 96 (QYLURQPHQW                  UHVSRQVLEOH IRU VWRULQJ WKH DIIHFWLYH PHPRU\ RI WKH $, DQG
+PRGH RI Glorious Mission Online WKH XVHU¶V HQHPLHV DQG                     REWDLQLQJWKHFRQWH[WXDOGDWDRIWKH$,HPRWLRQ2WKHUV\VWHPV
+WHDPPDWHVDUHUHDOL]HGWKURXJKFRPSXWHUFRQWUROOHG$,DQGWKH                    DQG WKH DIIHFWLYH V\VWHP DUH PDLQO\ FRQQHFWHG WKURXJK
+PXOWLGLUHFWLRQDORSWLPL]DWLRQDQGLPSURYHPHQWDUHFDUULHGRXW                    LQWHUIDFHVVXFKDVHPRWLRQJHQHUDWLRQDQGGDWDWUDQVPLVVLRQWR
+XQGHU WKH QHWZRUN HQYLURQPHQW 7KH EHKDYLRUDO GHFLVLRQ                      JHQHUDWH GLIIHUHQW JDPH H[SHULHQFHV DQG HIIHFWV 7KURXJK WKH
+PDNLQJ IXQFWLRQ DEDQGRQV WKH WUDGLWLRQDO )LQLWHVWDWH PDFKLQH               OLQNDJH RI YDULRXV V\VWHPV WKH DIIHFWLYH V\VWHP LV LQWHJUDWHG
+ )60 EXWXVHVWKH%HKDYLRU7UHHWHFKQRORJ\>@:KHQ)60                        LQWR WKH RULJLQDO JDPH V\VWHP (YHQWXDOO\ WKH JDPH HYHQWV
+
+
+
+
+                                                                             238
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+WULJJHUHG E\ WKH JDPH HQYLURQPHQW DUH IHG EDFN WR YDULRXV                  UHIHUVWRWKHHPRWLRQDOLQWHQVLW\<RIDFHUWDLQHPRWLRQLVJUHDWHU
+V\VWHPV EDVHG RQ WKH UHVXOWV RI HPRWLRQ JHQHUDWLRQ DQG                      WKDQ KDOI RI WKH HPRWLRQ LQWHQVLW\ WKUHVKROG DQG OHVV WKDQ WKH
+SURFHVVLQJ$VVKRZQEHORZ                                                         HPRWLRQDOFKDQJHWKUHVKROGR
+
+                                                                                                                         ͳǡ ൒ 
+                                                                                                                ‫ܧ‬௦ ൌ ቊ        ଵ                                   
+                                                                                                                       Ͳǡ ܴ ൏ ܻ ൏ ܴ
+                                                                                                                                 ଶ
+
+                                                                                         ,QWKHDERYHIRUPXOD(VLVDQGRPLQDQWYDOXHRIHPRWLRQ
+                                                                                     DQGZKHQLWLVHTXDOWRLWUHSUHVHQWVDGRPLQDQWHPRWLRQ7KH
+                                                                                     LQLWLDOYDOXHRIH[SOLFLWHPRWLRQLQWHQVLW\LVHTXDOWRWKHHPRWLRQ
+                                                                                     FKDQJHWKUHVKROG5E\GHIDXOW7KHH[SOLFLWHPRWLRQJHQHUDWRU
+                                                                                     ZLOO FDOFXODWH WKLV LQLWLDO YDOXH EDVHG RQ WKH XVHUUHODWHG
+                                                                                     DWWULEXWHVRIWKHJDPHRQWKHVSRW
+                                                                                     
+                                                                                     
+                                                                                           
+                                                                                           
+)LJ 5HDOL]HWKHIXQFWLRQDOUHTXLUHPHQWVRIWKHQHZV\VWHP                      
+    7KHILQDORYHUDOOV\VWHPDUFKLWHFWXUHLVVKRZQLQWKHILJXUH                   )LJ LQLWLDOHPRWLRQJHQHUDWLRQSURFHVV
+EHORZ7KHORJLFDOVWUXFWXUHRIWKHHQWLUHV\VWHPLVGLYLGHGLQWR
+ILYHSDUWVWKHSUHVHQWDWLRQOD\HUWKHH[WHUQDOV\VWHPOD\HUWKH                      ,QWKHJDPH V'UHDP%DFNWR6KDQJKDLVFHQDULREDVHGRQ
+$,V\VWHPOD\HUWKHHPRWLRQDOV\VWHP OD\HUDQGWKHQHWZRUN                       GLIIHUHQW HTXLSPHQW UDWLQJV ZLQORVV UDWLRV DQG RQOLQH WLPH
+LQWHUIDFH7KHSUHVHQWDWLRQOD\HUSURYLGHVWKHXVHUH[SHULHQFH                     GXUDWLRQWKHV\VWHPFDQFDOFXODWHWKHLQLWLDOGLIILFXOW\RIWKH
+([WHUQDOV\VWHPVKDYHDQLPSDFWRQWKHDFWXDOGDWDRIWKHJDPH                     XVHUSOD\HUVLQWKLVURXQGRIWKHJDPHDQGWKHQJLYH$,,QLWLDO
+LQFOXGLQJZHDSRQV\VWHPVVNLOOV\VWHPVFRPERV\VWHPVDQG                         VWDWH RI HPRWLRQ DFFRUGLQJ WR WKH GLIILFXOW\ $V VKRZQ LQ WKH
+UHZDUGV\VWHPV$,V\VWHPDQGHPRWLRQDOV\VWHPDUHWKHFRUH                         IROORZLQJWDEOH,,,
+LPSOHPHQWDWLRQSDUWVRIWKLVSDSHUZKLFKZLOOEHGHWDLOHGODWHU
+                                                                                               7$%/(,,,     ,1,7,$/$))(&7,9(67$7(81'(5',))(5(1786(5
+7KHQHWZRUNLQWHUIDFHOD\HUSURYLGHVIXQFWLRQVIRUWKHHPRWLRQ                                                           $775,%87(6
+JHQHUDWLRQ PRGXOH DQG WKH HPRWLRQ PHPRU\ PRGXOH WR
+PDQLSXODWHQHWZRUNGDWD                                                                 QXPEHURI          HTXLSPHQW              LQLWLDO$,DIIHFWLYHVWDWH
+                                                                                             XVHUV              VWDWXV
+                                                                                         SHRSOH            GHIDXOW       ^ ൌ ሾ௢ ǡ ௖ ǡ ௘ ǡ ௔ ǡ ݅௡ ሿ
+                                                                                                              HTXLSPHQW     ( (0B3528'( (0B3/($6('`
+                                                                                         ±SHRSOH          QRQGHIDXOW   ^ ൌ ሾ௢ ǡ ௖ ǡ ௘ ǡ ௔ ǡ ݅௡ ሿ
+                                                                                                              HTXLSPHQW     ( (0B5(/,()( (0B+$7(`
+                                                                                         SHRSOH            VWURQJ        ^ ൌ ሾ௢ ǡ ௖ ǡ ௘ ǡ ௔ ǡ ݅௡ ሿ
+                                                                                                              HTXLSPHQW     ( (0B)($5( (0B',6/,.(`
+
+                                                                                        ,Q WKH WDEOH , UHSUHVHQWV WKH JHQHUDWHG SHUVRQDOL]HG
+                                                                                     GLVWLQFWLRQ RI WKH $, ( UHSUHVHQWV WKH JHQHUDWHG H[SOLFLW
+                                                                                     HPRWLRQ DQG ( UHSUHVHQWV WKH JHQHUDWHG LPSOLFLW HPRWLRQ
+                                                                                     $IWHUWKHLQLWLDO$,JHQHUDWLRQDQGWKHHPRWLRQFRQVWUXFWLRQDUH
+                                                                                     FRPSOHWHGDIWHUWKHHPRWLRQDOLQWHQVLW\GHFD\SURWHFWLRQWLPH
+                                                                                     DQG WKH ILUVW FRPEDW FRQWDFW WKH QH[W VWHS HQWHUV WKH HPRWLRQ
+                                                                                     SURFHVVLQJSDUW
+                                                                                     C. Emotion processing module
+                                                                           
+                                                                                         7KH HPRWLRQDO SURFHVVLQJ SDUW LV WKH FRUH IXQFWLRQ RI WKH
+)LJ RYHUDOOIUDPHZRUNRIDUWLILFLDOLQWHOOLJHQFHDIIHFWLYHV\VWHP              HQWLUHV\VWHP7KHIXQFWLRQRIWKLVSDUWLQFOXGHVWKHFDOFXODWLRQ
+                                                                                     RI HPRWLRQDO UHVSRQVH GXULQJ WKH EDWWOH PDLQO\ IURP WKH
+B. Emotion Generation module                                                         VWLPXOXV RI WKH H[WHUQDO HQYLURQPHQW DQG VHOIGHFD\ LW
+   (PRWLRQJHQHUDWLRQLVPDLQO\WRFDOFXODWHDQHPRWLRQDOVWDWH                     GLVWULEXWHVWKHFDOFXODWLRQUHVXOWVWRUHOHYDQWVXEVFULEHUVVXFKDV
+DQGPXOWLSOHHPRWLRQDOLQWHQVLW\GDWDIRU$,REMHFWVWKDWGRQRW                    H[WHUQDO V\VWHPV PHPRU\ PRGXOHV HWF $FFRUGLQJ WR WKH
+KDYH DQ\ HPRWLRQDO YDOXH DQG JLYH $, H[SOLFLW DQG LPSOLFLW                IHHGEDFN RI WKH UHFHLYLQJ REMHFW FRUUHVSRQGLQJ RSHUDWLRQ
+HPRWLRQV([SOLFLWHPRWLRQPHDQVWKDWDWWKLVPRPHQWLWFDQEH                     FRPPDQGVDUHVHQWVXFKDVSOD\LQJDQLPDWLRQSOD\LQJVRXQG
+H[SUHVVHG WKURXJK $, EHKDYLRU DQG RWKHU PHDQV DQG WKH                      FKDQJLQJ ZHDSRQV FKDQJLQJ DWWDFN PHWKRGV HWF )LQDOO\ D
+HPRWLRQDO LQWHQVLW\ < RI WKLV HPRWLRQDO VWDWH LV HTXDO WR RU              UHFRUGLVJHQHUDWHGIRUWKHWULJJHUFDOFXODWLRQSURFHVVIHHGEDFN
+JUHDWHU WKDQ WKH HPRWLRQDO FKDQJH WKUHVKROG LPSOLFLW HPRWLRQ
+
+
+
+
+                                                                               239
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+UHVXOWDQGVHQGLQJFRPPDQGDQGVHQWWRWKHHPRWLRQDOPHPRU\
+PRGXOHIRUVWRUDJH
+    7KHGHFLVLYHIDFWRUWKDWFKDQJHVWKHHPRWLRQLVWKHLQWHQVLW\
+YDOXHRIWKHHPRWLRQ7KHHPRWLRQDOVWDWHRIDQHQWLW\LQFOXGHV
+SHUVRQDOL]HG DWWULEXWH , H[SOLFLW HPRWLRQDO SRRO LPSOLFLW
+HPRWLRQDO SRRO DQG LQDFWLYH HPRWLRQDO SRRO $OO HPRWLRQDO
+W\SHVFODVVLILHGE\/2&&DUHGLYLGHGLQWRWKHVHWKUHHHPRWLRQDO
+SRROV 7KH HPRWLRQDO VWDWH UHSUHVHQWV WKH GLYLVLRQ RI DOO
+HPRWLRQVDQGWKHFKDQJHRIHPRWLRQLVWKHSURFHVVRIG\QDPLF
+GLYLVLRQRIEHORQJLQJ:KHQWKHH[SOLFLWHPRWLRQDOSRRODQGWKH
+LPSOLFLW HPRWLRQDO SRRO XQGHUJR HPRWLRQDO FKDQJHV WKH
+HPRWLRQDO FKDQJH HYHQW ZLOO EH VHQW WR WKH FRUUHVSRQGLQJ
+GHFLVLRQPDNLQJV\VWHP%HFDXVHWKHFKDQJHEHWZHHQWKHVHWZR
+SRROVVKRZVWKDWWKHHPRWLRQDOLQWHQVLW\KDVFKDQJHGZLWKLQWKH
+WKUHVKROG UDQJH $QG DFFRUGLQJ WR WKH HPRWLRQV LQ WKH WKUHH                                                                                          
+SRROVLWLVHDV\WRFDOFXODWHWKHGLVWULEXWLRQRISRVLWLYHHPRWLRQV
+                                                                                  )LJ 7KUHHOHYHOHPRWLRQDOPHPRU\VWRUDJHDQGTXHU\
+DQGQHJDWLYHHPRWLRQVDQGLWLVSRVVLEOHWRDQDO\]HZKHWKHUWKH
+FXUUHQW $, LQGLYLGXDO LV ELDVHG WRZDUG D SRVLWLYH VWDWH RU D                  ,9 7+(,03/(0(17$7,212)$))(&7,9(6<67(0
+QHJDWLYHVWDWHZKHWKHULWLVH[FLWHGRUFDOP
+                                                                                  A. Design of affective system related classes
+    7KHSULPDU\IXQFWLRQRISURFHVVLQJ$,HPRWLRQLVWRDQDO\]H
+WKH HPRWLRQDO VWDWH RI WKH FXUUHQW $, REMHFW DQG JHQHUDWH DQ               *ORULRXV0LVVLRQ2QOLQHLVGHYHORSHGXVLQJWKH8( 8QUHDO
+DFWLRQ GHFLVLRQ 7KH IDFWRUV WKDW QHHG WR EH DQDO\]HG LQFOXGH           (QJLQH 8(LVDFRPSOHWHJDPHGHYHORSPHQWIUDPHZRUNEDVHG
+SHUVRQDOL]HGFRQWHQWH[SOLFLWDQGLPSOLFLWHPRWLRQDOVWDWHVDQG               RQ'LUHFW;¶VPXOWLSODWIRUPGHYHORSHGE\(SLF&RUSRUDWLRQRI
+SRVLWLYHDQGQHJDWLYHHPRWLRQDOGLVWULEXWLRQ7KHSULRULW\RI$,                 WKH 8QLWHG 6WDWHV >@ FRQVLVWLQJ RI D VHW RI LQGHSHQGHQWO\
+GHFLVLRQPDNLQJDFWLRQVLVGLVWLQJXLVKHGE\FRPSOHWLQJWKHVHW                   ZRUNLQJ FRPSRQHQWV 7KH LPSOHPHQWDWLRQ RI WKH DUWLILFLDO
+WDVNV $, ILUVW QHHGV WR GHWHUPLQH WKH FRQWHQW RI WKH WDUJHW          LQWHOOLJHQFHDIIHFWLYHV\VWHPFODVVVWUXFWXUHLVLPSOHPHQWHGE\
+LQFOXGLQJWKHGLUHFWLRQRIWKHWDUJHWSRVLWLRQZKHWKHUWRSURWHFW               8QUHDO6FULSW 86VFULSW DQG/XDVFULSW
+WKH DVVLVWLQJ WDUJHW RU WKH DWWDFN WDUJHW ZKHWKHU WR HQWHU WKH            7R DFFXUDWHO\ H[SUHVV WKH DIIHFWLYH LQIRUPDWLRQ LQ WKH /
+PRELOH VWDWH DQG ZKHWKHU WR HQWHU WKH DWWDFN VWDWH 7KH QHZ           2&& PRGHO DQG WKH PHDQLQJV RI DFWLRQV HYHQWV REMHFW
+V\VWHP XVHV WDVNV WR VHW LQLWLDO JRDOV DQG HPRWLRQDO FKDQJHV           RSHUDWLRQV HWF GHILQH D XQLILHG GDWD VWUXFWXUH 7KH GDWD
+GULYHWKHWDVNSURFHVV2QO\ZKHQWKHQXPEHUDQGLQWHQVLW\RI                    VWUXFWXUHV GHILQHG DV FODVVHV LQFOXGH DIIHFWLYH FODVV
+SRVLWLYHHPRWLRQVDUHJUHDWHUWKDQWKHQXPEHUDQGLQWHQVLW\RI                   3/$(PRWLRQ$FWRU DIIHFWLYH DFWLRQ DQG DIIHFWLYH HYHQW FODVV
+QHJDWLYHHPRWLRQV$,ZLOOILQGWKHZD\WRWKHWDUJHWSRLQWILQG                3/$(PRWLRQ$FWLRQ(YHQW                 SHUVRQDOLW\            FODVV
+HQHPLHVDQGFRPSOHWHWDVNV7KHQHZGHFLVLRQPDNLQJV\VWHP                      3/$3HUVRQDOLW\'DWD7KHGDWDW\SHVGHILQHGDVVWUXFWXUHVDUH
+GULYHQ E\ HPRWLRQDO VWDWH KDV LQFUHDVHG WKH SHUVRQDOL]HG DQG             HPRWLRQJHQHUDWHG UHFRUG VWUXFWXUH (PRWLRQ0HPRU\5HFRUG
+GLYHUVHSHUIRUPDQFHRI$,RQWKHEDWWOHILHOG                                    DQG HPRWLRQ UHVSRQVH UHFRUG VWUXFWXUH (PRWLRQ$FWLRQ5HFRUG
+D. Affective memory module                                                        7KHFODVVGHVLJQRIWKHDIIHFWLYHV\VWHPLVVKRZQEHORZ
+    7KH HPRWLRQDO PHPRU\ PRGXOH UHFRUGV WKH JHQHUDWLRQ
+FDOFXODWLRQDQGUHVXOWVRIHPRWLRQVDQGFDQVWRUHDQGUHDGWKH
+UHFRUGVZKLFKFDQEHXVHGDVUHOLDEOHPHPRU\UHFRUGVIRURWKHU
+$, FODVVHV 7KH HPRWLRQDO PHPRU\ PRGXOH UHFRUGV HPRWLRQDO
+JHQHUDWLRQDQGHPRWLRQDOFKDQJHV
+    $FFRUGLQJ WRWKH VWRUDJH VLWXDWLRQ LW LV GLYLGHGLQWRWKUHH
+OHYHOV DPRQJ ZKLFK WKH KLJKHVW OHYHO LV WKH JOREDO GDWDEDVH
+PHPRU\UHFRUG7KHLQWHUPHGLDWHOHYHO LVWKHUHFRUGVWRUHGLQ
+WKH JDPH SDUWLWLRQ LQ HDFK 5HGLV GLVWULEXWHG FDFKH $ 5HGLV
+JHQHUDOO\FRUUHVSRQGVWRDQXPEHURIFDFKHGJDPHVLQ±
+JDPHV 7KH ORZHVW OHYHO RI PHPRU\ LV D UHFRUG RI HPRWLRQ                                                                                        
+JHQHUDWLRQ DQG FKDQJHV LQ HDFK JDPH 7KH WKUHH OHYHOV RI
+                                                                                  )LJFODVVGHVLJQGLDJUDPRIWKHDIIHFWLYHV\VWHP
+HPRWLRQDOPHPRU\LQWKHVWRUDJHSURFHVVDOVRFRUUHVSRQGWRWKH
+WKUHHOHYHOVLQWKHTXHU\SURFHVV                                                  $VWKHFHQWHURIWKHDIIHFWLYHV\VWHPWKHPDQDJHPHQWFODVV
+                                                                                 3/$*DPH(PRWLRQ0DQDJHU IRFXVHV RQ WKH IROORZLQJ WKUHH
+                                                                                  SRLQWV LQ WKH GHVLJQ RI WKH LPSOHPHQWDWLRQ FODVV   8QLILHG
+                                                                                 PHVVDJHERG\GHILQLWLRQDQGDGGLQJLQWHUIDFHPHVVDJHUXOHVIRU
+                                                                                  RWKHUV\VWHPVVXFKDVHTXLSPHQWVXSSRUWNLOOLQJDQGUHZDUGV
+                                                                                  PDNLQJ LW HDV\ WR WUDQVIHU DQG XVH EHWZHHQ V\VWHPV  
+                                                                                  VHSDUDWLRQ RI GDWD DQG ORJLF IXQFWLRQV   UHGXFLQJ WKH
+                                                                                  SUREDELOLW\RIUHSHDWHGRSHUDWLRQV
+
+
+
+
+                                                                            240
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+
+B. Affective expression system
+   3HUIRUPDQFHV\VWHPVGULYHQE\DIIHFWLYHV\VWHPVLQFOXGH$,
+DQLPDWLRQVSHHFKDQGH[SUHVVLRQV\VWHPV
+    7KHDQLPDWLRQUHVRXUFHVLQWKH8(DUHGLYLGHGLQWR$QLP6HW
+DQLPDWLRQ VHW $QLP6HTXHQFH DQLPDWLRQ VHTXHQFH DQG
+$QLP7UHH DQLPDWLRQ WUHH QRGH 7KH LPSOHPHQWDWLRQ RI WKH
+DIIHFWLYHV\VWHP¶VDQLPDWLRQV\VWHPLVWKHVDPHDVWKHRULJLQDO
+$, V\VWHP DQG WKH VHOHFWLRQ DQG SOD\EDFN RI WKH DQLPDWLRQ
+VHTXHQFHLVFRQWUROOHGE\WKHQRGHRIWKHEHKDYLRUWUHH
+                                                                                                                                                               
+    7KHDIIHFWLYHVSHHFKRIWKLVDIIHFWLYHV\VWHPLVJURXSHGLQ                   )LJIDFLDOERQHGDWDRIWKHDIIHFWLYHV\VWHP>@
+WKHSURMHFWRIWKH)02''HVLJQHUHGLWRU7KHYRLFHLVSOD\HG
+WRJHWKHU ZLWK WKH DQLPDWLRQ (DFK YRLFH SOD\ LV ERXQG WR WKH            
+DQLPDWLRQ LQ WKH EHKDYLRU WUHH :KHQ SOD\LQJ DQ $, EHKDYLRU
+DQLPDWLRQLWZLOOGHWHFWZKHWKHUWKHUHLVDFRUUHVSRQGLQJVRXQG                                              9 &21&/86,21
+UHVRXUFH 7KH $, YRLFH LQ WKH JDPH LV GLYLGHG LQWR &KLQHVH
+VSHHFKDQG(QJOLVKVSHHFKDFFRUGLQJWRWKHWZRFDPSVRIUHG                       A. System summary
+DQG EOXH (DFK FDPS LV GLYLGHG LQWR WKUHH FDWHJRULHV PDOH                   7KLVSDSHUVWXGLHVKRZDUWLILFLDOLQWHOOLJHQFHV\VWHPVXVLQJ
+FKDUDFWHU VSHHFK DQG IHPDOH FKDUDFWHU VSHHFK DQG VSHFLDO                   DIIHFWLYH FRPSXWLQJ FDQ EH DSSOLHG WR )36 RQOLQH JDPHV WR
+FKDUDFWHUVSHHFK                                                                 LPSURYHJDPHTXDOLW\DQGXVHUH[SHULHQFH$QLPSURYHG2&&
+                                                                                   HPRWLRQ PRGHO /2&& LV GHVLJQHG ZKLFK DGGV SHUVRQDOL]HG
+    )DFH);LVDQ8(LQWHJUDWHGIDFLDODQLPDWLRQVROXWLRQ,WLV                  IHDWXUHV WKDW UHIOHFW QRQFRJQLWLYH IDFWRUV ,W JLYHV GLIIHUHQW
+D VSHFLDO W\SH RI DQLPDWLRQ V\VWHP ZKLFK DOVR LQFOXGHV                   FODVVLILFDWLRQV RI HPRWLRQV G\QDPLF DIIHFWLYH WKUHVKROGV DQG
+DQLPDWLRQ WUHH DQLPDWLRQ VHTXHQFH DQLPDWLRQ VHW DQG RWKHU                VHOIDWWHQXDWLRQ RI HPRWLRQV RYHU WLPH EXLOW D EHOLHYDEOH
+IXQFWLRQVLQWKHDQLPDWLRQV\VWHP,WLVFDOOHG)DFH);$QLP6HW                     DIIHFWLYHV\VWHPIRUWKHLQJDPH$,7KHIXQFWLRQPRGXOHVRI
+LQ)DFH);7KHV\VWHPPDSVWKHODEHOVDQGQRGHVLQ)DFH*UDSK                      HPRWLRQ JHQHUDWLRQ SURFHVVLQJ DQG PHPRU\ DUH PDLQO\
+WKURXJK D 0DSSLQJ DQG FRQWUROV WKH IDFLDO H[SUHVVLRQV E\                 LQWURGXFHG:LWK WKH RULJLQDO $, V\VWHP WKH DUWLILFLDO
+FRQWUROOLQJWKHDQLPDWLRQFXUYHVRIWKHIDFLDOERQHV                             LQWHOOLJHQFH EHKDYLRU PRGH LV FKDQJHG IURP VHWWLQJ GULYH WR
+                                                                                   DIIHFWLYHGULYH
+                                                                                    ,QWKLVV\VWHPWKHJHQHUDWLRQDQGSURFHVVLQJRIHPRWLRQVDUH
+                                                                                   UHODWHGWRWKHKLVWRULFDOGDWDWKDWLVWKHDIIHFWLYHPHPRU\SDUW
+                                                                                   ZKLFKLPSURYHVWKHVSHHGRIJHQHUDWLQJDQGSURFHVVLQJFRPSOH[
+                                                                                   GDWD DQG DOVR LPSURYHV WKH FRQWLQXLW\ RI WKH DIIHFWLYH
+                                                                                   H[SHULHQFHDQGVDWLVILHVWKHUHDOWLPHQHHGVRIRQOLQHJDPHV
+                                                                                       ,QRQOLQHJDPHVWKHSHUIRUPDQFHFRQVXPSWLRQDQGQHWZRUN
+                                                                                   EDQGZLGWKFRQVXPSWLRQRIJDPHVDUHWKHNH\FRQVLGHUDWLRQVLQ
+                                                                                   WKHRSWLPL]DWLRQSURFHVVRIUHVHDUFKDQGGHYHORSPHQW7KURXJK
+                                                                                   WKH GHVLJQ RIGLIIHUHQW $, FDWHJRULHV DV ZHOO DV WKH GHVLJQ RI
+                                                                                   PRGXODUIXQFWLRQVWKHDIIHFWLYHV\VWHPFDQDFKLHYHDEDODQFHRI
+                                                                                   SHUIRUPDQFHDQGSHUIRUPDQFHLQGLIIHUHQWOHYHOVRIFRQVXPSWLRQ
+                                                                                  DQGSHUIRUPDQFH
+)LJ)DFH);IDFLDODQLPDWLRQV\VWHP
+                                                                                       $FRPSDUDWLYHWHVWZDVFRQGXFWHGIRUWKLVDIIHFWLYHV\VWHP
+    $FFRUGLQJWRWKHUHVHDUFKRQWKHDIIHFWLYHVWDWHRIWKHKXPDQ                 &ROOHFWLQJWKHUHDOWLPHRQOLQHJDPHVLWXDWLRQRIWKHXVHUVIRU
+ERG\LQWKHH[SUHVVLRQRIWKHWKUHHGLPHQVLRQDOKXPDQIDFHLQ                     WZRGD\VRQDZHHNHQGDQGFRXQWLQJWKHGDWDRIWKHDUWLILFLDO
+WKH OLWHUDWXUH >@ >@ WKH GLIIHUHQW IDFLDO H[SUHVVLRQV RI WKH        LQWHOOLJHQFH DIIHFWLYH V\VWHP DQG WKH XQRSHQHG DUWLILFLDO
+KXPDQ FDQ FRUUHVSRQG WR WKH PDSSLQJ SDUDPHWHUV 7KH GDWD                  LQWHOOLJHQFHDIIHFWLYHV\VWHPDWWKHVDPHWLPHLQWZRGD\VWKH
+UHFRUGVRIWKHDIIHFWLYHVWDWHVLQWKH/2&&PRGHODQGWKH                     UHVXOWVDUHDVIROORZV
+DQLPDWLRQSDUDPHWHUVRIWKHH[SUHVVLRQWUDQVLWLRQDUHLQSXWLQWR
+WKH 0DSSLQJ SDUDPHWHU WDEOH DQG DQ DQLPDWLRQ QRGH LV                                   7$%/(,9      &203$5,6217(67'$7$&217(17
+
+JHQHUDWHGLQWKH)DFH*UDSKDFFRUGLQJWRWKH,.OLQNUHODWLRQVKLS                                      $UWLILFLDO         $UWLILFLDO
+RI HDFK VNHOHWRQ SRLQW 7KH DIIHFWLYH FRPSXWLQJ V\VWHP FDQ                                  LQWHOOLJHQFH       LQWHOOLJHQFH
+H[SUHVV GLIIHUHQW IDFLDO H[SUHVVLRQV DFFRUGLQJ WR WKH DIIHFWLYH                                                                       UHVXOWVRI
+                                                                                       FRQWUDVW      DIIHFWLYH          DIIHFWLYH
+VWDWH                                                                                                                                      FRPSDULVRQ
+                                                                                                      IXQFWLRQLV        IXQFWLRQLV
+                                                                                                       QRWRSHQ            RSHQ
+    
+                                                                                       QXPEHU
+                                                                                                      SHRSOH        SHRSOH       LQFUHDVH
+                                                                                      RIRQOLQH
+
+
+
+
+                                                                             241
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+                   $UWLILFLDO         $UWLILFLDO                                         JDPHWKHUHE\EHWWHULQWHUDFWLYLW\DQGJDPLQJH[SHULHQFHZLOOEH
+                 LQWHOOLJHQFH       LQWHOOLJHQFH
+                                                             UHVXOWVRI                   DFKLHYHG
+    FRQWUDVW     DIIHFWLYH          DIIHFWLYH
+                                                            FRPSDULVRQ                       
+                  IXQFWLRQLV        IXQFWLRQLV
+                   QRWRSHQ            RSHQ
+     393¶V      QXPEHU     RI                                                                                             5()(5(1&(6
+                                    QXPEHU        RI
+    GLVWULEXWL   JDPHV                                                                  >@ $ 2UWRQ\ * / &ORUH  DQG $ &ROOLQV 7KH &RJQLWLYH 6WUXFWXUH RI
+                                    JDPHV  QXPEHU
+        RQ    QXPEHU     RI                                                                  (PRWLRQV&DPEULGJH8.&DPEULGJH8QLYHUVLW\3UHVV
+                                    RI SOD\HUV 
+                 SOD\HUV                              7RDFHUWDLQH[WHQWLW          >@ 7KH+XPDQ%UDLQ3URMHFW7KH9LWDO5ROHRI1HXURVFLHQFHLQWKH+XPDQ
+                                    
+                                                  KDV DIIHFWHG WKH                      %UDLQ3URMHFW>(%@-XO\
+                                    UHG          DQG
+                 UHG       DQG                         LQFUHDVH LQ WKH WRWDO
+                                    EOXH                                           >@ 06SUDUDJHQ0$]DG0³0RGHOLQJRI$IIHFWLYH(IIHFWVRQ'HFLVLRQ
+                 EOXH                            QXPEHU RI SHRSOH
+                                    ORQHO\                                                       PDNLQJ E\ *DPH $JHQWV´ ,QWHOOLJHQW 6\VWHPV 7HFKQRORJ\ ,QF /RV
+                 ORQHO\                                 7KH        GLIIHUHQFH
+                                    KHUR                                                   $QJHOHV&$86$0DUFK
+                 KHUR                              EHWZHHQ WZR PRGHV
+                                    EODVWLQJ                                              >@ &0'0HOR3&DUQHYDOH³%D\HVLDQPRGHORIWKHVRFLDOHIIHFWVRI
+                 EODVWLQJ                               LVYHU\VPDOO
+                                    DVVDXOW                                                 HPRWLRQLQGHFLVLRQPDNLQJLQPXOWLDJHQWV\VWHPV´,Q3URFHHGLQJVRI
+                 DVVDXOW
+                                    JXQ        NLQJ                                             WKH WK ,QWHUQDWLRQDO &RQIHUHQFH RQ $XWRQRPRXV $JHQWV DQG
+                 JXQ      NLQJ
+                                    FRQWHQG                                                 0XOWLDJHQW6\VWHPV9ROXPH
+                 FRQWHQG
+     39(¶V      QXPEHU     RI                                                           >@ *KDKUDPDQL =RXELQ -RUGDQ , 0LFKDHO ³)DFWRULDO +LGGHQ 0DUNRY
+                                    QXPEHU       RI                                             0RGHOV0DFKLQH/HDUQLQJ´  ±
+    GLVWULEXWL   JDPHV        
+                                    JDPHV  QXPEHU
+        RQ     QXPEHU     RI                                                           >@ 5 3OXWFKLN ³7KH 1DWXUH RI (PRWLRQV $PHULFDQ 6FLHQWLVW´ 
+                                    RI SOD\HUV 
+                 SOD\HUV                                                                         
+                                    
+                                                7KH $, PRGHO ZLWK             >@ $2UWRQ\*/&ORUH$&ROOLQV³7KHFRJQLWLYHVWUXFWXUHRIHPRWLRQV´
+                                    ZDU
+                 ZDU                                    HPRWLRQVKDVJUHDWO\                    7KHFRJQLWLYHVWUXFWXUHRIHPRWLRQV&DPEULGJH8QLYHUVLW\3UHVV
+                                    ZDUULRU
+                 ZDUULRU                           LQFUHDVHG       WKH
+                                    6KDQJKDL¶V                                            >@ % -DVRQ 3 =DN 3DUULVK : -HII ³0DVWHULQJ 8QUHDO 7HFKQRORJ\ ´
+                  6KDQJKDL¶V                          QXPEHURISHRSOH
+                                    GUHDP                                               9ROXPH,6DPV  
+                 GUHDP
+                                    &RXQWHU                                               >@ 6 /LDQJ ( & / &KDQ * %DFLX HW DO ³&RJQLWLYH JDUPHQW GHVLJQ
+                 &RXQWHU
+                                    WHUURULVP                                               LQWHUIDFHXVLQJXVHUEHKDYLRUWUHHPRGHO´&RJQLWLYH,QIRUPDWLFV,(((
+                 WHUURULVP
+                                                                                                ,QWHUQDWLRQDO&RQIHUHQFHRQ
+                 
+                                                                                           >@ <+HUQDQGH]-1RJXH](6XFDU³,QFRUSRUDWLQJDQ$IIHFWLYH0RGHO
+    ,WFDQEHVHHQIURPWKHUHVXOWVRIWKHDERYHGDWDWDEOHWKDW                                 WR DQ ,QWHOOLJHQW 7XWRU IRU 0RELOH 5RERWLFV´ ,((( )URQWLHUV LQ
+GXULQJWKHSHULRGRIWKHRSHQDIIHFWLYHV\VWHPWKHWRWDOQXPEHU                                 (GXFDWLRQ&RQIHUHQFH ),( 
+RI JDPHV LV LQFUHDVHG DQG WKH QXPEHU RI JDPH SOD\HUV ZLWK                      >@ *6KDQJER³5HVHDUFKRQ3HUVRQDOL]HG$IIHFWLYH0RGHOLQJ0HWKRG´
+DUWLILFLDO LQWHOOLJHQFH HPRWLRQV LV JUHDWO\ LQFUHDVHG DQG WKH                            7DL\XDQ8QLYHUVLW\RI7HFKQRORJ\'2,G\
+QXPEHU RI SOD\HUV ZLWKRXW DIIHFWLYH V\VWHPV LV UHODWLYHO\                          >@ 0 0 $Q ³2]FHQWULF UHYLHZ RI LQWHUDFWLYH GUDPD DQG EHOLHYDEOH
+UHGXFHG ,W VKRZV WKDW WKH GHVLJQ DQG LPSOHPHQWDWLRQ RI WKH                             DJHQWV´/HFWXUH1RWHVLQ&RPSXWHU6FLHQFH
+DIIHFWLYH V\VWHP LV HIIHFWLYH IRU LPSURYLQJ WKH JDPLQJ                             >@ $ % /R\DOO ³%HOLHYDEOH $JHQWV %XLOGLQJ ,QWHUDFWLYH 3HUVRQDOLWLHV´
+H[SHULHQFH                                                                                      %HOLHYDEOH$JHQWV%XLOGLQJ,QWHUDFWLYH3HUVRQDOLWLHV
+                                                                                           >@ - ' 9HOiVTXH] ³0RGHOLQJ (PRWLRQV DQG 2WKHU 0RWLYDWLRQV LQ
+B. Further improvement                                                                            6\QWKHWLF$JHQWV´3URFHHGLQJVRI$DDL
+     7KH UHDOL]DWLRQ RI DIIHFWLYH IXQFWLRQV IRU DUWLILFLDO                          >@ '&KRL11HMDWL&3DUNHWDO³$%HOLHYDEOH$JHQWIRU)LUVW3HUVRQ
+LQWHOOLJHQFHV\VWHPVFDQHIIHFWLYHO\LPSURYHFUHGLELOLW\ZKLFK                                  6KRRWHU*DPHV´$LLGH
+KDVEHHQYHULILHGLQPRUHDQGPRUHILHOGV>@>@7KHUHVHDUFK                         >@ / -LDQJXR ³5HVHDUFK RQ(PRWLRQ 0RGHO DQG &RJQLWLYH 0HWKRG
+                                                                                                  RI9LUWXDO +XPDQ´ +XD]KRQJ 8QLYHUVLW\ RI 6FLHQFH DQG 7HFKQRORJ\
+LQ WKLV SDSHU KDV LQLWLDOO\ UHDOL]HG WKH DSSOLFDWLRQ RI DUWLILFLDO                      '2,GG
+HPRWLRQV\VWHPLQRQOLQHJDPHVDQGWKHV\VWHPFDQEHIXUWKHU
+                                                                                           >@ +H+DLSHQJ³5HVHDUFKRQOD\HUHGPRGHORIDIIHF´7DL\XDQ8QLYHUVLW\
+HQULFKHGDQGLPSURYHGLQWKHIXWXUH                                                             RI7HFKQRORJ\'2,GG
+     ,Q WKH LQWHUDFWLRQ EHWZHHQ WKH HPRWLRQ RI DUWLILFLDO                          >@ . 6RKQ 6 .ULVKQDPRRUWK\ 2 3DXO 0 $ /HZLV ³*LYLQJ URERWV D
+                                                                                                  IOH[LEOHSHUVRQD7KHILYHIDFWRUPRGHORIDUWLILFLDOSHUVRQDOLW\LQDFWLRQ´
+LQWHOOLJHQFHDQGWKHHPRWLRQRIWKHXVHUVKRZWRFRQQHFWDQG                                    ,(((
+LQWHUDFW$,HPRWLRQVZLWKXVHUV¶HPRWLRQVLQVWHDGRISDVVLYHO\
+                                                                                           >@ $ 5RGULJXH] $ /DLR ³&OXVWHULQJ E\ IDVW VHDUFK DQG ILQG RI GHQVLW\
+DFFHSWLQJWKHDIIHFWLYHFKDQJHRIWKH$,",QDGGLWLRQDWSUHVHQW                               SHDNV´6FLHQFH  
+WKHWHUPLQDOLQSXWGHYLFHRIWKHJDPHXVHULVOLPLWHGWRDPRXVH                         >@ 7 <XQ / *XDQ ³+XPDQ HPRWLRQ UHFRJQLWLRQ XVLQJ UHDO ' YLVXDO
+DNH\ERDUGHWFDQGLWLVGLIILFXOWWRFDSWXUHWKHDIIHFWLYHVWDWH                             IHDWXUHVIURP*DERUOLEUDU\´3DWWHUQ5HFRJQLWLRQ  
+RIWKHXVHUWKURXJKWKHVHLQSXWGHYLFHV$FFRUGLQJWRWKHVXUYH\                         >@ 7 <XQ / *XDQ ³+XPDQ DIIHFWLYH VWDWH UHFRJQLWLRQ XVLQJ ' IDFLDO
+PRVWRQOLQHJDPHXVHUVZLWKDVWURQJVHQVHRILQVHFXULW\DUH                                   H[SUHVVLRQIHDWXUHV´/DS/DPEHUW$FDGHPLF3XEOLVKLQJ
+UHOXFWDQW WR DFFHSW YLGHR LQSXW VLQFH LW ZLOO KHOS WKH JDPH                    >@ + 5ROVWRQ ³3UHDFKLQJ RQ WKH (QYLURQPHQW´ -RXUQDO IRU 3UHDFKHUV
+SURJUDPFDSWXUH XVHUV¶IDFLDORUSK\VLFDOVWDWH$V95YLUWXDO                                  
+UHDOLW\$5DXJPHQWHGUHDOLW\GHYLFHVFRQWLQXHHYROYLQJPRUH                              >@ +-LDQJ-09LGDO01+XKQV³(%',DQDUFKLWHFWXUHIRUDIIHFWLYH
+DQGPRUHJDPHPDNHUVWU\WREULQJWKHVHGHYLFHVLQWRWKHRQOLQH                                  DJHQWV´3URFHHGLQJVRIWKHWK,QWHUQDWLRQDO&RQIHUHQFHRQ$UWLILFLDO
+JDPLQJH[SHULHQFHXVHUVDUHJHWWLQJZLOOLQJWRDFFHSWWKHJDPH                                  ,QWHOOLJHQFHDQG/DZ%DUFHORQD6SDLQ-XQH,&$,/
+                                                                                                  µ  
+SURJUDP WR UHDG LQIRUPDWLRQ RI WKHLU SK\VLFDO VWDWXV WKURXJK
+                                                                                           >@ 6<L[X-3HLID³$&RQWURO$UFKLWHFWXUH%DVHGRQ$UWLILFLDO(PRWLRQ
+WKHVHGHYLFHV:LWKWKHKHOSRIWKHGHYLFHVLWEHFRPHVSRVVLEOH                                 IRU $QWKURSRPRUSKLF 5RERW´  URERW    
+WR EULQJ XVHUV¶ WUXH HPRWLRQV LQWR WKH DIIHFWLYH V\VWHP RI WKH                         '2,MLVVQ
+
+
+
+
+
+                                                                                     242
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:36:19 UTC from IEEE Xplore. Restrictions apply.
+

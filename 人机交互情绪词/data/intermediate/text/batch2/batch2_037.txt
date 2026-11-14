@@ -1,0 +1,409 @@
+                                                            (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                      Vol. 8, No. 3, 2017
+
+
+     Emotion Classification in Arousal Valence Model
+             using MAHNOB-HCI Database
+                Mimoun Ben Henia Wiem                                                             Zied Lachiri
+              Université de Tunis El Manar,                                             Université de Tunis El Manar,
+          Ecole Nationale d'Ingénieurs de Tunis,                                    Ecole Nationale d'Ingénieurs de Tunis,
+      LR-11-ES17, Signal, Images et Technologies de                             LR-11-ES17, Signal, Images et Technologies de
+             l’Information (LR-SITI-ENIT)                                              l’Information (LR-SITI-ENIT)
+         BP. 37 Belvédère, 1002, Tunis, Tunisie                                    BP. 37 Belvédère, 1002, Tunis, Tunisie
+
+
+    Abstract—Emotion recognition from physiological signals            user is usually facing to the camera or microphone in an
+attracted the attention of researchers from different disciplines,     adequate environment with no dark or noise for data collection.
+such as affective computing, cognitive science and psychology.         To proceed these problems, Picard et al. [14] demonstrated that
+This paper aims to classify emotional statements using peripheral      physiological signals are more pertinent than other modalities.
+physiological signals based on arousal-valence evaluation. These       In fact, they originate from the peripheral nervous system and
+signals are the Electrocardiogram, Respiration Volume, Skin            central nervous system. Consequently, they cannot be falsified
+Temperature and Galvanic Skin Response. We explored the                or hidden. Moreover, they are spontaneous and strongly
+signals collected in the MAHNOB-HCI multimodal tagging                 correlated with human’s emotion. The physiological signals are
+database. We defined the emotion into three different ways: two
+                                                                       (1) Electroencephalograms (EEG), (2) Electrocardiogram
+and three classes using 1-9 discrete self-rating scales and another
+model using 9 emotional keywords to establish the three defined
+                                                                       (ECG), (3) Heart Rate Variability (HRV), (4) Galvanic Skin
+areas in arousal-valence dimensions. To perform the accuracies,        Response (GSR), (5) Muscle Activity or Electromyogram
+we began by removing the artefacts and noise from the signals,         (EMG), (6) Skin Temperature (SKT), (7) Blood Volume Pulse
+and then we extracted 169 features. We finished by classifying         (BVP) and (8) Respiratory Volume (RESP). Since, many
+the emotional states using the support vector machine. The             studies became very enhanced in emotion recognition problem
+obtained results showed that the electrocardiogram and                 [15][16][17] and recent works combine physiological signals
+respiration volume were the most relevant signals for human’s          with two or more modalities to improve the results [18][19].
+feeling recognition task. Moreover, the obtained accuracies were
+                                                                           It is difficult to compare these investigated approaches
+promising comparing to recent related works for each of the
+three establishments of emotion modeling.
+                                                                       because they are divergent in different ways. Indeed, the
+                                                                       related works are dissimilar in the modality to recognize the
+   Keywords—Emotion          Classification;    MAHNOB-HCI;            affective states that can be natural or induced. Thus, emotion
+Peripheral Physiological Signals; Arousal-Valence Space; Support       can be evoked by watching affective movies [20], video clips
+Vector Machine                                                         [21], since playing a video game [22], driving a car or listening
+                                                                       to music [23][24]. Moreover, the emotion can be defined into
+                       I.    INTRODUCTION                              different models: the first is Eckman’s model that is based on
+    For affective and correct interaction between human and            universal emotional expressions to present out six discrete
+machine (HCI), recognizing human’s emotion is a one of the             basic emotions: Happiness, Sadness, Surprise, Fear, Anger and
+key stage in affective computing field and especially in               Disgust [25]. The second is the Plutchik’s model that presents
+emotional intelligence for HCI issue. Thus, several researches         out eight fundamental emotions: Joy, Trust, Fear, Surprise,
+could be targeted that will benefit from feeling assessment. We        Sadness, Disgust, Anger and Anticipation [26]. The third is
+cite those done in medicine field and particularly for children        based on Russel et al. model [27] who have focused on two-
+with autism who are disable to clearly express their feelings          dimensional evaluation ,like the valence-arousal model [19].
+[1]. Emotion recognition system can identify the critical states       Some other works merge the previous models to define the
+during driving by detecting the stress level assessments               emotion in the continuous space using affective keywords
+[2][3][4]. Moreover, there are applications that affect daily          [28][20].
+lives without stress[5] with more pleasing life[6].                        Among recent and related researches, we cite the work
+    The emotion can be noticeable from different modalities.           based on MAHNOB dataset [20]. They classified the affective
+The facial expression is the most popular way to recognize the         states into three defined classes and they achieved 46.2%,
+affective states [7][8][9]. Also, the human speech [10][11] and        45.5% for arousal and valence, respectively. Another similar
+motions or gestures are very used in emotion assessing                 work done by Koelstra et al. who created freely multimodal
+problem. However, these channels cannot usually identify the           dataset DEAP, is detailed in [21]. They classified the emotional
+real emotional states because it is easy to secret a facial            statements into two classes for valence, arousal and liking. In
+expression or fake a tone of voice[12]. Moreover, they are not         the previous contribution, they obtained 57%, 62.7%, 59.1%
+effective for people who cannot reveal their feeling verbally          for arousal, valence and liking, respectively. We notice that we
+like autistic people [13]. Also, they aren’t available unless the      cannot directly compare these studies, because they used
+
+
+
+                                                                                                                           318 | P a g e
+                                                         www.ijacsa.thesai.org
+                                                           (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                     Vol. 8, No. 3, 2017
+
+different classes in arousal valence model. Moreover, the
+manner to define the emotion is dissimilar: In fact, in [20], they                 Physiological           Preprocessing
+classified the affective statements using nine discrete emotional                     Signals
+                                                                                        .
+
+
+
+
+keywords tagging to define three classes in arousal valence
+model. However, in [21], they used discrete self-rating scales
+from 1 to 9 for arousal, valence and liking.                                                            Feature Extraction
+                                                                                                        And normalization
+    This paper aims to identify the human affective states into
+arousal-valence area using three ways of modeling and
+defining the emotion in this continuous space. The proposed
+approach is based on peripheral physiological signals (ECG,
+Resp, Temp and GSR) to use wearable and non-obtrusive
+sensors for future work. We began by defining the emotional
+states into two classes which are “positive” and “negative” for
+valence and “High” and “Low” in arousal. Then, we                                                      Feature Level Fusion
+established three classes using the self-reported discrete scaling
+values (from 1to 9 scales in arousal and valence axis). The
+three classes are named calm, medium aroused, and excited,
+unpleasant, neutral valence and pleasant). Finally, we defined                 Tested
+these three classes using nine emotional keywords (Happiness,                   Data                   SVM Classification
+amusement, neutral, anger, fear, surprise, anxiety, disgust and
+sadness). In the last emotion’s definition, we combined the
+emotion’s model done by Russel and Ekman [28][29][30].
+Another purpose of this paper is to select the most relevant                                              Accuracy Rate
+peripheral physiological signal for emotion sensing problem.
+Firstly, we began by classifying one signal and then, we fused
+their level features. We explored the recent multimodal                           Fig. 1. Block diagram of the proposed approach
+MAHNOB-HCI database. A judiciously process was applied in
+preprocessing, features extraction and classification stages. For     B. MAHNOB-HCI Multimodal Database
+the last step we used the support vector machine (SVM).                   Investigations in emotion recognition field motivated the
+    The foregoing of this paper is organized as follows. Section      establishment of many databases to involve this issue. Some
+II describes the proposed approach. The next section gives the        datasets contained speech and audio-visual signals as
+details of the preprocessing data and feature extraction stages.      modalities to assess the human affective states [31][32]. Healey
+In section IV, we present SVM classifier and how we modeled           and Picard [33] collected one of the first affective
+the emotion states. The section V summarizes the obtained             physiological datasets at MIT. Their collected signals were the
+results. Finally, we conclude this contribution and present           electrocardiogram (ECG), galvanic skin response (GSR),
+future work in section VI.                                            electromyogram (EMG) and the respiration pattern. This
+                                                                      database of stress recognition is publicly available from
+                   II.   EXPERIMENTAL SETUP                           Physionet1. Another novel dataset is the Database for Emotion
+                                                                      Analysis using Physiological signals (DEAP) [21]. It contains
+A. Proposed approach                                                  the spontaneous bodily responses of 32 participants after
+    The emotion recognition system had several steps that             inducing their emotional states by watching selected music
+ought to be carefully done to have promising classification rate.     videos clips. This dataset is freely available on the internet2 for
+As a first step, we pre-processed the data to smooth the signals.     academic research. More recently, Soleymani et al.[20] created
+Then, a bunch of selected features were extracted. After              the MAHNOB-HCI multimodal database. They recorded the
+normalizing all features, an early level feature fusion (LFF)         peripheral physiological signals from 24 participants after
+was applied to compare the proposed approach to related               eliciting their emotion by 20 affective movies. These signals
+works. Finally, we classified the data corresponding to their         are the Electrocardiogram (ECG), Galvanic Skin Response
+labels using the support vector machine. All these steps will be      (GSR), Skin Temperature (Temp) and Respiration Volume
+detailed in the foregoing sections. Fig .1 presents the block         (RESP). They also recorded the EEG signal, eye gaze and the
+diagram of this work.                                                 face videos.
+
+
+
+
+                                                                                          1 https://physionet.org/pn3/drivedb/.
+                                                                                 2 http://www.eecs.qmul.ac.uk/mmv/data sets/deap/.
+
+
+
+                                                                                                                              319 | P a g e
+                                                        www.ijacsa.thesai.org
+                                                                  (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                            Vol. 8, No. 3, 2017
+
+    In the proposed approach, we chose the latest database for                   Basically, it is a supervised machine learning technique.
+several reasons. In fact, it had five modalities which were                  Adding to linear classification, SVM resolves efficiently a non-
+judiciously synchronized. Also, a comparative study between                  linear problem with its several kernels to obtain the optimized
+DEAP and MAHNOB datasets done by Godin et al. [34],                          classification rates. SVM performs the classification by finding
+demonstrated that the best accuracies were obtained after using              the suitable hyper-plans that separate the classes very well by
+the recorded signals in MAHNOB database. Table .I                            maximizing the distance between each class and the hyper-
+summarizes the content of the MAHNOB-HCI database.                           plans. For the implementation, we used the LibSVM library
+                                                                             under MATLAB platform3 [37].
+                   TABLE I.       DATABASE SUMMARY[20]
+                                                                                 Tables .II and .III present the two and three defined classes
+Number of                                                                    using 1-9 discrete scales in arousal-valence areas. The rated
+                       24
+participants
+                                                                             scales were reported by the participant after/during watching
+                       Peripheral physiological signals 256Hz (ECG, GSR,
+                       Temp, Resp), Face and body video using 6 cameras      the affective video. On the other hand, we also defined the
+Recorded signals                                                             three classes in arousal valence model using the nine affective
+                       (60f/s), 32 channels for EEG signal (256Hz), Eye
+                       gaze(60Hz), Audio (44.1kHz)                           keywords, which are (1) Joy or Happiness, (2) Amusement, (3)
+Number of videos       20                                                    Sadness, (4) Disgust, (5) Anxiety, (6) Fear, (7) Surprise, (8)
+                       Emotional keywords, arousal, valence, dominance       Anger, and (9) Neutral. According to the table .IV, we assigned
+Self-report
+                       and predictability                                    the labels “High” and “Low” for arousal, “Positive” and
+Rating values          Discrete scale 1-9
+                                                                             “Negative” for valence. The three classes were “Clam”,
+   III.   PREPROCESSING DATA AND FEATURES EXTRACTION                         “Medium”, and “Activated” for arousal and “Unpleasant”,
+                                                                             “Neutral” and “Pleasant” for valence dimension.
+    Obtaining promising accuracies required different stages
+mainly the pre-processing data, features extraction and finally                        TABLE II.        TWO CLASSES IN AROUSAL-VALENCE MODEL
+the classification step.
+                                                                             Categorization
+                                                                                                                                     Rating Values “r”
+    According to the experimental setup of the MAHNOB-HCI                    Arousal                      Valence
+database, each trial contained 30 seconds before the beginning               High                         Negative                   r ≤4.5
+of the affective stimuli experience and another 30 seconds after             Low                          Positive                   4.5≤ r
+the end. So firstly, we eliminated these two 30 seconds to have
+the pertinent information. Next, Butterworth filters were                      TABLE III.      THREE DEFINED CLASSES IN AROUSAL-VALENCE MODEL
+applied to eliminate artefacts and baseline wandering for the                Categorization
+GSR, Resp and ECG signals. The cut-off frequencies are 0.3                                                                           Rating Values “r”
+                                                                             Arousal                      Valence
+Hz, 0.45 Hz and 0.5 Hz, respectively.                                        Calm                         Unpleasant                 1≤ r ≤3
+                                                                             Medium                       Neutral                    4≤ r ≤6
+    Adding to characteristic features like the heart rate                    Excited                      Pleasant                   7≤ r ≤9
+variability from the electrocardiogram (1) and the breathing
+rate from the respiratory volume, a bunch of statistical values                TABLE IV.          DEFINED CLASSES IN AROUSAL-VALENCE MODEL USING
+were extracted from the data.                                                                            EMOTIONAL KEYWORDS
+                              ⁄                                       (1)                          Affective Classes        Discrete Emotion Tagging
+                                                                                                   Clam                     Sadness, Disgust, Neutral
+   Whereas: HRV is the heart rate variability in beats per                                         Medium                   Happiness(Joy), Amusement
+                                                                             Arousal
+minute                                                                                             Activated                Surprise, Fear, Anger, Anxiety
+                            : The mean of RR intervals                                                                      Anger, Anxiety, Disgust,
+                                                                                                   Unpleasant
+                                                                                                                            Sadness, Fear
+   To reduce the difference between the participants, we                     Valence
+                                                                                                   Neutral                  Neutral, Surprise
+normalized features by mapping each one to the interval [0,1].                                     Pleasant                 Happiness(Joy), Amusement
+The preprocessing data and features extraction stages were
+based on the studies reported in [21] and [20].                                                    V.     RESULTS AND DISCUSSIONS
+                      IV.     SVM CLASSIFICATION                                 In this section, we summarize and evaluate the obtained
+                                                                             results for emotion classification in arousal valence dimension.
+    Different machine learning algorithms were successfully                  We presented the emotional states in two and three defined
+applied to classify the human emotional states given a bunch of              classes, as explained earlier.
+physiological features. We cite the artificial neural network
+(ANN), k-Nearest Neighbors (k-NN), Bayesian Network and                          For the aim of this paper, we classified each peripheral
+Regression Tree (RT). In this approach, we employed the                      physiological signal and then, we applied an early fusion for all
+support vector machine which is the most popular and pertinent               descriptors to compare the proposed approach to related
+classifier in this issue [35]. Indeed, a comparative study                   studies. The level feature fusion is to combine all the
+described in [36], proved that the SVM gave the best accuracy                modalities before the training stage[38]. Thus, a simple
+rates rather than other machine learning techniques such as k-               concatenation was applied to all the extracted features. The
+NN, regression tree and Bayesian network.                                    table .V summarizes the classification accuracy after testing
+
+                                                                                              3
+                                                                                                  http://www.csie.ntu.edu.tw/_cjlin/libsvm/.
+
+
+
+                                                                                                                                               320 | P a g e
+                                                               www.ijacsa.thesai.org
+                                                                 (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                           Vol. 8, No. 3, 2017
+
+several SMV’s Kernel functions for two defined classes. In this               respectively. Both of these previous studies used the DEAP
+table, we can clearly note that the ECG and the RESP signals                  database. The achieved results prove the potential of the
+are the most relevant signals for the emotion assessing task,                 recorded data in MAHNOB-HCI database and their chosen
+and precisely ECG for arousal and RESP for valence.                           videos were more powerful to evoke the emotion than videos
+                                                                              clips used in DEAP. This explanation is well developed in[34].
+    We achieved 64.23% in arousal and 68.75% in valence                       Indeed, the authors proved that the heart rate variability
+dimension and these accuracies were very promising compared                   calculated from the ECG (not available in DEAP), is a very
+to related works. In fact, Koelstra et .al [21] obtained 62.7% in             relevant feature in emotion recognition task and it is more
+valence 57% in arousal and Torres Valencia et al.[39]                         accurate than the HRV calculated from the PPG signal which is
+achieved 55% ± 3.9 and 57.50% ± 3.9 in arousal and valence,                   recorded in DEAP database.
+                           TABLE V.        CLASSIFICATION ACCURACIES AFTER USING SEVERAL SVM’S KERNEL (TWO CLASSES)
+               Classification Accuracies
+               Linear                             Polynomial                        Sigmoid                       Gaussian
+               Arousal           Valence          Arousal          Valence          Arousal        Valence        Arousal         Valence
+ECG            65,03%            60,13%           65,73%           60,83%           62,10%         65,03%         66,4%           58,74%
+GSR            55,94%            54,73%           53,14%           55,78%           54,73%         55,78%         62,23%          50,52%
+RESP           61,05%            62,10%           60,83%           61 ,05 %         60,13%         53,84%         65,03%          62,10%
+Temp           57,34%            53,84%           58,74%           53,84%           54,73%         57,34%         60,13%          57,34%
+LFF            63,63%            65,03%           64,23%           60,83%           60,83%         57,34%         63,63%          68.75%
+                                                                              emotion after fusing all the peripheral physiological signals, as
+    The table .VI presents the accuracies after classifying the               shown in table V, VI and VII.
+emotion into three areas in arousal valence space using the self-
+reported scaling. On the other hand, Table .VII shows the                         The table .VIII resumes the obtained results and three
+results after defining the three classes basing on the nine self-             recent related works and it proves that the obtained accuracies
+reported affective keywords previously reported.                              are promising in the three ways for emotion’s establishments in
+                                                                              arousal-valence model.
+    Both of these tables prove that the human’s emotion is
+more noticeable from the respiration and electrocardiogram                        The achieved accuracies are explained by the fact that we
+signals then other bodily responses (Temperature or Galvanic                  correctly pre-processed the signals to have the significant
+Skin Response). In addition, we can clearly see that the                      information. In addition, we warily selected features, which are
+Gaussian kernel function is the best solution that could find the             relevant than chosen in the studies earlier mentioned
+performed hyper-plans. Moreover, it is easier to recognize the                [20][21][39].
+
+                   TABLE VI.     CLASSIFICATION ACCURACIES BY USING SEVERAL SVM’S KERNELS (3 CLASSES USING SCALING RATES)
+              Classification Rates
+              Linear                             Polynomial                        Sigmoid                        Gaussian
+              Arousal           Valence          Arousal          Valence          Arousal         Valence        Arousal         Valence
+ECG           51,4%             44,05%           50%              52,12%           52,63%          46,80%         50,07%          46,8%
+GSR           47,36%            48,93%           48,42%           48,93%           49,37%          45,74%         50,52%          47,87%
+Resp          47,36%            53,19%           46,31%           50%              48,42%          48,93%         45,77%          52%
+Temp          40,14%            43,3%            42,95%           45,45%           45,26%          51,05%         42,25%          45,45%
+LFF           52,63%            48,93%           50,52%           52,12%           51,57%          46,36%         54,73%          56,83%
+
+ TABLE VII.     CLASSIFICATION ACCURACIES BY USING SEVERAL SVM’S KERNEL (THREE DEFINED CLASSES USING SELF-REPORTED EFFECTIVE KEYWORDS)
+              Classification Accuracies
+              Linear                             Polynomial                        Sigmoid                        Gaussian
+              Arousal           Valence          Arousal          Valence          Arousal        Valence         Arousal         Valence
+ECG           44,21%            48,42%           43,15%           49,47%           50,52%         48,42%          45,26%          51,57%
+GSR           40%               41,05%           42,10%           43,15%           46,31%         44,4%           45,26%          42,10%
+Resp          51,57%            49,47%           52,63%           46,31%           47,36%         48,42%          49,47%          44,21%
+Temp          41,57%            43,15%           41,05%           44,2%            46,31%         45,26%          45,26%          45,26%
+LFF           48,42%            48,42%           50,52%           54,73%           46,31%         49,47%          59,57%          57.44%
+
+
+
+
+                                                                                                                                 321 | P a g e
+                                                               www.ijacsa.thesai.org
+                                                                        (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                  Vol. 8, No. 3, 2017
+
+                                                                                   [2]  Benoit et al., “Multimodal focus attention and stress detection and
+TABLE VIII. OBTAINED RESULTS COMPARED TO RELATED WORK FOR THE                           feedback in an augmented driver simulator,” Pers. Ubiquitous Comput.,
+              THREE WAYS IN MODELLING EMOTIONS                                          vol. 13, no. 1, pp. 33–41, Jan. 2009.
+                                                                                   [3] D. Katsis, N. Katertsidis, G. Ganiatsas, and D. I. Fotiadis, “Toward
+                                              Three Classes                             Emotion Recognition in Car-Racing Drivers: A Biosignal Processing
+                                                                                        Approach,” IEEE Trans. Syst. Man Cybern. - Part Syst. Hum., vol. 38,
+           Two Classes                        Using 1-9                                 no. 3, pp. 502–512, May 2008.
+                                                             Using 9 emotional
+                                              scaling                              [4] M. Paschero et al., “A real time classifier for emotion and stress
+                                                             keywords
+                                              values                                    recognition in a vehicle driver,” IEEE International Symposium on
+           Obtained                           Obtained       Obtained                   Industrial Electronics , pp. 1690–1695, May 2012.
+                          [21]      [39]                                 [20]      [5] Ghaderi, J. Frounchi, and A. Farnam, “Machine learning-based signal
+           Results                            Results        Results
+                                    55.00%                                              processing using physiological signals for stress detection,” 22nd Iranian
+Arousal    64.23%         57%                 54,73%         59,57%      46.2%          Conference on Biomedical Engineering (ICBME), pp. 93–98, November
+                                    ± 3.9                                               2015.
+                                    57.50%
+Valence    68.75%         62.7%               56,83%         57.44%      45.5%     [6] K. Rattanyu, M. Ohkura, and M. Mizukawa, “Emotion monitoring from
+                                    ± 3.9                                               physiological signals for service robots in the living space,” in
+                                                                                        International Conference on Control Automation and Systems (ICCAS),
+                              VI.    CONCLUSION                                         pp. 580–583 , Octobre 2010
+    This paper presented a whole process in emotion                                [7] Suchitra, Suja P., and S. Tripathi, “Real-time emotion recognition from
+                                                                                        facial images using Raspberry Pi II,” 3rd International Conference on
+recognition system from peripheral physiological signals. For                           Signal Processing and Integrated Networks (SPIN), pp. 666–670,
+this aim, we used the recent multimodal database MAHNOB-                                February 2016.
+HCI. In this dataset, they collected the bodily responses from                     [8] N. Chanthaphan, K. Uchimura, T. Satonaka, and T. Makioka, “Facial
+24 participants after eliciting their feeling using 20 selected                         Emotion Recognition Based on Facial Motion Stream Generated by
+videos. Basing on the self-reported emotion from the                                    Kinect,” 11th International Conference on Signal-Image Technology
+participant, we proposed three ways to model the affective                              Internet-Based Systems (SITIS), pp. 117–124, November 2015.
+states in arousal valence space. In fact, we established two and                   [9] Turan, K.-M. Lam, and X. He, “Facial expression recognition with
+                                                                                        emotion-based feature fusion,” Asia-Pacific Signal and Information
+three main classes using the discrete rating values (from 1 to 9                        Processing Association Annual Summit and Conference (APSIPA), pp.
+scales) and another model using 9 emotional keywords to                                 1–6, December 2015.
+define three areas in arousal valence dimension. We pre-                           [10] S. G. Koolagudi and K. S. Rao, “Emotion recognition from speech: a
+processed the data to remove noise and artefacts from the data.                         review,” Int. J. Speech Technol., vol. 15, no. 2, pp. 99–117, Jun. 2012.
+Then, we extracted selected features. After normalizing them to                    [11] F. Chenchah and Z. Lachiri, “Acoustic Emotion Recognition Using
+minimize the difference between participants, an early level                            Linear and Nonlinear Cepstral Coefficients,” Int. J. Adv. Comput. Sci.
+feature fusion was applied for further analysis. Finally, we                            Appl., vol. 6, no. 11, 2015.
+classified for the first time each physiological signal and then                   [12] S. Wioleta, “Using physiological signals for emotion recognition,” 6th
+the LFF data using the support vector machine. We used its                              International Conference on Human System Interactions (HSI), pp. 556–
+                                                                                        561, June 2013.
+different kernel’s functions to perform the classification rates.
+                                                                                   [13] R. W. Picard, E. Vyzas, and J. Healey, “Toward machine emotional
+Results showed the relevance of the electrocardiogram and                               intelligence: analysis of affective physiological state,” IEEE Trans.
+respiration signals in emotion assessment task. Moreover, the                           Pattern Anal. Mach. Intell., vol. 23, no. 10, pp. 1175–1191, October
+RBF kernel is the most suitable algorithm. Results proved also,                         2001.
+that detecting affective states is easier after fusing all the bodily              [14] Y. Velchev, S. Radeva, S. Sokolov, and D. Radev, “Automated
+responses. The obtained accuracies were promising compared                              estimation of human emotion from EEG using statistical features and
+to recent related works.                                                                SVM,” Digital Media Industry Academic Forum (DMIAF), pp. 40–42,
+                                                                                        July 2016.
+    As future work, we aim to implement additional techniques                      [15] Y. Gu, K.-J. Wong, and S.-L. Tan, “Analysis of physiological responses
+such as the feature selection and reduction mechanisms                                  from multiple subjects for emotion recognition,” IEEE 14th International
+(ANOVA, PCA, and Fisher) to eliminate the redundant                                     Conference on e-Health Networking, Applications and Services
+                                                                                        (Healthcom), pp. 178–183, October 2012.
+information and select the most relevant features. Moreover,
+                                                                                   [16] S. Basu et al., “Emotion recognition based on physiological signals using
+we would like to implement other classification algorithms that                         valence-arousal model,” Third International Conference on Image
+can lead for best results.                                                              Information Processing (ICIIP), pp. 50–55, December 2015.
+                                                                                   [17] S. Thushara and S. Veni, “A multimodal emotion recognition system
+                              ACKNOWLEDGMENT                                            from video,” International Conference on Circuit, Power and Computing
+    The authors of this paper would like to thank the                                   Technologies (ICCPCT), pp. 1–5, March 2016.
+MAHNOB-HCI’s team for providing this freely multimodal                             [18] A. Torres, Á. A. Orozco, and M. A. Álvarez, “Feature selection for
+                                                                                        multimodal emotion recognition in the arousal-valence space,” 35th
+database to develop this research4.                                                     Annual International Conference of the IEEE Engineering in Medicine
+                              REFERENCES                                                and Biology Society (EMBC), pp. 4330–4333, July 2013.
+[1]   K. G. Smitha and A. P. Vinod, “Hardware efficient FPGA                       [19] M. Soleymani, J. Lichtenauer, T. Pun, and M. Pantic, “A Multimodal
+      implementation of emotion recognizer for autistic children,” IEEE                 Database for Affect Recognition and Implicit Tagging,” IEEE Trans.
+      International  Conference   on   Electronics,    Computing     and                Affect. Comput., vol. 3, no. 1, pp. 42–55, Jan. 2012.
+      Communication Technologies (CONECCT), pp. 1–4, Jan. 2013.                    [20] S. Koelstra et al., “DEAP: A Database for Emotion Analysis ;Using
+                                                                                        Physiological Signals,” IEEE Trans. Affect. Comput., vol. 3, no. 1, pp.
+                                                                                        18–31, Jan. 2012.
+
+                      4
+                          https://mahnob-db.eu/hci-tagging
+
+
+
+                                                                                                                                                 322 | P a g e
+                                                                    www.ijacsa.thesai.org
+                                                                         (IJACSA) International Journal of Advanced Computer Science and Applications,
+                                                                                                                                   Vol. 8, No. 3, 2017
+
+[21] G. N. Yannakakis, K. Isbister, A. Paiva, and K. Karpouzis, “Guest                   International Conference on Multimedia and Expo, pp. 1079–1084, July
+     Editorial: Emotion in Games,” IEEE Trans. Affect. Comput., vol. 5, no.              2010.
+     1, pp. 1–2, Jan. 2014.                                                         [31] M. Grimm, K. Kroschel, and S. Narayanan, “The Vera am Mittag
+[22] Jonghwa Kim and E. Andre, “Emotion recognition based on                             German audio-visual emotional speech database,” IEEE International
+     physiological changes in music listening,” IEEE Trans. Pattern Anal.                Conference on Multimedia and Expo , pp. 865–868, June 2008.
+     Mach. Intell., vol. 30, no. 12, pp. 2067–2083, Dec. 2008.                      [32] J. A. Healey and R. W. Picard, “Detecting Stress During Real-World
+[23] Jonghwa Kim and E. Andre, “Emotion recognition based on                             Driving Tasks Using Physiological Sensors,” IEEE Trans. Intell. Transp.
+     physiological changes in music listening,” IEEE Trans. Pattern Anal.                Syst., vol. 6, no. 2, pp. 156–166, Jun 2005.
+     Mach. Intell., vol. 30, no. 12, pp. 2067–2083, Dec. 2008.                      [33] C. Godin, F. Prost-Boucle, A. Campagne, S. Charbonnier, S. Bonnet,
+[24] J. Fleureau, P. Guillotel, and Q. Huynh-Thu, “Physiological-Based                   and A. Vidal, “Selection of the most relevant physiological features for
+     Affect Event Detector for Entertainment Video Applications,” IEEE                   classifying emotion,” Proceedings in International conference on
+     Trans. Affect. Comput., vol. 3, no. 3, pp. 379–385, Jul. 2012.                      physiological computing systems (PhyCS), January 2015.
+[25] “Sentiment Symposium Tutorial: Language and cognition.” [Online].              [34] C. J. C. Burges, “A Tutorial on Support Vector Machines for Pattern
+     Available: http://sentiment.christopherpotts.net/lingcog.html. [Accessed:           Recognition,” Data Min. Knowl. Discov., vol. 2, no. 2, pp. 121–167.
+     19-Feb-2017].                                                                  [35] Changchun Liu, P. Rani, and N. Sarkar, “An empirical study of machine
+[26] S. M, J. A. Russell, and L. F. Barrett, “Structure of self-reported current         learning techniques for affect recognition in human-robot interaction,”
+     affect: Integration and beyond,” J. Pers. Soc. Psychol., vol. 77, no. 3, pp.        IEEE/RSJ International Conference on Intelligent Robots and Systems,
+     600–619, 1999.                                                                      pp. 2662–2667, August 2005.
+[27] H. Xu and K. N. Plataniotis, “Subject independent affective states             [36] C.-C. Chang and C.-J. Lin, “LIBSVM: A library for support vector
+     classification using EEG signals,” IEEE Global Conference on Signal                 machines,” ACM Trans. Intell. Syst. Technol., vol. 2, no. 3, pp. 1–27,
+     and Information Processing (GlobalSIP), pp. 1312–1316, December                     Apr. 2011.
+     2015.                                                                          [37] Z. Guendil, Z. Lachiri, C. Maaoui, and A. Pruski, “Emotion recognition
+[28] “Emotion, core affect, and psychological construction.” [Online].                   from physiological signals using fusion of wavelet based features,” in
+     Available:                                                                          2015 7th International Conference on Modelling, Identification and
+     https://www.researchgate.net/publication/276947577_Emotion_core_aff                 Control (ICMIC), pp. 1–6, December 2015.
+     ect_and_psychological_construction. [Accessed: 17-Nov-2016].                   [38] C. A. Torres-Valencia, H. F. Garcia-Arias, M. A. A. Lopez, and A. A.
+[29] P. Ekman and D. Cordaro, “What is Meant by Calling Emotions Basic,”                 Orozco-Gutierrez, “Comparative analysis of physiological signals and
+     Emot. Rev., vol. 3, no. 4, pp. 364–370, October 2011.                               electroencephalogram (EEG) for multimodal emotion recognition using
+[30] G. McKeown, M. F. Valstar, R. Cowie, and M. Pantic, “The SEMAINE                    generative models,” Signal Processing and Artificial Vision 2014 XIX
+     corpus of emotionally coloured character interactions,” IEEE                        Symposium on Image, pp. 1–5, September 2014.
+
+
+
+
+                                                                                                                                                323 | P a g e
+                                                                     www.ijacsa.thesai.org
+                    © 2017. This work is licensed under
+https://creativecommons.org/licenses/by/4.0/ (the “License”). Notwithstanding
+the ProQuest Terms and Conditions, you may use this content in accordance
+                       with the terms of the License.
+

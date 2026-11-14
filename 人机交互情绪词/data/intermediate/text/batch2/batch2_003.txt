@@ -1,0 +1,1644 @@
+Knowledge and Information Systems (2020) 62:2225–2256
+https://doi.org/10.1007/s10115-019-01419-1
+
+    REGULAR PAPER
+
+
+
+A decision support system for service recovery in affective
+computing: an experimental investigation
+
+Yen‑Hao Hsieh1 · Szu‑Chieh Chen1
+
+Received: 11 November 2017 / Revised: 10 October 2019 / Accepted: 12 October 2019 /
+Published online: 13 November 2019
+© Springer-Verlag London Ltd., part of Springer Nature 2019
+
+
+Abstract
+With the development of information technology, information technology not only
+improves human’s living environments and the quality of life but also increases the pro‑
+ductivity of industries. Information technology helps businesses to provide customers with
+quality services using existing resources and make the right and effective service decisions.
+Accordingly, businesses have to not only understand customer needs but also pay atten‑
+tion to customer emotions when they make service decisions. This study aims to build a
+service recovery decision support system by adopting affective computing, artificial neural
+networks and decision trees approaches. Three experiments are conducted to evaluate the
+feasibility and performance of the service recovery decision support system. The experi‑
+ment results show that the service recovery decision support system can have the high per‑
+formance of customer recognition. Meanwhile, customer emotion can be a clue to enable
+businesses to make the right service decisions in service recovery.
+
+Keywords Affective computing · Artificial neural network · Decision support systems ·
+Service recovery · Customer emotion · Decision tree
+
+
+1 Introduction
+
+The developments in information technology are changing people’s life styles. The convenience
+resulting from the use of information technology has led to the trend of many services switching
+to automated services. Automated services usually serve customers in a passive manner, that is,
+automated services are provided only when customers execute certain commands or steps [18].
+Although this type of service already satisfies most customer requirements, it does not consider
+the psychological aspect of customers such as expectations and emotions [4]. During a service
+delivery process, the feeling experienced by customers may affect the value of the service. If
+customers are dissatisfied with a service, it implies that they had a bad impression and experi‑
+ence owing to a poor service design or customer interaction process [48, 49].
+
+* Yen‑Hao Hsieh
+  yhhsiehs@mail.tku.edu.tw
+      Szu‑Chieh Chen
+      h5692777@hotmail.com
+1
+      Department of Information Management, Tamkang University, New Taipei City, Taiwan
+
+
+                                                                                              13
+                                                                                      Vol.:(0123456789)
+2226                                                                        Y.-H. Hsieh, S.-C. Chen
+
+
+   Service interaction design is an emerging academic field, which emphasizes on the com‑
+bination of customer experience and service design, in order to provide services that can
+satisfy customer requirements in a fast and effective manner [22]. Customer involvement
+is an important element in service interaction design [18]. In general, among the many
+methods in which people can express their requirements during a service delivery process,
+voice dialogs are the most direct method of interaction. Owing to the rapid development
+of information technology, many voice interaction services have become popular, and they
+attempt to improve customer experience [54]. For example, using Siri, which is a voice
+recognition-based personal assistant service for iPhone, customers can acquire personal‑
+ized services (such as navigation or trip planning) through voice control. This innovative
+service also allows multiple people to stay in touch through interaction using information
+technology [5].
+   Currently, the service industry is a key driver for major economic activities in many
+countries, with increased competition in the service environment. Besides customer
+requirements, effectively retaining customers is an important issue for businesses. A cus‑
+tomers’ emotion is an important factor that influences customer satisfaction and loyalty [9].
+The interactive service between the business and customers should not only learn customer
+needs, but also evaluate the emotions expressed by customers through conversations. After
+receiving the service, the customer’s emotions reflect the level of satisfaction. Therefore, if
+the emotional factor is integrated into the development of service policies, it will help the
+business to provide appropriate services to their customers.
+   Picard [39] introduced the term “affective computing,” in which sensors are used in
+information technology to measure the physiological signals of customers, such as the
+changes in facial expression or heart rate. In addition, these signals are used to understand
+the customer’s emotion in order to provide a suitable response. Affective computing not
+only studies whether an information technology can determine customers’ emotion, but
+also embeds emotional elements into information technology, so that decisions can be
+made based on the customers’ perspective [40, 41, 53]. Appropriate services are provided
+based on the different emotions, which change the conventional information technology
+decision-making method.
+   People and information technologies can interact through many different methods. Cur‑
+rently, the most common interaction method is verbal communication, which achieves
+communication through the characteristics of sound waves and the content of messages
+[25]. However, information technology is ineffective at understanding human feelings.
+Although people can interact with information technology using the same communication
+method, information technology cannot comprehend emotional communication. In order
+for information technology to understand the emotional response of customers through
+interactive conversations, Picard evaluated user emotion through voice signals by analyz‑
+ing voice signal characteristics and categorizing emotions [40, 41].
+   Petrushin [38] applied voice emotion recognition for commercial activities and estab‑
+lished customer emotion recognition systems in customer service centers, which require
+the customer service staff to communicate with the customers to evaluate their emotion and
+provide appropriate services. Li et al. [30] considered the traditional e-learning model to
+be ineffective as it lacks interaction and reduces the users’ willingness to learn, and there‑
+fore, he proposed a voice interactive learning model. It allows the users to respond to the
+learning situation at any time, so that the system can recognize the users’ emotion through
+voice signals and provide timely encouragement and suggestions in order to increase the
+users’ willingness to learn and improve the effectiveness of the e-learning model. From
+these examples, it is clear that the concept of affective computing applications has become
+
+13
+A decision support system for service recovery in affective…                               2227
+
+
+a trend in information technology. This is different from previous human–computer inter‑
+action models, because businesses can now use emotion-enabled information technology to
+create valuable services.
+   Hence, this study aims to explore the following research questions: (1) How can busi‑
+nesses apply the affective computing technology into the development of a service recovery
+decision support system? (2) How do businesses effectively provide customers with quality
+services by recognizing customer emotion? According to the above research questions, the
+objectives of this study are (1) to analyze the influence of customer emotion for designing
+the service recovery decision mechanism and (2) to build a service recovery decision sup‑
+port system based on affective computing, neural network and decision tree approaches.
+   This article is organized as follows. First, we provide a comprehensive overview of
+existing research addressing service recovery and affective computing. Then, we propose a
+system framework of a service recovery decision support system. Next, we conduct experi‑
+ments to evaluate the effectiveness and feasibility of the proposed system. We then discuss
+the implications and contributions of our findings and outline limitations and conclude the
+article with opportunities for future research.
+
+
+
+2 Literature review
+
+2.1 Service recovery
+
+According to Vargo and Lusch [52], the definition of a service is the application of com‑
+petency for the benefit of other parties. When service providers provide customers with
+high-quality services to meet customer expectation, customers have high satisfaction that
+can increase their loyalty for the services and service providers. However, there are many
+critical factors influencing the success of the service delivery including service quality, ser‑
+vice operation, frontline employee, customer expectation and so on [37, 46, 54]. While ser‑
+vice provides make mistakes during service delivery that cannot appropriately fulfill cus‑
+tomer needs, service failures immediately occur. Service failures directly affect customers
+to perceive negative experiences and cause customers who could be not willing to employ
+perceived failure services next time [36]. The business reputation and benefits of service
+providers could become more and more negative if service providers cannot instantly deal
+with service failures. Consequently, how to recover the failures, that is service recovery,
+for service providers and researchers has been extremely important issue within the service
+field.
+    Service recovery is defined that service providers employ recovery actions to respond to
+service failures [18]. That is, service recovery is a process to return dissatisfied customers
+to achieve a state of satisfaction with a service provider after a service has failed to meet
+customer expectations. According to Craighead et al. [9], customers will certainly achieve
+high satisfaction after service providers offer real-time and quality remedial services
+in comparison with the appropriate service delivery to fulfill customers. It is extremely
+important and necessary for service providers to define suitable service recovery strategies
+and operations and also provide real-time and effective remedial services with customers.
+To our knowledge, although the issue of service failure and service recovery has been stud‑
+ied by many academic fields including marketing field, service management field, business
+administration field, operation management field, etc. [10], these pioneer research only
+proposed lots of contributions by using empirical approaches (that is, the questionnaire
+
+                                                                                    13
+2228                                                                       Y.-H. Hsieh, S.-C. Chen
+
+
+survey and the statistic method). Especially for the consideration of real-time and effective
+remedial services, there is less research investigating the problem based on the perspective
+of system development.
+   Furthermore, service recovery can be regarded as a complex process. The success of
+service recovery can be influenced by the capabilities of service providers, the nature of
+services, the characteristics of customers, the guidelines of recovery strategies and poli‑
+cies [19, 26]. It is a critical challenge for service providers to immediately make responses
+to service failures from customers because service providers have to take aforementioned
+factors into account at the same time. The main roles to execute remedial services are the
+frontline employees and middle managers who are all human beings [49]. The frontline
+employees and middle managers usually struggle to make the right decision for implement‑
+ing remedial services within the limited time since they need to be based on their past
+experiences and domain knowledge.
+   Besides, when customers perceived service failures, they usually have negative emotions
+for service providers. Smith and Bolton [48] noted that customers’ emotional responses to
+service failures can affect their recovery effort evaluations and satisfaction judgments dur‑
+ing service recovery. It is useful to understand how customers felt during past service fail‑
+ure and recovery encounters influence subsequent evaluations of service encounters [27,
+33]. Customer emotions have important practical implications what customers feel about
+a product or service impacts on customer satisfaction, repeat purchase, switching, negative
+word of mouth, complaining to third parties and loyalty [11]. Undoubtedly, customer emo‑
+tion can be a useful clue for service providers to the implementation of successful service
+recovery.
+   Customers’ feelings and perceptions are the most critical factors to measure if service
+providers offer appropriate remedial services to deal with service failures. Hence, customer
+emotions usually directly reflect their feelings of received remedial services [32]. To our
+knowledge, although many research emphasized the importance of understanding customer
+emotions, there is less research applying customer emotions to a service recovery system
+decision support system in real time. If service providers accurately gather the data of cus‑
+tomer emotions to generate the useful information for service recovery, the information
+can help service providers to understand customer emotions after perceiving remedial ser‑
+vices. Meanwhile, service providers can predict customer behaviors by analyzing emotions
+during service recovery. Accordingly, a systematical and effective mechanism for service
+recovery should be necessary for service providers to implement remedial services in real
+time. A decision support system is an applicable system in service recovery.
+
+
+2.2 Affective computing
+
+Picard [39] proposed the idea of affective computing that can recognize human emotions to
+apply into information systems. The intelligent information system can effectively under‑
+stand human emotions to offer appropriate interactive activities in real time [45]. Further‑
+more, the intelligent information system not only can imitate real-world human behaviors
+by employing the idea of affective computing but also can help decision-makers to accu‑
+rately make the right choice [12, 53]. There are four main indicators of affective comput‑
+ing which includes recognizing emotions, expressing emotions, having emotions and emo‑
+tional intelligence [39–41] as delineated in Fig. 1.
+   The purpose of recognizing emotions is to understand what emotions humans could convey
+and explore the main cause and environmental situations of bringing their emotions [4]. The
+
+13
+A decision support system for service recovery in affective…                                        2229
+
+
+Fig. 1  Classifications of affective
+computing
+
+                                                                       Recognizing   Expressing
+                                                                        emotions     emotions
+
+
+
+
+                                                                         Having       Emotional
+                                                                        emotions     intelligence
+
+
+
+
+information system with recognizing emotions can immediately propose suitable responses to
+the causes and surroundings [15]. Besides, the information system with expressing emotions
+can accurately reveal real emotions which humans can smoothly interact with. The informa‑
+tion system can imitate human emotions to perform human behaviors and thinking [20, 29].
+The meaning of having emotions is that the information system can naturally generate emo‑
+tions by either the external stimuli or nothing. The key of having emotions is to not only reveal
+actual emotions but also the generated emotions can influence humans. This indicator is the
+core condition to evaluate if the information system achieves the success of affective comput‑
+ing. Emotional intelligence has not only aforementioned three indicators but also enables the
+information system to act as a human being with proper emotions [17]. Accordingly, emo‑
+tional intelligence is the ideal target to implement in the real life for the researchers in the field
+affective computing [40, 53].
+
+
+3 Service recovery decision support system
+
+3.1 System framework
+
+Figure 2 shows the design logic of the conceptual framework of the service recovery decision
+support system. The process includes four phases including acoustics processing, emotions
+recognizing, contexts analyzing and services providing. The goal of acoustics processing is to
+increase the clarity and accuracy of collective voice which can increase the recognition rate.
+Emotions recognition is to distinguish customer emotions (i.e., positive emotions or negative
+emotions) through affective computing and artificial neural network. Furthermore, the step
+of contexts analyzing is to acquire any information from service contexts where customers
+involve in. According to the understanding of customer emotions and service contexts, service
+providers can effectively make the correct decisions to provide customers with proper services
+by adopting the approach of decision tree.
+
+
+
+             Acoustics                  Emotions                  Contexts               Services
+             Processing                Recognizing                Analyzing             Providing
+
+
+Fig. 2  Design logic of the service recovery decision support system
+
+
+                                                                                           13
+2230                                                                      Y.-H. Hsieh, S.-C. Chen
+
+
+   Based on the design logic of the service recovery decision support system, this study
+expects the system to realize emotion recognition using voice signals provided by custom‑
+ers and provide appropriate service to these customers through a series of data process‑
+ing steps, in order to prove the effect of emotion on the services provided (as shown in
+Fig. 3). Therefore, a simple interaction interface in which customers can interact with the
+service delivery mechanism was designed in this study. The interface display informs the
+customers about the services that can be provided, after which, customers decide if the
+services are appropriate. The system architecture is divided into two parts: front-end and
+back-end processing. Front-end processing mainly handles direct interactions with the cus‑
+tomers, which includes receiving the customers’ voice signal and graphically presenting
+service results as a response to the customer recognition results. Customers can evaluate if
+a service satisfies their requirements based on the results provided by the system. The sys‑
+tem also realizes similar interactions using graphic responses to respond to the customers’
+emotion, in order to improve customers experience in this system. Back-end processing
+
+
+
+
+Fig. 3  System framework
+
+
+13
+A decision support system for service recovery in affective…                               2231
+
+
+includes different processing and databases of the service delivering mechanism. It does
+not directly interact with customers, but it analyzes the voice characteristics and recognizes
+the customers’ emotional status after receiving the voice signals from the customers. Then,
+it provides a suitable service to the customers based on external surrounding situations.
+    First, customers use a microphone to talk to the interactive window. The system begins
+the back-end voice signal processing stage once messages from the customers are received.
+After signal transformation, end-point detection, frame blocking, pre-emphasis, window
+function and other voice signal processing processes, the original voice signal is trans‑
+formed into emotion characteristic parameters that are easier to analyze. The characteristic
+parameters can be used as input values for the neural networks and can be used to train the
+neural networks to effectively perform voice emotion recognition. In order to establish the
+methodology of this emotion recognition system, this study collects voice message data
+through experiments and stores them in the voice signal database. In order to effectively
+train the backpropagation neural network, the data in the voice signal database are divided
+into two categories: training data and test data. Training data are used to build up a proper
+model of the neural network, and then test data are used to test the effectiveness of the
+neural network [15, 25, 28]. Voice data, whose emotions have already been identified, are
+stored in the emotion voice database. The data in the emotion voice database are mainly
+divided into two categories: positive emotion and negative emotion [28].
+    This study uses decision trees as the decision-making tool for providing services. Ser‑
+vices are provided depending on different emotions. According to the different designed
+scenarios, the decision tree is used to determine the service that is more appropriate.
+Appropriate services are chosen from the service database and delivered to the customers
+through the interactive window. This system captures external data to identify the environ‑
+ment situation and stores the results in the environment database, which includes identi‑
+fied emotions, situational conditions, and services provided. These data are used for the
+learning and correction purposes of the overall service delivery mechanism. The system
+architecture considered in the study is expected to not only recognize emotion and pro‑
+vide suitable services, but also to be applicable under all different situations. Therefore, the
+entire database and learning methodology of this system can adjust to different situations,
+allowing different customers to correct its mechanism based on their needs, in order to pro‑
+vide services to the customers in a more suitable manner.
+
+
+3.2 Acoustical preprocessing
+
+The overall architecture of the service delivery mechanism in this study can be divided
+into the front-end and back-end system. The front-end system serves as the interactive
+interface for the voice and text communication between the customers and the informa‑
+tion technology. Voice messages are also collected by the front-end system. The back-end
+performs voice emotion recognition processing on the received voice messages. In order to
+effectively analyze the voice messages, this study determines emotion characteristic values
+embedded in the voice messages though voice signal processing, using emotion recogni‑
+tion characteristic parameters such as pitch, energy, formant, and Mel-frequency cepstral
+coefficient (MFCC), and it identifies values that can be categorized as positive and negative
+emotions [23].
+   Speech is one of the methods used by people for communication. Through the under‑
+standing of semantics and observation of changes in intonation, people can express
+their needs and emotion changes. However, for information technology, it is difficult to
+
+                                                                                    13
+2232                                                                               Y.-H. Hsieh, S.-C. Chen
+
+
+intuitively recognize all signals embedded in a voice message. Therefore, before being used
+for emotion recognition, voice signals need to be processed into signals that can be recog‑
+nized by the information technology for subsequent actions of voice emotion recognition.
+
+3.3 Backpropagation neural network
+
+In order to perform emotion categorization for the processed voice signal, this study
+employs a neural network with a good application range and flexibility. However, there
+exist different types of neural networks. To effectively analyze the input data and obtain
+the expected results, a backpropagation neural network algorithm is selected, which uses
+supervised learning that can make multiple corrections to the output. This enables more
+accurate emotion categorization results for the voice messages through the calculation of
+the backpropagation neural network.
+   The main framework of the backpropagation neural network includes three layers: input,
+hidden and output, with error learning ability. The neural network can calculate the error
+between the customers’ expected output and actual output; adjust the output value of the
+neural network; and improve the output results to match customer expectation through a
+continuous correction process [56]. Such a learning process also makes the neural network
+more flexible about error toleration. Even if customers input a new question with different
+emotional characteristics, the neural network can provide similar results based on similar
+conditions, which helps to widen the application of the proposed method.
+   The input layer is only used for receiving the characteristic parameters and does not
+have any calculation capability. Xi in Fig. 4 is the input characteristic parameter. The input
+data of this study are the voice characteristic parameter obtained from voice signal process‑
+ing. After the input values enter the input layer, the neural network transmits them to the
+hidden layer and calculates the output values. Hj in the figure is the output value. Accord‑
+ing to the neuron output equation, the hidden layer output equation is similar to that of the
+output layer. The neuron output value is obtained by adding the output value from the pre‑
+vious layer and the weighted value W and subtracting the bias (b) from the error learning
+function. The results are then formalized using the activation function ʄ, so that the range
+of each output value is simpler and easy to calculate.
+   In general, the sigmoid function is often used as a transfer function in the backpropaga‑
+tion neural network because it has a regularized output value and can restrict the range of
+output (as shown in Eq. 1). When the input value tends to positive infinity, this function
+
+Fig. 4  Backpropagation neural                                     Hj
+network                                                                       Error Learning
+                                  Xi                       bj                 bk                      Yk
+
+                                                         Wij              Wjk
+
+
+
+
+                                 Input     Input Layer         Hidden Layer         Output Layer
+
+
+13
+A decision support system for service recovery in affective…                                 2233
+
+
+limits its value to one. When the input value tends to negative infinity, this function limits
+its value to zero [57].
+                                                           1
+                                           f (x) =
+                                                     1 + exp (−ax)                            (1)
+
+   The function of the hidden layer is as follows:
+                                               (     )
+                                       Hjn = f netnj                                          (2)
+
+
+                                          netnj = 𝛴Wijn Xin−1 − bnj                           (3)
+
+Hjn is the output value of the jth hidden layer node on the nth layer, f is the sigmoid conver‑
+sion function, netnj is the cumulative weight value of the nth layer output value. Wijn is the
+weight of the jth neuron on layer n and the ith neuron on layer n − 1. Xin−1 is the output
+value of the ith input layer on layer n − 1, and the output value is the input characteristic
+parameter for the input layer. bnj is the bias of the jth neuron on layer n.
+   Besides, the function of the input layer as follows:
+                                                  (      )
+                                           Ykn = f netnk                                    (4)
+
+                                          netnk = 𝛴Wjkn Ykn−1 − bnk                           (5)
+
+Ykn is the output value of the kth output layer node on layer n, f is the sigmoid conversion
+function, netnk is the cumulative weight value of the nth layer output value. Wjkn is the weight
+of the kth neuron on layer n and the jth neuron on layer n − 1. Ykn−1 is the output value of the
+kth hidden layer on layer n − 1, and bnk is the bias of the kth neuron on layer n.
+
+
+
+3.4 C4.5 decision tree algorithm
+
+In order to better explain the relationship between emotions and services, a decision tree is
+used in this study as a method of service delivery [50]. The nodes and tree diagram of the
+decision tree are established based on the characteristics of the collected data, which can
+not only identify the most influential characteristics but also directly explain the relation‑
+ship for selecting that service. There are different types of decision trees. The C4.5 deci‑
+sion tree algorithm is used in this study as the service classification methodology [42, 43].
+It is capable of dealing with both continuous and discrete types of data and establishing
+multi-node trees, which enables the proposed mechanism to generate more diversified and
+more appropriate services for the customers.
+    Decision trees can describe classifications and make decisions based on the relation‑
+ships between the characteristics and results [44]. Therefore, in order to increase the ana‑
+lytical ability of the decision tree, it is important to identify appropriate characteristics from
+the collected data and use them as the categorization node. The C4.5 algorithm is used in
+this study as the algorithm for decision trees [42, 43]. C4.5 is a new methodology from the
+improved ID3. Its characteristic selection criteria are also based on the correction of infor‑
+mation gain selected by ID3, and it uses the gain ratio as the characteristic selection criteria.
+This section illustrates the formula used for calculating the gain ratio in C4.5 [42, 43].
+
+
+                                                                                      13
+2234                                                                          Y.-H. Hsieh, S.-C. Chen
+
+
+   Let a processing dataset D represent segmented data. Ci(i = 1,…,m) represents different
+classification groups, with a total of m categories. Ci,D represents the value group of cat‑
+egory Ci in dataset D. ||Ci,D || is the number of values in Ci,D, while |D| represents the number
+of values in D. In order to determine the expected information of the values in D, in other
+words, to calculate the entropy of the dataset D, the following formula is used:
+                                                ∑
+                                                m
+                                                             ( )
+                                 Info(D) = −          pi log2 pi                                 (6)
+                                                i=1
+
+Info(D) is the entropy of dataset D. pi is the probability of a value in any category to be
+categorized in Ci , which can be obtained by ||Ci,D ||∕|D|. Because information is presented in
+bit, log2 function is used for the calculation. If characteristics A is used to break up dataset
+D, when A is discrete, v results will be generated from dataset D because of character‑
+istic A, that is v segmentations D1 , D2 … , DV . The formula to calculate the information
+expected value using characteristic A for the segmentation is as follows:
+
+                                              v ||D ||
+                                              ∑  | j|
+                                InfoA (D) =               × Info(D)                              (7)
+                                              j=1
+                                                    |D|
+
+InfoA (D) represents the expected information of the category values in X based on the judg‑
+ment of the characteristic of A. Smaller expected information value means more clear clas‑
+sification. Dj are the values generated from characteristic A. In order to get better segmen‑
+tation results, which implies that the values belong to different categories rather than one
+single category after the segmentation, its information gain needs to be calculated. The
+information gain is the difference between the expected value of the original information
+and the expected value of information based on the segmentation of characteristic A. The
+information gain is calculated as
+                                Gain(A) = Info(D) − InfoA (D)                                    (8)
+Gain(A) is the information gain of characteristic A. If a calculated characteristic has the
+largest information gain, then it will be selected as the node characteristic of the data seg‑
+mentation. Several characteristic categories of the collected data after segmentation can
+be calculated based on the information gain. However, the information gain may divide
+the characteristics into more categories than what is actually needed, and some of the cat‑
+egories may have no practical significance for classification. For example, using the order
+number of the customers’ input voice as characteristic data can result in many segmentation
+categories. Although this segmentation result has the largest information gain, the order
+number has minimal effect on the categorization of the decision tree, and consequently, it
+is not applicable for the category characteristic selection of the decision tree [20].
+    In order to resolve the possible problems that are stated above with regard to the infor‑
+mation gain, the C4.5 algorithm chooses to use the gain ratio as the characteristic selec‑
+tion criterion. It first normalizes Info(D) after data segmentation to resolve the problem of
+excessive sub-node generation in the decision tree due to the information gain. The nor‑
+malization formula for data acquisition is as follows:
+
+                                               v ��D ��
+                                               �            ⎛ ��Dj �� ⎞
+                          SplitInfoA (D) = −         × log2 ⎜ � � ⎟
+                                                  � j�
+                                                                                                 (9)
+                                                 �D�        ⎜ �D� ⎟
+                                             j=1            ⎝         ⎠
+
+
+13
+A decision support system for service recovery in affective…                               2235
+
+
+SplitInfoA (D) is the split information gain from dataset D after characteristic A segmenta‑
+tion. The gain ratio of the characteristic can be calculated based on the ratio between the
+calculated output value of the split information gain and the original output value, as fol‑
+lows [20, 43]:
+                                                            Gain(A)
+                                      GainRatio(A) =                                       (10)
+                                                           SplitInfo(A)
+
+where GainRatio(A) is the gain ratio of characteristic A. The characteristic with the highest
+gain ratio will be used as the segmentation characteristic. The gain ratio is unstable when
+the information gain of the segmentation approaches zero, which will lead to erroneous
+characteristic selection. Therefore, in order to avoid such situations, it is usually expected
+to have a relatively large information gain in the test, at least higher than the average acqui‑
+sition amount of the test [20, 43].
+    Even after establishing the decision tree, it is still possible to have induction error dur‑
+ing the calculation process because of inappropriate or abnormal branches. Thus, pruning
+is necessary to increase the accuracy of the decision tree’s calculation, remove the branches
+with lower reliability, improve the induction and classification effect of the decision tree,
+and even increase the running speed [42, 44, 50]. Because the C4.5 algorithm is used as
+the algorithm for the decision tree in this study, decision tree pruning also follows the C4.5
+methodology. The C4.5 decision tree algorithm mainly uses post-pruning method to prune
+the decision tree. That is, sub-decision trees on certain nodes are removed after the entire
+decision tree is established and leaf nodes are added to the removed points in order to sort
+the most frequently used categorization rules. C4.5 uses the pessimistic pruning method,
+which does not require pruning collection; however, it uses the training data of the decision
+tree to evaluate its overall error ratio. The pessimistic pruning method adds a penalty to the
+calculated error ratio, in order to avoid the errors during the evaluation of error ratio as a
+result of being over optimistic, which reduces the accuracy of the decision result.
+
+
+4 Experiment validation and results
+
+This study mainly focuses on the design of an emotion recognition-based service recovery
+decision support system and tests whether this system is capable of resolving the research
+problems using experiments. Three experiments are designed in this study, including the
+establishment of emotion classification architecture, the setup of service recovery decision-
+making model and the evaluation of system effectiveness. This section describes the three
+experiments in detail and concludes with the discussion of the experimental results.
+
+4.1 Experiment 1: the establishment of emotion classification architecture
+
+4.1.1 Experimental objective
+
+This experiment establishes an effective emotion classification architecture using the
+backpropagation neural network. Setting up a number of hidden layer neurons in the
+neural network is an important topic, which usually needs to be decided based on the
+complexity of the problem. Since the number of hidden layer neurons in the neural net‑
+work affects the effectiveness of the neural network training, more hidden layer neurons
+imply higher accuracy; however, they also need longer training time. On the contrary,
+
+                                                                                    13
+2236                                                                        Y.-H. Hsieh, S.-C. Chen
+
+
+considerably many neurons may result in the overfitting of the neural network, which
+leads to the over-training of the network and less satisfactory classifications and predic‑
+tions. A trial-and-error method is usually used to decide the required number of hidden
+layer neurons. It runs the test sequentially to identify the most appropriate number of
+hidden layer neurons.
+
+
+4.1.2 Experimental design
+
+This study is based on the research of Burkhardt et al. [3] and chooses to use the Ber‑
+lin emotional speech database. Each voice datum in this database has already been defi‑
+nitely classified based on the emotion. Dube and Menon [14] stated that a positive emotion
+includes happiness and joy, and the negative emotion includes anger and sadness. Anger
+is defined as a negative emotion, and happiness is defined as a positive emotion in order
+to recognize customer emotions after service failure or service recovery. In all relevant
+experiments of this study, angry reactions are uniformly represented by the negative emo‑
+tion and happy reactions are uniformly indicated by the positive emotion. Furthermore,
+Garson [16] and Kavzoglu and Mather [24] proposed one feasible rule to determinate the
+optimal number of training sizes that should be at least 10 times the number of inputs. This
+study selects 199 voice data (including angry and happy voices) from the Berlin emotional
+speech database as samples for emotion classification. The number of training sizes can
+fulfill this criterion. A part of the sample data can be used as training data, and the remain‑
+ing can be used as test data. 80/20 is a commonly used rule for the division of training and
+test data and is also used in this study. These voice data samples were selected at random
+and divided into 134 training data and 65 test data. In addition, Coleman et al. [8] indicated
+that the simulation results easily converge when the number of simulations is 1000; there‑
+fore, we perform 1000 simulations in this study.
+    MFCC is regarded as appropriate feature to be used in emotion recognition with high
+recognition rate, simple calculation, better ability of distinction and high robustness to
+noise [6, 34, 35, 51]. Consequently, this system uses the processed MFCC before the voice
+signal is used as the input data for the neural network input layer. As a result, the number of
+nodes on the input layer is set to be the same as the dimension of the MFCC, which is 12.
+As stated above, when customers encounter service failure, they generate negative and pos‑
+itive emotions. Thus, two nodes are set up for the output layer. According to Yao [56] and
+Leon et al. [29], most problems can be solved by using a single hidden layer. The network
+could fail to converge on an acceptable solution when multiple hidden layers are adopted.
+To avoid overcomplicating the network architecture and reducing the training effectiveness,
+a single hidden layer is used to achieve the emotion classification result. Simultaneously,
+the number of neurons in the hidden layer is decided by the following formula:
+                                       √
+                                  𝜈 = (𝛼 + 𝛽) + 𝛾, 1≦𝛾≦10                                  (11)
+
+ν is the number of hidden layer neurons, α is the number of neurons on the input layer, β is
+the number of neurons on the output layer, and γ is a random constant that values between
+1 and 10. The calculated result of ν is 4 after substituting the value of 𝛼 (i.e., 12 neurons
+are designed for the input layer) and the value of 𝛽(i.e., 2 neurons are set up for the output
+layer). On adding the random constant γ, the calculated range for the number of neurons on
+the hidden layer is between 4 and 14. Then, the trial-and-error method is used on the simu‑
+lation across the range to determine the optimal number of hidden layer neurons.
+
+
+13
+A decision support system for service recovery in affective…                                            2237
+
+
+4.1.3 Experiment results
+
+Table 1 presents the neural network training effectiveness under different number of hidden
+layer neurons. The average recognition rates are 78.47% for negative emotion and 94.66%
+for positive emotion. The average correct recognition rate is 89.08%, and the overall mean
+square error is 0.1043. When the number of hidden layer neurons is 9, the mean square
+error is 0.0845, and the correct recognition rates are 90.80% for negative emotion and
+95.20% for positive emotion. The proposed method is effective in emotion recognition, and
+it has an overall correct recognition rate of 93.7%, which is above the average effective‑
+ness. Its overall effectiveness is better than neural networks with different numbers of hid‑
+den layer neurons. Therefore, this study uses nine neurons on the hidden layer.
+
+4.2 Experiment 2: the setup of the service recovery decision‑making model
+
+4.2.1 Experiment objective
+
+For different service failures, a business implements different service recovery decisions
+based on the personal factors and backgrounds of the affected customers. Therefore, it is
+necessary to further analyze customer information, service failure and recovery resources
+in order to determine the most appropriate service recovery decision. The main objective
+of this experiment is to set up an effective service recovery decision-making model, using
+decision tree as the classification method for service decision-making. A restaurant is set as
+the experimental environment, and information is collected by means of a survey. A restau‑
+rant delivers quality services to fulfill customer needs that can be considered as a service
+system. Restaurant services (such as food quality, employee behaviors, environments and
+so on) directly affect customer satisfaction [1]. A service recovery decision support system
+should be useful for restaurants to promptly respond to customers’ requests. In order to
+set up a satisfactory service recovery decision-making rule, it is assumed that whenever a
+
+
+
+Table 1  Recognition performances based on the different number of neurons
+Number of neurons       Mean squared error       Recognition rates of   Recognition rates of   Average
+                                                 positive emotion       negative emotion       recognition
+                                                                                               rates
+
+4                       0.0964                   0.8000                 0.9274                 0.8840
+5                       0.1033                   0.8769                 0.9113                 0.8990
+6                       0.0871                   0.8308                 0.9677                 0.9210
+7                       0.0935                   0.7850                 0.9270                 0.8780
+8                       0.1187                   0.7380                 0.9520                 0.8780
+9                       0.0845                   0.9080                 0.9520                 0.9370
+10                      0.1015                   0.7540                 0.9600                 0.8890
+11                      0.1279                   0.6310                 0.9760                 0.8570
+12                      0.1079                   0.9077                 0.9032                 0.9050
+13                      0.0904                   0.8154                 0.9597                 0.9100
+14                      0.1363                   0.5846                 0.9758                 0.8410
+Average                 0.1043                   0.7847                 0.9466                 0.8908
+
+
+
+                                                                                                13
+2238                                                                           Y.-H. Hsieh, S.-C. Chen
+
+
+service failure occurs the affected customers expect to be recipients of some form of ser‑
+vice recovery.
+
+4.2.2 Experiment design
+
+In order to set up a satisfactory service recovery decision-making model for customers,
+this study uses a survey to collect service recovery measures that customers are willing to
+accept in the event of a service failure. Further, this study applies the four common service
+failure situations and seven service recovery measures in restaurants described in Hoffman
+et al. [21], Chung and Hoffman [7] and Mattila [31] (as shown in “Appendix 1”). Table 2
+shows the details of the survey data. The survey questionnaire has been reviewed and com‑
+mented on by two experts and uses the Likert 7-point scale as a basis for evaluation. The
+subjects rate the available service recovery measures based on four service failures, to sort
+
+
+Table 2  Description of the     Attribute                Sub-attribute                     Number
+survey data
+                                Gender                   Male                              49
+                                                         Female                            61
+                                Age                      Less than 18 years old             2
+                                                         19–24 years old                   44
+                                                         25–34 years old                   25
+                                                         35–44 years old                   24
+                                                         45–54 years old                   12
+                                                         More than 55 years old             3
+                                Education                Elementary school                  0
+                                                         Junior high school                 0
+                                                         Senior high school                15
+                                                         University                        66
+                                                         Master                            29
+                                Residence                North                             74
+                                                         Middle                            30
+                                                         South                              6
+                                                         East                               0
+                                Job                      Permanent                         62
+                                                         Temporary                         48
+                                Marital status           Unmarried                         76
+                                                         Married with children             29
+                                                         Married without children           5
+                                Monthly income           Less than 20,000 NTD              46
+                                                         20,001–30,000 NTD                 17
+                                                         30,001–40,000 NTD                 18
+                                                         40,001–50,000 NTD                  9
+                                                         More than 50,001 NTD              20
+                                Frequency for eating out Less than 3 times                 43
+                                  per week               4–6 times                         37
+                                                         7–9 times                          7
+                                                         More than 10 times                23
+
+
+
+13
+A decision support system for service recovery in affective…                                     2239
+
+
+the expected recovery measures in order of preference and past experiences. In addition,
+the questionnaire also records the basic information of the subjects, to be used as the deci‑
+sion point of the service recovery decision tree rules. Personal information is used to dis‑
+cover the link with the service recovery method, so as to set up rules that are consistent
+with the service recovery decision-making and to increase the effectiveness of the service
+recovery measures. Hundred and twenty-one questionnaires are recovered from the survey,
+in which 110 are valid questionnaires, which implies a 90.16% valid response rate.
+   In establishing the decision tree, training data are used to develop the basic tree struc‑
+ture and perform decision effectiveness training, and then test data are used to test the over‑
+all accuracy. According to Han et al. [20], to explore the critical attributes as the deci‑
+sion nodes of the decision tree model is the key to build an accurate and effective decision
+support system. The attributes of the survey data including gender, age, education, resi‑
+dence, job, marital status, monthly income and frequency for eating out per week are the
+candidates for the decision nodes via calculating information gain and gain ratio. The 110
+responses from the questionnaire are used as the training and testing data. This experiment
+uses k-fold cross-validation as the data segmentation and verification method. This method
+divides the overall database in sequence into k subsets, uses k − 1 of the subsets as training
+data, and the remaining as testing data. The training and verification process is repeated to
+overcome poor training result problems as a result of the small sample size and to obtain
+the most accurate result. In order to determine a suitable number of subsets, this experi‑
+ment uses three different segmentations, including tenfold, eightfold and fourfold, in order
+to verify the classification accuracy of the decision tree. Table 3 shows an example of one
+subject’s scores for four service failures and recovery measures. For instance, subject #001
+prefers businesses to offer measure ① (i.e., apology) when situation 1 occurs (i.e., the seat‑
+ing problem). According to the survey results, this study can identify the importance and
+preference of recovery measures in different situations in order to define the potential rules
+of decision trees.
+
+4.2.3 Experiment results
+
+In order to find effective service recovery decision-making rules, a decision tree should
+be built first. As mentioned earlier, to find the root of the decision tree by computing the
+gain ratio is necessary. Table 4 shows the information gain and the gain ratio of custom‑
+er’s attributes in each service failure situation. (The mapping description of attributes
+and ID is delineated in “Appendix 1”.) The gain ratio (0.2378) of x8 (frequency for eat‑
+ing out per week) is the highest in situation 1 that is defined as the root of the decision
+tree. Similarly, the gain ratio for x4 (residence), x2 (gender) and x5 (work) is 0.2281,
+0.1765 and 0.1797, respectively, that are also selected as the roots. The service recovery
+decision-making rules are further trained and explored based on the selected roots and
+collected data.
+
+Table 3  Scores of subject #001
+              Measure ①     Measure ②     Measure ③     Measure ④   Measure ⑤   Measure ⑥   Measure ⑦
+
+Situation 1   7             6             5             4           1           2           3
+Situation 2   7             5             2             1           3           6           4
+Situation 3   4             2             1             7           6           5           3
+Situation 4   7             6             5             4           1           2           3
+
+
+
+                                                                                            13
+2240                                                                            Y.-H. Hsieh, S.-C. Chen
+
+
+Table 4  Information gain and gain ratio
+       Situation 1                                   Situation 2
+       Information gain Split information Gain ratio Information gain Split information Gain ratio
+
+x1     0.1177            0.9913            0.1187    0.0142            0.9913             0.0143
+x2     0.0961            0.7184            0.1338    0.0298            0.7184             0.0415
+x3     0.0983            0.9852            0.0998    0.1141            0.9852             0.1158
+x4     0.0704            0.9486            0.0742    0.2164            0.9486             0.2281
+x5     0.0943            0.9974            0.0945    0.0395            0.9974             0.0396
+x6     0.0403            0.8564            0.0471    0.0477            0.8564             0.0557
+x7     0.1184            0.7549            0.1568    0.1316            0.7549             0.1743
+x8     0.1696            0.7132            0.2378    0.1206            0.7132             0.1691
+       Situation 3                                   Situation 4
+       Information gain Split information Gain ratio Information gain Split information Gain ratio
+
+x1     0.175             0.9913            0.1765    0.0536            0.9913             0.0541
+x2     0.0632            0.7184            0.0880    0.0837            0.7184             0.1165
+x3     0.0276            0.9852            0.0280    0.0119            0.9852             0.0121
+x4     0.0385            0.9486            0.0406    0.0640            0.9486             0.0675
+x5     0.0746            0.9974            0.0748    0.1792            0.9974             0.1797
+x6     0.0952            0.8564            0.1112    0.0903            0.8564             0.1054
+x7     0.0434            0.7549            0.0575    0.0136            0.7549             0.0180
+x8     0.1028            0.7132            0.1441    0.0776            0.7132             0.1088
+
+
+
+   According to Table 5, considering service recovery measure ① as an example, most
+subjects are willing to accept service recovery measure ① under service failure situ‑
+ation one. Its recognition rate for fourfold, eightfold and tenfold is 58.64%, 66.54%
+and 66.11%, respectively. It is clear that in this case, more segmentation is associated
+with higher accuracy. However, for the service recovery measure ⑦, under service
+failure situation one, the average recognition rate for fourfold, eightfold and tenfold
+is 34.51%, 37.23% and 22.29%, respectively. Tenfold has lower recognition rate than
+eightfold, because it has less test items and it is difficult to summarize other expected
+service recovery measures. Therefore, this study uses eightfold as the main segmenta‑
+tion method for the cross-validation of the data. Although it has lower accuracy on some
+service recovery measures compared to the tenfold cross-verification method, it still has
+relatively better recognition effectiveness on most of the service recovery measures.
+   Furthermore, the service recovery decision models are built for four service failures
+that are trained by inputting 110 responses via the C4.5 algorithm (as shown in Fig. 5).
+Taking Fig. 5c as an example, there are three critical attributes (x1, x6 and x8) as the
+decision nodes of the decision model. According to the decision model of situation 3,
+the decision rules can be detailed as follows: (The decision rules for situation 1, situa‑
+tion 2 and situation 4 are delineated in “Appendix 2”.)
+
+
+
+
+13
+     Table 5  Evaluation by using k-fold approach in four situations
+                      k-fold         Measure ① (%)        Measure ② (%)   Measure ③ (%)   Measure ④ (%)   Measure ⑤ (%)   Measure ⑥ (%)   Measure ⑦ (%)
+
+     Situation 1      Tenfold        66.11                0.00             0.00            0.00           0.00             0.00           22.29
+                     Eightfold       66.54                5.00            20.00            0.00           0.00             0.00           37.23
+                     Fourfold        58.64                2.50             8.33            9.17           0.00             0.00           34.51
+                     Average         63.76                2.50             9.44            3.06           0.00             0.00           31.34
+     Situation 2     Tenfold         46.36                0.00             0.00            0.00           0.00             0.00           56.05
+                     Eightfold       42.18                0.00             0.00            7.33           0.00             0.00           54.97
+                     Fourfold        45.82                6.67             0.00           16.67           0.00             0.00           45.83
+                                                                                                                                                          A decision support system for service recovery in affective…
+
+
+
+
+                     Average         44.79                2.22             0.00            8.00           0.00             0.00           52.28
+     Situation 3     Tenfold         29.67                0.00             0.00           44.91           0.00            21.67           10.00
+                     Eightfold       18.97                0.00             0.00           65.11           3.33            10.33            3.67
+                     Fourfold        23.77                0.00             0.00           36.47           1.67            12.74           16.11
+                     Average         24.14                0.00             0.00           48.83           0.00            14.91            9.93
+     Situation 4     Tenfold         82.05                0.00             0.00            0.00           0.00             0.00           12.50
+                     Eightfold       73.91                0.00             0.00            9.43           0.00             0.00           19.00
+                     Fourfold        75.59                0.00             9.17            3.33           0.00             0.00           15.49
+                     Average         77.18                0.00             3.06            4.25           0.00             0.00           15.66
+
+
+
+
+                                                                                                                                                           2241
+13
+2242                                                                   Y.-H. Hsieh, S.-C. Chen
+
+
+
+
+Fig. 5  Service recovery decision models for service failures
+
+
+
+Rule 1 If (Gender(x1) = male) & (Marriage(x6) = single or Marriage(x6) = married with‑
+out children), then managerial intervention measure (④) is expected.
+
+Rule 2 If (Gender(x1) = male) & (Marriage(x6) = married with children), then free food
+measure (⑦) is expected.
+
+Rule 3 If (Gender(x1) = female) & (Frequency for eating out per week (x8) < 4), then
+apology measure (①) is expected.
+
+Rule 4 If (Gender(x1) = female) & (10 ≧ Frequency for eating out per week (x8) ≧ 4),
+then managerial intervention measure (④) is expected.
+
+Rule 5 If (Gender(x1) = female) & (Frequency for eating out per week (x8) ≧ 10), then
+replacement measure (⑥) is expected.
+
+   Hence, the service recovery decision-making rules are built to help businesses to
+make service recovery decisions and provide customers with suitable measures. Mean‑
+while, the decision nodes trained by collected responses are the bigger values of the
+gain ratio (as shown in Table 4). These experiment results obviously reveal the validity.
+
+
+
+13
+A decision support system for service recovery in affective…                             2243
+
+
+That is, the service recovery decision-making rules can properly respond to customers
+and should be feasible in practice.
+
+4.3 Experiment 3: evaluation of the efficacy of the service recovery decision
+     support system
+
+4.3.1 Experiment objective
+
+After establishing the emotion classification architecture in experiment 1 and the setup
+of the service recovery decision-making model in experiment 2, this study designs a ser‑
+vice recovery decision support system to be used under service recovery situations. In this
+experiment, the service recovery decision support system is evaluated with the subjects in
+order to verify the accuracy of the emotion recognition and the satisfactoriness of the ser‑
+vice recovery measure provided by the system.
+
+4.3.2 Experiment design
+
+Each subject met with two researchers in a quiet and closed room. We briefed subjects on
+the objective of the study and provided instructions for completing each of this experi‑
+ment. As the subjects orally performed emotional responses to the four service failure situ‑
+ations, we monitored and recorded their voice. Figure 6 shows the experiment procedure
+of experiment 3. Prior to the evaluation, the subjects are asked to fill out a questionnaire
+and provide their preferred recovery measures based on different service failure situations.
+They are asked to list their top three preferred service recovery measures from the seven
+available recovery measures on the questionnaire in order of preference. This experiment
+is to use the recommended accuracy evaluation formula that is determined whether the ser‑
+vice recovery measure delivered meets the expectations of the subjects, in order to verify
+the efficacy of the service recovery system. The recommended accuracy evaluation formula
+is as follows:
+                                                          ∑nh        Posia
+
+                                         Prediction =
+                                                               a=1    nr                 (12)
+                                                                nh
+where n is the total number of services, h is the number of hits, r is the number of services
+provided in the system, and ­Posia is the position of a in the provided recovery decision-
+making item table, ranging from 1 to nh.
+    Then, the subjects enter their basic information in the service recovery decision sup‑
+port system and are required to orally simulate emotional responses to the four service
+failure situations; these oral emotional responses are recorded. First, the system analyzes
+the records to recognize the emotions; next, it decides whether to provide service recovery;
+and finally, if service recovery is to be provided, it determines the most appropriate service
+recovery measure for the subject based on the calculation of service recovery decision-
+making rules. In this experiment, the subjects’ emotional responses are recorded twice for
+each of the four service failure situations in order to validate the recognition rate of the
+service recovery decision support system for both positive and negative emotions. The
+first recording focuses on the relationship between negative emotion and service failure,
+while the second recording focuses on positive emotion and the effectiveness of the ser‑
+vice recovery. The first recording is analyzed by the system to detect the emotion. If the
+
+
+                                                                                  13
+2244                                                                                  Y.-H. Hsieh, S.-C. Chen
+
+
+
+                                                                       Start
+
+
+                                                             Fill out questionnaire
+
+
+                                               Encounter four service failures situations
+
+
+                                                             First time recording
+                              No
+
+
+                     Does the subject               No            Is negative
+                     perform negative
+                         emotion?                                  emotion?
+
+
+                              Yes                                           Yes
+               Emotion recognition failure                 Deliver service measures
+
+
+                                                           Second time recording
+                              No
+
+                     Does the subject
+                     perform positive
+                                                    No            Is positive
+                         emotion?                                  emotion?
+
+
+                              Yes                                           Yes
+               Emotion recognition failure                  Save experiment data
+
+
+
+                                                                Does the subject              No
+                                                               finish four service
+                                                               failures situations?
+
+
+                                                                           Yes
+                                                                      End
+
+Fig. 6  Experiment procedure of experiment 3
+
+
+recognition result is negative emotion, the system proceeds to service recovery activities
+and provide appropriate recovery measures to the subjects.
+   On the contrary, if the recognition result is positive emotion, two researchers of this
+study determine the expressed emotion of the subject. In the case where the expressed
+emotion is actually negative emotion, the recognition result is considered as system rec‑
+ognition failure. For the second recording, if the recognition result is positive emotion,
+
+
+13
+A decision support system for service recovery in affective…                                           2245
+
+
+Table 6  Accuracy rates of recovery measures
+                      Satisfied with perceived    Dissatisfied with per‑   Number of           Accuracy
+                      measures                    ceived measures          subjects            rates (%)
+
+Situation 1            24                         11                       35                  68.57
+Situation 2            27                          8                        35                 77.14
+Situation 3            25                         10                        35                 71.43
+Situation 4            27                          8                        35                 77.14
+Total                 103                         37                       140                 73.57
+
+
+
+Table 7  Accuracy rates of recognizing emotions
+                                                       Positive emotion                Negative emotion
+
+Number of recognition                                  140                             140
+Accuracy number of recognition                         103                             101
+Error number of recognition                            37                              39
+Accuracy rates (%)                                     73.57                           72.14
+
+
+
+
+then according to Smith and Bolton [48], the service recovery measure can be considered
+as effective; on the contrary, if the emotion recognition result is negative emotion, two
+researchers of this study determine the actual expressed emotion of the subject. In case the
+expressed emotion is actually positive emotion, this recognition result will be considered
+as system recognition failure. Thirty-five subjects are invited to participate in this experi‑
+ment, and 140 oral emotional response records, for the purpose of recognition, are col‑
+lected for each emotion. The average record has a length of five seconds in this experiment.
+
+4.3.3 Experiment results
+
+As indicated in Table 6, in situation one, 24 out of 35 subjects received recovery measures
+within their top three preferences, among which 11, 8 and 5 received their most preferred,
+second most preferred and third most preferred recovery measure, respectively. The overall
+accuracy of the service provided in situation one is approximately 68.57%. The service
+recovery decision-making rule established in this study can predict the preferred service
+recovery measure within the customer’s top three preferences with 73.57% average accu‑
+racy rate. Accordingly, Table 7 also shows that the average accuracy rates of recognizing
+positive emotion and negative emotion are 73.57% and 72.14%, respectively. The subjects
+are requested to provide a rating after experiment 3 based on the service recovery process
+and the recovery measure received. Based on Brooke [2], the range of the rating is between
+0 and 100. The rating is divided into five levels following Royse et al. [47]: 100 to 80
+means totally satisfied, 80 to 60 means satisfied, 60 to 40 is moderately satisfied, 40 to 20
+is somewhat satisfied, and 20 to 0 is not at all satisfied. The service recovery rating results
+are shown in Table 8.
+    As indicated in Table 8, ratings provided by the subjects are mostly within totally satis‑
+fied and satisfied. In situation one, the number of totally satisfied and satisfied ratings is
+82% of the total; in situation two, the number of totally satisfied and satisfied ratings is
+91% of the total; in situation three, the number of totally satisfied and satisfied ratings is
+
+                                                                                             13
+2246                                                                             Y.-H. Hsieh, S.-C. Chen
+
+
+Table 8  Satisfaction ratings of recovery measures
+                               Situation 1           Situation 2   Situation 3             Situation 4
+
+Totally satisfied              18 (51%)              21 (60%)      17 (49%)                21 (60%)
+Satisfied                      11 (31%)              11 (31%)      12 (34%)                12 (34%)
+Moderately satisfied           3 (9%)                2 (6%)        5 (14%)                 2 (6%)
+Somewhat satisfied             1 (3%)                0 (0%)        1 (3%)                  0 (0%)
+Not at all satisfied           2 (6%)                1 (3%)        0 (0%)                  0 (0%)
+Number of subjects             35                    35            35                      35
+
+
+
+
+83% of the total; in situation four, the number of totally satisfied and satisfied ratings is
+94% of the total. The experiment results show that the subjects are satisfied with the emo‑
+tion recognition-based service recovery method of the service recovery decision support
+system. The service recovery decision support system provided appropriate recovery meas‑
+ures to subjects. Therefore, based on the above experiment results, it validates that this ser‑
+vice recovery decision support system has high emotion recognition accuracy and effective
+service recovery decision-making rules.
+
+
+
+
+5 Discussion
+
+The aim of this study is to recognize human emotion using information technology, and
+based on the recognition formulate appropriate decisions. This study uses backpropaga‑
+tion neural network as the emotion classification method. Results from experiment 3 have
+73.57% recognition rate for positive emotion and 72.14% for negative emotion. From the
+experiment results, it is evident that the backpropagation neural network is effective in
+emotion classification and it enhances the effectiveness of emotion application in service
+decision-making. According to Douglas-Cowie et al. [13], voice signal characteristics are
+similar in emotion expression, and a significant error recognition rate is unlikely in voice
+emotion recognition because of the change in language. That is, even with a language bar‑
+rier, change in emotion can still be recognized by the tone, intensity, and pitch of the voice,
+which is also supported by the positive emotion recognition rate in experiments 1 and 3.
+   The neural network established on the German voice emotion database achieved 89.08%
+recognition rate accuracy in experiment 1 and only 72.14% recognition rate accuracy in the
+operation of the actual system in experiment 3. One possible reason is that all the subjects
+were in a simulated experiment and did not really encounter service failure. As a result,
+the emotions expressed were different from when service failure actually occurs, and this
+consequently affected the recognition accuracy. In restaurants, if service failure occurs, the
+customers naturally express their emotions based on the degree of service failure. How‑
+ever, in experiment 3, the customers were required imagine the simulated service failure
+and provide a suitable emotional response to that situation. For example, when a subject
+expressed a complaint in a gentle demeanor, there is a likelihood that the system may rec‑
+ognize it as a positive emotion, which results in a recognition error. In addition, because
+subjects perform oral emotional response recordings alone with a computer, i.e., when
+there is no actual external stimulation, the subjects may easily become shy or overwhelmed
+
+
+13
+A decision support system for service recovery in affective…                                2247
+
+
+during the process or may even be intrigued by the experiment, resulting in some inaccu‑
+rate expression of emotion.
+   Furthermore, according to the survey results in experiment 2, respondents have differ‑
+ent levels of importance of four service failure situations. They also expected restaurants
+to provide suitable measures to deal with the specific service failures. Table 9 shows that
+respondents paid attention to situation 2 (the percentage of probably important and defi‑
+nitely important is 70%) and situation 3 (the percentage of probably important and defi‑
+nitely important is 90.91%). Oppositely, since situation 1 and situation 4 slightly influence
+customers’ perception of restaurant services, they only prefer restaurants to offer measure
+①. These statistics from questionnaire surveys make sense.
+   However, according to the experiment results of experiment 3, the service recovery
+decision support system mostly provided subjects with measure ⑦ rather than measure ①
+in situation 1. It seems that the results of experiment 3 totally infringed the survey results in
+experiment 2, but this finding is practically the value of the service recovery decision sup‑
+port system. One critical decision rule (i.e., Rule 5) for situation 1 is the key that depends
+on the condition of frequency for eating out per week. Table 10 shows numbers and per‑
+centages of frequency for eating out per week in experiment 3. About 43% of subjects had
+the experience of more than 10 times for eating out per week.
+   Consequently, customer expectations of service recovery measures are influenced by
+lots of factors. As mentioned earlier, how to offer suitable service recovery measures is a
+crucial issue for restaurants. The decision rules play an important key to consider complex
+conditions of customers and businesses to develop a faultless service recovery decision
+support system. Values will be created via delivering appropriate service recovery meas‑
+ures when service failures occur.
+
+
+5.1 Managerial implication
+
+Under service failure situations, the emotion of the customers can be used not only to eval-
+uate the effectiveness of services provided by the business, but also to provide evidence and
+act as a reference for service decision-making. Currently, the commonly used methods for
+businesses to collect feedback from customers are through questionnaires or verbal conver‑
+sations. The questionnaires mainly include satisfactory level and open-end-related ques‑
+tions for customers to complete, which is relatively more complicated and needs to be man‑
+ually verified in order to provide service recovery measures. Although verbal conversation
+can yield timely customer feedback, not all customers will clearly point out the problems of
+a business or proactively ask for expected service. Both methods have their pros and cons.
+According to de Witt and Brady [11], service failures adversely affect customer evaluations
+of a business, which tends to be reflected through customer emotions. Service recovery
+measures by a business may be capable of retrieving lost credit rating and improving the
+customers’ emotions, which turns service failures to opportunities of improvement for the
+business. Therefore, this study considers emotion as a sufficient parameter for business ser‑
+vice decision-making and, consequently, for evaluating the influence of service decisions
+on customers.
+   Businesses can use the voice emotion recognition method by simply detecting voice
+characteristics to identify customer emotions and determine service decisions without vio-
+lating customer privacy. Based on the affective computing concept proposed by Picard
+[39], this study applies the concept of emotional intelligence into human–computer interac‑
+tion design, utilizes information technology to recognize human emotion and formulates
+
+                                                                                     13
+                                                                                                                                                                 2248
+13
+
+
+
+
+     Table 9  Levels of importance of service failure situations
+                        Definitely unimportant             Probably unimportant       Probably important         Definitely important        Preferred measure
+                        Number          Percentage         Number        Percentage   Number        Percentage   Number         Percentage
+
+     Situation 1        60              54.55              22            20.00        14            12.73        14             12.73        Measure ①
+     Situation 2         8               7.27              36            32.73        53            48.18        13             11.82        Measure ⑦
+     Situation 3         3               2.73               7             6.36        16            14.55        84             76.36        Measure ④
+     Situation 4        26              23.64              33            30.00        30            27.27        21             19.09        Measure ①
+
+
+
+
+                                                                                                                                                                 Y.-H. Hsieh, S.-C. Chen
+A decision support system for service recovery in affective…                               2249
+
+
+Table 10  Number of frequency         Frequency for eating out per   Number        Percentage
+for eating out per week in            week
+experiment 3
+                                      Less than 3 times              10            28.57
+                                      4–6 times                       5            14.29
+                                      7–9 times                       5            14.29
+                                      More than 10 times             15            42.86
+
+
+
+service decisions based on human emotional responses. However, prior relevant studies
+have stated that, even though techniques of emotion recognition are maturing, most busi‑
+nesses still use questionnaires to collect customer feedback and evaluate the degree of sat‑
+isfactoriness for the services; very few use customer emotion as the decision-making evi‑
+dence for providing services. The reason is that emotion recognition techniques may be
+very expensive, and customers may feel uncomfortable and perceive that their privacy is
+being violated during the emotion response collection process. Therefore, affective com‑
+puting techniques are more widely used for medical purposes, in personal life, or other sit‑
+uations, but currently owing to its inflexibility has limited scope in business environments.
+   Therefore, in order for the proposed service recovery decision support system to be
+more widely accepted, this study chooses to use voice interaction for emotion recogni‑
+tion. Through oral conversations, the customers can most directly express their emotion.
+The analysis can be performed without analyzing the content of the conversation, which is
+less likely to violate customers’ privacy or related issues of their concern [39]. Businesses
+can make use of the collected emotional response to design and improve the service deliv‑
+ery process. Considering service failure situations in this study as an example, businesses
+can obtain timely emotional responses from customers using information technology, and
+their staff can decide if service failures indeed did happened and quickly provide appropri‑
+ate service recovery measures based on the service decision-making rules established in
+the system, in order to satisfy customer expectation and achieve suitable service recovery
+results.
+   With the service recovery decision support system established in this study, businesses
+will be able to take customer emotion into consideration in decision-making and design
+appropriate reaction plans based on customers’ emotional responses. For example, when
+the staff is interacting with customers that have encountered service failure and accordingly
+have negative emotion, it can be helpful to choose a more appropriate service, or analyze
+the situation that causes negative emotion in the customer, or reevaluate if there is any
+inadequacy in the service delivery process. Customer emotion can be used to improve busi‑
+ness service delivery processes, design service interactions, establish satisfactory service
+delivery processes for customers and create better service experiences.
+
+
+6 Conclusions
+
+6.1 Academic contributions
+
+Combining affective computing with service science, applying emotion in service research
+areas and using emotion to create greater service value. Emotions can be effectively used
+in human–computer interaction to create more efficient services. This study shows that
+emotions can be reflective of customer dissatisfaction toward services. Businesses can
+
+                                                                                  13
+2250                                                                       Y.-H. Hsieh, S.-C. Chen
+
+
+use the service recovery decision support system to recognize customers’ emotions and
+provide effective service recovery measures. Besides voice characteristics, this study also
+accounts for personal factors of customers and service failure situations in the decision-
+making process, in order to find the relationship between the emotion expressed and the
+environment, thereby enabling the service recovery decision support system to more accu‑
+rately provide appropriate service to the customers. This study mainly focuses on exploring
+the effectiveness of emotions in service decision-making and the application of emotion
+recognition and emotion intelligence. To our knowledge, current research results have yet
+to specifically propose any service recovery decision support system based on affective
+computing. In addition, because of the high technical requirement for emotion recogni‑
+tion, its application in business environments is limited owing to inflexibility. According
+to the experimental results of this study, the service recovery decision support system does
+not only embed the concept of service interaction design, but also enables application of
+emotion in the service area, which provides businesses with a faster and more convenient
+service decision-making method.
+    Hybrid methods (i.e., artificial neural networks and decision trees) are adopted to
+build the service recovery decision support system that can be regarded as a fundamen-
+tal research groundwork. Previous research paid attention to the performance of emotion
+recognition and the improvement in artificial neural networks. However, to our knowledge,
+there is less research applying the idea of affective computing and emotion recognition into
+the service industry. This study not only analyzes the principle of artificial neural networks
+for affective computing but also employs the logic of decision trees for service recovery
+decision strategies. Applying hybrid methods to build the service recovery decision sup‑
+port system can be regarded as an important foundation, especially in service contexts.
+Hence, this study enables businesses to effectively and efficiently examine the possibility
+of service failures and respond to customers’ complaints via emotion recognition. Mean‑
+while, this study also can be considered as an essential foundation for further researchers to
+take other critical concerns into account for better emotion recognition in affective comput‑
+ing and service recovery decision support systems.
+    Applying emotion in the service delivery process using service interaction design, estab-
+lishing a service recovery decision support system and verifying its effectiveness using ser-
+vice recovery situations. This study established a customer-focused service recovery deci‑
+sion support system using service interaction design. This study uses service recovery as
+the research context to verify the effectiveness of the service recovery decision support sys‑
+tem. According to Picard [40], not everyone can explicitly express their emotion owing to
+different personalities and backgrounds. Thus, there are different complaint behaviors and
+expectations for recovery measures. Although businesses can use questionnaires or inter‑
+views to collect information about service failures, according to Wirtz and Mattila [55],
+customers expect fast and effective service recovery measures at the time of service fail‑
+ure; to provide the same through means of questionnaires and interviews requires a large
+amount of time and labor, which may not necessarily recover customer satisfaction. There‑
+fore, this study tries to use different service delivery methods to achieve more efficient and
+effective service recovery. Experimental results show that the expected service recovery
+measure is not only affected by the service failure situation or personal background. Appro‑
+priate service recovery decisions can also be made from context-related attribute informa‑
+tion. Businesses can also find more factors that can influence service recovery decision-
+making from service interaction design. Businesses should not be limited by factors such
+as customer background or emotion, but should provide more diversified service recovery
+decision-making based on broader conditions to improve customer satisfaction on services.
+
+13
+A decision support system for service recovery in affective…                             2251
+
+
+6.2 Practical contributions
+
+Businesses can apply and extend the mechanism and architecture of the service recovery
+decision support system provided in this study, set up unique and effective service decision-
+making methods and provide high-quality service measures to customers. Besides the abil‑
+ity of recognizing customer emotions, this service recovery decision support system can
+also find the correlation between emotion and decisions and explore the most appropriate
+service recovery measures to the customers, based on customers’ backgrounds and service
+failure situations. It is even capable of assisting front-end staffs to evaluate service fail‑
+ure situations and provide timely and effective service recovery measures. It reduces labor
+costs and helps in service recovery decision-making. In addition, this study includes cus‑
+tomers’ emotion in the service recovery decision support system to help businesses decide
+what service recovery measures to provide when service failures occur. Even if customers
+do not specify the expected service, high-quality service can still be delivered to custom‑
+ers using this service recovery decision support system. Not only can the mechanism and
+architecture of this service recovery decision support system be used in service recovery,
+but it also can be widely used in other service situations. Businesses just need to establish
+appropriate service decision-making rules based on emotion recognition. It can then carry
+out the service decision, and the appropriate service measures can be proactively provided
+during the interaction process to increase customer satisfaction and loyalty to the business.
+    Businesses can follow the method used in this study to set up more realistic ser-
+vice recovery decision-making rules based on different service situations and customer
+emotions. Customer emotions have influence on business decision-making. By ana‑
+lyzing changes in customer emotion, businesses can clearly understand if the service
+delivered is effective and improve their service delivery process and content. In reality,
+businesses analyze customer background information before providing appropriate ser‑
+vices, but customers’ emotion is relatively less used in service decision-making. This
+study finds that emotion can not only represent customer satisfaction to the services,
+but can also be used as evidence for service decision-making. According to the service
+recovery decision-making rules in this study, businesses can classify customers based
+on their background and also find new service decision-making rules from dynamic
+characteristics, such as the frequency of eating out weekly, so as to find potential cus‑
+tomer groups. Then, depending on different types of customers, more diversified and
+appropriate services can be provided.
+    Businesses can effectively and actively identify customers with service failures via
+emotion recognition in real-time service contexts. It is extremely crucial for businesses
+to understand the consequences of customers’ complaints and detect service failures
+in practice. Conducting customer satisfaction surveys to collect complaints has been
+common way after services are completed. However, service failures could occur dur‑
+ing service delivery. It is difficult for businesses to immediately provide customers
+with appropriate recovery strategies and tactics in response to service failures and cus‑
+tomer complaints. The effectiveness of service recovery directly influences businesses
+to maintain customer satisfaction. Hence, this study aims to provide businesses with an
+efficient way to deal with service failures in real time by proposing the service recov‑
+ery decision support system. Real-time recovery responses to customers’ complaints
+and service failures handily lead to the service recovery paradox that make customers
+feel well treated and satisfied.
+
+
+
+
+                                                                                  13
+2252                                                                                     Y.-H. Hsieh, S.-C. Chen
+
+
+6.3 Limitation and future research
+
+This study only classifies emotions as positive emotion and negative emotion. Previous stud‑
+ies showed that emotions can be classified as general emotion, positive emotion and nega‑
+tive emotion. de Witt and Brady [11] found that negative emotion may occur more frequently
+before the customers encounter service failure. This study uses restaurant service as the exper‑
+imental situation with the main consideration that customers generate negative emotion when
+there is service failure and positive emotion after receiving service recovery measures. Thus,
+this study does not consider the situation of general emotions. However, emotions can be clas‑
+sified in more detailed groups based on the ways of expression or the different degrees of feel‑
+ings, and not only by different types but also by the different degrees of emotions. Therefore,
+future researchers can try to include greater variety of emotions into consideration and provide
+a greater scope for discussion based on different emotional statuses. Besides, customers have
+different levels of perception and expectation of recovery measures according to their back‑
+grounds, cultures, educations, past experiences and so on. Some customers may think multiple
+measures should be provided by businesses since they would have high expectation to receive
+munificent compensations. Researcher could take the notions into account to enrich the deci‑
+sion rules of the service recovery decision support system in the future. In addition, this study
+only selected voice signals as the method to recognize emotion. Future studies may combine
+it with other emotion recognition methods and apply other emotion classification methods, in
+order to obtain more accurate emotion recognition results.
+
+
+Appendix 1
+
+See Tables 11, 12 and 13.
+Table 11  Mapping table of service failures and ID
+Service failure        Seating problem          Lost/slow order           Low service        Mischarged
+                                                                          quality            problem
+
+ID                     Situation 1              Situation 2               Situation 3        Situation 4
+
+
+Table 12  Mapping table of customer’s attributes and ID
+Attribute   Gender    Age    Education     Residence      Job   Marital   Salary    Frequency for eating
+                                                                status              out per week
+
+ID          x1        x2     x3            x4             x5    x6        x7        x8
+
+
+
+
+Table 13  Mapping table of service recovery measures and ID
+Measure     Apology     Discount     Coupon     Managerial        Correction    Replacement        Free food
+                                                intervention
+
+ID          ①           ②            ③          ④                 ⑤             ⑥                  ⑦
+
+
+
+
+13
+A decision support system for service recovery in affective…                                         2253
+
+
+Appendix 2
+
+See Table 14.
+
+Table 14  Decision rules
+
+Decision rules for situation 1
+Rule 1 If (Frequency for eating out per week (x8) < 4) & (Salary (x7) < 20000) then apology measure (①) is
+ expected
+Rule 2 If (Frequency for eating out per week (x8) < 4) & (Salary (x7) ≧ 20000) & (Age (x2) < 25) then
+ coupon measure (③) is expected
+Rule 3 If (Frequency for eating out per week (x8) < 4) & (Salary (x7) ≧ 20000) & (Age (x2) ≧ 25) & (Sal‑
+ ary (x7) < 30000) then free food measure (⑦) is expected
+Rule 4 If (Frequency for eating out per week (x8) < 4) & (Salary (x7) ≧ 20000) & (Age (x2) ≧ 25) & (Sal‑
+ ary (x7) ≧ 30000) then apology measure (①) is expected
+Rule 5 If Frequency for eating out per week (x8) ≧ 7 then free food measure (⑦) is expected
+Rule 6 If (4 ≧ Frequency for eating out per week (x8) ≧ 7) then apology measure (①) is expected
+Decision rules for situation 2
+Rule 1 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) < 40000) & (Frequency
+ for eating out per week (x8) < 4) & (Age (x2) < 35) then apology measure (①) is expected
+Rule 2 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) < 40000) & (Frequency
+ for eating out per week (x8) < 4) & (Age (x2) ≧ 35) then free food measure (⑦) is expected
+Rule 3 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) < 40000) & (Frequency
+ for eating out per week (x8) ≧ 4) & (Marriage(x6) = single) then free food measure (⑦) is expected
+Rule 4 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) < 40000) & (Frequency
+ for eating out per week (x8) ≧ 4) & (Marriage(x6) = married with children or Marriage(x6) = married
+ without children) then apology measure (①) is expected
+Rule 5 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) ≧ 40000) & (Frequency
+ for eating out per week (x8) < 7) then free food measure (⑦) is expected
+Rule 6 If (Residence (x4) = Northern or Residence (x4) = Central) & (Salary (x7) ≧ 40000) & (Frequency
+ for eating out per week (x8) ≧ 7) then managerial intervention measure (④) is expected
+Rule 7 If Residence (x4) = Southern or Residence (x4) = Eastern then apology measure (①) is expected
+Decision rules for situation 3
+Rule 1 If (Gender (x1) = Male) & (Marriage(x6) = single or Marriage(x6) = married without children) then
+ managerial intervention measure (④) is expected
+Rule 2 If (Gender (x1) = Male) & (Marriage(x6) = married with children) then free food measure (⑦) is
+ expected
+Rule 3 If (Gender (x1) = Female) & (Frequency for eating out per week (x8) < 4) then apology measure (①)
+ is expected
+Rule 4 If (Gender (x1) = Female) & (4 ≤ Frequency for eating out per week (x8) < 10) then managerial
+ intervention measure (④) is expected
+Rule 5 If (Gender (x1) = Female) & (10 ≤ Frequency for eating out per week (x8)) then replacement meas‑
+ ure (⑥) is expected
+Decision rules for situation 4
+Rule 1 If (Work(x5) = Yes) & (Age(x2) < 25) then managerial intervention measure (④) is expected
+Rule 2 If (Work(x5) = Yes) & (Age(x2) ≧ 25) & (Marriage(x6) = single or Marriage(x6) = married without
+ children) then apology measure (①) is expected
+Rule 3 If (Work(x5) = Yes) & (Age(x2) ≧ 25) & (Marriage(x6) = married with children) & (Frequency for
+ eating out per week (x8) < 7) then free food measure (⑦) is expected
+Rule 4 If (Work(x5) = Yes) & (Age(x2) ≧ 25) & (Marriage(x6) = married with children) & (Frequency for
+ eating out per week (x8) ≧ 7) then apology measure (①) is expected
+Rule 5 If Work(x5) = No then apology measure (①) is expected
+
+
+
+
+                                                                                              13
+2254                                                                                  Y.-H. Hsieh, S.-C. Chen
+
+
+References
+ 1. Alhelalat JA, Habiballah MA, Twaissi NM (2017) The impact of personal and functional aspects of restau‑
+    rant employee service behaviour on customer satisfaction. Int J Hosp Manag 66:46–53
+ 2. Brooke J (1996) SUS: a “quick and dirty” usability scale. In: Jordan PW, Thomas B, Weerdmeester BA,
+    McClelland IL (eds) Usability evaluation in industry. Taylor & Francis, London, pp 189–194
+ 3. Burkhardt F, Paeschke A, Rolfes M, Sendlmeier W, Weiss B (2005) A database of German emotional speech.
+    In: Proceedings of the 9th European conference on speech communication and technology, September,
+    Lisbon, Portugal, pp 1517–1520
+ 4. Cambria E, Livingstone A, Hussain A (2012) The hourglass of emotions. Cognit Behav Syst
+    74(3):144–157
+ 5. Chae BK (2014) A complexity theory approach to IT-enabled services (IESs) and service innovation:
+    business analytics as an illustration of IES. Decis Support Syst 57:1–10
+ 6. Chaudhary A, Sharma AK, Dalal J, Choukiker L (2015) Speech emotion recognition. J Emerg Technol
+    Innov Res 2(4):1169–1171
+ 7. Chung BG, Hoffman KD (1998) Critical incidents: service failures that matter most. Cornell Hotel
+    Restaur Admin Q 39(3):66–71
+ 8. Coleman T, Branch MA, Grace A (1999) Optimization toolbox for use with MATLAB, user’s guide,
+    version 2. The MathWorks Inc, Natick, MA
+ 9. Craighead CW, Karwan KR, Miller JL (2004) The effects of severity of failure and customer loyalty on
+    service recovery strategies. Prod Oper Manage 13(4):307–321
+10. de Matos CA, Henrique JLH, Rossi CAV (2007) Service recovery paradox: a meta analysis. J Serv Res
+    10(1):60–77
+11. de Witt T, Brady MK (2003) Rethinking service recovery strategies. J Serv Res 6(2):193–207
+12. D’Mello SK, Kappas A, Gratch J (2018) The affective computing approach to affect measurement.
+    Emot Rev 10(2):174–183
+13. Douglas-Cowie E, Campbell N, Cowie R, Roach P (2003) Emotional speech: towards a new generation
+    of databases. Speech Commun 40(1):33–60
+14. Dube L, Menon K (2000) Multiple roles of consumption emotions in post-purchase satisfaction with
+    extended service transactions. Int J Serv Ind Manag 11(3):287–304
+15. Fragopanagos N, Taylor JG (2005) Emotion recognition in human–computer interaction. Neural Netw
+    18(4):389–405
+16. Garson GD (1998) Neural networks: an introductory guide for social scientists. SAGE Publications,
+    London
+17. Gharavian D, Sheikhan M, Nazerieh A, Garoucy S (2012) Speech emotion recognition using FCBF
+    feature selection method and GA-optimized fuzzy ARTMAP neural network. Neural Comput Appl
+    21(8):2115–2126
+18. Grönroos C, Gummerus J (2014) The service revolution and its marketing implications: service logic
+    vs service-dominant logic. Manag Serv Qual 24(3):206–229
+19. Gustafsson A (2009) Customer satisfaction with service recovery. J Bus Res 62(11):1220–1222
+20. Han W, Chan C, Choy C, Pun K (2006) An efficient MFCC extraction method in speech recognition.
+    In: Proceedings of IEEE international symposium on circuits and systems. Island of Kos, Greece, pp
+    145–148
+21. Hoffman KD, Kelley SW, Rotalsky HM (1995) Tracking service failures and employee recovery
+    efforts. J Serv Mark 9(2):49–61
+22. Holmlid S (2009) Interaction design and service design: expanding a comparison of design disciplines.
+    Nordes 2:157–164
+23. Ingale AB, Chaudhari DS (2012) Speech emotion recognition. Int J Soft Comput Eng 2(1):2231–2307
+24. Kavzoglu T, Mather PM (2002) The use of backpropagating artificial neural networks in land cover
+    classification. Int J Remote Sens 24(23):4907–4938
+25. Krothapalli SR, Yadav J, Sarkar S, Koolagudi SG, Vuppala AK (2012) Neural network based feature
+    transformation for emotion independent speaker identification. Int J Speech Technol 15(3):335–349
+26. Liat CB, Mansori S, Chuan GC, Imrie BC (2017) Hotel service recovery and service quality: influ‑
+    ences of corporate image and generational differences in the relationship between customer satisfaction
+    and loyalty. J Global Mark 30(1):42–51
+27. Lee SH (2018) Guest preferences for service recovery procedures: conjoint analysis. J Hosp Tour
+    Insights. https​://doi.org/10.1108/JHTI-01-2018-0008
+28. Leon E, Clarke G, Callaghan V, Sepulveda F (2004) Real-time detection of emotional changes for
+    inhabited environments. Comput Gr 28(5):635–642
+
+
+
+13
+A decision support system for service recovery in affective…                                         2255
+
+
+29. Leon E, Clarke G, Callaghan V, Sepulveda F (2007) A user-independent real-time emotion recognition
+    system for software agents in domestic environments. Eng Appl Artif Intell 20(3):337–345
+30. Li W, Zhang Y, Fu Y (2007) Speech emotion recognition in e-learning system based on affective com‑
+    puting. In: Proceedings of natural computation (ICNC 2007), pp 809–813
+31. Mattila AS (1999) An examination of factors affecting service recovery in a restaurant setting. J Hosp
+    Tour Res 23(3):284–298
+32. Mattila AS, Enz CA (2002) The role of emotions in service encounters. J Serv Res 4(4):268–277
+33. McColl-Kennedy JR, Smith AK (2006) Customer emotions in service failure and recovery encounters.
+    In: Zerbe WJ, Ashkanasy NM, Härtel CEJ (eds) Research on emotion in organizations: individual and
+    organizational perspectives on emotion management and display. UK Elsevier, Oxford, pp 237–268
+34. Milton A, Roy SS, Selvi ST (2013) SVM scheme for speech emotion recognition using MFCC feature.
+    Int J Comput Appl 69(9):34–39
+35. Mower E, Mataric MJ, Narayanan S (2011) A framework for automatic human emotion classification
+    using emotion profiles. IEEE Trans Audio Speech Lang Process 19(5):1057–1070
+36. Ngan HFB, Yu CE (2019) To smile or not to smile—an eye-tracking study on service recovery. Curr
+    Issues Tour 22(19):2327–2332
+37. Ozuem W, Patel A, Howell KE, Lancaster G (2017) An exploration of consumers’ response to online
+    service recovery initiatives. Int J Mark Res 59(1):97–115
+38. Petrushin VA (1999) Emotion in speech recognition and application to call centers. In: Proceedings of
+    the artificial neural networks in engineering, St. Louis, MO, pp 7–10
+39. Picard RW (1997) Affective computing. MIT Press, Cambridge, MA
+40. Picard RW (2003) Affective computing: challenges. Int J Hum Comput Stud 59(1):55–64
+41. Picard RW, Papert S, Bender W, Blumberg C, Cavallo D (2004) Affective learning: a manifesto. BT
+    Technol J 22(4):253–269
+42. Quinlan JR (1993) C4.5: programs for machine learning. Morgan Kaufmann, San Mateo, CA
+43. Quinlan JR (1996) Improved use of continuous attributes in C4.5. J Artif Intell Res 4:77–90
+44. Ratanamahatana CA, Gunopulos D (2003) Feature selection for the Naive Bayesian classifier using
+    decision trees. Appl Artif Intell 17(5–6):475–487
+45. Rincon JA, Costa A, Novais P, Julian V, Carrascosa C (2018) A new emotional robot assistant
+    that facilitates human interaction and persuasion. Knowl Inf Syst. https​://doi.org/10.1007/s1011​
+    5-018-1231-9
+46. Roth AV, Menor L (2003) Designing and managing service operations: introduction to the special
+    issue. Prod Oper Manag 12(2):141–145
+47. Royse CF, Chung F, Newman S, Stygall J, Wilkinson DJ (2013) Predictors of patient satisfaction with
+    anaesthesia and surgery care: a cohort study using the Postoperative Quality of Recovery Scale. Eur J
+    Anaesthesiol 30(3):106–110
+48. Smith AK, Bolton RN (2002) The effect of customers’ emotional responses to service failures on their
+    recovery effort evaluations and satisfaction judgments. J Acad Mark Sci 30(1):5–23
+49. Smith AK, Bolton R, Wagner J (1999) A model of customer satisfaction with service encounters
+    involving failure and recovery. J Mark Res 36:356–372
+50. Thomassey S, Fiordaliso A (2006) A hybrid sales forecasting system based on clustering and decision
+    trees. Decis Support Syst 42(1):408–421
+51. Utane A, Nalbalwar SL (2013) Emotion recognition through speech using Gaussian mixture model and
+    hidden Markov model. Int J Adv Res Comput Sci Softw Eng 3(4):5–8
+52. Vargo SL, Lusch RF (2016) Institutions and axioms: An extension and update of service-dominant
+    logic. J Acad Mark Sci 44(1):5–23
+53. Vesterinen E (2001) Affective computing. Digital Media Research Seminar, Helsinki
+54. Voss CA, Roth AV, Chase RB (2008) Experience, service operations strategy, and services as destina‑
+    tions: foundations and exploratory investigation. Prod Oper Manage 17(3):147–266
+55. Wirtz J, Mattila AS (2004) Consumer responses to compensation, speed of recovery and apology after
+    a service failure. Int J Serv Ind Manag 15(2):150–166
+56. Yao X (1999) Evolving artificial neural networks. In: Proceedings of the IEEE, pp 1423–1447
+57. Zhou X, He X, Chen B (2002) Genetic algorithm based on new evaluation function and mutation
+    model for training of BPNN. Tsinghua Sci Technol 7(1):28–31
+
+Publisher’s Note Springer Nature remains neutral with regard to jurisdictional claims in published maps and
+institutional affiliations.
+
+
+
+
+                                                                                              13
+2256                                                     Y.-H. Hsieh, S.-C. Chen
+
+
+       Yen‑Hao Hsieh is an Assistant Professor in the Department of Informa‑
+       tion Management, Tamkang University, Taiwan. He received his Ph.D.
+       in Management Information Systems from National Chengchi Univer‑
+       sity in Taiwan. His research interests include service science, customer
+       expectation management, service experience design, and information
+       management.
+
+
+
+
+       Szu‑Chieh Chen received his masters degree from the Department of
+       Information Management, Tamkang University, Taiwan.
+
+
+
+
+13
+ Reproduced with permission of copyright owner.
+Further reproduction prohibited without permission.
+

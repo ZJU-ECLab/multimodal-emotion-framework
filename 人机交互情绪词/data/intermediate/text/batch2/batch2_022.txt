@@ -1,0 +1,415 @@
+                         Bimodal HCI-related Affect Recognition
+           Zhihong Zeng, Jilin Tu, Ming Liu, Tong Zhang, Nicholas Rizzolo, Zhenqiu Zhang,
+                       Thomas S. Huang, Dan Roth and Stephen Levinson
+                                       Beckman Institute for Advanced Science and Technology
+                                             University of Illinois at Urbana-Champaign, USA
+                    {zhzeng, jilintu, mingliu1, tzhang1, zzhang6, huang, sel}@ifp.uiuc.edu
+                                           {rizzolo, darn}@cs.uiuc.edu
+
+ABSTRACT                                                                          which the computer is able to detect and track users’ affective
+Perhaps the most fundamental application of affective computing                   states, and to initiate communications based on this knowledge,
+would be Human-Computer Interaction (HCI) in which the                            rather than to simply respond to users’ commands.
+computer is able to detect and track the user’s affective states, and             The work in this paper is motivated by the ITR project [14] which
+make corresponding feedback. The human multi-sensor affect                        is to contribute to the development of multimodal human-
+system defines the expectation of multimodal affect analyzer. In                  computer intelligent interaction environment. The ideas and tools
+this paper, we present our efforts toward audio-visual HCI-related                resulting from the research are evaluated in an educational
+affect recognition. With HCI applications in mind, we take into                   environment. This test bed concerns the learning of math and
+account some special affective states which indicate users’                       science for upper elementary and middle school children. It is an
+cognitive/motivational states. Facing the fact that a facial                      learning environment in which some children are energetically
+expression is influenced by both an affective state and speech                    engaged and emotionally expressive while other children are
+content, we apply a smoothing method to extract the information                   timid and hesitant. The project will focus on using proactive
+of the affective state from facial features. In our fusion stage, a               computing to achieve two ends. The first one is helping children
+voting method is applied to combine audio and visual modalities                   to participate in the activity who are timid, fearful or generally
+so that the final affect recognition accuracy is greatly improved.                disinterested in science or construction activities, with the goal of
+We test our bimodal affect recognition approach on 38 subjects                    helping them gain a vision of the benefits of these activities that
+with 11 HCI-related affect states. The extensive experimental                     will sustain a continued interest. The second one is encouraging
+results show that the average person-dependent affect recognition                 children who already feel comfortable with the learning
+accuracy is almost 90% for our bimodal fusion.                                    environment to explore further and to accept greater challenges.
+                                                                                  Thus, we will seek ways for the proactive computer to recognize
+Categories and Subject Descriptors: H.5.2                                         the user’s affective states (e.g. interest, boredom, frustration and
+[Information Interfaces and Presentation]: User Interfaces---                     confusion) and to apply the corresponding strategy (e.g.
+interaction styles, user-centered design; K.3.1 [Computers and                    encouragement, transition/guidance, and confirmation). In this
+Education]: Computer Uses in Education---collaborative learning                   way, children will learn some basic skills, and their interest and
+                                                                                  creativity will be stimulated.
+General Terms: Design, Performance                                                The psychological study [12] indicated that judging someone’s
+Keywords: affect recognition, emotion recognition,                                affective states, people mainly rely on facial expressions and
+                                                                                  vocal intonations. Thus, affect recognition should inherently be
+multimodal human-computer interaction, HCI, affective
+                                                                                  the issue of multimodal analysis. From the perspective of
+computing
+                                                                                  engineering, even with improvements, the modalities of facial
+1. INTRODUCTION                                                                   expression and prosody will undoubtedly be very fallible. The
+Affects play a critical role in rational decision-making, in                      primary aim of our work in this paper is to combine cues from
+perception, in human interaction, and in human intelligence.                      these modalities so that the affective state of a person can be
+These facts inspired the very challenging research field “affective               inferred more accurately.
+computing” which aims at enabling computers to express and                        In this paper, we present our effort toward audio-visual HCI-
+recognize affect [11]. Perhaps the most fundamental applications                  related affect recognition. With HCI applications in mind, we take
+of affective computing would be human-computer interaction in                     into account some special affective states which indicate user's
+                                                                                  cognitive/motivational states. Facing the fact that a facial
+Permission to make digital or hard copies of all or part of this work for         expression is influenced by both an affective state and speech
+personal or classroom use is granted without fee provided that copies             content, we apply a smoothing method to extract the information
+are not made or distributed for profit or commercial advantage and that           of the affective state from facial features. In our fusion stage, a
+copies bear this notice and the full citation on the first page. To copy          voting method is applied to combine audio and visual modalities
+otherwise, or republish, to post on servers or to redistribute to lists,          so that the final affect recognition accuracy is greatly improved.
+requires prior specific permission and/or a fee.                                  We test our bimodal affect recognition approach on
+ICMI’04, October 13–15, 2004, State College, Pennsylvania, USA.                   38 subjects with 11 affective states. The extensive experimental
+Copyright 2004 ACM 1-58113-954-3/04/0010...$5.00.
+
+
+                                                                            137
+results show that the average person-dependent affect recognition             sadness, fear, surprise, anger, disgust, and neutral), and 4 HCI-
+accuracy is almost 90% for our bimodal fusion.                                related affects (i.e. interest, boredom, confusion and frustration).
+                                                                              The subjects consist of mostly graduate and undergraduate
+2. RELATED WORK                                                               students in various fields. Some staff and faculty members also
+Automatic affect analysis has attracted much interest from                    volunteered to participate. Although the subjects displayed affect
+researchers in various research fields. Most current approaches to            expression on request, minimal instruction was given to the
+computer-based analysis of human affective states are uni-modal-              subjects. In particular, no instruction on how to portray the affects
+-information processed by the computer system is limited to either            was given. They were simply asked to display facial expressions
+face images or the speech signals, and relatively little effort in            and speak appropriate sentences. Each subject was required to
+multimodal affect analysis has been made. According to the latest             pose pure facial expression without speech three times, followed
+overview of automatic affect recognition [1], only four reports [2-           by facial expression with speech three times, and then pure facial
+5] of bi-modal affect recognition are found. Thus, while the recent           expression three more times.
+research and technology advances make multimodal analysis of
+human affective states tractable, progress toward this direction is           In the dataset, we found that facing a camera, subjects look more
+only just beginning.                                                          natural to express affects with appropriate sentences than without
+                                                                              them. In particular, pure facial expression is difficult to display
+Compared with these four previous reports of bimodal affect                   subtle differences among the 4 HCI-related affects (confusion,
+recognition listed in [1], the progress in this paper includes:               interest, boredom and frustration). On the other hand, we also
+                                                                              noticed, speaking reduces the discriminability of facial
+1) 11 affective states are analyzed, especially including 4 HCI-
+                                                                              expressions among different affective states. That is because
+related affective states (confusion, interest, boredom, and
+                                                                              speaking influences facial expressions. Figure 1 illustrates the
+frustration). [2-5] only analyzed 5-6 basic emotions.
+                                                                              comparison between pure facial expressions without speech and
+2) 38 subjects are tested. The numbers of subjects in [2-5] are at            facial expression with speech. It shows that compared with pure
+most five. Thus, the generality of their algorithm is not                     facial expression in (a) and (c), the facial expressions with speech
+guaranteed.                                                                   in (b) and (d) are more natural, but they are more difficult to be
+                                                                              distinguished from each other.
+3) A voting method is applied for bimodal fusion. [3-4] applied
+rule-based methods for combining two modalities. [2] applied the              Data on 50 males and 50 females were recorded. By now, we only
+single-modal methods in a sequential manner for bimodal                       test our approach on 38 subjects (24 females and 14 males) of the
+recognition. [5] used weighted intensity summation. It is not clear           100 subjects. That is because our face tracker requires that the
+whether their rules or methods are suitable for more subjects.                first frame of the video must be neutral facial expression with
+                                                                              closed mouth. Only 38 videos meet this requirement. Other videos
+4) Facing the fact that a facial expression is influenced by both an          need a little edition before they are used. Figure 3 shows some
+affective state and speech content, we apply a smoothing method               examples of the videos used in our experiment.
+to extract the information of the affective state from facial
+features. [3-5] did analyze this problem. [2] simply applied the
+single-modal methods in a sequential manner to avoid this
+problem.
+
+3. DATABASE
+Most of the existed affect databases are for face-only affect
+recognition or prosody-only affect recognition. In these four
+previous bimodal affect recognition reports [2-5], the datasets
+                                                                                              (a)                               (b)
+used were so small that the generality of their methods are not
+guaranteed. In addition, their methods only detected 5-6 basic
+emotional states which are not directly related with human
+computer interaction. In the experiments of our ITR project, we
+noticed that facing the computer tutor subjects seldom expressed
+these basic emotions (i.e. happiness, sadness, fear, surprise, anger,
+disgust). Actually, detecting some special affects, including
+interest, boredom, confusion and frustration, is very important for
+the computer tutor to interact with users. We call these affects as
+HCI-related      affects.    These      affects     indicate      the                         (c)                              (d)
+cognitive/motivational states of the subjects’ learning. They                 Figure 1. (a) Happy expression without speaking; (b) Happy
+provide information about whether the subject is engaged or                   expression with speaking; (c) Surprise expression without
+whether the subject is having difficulties during the learning                speaking; (d) Surprise expression with speaking
+activities.
+Therefore, a large-scale database was collected [15] in our group
+that is more related to the human-computer interaction. 11 affect
+categories were used which include 7 basic affects (i.e. happiness,
+
+
+
+                                                                        138
+4. FACIAL FEATURE EXTRACTION                                                   discriminability of facial expressions among different affects
+A tracking algorithm called Piecewise Bezier Volume                            decreases. The movements of facial features are related to both
+Deformation (PBVD) tracking [16] is applied to extract facial                  affective states and content of speech. Especially, the mouth
+features in our experiment.                                                    features corresponding to AU1-AU6 are dependent more on
+                                                                               speech content than on affective states. That causes decrease of
+Each facial expression is represented as a linear combination of               the performance of face-only affect recognition. If we could
+12 predefined Action Units (AU). These action units are listed in              obtain speech content and corresponding lip movement by audio-
+Table 1. A facial expression is represented as the formula (3.1)               visual speech recognition, it is possible to separate the influence
+                                                                               of speech on facial expressions. However, the study [8] shows
+                                     p1                                      that the accuracy of automated speech recognition, which is about
+                                    p                                        80% to 90% for neutrally spoken speech, tends to drop to 50% to
+         V = BDP = B[ D1 D2 ...D12 ] 2  (3.1)                                60% for emotional speech.
+                                     ...                                             Table 1. 12 action units used in our face tracker
+                                     
+                                     p12                                      AU number                            Description
+where   B is constructed by Bezier        basis functions,                            1            Vertical movement of the center of upper lip
+Di (i = 1,...,12) corresponds to ith AU, and the                                      2             Vertical movement of the center of low lip
+pi (i = 1,...,12) corresponds to the magnitude of ith AU                              3             Horizontal movement of left mouth corner
+deformation. The overall motion of the head and face is                               4               Vertical movement of left mouth corner
+represented as
+                                                                                      5             Horizontal movement of right mouth corner
+          R (V0 + BDP) + T                             (3.2)
+                                                                                      6              Vertical movement of right mouth corner
+where   R is the 3D rotation matrix, T is the 3D translation                          7                  Vertical movement of right brow
+matrix, and V0 is the initial neutral face model.
+                                                                                      8                   Vertical movement of left brow
+The face tracker assumes that the expression of the initial frame is
+neutral with closed mouth where all magnitudes corresponding to                       9                          Lifting of right cheek
+the 12 AUs have the value of zero. During tracking procedure, all                     10                         Lifting of left cheek
+of the magnitudes corresponding to AUs are measured in relation
+to this initial frame. That means the tracking results are very                       11                         Blinking of right eye
+sensitive to the initial frame.
+                                                                                      12                         Blinking of left eye
+After the initialization in which the face model is fitted to the face
+at the first image in the manual or automatic way [10], an optical
+                                                                               In this paper, we apply a smoothing method to reduce the
+flow method is applied to track these AU movements as facial
+                                                                               influence of speech on facial expression to some extent, based on
+features. The face tracker outputs 30 frames per second at the off-
+                                                                               the assumption that the influence of speech on face features is
+line condition. Figure 2 shows one example of tracking results.
+                                                                               temporary, and the influence of affect is relatively more
+                                                                               persistent.
+                                                                               The smoothing features are calculated by the following formula
+
+                                                                                                                 1 j =t
+                                                                                                         xit =      ∑ xij
+                                                                                                                 n j =t − n
+                                                                               where xij is the ith original facial features at time j, xit is the ith
+                                                                               smoothing features at time t, and i=1,..,12 for 12 face features. In
+                                                                               our experiment, we use 10 frames (i.e. n=10) as the length of the
+                                                                               smoothing window.
+                                                                               We tested the method in our experiment. Compared with non-
+                                                                               smoothing results, our smoothing method improves face-only
+                                                                               average recognition accuracies by 18.55% for females and
+                                                                               15.44% for males.
+            Figure 2. One example of tracking result
+In our dataset, we notice two aspects of facial expression with                5. PROSODIC FEATURE EXTRACTION
+speaking: on one hand, speech signals provide the affect                       We use three kinds of prosody features for affect recognition:
+information which complements facial expression; on the other                  logarithm of energy, syllable rate, and two pitch candidates and
+hand, speaking influences facial expression so that the                        corresponding scores. The log energy is computed by
+
+
+
+                                                                         139
+                                         N                                    to build two affect classifiers individually based on face-only and
+                           E = log(∑ xi2 )                                    prosody-only features.
+                                         i =1                                 SNoW is a learning architecture framework that is specifically
+where N is the frame length. xi is the i th signal in that frame.             tailored for learning in the presence of a very large number of
+                                                                              features. It has been successfully applied in several applications in
+For pitch extraction, an autocorrelation based pitch detector is
+                                                                              natural language and visual processing domains.
+used to extract two candidates of pitch frequency. The
+mathematical definition of the autocorrelation function is shown              In the SNoW architecture, each class label (i.e. target node) is
+as follows:                                                                   represented as a linear function over the feature space. In the
+                                   N                                          learning procedure, several update rules can be used, including
+                      Xorp = ∑ xi + p xi .                                    winnow, perceptron and Naïve Bayes. In this paper, we choose
+                                  i =1
+                                                                              Naïve Bayes as the update rule. In the case of Naïve Bayes, a
+                                                                              feature’s weight at a target node in the network is simply
+where   xi + p   is the   (i + p ) th signal in that frame. The               logarithm of the fraction of positive examples (positive with
+autocorrelation of periodic signal is also periodic. As the signal            respect to the target) in which the feature is active. Predictions are
+lag to the length of one period, the autocorrelation increases to the         done via winner-take-all policy.
+maximum, the first peak (excluding 0 tag) indicates the period of
+the signal. So the pitch is detected by                                       6.1 Face-only Affect Classification
+                   P1 = arg      max            Xorp                          Face features extracted at 30Hz from the face tracker are the
+                              PMIN ≤ p ≤ PMAX                                 magnitudes of 12 AU which are measured in relation to this initial
+                                                                              frame. They are floating-point numbers around zero. As the input
+where PMIN is the possible minimum pitch, PMAX is the possible
+                                                                              of SNoW, each of them is discretized into 100 uniform bins. In
+maximum pitch. In this paper, the search range for pitch is set to            other words, the original floating-point features are actually
+be 50~1000Hz. In addition to the pitch with the maximum                       transformed to binary features in a higher dimensional space. In
+autocorrelation score, the pitch P2 with the second maximum of                addition, conjunction features which are linear combinations of
+autocorrelation score is also chosen as a pitch candidate. Also, the          the binary features are used. In this way, the classes which are not
+autocorrelation scores are treated as features to detect whether the          linearly separable in the original space could become more
+frame is a vowel. The syllable rate is computed by following                  linearly separable in the transformed higher dimensional space.
+formula                                                                       Finally, using SNoW, the face-only affect recognition accuracies
+                           # syllables                                        in our experiment are 56.57% for males and 54.62% for females.
+
+                            duration                                          6.2 Prosody-only Affect Classification
+where duration is the segment duration ( 0.5 second). In order to             The features extracted at 92Hz from prosody modality include six
+detect the numbers of syllables in the segments, a threshold-based            features, including one energy, two pitch candidates and
+speech detection method is used to detect the syllables in the                corresponding autocorrelation scores, and one syllable rate.
+signal. In detail, the frame is considered as speech if the following
+condition is satisfied:                                                       Similarly, we transform these floating-point prosody features into
+                                                                              binary features in a higher dimensional space for SNoW input.
+E > EnThres (50.0) ∧ Xorp1 > XorThres (0.5)                                   We chose 100 bins for discretizing one energy, and 1000 bins for
+                                                                              discretizing two pitch candidates and one syllable rate. Because
+                                    Pi1
+∧ Xorp2 > XorThres (0.5)∧ |              − 2 |< 0.2                           the autocorrelation scores could be viewed as confidence scores
+                                    Pi 2                                      of pitch candidates, they are treated as feature strengths in the
+                                                                              SNoW network corresponding to these two pitch candidates, and
+where E is the log energy of one frame, Xorp and Xorp are                     kept as floating-point numbers.
+                                               1     2
+
+the autocorrelation scores of the two pitch candidates, Pi1 is the            Finally, using SNoW, the prosody-only affect recognition
+                                                                              accuracies in our experiment are 46.84% for males and 44.26%
+larger value of P1 and P2 , Pi 2 is the smaller one. When this                for females.
+condition is satisfied, the frame is considered as speech, otherwise
+it’s not speech. After speech detection, we can count the number              7. BIMODAL FUSION
+of speech segments and compute the syllable rate as one                       Affect recognition accuracy based on a single modality is not
+dimension of prosody features. The prosody modality in our                    good enough in our experiment. In this section, we discuss how to
+experiment can output 92 frames per second in real-time                       combine these two modalities to achieve better recognition
+condition.                                                                    performance.
+                                                                              The important problem in multimodal fusion which we have to
+                                                                              face is asynchrony of different modalities. In our work, the face
+6. SINGLE MODAL AFFECT                                                        modality outputs one set of facial features about every 33
+CLASSIFICATION                                                                milliseconds, while prosody modality outputs one set of prosody
+Affect recognition can be regarded as a multi-class classification            features about every 10 milliseconds. This asynchrony makes
+problem. We applied SNoW (Sparse Network of Winnow) [6][9]                    multimodal fusion at the feature level difficult. Thus, we apply
+                                                                              decision-level fusion which combines multiple single-modality
+
+
+                                                                        140
+classifier outputs in a parallel architecture for final affective state         2)   Voting at the one-second level improves face-only average
+classification. In this paper, we apply a voting method to combine                   accuracies by 19.14% for female and 19.13% for male
+the classification outputs from face and prosody modalities. In our             3)   Voting at the one-second level improves prosody-only
+experiment, every classification result in a one-second interval                     average accuracies by 28.34% for female and 27.78% for
+from the two modalities is treated as one vote. In every one-                        male
+second interval, the system compute the vote number for every
+affective state, and the affective state with the largest number of             4)   Fusion improves bimodal average accuracies by 16.66% for
+votes will be regarded as the final classification result. We choose                 female and 15.58% for male, compared with single-modal
+one second because this time is appropriate for affect expression                    one-second-level classifiers.
+judgment according to the study [7].                                            As a whole, our experimental results show that the average
+                                                                                recognition accuracy is about 56% for our face-only frame-level
+Voting in a one-second interval increases the classification
+                                                                                classifier, about 45% for our prosody-only frame-level classifier,
+accuracy of the affect recognizer. Logically, if the frame-level
+                                                                                but almost 90% for our bimodal fusion at the one-second level.
+classification accuracy is above random, the possibility that the
+                                                                                The test time is about 8.7 seconds for every one and every affect.
+correct label wins in longer-level voting could increases. In
+                                                                                Extensive experimental results prove the effectiveness of our
+addition, the more votes (i.e. frames) there are in a one-second
+                                                                                approach.
+interval, the more accurate the final estimate of affective states. In
+our experiment, although the frame-level recognition accuracies                 The average confusion matrix for our bimodal classifier is
+of prosody-only and face-only modalities are not good enough                    presented in Table 2. The analysis of the confusion matrix shows
+(only achieve about 50%), they are far larger than random                       that the neutral state is the state of highest recognition accuracy,
+(100/11=9.09%). Obviously, the chance that the correct label                    and is also the state with which the other affective states are most
+wins in a one-second interval is greatly increased. As a result,                confused. One reason behind this result is that every affective
+final affect recognition performance of bimodal classifier is                   expression in our dataset started from the neutral state, and ended
+tremendously improved. The average affect recognition                           at the neutral state. Thus, the first and last few frames of each
+accuracies of our bimodal fusion increase to 90.74% for males                   affect are very close to neutral states.
+and 89.34% for females.                                                         In addition, anger, boredom and happiness have high recognition
+                                                                                accuracies while sadness, interest and frustation have low
+8. EXPERIMENTAL RESULTS                                                         accuracies. Contrary to the neutral state, the frustrated state is the
+We test our person-dependent affect recognition algorithm on 38                 state of lowest recognition accuracy, and is also the state with
+subjects (24 females and 14 males) in the above-mentioned                       which other affects are most unlikely to be confused.
+dataset. For every subject, the data is divided into two half parts.
+One half of every subject’s frames are selected as training data,               9. CONCLUSION
+and the other half as testing data.                                             With an automatic affect recognizer, the computer can respond
+In order to understand the contributions to the final recognition               appropriately to the user’s affective state rather than simply
+improvement individually from smoothing, single modalities,                     responding to user commands. In this way, the computer would
+bimodal fusion and different time levels, we did experiments                    become more natural, persuasive, and friendly. Especially, the
+whose results are illustrated in Chart 1. In this chart, blue and               learning environment in our ITR project involves a host of
+yellow bars present male and female results respectively. The                   associated affective responses. The proactive computing is to help
+vertical axis represents average affective recognition accuracy                 the children learn some basic skill, and stimulate their interest and
+(percentage). And the chart includes:                                           creativity by watching and responding to their affective states.
+                                                                                The human multi-sensor affect system defines the expectation of
+1)   The first column: face-only frame-level affect recognition                 multimodal affect analyzer.
+     without smoothing
+                                                                                In this paper, we introduce our effort toward multimodal affect
+2)   The second column: face-only frame-level affect recognition                recognition. Compared with previous studies listed in [1], our
+     with smoothing.                                                            progresses include a smoothing method to reduce the detrimental
+3)   The third column: face-only affect recognition by voting at                influence of speech on face-only affect recognition, a voting
+     the one-second level.                                                      method for bimodal fusion, and extensive testing on more subjects
+4)   The fourth      column:    prosody-only     frame-level    affect          and more affective states.
+     recognition.                                                               Multimodal recognition of human affective states is an extremely
+5)   The fifth column: prosody-only affect recognition by voting                challenging problem and is largely unexplored. In this paper, only
+     at the one-second level.                                                   person-dependent experiments were done. We are exploring
+                                                                                person-independent affect recognition which is independent of
+6)   The sixth column: bimodal affect recognition by fusion at the              variability in subjects’ physiognomy, sex and age. In addition, our
+     one-second level                                                           method to reduce the detrimental influence of speech on face-only
+From the data, we summarize the following contributions to                      affect recognition is not sophisticated. We believe, the
+bimodal affect recognition:                                                     performance of the face-only modality should have much space to
+                                                                                be improved. Our algorithm was only tested on the database of
+1)   The smoothing method increases face-only frame-level
+                                                                                requested emotional expression which is argued to differ from the
+     average accuracies by 18.55% for female and 15.44% for
+                                                                                authentic emotional expression [13]. Thus, our next steps also
+     male
+
+
+
+                                                                          141
+include the effort to evaluate our affect recognition algorithm on         [8] Steeneken, H.J.M. and Hansen, J.H.L., Speech Under Stress
+some authentic affect database.                                                Conditions: Overview of the Effect on Speech Production
+                                                                               and on System Performance, in Proc. ICASSP, vol. 4, 1999,
+ACKNOWLEDGEMENT                                                                2079-2082
+We like to thank Dr. Lawrence Chen for collecting the valuable             [9] Carlson, A.J., Cumby, C.M., Rizzolo, N.D., Rosen, J.L., and
+data in this paper for audio-visual affect recognition.                        Roth, D., SNoW User Manual, UIUC Tech report UIUC-
+                                                                               DCS-R-99-210
+REFERENCES                                                                 [10] Tu, J., Zhang, Z., Zeng, Z. and Huang, T.S., Face
+[1] Pantic M., Rothkrantz, L.J.M., Toward an affect-sensitive                   Localization via Hierarchical Condensation with Fisher
+    multimodal human-computer interaction, Proceedings of the                   Boosting Feature Selection, In Proc. Computer Vision and
+    IEEE, Vol. 91, No. 9, Sept. 2003, 1370-1390                                 Pattern Recognition, 2004.
+[2] Chen, L. and Huang, T. S., Emotional expressions in                    [11] Picard, R.W., Affective Computing, MIT Press, Cambridge,
+    audiovisual human computer interaction, Int. Conf. on                       1997.
+    Multimedia & Expo 2000, 423-426
+                                                                           [12] Mehrabian, A., Communication without words, Psychol.
+[3] Chen, L., Huang, T. S., Miyasato, T., and Nakatsu, R.,                      Today, vol.2, no.4, 53-56, 1968
+    Multimodal human emotion/expression recognition, Int.
+    Conf. on Automatic Face & Gesture Recognition 1998, 396-               [13] Sebe, N., Lew, M., Cohen, I., Sun, Y., Gevers, T., and
+    401                                                                         Huang, T.S., Authentic Facial Expression Analysis, Int.
+                                                                                Conf. on Automatic Face & Gesture Recognition 2004.
+[4] De Silva, L. C., and Ng, P. C., Bimodal emotion recognition,
+    Int. Conf. on Automatic Face & Gesture Recognition 2000,               [14] itr.beckman.uiuc.edu
+    332-335                                                                [15] Chen, L.S, Joint Processing of Audio-Visual Information for
+[5] Yoshitomi, Y., Kim, S., Kawano, T., and Kitazoe, T., Effect                 the Recognition of Emotional Expressions in Human-
+    of sensor fusion for recognition of emotional states using                  Computer Interaction, PhD thesis, UIUC, 2000
+    voice, face image and thermal image of face, in Proc.                  [16] Tao, H. and Huang, T.S., Connected Vibrations: A Model
+    ROMAN 2000, 178-183                                                         Analysis Approach to Non-rigid Motion Tracking, CVPR
+[6] Roth, D., Learning to Resolve Natural Language                              1998, 735-740.
+    Ambiguities: A Unified Approach. AAAI '98, July 1998
+[7] Cowie, R., Douglas-Cowie, E., Tsapatsoulis, N., Votsis, G.,
+    Kollias, S., Fellenz, W., and Taylor, J.G., Emotion
+    Recognition in Human-Computer Interaction, IEEE Signal
+    Processing Magazine, January 2001, 32-80
+
+
+
+
+                                    Figure 3. Some examples of the videos used in our experiment
+
+
+
+
+                                                                     142
+                             Chart 1. Average Affect Classification Accuracies in our experiment
+
+           100.0%
+             90.0%
+             80.0%
+             70.0%
+             60.0%
+             50.0%                                                                                         Male
+             40.0%                                                                                         Female
+             30.0%
+             20.0%
+             10.0%
+                 0.0%
+                            Non-        Face        Face        Prosody    Prosody     Fusion
+                           sm ooth                 Voting                   Voting
+
+
+
+
+                          Table 2. Male-female Average Confusion Matrix for the Bimodal Classifier
+Affect                                                            Detected
+                   neut      hap      surp      ang      disg       fear      sad      frust       puzz     inter   bore
+          neut    98.66      0.27     0.27     0.00     0.00        0.00      0.54     0.00        0.00     0.27    0.00
+          hap      4.07     89.15     0.68     0.68     0.68        0.68      1.36     0.00        0.00     1.02    1.69
+          surp     4.70      0.31    88.40     1.57     0.00        1.57      1.88     0.00        0.94     0.00    0.63
+          ang      1.16      0.23     0.47     94.65    1.40        0.23      1.16     0.00        0.47     0.23    0.00
+Desired   disg     2.31      0.77     0.77     3.08     88.72       0.77      0.77     1.03        0.51     0.51    0.77
+          fear     1.81      0.30     0.30     3.93     1.51       89.12      1.21     0.00        1.51     0.30    0.00
+          sad      4.60      0.31     0.31     3.07     1.53        0.00     88.04     0.61        0.31     0.31    0.92
+          frust    3.31      0.37     2.21     3.31     0.37        2.57      2.21     83.46       1.10     0.37    0.74
+          puzz     1.88      0.31     0.63     2.82     1.25        0.94      0.31     0.63        88.71    1.25    1.25
+          inter    2.14      0.36     1.42     3.20     1.78        1.07      1.42     0.36        1.07    85.05    2.14
+          bore     2.32      0.99     0.66     1.32     0.33        0.66      2.32     0.66        0.99     0.33    89.40
+
+
+
+
+                                                            143
+

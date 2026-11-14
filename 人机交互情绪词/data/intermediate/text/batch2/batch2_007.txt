@@ -1,0 +1,449 @@
+                                                                                                                                                                      Smart Computing and Systems Engineering, 2020
+                                                                                                                                                                      Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+                                                                                                                                                                      Paper No: SC-17                                                                                                                     Smart Computing
+
+                                                                                                                                                                      Affective gaming in real-time emotion detection and
+                                                                                                                                                                          music emotion recognition: Implementation
+
+
+
+
+2020 International Research Conference on Smart Computing and Systems Engineering (SCSE) 978-1-7281-7249-1/20/$31.00 ©2020 IEEE DOI: 10.1109/SCSE49731.2020.9313028
+                                                                                                                                                                              approach with electroencephalogram
+                                                                                                                                                                             Pradeep Kalansooriya*                                    G. A. D Ganepola                                           T. S. Thalagala
+                                                                                                                                                                         Department of Computer Science                      Department of Information Technology                       Department of Computer Science
+                                                                                                                                                                       General Sir John Kotelawala Defence                   General Sir John Kotelawala Defence                      General Sir John Kotelawala Defence
+                                                                                                                                                                              University, Sri Lanka                                 University, Sri Lanka                                     University, Sri Lanka
+                                                                                                                                                                               lpkalan@gmail.com                                 dasuniganepola@gmail.com                                tharushishehara96@gmail.com
+
+
+
+                                                                                                                                                                           Abstract: Affective Gaming can be considered as the                        Examples of such games include arousal-driven play of non-
+                                                                                                                                                                      concept of detecting the real-time emotional state of a player                  player characters (NPCs) in Left 4 Dead 2 the combat skills
+                                                                                                                                                                      during various stages in gameplay and then enhancing the user                   of opposition NPCs in F.E.A.R., the emotional expression of
+                                                                                                                                                                      interactivity accordingly to the emotional state. Based on this                 avatars’ in The Sims series, game characters’ emotional
+                                                                                                                                                                      conception, this paper presents the research phase of the                       expressions in Prom Week and Façade, Storybricks, the game
+                                                                                                                                                                      development of an Affective Car Racing computer game. The                       narrative building influenced by player emotions etc. [3].
+                                                                                                                                                                      designs were created based on the theory of “Affective Loop” in
+                                                                                                                                                                      games. Affective Loop consists of Emotion Elicitation, Emotion                      The basic principle of affective gaming lies within the
+                                                                                                                                                                      Detection/Modelling and finally Emotion Expression by Game                      communication between human to human, human to a
+                                                                                                                                                                      Engine. This paper considers the second and third subphases of                  computer and human to human through a computer.
+                                                                                                                                                                      this loop. Designs are done for these two phases based on                       According to Sundstrom, the design of affective loops in
+                                                                                                                                                                      technologies that are still not been utilized by many game                      computer games makes possible all mentioned forms of
+                                                                                                                                                                      developers      when      designing    a     game.     Emotion                  communication. The affective loop treats emotions as
+                                                                                                                                                                      Detection/Modelling phase is introduced with a technique of                     processes. The affective loop in gaming can be viewed as a
+                                                                                                                                                                      capturing Electroencephalography (EEG) signals for predicting                   closed loop with three sequential key phases.
+                                                                                                                                                                      the real-time emotion of the player while interacting with the
+                                                                                                                                                                      game engine. Emotion Expression phase considers the concept                         1) the player reveals his feelings during interaction with
+                                                                                                                                                                      of Music Emotion Recognition (MER), which is a novel concept                    a game mainly via bio-signals,
+                                                                                                                                                                      for the Gaming Industry. The authors had trained SVM models
+                                                                                                                                                                      for emotion modeling via EEG Signals that will be captured by                       2) Biosignals of the player are detected by the game
+                                                                                                                                                                      the Emotiv Epoc 14 channel device. The authors had classified                   engine and interprets those signals into the emotion
+                                                                                                                                                                      the Rock and Electronic genre of music via Multi-Label RAKEL                    experienced,
+                                                                                                                                                                      classification (Precision score of 75%) to play music excerpts                     3) based on that emotion recognition of the player, the
+                                                                                                                                                                      based on the effect of the gamer during gameplay.
+                                                                                                                                                                                                                                                      game adjusts itself following the player’s emotions.
+                                                                                                                                                                      Keywords: Affective gaming, Affective loop Concept, Emotion                          This is an on-going cycle, affecting the player’s both
+                                                                                                                                                                      detection through electroencephalography, Music emotion                         mind and body, making him respond through game actions
+                                                                                                                                                                      recognition                                                                     and emotional reactions [4].
+                                                                                                                                                                                             I. INTRODUCTION                                               At stage 1 of the loop, the player expresses his emotions
+                                                                                                                                                                                                                                                      when he reacts to the game content. Game content is a
+                                                                                                                                                                           The term “affect” in psychology is defined as a feeling                    collection of game mechanics, game environment and
+                                                                                                                                                                      or an emotion expressed for some event [1]. From a                              background music content. Game mechanics are the methods
+                                                                                                                                                                      psychology perspective, computer games consist of higher                        and rules specific for any game type that makes the game
+                                                                                                                                                                      amounts of “affect” because computer game environments                          player interact with the game environment [5]. The game
+                                                                                                                                                                      are built to change according to user interactivity. The                        environment consists of visual settings such as graphics,
+                                                                                                                                                                      interactions occur when the game environment receives                           background lighting levels, saturation levels etc. Background
+                                                                                                                                                                      inputs from the player’s side by executing actions via the                      music content includes music clips played in the background
+                                                                                                                                                                      game controller.                                                                [6].
+                                                                                                                                                                           “Affective” gaming can be considered as detecting the
+                                                                                                                                                                      real-time emotional state of a player during various stages in
+                                                                                                                                                                      gameplay and then enhancing the user interactivity
+                                                                                                                                                                      accordingly to the emotional state. Methods of widely
+                                                                                                                                                                      accepted emotional change detections are done by monitoring
+                                                                                                                                                                      the changes in facial expressions, gestures, body posture,
+                                                                                                                                                                      speech, physiological responses such as EEG signals etc.
+                                                                                                                                                                      during user interactivity within the game environment [2].
+
+                                                                                                                                                                                                                                                111
+
+
+
+                                                                                                                                                                            Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+Smart Computing and Systems Engineering, 2020
+Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+
+
+                                                                                                                 Tier 1:
+                                                                                                       Selection of a Game Genre
+                                                                                                           Car Racing Game
+
+
+                                                                                                                  Tier 2:
+                                                                                                    Identification of best experiencing
+                                                                                                             Emotional Plane
+
+
+
+                                                                                                                  Tier 3:
+                                                                                                      Selection of music genre that
+                                                                                                    effectively creates Arousal when
+                                                                                                                perceived
+Fig. 1. Affective game loop [4]                                                                            Rock & Electronic
+
+    This research paper is based on this Affective Loop. The
+researchers focus on introducing novel technologies to                           Fig. 2. Process of narrowing of the research scope
+implement the above loop.
+     For the Emotion Elicitation phase, the authors focus on                          Tier 2 - During the Literature study, it was identified that
+real-time capturing Electroencephalogram (EEG) signals and                       Car Racing Games increase players’ risk-taking inclinations,
+Modelling via Machine Learning approaches.                                       known as “The Racing Game Effect” [7]. The Players are in
+                                                                                 an aroused state of emotion during the entire gameplay. The
+     For the phase of “Emotion Adaptation and Expression,”                       authors were able to analyze the main 4 emotion labels based
+they focus on using background music content to express the                      on the theory of “Racing-Game Effect” followed by a survey
+desired emotion. Music will be played accordingly to the                         performed on Car racing computer game players as a proof of
+player’s emotion detected via EEG Signals. Hence, music                          concept. They identified emotion labels as “joyful
+that will enhance the effect of the player will be played                        activation”, “sadness”, “tension” and “power”. They plotted
+correspondingly. To identify music excerpts that enhance                         the intensity of the above emotion labels in a single-
+specific emotions, theories of Music Emotion Recognition                         dimensional arousal plane.
+(MER) were practiced by the authors.
+     This research paper aims to provide the general public                                             Arousal Plane
+the opportunities of the advancements of Research in
+Technology. At Present, products/services created from
+                                                                                                                    Power
+concepts of “Affective Loop”, MER are at limited numbers
+and a survey was performed by the authors to observe the
+knowledge of these concepts among the general public. 18%                                                          Tension
+in total of the participants have had only heard the names of
+the above ideas. Hence, this suggests that these concepts are                                                      Joyful Activation
+yet to be established among the general public. The authors
+focus on making aware of these novel concepts in the day-to-                                                       Sadness
+day living of the general public.
+     The objective of this research is to develop an integrated
+software prototype for Computer games where the player’s                         Fig. 3. Emotion taxonomy for this research
+emotions are detected in real-time and the software relays
+back to the game engine with music excerpts to be played in                           Tier 3 - With the survey, the authors inquired from the
+the background in accordance to the emotions expressed by                        racing computer gamers’ audience their preferred music
+the player. The reason for this development is that the                          genre during gameplay, 88% responded that they prefer
+authors’ outlook to establish the concepts described above in                    “rock” and “electronic” music genres. Hence, the above
+the general public. To the best of their knowledge, the                          genres were selected to perform MER concepts to identify the
+effective approach is developing a computer game integrated                      music excerpts that make gamers perceive the desired
+with the above concepts because computer games are highly                        emotion labels, the authors had identified in Tier 2.
+popular among the public at present.                                                 This paper henceforth discusses research findings and
+                                                                                 implementation separately of Emotion Detection/ Modelling
+                II. SCOPE OF THE RESEARCH                                        via EEG Signals in Part A and Emotion Expression using
+                                                                                 background music content in Part B.
+     The authors primarily designed this prototype to “Car
+Racing” Game Genre because it is the game genre that
+gamers prefer to listen to music when playing. The scope of
+the entire research was narrowed down under the selected
+game genre. Fig.2 shows the process of defining the scope in
+tiers.
+
+                                                                           112
+
+
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+Smart Computing and Systems Engineering, 2020
+Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+                            III. DESIGN                                             The acquired EEG signals contain noise and artifacts.
+                                                                                Therefore, the signals are first pre-processed.
+                                         Real-time detection via ML                  The MATLAB EEGLAB Toolbox is used to pre-process
+      EEG Signals captured via
+          EEG Headset
+                                          Application (inclusive in             the signals. The signals obtained from the Mahnob database
+                                                Gaming App)                     are in the BDF (Bio-semi data file) format. These can be read
+                                                                                and plotted through the EEGLAB Toolbox easily. The signal
+                                                                                pre-processing involves the following steps.
+      Music Excerpts retrieved
+                                         Detected Emotions sent to                   ●     Resampling – The signals are resampled at 128Hz.
+      and played accordingly to
+                                         Music Database which has
+        the player’s emotions
+                                         been classified successfully
+                                                                                           (originally its 256 Hz)
+          during gameplay                                                            ●     Filtering – A bandpass filter (2-40Hz) is used so that
+                                                                                           noise removal and artifact removal can be achieved
+Fig. 4. Design workflow of an affective game during gameplay                               at once.
+                                                                                     ●     ICA (Independent component analysis will be
+ IV. RESEARCH FINDINGS AND IMPLEMENTATION                                                  performed.
+
+A. An emotion detection/ Modeling phase
+     In this paper, the researchers are utilizing EEG signals as
+physiological responses to recognize human emotions
+according to the constructed emotion taxonomy. The reason
+behind this selection is that although detecting human
+emotions based on facial, behavioral, text and speech are
+widely accepted, analyzing facial expressions, text, speech,
+gestures or behaviors can be proven to be not very effective
+at times since these can be consciously altered. Due to this
+reason, the researchers have diverted their focus to studying
+emotions       through       physiological       signals    like
+electrocardiogram (ECG), electroencephalogram (EEG) [8],
+blood volume pressure (BVP), Heart-rate variability (HRV),
+temperature (TEM) etc. According to previous works, EEG
+signals have become more interesting for the researchers of
+this area since it comes directly from the human brain and                      Fig. 6. Pre-processing
+therefore, the changes in EEG signals will directly reflect the
+changes in human emotional states. Design Methodology of                             EEG feature extraction is quite a complex task which is
+this phase is as follows:                                                       also the reason why most researchers tend to turn away from
+     The classification model is developed using the Mahnob-                    BCI research. EEG signals are non-linear, nonstationary, and
+HCI tagging database [9] (which contains classified emotions                    random in nature and therefore the feature extraction process
+in terms of arousal based on EEG, ECG, respiration rate,                        becomes challenging. The features extracted in this research
+temperature, GSR and eye-gaze.) In the context of this                          depend on statistical techniques, time-frequency based on
+research, only the EEG signals are considered. The following                    Fast Fourier Transform (FFT), max-min features in temporal
+diagram shows the design steps.                                                 sequences, Shannon entropy, log-covariance etc.
+                                                                                     The Hjorth parameters are extracted as well. These
+                            32 channel EEG                                      parameters characterize the EEG signals in terms of
+                           data from Mahnob                                     amplitude, timescale and complexity. The parameters are
+                                                                                activity, mobility and complexity. They can be
+                                                                                mathematically computed as shown.
+Re sampling                                                 Filtering
+                             Preprocessing
+
+Baseline                                                    ICA                            h1     V x2                                  (1)
+Removal
+                                                                                                  Vd
+                                                                                           h2
+ Fast Fourier
+                          Feature Extraction &
+                               Selection
+                                                           Spectral                               Vx                                    (2)
+  Transform                                                Entropy
+                                                                                                  V dd     Vd
+                                                                                           h3                       V dd V x
+Discrete Wave             SVM Classification
+                                                                                                  Vd       Vx                           (3)
+ Transform                 Model Training &
+                               Testing                                               Furthermore, the cross-correlation, peak frequency and
+                                                                                the ratio of band power at a given time to baseline band power
+                                                                                are considered. Around 2000 features are extracted
+Fig. 5. Design methodology for emotion detection & modelling phase
+                                                                                originally, but before classification, several essential features
+
+                                                                          113
+
+
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+Smart Computing and Systems Engineering, 2020
+Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+must be selected. The mrmr algorithm is used for feature                        then match against the acoustic features of music to identify
+selection since it involves maximizing relevance and                            relationships between perceived emotions and music acoustic
+minimizing redundancy. This algorithm provides a ready to                       features.
+use implementation for MATLAB making it more convenient
+and therefore was used in this research.                                             The authors’ goal is to develop a Rock and Electronic
+                                                                                music excerpts containing a database where the excerpts have
+     After mapping the obtained features into the arousal                       been labeled according to the emotion perceived based on the
+scale, linear SVM (Support Vector Machine) classifier is                        music genres’ acoustic features. The emotion labels are in a
+used for classification. An SVM classifier is used since it can                 tie with the emotions modelled in phase 2 of the Affective
+separate highly dimensional data. The Classification Learner                    Loop. To achieve this goal, authors use the concepts of MER
+extension for MATLAB can be used for this purpose.                              to identify the relationship among the acoustic features of the
+                                                                                above genre and then designed a Machine Learning (ML)
+    The data is plotted as illustrated in Fig.7. Several models                 model to predict the emotion perceived in a certain music
+must be trained to achieve considerable accuracy. Currently,                    excerpt. The workflow of designing and developing the ML
+the authors are yet to evaluate accuracy metrics.                               model is illustrated in Fig.8.
+
+
+                                                                                                             Human Annotations
+                                                                                                               from Emotify
+                                                                                                                 Database
+
+
+                                                                                                               Statistical Data
+                                                                                   Audio Wave                     Cleaning
+                                                                                  Normalization to
+                                                                                    44 000 Hz,
+                                                                                   mono channel              Data Preprocessing
+
+
+                                                                                   Time Domain                  Audio Feature                   Frequency
+                                                                                     Features                    Extraction                      Domain
+                                                                                                                                                 Features
+Fig. 7. EEG emotion plot
+
+                                                                                                            Feature Visualization
+B. Emotion expression using background music content
+     At present, game mechanics are maximumly being                                  Problem
+                                                                                  Transformation
+utilized for the emotional awakening of the game player. The                        Approach
+authors’ observation of different brands of computer car                                                       Multi Label                      Ensemble
+racing games were that even though background music                                                        Classification Model                 Approach
+content is used, the background music is static throughout the                                             Training & Testing
+                                                                                     Adaptation
+gameplay. The background music content is not made to                                Algorithm
+impact the player’s emotional awakening.                                             Approach
+
+     It is in fact, a surprise that music content is not being used
+for emotion awakening when many music psychologists have                        Fig. 8. Design methodology for music Emotion Recognition
+proven that music does create an impact on human emotions
+[9],[10]. Keynote researcher Juslin had defined a research                           ‘Emotify’[14] Data Set was selected for this
+area where he finds relationships between music acoustic                        methodology. This data set consists of music tracks of
+features and perceived music emotions. This area is known as                    different genres including Rock and Electronic, where the
+Music Emotion Recognition (MER). MER is a cross-                                excerpts are humanly annotated on perceived emotion. For
+disciplinary field of auditory perception, psychology and                       each music excerpt, several human subjects rate their
+music theory. With technology mixing in, MER is now a field                     perceived emotion for the excerpt on a binary scape(either
+consisting of signal processing and machine learning [11].                      present or not) Emotify is the only a standard database
+MER is yet to be utilized in the day-to-day lives of the general                recommended by the International Society of Music
+public. Until present, the only application developed for the                   Information Retrieval (ISMIR) which consist of music
+use of the public with MER technology is a Music Player                         annotations for the genre of Rock and Electronic.
+[12].                                                                               Music annotations of the genre “Electronic” and “Rock”
+     Reasons as to the question of game developers not                          are cleaned for modeling. A music excerpt was labeled
+utilizing music for emotional awakening may be due to the                       specifically by the amount of agreement among the
+trend of allocating a low budget for background music                           annotations. This is calculated using the formula specified in
+content when compared with the budget allocated to that of                      (4).
+graphics by game developers [13]. This trend may be due to
+                                                                                                               k
+                                                                                                        1
+                                                                                                              ¦ nij (nij s  1)
+MER is an expensive task. Emotions perceived from music is
+extremely subjective for humans. In fact, it is a timely and                                  Pi
+exasperating task to identify various emotions perceived and
+                                                                                                     n(n  1) j 1                         (4)
+                                                                          114
+
+
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+Smart Computing and Systems Engineering, 2020
+Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+     Where n is the total number of ratings per subject. The                                             V. CONCLUSION
+subject is the emotion label and expressed as i. i=9. k is the
+number of categories, a category where the respective                                In this paper, a Car Racing game is designed based on
+emotion label is selected or not. The categories are expressed                  the concept of the Affective Loop. In fact, this Racing Game
+as j. j is either 1(emotion selected) or 0(not selected). nij is                developed with concepts on Affective Artificial Intelligence,
+the number of participants who assigned the i-th emotion to                     which will enhance user experience level as this directly
+the j-th category [14]                                                          connects with the player’s emotions during gameplay. In
+                                                                                other words, boost the Racing Game Effect. This affective
+    After the data cleaning process, it was revealed that the                   Loop consists of real-time physiological signal elicitation of
+excerpts are having more than one emotion label (the amount                     the player, emotion modeling based on the physiological
+of agreement is the same for 2 or more emotion labels).                         signals and adjusting game parameters according to the
+Hence, it was concluded from here that the Multi-Label ML                       player’s real-time emotion.
+approach should be conducted.
+                                                                                     The real-time physiological signal elicitation is
+    A total number of All music excerpts were then pre-                         performed using EEG Signals of the player. This work
+processed and normalized to 44 000Hz mono channel and 30-                       includes a study of modeling emotion using EEG signals and
+second duration.                                                                developing a Machine Learning framework to model emotion
+                                                                                elicitation. Data from the Mahnob HCI Tagging database was
+     Acoustic features of the music excerpts were extracted
+                                                                                used. The signal processing, feature extraction as well as
+using MATLAB’s MIRToolbox [15]. The acoustic features
+                                                                                classification was done using MATLAB toolboxes. The
+extracted were Root Mean Square (RMS) Energy, Entropy of
+                                                                                future work of this part of the research includes further
+Energy, Spectral Roll-off, Spectral Centroid, Tempo, Zero
+                                                                                extending to determine emotions not only with the emotional
+Crossing Rate & Spectral Flux. These features were selected
+                                                                                arousal domain but also the dominant emotion domain
+based on the works of Tan et al. [16]. Tan had dedicatedly
+                                                                                described in human psychology to achieve more accuracy.
+worked on researching to reveal acoustic features that
+enhance Arousal. These acoustic feature values were then                             The authors had focused on background audio music
+used to train and test the Multi-Label ML model.                                inside the game parameter space that will be deployed to
+                                                                                change according to the player’s real-time emotion. They
+     Algorithms from the 3 categories of Multi-Label
+                                                                                have focused on developing music containing a database that
+classification were selected. The data set was split into 70:30
+                                                                                has excerpts classified under emotion labels. To classify
+ratios of train and test data. The authors selected Binary
+                                                                                music excerpts into emotion labels, they have approached a
+Relevance (BR), Classifier Chain (CC) under problem
+                                                                                scientific technology called MER. They have developed a
+transformation category, ML-kNN from Algorithm
+                                                                                Machine Learning model that can predict the perceived
+Adaptation category and RakEL as the Ensemble approach of
+                                                                                emotion of a musical excerpt. Emotify Dataset was used.
+multi Label classification [17]. BR and CC were selected as
+                                                                                Acoustic features were extracted using MATLAB toolboxes.
+they are the fundamental levels in multi-label approaches.
+ML-kNN was selected as it has a higher performance and                               The future work of this part of the research includes
+accuracy score than problem adaptation methods [17].                            further optimization of i) EEG signal analysis for the
+Finally, RAkEL was selected as it is the only ensemble                          detection of above emotions and also to detect other
+approach in multi-label classification, to the best of authors’                 emotional categories and ii) classification of music based on
+knowledge.                                                                      perceived emotions by further analyzing audio waves and
+                                                                                extract high dominant features for emotion detection in
+     ML models of the above-described algorithms were
+                                                                                Music.
+trained (with a train test ratio of 70:30) with the acoustic
+feature values of the rock music genre. Python was selected                                           ACKNOWLEDGMENT
+as the programming language to train the models. The best
+algorithm that outputs the highest evaluation metrics were                          International Society of Music Information Retrieval for
+then selected. Accordingly, RAkEL produced the highest                          recommending and supplying “Emotify” Human annotation
+accuracy scores. Table I shows the obtained accuracy values                     dataset, “Mahnob HCI tagging” database supplied the dataset
+for ML Models.                                                                  of EEG signal varies according to human emotion.
+  TABLE I. EVALUATION METRICS SCORES FOR MULTI-LABEL                                                        REFERENCES
+                      ALGORITHMS
+                                                                                [1]   M. C. Laura and A. M. Andrea, “Emotion recognition techniques using
+  Evaluation         BR            CC          ML -kNN         RAkEL                  physiological signals and computer games – Systematic review",
+                                                                                      Técnicas de reconocimiento emocional utilizando señales fisiológicas
+   Metrics                                                                            y,” vol. 26, no. 46, pp. 19–28, 2017.
+ Jaccard          0.28301       0.35849         0.35849        0.58980          [2]   Gilleade, Kiel & Dix, Alan & Allanson, Jen.. "Affective Videogames
+ score                                                                                and Modes of Affective Gaming: Assist Me, Challenge Me, Emote Me
+ Hamming          0.31132       0.23112         0.23112        0.19811                (ACE)", Digital Games Research Conference,2005
+ Loss                                                                           [3]   C. M. De Melo, A. Paiva, and J. Gratch, “Emotion in Games,” Handb.
+                                                                                      Digit. Games, pp. 575–592, 2014.
+ Micro            0.55096       0.70740         0.74071        0.75428          [4]    P. Sundstrom, “Exploring the affective loop,” Licentiate thesis,
+ Precision                                                                            Stockholm University 2005
+ Macro            0.41773       0.55280         0.55285        0.57739          [5]   Patino, Azeneth & Romero, Margarida & Proulx, Jean-Nicolas.
+ Precision                                                                            "Analysis of Game and Learning Mechanics According to the Learning
+ Average          0.50535       0.67260         0.66276        0.70276                Theories”, Conference on VS-GAMES. 2016..
+ Precision                                                                      [6]   C. M. De Melo, A. Paiva, and J. Gratch, “Emotion in Games,” Handb.
+
+                                                                          115
+
+
+
+      Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+Smart Computing and Systems Engineering, 2020
+Department of Industrial Management, Faculty of Science, University of Kelaniya, Sri Lanka
+
+      Digit. Games, pp. 575–592, 2014.
+[7]   Fisher P. et al., "The Racing - Game Effect: Why do Computer Racing
+      Games increase Risk-taking inclinations", SAGE Journals, 2009
+[8] Guo, H. W. et al.,"Short-term Analysis of HeartRate Variability for
+      Emotion Recognition via aWearable ECG Device." ICIIBMS-
+      Bioinformatics, Medical Imaging, and Neuroscience, Okinawa, Japan
+      ,2015.
+[9] Soleymani, M., J. Lichtenauer, T. Pun, M. Pantic,. "A Multimodal
+      Database for Affect Recognition and Implicit Tagging", IEEE
+      Transactions on Affective Computing, 3(1): 1-14,2012
+ [10] P. N. Juslin, P. Laukka, P. N. Juslin, and P. Laukka, “Expression,
+      Perception , and Induction of Musical Emotions : A Review and a
+      Questionnaire Study of Everyday Listening Expression: Perception ,
+      and Induction of Musical Emotions ,” vol. 8215, 2010.
+[11] Kim et al., “Music Emotion Recognition: State of Art Review,” 11th
+      International Society for Music Information Retrieval Conference
+      2010.
+[12] Oliveira P.A, "A musical system for Emotional Expressions",2013
+[13] D. Plans and D. Morelli, “Experience-driven procedural music
+      generation for games,” IEEE Trans. Comput. Intell. AI Games, vol. 4,
+      no. 3, pp. 192–198, 2012.
+ [14] A. Aljanaki, F. Wiering, R. C. Veltkamp.. "Studying emotion induced
+      by music through a crowdsourcing game", Information Processing and
+      Management, 2015.
+[15] Lartillot, O. and Toiviainen, P. "MIR in Matlab (II): A Toolbox for
+      Musical Feature Extraction From Audio", International Conference on
+      Music Information Retrieval, Vienna, 2007.
+[16] K.R. Tan, M.L. Villarino, C. Maderazo, "Automatic music mood
+      recognition using Russell's two dimensional valence-arousal space
+      from audio and lyrical data as classified using SVM and Naïve
+      Bayes",International Conference on Information Technology and
+      Digital Applications,2018
+ [17] Min-Ling Zang, Zhi-Hua Zhou, "A review of Multi-Label
+      Algorithems", IEEE Transactions on Knowledge & Data
+      Enginerring,2014.
+
+
+
+
+                                                                             116
+
+
+
+       Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:35:54 UTC from IEEE Xplore. Restrictions apply.
+

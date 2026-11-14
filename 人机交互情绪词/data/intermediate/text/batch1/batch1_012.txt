@@ -1,0 +1,1366 @@
+                                                                                                              TYPE Original Research
+                                                                                                              PUBLISHED 20 November 2023
+                                                                                                              DOI 10.3389/frobt.2023.1244381
+
+
+
+
+                                          Invoking and identifying
+OPEN ACCESS                               task-oriented interlocutor
+EDITED BY
+Casey Kennington,
+Boise State University, United States
+                                          confusion in human-robot
+REVIEWED BY
+Britta Wrede,
+                                          interaction
+Bielefeld University, Germany
+Leimin Tian,
+Monash University, Australia              Na Li* and Robert Ross
+*CORRESPONDENCE                           School of Computer Science, Technological University, Dublin, Ireland
+Na Li,
+ na.li@tudublin.ie
+
+RECEIVED 22 June 2023
+ACCEPTED 31 October 2023
+                                          Successful conversational interaction with a social robot requires not only
+PUBLISHED 20 November 2023
+                                          an assessment of a user’s contribution to an interaction, but also awareness
+CITATION
+                                          of their emotional and attitudinal states as the interaction unfolds. To this
+Li N and Ross R (2023), Invoking and
+identifying task-oriented interlocutor    end, our research aims to systematically trigger, but then interpret human
+confusion in human-robot interaction.     behaviors to track different states of potential user confusion in interaction
+Front. Robot. AI 10:1244381.
+                                          so that systems can be primed to adjust their policies in light of users
+doi: 10.3389/frobt.2023.1244381
+                                          entering confusion states. In this paper, we present a detailed human-robot
+COPYRIGHT
+© 2023 Li and Ross. This is an
+                                          interaction study to prompt, investigate, and eventually detect confusion states
+open-access article distributed under     in users. The study itself employs a Wizard-of-Oz (WoZ) style design with
+the terms of the Creative Commons         a Pepper robot to prompt confusion states for task-oriented dialogues in a
+Attribution License (CC BY). The use,
+distribution or reproduction in other
+                                          well-defined manner. The data collected from 81 participants includes audio
+forums is permitted, provided the         and visual data, from both the robot’s perspective and the environment, as
+original author(s) and the copyright      well as participant survey data. From these data, we evaluated the correlations
+owner(s) are credited and that the
+original publication in this journal is
+                                          of induced confusion conditions with multimodal data, including eye gaze
+cited, in accordance with accepted        estimation, head pose estimation, facial emotion detection, silence duration
+academic practice. No use, distribution   time, and user speech analysis—including emotion and pitch analysis. Analysis
+or reproduction is permitted which does
+not comply with these terms.
+                                          shows significant differences of participants’ behaviors in states of confusion
+                                          based on these signals, as well as a strong correlation between confusion
+                                          conditions and participants own self-reported confusion scores. The paper
+                                          establishes strong correlations between confusion levels and these observable
+                                          features, and lays the ground or a more complete social and affect oriented
+                                          strategy for task-oriented human-robot interaction. The contributions of
+                                          this paper include the methodology applied, dataset, and our systematic
+                                          analysis.
+
+                                          KEYWORDS
+
+                                          confusion detection, multimodal modeling, user engagement, situated dialogue, wizard-
+                                          of-oz, social robot
+
+
+                                          1 Introduction
+                                              Socially interactive robotic agents have been applied to assisting people in many
+                                          different areas in the last 10 years, e.g., language learning (Saeki et al., 2022), tour guides
+                                          (Duchetto et al., 2019), helping children with autism therapy (Zhanatkyzy et al., 2023a), to
+                                          name but a few. In such social human-robot interaction (HRI) scenarios, the autonomous
+                                          social robot must assess and maintain the engagement of the interlocutor in terms
+                                          of determining the context of interaction and inference of the meaning of any social
+                                          interactive signals. Moreover, in the ideal case, not only should the robotic system observe
+
+
+
+Frontiers in Robotics and AI                                    01                                                            frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+and model the user, but it should be able to alter its own actions in          Grafsgaard et al. (2011), Zhou et al. (2019) and Kumar et al. (2019)
+response to the user affect state, and predict the effects of its own          have generally focused on online learning in specific environments
+behaviors (Lugrin et al., 2022, chapter 16.3).                                 such as AutoTutor, ITS (Intelligent Tutoring Systems), MOOCs
+    Many different branches of computational linguistics and                   (Massive Open Online Courses), or serious games.
+human-computer interaction (HCI) have been applied in the pursuit                   To address this gap in empirical studies and the modeling of
+of effective human-robot interaction (HRI). Early work focused                 confusion in general, and specifically in the case of human-robot
+invariably on the analysis of the structure of language itself, and the        interaction, our research is focused on the systematic triggering of
+various levels at which there were interactions between language, the          confusion in task-oriented interactions, observing and analyzing
+task competence and actions of the robotic agent, and its perception           the user in such interactions, and building models to both detect
+of the environment including the user. Such work, which is based on            user confusion states and feed these into policies to mitigate the
+disciplines such as conversational analysis and dialogue modeling,             confusion. Building on an earlier pilot study (Li and Ross, 2023),
+often straddled a boundary between linguistics, epistemology, and              the work presented in this paper has been constructed to elicit
+engineering (Lugrin et al., 2022, chapter 15).                                 different confusion states in a user participating in a collaborative
+    In recent times, the HCI and HRI communities have also                     task in order to determine if confusion is a simple binary state, or
+explored the richness of audio and visual data to estimate                     if it is in fact a multifaceted state associated with different levels
+emotion and other cues of communicative function. This work                    of engagement and task completion rates. The hypothesis of this
+recognizes that social communication is mediated not only by pure              work is user confusion does produce physical and behavioral
+ideational language, but by a range of modalities and communicative            manifestations and that these manifestations can be identified
+functions, including facial expression, body language, and emotional           and learned.
+intonation in speech. In much of this work, there is an assumption                  To be more concrete, in this paper we set out a model of
+that designing an engaged conversational HRI is critical. However,             confusion as a two-tier mental state (productive confusion and
+while some studies have examined emotion estimation in HRI that                unproductive confusion), and built out a deeper HRI study to
+can promote user engagement (Busso et al., 2008; Celiktutan et al.,            attempt to elicit and then detect these different levels of confusion.
+2017); there is relatively little research to date on comprehensive            To approach this study, a Wizard-of-Oz (WoZ) experiment was
+user engagement estimation in either situated conversational HRI               designed, which improved upon some limitations of our pilot study,
+or spontaneous conversation, e.g., Ben Youssef et al. (2017), and              and subsequently analyzed multimodal data against self-reported
+Benlamine and Frasson (2021).                                                  states and task conditions. The contributions of this work are thus:
+    While emotion estimation and engagement studies in general                 1) a multilevel framework for modeling confusion states in HRI; 2)
+are essential for effective HRI, our work is focused on a particular           a WoZ HRI study design for different states of confusion analysis; 3)
+aspect of the mechanisms for successful engagement and task                    an analysis of correlation between measured features and confusion
+completion in practical HRI tasks. In particular, we are focused on            states; and 4) our feature data and user speech transcripts that are
+the notion of confusion, and more specifically, what it means for a            made public to promote further research on confusion and mental
+user to be confused in a joint task and how that confusion state can           state perception in the field of HRI1 . We also briefly outline the
+be both modeled and mitigated. Confusion has relationships with,               approach we are taking to mitigate confusion through a structured
+but does not always correlate with, more traditional transient mental          interaction policy.
+states such as engagement or emotion. For example, a user can be
+engaged with both a task and confused, but often confusion will in
+time lead to a reduction in engagement and ultimately satisfaction.            2 Related work
+Turning to the general concept of emotion, confusion in its worst
+case might be associated with anger, but in fact confusion may also                 The study of the concept of confusion and being able to estimate
+correlate with a neutral emotion or even despondency—depending                 a user’s confusion state during interactions straddles disciplines
+on the relationship between the confused, the interlocutor and                 including pedagogy, linguistic pragmatics, HCI and HRI. The
+the nature of the task at hand (D’Mello et al., 2014). Given these             study and modeling of confusion itself also have overlaps with
+qualities, to date, there have been a number of models proposed                related topics such as emotion and engagement estimation. To
+that attempt to structure the modes of confusion. For example,                 explore the concepts and work which underpin our studies we will
+some researchers in learning have suggested that confusion can be              first delve into existing work related to confusion modeling and
+a phenomenon with multiple levels, or even with four classes from              estimation, and then provide a brief overview of the state-of-the-
+very high to very low (Arguel and Lane, 2015; Samani and Goyal,                art research in the related domains of emotion and engagement
+2021). Taking a similar approach, Lodge et al. (2018) proposed two             estimation.
+states of confusion, i.e., productive confusion and unproductive
+confusion in learning.
+    Due to its role in accounting for disengagement and even task              2.1 Confusion definitions and detection
+success, the identification of confusion and its mitigation have value
+both in the HCI and HRI communities. While some work has been                     Unlike other mental concepts such as personality that have well-
+conducted on the modeling of confusion, as just discussed, and                 understood conceptualizations, specific models and definitions for
+on the in-situ study of confusion, much of that work has typically
+been focused on pedagogy or androgogy, e.g., language learning
+(Saeki et al., 2022). Specific studies in the area of confusion, e.g.,         1 https://github.com/nalibjchn/SituatedHRITrackConfusion
+
+
+
+
+Frontiers in Robotics and AI                                              02                                                              frontiersin.org
+Li and Ross                                                                                                                 10.3389/frobt.2023.1244381
+
+
+
+
+confusion are more fluid—though with clear trends. For a simple                part of the emotional transition within the bilateral orientation of
+definition-based understanding, confusion can simply mean “lack                engagement/flow and frustration/boredom.
+of clarity” (Gordon, 2006). However, as argued by D’Mello and                       The concept of confusion also has a relationship to the related
+Graesser (2014), the meaning of confusion can actually be much                 term “disequilibrium state” and associated concept “cognitive
+more complex, and has in different fields been described as a                  disequilibrium”. Specifically disequilibrium state is a state that arises
+bonafide emotion, a knowledge emotion, an epistemic emotion,                   when individuals encounter obstacles to their goals, interruptions
+an affective state or a mere cognitive state. When confusion is                in organized action sequences, contradictions, anomalous events,
+defined as an epistemic emotion (Lodge et al., 2018), it is associated         dissonance, incongruities, unexpected feedback, uncertainty,
+with blockages or impasses in a learning process. Gordon (2006)                deviations from norms, and novelty (Graesser et al., 2005; D’Mello
+claimed that in education, confusion, or uncertainty, drives people            and Graesser, 2012; Lehman et al., 2012a). Thus, in many ways a
+to explore more, question previous beliefs, or even create a new               disequilibrium state can be thought of as a state that arises due
+perspective, because, as the authors pointed out, people generally             to a range of obstructing phenomena. The concrete relationship
+will lack passion to clarify something that they already know and              between confusion and disequilibrium, with Lehman et al. (2012a)
+understand. Confusion as a state is also associated with the notion of         noting that confusion can be construed as an affective component
+cognitive disequilibrium. Yang et al. (2015) explained that cognitive          of cognitive disequilibrium.
+disequilibrium is a state in which a user encounters obstacles in                   Another related concept is that of “metacognitive awareness”.
+the normal flow of the learning process, making the user feel                  In the education field, metacognitive awareness has been defined
+confused when encountering contradictory information that leads                as the ability of learners to know when and how to apply
+to uncertainties.                                                              knowledge and strategies. Meanwhile, this ability is said to allow
+    It should be noted that confusion can be equated with a                    individuals to reflect on their self-thinking to develop and apply
+form of uncertainty in educational contexts (Cumbal et al., 2020).             practical problem solving skills for learning difficulties (Joseph,
+                                                                               2009; Negretti, 2012). In general, Flavell (1979) argued that
+Specifically, within the domains of social science and psychology,
+                                                                               metacognition is an exclusive human capacity involving self-
+such uncertainty is related to the concept of “metaignorance state”,
+                                                                               reflection, monitoring and the governance of one’s own knowledge
+representing a state where individuals are conscious of their lack
+                                                                               and thoughts. Metacognitive awareness encompasses three aspects
+of knowledge (Smithson, 2012; Anderson et al., 2019). In such
+                                                                               that Negretti (2012) summarized: 1) Declarative knowledge, being
+studies of metaignorance, there are said to be three sources of
+                                                                               aware that specific solutions and concepts are significant relating to a
+uncertainty: The first source is probability, caused by the inherent
+                                                                               specific task; 2) procedural knowledge, pertaining to understanding
+randomness or indeterminacy of future events; the second source
+                                                                               how to employ concepts and strategies, essentially the “how” of
+is ambiguity, stemming from limitations in the reliability, credibility
+                                                                               task execution; and 3) conditional knowledge, which relates to
+or sufficiency of available probability, linked to risk assessment and
+                                                                               recognizing when and the reason to utilize specific knowledge
+information quality; and the third source is complexity, resulting
+                                                                               and strategies, focusing on “when” and “why” aspects of their
+from intricate features within available information that are difficult
+                                                                               application. In that study, “metacognitive awareness” is defined as
+to understand, e.g., diverse potential causes or results (Han et al.,
+                                                                               a mental process in which a user becomes aware of the user’s
+2011). As such it can be seen that confusion and this specific notion
+                                                                               mental state, such as confusion, and subsequently takes action or
+of uncertainty are clearly related to each other; however, it can
+                                                                               understands the underlying cause.
+be argued that the confusion concept is less grounded in specific
+                                                                                    Based on the above approaches, and our own earlier attempts
+epistemological or pedagogical concerns, and can also be accounted             to define confusion as something which can be operationalized
+for by the interaction context and lack of clarity in the part of an           (Li et al., 2021), we adapt two confusion state definitions on top of
+interlocutor.                                                                  which studies can be predicated. We define productive confusion
+    In terms of concrete models of confusion, the state-of-the-                as the first stage of confusion. Here, an impasse in the flow
+art is limited in detail but sets a clear framework. Arguel and                of interaction has been generated due to a disequilibrium state.
+Lane (2015) proposed two key thresholds (T_a and T_b) for                      In such a case, a person has reached metacognitive awareness
+the levels of confusion in learning. Productive confusion occurs               of the confusion, and will generally be involved in solving this
+between these two thresholds, indicating that the learners are                 disequilibrium. Meanwhile, unproductive confusion is the second
+engaged in solving their confused state. When the level of                     stage of confusion in which the disequilibrium state is persistent
+confusion is greater than T_b (persistent confusion), the cognitive            and the impasse cannot be solved directly during the interaction.
+states of the learners can move to a state of frustration or                   Here, the interlocutor may become disengaged and may cease
+even boredom. However, if the level of confusion is less than                  interacting with others and may experience negative emotion states
+T_a, then the learners continue to participate in their learning.              (for example, frustration and boredom).
+Similarly, Lodge et al. (2018) proposed a zone of optimal confusion                 The transition from productive to unproductive confusion is
+and suboptimal confusion. Optimal confusion is a productive                    by its nature a change of mental process. When an individual
+confusion, indicating that learners are still engaged in overcoming            enters productive confusion, they typically attempt to overcome
+the confused state. However, suboptimal confusion is associated                confusion states, but these attempts can of course fail. Reasons
+with persistent confusion in which learners could not resolve their            for such failure might be because solving this task is beyond the
+disequilibrium, which in turn can lead to possible frustration or              users’ metacognitive awareness and, or, they cannot get any further
+boredom. Furthermore, D’Mello and Graesser (2014) proposed                     external help to answer the question, assimilate knowledge, or
+a transition-oriented model where confusion can be seen as a                   perform the task in question. At this point, the user may then
+
+
+
+Frontiers in Robotics and AI                                              03                                                             frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+enter an unproductive confusion state. It is worth noting that the             2.2 Emotion recognition
+process of solving productive confusion in the aforementioned
+zone of optimal confusion is closely related to the scaffolding                     While studies of confusion directly in the HCI and HRI
+process in the related zone of proximal development (ZPD). Here, a             communities have been limited, there have however been many
+scaffolding process supports the learning environment according to             studies of related phenomena which while not directly capturing
+the adaptation of the controlled level that is exercised by a tutor in         confusion, capture phenomena which we argue are closely
+supporting learners’ understanding (Wood, 2001). The scaffolding               associated with confusion. The first of these is emotion.
+support lies in the ZPD, and the ZPD concretely represents the                      Emotion is a fundamental factor in HRI that affects people’s
+distance between the actual level of the learners and their potential          attitudes and influences their decisions, actions, learning,
+level from Vygosky’s sociocultural theory in educational contexts              communication, and situation awareness (Poria et al., 2017;
+(Wood et al., 1976; Bruner, 1984).                                             Demutti et al., 2022). If a person has a strong ability to observe
+     While the frameworks above provide useful frameworks to                   others’ emotions and manage their own emotions, they are likely
+anchor an understanding of what confusion is, and how it has                   to contribute more successfully to the interaction with others
+been thought about to date in the pedagogy and social science                  (Poria et al., 2017). Similarly, a social robot is arguably expected
+communities, the practical consideration in the context of human-              to possess human-like capabilities to observe and subsequently
+robot interaction must be on manifestations of confusion and their             interpret human emotions. Building on this idea, Spezialetti et al.
+mitigation. In practical interactions with robots in social settings,          (2020) identified three broad sets of tasks that are required to equip
+there is a significant likelihood of confusion, and that any such              robots with emotional capabilities: a) designing emotional states for
+confusion is at best a negative experience for users, and at worse can         robots in existing cognitive architectures or emotional models; b)
+be a safety critical challenge. Consequently, there have been some             formulating rich emotional expressions for robots through facial
+useful trends in research aimed at deliberately inducing confusion             expression, gesture, voice, etc.,; and c) detecting and inferring
+states in order to investigate the mechanisms and characteristics              human emotions. The first two areas are pure robotics-oriented
+linked to confusion.                                                           research, while the last area may be considered a more general
+     While there have been no concrete studies in the HRI literature           HCI consideration which must be tailored to the physically situated
+aimed at analyzing the challenge of confusion induction, in the                nature of the HRI relationship.
+literature, we can identify four patterns of confusion induction (also              While the general principle of identifying and modeling a
+called confusion cause) and their corresponding non-confusion                  user’s emotional state seems somewhat straightforward, it should
+correlates (Silvia, 2010; Lehman et al., 2012b) which are useful               be noted that this is by no means always true. Cohn (2007) argues,
+in informing our understanding of confusion in practical task-                 for example, that human emotions cannot be observable directly
+oriented interactions. The first of these, we refer to as information          because emotion is a cognitive state which may or may not be related
+complexity, which has associated stimuli complex information or                either to physiological and neuromuscular change. Therefore, in
+simple information. Complex information learning is an experience              practice, an emotion might be explained only through an interaction
+full of emotions that occurs when learners are exposed to                      context and asserted through a user survey. Therefore, to recognize
+complex material, difficult issues, or indecisive decisions, leading           emotions and build emotion models, it is necessary to design specific
+to stimulating their confusion between positive and negative                   experiments to trigger a participant’s different emotions from a
+emotions (Lehman et al., 2012b; Arguel et al., 2017). The second               multimodal learning perspective.
+pattern is information consistency. Here users might be exposed                     As might be expected, facial features are a very frequently
+to contradictory or consistent information where contradictory                 studied modality of emotional expression. Important early work
+content is typically associated with participant uncertainty and               includes the facial action coding system (FACS) with facial action
+confusion (Lehman et al., 2013). We refer to the third pattern as              units which is a part-based method that is well known in facial
+information sufficiency. Here participants might be exposed to                 behavior research for the analysis of facial expressions (Cohn,
+either sufficient or insufficient levels of information and, based             2007; Menne and Lugrin, 2017). More recently, Canal et al. (2022)
+on this, may not be able to understand a concept or perform a                  summarized two distinct groups of classification algorithms for
+task (Silvia, 2010). The final pattern that we identify is incorrect           facial emotion recognition on facial images: classic methods and
+feedback; rather than being focused on the direct ideational content           neural network-based approaches. Classic methods use classical
+of language as is the case in the first three patterns, this pattern is        artificial intelligence and image processing such as hand-crafted
+focused on the interaction and the fact that an interlocutor might             feature design processing, wherein human experts engineer feature
+provide invalid feedback with respect to expectations following                selection to extract a set of features for training the facial emotion
+the participant themselves contributing to the interaction. In                 recognition model. In contrast to this, the neural approaches focus
+this pattern, Lehman et al. (2012b) designed a feedback matrix                 on the application of Convolutional Neural Networks (CNNs) and
+of feedback states that distinguishes between correct feedback,                generic image processing backbones to build often much more
+which comprises correct positive conditions and incorrect negative             robust emotion detection algorithms. For several years, CNNs have
+conditions, and false feedback, which includes correct negative                been shown to provide highly accurate results in image analysis in
+and incorrect positive conditions. From their experiment, it was               emotion recognition (Refat and Azlan, 2019).
+witnessed that the presentation of correct-negative feedback, i.e.,                 Beyond direct facial expression, image processing has also been
+when learners responded correctly but received inaccurate or                   used to assess emotion based on other visual features such as
+negative feedback was an effective manipulation to stimulate                   head pose Murphy-Chutorian and Trivedi (2009), eye tracking
+confusion.                                                                     (Mavridis, 2015), and eye gaze (Zhang et al., 2020). Justification
+
+
+
+Frontiers in Robotics and AI                                              04                                                           frontiersin.org
+Li and Ross                                                                                                                  10.3389/frobt.2023.1244381
+
+
+
+
+for such approaches is exemplified by the work of Emery (2000)                  with a humanoid robot (a Pepper robot) in a public institute
+who explains that eye gaze is a component of facial expression                  setting. Through four designed conversational interaction sessions,
+that is used as a cue to demonstrate the attention of the person to             multimodal user data was collected to analyze user engagement
+another individual, an event, or an object. In their work, they proved          against the results of post-study surveys. In another experimental
+that eye gaze as a special cognitive stimuli is “hard-wired” in the             setting, Tapus et al. (2012) looked at four single-subject experiments
+human brain. Moreover, in psychophysiology field, Bagherzadeh-                  on social engagement between children with autism and the
+Azbari et al. (2023) showed that the emotion expressions with                   humanoid Nao robot. This study made use of a wizard-of-oz
+different gaze direction (including averted gaze and direct gaze) are           methodology where two rooms were set up, one for the child and
+significant social singles in human interactions.                               the robot, and one for the operator who controlled the robot’s
+    Emotion recognition is not limited to image-based methods.                  movements. Even recently, Zhanatkyzy et al. (2023b) designed and
+Speech emotion recognition (SER) has wide real-life applications,               empirically investigated 24 robot activities with different levels of
+including, for example, call centers (Wani et al., 2021), online                social mediation in a rehabilitation setting that included children
+learning (Cen et al., 2016), spoken dialogue system (Yeh et al.,                with different autistic traits. This study was notable in that it used the
+2019), pain recognition (Özseven, 2019), depression diagnosis                   Nao robot platform to investigate the types of social robot activities
+(Singh and Goel, 2022), etc. Emotion states are identified in a typical         that could improve social behaviors for those children with autism.
+SER system from the speech signal without linguistic knowledge                       Regarding the specific detection of engagement,
+(Altun and Polat, 2009). Unfortunately, there are still no common               Ben Youssef et al. (2017) presented an analysis of self-reported
+approaches to extract the speech features to a consistent set of                engagement levels with respect to posture tracking and facial
+specific emotion categories (Singh and Goel, 2022). Nevertheless,               expression analysis. Turning to Tran et al. (2020)’s study in the
+Wani et al. (2021) outlines the classes of audio features relevant to           pedagogy space, the authors measured task precision, reaction
+emotion analysis, i.e., spectral features, prosodic features, the teager        time, perceived mental workload, and perceived communicative
+energy operator, and voice-quality features. In recent years, deep              effectiveness as measures to detect user engagement. Moreover,
+learning has also become the dominant field, with architectures such            free initiation in children and robot experiments concerned the
+as CNNs, RNNs, LSTMs, and transformers, etc., all being used to                 gross motor actions that the child performed without prompt while
+automatically learn speech features (Singh and Goel, 2022).                     looking at the robot or human interaction (Tapus et al., 2012). Gaze
+    Beyond individual modalities, various recurrent and ensemble                shifting then referred to the occasions spent moving gaze between
+network architectures have been built to analyze multimodal                     the robot and the human. While these studies are interesting in
+datasets, including speech (audio) data, text-based data and video              that they consider various factors associated with engagement
+data, and to estimate emotional states (Hazarika et al., 2018; Tripathi         estimation, it is notable that the settings for these studies are often
+and Beigi, 2018). It can be seen that the use of multimodal data offers         heavily oriented toward pedagogical factors. Few studies within the
+valuable insight into the domain of emotion recognition within                  field of HRI have concentrated on measuring user engagement by
+dialogues for both HCI and HRI.                                                 combining multiple social behaviors exhibited during dialogues
+                                                                                between a human and a robot. This points to a gap in the
+                                                                                existing research, emphasizing the need for more comprehensive
+2.3 Engagement estimation                                                       investigations into the complex dynamics of engagement in HRI.
+                                                                                     In this section, while the above studies do indicate that there
+    While the emotional state of a user is in many ways fundamental,            have been some advances with respect to defining confusion states
+it can often be more beneficial from an HRI perspective to                      and the sets of circumstances which can give rise to those states,
+model the user’s engagement. Such research is motivated by the                  there has, beyond our own previous research, as of yet, been little
+underlying need to ensure that users are motivated to engage and                done in the way of modeling confusion detection, although there is
+continuously communicate with the robot or system over non-trivial              some work for modeling confusion detection recently in learning,
+periods. Engagement in social and cognitive psychology is often                 e.g., Atapattu et al. (2020), but not in the field of situated HRI; thus,
+expressed through one of three aspects: social connection, mental               our studies aim to fill this gap.
+state, or motivated and captivated phenomena (Sidner et al., 2004;
+Jaimes et al., 2011; Doherty and Doherty, 2018). Of these, probably
+the most relevant for the HRI perspective is the social connection
+aspect, where engagement is a process in which participants start               3 Study design
+to establish a connection, try to maintain this connection, and
+eventually complete their connection (Sidner et al., 2004; Doherty                  Below we lay out the overall aims and structure of a new user
+and Doherty, 2018). Meanwhile for the motivated and captivated                  study which we performed to elicit confusion states in task-oriented
+phenomena, engagement may not apply to a single interaction but                 HRI. Whereas in an earlier study (Li and Ross, 2023), we induced
+may instead measure a long-term relationship. This is particularly              user confusion and non-confusion states with a range of task types,
+true when engaging with a social platform, although interaction                 in this extended study we have narrowed the scope of investigation
+with robotic platforms over time is certainly a long-term desire                by focusing on one verbal task type. Moreover, whereas the earlier
+(Jaimes et al., 2011).                                                          study considered only the existence of confused and non-confused
+    Engagement has been studied with a range of experimental                    states, the present study recognizes the proposed existence of three
+modalities, both within the field of HRI and beyond. In one notable             distinct mental states, i.e., productive and unproductive confusion
+study, Ben Youssef et al. (2017) studied spontaneous conversation               states, as well as the non-confusion state.
+
+
+
+Frontiers in Robotics and AI                                               05                                                              frontiersin.org
+Li and Ross                                                                                                                10.3389/frobt.2023.1244381
+
+
+
+
+3.1 Study overview                                                            in front of the robot to ensure that they were safe but still in the
+                                                                              interactive zone. The equipment and the Pepper robot in both rooms
+     The general pattern of this study follows our earlier work               are interconnected through the private experimental network.
+in Li and Ross (2023) as well as other examples of WoZ style                  The picture to the left of Figure 1 shows the actual scene of the
+user state analysis studies exemplified by Ben Youssef et al. (2017).         experimental setting.
+Specifically, we again use a controlled methodology where users                    Each interactive session with the Pepper robot had two distinct
+interact with a humanoid robot platform to perform a series of                conversations. The first conversation was a free talk of around
+tasks where some task instances are designed to elicit confusion              5 min, where participants adapted to interaction with the Pepper
+while others are not. In that pilot study we exposed participants             robot and the general principles of HRI interaction. For this, the
+to three different task types, i.e., logical problems, math questions,        Pepper robot was in full autonomous mode; and during the free
+and word problems. While this was sufficient for demonstrating the            talk, a researcher assisted and encouraged participants to engage
+detectability of confusion states, this extra dimension of analysis           with the Pepper robot in the experiment room. Moreover, we
+reduces the controllability of the study and makes it impossible              suggested 11 simple short conversational tasks for participants
+in practice to analyze confusion states at a more fine-grained                to engage in interactively with the robot. These included asking
+level. In light of this and some other experimental considerations,           the robot, “Who are you?“, “Can we shake hands?“, “Show your
+we redesigned our study to focus on one task type only, i.e.,                 left hand.“, etc. The second conversation was the experimental
+word problem, and redesigned several additional aspects of the                task-oriented dialogue session, which took approximately 20 min.
+study to provide more control and experimental clarity. We                    During this period, the Pepper was changed to be fully controlled
+also upgraded our experimental devices to collect higher quality              by the researcher, and the researcher themselves stayed in the
+multimodal data which we believe will be of higher value to the               wizard room leaving the participant alone with the Pepper robot
+community.                                                                    in the experiment room. This experimental conversation included
+     Specifically, for this study we again used the Pepper robot              eight crafted dialogues based on a verbal problem task (detailed in
+platform. The Pepper robot includes customizable social behaviors             Section 3.2). After each of the eight dialogues in this conversational
+including natural and expressive movements using 20 degrees                   interaction, the participants were asked to rate their level of
+of freedom, speech recognition in multiple languages, which we                confusion during a 1-min break. Once completed this second
+configured to English for the current study. Beyond the speech                conversational session, the researcher returned to the experiment
+modality, the Pepper platform can observe and interact with a                 room again and the participants were asked to complete a post-study
+person who is close to it through 2D and 3D cameras onboard,                  survey which included a number of statements referenced against
+touch sensors, and LEDs for multimodal interactions. For our                  a 5-point Likert score. This survey included questions on general
+experiments, we made use of the Naoqi framework, which provides               experimental HRI experiences, as well as the PARH (Perceived
+a fully open programmable platform for us to manually control the             Awareness of the Research Hypothesis) scale (Rubin, 2016) that
+Pepper robot and design its animated speech and multi-interactive             allow researchers to assess the potential influence of demand
+behaviors programmatically and interactively.                                 characteristics (i.e., “users’ confusion levels”) in this study. Finally,
+     The experimental design is based on a semi-spontaneous                   a 3-min oral interview was conducted to collect more feedback on
+physical face-to-face conversation in English between the Pepper              the interaction.
+robot and each participant. Following registration, a comprehensive                Participants in this study were recruited across a metropolitan
+introduction of the experiment was shared first with each                     university. In total there were 81 individuals (female: 36, male:
+participant, before consent forms were signed, and the experiment             44, non-binary: 1) who were each over 18 years of age, and with
+itself began. Each participant was then guided into an experiment             21 nationalities represented. Of these, 38 participants were in the
+room where they were left in front of the Pepper robot. In addition           18 − 24 age group, 31 participants were in the 25 − 44 age group,
+to the robot, the room was equipped with a number of other cameras            while the 45 − 59 age group had 8 people, and 4 people over 60
+and microphones to provide extra pickups on the interaction. Since            years of age. In terms of social profile, 61 people were students
+this was a fully WoZ driven study, an experimental controller was             at colleges, 14 people worked in academia, and 6 people worked
+set up in a second adjacent room where views of the feeds from                in industry. Participants were not required to have English as a
+the experimental room were available, as well as the controls for             first language, although 45 people were native English speakers. It
+the robot itself. Figure 1 presents an overview of this experimental          should be mentioned that only 1 of 81 participants had experience
+layout, two rooms are isolated, including the experiment room                 interacting with a humanoid robot. The 81 participants agreed to
+where the participants and the Pepper robot interacted and the                make their data available for analysis and publication for research
+wizard room where the researcher controlled the pepper robot                  purposes.
+and monitored the experiment room. The additional recording
+equipment included three high-definition webcams. Webcam 1 was
+placed behind the Pepper robot and oriented toward the participant’s          3.2 Task-oriented dialogue design
+face to clearly monitor their facial expression. Webcam 2 was placed
+right beside the robot to observe the participant’s body gestures.                As indicated, the second part of the main interaction consisted of
+Finally, Webcam 3 was placed close to Webcam 1, but oriented so               eight individual dialogues which were broken up by 1 minute breaks.
+that the wizard could monitor the whole process of the experiment             Each of these dialogues was used to express one single experimental
+from the wizard’s room. Participants were required to wear a lapel            condition. In total we had three experimental conditions, or
+microphone and stand along a line that was approximately 80 cm                rather stimuli classes, and these correspond to the levels of
+
+
+
+Frontiers in Robotics and AI                                             06                                                             frontiersin.org
+Li and Ross                                                                                                              10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 1
+   Wizard-of-oz experiment setup (left: the actual experiment room; right: the schematic experiment room and wizard room).
+
+
+
+
+non-confusion, productive confusion, and unproductive confusion               on control with a smaller chance of confusion states, or rather
+previously introduced. Each individual task was indicated on the              behavioral indicators of confusion states, leaking into states where
+basis of a word problem. For notation purposes, the three conditions          no confusion should be present. Finally, it should be noted that
+are referenced as follows, Condition A1 = productive confusion;               the non-confusing dialogues, i.e., those labeled Condition B, were
+Condition A2 = unproductive confusion; while Condition B is                   identical regardless of being used for either Condition B_A1 in the
+referred to stimuli which are in principle non-confusing.                     productive confusion experimental group or Condition B_A2 in
+    In order to limit the potential of confusion persistence and              another experimental group.
+intermingling between experimental conditions, we adopted a cross                  Beyond the three main conditions of non-confusion (B),
+participant approach to the experimental design, where participants           productive confusion (A1) and unproductive confusion (A2),
+were grouped into either productive or unproductive confusion                 one further conditional subclassification was introduced into the
+experimental groups. For the productive confusion experimental                experimental design, and this relates purely to Condition A1.
+group (A1), each participant was first exposed to 4 instances of              Namely, the dialogues of Condition A1 were designed to include
+non-confusion stimuli, before being exposed to a sequence of                  assistance provided by the Pepper robot to help participants
+4 productive confusion stimuli. Similarly, for the unproductive               overcome their confusion state. Being more specific, the dialogues
+confusion experimental group (A2), participants were first exposed            were designed such that the robot asks the participant whether they
+to 4 instances of non-confusion stimuli, before being exposed                 need help to answer the question after the participant has tried to
+to a sequence of 4 unproductive confusion stimuli. Thus, the                  answer the question twice incorrectly or the participant may request
+sequence of eight dialogues for each participant is either “B-B-B-            a help to the Pepper robot. The interaction up to this assistance
+B-A1-A1-A1-A1” or “B-B-B-B-A2-A2-A2-A2” depending on the                      request is labeled Condition A1_beforehelp, whereas all interactions
+experimental group to which they were assigned. We refer to these             thereafter are labeled Condition A1_withhelp. This assistance, in
+two experimental groups as either Condition BA1 or Condition                  Condition A1_withhelp, involved the robot deliberately moderating
+BA2 as appropriate; (see Table 1).                                            its speech pace, presenting the problem step by step, and soliciting
+    In previous work, we have used alternative designs which                  feedback from the participant to gauge comprehension. Such
+were based on an interleaving of confusing and non-confusing                  differentiation helps us to explore whether there are detectable states
+stimuli. While it is likely that our current design introduces its            for participants as they transition from a confused state to one where
+own challenges, we feel that this design strikes the right balance            that confusion is being overcome. Some participants were able to
+
+
+
+Frontiers in Robotics and AI                                             07                                                            frontiersin.org
+Li and Ross                                                                                                              10.3389/frobt.2023.1244381
+
+
+
+
+TABLE 1 Example of sequences of confusion induction in participants.          patterns have been included in the resources associated with this
+                                                                              paper2 . It should be noted that while four distinct confusion causes
+  Participant 1
+                                                                              are used across the dialogues, the experimental design, which is
+       Dialogues               Non-, Confusion          Conditions            different from our previous study, is limited to verbal problems
+                                Stimulus Type                                 only.
+
+              1st                  Simple information   Condition B
+
+            2nd               Consistent information    Condition B           3.3 Data collection
+            3rd                Sufficient information   Condition B
+                                                                                   During interactions, data were recorded across the Pepper
+            4th                     Correct feedback    Condition B           robot’s built-in sensors as well as the higher-fidelity devices that
+                                                                              were situated around the experimental room. Media data and post-
+            5th                     Confusion Cause     Condition A1          study survey data were thus collected from 81 participants—41
+                                        (CC)1*
+                                                                              participants were in the productive confusion experimental
+            6th                          CC2*           Condition A1          group, while 40 participants were in the unproductive confusion
+                                                                              experimental group. The multimodal data streams were initially
+            7th                          CC3*           Condition A1          labeled as a whole based on the collection condition, i.e., “Condition
+                                                                              BA1” (including Condition B_A1, Condition A1_beforehelp, and
+            8th                          CC4*           Condition A1
+                                                                              Condition A1_withhelp), or “Condition BA2” (including Condition
+  Participant 2                                                               B_A2 and Condition A2), before post hoc fine-grained labeling was
+                                                                              applied to specific extracts of the data as appropriate. It should be
+       Dialogues               Non-, Confusion          Conditions            noted that Condition B_A1 and Confusion B_A2 represent the
+                                Stimulus Type
+                                                                              same experimental state in practice, i.e., the extracts of interactions
+              1st                  Simple information   Condition B           at the start which consist of non-confusion states only. We thus
+                                                                              would expect that the two populations should demonstrate similar
+            2nd               Consistent information    Condition B           characteristics and could in principle be grouped together as a
+                                                                              single B set in principle. While this is true we have kept these two
+            3rd                Sufficient information   Condition B
+                                                                              subgroups of B distinct in analysis as in many cases our interest is in
+            4th                     Correct feedback    Condition B           comparing intra-subject behavior between the participants in B_A1
+                                                                              and A1 and B_A2 and A2.
+            5th                          CC1*           Condition A2               Basic editing as well as some limited preprocessing were applied
+                                                                              to the raw data to prepare a dataset for analysis. In each facial
+            6th                          CC2*           Condition A2
+                                                                              video, we cropped the greeting and conclusions, and then extracted
+            7th                          CC3*           Condition A2          facial frame data with conditions labeled. To ensure that each
+                                                                              frame instance is a valid facial image, we applied the Multitask
+            8th                          CC4*           Condition A2
+                                                                              Cascaded Convolutional Neural Network (MTCNN)-based face
+*CC1: Complex information.                                                    detection algorithm (Savchenko, 2021) to detect the face and then
+*CC2: Insufficient information.                                               automatically center-crop to a region of 224 × 224 pixels. The
+*CC3: Contradictory Information.
+*
+                                                                              resultant set included 28,938 facial frames for Condition A1 (13,742
+  CC4: False feedback.
+                                                                              facial frames for Condition A1_beforehelp, and 15,196 facial frames
+                                                                              for Condition A1_withhelp), 26,631 facial frames for Condition A2,
+                                                                              and 11,218 facial frames for Condition B (5,695 facial frames with
+answer the confusion question without this help from the robot. In            Condition B_A1, and 5,523 facial frames from Condition B_A2).
+such cases, we labeled the entire dialogue sequence as Condition                   As for the audio stream, we again removed the greeting and
+A1_beforehelp. However, in the unproductive confusion condition               conclusions and cropped several pieces of audio corresponding to
+(A2), the Pepper robot only repeated the question with the same               five experimental conditions segments of interest in the interaction.
+speed of speech until the participant showed their wish to give               After verifying these audio stream data, we had collected 316 audio
+up.                                                                           samples for Condition A1 (162 audio samples for Condition A1_
+    To attempt to ensure an invocation of confusion that might                beforehelp, and 154 audio samples for Condition A1_withhelp), as
+correspond to the many different potential causes of confusion in             well as 152 and 308 audio samples respectively for Condition A2
+practical tasks, we mapped each of the four individual confusion              and Condition B (156 audio samples labeled with Condition B_
+dialogues (either A1 or A2) to one of the four patterns of confusion          A1, and 152 audio samples labeled with labeled Condition B_A2),
+which we outlined in the previous section. Thus, each dialogue                respectively.
+was designed using either one stimulus type designed to induce
+confusion or a stimulus type designed not to induce confusion (see
+Table 1). To illustrate the specific nature of the tasks and text used        2 https://github.com/nalibjchn/SituatedHRITrackConfusion/blob/main/
+by the robot, eight dialogue scripts based on the four confusion                DialogueScripts.pdf
+
+
+
+
+Frontiers in Robotics and AI                                             08                                                            frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+4 Data analysis                                                                emotions “anger”, “fear” and “sad” in Condition A1_beforehelp
+                                                                               is greater than those in Condition A1_withhelp, excluding the
+    To investigate participant behavior in all three conditions,               predicted emotion “disgust” that is ignored due to the limitations
+we grouped our two objective data types, i.e., visual and audio                of the facial emotion algorithm for these results (Li and Ross, 2023).
+data, and then applied a range of feature extraction algorithms                    While facial emotion recognition algorithms are beneficial in
+before analyzing the interactions between those extracted features             many tasks, it is known that they may still produce imperfect
+and both the experimental conditions and the self-assessed                     results at fine granularities. Hence, following the 2-D model that
+confusion levels from the post-study survey. To this regard, we                integrates valence and arousal (Russell, 1980), we grouped the
+can learn the correlations between each result of the feature                  seven predicted emotions into four broader categories based on
+analysis and the experiment conditions. In the following, we                   the individual’s mental state, i.e., negative emotion that includes
+motivate specific hypotheses for analysis, break down the analysis             “sad”, “fear”, “anger”, and “disgust”, positive emotion which is
+process, and then provide an overview of the results of this                   a singleton class that includes only the “happy” emotion, the
+analysis.                                                                      surprise emotion (Vogl et al., 2019), and finally the neutral emotion.
+                                                                               Moreover, following (Maithri et al., 2022) who shows that these
+                                                                               boarder emotion categories can be modeled in three dimensions,
+4.1 Visual data analysis                                                       namely, valence-arousal-dominance. This modeling can help to
+                                                                               assess the level of stimulus control.
+    Our visual investigation was focused on the face, where                        Considering first the case for the data with Condition A1,
+we borrowed methodologies for learning nonverbal interacting                   these results are presented in Figure 2. We see that the number of
+user behaviors in the studies of emotion estimation and                        negative instances, positive instances and surprise instances within
+user engagement with respect to eye gaze and head pose                         Condition A1_withhelp are greater than these emotion instances
+features.                                                                      within the other two conditions; while for Condition A1_beforehelp
+                                                                               the number of neutral emotions is greater than those with the
+4.1.1 Facial emotion detection                                                 other two conditions. Finally, it should be noted that the number of
+     Given an assumed link between emotional states and confusion              surprise emotion instances is almost 0 in both Condition B_A1 and
+(D’Mello and Graesser, 2014; Liu et al., 2022), we applied a facial            Condition A1_beforehelp. We suggest that these results indicate that
+emotion detection algorithm to estimate for each frame an                      participants were more engaged in answering the question with the
+emotional quotient for each individual frame in terms of common                Pepper’s help.
+emotion categories, i.e., anger, disgust, fear, sad, happy, surprise,              Turning to the results for Condition A2, for the four emotion
+and neutral. While the link between emotion and learning state is              groupings classified in Condition A2 and Condition B_A2, the
+well argued in the literature, there are a number of presumptive               number of negative instances, positive instances, and surprise
+hypotheses based on previous works that we hoped to be true.                   instances in Condition A2 is greater than that of Condition B_
+Most significantly, we expect that participants in either a productive         A2—see Figure 3. We suggest that these results show that, without
+confusion state or unproductive confusion state demonstrate enter              the robot’s help, the participants were more emotionally expressive
+into a more negative emotional state and that this negative state              and taking longer interactions in the word problem tasks in
+should be apparent from image data. As a corollary we expect                   Condition A2 than in Condition B.
+that more positive data would be associated with non-confusion                     To provide a more detailed analysis, as the number of each
+states. We similarly expect that the product confusion state should            emotions in Condition A1_beforehelp, Condition A1_withhelp and
+be associated with less negative emotions than the unproductive                Condition A2 are greater than in Condition B_A1 and Condition
+confusion state—particularly with respect to the with help portion             B_A2, but yet those predicted data were still a small size, we
+of the analysis.                                                               randomly selected sub-results of facial emotion predicted outputs in
+     For the facial emotion detection, we used a model based on                Condition A1_beforehelp, Condition A1_withhelp and Condition
+the MobileNet architecture and trained in the AffectNet dataset                A2 which are the same number of those outputs in Condition
+(Howard et al., 2017; Mollahosseini et al., 2017; Savchenko, 2021).            B_A1 and Condition B_A2 respectively, for statistical analysis.
+The predicted emotion scores are from seven emotion indexes,                   Across productive confusion and non-confusion, a Chi-Square test
+i.e., 0: “Anger”, 1: “Disgust”, 2: “Fear”, 3: “Happy”, 4: “Neutral”, 5:        for independence (with Yates’ Continuity Correction) indicated
+“Sad”, and 6: “Surprise”. Thus, each image is assigned an emotion              a significant association between seven emotion indices and our
+type based on these predicted scores. Table 2 shows the results                three labeled conditions (Condition A1_beforehelp, Condition
+analyzed for both the productive confusion experimental group and              A1_withhelp and Condition B_A1), χ2̃ (1, n = 34, 633) =
+the unproductive confusion experimental group. As the dialogue                  169.83, p − value < 0.05, phi = 0.07). Moreover, a Chi-Square test
+interaction with any confusion condition is longer than these                  for independence (with Yates’ Continuity Correction) indicated
+with non-confusion condition, it appears that the number of                    significant association between the seven emotion indices
+each detected emotion for Condition B_A1 or Condition B_A2 is                  and two labeled conditions (Condition A1_beforehelp and
+less than these for Condition A1 or Condition A2, respectively.                Condition A1_withhelp), χ2̃ (1, n = 28, 938) = 82.45, p − value <
+Moreover, concerning Condition A1_beforehelp and Condition A1_                 0.01, phi = 0.05). Turning to the emotion estimation results
+withhelp, the number of emotions “happy”, “surprise”, and “neutral”            across unproductive confusion and non-confusion states, a Chi-
+in Condition A1_withhelp are greater than these emotions in                    Square test for independence (with Yates’ Continuity Correction)
+Condition A1_beforehelp; meanwhile, the number of each of the                  indicated significant association between our seven emotion
+
+
+
+Frontiers in Robotics and AI                                              09                                                           frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+TABLE 2 The result of facial emotion estimation in Condition A1, A2, and B.
+
+  Condition (labeled)            Anger           Disgust          Fear         Sad          Happy        Surprise       Neutral        Overall
+
+  A1_beforehelp                  3,110           1,503            95           2,693        1,961        81             4,299          13,742
+
+  A1_withhelp                    3,020           1,877            90           2,680        2,192        136            5,201          15,196
+
+  B_A1                           1,086           826              37           1,025        646          35             2,040          5,695
+
+  A2                             4,820           2,411            304          4,910        7,173        331            6,682          26,631
+
+  B_A2                           815             495              51           949          1,431        50             1,732          5,523
+
+
+
+
+    FIGURE 2
+    Four facial emotion categories for Condition A1 and Condition B.
+
+
+
+
+    FIGURE 3
+    Four facial emotion categories for Condition A2 and Condition B.
+
+
+
+
+indices and the two conditions (Condition A2, Condition B_A2),                     present a time-series visualization of the emotional group (four
+χ2̃ (1, n = 32, 154) = 110.02, d f = 6, p − value < 0.01, phi = 0.06).             states, i.e., “happy”, “sad”, “surprise” and “neutral”) for two
+      To provide deeper insight into the data, we randomly chose one               participants for each of the two experimental groupings in the
+participant from each of the two experimental groups. Figures 4, 5                 facial videos. For this particular analysis, we used the open
+
+
+
+Frontiers in Robotics and AI                                                  10                                                      frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 4
+   The emotional changes for one participant during dialogues with conditions (BA1).
+
+
+
+
+source facial expression recognition application (FER)3 . The FER              different angles may have positive or negative values, a composite
+application is built on the MTCNN facial recognition network                   sum of angles for a given user would likely cancel out to zero;
+(Zhang et al., 2016), with the emotion classifier (Arriaga et al.,             therefore, as a composite metric, we instead summed the two
+2017) trained on the FER-2013 emotion dataset (Goodfellow et al.,              absolute angles to produce an amalgamated metric for each user.
+2013). In the productive confusion experimental instance we can                    Figure 6 presents the amalgamated metric (absolute yaw and
+see that “neutral” and “sad” occurrences dominate, while the                   pitch) across our experimental conditions. From these results we
+“happy” emotions can sometimes climb to the top—particularly                   can see that the median of the composite feature for participants
+during the non-confusion periods corresponding to Condition B.                 in Condition B_A2 is greater than that of the other four labeled
+Meanwhile, in the unproductive confusion group participant, we                 conditions. However, there is a notable, though slight difference in
+see “neutral” and “happy” dominated during Condition B, while                  the median of the composite between Condition A1_beforehelp,
+for Condition A2 the emotions “sad” and “neutral” were very                    Condition A1_withehelp and Condition B_A1.
+strong.                                                                            To provide a more detailed analysis, we applied a one-
+                                                                               way ANOVA to explore the impact of normalized the sum of
+4.1.2 Eye gaze estimation                                                      absolute pitch and yaw angles for eye gaze with experimental
+     Moving from facial emotion to eye gaze estimation, the                    conditions including productive confusion and non-confusion.
+importance of eye gaze and its impact on emotion and engagement                A significant difference was found in the angle scores (i.e.,
+levels has been previously investigated, and based on the                      normalized sum of absolute pitch and yaw angles) for eye gaze across
+literature we hypothesize that the range of eye gaze for users                 Condition A1_beforehelp, Condition A1_withhelp and Condition
+with either productive confusion or unproductive confusion                     B_A1,          (F(2, 29784) = 14.61, p − value < 0.01, d = 9.80e − 04).
+would be less than for those participants in a non-confusion                   Tukey’s HSD (Honestly Significant Difference) test for multiple
+state.                                                                         comparisons found that the mean scores in Condition B_A1
+     To investigate this, we applied a state-of-the-art eye gaze               (M = 0.36, SD = 0.13) were not significantly different from those in
+estimation algorithm, trained on the large-scale gaze estimation               Condition A1_beforehelp (M = 0.35, SD = 0.13), p − value = 0.36;
+dataset called ETH-XGaze (Zhang et al., 2020), to our pre-processed            however, the mean scores for those in Condition A1_withhelp
+facial frame data, in order to predict pitch and yaw angles. Since             (M = 0.36, SD = 0.14) were significantly different from those
+                                                                               for Condition A1_beforehelp p − value < 0.01, as was the case
+                                                                               for Condition B_A1, p − value < 0.05. Regarding unproductive
+3 https://pypi.org/project/fer                                                 confusion, we again calculated the normalized sum of absolute pitch
+
+
+
+Frontiers in Robotics and AI                                              11                                                            frontiersin.org
+Li and Ross                                                                                                             10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 5
+   The emotional changes for one participant during dialogues with conditions (BA2).
+
+
+
+
+   FIGURE 6
+   Eye gaze estimation analysis. The line in yellow represents the median.
+
+
+
+
+and yaw angles as a composite feature, and an independent sample                  4.1.3 Head pose estimation
+t-test showed that there was a significant difference in this composite               Similar with eye gaze, head pose has been found to have
+value across the two labeled conditions (M = 0.40, SD = 0.15                      correlations to engagement and emotion level, and based on this
+for Condition A2, M = 0.45, SD = 0.16 for Condition B_A2),                        we hypothesized that the ranges of head pose for participants
+t(26736) = −21.205, p − value < 0.01, d = −0.26.                                  in either productive confusion or unproductive confusion states
+
+
+
+Frontiers in Robotics and AI                                                 12                                                     frontiersin.org
+Li and Ross                                                                                                             10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 7
+   Head pose analysis.
+
+
+
+
+should be less than those of users who are in non-confusion                  significantly different for Condition B_A1 (M = 0.23, SD = 0.14),
+states.                                                                      p − value < 0.01. However, there were no significant differences
+     To test this, on our aligned facial images, we applied a                for the mean head pose scores between Condition A1_withhelp
+trained head pose estimation model based on a CNNs backbone,                 and Condition B_A1, p − value = 0.98. For the unproductive
+dropout and adaptive gradient methods which was trained on three             confusion experimental group, an independent sample t-test
+public datasets: the Prima head pose dataset, the Annotated Facial           was performed showing that there was a significant difference
+Landmarks in the Wild (AFLW), and the Annotated face in the Wild             for the composite angle scores across (M = 0.25, SD = 0.14
+(AFW) dataset (Gourier et al., 2004; Köstinger et al., 2011; Zhu and         for Condition A2, M = 0.24, SD = 0.14 and Condition B_A2),
+Ramanan, 2012). From this trained model we extracted the three               t(32152) = 2.78, p − value < 0.01, d = 0.03.
+angles of pitch, yaw, and roll for each image frame. These values
+were then grouped across our five labeled conditions. Similarly to
+the analysis of eye gaze estimation, we calculated the sum of the            4.2 Audio data analysis
+three absolute values of these angles to produce a new composite
+feature.                                                                         With respect to audio data, our focus is on the features of speech
+     Figure 7 demonstrates a slight difference between the head              that can be taken as indicators without requiring a full semantic
+pose estimation results for the five labeled conditions. From these          or context-specific analysis of the speech. Thus, in this section, we
+results we can see that the median composite value for Condition             present the analysis of low-level features including silence time,
+B_A1 and Condition B_A2 is lower than that in Condition                      speech emotion recognition, acoustic feature vectors, e.g., Mel-
+A1 (Condition A1_beforehelp and Condition A1_withhelp) and                   Frequency Cepstral Coefficients (MFCCs) feature (Mohan et al.,
+Condition A2, respectively. Meanwhile, the median value in                   2023), as well as pitch of speech.
+Condition A1_beforehelp is higher than those for Condition A1_
+withhelp.
+     Again, similar to the eye gaze estimation, we performed                 4.2.1 Emotional silence duration analysis
+a statistical analysis of these results by applying a one-way                    Silence or delayed response in a dialogue is a useful feature of
+ANOVA which showed that a significant difference was found                   nonverbal interaction. Oto et al. (2017) suggested that the silence in
+in the composite angle scores (i.e., normalized sum of absolute              HRI can be divided into four types, i.e., semantic silence, syntactical
+pitch, yaw and roll angles) measurement across Conditions                    and grammatical silence, robotic silence, and interactive silence,
+A1_beforehelp, Condition A1_withhelp and Condition B_A1                      and that interactive silence may at times reflect the user’s strong
+(F(2, 34622) = 32.08, p − value < 0.01, d = 1.85e − 03). Tukey’s HSD         emotion such as anger, surprise, and fear, etc. Broadly speaking,
+test for different comparisons of any two conditions illustrated that        we can therefore hypothesize that the emotional silence duration
+the mean scores for Condition A1_beforehelp (M = 0.25, SD = 0.14)            of the participants in a non-confusion condition should be shorter
+was significantly different from those for Condition A1_                     than that for participants in either the productive confusion or
+withhelp (M = 0.24, SD = 0.13), p − value < 0.01 and also                    unproductive confusion condition.
+
+
+
+
+Frontiers in Robotics and AI                                            13                                                            frontiersin.org
+Li and Ross                                                                                                              10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 8
+   Silence duration time analysis.
+
+
+
+
+    Based on this hypothesis, in our analysis of the audio data,               difference between the normalized silence duration time across the
+we accounted for interaction silence by labeling and subsequently              two conditions (M = 0.09, SD = 0.10 A2, M = 0.02, SD = 0.08 and
+measuring the silence duration time of the participants only between           B_A2), t(990) = 12.57, p − value < 0.01, d = 0.14.
+the point after the robot asked a question or gave feedback to the
+participant, but before the participant started to respond orally. Then        4.2.2 Emotional pitch analysis
+the labeled silence duration time was normalized under the different               Pitch is one of the prosodic elements in speech signals, and
+experimental conditions.                                                       is also a nonverbal parameter in human social communications,
+    Figure 8 presents a comparison of the normalized silence                   whereby various expressions of emotions can be reflected by changes
+duration time for five labeled conditions. From these results we can           in different ranges of pitches, e.g., people in a happy state can be
+see a sharp difference in silence duration time between confusion              detected by higher pitch and larger range of pitch, whereas, when
+conditions and non-confusion conditions. The median score of the               people feel sad, their speech signals are typically slower with lower
+silence duration time is 0 in Condition A2_B and Condition A1_                 average pitch and narrower range of pitch, etc. (Gasteiger et al.,
+B; and there is a slight difference in the median scores between               2022). Based on this potential relationship to emotional state,
+Condition A1_beforehelp and Condition A1_withhelp. Meanwhile,                  and hence an indicator of more pronounced confusion states, we
+the median score of the silence duration time in Condition A2 is               can express a broad hypothesis that the emotional pitch of the
+lower than that for both labeled conditions in productive confusion.           participants in a non-confusion state should be higher than that
+We suggest that this demonstrates that the participants expected to            for participants in either the productive confusion or unproductive
+have to wait for the robot’s help in order to overcome their confusion         confusion states.
+in dialogues with productive confusion.                                            In our analysis, we extracted pitch values using the YAAPT (Yet
+    For statistical analysis, a one-way ANOVA was performed                    Another Algorithm for Pitch Tracking) pitch tracking algorithm
+to investigate the impact of the interactive silence duration                  (Zahorian and Hu, 2008). As the pitch results of each audio sample
+across productive confusion and non-confusion periods. There                   are a sequence of temporal pitch values, we calculated the mean
+was a significant difference in the normalized silence duration                value of each set of values as a new feature (called pitch value)
+time across Condition A1_beforehelp, Condition A1_withhelp,                    for analysing. Figure 9 presents a detailed comparison of the mean
+and Condition B_A1 (F(2, 660) = 40.56, p − value < 0.01, d = 0.11).            pitch value for the five labeled conditions. It shows that there
+Tukey’s HSD test found that the mean scores for Condition                      are minor differences in each experimental group. The median
+B_A1 (M = 0.04, SD = 0.11) were significantly different from                   of pitch values in Condition A1_B is slightly lower than that in
+those for Condition A1_beforehelp (M = 0.15, SD = 0.16),                       Condition A1 (i.e., Condition A1_beforehelp and Condition A1_
+p − value < 0.01 and also differ significantly for Condition A1_               withhelp). Whereas, in the unproductive experimental group, the
+withhelp (M = 0.13, SD = 0.15), p − value < 0.01; however, the mean            median of pitch values in Condition A2_B is greater than that in
+scores for Condition A1_beforehelp were not significantly different            Condition A2.
+from those for Condition A1_withhelp, p − value = 0.35. Turning to                 To further analyze, for the productive confusion experimental
+the unproductive confusion experimental group, an independent                  group, we conducted a one-way ANOVA on the YAAPT estimations
+sample t-test was performed, indicating that there was a significant           to explore the influences of normalized user pitch values under
+
+
+
+
+Frontiers in Robotics and AI                                              14                                                          frontiersin.org
+Li and Ross                                                                                                             10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 9
+   Emotional pitch analysis.
+
+
+
+
+the productive confusion conditions. We found that there was no                  Figure 10 presents the predicted emotion categories with respect
+significant difference in normalized pitch values with Condition             to the two experimental groups. Notable results include the
+A1_beforehelp, Condition A1_withhelp, and Condition B_A1                     fact that there were no instances of the “sad” emotion in the
+(F(2, 470) = 1.22, p − value = 0.30). For the unproductive confusion         participants’ speech, and that the number of “happy” instances
+experimental group, an independent sample t-test was performed.              in Condition B_A1 was greater than those of the other two
+Again, no significant differences were found for the normalized              labeled conditions. Additionally, the number of “anger” instances
+pitch values between the two conditions (M = 0.39, SD = 0.25                 recorded for Condition A1_beforehelp was greater than those in
+for Condition A2, M = 0.39, SD = 0.37 for Condition B_A2),                   both Condition A1_withhelp and Condition B_A1. Meanwhile,
+t(302) = −0.27, p − value = 0.79.                                            the number of “neutral” instances in Condition A1_withhelp was
+                                                                             slightly higher than that of Condition A1_beforehelp and Condition
+4.2.3 Speech emotion analysis                                                B_A1. For the unproductive confusion experimental group, the
+    Speech signals can also be used to directly infer an                     number of “happy” instances in Condition B_A1 was greater than in
+associated emotional signal, which again may have a direct                   Condition A2, while the number of “anger” emotions in Condition
+influence on confusion states as per the argument set forward                B_A1 was less than that for Condition A2. Finally, it should be noted
+for visual indicators. On that basis we again hypothesize                    that the number of “neutral” instances in Condition B_A2 was 0,
+that participants in a non-confusion state will demonstrate                  while there were no “sad” instances recorded for user speech in either
+more positive emotions as measured from speech signals                       labeled conditions.
+directly than is the case for participants in a confusion                        In the statistics analysis of emotion speech, it suggests that
+condition.                                                                   participants were on average happier in dialogues with non-
+    To investigate this possibility, we cropped all participant audio        confusion condition than those with either confusion state. A
+speech signals for each labeled condition, then extracted the                one-way ANOVA was used to investigate the impact of emotion
+speech spectral features from those data using MFCCs features as             speech with productive confusion and non-confusion. We found
+input, in order to directly predict four different salient emotion           that there was a significant difference in the normalized emotion
+indexes, i.e., “anger”, “happy”, “neutral”, and “sad”. For this, we          scores across Condition A1_beforehelp, Condition A1_withhelp,
+used the trained Temporal-aware bI-direction Multiscale Network              and Condition B_A1(F(470) = 6.30, p − value < 0.01, d = 0.03).
+(TIM-Net) model (Ye et al., 2023), which is a state-of-the-art               Tukey’s HSD test found that the mean emotions scores for
+temporal emotional modeling solution, trained on six benchmark               Condition B_A1 (M = 0.27, SD = 0.18) were significantly different
+Speech Emotion Recognition (SER) datasets, i.e., Chinese corpus              from those for Condition A1_withhelp (M = 0.19, SD = 0.19),
+CASIA, German corpus EMODB, Italian corpus EMOVO,                            p − value < 0.01, but did not significantly differ for Condition
+English corpora IEMOCAP, RAVDESS and SAVEE (Busso et al.,                    A1_beforehelp (M = 0.25, SD = 0.23), p − value = 0.54. Moreover,
+2008; Tao et al., 2008; Jackson and Haq, 2010; Costantini et al.,            there was a significant difference in mean emotion scores
+2014; Livingstone and Russo, 2018; Benlamine and Frasson,                    between Condition A1_beforehelp and Condition A1_withhelp,
+2021).                                                                       p − value < 0.05. For the unproductive confusion experimental
+
+
+
+Frontiers in Robotics and AI                                            15                                                           frontiersin.org
+Li and Ross                                                                                                                  10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 10
+   Four emotions speech recognition.
+
+
+
+
+group, an independent sample t-test was performed which                            self-reported confusion scores should be higher for participants in
+showed that there was a significant difference between the                         the confusion state than for those in a non-confusion state.
+normalized emotion scores in users’ speech between Condition A2                         Figure 11 presents the results for the self-reported confusion
+(M = 0.31, SD = 0.27) and Condition B_A2 (M = 0.41, SD = 0.25),                    estimates. From these results, we can see that the median confusion
+t(302) = −3.48, p − value < 0.01, d = −0.4.                                        scores is 1 in both non-confusion conditions. The highest median
+                                                                                   confusion scores were 4 in Condition A1_beforehelp and Condition
+                                                                                   A2, and the median of confusion scores in Condition A1_withhelp
+4.3 Self-reporting analysis                                                        was 3, which is in the middle of confusion levels. These results
+                                                                                   suggest that there is a very highly pronounced change in self-
+    In addition to analyzing the results of raw audio and video
+                                                                                   reported confusion levels that corresponds to the expectations of the
+data, we also present an analysis of the participant’s self-reported
+                                                                                   experimental conditions.
+confusion scores and related subjective estimates with confusion
+                                                                                        For the productive confusion experimental group, a Kruskal-
+states on the Likert scale (1–5). In particular, we assess whether
+                                                                                   Wallis rank sum was performed to explore the impact of
+there is a significant difference in user-reported confusion levels
+                                                                                   users confusion scores with those labeled conditions, and
+with respect to the experimental conditions; and second, whether
+                                                                                   a significant difference was found in confusion scores for
+the participants tried to push through the confusion or whether
+                                                                                   Condition      A1_beforehelp       (Mdn = 4.00, M = 3.79, SD = 1.27),
+the participants wanted to stop in order to otherwise resolve their
+                                                                                   Condition A1_withhelp (Mdn = 3, M = 2.68, SD = 1.44), and
+unproductive confusion; third, whether the mean PARH scores are
+significantly below the scale midpoint 4).4 Broadly we expect that                 Condition B_A1 (Mdn = 1.00, M = 1.50, SD = 0.85), χ2̃ (2) =
+                                                                                   174.47, p − vlaue < 0.01, H = 0.36.    For      the    unproductive
+                                                                                   confusion experimental group, a Mann-Whitney U test
+4 More details on the post-study survey are available here: https://github.        was performed, showing that the confusion scores with
+  com/nalibjchn/SituatedHRITrackConfusion/blob/main/Surveys.pdf                    Condition A2 (Mdn = 4.00, IQR = 2.00) were significantly higher
+
+
+
+Frontiers in Robotics and AI                                                  16                                                          frontiersin.org
+Li and Ross                                                                                                                10.3389/frobt.2023.1244381
+
+
+
+
+   FIGURE 11
+   User reported confusion levels analysis.
+
+
+
+
+than those with Condition B_A2 (Mdn = 1.00, IQR = 0.00),                        investigated. Overall, these various questions can be construed as
+U = 2, 327, Z = −13.27, p − value < 0.05, r = 0.74.                             two broad research questions. First, do participants self-recognize
+    To examine whether the participants are aware of productive                 different states of confusion—albeit under the conditions set out
+confusion or unproductive confusion, after each task-oriented                   in a specifically designed HRI study? And second, are there any
+dialogue, a few more questions were asked of each participant (more             detectable manifestations of behavior that participants produce
+details are provided in the surveys). For the productive confusion              which can be used to estimate different states of confusion? In the
+conditions, the proportions of responses to the question of whether             following, we make a number of observations on the data to help us
+users solved the task with the robot’s help were: 69% “Yes, resolved”,          draw some answers with respect to these questions.
+26% “No, I am still confused”, and only 5% selecting “I was not                      First, it is clear from the results that the participants are well
+confused”. On the topic of participants who wanted to cease the                 aware that they are confused. Importantly it can be observed that
+dialogue without the robot’s help in the unproductive confusion                 results for Condition B_A1 and Condition B_A2 were very similar as
+condition, 110 out of 140 feedback responses reported “extremely”               would be expected, as were the results for Condition A1_beforehelp
+and “very” levels of abandonment.                                               and Condition A2. Digging into more detail, it was apparent that
+    Turning to the PARH evaluation, the foundation of our data                  for the productive confusion experimental group, most of the
+analysis is based on the assumption that users are unaware of                   participants were confident that their confusion could be overcome
+the objective behind our research. The average showed that the                  with the help of the robot. And in the unproductive confusion
+average user did not have a clear understanding of the study                    experimental group, most of the participants wanted to stop the
+(M = 3.86, SD = 0.72). Following the methodology suggested by the               current conversation without any help from the robot when they
+author of the PARH survey Rubin (2016), we investigated the                     were confused.
+potential significance of the average PARH survey question against a                 Turning to the hypotheses we noted with respect to physical
+theoretical mean of 4 (i.e., the survey midpoint value). Specifically, a        manifestation and the modality data that was subsequently analyzed,
+sample t-test shows that the sample mean was significantly less than            we saw that results seen were broadly in line with our expectations in
+the score midpoint of 4, therefore participants were generally unclear          most cases, though it is notable that the subtleties of some analyses
+about the nature of the study (M = 3.86, SD = 0.72, Mdn = 4),                   did produce some results which were unexpected. Considering first
+t(80) = −1.8, p − value < 0.05, d = 0.039.                                      the face based detection of emotion. Here we saw that as expected
+                                                                                positive emotions, or rather non-negative emotions “happy” and
+                                                                                “neutral” were the main emotions expressed by people who were in
+5 Discussion                                                                    a non-confused state during these interactions, while the emotional
+                                                                                expression associated with “sad” was correlated with participants
+    As outlined in the introduction, the key challenge for this                 in both the productive confusion and the unproductive confusion
+work is the elicitation and detection of confusion states in the                condition. Turning to the differences between productive and
+user. Earlier in the paper we expressed this in terms of an overall             unproductive confusion conditions, for the productive confusion
+hypothesis for our work (see Section 1) as well as a set of evidenced           state, participants displayed more instances of positive and surprised
+individual hypotheses with respect to the modalities that we                    emotions in the productive condition; while for the unproductive
+
+
+
+Frontiers in Robotics and AI                                               17                                                            frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+confusion state, participants displayed more instances of negative             the participants’ behaviors across different confusion and non-
+emotion.                                                                       confusion conditions are natural—albeit within the context of a
+    Considering the related concepts of eye gaze and head pose, we             semi-controlled HRI study.
+see that these features are potentially strong indicators of confusion
+states, but that the observed behaviors for these two features are
+not aligned with each other, and indeed one of our hypotheses were             6 Limitation
+not met. Specifically, eye gaze results, for the productive confusion
+experimental group, demonstrate that the range of eye gaze for the                 While the current investigation has shown strong potential for
+participants with the help condition is larger than that of the before-        a systematic detection and later mitigation of confusion effects in
+help condition. In the unproductive confusion experimental group,              interaction, there are of course a number of notable limitations in
+the range of users’ eye-gazing in non-confusion condition is larger            our experimental data collection and analysis, as presented here. In
+than in the unproductive confusion. These results, taken together              the following, we briefly outline some of these limitations along with
+indicate that stronger confusion states are associated with a lower            our thoughts on mitigation of these limitations.
+range in eye gaze variances, which is in disagreement with our initial             The first limitation of note concerns the limited demographic
+assumptions and hypothesis.                                                    range of our participants. While this study did attempt to target
+    However, for head pose analysis, we observed that the range                a relatively large pool of participants, the social and cultural
+of head pose before the robot provided help is larger than that for            background of these individuals is not representative of the general
+both after the provision of help and in the non-confusion condition.           population. We note that 61 out of 81 participants were students
+Similarly, for the unproductive confusion group, the head pose                 in colleges, and of those 61 participants, most of them have a
+angles for participants during unproductive confusion were greater             technical background in science and engineering. Moreover, 69 of
+than for those in non-confusion states. These results indicate a               the 81 participants were between the ages of 18 and 44. Although
+tendency to vary head pose more during confusion states which is               we opened recruitment to a wider society, we fully acknowledge
+in accordance with our expectations.                                           that those who participated in the study have a higher propensity
+                                                                               towards technology and interest in attending this HRI experiment
+    While the visual indicators of confusion seem strong, the
+                                                                               (Henrich et al., 2010; Fischer, 2021).
+indicators associated with speech were more mixed. In particular,
+                                                                                   The second issue of note is that there were 36 participants
+no significant differences were found for participants’ emotion pitch
+                                                                               who did not self-identify as being native English speakers. Among
+across conditions. We note that one reason that might explain this is
+                                                                               those participants we noted a small trend towards higher confusion
+that voice pitch is differentiated (Aung and Puts, 2020), depends on
+                                                                               reports—which may be in part due to either misunderstandings of
+their gender, ages, etc. Since our analysis does not attempt to account
+                                                                               the Pepper itself or indeed a lesser ability to understand the problems
+for such demographic variation, this may account for the failure
+                                                                               as articulated. We encountered a similar trend in our earlier pilot
+to identify meaningful differences. Despite this, a more focused
+                                                                               study. To mitigate this issue, we designed the “free-talk session”
+emotion analysis demonstrated a range of potential indicators. As
+                                                                               segment of the interaction in order to allow the participants to
+hypothesized, the positive “happy” emotional category for non-
+                                                                               become comfortable with the mode of communication. We decided
+confusion dialogues was greater than for both productive and
+                                                                               not to omit these participants from the study as nonnative speakers
+unproductive confusion dialogues. Surprisingly, perhaps, there were
+                                                                               are an important component of many large societies.
+no indications of the “sad” emotion in the participants’ speech under
+                                                                                   In our analysis, we have attempted to normalize certain
+those experimental conditions. Moreover, under the productive
+                                                                               measurements by time to account for the fact that some dialogues
+confusion conditions, the number of “anger” emotions in the                    which have confusion conditions introduced will often by nature
+participants’ speech before the robot provided help was greater than           take longer than those without and hence will have higher counts of
+with the robot’s help. Also, participants were more neutral after the          emotional expression, etc. This analysis, however, does not account
+robot helped them overcome their confusion relative to the period              for the fact that some users in the confusion state often expressed a
+before getting the robot’s help.                                               desire to end a dialogue early and move on. This not only impacts the
+    Silence duration also turned out to be a useful factor to                  analysis mechanism, but also means that fewer instances associated
+consider in assessing participants’ potential confusion states. In             with a confused condition could be collected. An alternative strategy
+simple terms, the interaction silence duration for non-confusion               would have been to make the participant wait until a minimum time
+dialogues is shorter than for those dialogues with confusion states.           for the dialogue, but we decided that this would add an additional
+This difference, as predicted by our hypothesis, can be interpreted,           contradiction with boredom, which we were aiming to minimize.
+perhaps, as participants taking more time to consider the problem                  Finally, it is notable that while our analysis did show a strong
+presented to them. However, it should be noted that in the specific            association between confusion experimental conditions and self-
+case of productive confusion conditions, the difference in interactive         reported confusion states, this is often not fine-grained enough to
+silence periods was less pronounced.                                           account for the change in confusion states for a participant over
+    A final important comment is that we did not indicate to                   the duration of a given dialogue. Therefore, we believe that a more
+participants that this study was specifically about confusion or any           fine-grained analysis of our data to focus on the specific points
+particular investigation of mental states. Between our understanding           at which a third party annotator believes the user has moved to
+of the introductions given and the post-study interviews conducted,            a confusion state could be highly beneficial. Furthermore, in this
+we can have some certainty that the participants were not aware                study, four patterns of confusion stimuli are referred to design
+of our research purpose. Therefore, we have some confidence that               interactive dialogues only, and the feature analysis with different
+
+
+
+Frontiers in Robotics and AI                                              18                                                            frontiersin.org
+Li and Ross                                                                                                               10.3389/frobt.2023.1244381
+
+
+
+
+confusion states from specific type of confusion stimuli is out of this         8 Conclusion
+study scope.
+                                                                                    This paper presented a controlled HRI study to investigate the
+                                                                                systematic triggering and detection of confusion states in task-
+                                                                                oriented interactions. Analysis showed that participants were aware
+7 Future work                                                                   of being confused across the experimental conditions associated
+                                                                                with confusion. Furthermore, both visual and speech based signals
+    While the analysis presented here has attempted to concretely
+                                                                                were shown to have significant correlations with the confusion
+demonstrate the relationships between observable features,
+                                                                                conditions associated with individual dialogues.
+confusion conditions, and self-reported confusion states, this is
+                                                                                    Unlike previous work that focused on a single confusion state
+not in itself an operationalizable model, and indeed, there are many            with a small number of participants and multiple task types, this
+other aspects to the data which are beneficial for analysis. Thus,              paper provided a more systematic investigation across two confusion
+our immediate future work focuses on these joint objectives of                  types and had greater control with respect to the presentation and
+extending the analysis of the data and building an operationalizable            sequencing of stimuli. We argue that this study validates the earlier
+model as part of a more complete HRI investigation of confusion in              study and opens possibilities for including confusion and related
+interaction.                                                                    task-oriented mental states into a generalized framework for social
+    Specifically, we plan to expand our analysis to include semantic            and affective HRI.
+textual features, full-body gestures and stances, and also to assess                In future work, we plan to extend the analysis of the data
+the impact of emotion arousal and valence on acoustic features in               introduced in this paper, generate abstracted confusion assessment
+user speech, as documented in previous studies (e.g., Weninger et al.           models that should be generalizable to other interactive systems, and
+(2013)). This analysis will encompass different confusion states                build out a dialogue framework that includes policy elements that
+and non-confusion states, or/and a time-domain examination                      are sensitive to confusion and subsequently assist users to overcome
+of emotion valence (seen in Deshpande et al. (2019)). As part                   confusion states before disengagement results. Taken together, we
+of this extension, we also plan to provide a more fine-grained                  believe that this is a small but important step towards true social
+though subjective analysis of participant confusion by designing                intelligence in HRI.
+an annotation schema of confusion and non-confusion states for
+annotators to label those multimodal data. In parallel to this we wish
+to further delve into the time series nature of the data to uncover             Data availability statement
+the progression of confusion over the course of an interaction and
+look to see if there are correlations across features as the participant            The datasets presented in this study can be found in online
+transitions through mental states. Normalizing across participants              repositories. The names of the repository/repositories and accession
+for differences in duration, etc., will be an important consideration           number(s) can be found below: https://github.com/nalibjchn/
+in this work.                                                                   SituatedHRITrackConfusion/tree/main/SharedFeatureData.
+    While our interest here has been to systematically analyze
+the features and indicators of confusion, the core outcome
+from a HRI perspective is to build a machine learning driven                    Ethics statement
+confusion estimator model which is incorporated into a real-
+time conversational process. To that end, we also aim to build                      The studies involving humans were approved by the University
+a multimodal fusion based model to estimate the confusion                       Research Ethics Committee at researchethics@tudublin.ie in
+score for a given user. While the construction of such a model                  Technological University Dublin. The studies were conducted in
+building on various foundational models and deep learning methods               accordance with the local legislation and institutional requirements.
+is very feasible, the challenge will be to make such a model                    The participants provided their written informed consent to
+generalized in the sense that it can be applied to other experimental           participate in this study.
+scenarios.
+    Finally, it should be noted that an important part of our
+ongoing work is the development of conversational policies which                Author contributions
+can benefit from the identification of users who have entered
+a confused state (Li and Ross, 2022). In this work, we have                         NL was creation of the experimental platform, detailed design
+developed several operational dynamic dialogue planning policies                of experiments, execution of experiments, and the execution of the
+with specific implementable solutions. The ultimate goal with this              analysis phases. RR provided guidance on the goals and high-level
+work is to design a dialogue framework that integrates these                    design, and assisted with the writing up of this study. All authors
+dialogue policies for confusion mitigation, which can be applied to             contributed to the article and approved the submitted version.
+eliminate different states of confusion in the different interacting
+dialogue systems. While current advancements in large-language
+model conversational technology do change the overall trajectory of             Funding
+conversational HRI, accounting for personalized assessment of the
+user during interactions will require much more systematic study                    This publication has emanated from research conducted with the
+and modeling.                                                                   financial support of Science Foundation Ireland under Grant
+
+
+
+Frontiers in Robotics and AI                                               19                                                          frontiersin.org
+Li and Ross                                                                                                                                                 10.3389/frobt.2023.1244381
+
+
+
+
+number 18/CRT/6183. This research was also conducted with                                            Conflict of interest
+the financial support of Science Foundation Ireland under Grant
+Agreement No. 13/RC/2106\_P2 at the ADAPT SFI Research Center                                            The authors declare that the research was conducted in the
+at Technological University Dublin ADAPT, the SFI Research Center                                    absence of any commercial or financial relationships that could be
+for AI-Driven Digital Content Technology, is funded by Science                                       construed as a potential conflict of interest.
+Foundation Ireland through the SFI Research Centers Program.
+
+                                                                                                     Publisher’s note
+Acknowledgments
+                                                                                                         All claims expressed in this article are solely those of the
+    In particular, we acknowledge the support of ADAPT with                                          authors and do not necessarily represent those of their affiliated
+respect to equipment used in this study. For the purpose of Open                                     organizations, or those of the publisher, the editors and the
+Access, the author has applied a CC and BY public copyright                                          reviewers. Any product that may be evaluated in this article, or claim
+license to any Author Accepted Manuscript version arising from this                                  that may be made by its manufacturer, is not guaranteed or endorsed
+submission.                                                                                          by the publisher.
+
+
+
+References
+  Altun, H., and Polat, G. (2009). Boosting selection of speech related features to                    Costantini, G., Iaderola, I., Paoloni, A., and Todisco, M. (2014). “EMOVO corpus:
+improve performance of multi-class svms in emotion detection. Expert Syst. Appl. 36,                 an Italian emotional speech database,” in Proceedings of the Ninth International
+8197–8203. doi:10.1016/j.eswa.2008.10.005                                                            Conference on Language Resources and Evaluation (LREC’14) (Reykjavik, Iceland:
+                                                                                                     European Language Resources Association (ELRA)), 3501–3504.
+   Anderson, E. C., Carleton, R. N., Diefenbach, M., and Han, P. K. J. (2019). The
+relationship between uncertainty and affect. Front. Psychol. 10, 2504. doi:10.3389/fpsyg.              Cumbal, R., Lopes, J., and Engwall, O. (2020). “Detection of listener uncertainty
+2019.02504                                                                                           in robot-led second language conversation practice,” in Proceedings of the 2020
+                                                                                                     International Conference on Multimodal Interaction (Association for Computing
+  Arguel, A., and Lane, R. (2015). Fostering deep understanding in geography by
+                                                                                                     Machinery), ICMI ’20, 625–629. doi:10.1145/3382507.3418873
+inducing and managing confusion: an online learning approach, Conf. Proc., Ascilite
+2015 - australasian society for computers in learning and tertiary education, 374–378.                 Demutti, M., D’Amato, V., Recchiuto, C., Oneto, L., and Sgorbissa, A. (2022).
+                                                                                                     “Assessing emotions in human-robot interaction based on the appraisal theory,” in 2022
+  Arguel, A., Lockyer, L., Lipp, O. V., Lodge, J. M., and Kennedy, G. (2017). Inside out:
+                                                                                                     31st IEEE International Conference on Robot and Human Interactive Communication
+detecting learners’ confusion to improve interactive digital learning environments. J.
+                                                                                                     (RO-MAN), 1435–1442. doi:10.1109/RO-MAN53752.2022.9900598
+Educ. Comput. Res. 55, 526–551. doi:10.1177/0735633116674732
+                                                                                                       Deshpande, G., Viraraghavan, V. S., Duggirala, M., and Patel, S. (2019). “Detecting
+  Arriaga, O., Valdenegro-Toro, M., and Plöger, P. (2017). Real-time convolutional
+                                                                                                     emotional valence using time-domain analysis of speech signals,” in 2019 41st Annual
+neural networks for emotion and gender classification. doi:10.48550/ARXIV.1710.07557
+                                                                                                     International Conference of the IEEE Engineering in Medicine and Biology Society
+  Atapattu, T., Falkner, K., Thilakaratne, M., Sivaneasharajah, L., and Jayashanka, R.               (EMBC), 3605–3608. doi:10.1109/EMBC.2019.8857691
+(2020). What do linguistic expressions tell us about learners’ confusion? a domain-
+                                                                                                        D’Mello, S., and Graesser, A. (2012). Dynamics of affective states during complex
+independent analysis in moocs. IEEE Trans. Learn. Technol. 13, 878–888. doi:10.
+                                                                                                     learning. Learn. Instr. 22, 145–157. doi:10.1016/j.learninstruc.2011.10.001
+1109/TLT.2020.3027661
+                                                                                                       D’Mello, S., and Graesser, A. (2014). Confusion and its dynamics during device
+  Aung, T., and Puts, D. (2020). Voice pitch: a window into the communication of social
+                                                                                                     comprehension with breakdown scenarios. Acta Psychol. 151, 106–116. doi:10.1016/j.
+power. Curr. Opin. Psychol. 33, 154–161. doi:10.1016/j.copsyc.2019.07.028
+                                                                                                     actpsy.2014.06.005
+  Bagherzadeh-Azbari, S., Lion, C. J., Stephani, T., Dimigen, O., and Sommer, W.
+                                                                                                       D’Mello, S., Lehman, B., Pekrun, R., and Graesser, A. (2014). Confusion can be
+(2023). The impact of emotional facial expressions on reflexive attention depends on
+                                                                                                     beneficial for learning. Learn. Instr. 29, 153–170. doi:10.1016/j.learninstruc.2012.05.003
+the aim of dynamic gaze changes: an erp study. Psychophysiology 60, e14202. doi:10.
+1111/psyp.14202                                                                                       Doherty, K., and Doherty, G. (2018). Engagement in hci: conception, theory and
+                                                                                                     measurement. ACM Comput. Surv. 51, 1–39. doi:10.1145/3234149
+  Benlamine, M. S., and Frasson, C. (2021). “Confusion detection within a 3d adventure
+game,” in Intelligent tutoring systems. Editors A. I. Cristea, and C. Troussas (Springer               Duchetto, F., Baxter, P., and Hanheide, M. (2019). in Lindsey the tour guide robot -
+International Publishing), 387–397.                                                                  usage patterns in a museum long-term deployment, 1–8. doi:10.1109/RO-MAN46459.
+                                                                                                     2019.8956329
+   Ben Youssef, A., Clavel, C., Essid, S., Bilac, M., Chamoux, M., and Lim, A. (2017).
+“UE-HRI: a new dataset for the study of user engagement in spontaneous human-robot                     Emery, N. (2000). The eyes have it: the neuroethology, function and evolution of
+interactions,” in ICMI ’17: Proceedings of the 19th ACM International Conference on                  social gaze. Neurosci. Biobehav. Rev. 24, 581–604. doi:10.1016/S0149-7634(00)00025-7
+Multimodal Interaction, 464–472. doi:10.1145/3136755.3136814                                           Fischer, K. (2021). Effect confirmed, patient dead: a commentary on hoffman; zhao’s
+  Bruner, J. (1984). Vygotsky’s zone of proximal development: the hidden agenda. New                 primer for conducting experiments in hri. J. Hum.-Robot Interact. 10, 1–4. doi:10.
+Dir. Child Adolesc. Dev. 1984, 93–97. doi:10.1002/cd.23219842309                                     1145/3439714
+  Busso, C., Bulut, M., Lee, C.-C., Kazemzadeh, A., Mower, E., Kim, S., et al. (2008).                 Flavell, J. H. (1979). Metacognition and cognitive monitoring: a new area of
+IEMOCAP: interactive emotional dyadic motion capture database. Lang. Resour. Eval.                   cognitive-developmental inquiry. Am. Psychol. 34, 906–911. doi:10.1037/0003-066x.34.
+42, 335–359. doi:10.1007/s10579-008-9076-6                                                           10.906
+   Canal, F. Z., Müller, T. R., Matias, J. C., Scotton, G. G., de Sa Junior, A. R., Pozzebon,          Gasteiger, N., Lim, J., Hellou, M., MacDonald, B., and Ahn, H. (2022). A scoping
+E., et al. (2022). A survey on facial emotion recognition techniques: a state-of-the-art             review of the literature on prosodic elements related to emotional speech in human-
+literature review. Inf. Sci. 582, 593–617. doi:10.1016/j.ins.2021.10.005                             robot interaction. Int. J. Soc. Robotics. doi:10.1007/s12369-022-00913-x
+
+   Celiktutan, O., Profile, S., Gunes, H., and Skordos, E. (2017). Multimodal human-                    Goodfellow, I. J., Erhan, D., Carrier, P. L., Courville, A., Mirza, M., Hamner,
+human-robot interactions (MHHRI) dataset for studying personality and engagement                     B., et al. (2013). “Challenges in representation learning: a report on three machine
+intelligent. doi:10.17863/CAM.13433                                                                  learning contests,” in Neural information processing (Berlin, Heidelberg: Springer Berlin
+                                                                                                     Heidelberg), 117–124.
+  Cen, L., Wu, F., Yu, Z. L., and Hu, F. (2016). “Chapter 2 - a real-time speech emotion
+recognition system and its application in online learning,” in Emotions, technology,                   Gordon, M. (2006). Welcoming confusion, embracing uncertainty: educating teacher
+design, and learning. Editors S. Y. Tettegah, and M. Gartmeier (San Diego: Academic                  candidates in an age of certitude. Paideusis 15, 15–25. doi:10.7202/1072677ar
+Press), Emotions and Technology), 27–46. doi:10.1016/B978-0-12-801856-9.00002-5                        Gourier, N., Hall, D., and Crowley, J. (2004). Estimating face orientation from robust
+  Cohn, J. F. (2007). “Foundations of human computing: facial expression and                         detection of salient facial structures.
+emotion,” in Artifical intelligence for human computing. Editors T. S. Huang, A. Nijholt,              Graesser, A. C., Lu, S., Olde, B. A., Cooper-Pye, E., and Whitten, S. (2005). Question
+M. Pantic, and A. Pentland (Berlin, Heidelberg: Springer Berlin Heidelberg), 1–16.                   asking and eye tracking during cognitive disequilibrium: comprehending illustrated
+
+
+
+
+Frontiers in Robotics and AI                                                                    20                                                                           frontiersin.org
+Li and Ross                                                                                                                                                  10.3389/frobt.2023.1244381
+
+
+
+
+texts on devices when the devices break down. Mem. Cogn. 33, 1235–1247. doi:10.                      Interaction (New York, NY, USA: Association for Computing Machinery), 205–206.
+3758/BF03193225                                                                                      HRI ’17. doi:10.1145/3029798.3038375
+  Grafsgaard, J. F., Boyer, K. E., and Lester, J. C. (2011). Predicting facial indicators of           Mohan, M., Dhanalakshmi, P., and Kumar, R. S. (2023). Speech emotion classification
+confusion with hidden markov models. Tech. Rep. doi:10.1007/978-3-642-24600-5_13                     using ensemble models with mfcc. Procedia Comput. Sci. 218, 1857–1868. Procedia
+                                                                                                     Computer Science. doi:10.1016/j.procs.2023.01.163
+  Han, P. K. J., Klein, W. M. P., and Arora, N. K. (2011). Varieties of uncertainty
+in health care: a conceptual taxonomy. Med. Decis. Mak. 31, 828–838. doi:10.                            Mollahosseini, A., Hassani, B., and Mahoor, M. H. (2017). Affectnet: a database for
+1177/0272989x10393976                                                                                facial expression, valence, and arousal computing in the wild. CoRR abs/1708.03985
+  Hazarika, D., Poria, S., Zadeh, A., Cambria, E., Morency, L.-P., and Zimmermann, R.                   Murphy-Chutorian, E., and Trivedi, M. M. (2009). Head pose estimation in computer
+(2018). Conversational memory network for emotion recognition in dyadic dialogue                     vision: a survey. IEEE Trans. Pattern Analysis Mach. Intell. 31, 607–626. doi:10.
+videos. Proc. Conf. 2018, 2122–2132. doi:10.18653/v1/n18-1193                                        1109/TPAMI.2008.106
+  Henrich, J., Heine, S. J., and Norenzayan, A. (2010). The weirdest people in the world?               Negretti, R. (2012). Metacognition in student academic writing: a longitudinal
+Behav. Brain Sci. 33, 61–83. doi:10.1017/S0140525X0999152X                                           study of metacognitive awareness and its relation to task perception, self-
+                                                                                                     regulation, and evaluation of performance. Writ. Commun. 29, 142–179. doi:10.
+  Howard, A. G., Zhu, M., Chen, B., Kalenichenko, D., Wang, W., Weyand, T., et al.
+                                                                                                     1177/0741088312438529
+(2017). Mobilenets: efficient convolutional neural networks for mobile vision applications,
+04861. CoRR abs/1704.                                                                                   Oto, K., Feng, J., and Imai, M. (2017). “Investigating how people deal with silence in
+                                                                                                     a human-robot conversation,” in 2017 26th IEEE International Symposium on Robot
+  Jackson, P., and Haq, S. (2010). Machine audition: principles, 398–423. doi:10.
+                                                                                                     and Human Interactive Communication (RO-MAN), 195–200. doi:10.1109/ROMAN.
+4018/978-1-61520-919-4Multimodal emotion recognitionAlgorithms Syst.
+                                                                                                     2017.8172301
+   Jaimes, A., Lalmas, M., and Volkovich, Y. (2011). “First international workshop
+                                                                                                       Özseven, T. (2019). A novel feature selection method for speech emotion recognition.
+on social media engagement (some 2011),” in Proceedings of the 20th International
+                                                                                                     Appl. Acoust. 146, 320–326. doi:10.1016/j.apacoust.2018.11.028
+Conference Companion on World Wide Web, New York, NY, USA (Association
+for Computing Machinery), 309–310. WWW ’11. doi:10.1145/1963192.                                       Poria, S., Cambria, E., Bajpai, R., and Hussain, A. (2017). A review of affective
+1963326                                                                                              computing: from unimodal analysis to multimodal fusion. Inf. Fusion 37, 98–125.
+                                                                                                     doi:10.1016/j.inffus.2017.02.003
+   Joseph, N. (2009). Metacognition needed: teaching middle and high school students
+to develop strategic learning skills. Prev. Sch. Fail. Altern. Educ. Child. Youth 54, 99–103.          Refat, C. M. M., and Azlan, N. Z. (2019). “Deep learning methods for facial expression
+doi:10.1080/10459880903217770                                                                        recognition,” in 2019 7th International Conference on Mechatronics Engineering
+                                                                                                     (ICOM), 1–6. doi:10.1109/ICOM47790.2019.8952056
+   Köstinger, M., Wohlhart, P., Roth, P. M., and Bischof, H. (2011). “Annotated
+facial landmarks in the wild: a large-scale, real-world database for facial landmark                   Rubin, M. (2016). The perceived awareness of the research hypothesis scale: assessing
+localization”. In 2011 IEEE International Conference on Computer Vision Workshops                    the influence of demand characteristics. Figshare. doi:10.6084/m9.figshare.4315778
+(ICCV Workshops). 2144–2151. doi:10.1109/ICCVW.2011.6130513
+                                                                                                       Russell, J. A. (1980). A circumplex model of affect. J. personality Soc. Psychol. 39,
+   Kumar, H., Sethia, M., Thakur, H., Agrawal, I., and P, S. (2019).                                 1161–1178. doi:10.1037/h0077714
+Electroencephalogram with machine learning for estimation of mental confusion level.
+                                                                                                       Saeki, M., Miyagi, K., Fujie, S., Suzuki, S., Ogawa, T., Kobayashi, T., et al.
+Int. J. Eng. Adv. Technol. 9, 761–765. doi:10.35940/ijeat.b2943.129219
+                                                                                                     (2022). Confusion detection for adaptive conversational strategies of an oral
+  Lehman, B., D’Mello, S., and Graesser, A. (2012a). Confusion and complex learning                  proficiency assessment interview agent. Proc. Interspeech 2022, 3988–3992. doi:10.
+during interactions with computer learning environments. Internet High. Educ. 15,                    21437/Interspeech.2022-10075
+184–194. doi:10.1016/j.iheduc.2012.01.002
+                                                                                                       Samani, C., and Goyal, M. (2021). “Confusion detection using neural networks,”
+  Lehman, B., D’Mello, S., and Graesser, A. (2012b). Confusion and complex learning                  in 2021 IEEE Asia-Pacific Conference on Computer Science and Data Engineering
+during interactions with computer learning environments. Internet High. Educ. 15,                    (CSDE), 1–6. doi:10.1109/CSDE53843.2021.9718422
+184–194. doi:10.1016/j.iheduc.2012.01.002
+                                                                                                        Savchenko, A. V. (2021). Facial expression and attributes recognition based on multi-
+  Lehman, B. A., D’Mello, S. K., and Graesser, A. C. (2013). “Who benefits from                      task learning of lightweight neural networks. CoRR abs/2103.17107
+confusion induction during learning? an individual differences cluster analysis,” in Aied.
+                                                                                                       Sidner, C. L., Kidd, C. D., Lee, C., and Lesh, N. (2004). “Where to look: a study
+   Li, N., Kelleher, J. D., and Ross, R. (2021). “Detecting interlocutor confusion in                of human-robot engagement,” in Proceedings of the 9th International Conference
+situated human-avatar dialogue: a pilot study,” in 25th Workshop on the Semantics                    on Intelligent User Interfaces, New York, NY, USA (Association for Computing
+and Pragmatics of Dialogue (SemDial 2021) University of Potsdam, Germany. doi:10.                    Machinery), 78–84. IUI ’04. doi:10.1145/964442.964458
+21427/bsd0-7326
+                                                                                                       Silvia, P. (2010). Confusion and interest: the role of knowledge emotions in aesthetic
+  Li, N., and Ross, R. (2022). “Dialogue policies for confusion mitigation in situated               experience. Psychol. Aesthet. Creativity, Arts 4, 75–80. doi:10.1037/a0017081
+hri,” in Proceedings of the 26th Workshop on the Semantics and Pragmatics of
+                                                                                                       Singh, Y. B., and Goel, S. (2022). A systematic literature review of speech emotion
+Dialogue - Poster Abstracts (Dublin, Ireland: SEMDIAL).
+                                                                                                     recognition approaches. Neurocomputing 492, 245–263. doi:10.1016/j.neucom.2022.04.
+  Li, N., and Ross, R. (2023). “Hmm, you seem confused! tracking interlocutor                        028
+confusion for situated task-oriented hri,” in Proceedings of the 2023 ACM/IEEE
+                                                                                                       Smithson, M. (2012). Ignorance and uncertainty: emerging paradigms. Springer
+International Conference on Human-Robot Interaction, New York, NY, USA
+                                                                                                     Science and Business Media.
+(Association for Computing Machinery), 142–151. HRI ’23. doi:10.1145/3568162.
+3576999                                                                                                Spezialetti, M., Placidi, G., and Rossi, S. (2020). Emotion recognition for human-
+                                                                                                     robot interaction: recent advances and future perspectives. Front. Robotics AI 7, 532279.
+  Liu, S., Liu, S., Liu, Z., Peng, X., and Yang, Z. (2022). Automated detection
+                                                                                                     doi:10.3389/frobt.2020.532279
+of emotional and cognitive engagement in mooc discussions to predict learning
+achievement. Comput. Educ. 181, 104461. doi:10.1016/j.compedu.2022.104461                               Tao, J., Liu, F., Zhang, M., and Jia, H. (2008). Design of speech corpus for Mandarin
+                                                                                                     text to speech.
+  Livingstone, S. R., and Russo, F. A. (2018). The ryerson audiovisual database of
+emotional speech and song (ravdess): a dynamic, multimodal set of facial and vocal                     Tapus, A., Peca, A., Amir, A., Pop, C., Jisa, L., Pintea, S., et al. (2012). Children with
+expressions in north american English. PLoS One 13, e0196391. doi:10.1371/journal.                   autism social engagement in interaction with nao, an imitative robot – a series of single
+pone.0196391                                                                                         case experiments. Interact. Stud. 13, 315–347. doi:10.1075/is.13.3.01tap
+  Lodge, J. M., Kennedy, G., Lockyer, L., Arguel, A., and Pachman, M. (2018).                          Tran, N., Mizuno, K., Grant, T., Phung, T., Hirshfield, L., and Williams, T.
+Understanding difficulties and resulting confusion in learning: an integrative review.               (2020). Exploring mixed reality robot communication under different types of mental
+Front. Educ. 3. doi:10.3389/feduc.2018.00049                                                         workload. Int. Workshop Virtual, Augmented, Mix. Real. Human-Robot Interact. 3.
+                                                                                                     doi:10.31219/osf.io/f3a8c
+   Lugrin, B., Pelachaud, C., and Traum, D. (Editors) (2022). The handbook on socially
+interactive agents: 20 Years of research on embodied conversational agents, intelligent                Tripathi, S., and Beigi, H. S. M. (2018). Multi-modal emotion recognition on
+virtual agents, and social robotics 2. 1 edn (New York, NY, USA: Association for                     IEMOCAP dataset using deep learning. CoRR abs/1804.05788
+Computing Machinery), 48. Interactivity, Platforms, Application.
+                                                                                                       Vogl, E., Pekrun, R., Murayama, K., Loderer, K., and Schubert, S. (2019).
+  Maithri, M., Raghavendra, U., Gudigar, A., Samanth, J., Datta Barua, P., Murugappan,               Surprise, curiosity, and confusion promote knowledge exploration: evidence for
+M., et al. (2022). Automated emotion recognition: current trends and future                          robust effects of epistemic emotions. Front. Psychol. 10, 2474. doi:10.3389/fpsyg.2019.
+perspectives. Comput. Methods Programs Biomed. 215, 106646. doi:10.1016/j.cmpb.                      02474
+2022.106646
+                                                                                                        Wani, T. M., Gunawan, T. S., Qadri, S. A. A., Kartiwi, M., and Ambikairajah, E.
+  Mavridis, N. (2015). A review of verbal and non-verbal human–robot interactive                     (2021). A comprehensive review of speech emotion recognition systems. IEEE Access
+communication. Robotics Aut. Syst. 63, 22–35. doi:10.1016/j.robot.2014.09.031                        9, 47795–47814. doi:10.1109/ACCESS.2021.3068045
+  Menne, I. M., and Lugrin, B. (2017). “In the face of emotion: a behavioral study on                  Weninger, F., Eyben, F., Schuller, B., Mortillaro, M., and Scherer, K. (2013). On the
+emotions towards a robot using the facial action coding system,” in Proceedings of                   acoustics of emotion in audio: what speech, music, and sound have in common. Front.
+the Companion of the 2017 ACM/IEEE International Conference on Human-Robot                           Psychol. 4, 292. doi:10.3389/fpsyg.2013.00292
+
+
+
+
+Frontiers in Robotics and AI                                                                    21                                                                             frontiersin.org
+Li and Ross                                                                                                                                              10.3389/frobt.2023.1244381
+
+
+
+
+   Wood, D. (2001). Scaffolding, contingent tutoring and computer-supported learning.              for children’s social outcomes?,” in Proceedings of the 2023 ACM/IEEE International
+Int. J. Artif. Intell. Educ. 12 (3).                                                               Conference on Human-Robot Interaction (New York, NY, USA: Association for
+                                                                                                   Computing Machinery), 34–43. HRI ’23. doi:10.1145/3568162.3576963
+   Wood, D., Bruner, J. S., and Ross, G. (1976). The role of tutoring in problem solving.
+J. Child Psychol. Psychiatry 17, 89–100. doi:10.1111/j.1469-7610.1976.tb00381.x                       Zhanatkyzy, A., Telisheva, Z., Amirova, A., Rakhymbayeva, N., and Sandygulova, A.
+                                                                                                   (2023b). “Multi-purposeful activities for robot-assisted autism therapy: what works best
+  Yang, D., Kraut, R. E., Rosé, C. P., and Rosé, R. (2015). Exploring the effect of student        for children’s social outcomes?,” in Proceedings of the 2023 ACM/IEEE International
+confusion in massive open online courses. Tech. Rep. doi:10.5281/zenodo.3554605                    Conference on Human-Robot Interaction (New York, NY, USA: Association for
+  Ye, J., Wen, X., Wei, Y., Xu, Y., Liu, K., and Shan, H. (2023). “Temporal                        Computing Machinery), 34–43. HRI ’23. doi:10.1145/3568162.3576963
+modeling matters: a novel temporal emotional modeling approach for speech emotion                    Zhang, K., Zhang, Z., Li, Z., and Qiao, Y. (2016). Joint face detection and alignment
+recognition,” in 2023 IEEE International Conference on Acoustics, Speech and Signal                using multitask cascaded convolutional networks. IEEE Signal Process. Lett. 23,
+Processing (ICASSP), Rhodes Island, Greece, June 4-10, 2023.                                       1499–1503. doi:10.1109/lsp.2016.2603342
+   Yeh, S.-L., Lin, Y.-S., and Lee, C.-C. (2019). “An interaction-aware attention network            Zhang, X., Park, S., Beeler, T., Bradley, D., Tang, S., and Hilliges, O. (2020). ETH-
+for speech emotion recognition in spoken dialogs,” in ICASSP 2019 - 2019 IEEE                      XGaze: a large scale dataset for gaze estimation under extreme head pose and gaze
+International Conference on Acoustics, Speech and Signal Processing (ICASSP),                      variation. CoRR abs/2007.15837
+6685–6689. doi:10.1109/ICASSP.2019.8683293
+                                                                                                     Zhou, Y., Xu, T., Li, S., and Shi, R. (2019). Beyond engagement: an EEG-based
+  Zahorian, S. A., and Hu, H. (2008). A spectral/temporal method for robust                        methodology for assessing user’s confusion in an educational game. Univers. Access Inf.
+fundamental frequency tracking. J. Acoust. Soc. Am. 123, 4559–4571. doi:10.1121/1.                 Soc. 18, 551–563. doi:10.1007/s10209-019-00678-7
+2916590
+                                                                                                      Zhu, X., and Ramanan, D. (2012). “Face detection, pose estimation, and landmark
+  Zhanatkyzy, A., Telisheva, Z., Amirova, A., Rakhymbayeva, N., and Sandygulova, A.                localization in the wild,” in 2012 IEEE Conference on Computer Vision and Pattern
+(2023a). “Multi-purposeful activities for robot-assisted autism therapy: what works best           Recognition, 2879–2886. doi:10.1109/CVPR.2012.6248014
+
+
+
+
+Frontiers in Robotics and AI                                                                  22                                                                          frontiersin.org
+

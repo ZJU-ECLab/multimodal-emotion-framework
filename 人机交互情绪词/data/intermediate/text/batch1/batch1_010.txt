@@ -1,0 +1,1227 @@
+             applied
+             sciences
+Article
+Exploring the Effects of Multi-Factors on User Emotions in
+Scenarios of Interaction Errors in Human–Robot Interaction
+Wa Gao 1,2, * , Yuan Tian 2 , Shiyi Shen 2 , Yang Ji 2 , Ning Sun 3, *, Wei Song 2 and Wanli Zhai 2
+
+                                             1   Co-Innovation Center of Efficient Processing and Utilization of Forest Resources, Nanjing Forestry University,
+                                                 Nanjing 210037, China
+                                             2   College of Furnishings and Industrial Design, Nanjing Forestry University, Nanjing 210037, China;
+                                                 t1498363838@163.com (Y.T.); shenshiyi5324@163.com (S.S.); jiyang@njfu.edu.cn (Y.J.);
+                                                 songwei@njfu.edu.cn (W.S.); zwl13503452598@163.com (W.Z.)
+                                             3   College of Automobile and Traffic Engineering, Nanjing Forestry University, Nanjing 210037, China
+                                             *   Correspondence: gaowa@njfu.edu.cn (W.G.); ningsun@njfu.edu.cn (N.S.)
+
+
+                                             Abstract: Interaction errors are hard to avoid in the process of human–robot interaction (HRI). User
+                                             emotions toward interaction errors could further affect the user’s attitudes to robots and experiences
+                                             of HRI and so on. In this regard, the present study explores the effects of different factors on
+                                             user emotions when interaction errors occur in HRI. There is sparse research directly studying this
+                                             perspective. In so doing, three factors, including robot feedback, passive and active contexts, and
+                                             previous user emotions, were considered. Two stages of online surveys with 465 participants were
+                                             implemented to explore attitudes to robots and the self-reporting of emotions in active and passive
+                                             HRI. Then, a Yanshee robot was selected as the experimental platform, and 61 participants were
+                                             recruited for a real human–robot empirical study based on the two surveys. According to the results
+                                             of statistical analysis, we conclude some design guides can cope with scenarios of interaction errors.
+                                             For example, feedback and previous emotions have impacts on user emotions after encountering
+                                             interaction errors, but contexts do not. There are no interactive effects between the three factors. The
+                                             approach to reduce negative emotions in the cases of interaction errors in HRI, such as providing
+                                             irrelevant feedback and so on, is also illustrated in the contributions.
+
+                                             Keywords: human–robot interaction; user emotions; interaction error
+Citation: Gao, W.; Tian, Y.; Shen, S.; Ji,
+Y.; Sun, N.; Song, W.; Zhai, W.
+Exploring the Effects of Multi-Factors
+on User Emotions in Scenarios of
+Interaction Errors in Human–Robot
+                                             1. Introduction
+Interaction. Appl. Sci. 2024, 14, 8164.             HRI needs users and robots to understand each other through various interactive cues
+https://doi.org/10.3390/app14188164          and exchange interaction information. With the expansion of robot application scenarios,
+Academic Editor: Yutaka Ishibashi
+                                             such as exhibitions [1], classrooms [2], shopping malls [3], homes [4], etc., HRI often
+                                             happens in unstructured environments, with unpredicted noises, uncertain user behaviour,
+Received: 16 August 2024                     etc., which make interaction errors unavoidable [5]. From an interactive task perspective,
+Revised: 6 September 2024                    HRI can be effectively implemented to complete the task when a user’s behavior and the
+Accepted: 9 September 2024                   robot’s feedback meet the expectations of each other. If not, the user will think that there is
+Published: 11 September 2024                 an interaction error, and the task fails. However, from an emotional experience perspective,
+                                             it may not be unacceptable or unsuccessful to the user. The violation of existing expectancy
+                                             may lead to humor, and a breach in the interaction norms may amuse a user and increase
+                                             the memorability and fun for the user in HRI [6,7]. Just like the process in which humans
+Copyright: © 2024 by the authors.
+                                             communicate with each other, even if a task is not completed, it does not necessarily mean
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+                                             it is a bad experience for the user. The context and a person’s expression, such as their voice
+distributed under the terms and
+                                             or physical behavior, may result in feelings of surprise, humor, and so on.
+conditions of the Creative Commons                  Emotions are important for social understanding between humans and robots. The
+Attribution (CC BY) license (https://        emotional change in users during the process of HRI is not only a kind of subjective
+creativecommons.org/licenses/by/             experience for users but also the internal reaction of the users’ social signals. It can enhance
+4.0/).                                       or regulate the behavior and decision-making of users. Studies by Mirnig et al. and Tian
+
+
+
+
+Appl. Sci. 2024, 14, 8164. https://doi.org/10.3390/app14188164                                                      https://www.mdpi.com/journal/applsci
+Appl. Sci. 2024, 14, 8164                                                                                             2 of 15
+
+
+
+                            et al. show the categories of interaction errors in HRI and demonstrate that users respond
+                            differently to different situations and types of interaction errors [5,6]. This means that the
+                            emotions of users change accordingly. Users’ emotions are influenced by their motives
+                            and behaviors [8]. For example, when users are angry, they may tend to resist interacting
+                            with robots, and when happy, they may show a more active attitude to establish social
+                            connections with robots. However, there are relative few studies on designing handling
+                            strategies for interaction errors in HRI from the perspective of emotion.
+                                  Emotional experiences are personal and context-specific [9]. They are defined by the
+                            Merriam-Webster Dictionary as “the interrelated conditions in which something occurs
+                            or exists” [10]. In HRI, some researchers focus on the context of information in conver-
+                            sations [11] and contexts that are observed by robots, including viewpoints, operating
+                            backgrounds, and so on [12], and refer to contexts as the simulated “closer to nature”
+                            experience [13]. For example, Kim et al. investigated the interaction errors that occurred
+                            in contexts with and without prior knowledge [14]. However, there are still few studies
+                            that consider the impact of context on interaction errors. Meanwhile, it is worth noting
+                            that interaction is bidirectional. Both the user and the robot can be the starting point of
+                            interactive information transmission. From a user-centered view, the common context
+                            that users operate the robots and then the robots give feedback can be seen as an active
+                            interaction process for users. When the robot actively expresses information to the user, the
+                            starting point of information comes from the robot. It is a passive interaction for users. In
+                            the process of gradual deployment in different scenarios, robots can adjust reactions and
+                            behaviors according to the requirements of the environments and users. This means that,
+                            in recent years, passive and active contexts in HRI are not uncommon. However, for these
+                            two contexts, there are also relatively few studies on the emotional changes in users when
+                            they encounter interaction errors.
+                                  As mentioned above, this paper mainly focuses on the following four research ques-
+                            tions to explore the effects of multi-factors on user emotions when encountering interaction
+                            errors in HRI. The corresponding contributions are helpful in promoting the effective
+                            design of interaction error-handling strategies in HRI.
+                                  Research question 1 (RQ1): How does the feedback from the robot affect user emotions
+                            in the case of interaction errors in HRI?
+                                  Research question 2 (RQ2): Do passive and active contexts affect user emotions in the
+                            case of interaction errors in HRI?
+                                  Research question 3 (RQ3): Do previous emotions affect user emotions after encoun-
+                            tering interaction errors in HRI? For convenience in writing, previous emotions and user
+                            emotions in the following sections, respectively, represent the emotions before and after
+                            users encounter interaction errors.
+                                  Research question 4 (RQ4): Are there any interaction effects between feedback, con-
+                            texts, and previous emotions?
+                                  The sections are organized as follows: Section 2 briefly illustrates the background.
+                            Section 3 shows the methodology, including definitions, study aims, and the procedures of
+                            the surveys and lab experiments. Section 4 describes the results and corresponding analysis.
+                            Section 5 illustrates the discussions and limitations. Section 6 details the conclusions.
+
+                            2. Background
+                            2.1. Interaction Errors in HRI
+                                 Interaction errors can lead to failures or dilemmas in HRI, as well as possible conse-
+                            quences, such as interaction results deviating from users’ goals and robots showing some
+                            behaviors in unexpected ways. Steinbauer revealed that interaction errors refer to problems
+                            that arise from uncertainties in the interaction with the environment, other agents, and hu-
+                            mans [15]. The symptoms of errors discussed in HRI include uncompleted tasks [16,17], no
+                            action or speech [17–19], repeating statements or body movements, etc. [16,19]. Following
+                            the work of Honig and Oron-Gilad, interaction failures can be categorized by functional
+                            severity and social severity regardless of their sources [20]. Tian et al. classified interaction
+Appl. Sci. 2024, 14, 8164                                                                                            3 of 15
+
+
+
+                            errors into two types, performance errors and social errors, considering their influence on
+                            the user’s perception [6]. Performance errors refer to inadequate perception or autonomy
+                            of the robot, such as the robot cannot recognize user commands in an unstructured inter-
+                            action environment. In studies by Mirnig et al., they illustrated this as a kind of technical
+                            failure [5,21]. Recently, a lot of work has been undertaken to improve robot performance in
+                            the fields of simultaneous localization and mapping (SLAM), autonomous ability, and so
+                            on [22]. For example, optimizing algorithms are proposed for the improvement of robots’
+                            localization, mapping, recognition of speech and motion, etc. [23–25]. Social errors refer
+                            to social norm violations [5,21]. These often lead to problems in social understanding,
+                            such as users may not understand robots’ interaction cues since they are irrelevant to the
+                            interaction aims. The user’s expectation of the robot’s expected expression can improve
+                            their understanding [26]. Raising the expectation could be a considerable error-handling
+                            strategy for social errors. For example, apologizing for errors is one expression that con-
+                            forms to social norms. In some studies, robots were designed to apologize when errors
+                            occurred [27–29]. In addition, some researchers have explored the impact of human errors
+                            on interactive service robotic scenarios [29]. For interaction errors in HRI, most of the
+                            relevant studies focus on robots’ technical failures, and a few studies focus on robots’ social
+                            norm violations [20].
+
+                            2.2. Active and Passive Contexts in HRI
+                                  Scenarios play an important role in the decision-making of users. For the purpose of
+                            improving the effectiveness of interaction and attracting the users’ attention in HRI, robots
+                            can be designed to imitate human behaviors, such as handshaking, gazing, active greeting,
+                            etc., and express the appropriate feedback to users according to scenarios. For example, a
+                            robot generates a handshake behavior when meeting a user for the first time to reduce the
+                            user’s feeling of aversion from interacting with the robot [30], and the robot greets a user
+                            with appropriate behavior prediction for each scenario to improve the level of humanness
+                            and intelligence [31].
+                                  The contexts of active and passive decision-making are common in the scenarios of
+                            daily environments. However, the user’s emotional experiences are different for these two
+                            decision situations [32]. Yu et al. found that active decision-making is associated with a
+                            more positive emotional experience, including more happiness, a greater sense of control
+                            and achievement, and less distress [33]. With the development of autonomous robots
+                            in HRI, there are scenarios in which robots express themselves or actively guide users
+                            using different interaction cues without the users’ commands. In this case, the robot is the
+                            starting point of interaction, and the user receives the information and gives corresponding
+                            feedback. For example, robots use physical actions, like push-and-pull motions, to play
+                            games with users [34,35] and guide users using active interactions, involving programming
+                            the robot to wait for users and explain the contents around [36]. This is a passive decision-
+                            making situation from the user’s view and an active interaction from the perspective of
+                            the robot.
+
+                            2.3. Emotion in HRI
+                                  Emotion is one of the important interaction cues for perceiving robots’ behavior and
+                            establishing an understandable interactive relationship between users and robots. For
+                            example, robots can give positive feedback with verbal emotional expressions to improve
+                            the user experience [37]. Chuah et al. found that expressions of surprise and happiness by
+                            emotional robots are key to creating positive impacts on potential consumers [38]. Christou
+                            et el revealed that negative feelings, such as anger, fear, and sadness during HRI, should not
+                            be overlooked since they could lead to subsequent negative reactions [39]. There are also
+                            some studies exploring emotions to provide planning and reasoning for intelligent agents
+                            to change agents’ behavior [40,41]. From the view of robots, these related explorations of
+                            emotion-based behaviors can make external observers believe that robots have emotional
+                            preferences for certain behaviors [42–44].
+Appl. Sci. 2024, 14, 8164                                                                                           4 of 15
+
+
+
+                                 In addition, emotion models are used in emotional descriptions in HRI. The Ortony, Clore,
+                            and Collins (OCC) model, Ekman’s six common emotions, and Pleasure–Arousal–Dominance
+                            (PAD) space, etc., are popular emotion models used in robotic systems [45–47]. The original
+                            OCC model consists of 22 emotions, but it is hard for robots to express all these kinds
+                            of emotions [48]. Hence, the original OCC model is simplified in many studies of HRI.
+                            For example, Hyunsik et al. simplified the OOC model and adopted 10 types of emotion,
+                            with 5 emotional pairs for the robot’s emotion appraisal [45]. Ekman’s emotion theory
+                            and the PAD space model have been used in many robots, such as ROMAN, ERICA, and
+                            NAO [45,46,49–51].
+
+                            3. Methodology
+                            3.1. Definitions
+                                  From a user-centered view, users determine the interaction errors by the robots’ feed-
+                            back when they interact with robots. In this case, they find that robots give them irrelevant
+                            feedback, such as responses irrelevant to their questions, or the robots express confusion,
+                            like “I don’t understand what you said.”, and so on. It is unnecessary for users to identify
+                            clearly whether this is a technical failure or a violation of social norms since the working
+                            principle of robots and the types of interaction errors in HRI are problems of specialization
+                            and unimportant in their daily lives. According to the classified interaction errors by Mirnig
+                            et al. and Tian et al. [5,6,17], when a robot gives irrelevant feedback (IF), the interaction
+                            error is a typical social norm violation, and when a robot expresses confusing feedback (CF),
+                            it can be considered a technical failure. We explore these two cases and define two types of
+                            feedback, respectively, from a user-centered perspective. The details of the corresponding
+                            definitions are below:
+                                  IF: Robots give feedback that is not relative to their intentions to users.
+                                  CF: Robots do not complete the tasks of recognition or interpretation. Robots give no
+                            feedback or confusing feedback, such as “I don’t understand you”, to users.
+                                  According to the starting point of interaction information, the definitions of contexts
+                            are given to show the active and passive decision-making processes of users in HRI. A
+                            context of passive interaction with a robot (CPIR) is one in which the interaction begins
+                            with the robot, and the user responds depending on the robot’s behaviors. A context
+                            of active interaction with a robot (CAIR) is one in which the interaction begins with the
+                            user, which means that the user operates the robot first, and then the robot gives the
+                            corresponding feedback.
+
+                            3.2. Aims and Procedures
+                                 This study is divided into three stages: the first survey, the second survey, and ex-
+                            periments in the lab. The first and second surveys were implemented online, and the
+                            corresponding results were used to design and implement the experiments. The experi-
+                            ments were implemented based on a human-like robot platform in real environments. The
+                            respective purposes and procedures are shown as follows:
+
+                            3.2.1. Aims
+                                 The main aim of the first survey was to select the appropriate interactive cues for
+                            lab experiments. It mainly covers investigations of the basic experience, the emotional
+                            capability, and the interaction cues for users. The aim of the second survey was to explore
+                            users’ emotional changes when encountering IF and CF, respectively, in HRI. Both the
+                            CPIR and CAIR were considered. It is a preliminary study and provides references for
+                            the design of lab experiments. The aim of the lab experiments was to explore the impacts
+                            of multi-factors, including different types of interaction errors, contexts, and previous
+                            emotions on user emotions in the case of interaction errors in HRI in real environments.
+Appl. Sci. 2024, 14, x FOR PEER REVIEW                                                                                                     5 of 15
+
+
+Appl. Sci. 2024, 14, 8164                                                                                                                     5 of 15
+                                  design of lab experiments. The aim of the lab experiments was to explore the impacts of
+                                  multi-factors, including diﬀerent types of interaction errors, contexts, and previous emo-
+                                  tions on
+                                  3.2.2. Theuser emotions
+                                             Procedure of in
+                                                          thethe case of
+                                                              First      interaction errors in HRI in real environments.
+                                                                    Survey
+                                       A total of 201 participants in the age range of 19–35 years were recruited online. This
+                                  3.2.2. The
+                                  survey     Procedure
+                                          covers         of thecategories:
+                                                   three main    First Survey the basic experience, the emotional capability, and
+                                  the A   total of 201
+                                      interaction      participants in
+                                                   cues. The             the age range
+                                                              corresponding             of 19–35
+                                                                                 questionnaire  is years
+                                                                                                   shown were   recruited
+                                                                                                           in Table        online.
+                                                                                                                      1. The        This
+                                                                                                                             questions
+                                  survey
+                                  are      covers
+                                      ordered      three
+                                                from     main
+                                                      Q1 to     categories:
+                                                             Q6. For    Q4, the   basic were
+                                                                                        experience,
+                                                                             participants        asked    emotional
+                                                                                                      theto select  fromcapability,
+                                                                                                                          Ekman’sand six
+                                  the interaction
+                                  emotions,  whichcues.   Thehappiness,
+                                                     include   corresponding     questionnaire
+                                                                           surprise,  sadness, is   shown
+                                                                                               anger,  fear,in Table
+                                                                                                             and             questions
+                                                                                                                      1. TheFor Q5
+                                                                                                                  disgust.          and
+                                  are  participants
+                                  Q6, ordered   fromwere   asked
+                                                       Q1 to  Q6. toForselect
+                                                                         Q4, and   rank from
+                                                                              participants    theasked
+                                                                                           were     interaction  cues,
+                                                                                                         to select  fromwhich  include
+                                                                                                                          Ekman’s    six
+                                  voice, face, arm  action, and   sound.
+                                  emotions, which include happiness, surprise, sadness, anger, fear, and disgust. For Q5
+                                  and Q6, participants were asked to select and rank from the interaction cues, which in-
+                                  Table    Questionnaire
+                                  clude1.voice, face, armofaction,
+                                                            the firstand
+                                                                      survey: example questions given to participants.
+                                                                         sound.
+
+     Categories             Topic1. Questionnaire of the first survey:
+                           Table                                    Example
+                                                                       exampleQuestion
+                                                                                questions given to participants. Type
+                                                 Q1: Have you ever seen a humanoid service robot in
+ Categories        Topic                                        Example   Question                               Y/NType
+                       Understanding of                             real environments?
+ Basic experience
+Basic experi- Understanding of Q1:
+                       humanoid      Have you ever seen
+                                 robots                      a humanoid
+                                                       Q2: Have    you everservice robot in real
+                                                                            used a humanoid       environments?
+                                                                                              robot                  Y/N
+                                                                                                                 Y/N
+    ence       humanoid robots                                      actively/passively?
+                                     Q2: Have you ever used a humanoid robot actively/passively？                     Y/N
+                                           Q3: Are you Q3:
+                                                         willing
+                                                               Aretoyou willing
+                                                                     actively/passively
+                                                                                 to        use   humanoid
+                                                                                    actively/passively  use robots?
+                                                                                                                       Y/N
+                                                                                                                           Y/N
+ Emotional
+     Emotional Emotion when
+                          Emotionus-when using                           humanoid    robots?
+                                      Q4: Which is your emotion state when the active/passive use of human-
+  capability
+     capabilitying humanoid    robot robot
+                            humanoid                         Q4: Which is your emotion state when the                    Selected
+                                                                         oid robots?                                 Selected
+                                                              active/passive use of humanoid robots?
+                Perception toward          Q5: What aspects of humanoid robots do you care most about?                   Selected
+ Interaction                                             Q5: What aspects of humanoid robots do you care
+                interaction cues  of   Q6:  Please  rank the importance     of the following    interaction cues whenSelected
+     cues             Perception toward interaction                          most about?                                 Selected
+  Interaction cueshumanoid
+                         cuesrobot
+                              of humanoid robot                   yourank
+                                                          Q6: Please  interact   with robot.
+                                                                           the importance   of the following
+                                                                                                                                   Selected
+                                                                interaction cues when you interact with robot.
+                                  3.2.3. The Procedure of the Second Survey
+                                  3.2.3.AThe
+                                           total of   215 of
+                                                Procedure participants   in the
+                                                                the Second       age range of 19–35 years were recruited online. How-
+                                                                              Survey
+                                  ever,Aintotal
+                                              consideration     that  the  data
+                                                    of 215 participants in the    from
+                                                                                    age participants
+                                                                                          range of 19–35  withyears
+                                                                                                                 practical
+                                                                                                                      wereexperiences
+                                                                                                                              recruited online.were
+                                  much    more    reliable,  the participants    were  further  categorized.     The  number
+                                  However, in consideration that the data from participants with practical experiences were      of  participants
+                                  who had
+                                  much   more  experience     with
+                                                  reliable, the     CPIRs andwere
+                                                                 participants     CAIRs    is 73categorized.
+                                                                                       further    and 49, respectively.
+                                                                                                                 The number  They    were asked
+                                                                                                                                of participants
+                                  for
+                                  whotwohadcases     in which
+                                              experience        they
+                                                             with     met a
+                                                                   CPIRs   andsingle  interaction
+                                                                                 CAIRs is           error and
+                                                                                            73 and 49,           repeated
+                                                                                                         respectively.       interaction
+                                                                                                                         They were      askederrors
+                                                                                                                                                 for
+                                  in this  survey.     The  main  flow   diagram    shown    in Figure    1 is for the  case
+                                  two cases in which they met a single interaction error and repeated interaction errors in   of  a single    inter-
+                                  action
+                                  this    error.The
+                                       survey.      It includes
+                                                        main flow3 steps:
+                                                                    diagramtheshown
+                                                                                recordingFigure
+                                                                                             of initial
+                                                                                                    1 is emotion,
+                                                                                                         for the casetheofprocess
+                                                                                                                           a singleofinteraction
+                                                                                                                                         the CPIR
+                                  and  CAIR,     and    the recording   of  emotion    after robot   feedback.    In the  case  of
+                                  error. It includes 3 steps: the recording of initial emotion, the process of the CPIR and CAIR,   repeated     in-
+                                  teraction    errors,   CF  can  be taken   as  an  example,    and   Steps   2 and   3 in Figure
+                                  and the recording of emotion after robot feedback. In the case of repeated interaction errors,       1  were   re-
+                                  peated
+                                  CF  can bethree   times.
+                                                taken        Thexample,
+                                                         as an   corresponding      questionnaire
+                                                                           and Steps 2 and      3 in is   shown
+                                                                                                      Figure       in Table
+                                                                                                               1 were         2. The
+                                                                                                                        repeated        questions
+                                                                                                                                     three   times.
+                                  are
+                                  The ordered      from Q7 to
+                                       corresponding             Q11. For is
+                                                            questionnaire    Q7, Q9,
+                                                                                shown  and
+                                                                                         in Q10,   participants
+                                                                                            Table 2. The           wereare
+                                                                                                            questions     asked           fromtheir
+                                                                                                                                  to select
+                                                                                                                              ordered            Q7
+                                  current
+                                  to Q11. Foremotions
+                                                 Q7, Q9,from     Ekman’s six
+                                                            and Q10,             emotions,
+                                                                       participants          askedQ4
+                                                                                       were like     to in  Table
+                                                                                                        select      1. For
+                                                                                                                their       Q8 and
+                                                                                                                       current                 user
+                                                                                                                                       Q11, from
+                                                                                                                                emotions
+                                  emotion was
+                                  Ekman’s           evaluated like
+                                               six emotions,     withQ4a numbered
+                                                                          in Table 1.scale   from
+                                                                                        For Q8   and1 toQ11,
+                                                                                                          5, inuser
+                                                                                                                which   5 means
+                                                                                                                     emotion    was strong   and 1
+                                                                                                                                       evaluated
+                                  means    weak.
+                                  with a numbered scale from 1 to 5, in which 5 means strong and 1 means weak.
+
+
+
+
+                                  Figure 1.
+                                  Figure 1. Main
+                                            Main flow
+                                                 flow diagram
+                                                      diagram for
+                                                              for the
+                                                                  the second
+                                                                      second survey.
+                                                                             survey.
+  Appl. Sci. 2024, 14, 8164                                                                                                               6 of 15
+
+
+
+                                         Table 2. Questionnaire of the second survey: example questions given to participants.
+
+        Steps                                                Example Question                                                   Type
+                        Q7: You are going to actively/passively use humanoid service robot. which type can be
+                                                                                                                               Selected
+          1                                     used to describe your current emotion?
+                                              Q8: How would you evaluate this emotion?                                           1–5
+                        Q9: When actively/passively using a humanoid service robot, the robot shows confusion
+                                                                                                                               Selected
+                            about your operation, which type can be used to describe your current emotion?
+          2
+                       Q10: When actively/passively using a humanoid service robot, the robot shows irrelevant
+                                                                                                                               Selected
+                       feedbacks about your operation, which type can be used to describe your current emotion?
+          3                                     Q11: How would you evaluate this emotion?                                        1–5
+
+
+                                         3.2.4. The Procedure of Experiments in Real Environments
+                                           A Yanshee robot, shown in Figure 2a, utilizes the open hardware platform architecture
+                                      of Raspberry Pi+STM32. It can achieve multiple interactions, such as voice, arm action,
+                                      movement, sound, etc. It is designed to provide consulting services, which is one of the
+                                      most common scenarios of HRI in the fields of education, healthcare, shopping, etc. In
+                                      these experiments, Yanshee was engaged as a consultant. It can interact with users and
+                                      provide information about Nanjing Forestry University. Two contexts, including the CPIR
+Appl. Sci. 2024, 14, x FOR PEER REVIEWand CAIR, were considered, respectively. For the CPIR, Yanshee actively asked participants
+                                                                                                                       7 of 15
+                                      what they would like to know about the university. For the CAIR, participants needed to
+                                      actively ask Yanshee questions about the university.
+
+
+
+
+                         (a)                                                                  (b)
+                                      Figure 2. (a)
+                                         Figure     Yanshee
+                                                 2. (a)      robot.
+                                                        Yanshee     (b) (b)
+                                                                robot.  TheThe
+                                                                            experimental framework
+                                                                               experimental        in real
+                                                                                            framework      environments.
+                                                                                                       in real environments.
+
+                                              The main experimental framework is shown in Figure 2b, where n represents the
+                                         repeated times that IF or CF happens. The flow of participants in the experiments is shown
+                                         in Figure 3a. At the beginning, they were asked about their basic information, including
+                                         their name, age, and so on, and were required to report their initial emotions, as shown
+                                         in Step 1 in Figure 2b. The emotions include emotional types from Ekman’s six common
+                                         emotions and emotional intensity on a 5-point scale. On the scale, 1 and 5 represent
+                                         extremely weak and extremely strong emotions, respectively. Then, the interactions with
+                                         Yanshee began. Take an experiment in the CPIR as an example to illustrate the process
+                                         in detail. The interaction followed the CPIR flow of Step 2 shown in Figure 2b, and n = 3
+                                (a)      in the experiments. The starting point of interaction
+                                                                                    (b)        was the Yanshee robot. Participants
+
+                                      Figure 3. (a) The flow of participants in experiments. (b) Example scenario for HRI with interaction
+                                      errors.
+
+                                      4. Results and Analysis
+Appl. Sci. 2024, 14, 8164                                                                                                             7 of 15
+
+
+
+                                   answered the robot’s question and encountered IF or CF from Yanshee for the first time.
+                                   Since
+                                     (a) the case that participants encountered continuous repeated  (b) interaction errors was
+                                   also considered, the above interaction was implemented another five times to make sure
+                                              Figure 2. (a) Yanshee robot. (b) The experimental framework in real environments.
+                                   that IF and CF occurred three times, respectively.
+
+
+
+
+                                            (a)                                                      (b)
+
+                                   Figure 3. (a)Figure  3. (a)
+                                                 The flow    ofThe flow of participants
+                                                                participants            in experiments.
+                                                                             in experiments.            (b) scenario
+                                                                                              (b) Example   Example for
+                                                                                                                     scenario for HRI
+                                                                                                                        HRI with       with interacti
+                                                                                                                                   interac-
+                                   tion errors. errors.
+
+                                               4. Resultsand
+                                        Undergraduate       andgraduate
+                                                                 Analysisstudents aged 19–35 years from the university were re-
+                                                     Thisgroup
+                                   cruited for the CPIR    section(M =  24.03, SD
+                                                                     briefly        = 2.55)the
+                                                                              illustrates    and the  CAIR
+                                                                                                 results     group
+                                                                                                         of the  surveys  and SD =
+                                                                                                                    (M = 21.8,      2.51).
+                                                                                                                               experiments,   resp
+                                   The number of    participants
+                                               tively. The   data in the  CPIR
+                                                                   obtained       group
+                                                                               from   thewas    30, and
+                                                                                           surveys   andthere
+                                                                                                          experiments participants
+                                                                                                              were 45 were         in the
+                                                                                                                             analyzed   by the stat
+                                   CAIR group.    The
+                                               tical   total number
+                                                     analysis          wasJASP
+                                                               software,    61, and    14 of them were involved in both the CPIR and
+                                                                                   0.18.1.
+                                   CAIR groups. They participated after being fully informed of the experimental procedures.
+                                   Voice was used    as the and
+                                               4.1. Results  main   interaction
+                                                                 Analysis          cue according to the results of the first survey, as
+                                                                            of Surveys
+                                   shown in Section 4.1.1. Example scenarios, including two contexts and two examples of
+                                               4.1.1. Interaction Cues in HRI
+                                   feedback for HRI with interaction errors, are shown in Figure 3b.
+                                                     Most participants recruited for the first survey thought that voice was the most i
+                                               portant
+                                   4. Results and        interaction cue, and the other three items were face, arm action, and sound in t
+                                                    Analysis
+                                               rankings,   as shown
+                                        This section briefly           in Figure
+                                                              illustrates            4a. The
+                                                                           the results   of thedata  shown
+                                                                                                 surveys     inexperiments,
+                                                                                                           and  Figure 4a were   verified as rando
+                                                                                                                             respectively.
+                                               using   run tests,  where  M   =  2.36  and  p = 0.752.
+                                   The data obtained from the surveys and experiments were analyzed by the statistical
+                                   analysis software, JASP 0.18.1.
+
+                                   4.1. Results and Analysis of Surveys
+                                   4.1.1. Interaction Cues in HRI
+                                              Most participants recruited for the first survey thought that voice was the most im-
+                                        portant  interaction cue, and the other three items were face, arm action, and sound in the
+                    Appl. Sci. 2024, 14, x FOR PEER REVIEW                                                                                          8
+                                        rankings, as shown in Figure 4a. The data shown in Figure 4a were verified as random
+                                        using run tests, where M = 2.36 and p = 0.752.
+
+
+
+
+                                                   (a)                                                                 (b)
+                                   Figure 4. (a) The   data 4.
+                                                    Figure  of(a) The data interaction
+                                                                concerned    of concernedcues.
+                                                                                          interaction
+                                                                                               (b) Thecues. (b)of
+                                                                                                        score   The score ofinteraction
+                                                                                                                  different  diﬀerent interaction
+                                                                                                                                        cues      cues
+                                                    sidering  the level
+                                   considering the level of importance. of importance.
+
+                                                         The participants were also asked to rank the corresponding level of importance
+                                                    a 5-point scale. The scores of unimportance and great importance were set as 0 an
+                                                    respectively. As shown in Figure 4b and the run tests, conversation is the most impo
+                                                    interaction cue, with an average score of 3.29 (p = 0.881), and face, arm action, and so
+                                                    have average scores of 1.94 (p = 0.880), 1.95 (p = 0.508), and 1.64 (p = 0.571), respecti
+                                                    This indicates that conversation and sound are the interaction cues of the most and
+                                                    least concern, and face and arm action are almost the same in view of the degree o
+Appl. Sci. 2024, 14, 8164                                                                                                       8 of 15
+
+
+
+                                 The participants were also asked to rank the corresponding level of importance with
+                            a 5-point scale. The scores of unimportance and great importance were set as 0 and 4,
+                            respectively. As shown in Figure 4b and the run tests, conversation is the most important
+                            interaction cue, with an average score of 3.29 (p = 0.881), and face, arm action, and sound
+                            have average scores of 1.94 (p = 0.880), 1.95 (p = 0.508), and 1.64 (p = 0.571), respectively.
+                            This indicates that conversation and sound are the interaction cues of the most and the least
+                            concern, and face and arm action are almost the same in view of the degree of importance
+                            for users. In addition, the correlations between the importance levels of four interaction
+                            cues were analyzed by Spearman correlation coefficients. The results show that only the
+                            p-value between conversation and sound is smaller than 0.05 and statistically significant.
+                            The Spearman correlation coefficient between conversation and sound is −0.155. This
+                            reveals there are no correlations between the four interaction cues, except that conversation
+                            has a negative correlation with sound.
+
+                            4.1.2. Effects of Feedback and Contexts in Surveys
+                                  According to the data from the second survey, the effects of feedback and contexts
+                            in HRI with interaction errors, i.e., RQ1 and RQ2, were analyzed by Fisher’s exact test,
+                            respectively. The corresponding results are shown in Table 3. χ2 , p, and Cramer’s V
+                            represent the values of chi-square, significance, and Cramer’s V, respectively. They show
+                            that, for contexts, the difference between the count and the expected count is quite small as
+                            χ2 is small. In addition, they show significant differences for feedback (p < 0.05) and no
+                            significant differences for contexts (p > 0.05). The Cramer’s V coefficients in Table 3 indicate
+                            the magnitude of the effect size of contexts is quite small, while that of feedback is medium.
+                            There also exists a statistical difference between the count and the expected count in the
+                            cases where the user emotions are happiness, surprise, anger, and disgust, respectively,
+                            as feedback. In the case of repeated CF, the effects of contexts were considered, and the
+                            corresponding results are shown in Table 4, where i represents the number of times that
+                            CF is repeated. It is obvious that contexts do not show an impact on user emotions, but
+                            feedback does.
+
+                            Table 3. The results in the case of encountering interaction error for the first time.
+
+                                      Factor                         χ2                      p                     Cramer’s V
+                                   Feedback                        43.414                 <0.001                     0.419
+                                   Contexts                         1.641                  0.95                      0.083
+                               Previous emotions                   44.149                 <0.001                     0.248
+
+
+                            Table 4. The results in the case of repeated CF for the effects of contexts and previous emotions,
+                            respectively.
+
+                                 i*                           Contexts                              Previous Emotions
+                                                 χ2             p            Cramer’s V      χ2             p       Cramer’s V
+                                  1            1.676            0.815           0.119      39.585         <0.001         0.323
+                                  2            2.288            0.838           0.126      51.192         <0.001         0.357
+                                  3            2.044            0.901           0.128      87.742         <0.001         0.424
+                            * i represents the number of times that CF is repeated.
+
+
+                                 The log-linear model analysis method was employed to analyze the corresponding
+                            interaction effects, i.e., RQ4. The main variables include contexts, feedback, and emotions
+                            before and after users encounter interaction errors. The corresponding results show that all
+                            p-values in the step summary of the model are larger than 0.05. This reveals there are no
+                            interaction effects between contexts, feedback, and previous emotions.
+                                                 χ2              p         Cramer’s V            χ2              p           Cramer’s V
+                                  1            1.676           0.815          0.119            39.585          <0.001           0.323
+                                  2            2.288           0.838          0.126            51.192          <0.001           0.357
+                                  3            2.044           0.901          0.128            87.742          <0.001           0.424
+Appl. Sci. 2024, 14, 8164                                                                                                               9 of 15
+                            * i represents the number of times that CF is repeated.
+
+                            4.1.3. Users’ Previous Emotions and Their Eﬀects in Surveys
+                              4.1.3. Users’ Previous Emotions and Their Effects in Surveys
+                                   Considering initial emotions, happiness and surprise make up the vast majority in
+                            the two Considering
+                                       surveys. For initial  emotions,
+                                                      the cases    whenhappiness     and surprise
+                                                                          users encounter          make
+                                                                                             a single      up the vast
+                                                                                                       interaction       majority
+                                                                                                                      error,        in the
+                                                                                                                             the eﬀects
+                            of previous emotions, i.e., RQ3, were also obtained by Fisher’s exact test, and the resultsof
+                              two   surveys.   For  the   cases  when   users  encounter   a single  interaction     error, the effects
+                            are shown emotions,
+                              previous    in Table 3. i.e., RQ3,significant
+                                                       It shows    were also obtained
+                                                                               diﬀerencesby(pFisher’s
+                                                                                               < 0.05),exact
+                                                                                                        and thetest, and the results
+                                                                                                                  diﬀerence    between are
+                              shown in Table 3. It shows significant differences (p <2 0.05), and the difference between
+                            the count and the expected count is relatively large (χ 2= 44.149) for previous emotions.
+                              the count and the expected count is relatively large (χ = 44.149) for previous emotions.
+                            The Cramer’s V coeﬃcient is 0.248, which means the magnitude of the eﬀect size is small.
+                              The Cramer’s V coefficient is 0.248, which means the magnitude of the effect size is small.
+                            Furthermore, when the previous emotion is happiness, there exists a statistical diﬀerence
+                              Furthermore, when the previous emotion is happiness, there exists a statistical difference
+                            between the count and the expected count for the cases where the user emotion is surprise,
+                              between the count and the expected count for the cases where the user emotion is surprise,
+                            and when the previous emotion is surprise, there is no statistical diﬀerence, but the largest
+                              and when the previous emotion is surprise, there is no statistical difference, but the largest
+                            adjusted residual of 1.9 is shown in the cases where the user emotion is anger.
+                              adjusted residual of 1.9 is shown in the cases where the user emotion is anger.
+                                   For the case of repeated interaction errors, the example of three times of CF was used,
+                                    For the case of repeated interaction errors, the example of three times of CF was used,
+                            and the abbreviations of user emotions were recorded by the number of times, as Emotion
+                              and the abbreviations of user emotions were recorded by the number of times, as Emotion 1,
+                            1, Emotion 2, and Emotion 3, respectively. The percentages of users’ emotion types are
+                              Emotion 2, and Emotion 3, respectively. The percentages of users’ emotion types are shown
+                            shown     in Figure 5. The percentage of happiness gradually decreases from the initial emo-
+                              in Figure 5. The percentage of happiness gradually decreases from the initial emotion to
+                              Emotion 3, and3,the
+                            tion  to Emotion       and   the percentages
+                                                      percentages           of anger
+                                                                     of anger   and disgust  clearlyclearly
+                                                                                      and disgust            increase.
+                                                                                                      increase.          The analyzed
+                                                                                                                  The analyzed     results
+                            results   by Fisher’s
+                              by Fisher’s           exactare
+                                             exact test     test are shown
+                                                              shown           in 4.
+                                                                       in Table  Table
+                                                                                    The4. The Cramer’s
+                                                                                         Cramer’s           V coeﬃcients
+                                                                                                    V coefficients     shownshown     in 4
+                                                                                                                               in Table
+                            Table   4 indicate  the  magnitude     of the eﬀect  size is medium,    and  it increases
+                              indicate the magnitude of the effect size is medium, and it increases with the number     with  the num-
+                            ber  of times
+                              of times       of CF.
+                                         of CF.  ThisThis    reveals
+                                                       reveals   thatthat  previous
+                                                                       previous        emotions
+                                                                                  emotions   show show    eﬀects
+                                                                                                    effects        on emotions
+                                                                                                              on emotions     afterafter
+                                                                                                                                    users
+                            users   encounter    interaction
+                              encounter interaction errors.    errors.
+
+
+
+
+                            Figure 5. The percentages of users’ emotion types when users encounter CF repeatedly.
+                             Figure 5. The percentages of users’ emotion types when users encounter CF repeatedly.
+
+                            4.2.
+                             4.2.Results
+                                   Resultsand
+                                           andAnalysis
+                                                AnalysisofofExperiments
+                                                              Experiments
+                             4.2.1.Eﬀects
+                            4.2.1.  EffectsofofFeedback
+                                                Feedbackand  andContexts
+                                                                 ContextsininReal
+                                                                              RealEnvironments
+                                                                                   Environments
+                                    UsingFisher’s
+                                  Using      Fisher’sexact
+                                                        exacttest,
+                                                               test,RQ1
+                                                                      RQ1and
+                                                                           andRQ2
+                                                                                RQ2ininreal
+                                                                                          realHRI
+                                                                                               HRIexperiments
+                                                                                                      experimentswere  wereanalyzed,
+                                                                                                                             analyzed,and  and
+                              theresults
+                            the    resultsareare shown
+                                               shown     in in Table
+                                                            Table   5. 5.
+                                                                       TheThe   meaning
+                                                                            meaning         is n
+                                                                                       of n of theissame
+                                                                                                      the assamein as     Figure
+                                                                                                                       in 2b.
+                                                                                                                   Figure                Since
+                                                                                                                                    2b. all
+                                                                                                                                 Since      p-
+                              all p-values
+                            values for        for contexts
+                                         contexts    shown in              Table 5
+                                                                  Tablein5 are
+                                                              shown                 arethan
+                                                                               larger    larger   than
+                                                                                              0.05,  this0.05,
+                                                                                                           reveals    reveals
+                                                                                                                this that      that do
+                                                                                                                           contexts   contexts
+                                                                                                                                          not
+                              do not
+                            show       show significant
+                                    significant   diﬀerences  differences   in user emotions
+                                                                 in user emotions                  in real environments.
+                                                                                      in real environments.        In addition,Infeedback
+                                                                                                                                     addition,
+                              feedback    shows   significant   differences   in the cases  of  first and    second   interaction
+                            shows significant diﬀerences in the cases of first and second interaction errors but no sig-            errors  but
+                              no  significant   differences    in  the  case of third  interaction     errors.   Comparing
+                            nificant diﬀerences in the case of third interaction errors. Comparing the adjusted residu-         the  adjusted
+                              residuals
+                            als betweenbetween
+                                            IF and CF,IF statistical
+                                                           and CF, statistical
+                                                                       diﬀerences differences    exist. Relatively,
+                                                                                    exist. Relatively,                   IF tends
+                                                                                                           IF tends to evoke         to evoke
+                                                                                                                                 happiness
+                              happiness     and  surprise,   and   CF   tends to evoke    sadness   and   anger.
+                            and surprise, and CF tends to evoke sadness and anger. The eﬀects of feedback on user  The   effects  of feedback
+                              on user emotions
+                            emotions    in the CAIR in the
+                                                        andCAIR      and the
+                                                              the CPIR       CPIR
+                                                                          were      were analyzed,
+                                                                                analyzed,               respectively,
+                                                                                            respectively,                and theare
+                                                                                                               and the results     results
+                                                                                                                                      shown are
+                              shown    in  Table  6. It shows    significant   differences   when     an  interaction
+                            in Table 6. It shows significant diﬀerences when an interaction error occurred for the first error  occurred    for
+                              the first time in the CAIR. It also reveals that, for feedback, the magnitude of the effect size
+                              in the CAIR and the CPIR reduces with the number of times of interaction errors.
+
+                             Table 5. The results in the case of repeated errors for the effects of feedback and contexts, respectively.
+
+                                   n*                          Feedback                                         Contexts
+                                                  χ2              p               Cramer’s V       χ2             p            Cramer’s V
+                                    1           14.723           0.005              0.315         2.879           0.766            0.139
+                                    2           11.577           0.027              0.28          4.199           0.514            0.169
+                                    3            3.361           0.341              0.16          5.903            0.3             0.196
+                             * n is the number of times that error is repeated.
+Appl. Sci. 2024, 14, 8164                                                                                                                   10 of 15
+
+
+
+                                     Table 6. The results in the case of repeated errors for the effects of feedback in CAIR and CPIR, respectively.
+
+                                          n*                             CAIR                                           CPIR
+                                                             χ2           p               Cramer’s V      χ2             p            Cramer’s V
+                                           1            10.649           0.033              0.346       6.535           0.163           0.338
+                                           2             9.131           0.081              0.321       6.431           0.168            0.33
+                                           3             4.098           0.547              0.214       5.924           0.315           0.325
+                                     * n is the number of times that error is repeated.
+
+
+                                     4.2.2. Users’ Previous Emotions and Their Effects in Real Environments
+                                              The initial emotions of participants were happiness and surprise with 75.56% and
+                                         22.22% in the CAIR and 73.33% and 23.33% in the CPIR, respectively. The percentages of
+                                         emotions after they were exposed to IF or CF three times in the CPIR and the CAIR are
+                     Appl. Sci. 2024, 14, x FOR PEER REVIEW                                                                                                11
+                                         shown in Figure 6. Clearly, when users encounter CF, the percentages of negative emotions,
+                                         such as sadness, anger, and disgust, are larger.
+
+
+
+
+                                                       (a)                                                                      (b)
+                                     Figure 6. (a) TheFigure  6. (a) The
+                                                       percentages        percentages
+                                                                      of emotions      of emotions
+                                                                                    after interactionafter interaction
+                                                                                                      errors in        errors
+                                                                                                                 CPIR. (b) Thein CPIR. (b) The
+                                                                                                                                percentages  of percentag
+                                                      emotions   after interaction
+                                     emotions after interaction errors in CAIR.    errors in CAIR.
+
+                                          Fisher’s exact      7. The
+                                                      Tabletest    wasresults in the case
+                                                                        employed      to of repeated
+                                                                                          analyze   therrors  for of
+                                                                                                         effects      eﬀects of
+                                                                                                                  the users’               emotions,in IF, CF,
+                                                                                                                                  previous emotions
+                                                                                                                               previous
+                                    i.e., RQ3, in realand CPIR,     respectively.
+                                                         environments,        and the results show significant differences. χ2 = 85.123,
+                                    p <IF0.001, and the Cramer’s V CF      coefficient is 0.357 for the second
+                                                                                                             CAIR repeated interaction error,      CPIR
+                    n*              and   χ2 = 111.454, p < 0.001, and the Cramer’s V coefficient is 0.452 for the third time. The
+                           χ 2        p Cramer’s V             χ 2        p Cramer’s V             χ 2        P Cramer’s V              χ 2        p Cramer
+                                    magnitude of the effect size is medium, and it grows with the number of times of interaction
+                    2 38.926 <0.001           0.452         44.692 <0.001           0.410       56.187 <0.001           0.371         28.703 0.002        0.37
+                                    errors. Statistical differences exist for user emotions after they encounter interaction errors. For
+                    3 55.631 <0.001           0.435         62.827 <0.001            0.54       78.449 <0.001           0.475         43.814 <0.001       0.48
+                                    example, in the case of the second repeated interaction errors, when the previous emotion is
+                                                      * n is the number of times that error is repeated.
+                                    happiness, the adjusted residuals are 2.7 in happiness and −2.2 in anger, respectively, and this
+                                    means participants tend to be happy after the error. When the previous emotion is surprise,
+                                                             Then, for RQ4, using log-linear model analysis, no interaction eﬀects between
+                                    the corresponding adjusted residuals are 3.4 in surprise and −2.7 in disgust, respectively, and
+                                                      back, contexts, and previous emotions are shown, as all p-values are larger than 0.
+                                    this means participants tend to be surprised after the error. In addition, when the previous
+                                                      the step summary of the model.
+                                    emotions are negative, the adjusted residuals are larger than 2 in the negative emotions of the
+                                    users’ emotions4.2.3.
+                                                        afterThe
+                                                               theyEﬀects
+                                                                      encounter
+                                                                             on theinteraction
+                                                                                      Intensity errors.
+                                                                                                 of UserFor    example,
+                                                                                                           Emotions         for the
+                                                                                                                        in Real      three repeated
+                                                                                                                                   Environments
+                                    interaction errors, when the previous emotion is disgust, the adjusted residual is 5.6 in disgust.
+                                                             The emotional intensity of user emotions after they encountered interaction erro
+                                    The cases of IF and CF and the cases of the CAIR and the CPIR were considered, respectively.
+                                                      real environments was investigated. The emotional categories of happiness, surprise
+                                    The corresponding results are shown in Table 7. It indicates that the previous emotions in
+                                                      ger, and disgust were considered. The data for each category show normal distribu
+                                    these four cases also show significant differences.
+                                                      and pass homogeneity of variance. One-way analysis of variance (ANOVA), followe
+                                                      a Least Significant Diﬀerence (LSD) test, was used to compare the general intensi
+                                    Table 7. The results in the case of repeated errors for the effects of previous emotions in IF, CF, CAIR
+                                                      emotions, respectively, obtained after three interaction errors. The results show that t
+                                    and CPIR, respectively.
+                                                      are no significant diﬀerences among the general intensity of happiness, surprise, and
+                          IF                          gust CFbut significant diﬀerences in       anger (p < 0.05) when users
+                                                                                              CAIR                                   encounter repeated int
+                                                                                                                                   CPIR
+    n*
+                χ2     p       Cramer’s V       χ2    tionp errors.      addition,χ2all the pp-values
+                                                                      In V
+                                                                   Cramer’s                              are V
+                                                                                                     Cramer’s larger χ  2
+                                                                                                                       than   0.05p when    considering
+                                                                                                                                         Cramer’s  V     the eﬀ
+     2        38.926 <0.001       0.452       44.692 of  feedback0.410
+                                                       <0.001          and contexts.
+                                                                                  56.187This reveals that
+                                                                                           <0.001           the types
+                                                                                                        0.371            of feedback
+                                                                                                                     28.703     0.002 and0.378contexts do not a
+     3        55.631 <0.001       0.435       62.827 the
+                                                       <0.001
+                                                           general 0.54
+                                                                      intensity of78.449
+                                                                                     each <0.001
+                                                                                           emotion. 0.475            43.814 <0.001           0.484
+                                     * n is the number of times that error is repeated.
+                                                        5. Discussions
+                                                              The four research questions in this paper can be discussed by combining the a
+                                                        results of the surveys and experiments. Overall, for RQ1, RQ2, and RQ3, the type of f
+                                                        back and the type of previous emotions aﬀect the type of user emotions when user
+                                                        counter interaction errors in HRI, but the type of contexts, CPIR and CAIR, do not.
+                                                        cifically, whether users actively interact with robots or not does not aﬀect their emo
+                                                        when encountering interaction errors, and users rarely feel fear. When previous emo
+Appl. Sci. 2024, 14, 8164                                                                                           11 of 15
+
+
+
+                                Then, for RQ4, using log-linear model analysis, no interaction effects between feedback,
+                            contexts, and previous emotions are shown, as all p-values are larger than 0.05 in the step
+                            summary of the model.
+
+                            4.2.3. The Effects on the Intensity of User Emotions in Real Environments
+                                  The emotional intensity of user emotions after they encountered interaction errors in
+                            real environments was investigated. The emotional categories of happiness, surprise, anger,
+                            and disgust were considered. The data for each category show normal distributions and
+                            pass homogeneity of variance. One-way analysis of variance (ANOVA), followed by a Least
+                            Significant Difference (LSD) test, was used to compare the general intensity of emotions,
+                            respectively, obtained after three interaction errors. The results show that there are no
+                            significant differences among the general intensity of happiness, surprise, and disgust but
+                            significant differences in anger (p < 0.05) when users encounter repeated interaction errors.
+                            In addition, all the p-values are larger than 0.05 when considering the effects of feedback
+                            and contexts. This reveals that the types of feedback and contexts do not affect the general
+                            intensity of each emotion.
+
+                            5. Discussions
+                                 The four research questions in this paper can be discussed by combining the above
+                            results of the surveys and experiments. Overall, for RQ1, RQ2, and RQ3, the type of
+                            feedback and the type of previous emotions affect the type of user emotions when users
+                            encounter interaction errors in HRI, but the type of contexts, CPIR and CAIR, do not.
+                            Specifically, whether users actively interact with robots or not does not affect their emotions
+                            when encountering interaction errors, and users rarely feel fear. When previous emotions
+                            show one type of emotion, this emotion also has the largest proportion in user emotions after
+                            encountering interaction errors. For example, when the previous emotion was happiness,
+                            the user’s emotion tends to be happiness. Hence, it is better to design robot expressions that
+                            can make users feel happier to reduce the possibility of negative emotions and help them
+                            cope when encountering interaction errors. Since the emotional intensity perceived by users
+                            does not show an impact on user emotions, the designed robot’s expressions of happiness
+                            should be recognized by users; however, the corresponding intensity is unimportant in
+                            handling interaction errors.
+                                 Furthermore, regarding the feedback mentioned in RQ2, compared with CF, IF tends
+                            to evoke happiness and surprise according to the results of Fisher’s exact test. As shown in
+                            Tables 4 and 7, in the case of IF, the corresponding magnitude of the effect size decreases
+                            with the frequency of interaction errors, while it increases in the case of CF. Considering the
+                            uncontrollability of previous emotions, it is better to reduce the corresponding magnitude
+                            of the effect on user emotions in real HRI. Hence, if we hope user emotions will be in a
+                            more positive state when users encounter interaction errors, an irrelevant answer to the
+                            user is a better choice when handling interaction errors. Further, the overall magnitude of
+                            the effect size of feedback on user emotions reduces with the times of interaction errors, as
+                            shown in Table 5. This trend is also evident in the CAIR and the CPIR, respectively, and the
+                            decreasing amplitude of effect size in the CAIR is faster than that in the CPIR, as shown in
+                            Table 6. This indicates that, although the CAIR and the CPIR do not affect user emotions,
+                            different feedback from robots shows different effects on users in the cases of the CAIR
+                            and the CPIR. Significant differences were only found in the first interaction error in the
+                            CAIR. This means that the impact of the different feedback, IF and CF, is manifested in the
+                            CAIR. Combined with Figure 6, IF is better than CF in making users express fewer negative
+                            emotions in the CAIR. As mentioned above, if interaction errors occur when users operate
+                            robots actively, an irrelevant answer given to users may be better for their emotions, even
+                            though the irrelevant answer is a social norm violation of interaction. The type of previous
+                            emotions and the type of feedback are influencing factors on user emotions in this case. But
+                            when the interaction begins with the robot, expressions, including social norm violations
+Appl. Sci. 2024, 14, 8164                                                                                            12 of 15
+
+
+
+                            and technical failure from the robot, given to users do not affect their emotions, and the
+                            type of previous emotions is the influencing factor.
+                                  For RQ4, there are no interaction effects between the three factors. This means that the
+                            selection of contexts, the expression of feedback, and the regulation of previous emotions
+                            can be considered, respectively. Through the appropriate design of the factors, users’
+                            negative emotions toward interaction errors can be reduced. The intensity of user emotions
+                            is not affected by contexts or feedback. With increasing frequency of repeated interaction
+                            errors, the general intensity of anger increases. Hence, it is necessary to deal with interaction
+                            errors as soon as they are found to reduce the accumulation of anger. In addition, the
+                            effects of gender were also considered. In the experiments, a total of 34 males (M = 22.56,
+                            SD = 3.34) and 28 females (M = 22.44, SD = 2.26) were recruited. According to the results of
+                            Fisher’s exact test and one-way ANOVA, all the p-values are smaller than 0.05, and there
+                            are no significant differences in the types and the intensity of user emotions. This reveals
+                            that gender does not affect user emotions after encountering interaction errors.
+                                  The findings in this study could be utilized to design interaction from the view of
+                            emotion to handle interaction errors in real HRI environments. The limitations are described
+                            from three aspects. One is that the experimental platform, the Yanshee robot, could not
+                            exhaustively represent robots that are used in real environments. Humanoid robots used in
+                            many public areas may show larger sizes and much more interactive expressions. These
+                            could affect user emotions toward robots [49,50]. However, considering the results of the
+                            online surveys, the data analyzed were derived from participants who had experience with
+                            different robots. This means that the outcome of this study can be used as a directional
+                            guideline for design in the cases of interaction errors in HRI. Another is that the results were
+                            obtained from the data of participants aged 19–35. If the participants were from a wider
+                            range of ages, the findings of this study would be more widely generalizable. Finally, the
+                            data obtained in this study were from subjective reports by users. Objective methods, such
+                            as tests using an eye-tracker system or EEG system, which may provide better comparisons,
+                            were not considered. This is a question that we will address in our future research.
+
+                            6. Conclusions
+                                 This paper mainly studies the influence of different factors on user emotions in the
+                            scenarios of human–robot interaction errors. We analyzed three factors, including different
+                            types of robot feedback, passive and active contexts, and previous emotions. Online
+                            surveys were implemented to explore the influence of the three factors preliminarily and
+                            provide support for designing appropriate experiments in real environments. A humanoid
+                            robot named Yanshee was selected as the experimental platform and designed to provide
+                            consulting services. The results of our experiments show some design guidelines to
+                            cope with the scenario of unavoidable or sudden interaction errors in HRI, and the main
+                            contributions are as follows:
+                            1.   The contexts of active and passive interactions with robots have no impact on user
+                                 emotions, but we need to concentrate on different affecting factors in the two contexts.
+                                 When designing active interactions with robots, the type of feedback and previous
+                                 emotions need to be considered, and when designing passive interactions in HRI,
+                                 previous emotions are the key element;
+                            2.   Different feedback from robots has impacts on user emotions and is mainly significant
+                                 in the context where users begin interactions with robots actively. The irrelevant
+                                 feedback given to users is better from the view of user emotions. Although this kind
+                                 of feedback violates social norms, users are less likely to feel negatively compared
+                                 with the case of experiencing technical failure in HRI;
+                            3.   Previous emotions affect user emotions, and the corresponding type tends to be con-
+                                 sistent to some degree. If designers want users to show fewer negative emotions when
+                                 they encounter interaction errors, it is better to provide users with robot expressions
+                                 that make them happy;
+Appl. Sci. 2024, 14, 8164                                                                                                            13 of 15
+
+
+
+                                   4.    There are no interaction effects between contexts, feedback, and previous emotions.
+                                         Designers can consider the three factors separately. For the general intensity of user
+                                         emotions, contexts and feedback have no impact. When the interaction errors are
+                                         repeated, the general intensity of anger increases. Hence, designers should provide
+                                         an approach to prevent interaction errors from repeating themselves.
+                                        Overall, this study is meaningful in that it makes a feasible design guide for dealing
+                                   with interaction errors in HRI from the view of user emotions, and the corresponding
+                                   contributions give direction for user-centered and affective HRI design.
+
+                                   Author Contributions: Conceptualization, formal analysis, methodology, writing—draft preparation,
+                                   writing—review, funding acquisition, W.G.; investigation, formal analysis, Y.T. and S.S.; investigation,
+                                   Y.J.; project administration, N.S.; visualization, W.S. and W.Z. All authors have read and agreed to the
+                                   published version of the manuscript.
+                                   Funding: This research was funded by the National Natural Science Foundation of China, grant
+                                   numbers 52105262 and U2013602.
+                                   Institutional Review Board Statement: Ethical review and approval were waived for this study,
+                                   due to that the questionnaires and experiments in the study were not invasive examination, did not
+                                   disturb anyone’s ethical standards and ask any private information.
+                                   Informed Consent Statement: Informed consent was obtained from all subjects involved in the study.
+                                   Data Availability Statement: The data presented in this study are available on request from the
+                                   corresponding author. The data are not publicly available due to privacy.
+                                   Acknowledgments: The authors would like to thank all of the participants who took the time and
+                                   effort to participate in the testing.
+                                   Conflicts of Interest: The authors declare no conflicts of interest.
+
+References
+1.    Iio, T.; Satake, S.; Kanda, T.; Hayashi, K.; Ferreri, F.; Hagita, N. Human-like Guide Robot that Proactively Explains Exhibits. Int. J.
+      Soc. Robot. 2020, 12, 549–566. [CrossRef]
+2.    Komatsubara, T.; Shiomi, M.; Kaczmarek, T.; Kanda, T.; Ishiguro, H. Estimating Children’s Social Status through Their Interaction
+      Activities in Classrooms with a Social Robot. Int. J. Soc. Robot. 2019, 11, 35–48. [CrossRef]
+3.    Schneider, S.; Liu, Y.; Tomita, K.; Kanda, T. Stop Ignoring Me! On Fighting the Trivialization of Social Robots in Public Spaces.
+      ACM Trans. Human-Robot Interact. 2022, 11, 11. [CrossRef]
+4.    Mcginn, C.; Sena, A.; Kelly, K. Controlling Robots in the Home: Factors that Affect the Performance of Novice Robot Operators.
+      Appl. Ergon. 2017, 65, 23–32. [CrossRef] [PubMed]
+5.    Mirnig, N.; Giuliani, M.; Stollnberger, G.; Stadler, S.; Buchner, R.; Tscheligi, M. Impact of Robot Actions on Social Signals and
+      Reaction Times in HRI Error Situations. In Proceedings of the International Conference on Social Robotics, Paris, France, 26–30
+      October 2015.
+6.    Tian, L.; Oviatt, S.L. A Taxonomy of Social Errors in Human-Robot Interaction. ACM Trans. Human-Robot Interact. 2021, 10, 13.
+      [CrossRef]
+7.    Deckers, L.; Devine, J. Humor by Violating an Existing Expectancy. J. Psychol. 1981, 108, 107–110. [CrossRef]
+8.    Isen, A.M. A Role for Neuropsychology in Understanding the Facilitating Influence of Positive Affect on Social Behavior and
+      Cognitive Processes. In Oxford Handbook of Positive Psychology, 1st ed.; Lopez, S.J., Snyder, C.R., Eds.; Oxford University Press:
+      Oxford, UK, 2009; pp. 503–518.
+9.    Jurist, E. Review of How Emotions Are Made: The Secret Life of the Brain. J. Theor. Philos. Psych. 2019, 39, 155–157. [CrossRef]
+10.   Aldao, A. The Future of Emotion Regulation Research: Capturing Context. Perspect. Psychol. Sci. 2013, 8, 155–172. [CrossRef]
+11.   Li, W.; Shao, W.; Ji, S.; Cambria, E. BiERU: Bidirectional Emotional Recurrent Unit for Conversational Sentiment Analysis.
+      arXiv 2020. [CrossRef]
+12.   Qian, Z.; You, M.; Zhou, H.; Xu, X.; He, B. Robot Learning from Human Demonstrations with Inconsistent Contexts. Robot. Auton.
+      Syst. 2023, 166, 104466. [CrossRef]
+13.   Feng, Y.; Perugia, G.; Yu, S.; Barakova, E.I.; Hu, J.; Rauterberg, G.W.M. Context-Enhanced Human-Robot Interaction: Exploring
+      the Role of System Interactivity and Multimodal Stimuli on the Engagement of People with Dementia. Int. J. Soc. Robot. 2022,
+      14, 807–826. [CrossRef]
+14.   Kim, S.K.; Kirchner, E.A.; Schloßmüller, L.; Kirchner, F. Errors in Human-Robot Interactions and Their Effects on Robot Learning.
+      Front. Robot. AI 2020, 7, 558531. [CrossRef] [PubMed]
+Appl. Sci. 2024, 14, 8164                                                                                                             14 of 15
+
+
+
+15.   Steinbauer, G. A Survey about Faults of Robots Used in RoboCup, Lecture Notes in Computer Science; van der, Z.T., Chen, X., Stone, P.L.,
+      Sucar, E., Eds.; Springer: Berlin/Heidelberg, Germany, 2013; Volume 7500, pp. 344–355.
+16.   Kwon, M.; Huang, S.H.; Dragan, A.D. Expressing Robot Incapability. In Proceedings of the Thirteenth Annual ACM/IEEE
+      International Conference on Human-Robot Interaction, Chicago, IL, USA, 23 February 2018.
+17.   Mirnig, N.; Stollnberger, G.; Miksch, M.; Stadler, S.; Giuliani, M.; Tscheligi, M. To Err Is Robot: How Humans Assess and Act
+      Toward an Erroneous Social Robot. Front. Robot. AI 2017, 4, 21. [CrossRef]
+18.   Lucas, G.M.; Boberg, J.; Traum, D.; Artstein, R.; Gratch, J.; Gainer, A.; Johnson, E.; Leuski, A.; Nakano, M. Getting to Know Each
+      Other: The Role of Social Dialogue in Recovery from Errors in Social Robots. In Proceedings of the 2018 ACM/IEEE International
+      Conference on Human-Robot Interaction, Chicago, IL, USA, 26 February 2018.
+19.   Lucas, G.M.; Boberg, J.; Traum, D.; Artstein, R.; Gratch, J.; Gainer, A.; Johnson, E.; Leuski, A.; Nakano, M. The Role of Social
+      Dialogue and Errors in Robots. In Proceedings of the 5th International Conference on Human Agent Interaction, New York, NY,
+      USA, 17 October 2017.
+20.   Honig, S.; Oron-Gilad, T. Understanding and Resolving Failures in Human-Robot Interaction: Literature Review and Model
+      Development. Front. Psychol. 2018, 9, 861. [CrossRef]
+21.   Giuliani, M.; Mirnig, N.; Stollnberger, G.; Stadler, S.; Buchner, R.; Tscheligi, M. Systematic Analysis of Video Data from Different
+      Human–Robot Interaction Studies: Acategorization of Social Signals During Error Situations. Front. Psychol. 2015, 6, 931.
+      [CrossRef]
+22.   Chen, W.; Zhou, C.; Shang, G.; Wang, X.; Li, Z.; Xu, C.; Hu, K. SLAM Overview: From Single Sensor to Heterogeneous Fusion.
+      Remote Sens. 2022, 14, 6033. [CrossRef]
+23.   Fahn, C.-S.; Chen, S.-C.; Wu, P.-Y.; Chu, T.-L.; Li, C.-H.; Hsu, D.-Q.; Wang, H.-H.; Tsai, H.-M. Image and Speech Recognition
+      Technology in the Development of an Elderly Care Robot: Practical Issues Review and Improvement Strategies. Healthcare 2022,
+      10, 2252. [CrossRef]
+24.   Balmik, A.; Jha, M.; Nandy, A. NAO Robot Teleoperation with Human Motion Recognition. Arab. J. Sci. Eng. 2022, 47, 1137–1146.
+      [CrossRef]
+25.   Kulesza, T.; Stumpf, S.; Burnett, M.; Yang, S.; Kwan, I.; Wong, W.K. Too Much, Too Little, or Just Right? Ways Explanations Impact
+      End Users’ Mental Models. In Proceedings of the IEEE Symposium on Visual Languages and Human-Centric Computing, San
+      Jose, CA, USA, 23–26 September 2013.
+26.   Fratczak, P.; Goh, Y.; Kinnell, P.; Justham, L.; Soltoggio, A. Robot Apology as a Post-Accident Trust-Recovery Control Strategy in
+      Industrial Human-Robot Interaction. Int. J. Ind. Ergonom. 2021, 82, 103078. [CrossRef]
+27.   Oono, S.; Ishii, H.; Kihara, R.; Katagami, D.; Shuzo, M.; Maeda, E. Interaction Strategy for Robotic Apology Based on Human
+      Orientation Toward Service. Adv. Robot. 2024, 38, 226–245. [CrossRef]
+28.   Aymerich-Franch, L.; Kishore, S.; Slater, M. When Your Robot Avatar Misbehaves You Are Likely to Apologize: An Exploration of
+      Guilt During Robot Embodiment. Int. J. Soc. Robot. 2020, 12, 217–226. [CrossRef]
+29.   Lestingi, L.; Manglaviti, A.; Marinaro, D.; Marinello, L.; Askarpour, M.; Bersani, M.M.; Rossi, M. Analyzing the Impact of Human
+      Errors on Interactive Service Robotic Scenarios Via Formal Verification. Softw. Syst. Model. 2024, 23, 473–502. [CrossRef]
+30.   Ota, S.; Jindai, M.; Fukuta, T.; Watanabe, T. Small-Sized Handshake Robot System for Generation of Handshake Behavior with
+      Active Approach to Human. J. Adv. Mech. Des. Syst. 2019, 13, JAMDSM0026. [CrossRef]
+31.   Okuda, M.; Takahashi, Y.; Tsuichihara, S. Human Response to Humanoid Robot That Responds to Social Touch. Appl. Sci. 2022,
+      12, 9193. [CrossRef]
+32.   Stock-Homburg, R. Survey of Emotions in Human–Robot Interactions: Perspectives from Robotic Psychology on 20 Years of
+      Research. Int. J. Soc. Robot. 2022, 14, 389–411. [CrossRef]
+33.   Pan, Y.; Lai, F.; Fang, Z.; Xu, S.; Gao, L.; Robertson, D.C.; Rao, H. Risk Choice and Emotional Experience: A Multi-Level
+      Comparison between Active and Passive Decision-making. J. Risk Res. 2019, 22, 1239–1266. [CrossRef]
+34.   Hu, Y.; Abe, N.; Benallegue, M.; Yamanobe, N.; Venture, G.; Yoshida, E. Toward Active Physical Human–Robot Interaction:
+      Quantifying the Human State During Interactions. IEEE Trans. Human-Mach. Syst. 2022, 52, 367–378. [CrossRef]
+35.   Hu, Y.; Benallegue, M.; Venture, G.; Yoshida, E. Interact with Me: An Exploratory Study on Interaction Factors for Active Physical
+      Human-Robot Interaction. IEEE Robot. Autom. Let. 2020, 5, 6764–6771. [CrossRef]
+36.   Zhang, B.; Nakamura, T.; Kaneko, M.; Lim, H.O. Development of an Autonomous Guide Robot based on Active Interactions
+      with Users. In Proceedings of the 2020 IEEE/SICE International Symposium on System Integration, Honolulu, HI, USA, 12–15
+      January 2020.
+37.   Trinh, H.; Asadi, R.; Edge, D.; Bickmore, T. Robocop: A Robotic Coach for Oral Presentations. Proc. ACM Interact. Mob. Wear.
+      Ubiq. Technol. 2017, 1, 1–24. [CrossRef]
+38.   Chuah, S.H.W.; Yu, J. The Future of Service: The Power of Emotion in Human-Robot Interaction. J. Retail. Consum. Serv. 2021,
+      61, 102551. [CrossRef]
+39.   Christou, P.; Simillidou, A.; Stylianou, M.C. Tourists’ perceptions regarding the use of anthropomorphic robots in tourism and
+      hospitality. Int. J. Contemp. Hosp. Manag. 2020, 32, 3665–3683. [CrossRef]
+40.   Kirtay, M.; Vannucci, L.; Albanese, U.; Laschi, C.; Oztop, E.; Falotico, E. Emotion as an Emergent Phenomenon of the Neuro-
+      computational Energy Regulation Mechanism of a Cognitive Agent in a Decision-Making Task. Adapt. Behav. 2021, 29, 55–71.
+      [CrossRef]
+Appl. Sci. 2024, 14, 8164                                                                                                       15 of 15
+
+
+
+41.   Gratch, J. Émile: Marshalling Passions in Training and Education. In Proceedings of the Fourth International Conference on
+      Autonomous Agents, Brasília, Brazil, 1 June 2000.
+42.   Kirtay, M.; Vannucci, L.; Falotico, E.; Oztop, E.; Laschi, C. Sequential Decision Making Based on Emergent Emotion for a
+      Humanoid Robot. In Proceedings of the IEEE-RAS International Conference on Humanoid Robots (Humanoids 2016), Tokyo,
+      Japan, 12 November 2016.
+43.   Kirtay, M.; Oztop, E. Emergent Emotion Via Neural Computational Energy Conservation on a Humanoid Robot. In Proceedings
+      of the 2013 13th IEEE-RAS International Conference on Humanoid Robots (Humanoids), Tokyo, Japan, 12–15 November 2013.
+44.   Maroto-Gómez, M.; Malfaz, M.; Castro-González, L.; Salichs, M. A Motivational Model Based on Artificial Biological Functions
+      for the Intelligent Decision-making of Social Robots. Memet. Comput. 2023, 15, 237–257. [CrossRef]
+45.   Ahn, H.; Park, S. Contextual Emotion Appraisal Based on a Sentential Cognitive System for Robots. Appl. Sci. 2021, 11, 2027.
+      [CrossRef]
+46.   Dimitrievska, V.; Ackovska, N. Behavior Models of Emotion-Featured Robots: A Survey. J. Intell. Robot. Syst. 2020, 100, 1031–1053.
+      [CrossRef]
+47.   Spezialetti, M.; Placidi, G.; Rossi, S. Emotion Recognition for Human-Robot Interaction: Recent Advances and Future Perspectives.
+      Front. Robot. AI 2020, 7, 532279. [CrossRef]
+48.   Hirth, J.; Schmitz, N.; Berns, K. Emotional Architecture for the Humanoid Robot Head ROMAN. In Proceedings of the 2007 IEEE
+      International Conference on Robotics and Automation, Rome, Italy, 10–14 April 2007.
+49.   Zheng, X.; Shiomi, M.; Minato, T.; Ishiguro, H. What Kinds of Robot’s Touch Will Match Expressed Emotions? IEEE Robot. Autom.
+      Let. 2020, 5, 127–134. [CrossRef]
+50.   Hwang, J.; Park, T.; Hwang, W. The Effects of Overall Robot Shape on the Emotions Invoked in Users and the Perceived
+      Personalities of Robot. Appl. Ergon. 2013, 44, 459–471. [CrossRef]
+51.   Cirasa, C.; Høgsdal, H.; Conti, D. “I See What You Feel”: An Exploratory Study to Investigate the Understanding of Robot
+      Emotions in Deaf Children. Appl. Sci. 2024, 14, 1446. [CrossRef]
+
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+

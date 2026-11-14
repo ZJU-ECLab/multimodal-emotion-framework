@@ -1,0 +1,611 @@
+id,title,emotion_label
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,happiness
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,love
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,surprise
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,anger
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,fear
+batch1_01,Finding love in algorithms: deciphering the emotional contexts of close encounters with AI chatbots,sadness
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,happiness
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,satisfaction
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,excitement
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,admiration
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,fear
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,indifference
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,attachment
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,discomfort
+batch1_02,An User-Centered Evaluation of Two Socially Assistive Robots Integrated in a Retirement Home,security
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,admiration
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,anger
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,disappointment
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,distress
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,fear
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,gloating
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,gratitude
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,gratification
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,hate
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,hope
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,happy-for
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,happiness
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,love
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,pity
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,pride
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,remorse
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,resentment
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,reproach
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,satisfaction
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,shame
+batch1_03,Self-assessment of affect-related events for physiological data collection in the wild based on appraisal theories,relief
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,reproach
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,pride
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,love
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,admiration
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,gratitude
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,resentment
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,hope
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,relief
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,satisfaction
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,fear
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,disappointment
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,mildness
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,pity
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,distress
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,anger
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,shame
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,happy-for
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,hate
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,boredom
+batch1_04,SAET: The Non-Verbal Measurement Tool in User Emotional Experience,gloating
+batch1_05,Empathy and Schadenfreude in Human–Robot Teams,empathy
+batch1_05,Empathy and Schadenfreude in Human–Robot Teams,schadenfreude
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",empathy
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",forgiveness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",compassion
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",fairness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",kindness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",tolerance
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",closeness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",satisfaction
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",happiness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",pleasure
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",confidence
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",excitement
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",curiosity
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",hope
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",anticipation
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",escapism
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",playfulness
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",dissatisfaction
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",annoyance
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",frustration
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",disappointment
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",resentment
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",anger
+batch1_06,"Hope, tolerance and empathy: employees' emotions when using an AI-enabled chatbot in a digitalised workplace",anxiety
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",enjoyment
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",enthusiasm
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",happiness
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",sadness
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",disappointment
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",frustration
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",boredom
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",dissatisfaction
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",resentment
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",trust
+batch1_07,"Assimilation of socially assistive robots by older adults: an interplay of uses, constraints and outcomes",fear
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,hope
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,calmness
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,relief
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,happiness
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,pride
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,surprise
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,curiosity
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,excitement
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,boredom
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,sadness
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,shame
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,anger
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,anxiety
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,confusion
+batch1_08,Higher education students' perceptions of ChatGPT: A global study of early reactions,frustration
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,happiness
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,surprise
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,sadness
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,anger
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,fear
+batch1_10,Exploring the Effects of Multi-Factors on User Emotions in Scenarios of Interaction Errors in Human–Robot Interaction,disgust
+batch1_11,Cultivating Gratitude with a Chatbot,gratitude
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,confusion
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,anger
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,disgust
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,fear
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,sadness
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,happiness
+batch1_12,Invoking and identifying task-oriented interlocutor confusion in human-robot interaction,surprise
+batch1_13,HRI-confusion: A multimodal dataset for modelling and detecting user confusion in situated human-robot interaction,confusion
+batch1_14,"""As an AI language model, I cannot"": Investigating LLM Denials of User Requests",frustration
+batch1_15,Dynamics of affective states during complex learning,boredom
+batch1_15,Dynamics of affective states during complex learning,confusion
+batch1_15,Dynamics of affective states during complex learning,frustration
+batch1_15,Dynamics of affective states during complex learning,delight
+batch1_15,Dynamics of affective states during complex learning,surprise
+batch1_16,RetroSketch: A Retrospective Method for Measuring Emotions and Presence in Virtual Reality,happiness
+batch1_16,RetroSketch: A Retrospective Method for Measuring Emotions and Presence in Virtual Reality,fear
+batch1_16,RetroSketch: A Retrospective Method for Measuring Emotions and Presence in Virtual Reality,relaxation
+batch1_16,RetroSketch: A Retrospective Method for Measuring Emotions and Presence in Virtual Reality,boredom
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,embarrassment
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,shame
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,anxiety
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,disgust
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,happiness
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,interest
+batch1_17,Embarrassment in HRI: remediation and the role of robot responses in emotion control,surprise
+batch1_18,Having Different Dialog Roles in Telecommunication by Using Two Teleoperated Robots Reduces an Operator's Guilt,guilt
+batch1_18,Having Different Dialog Roles in Telecommunication by Using Two Teleoperated Robots Reduces an Operator's Guilt,stress
+batch1_18,Having Different Dialog Roles in Telecommunication by Using Two Teleoperated Robots Reduces an Operator's Guilt,awkwardness
+batch1_18,Having Different Dialog Roles in Telecommunication by Using Two Teleoperated Robots Reduces an Operator's Guilt,nervousness
+batch1_18,Having Different Dialog Roles in Telecommunication by Using Two Teleoperated Robots Reduces an Operator's Guilt,tension
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,admiration
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,adoration
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,aesthetic appreciation
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,amusement
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,anger
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,anxiety
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,awe
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,awkwardness
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,boredom
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,calmness
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,confusion
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,contempt
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,craving
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,disappointment
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,disgust
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,empathic pain
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,entrancement
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,envy
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,excitement
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,fear
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,guilt
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,horror
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,interest
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,happiness
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,nostalgia
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,pride
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,relief
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,romance
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,sadness
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,satisfaction
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,surprise
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,sympathy
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,triumph
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,distress
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,realization
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,frustration
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,hope
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,confidence
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,ennui
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,indifference
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,intrigue
+batch1_19,Emotional Experience during Human-Computer Interaction: A Survey,anticipation
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,excitement
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,calmness
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,boredom
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,stress
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,confusion
+batch2_A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,A Fuzzy Modelling Approach of Emotion for Affective Computing Systems,frustration
+batch2_A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,disgust
+batch2_A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,happiness
+batch2_A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,A Human-Computer Interaction framework for emotion recognition through time-series thermal video sequences,sadness
+batch2_A decision support system for service recovery in affective computing an experimental investigation,A decision support system for service recovery in affective computing an experimental investigation,happiness
+batch2_A decision support system for service recovery in affective computing an experimental investigation,A decision support system for service recovery in affective computing an experimental investigation,anger
+batch2_A decision support system for service recovery in affective computing an experimental investigation,A decision support system for service recovery in affective computing an experimental investigation,satisfaction
+batch2_A decision support system for service recovery in affective computing an experimental investigation,A decision support system for service recovery in affective computing an experimental investigation,dissatisfaction
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,anger
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,contempt
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,disgust
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,fear
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,happiness
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,sadness
+batch2_A_Cloud-Based_Voting_System_for_Emotion_Recognition_in_Human-Computer_Interaction,A Cloud-Based Voting System for Emotion Recognition in Human-Computer Interaction,surprise
+batch2_A_Novel_Emotion_Control_System_for_Embedded_HumanComputer_Interaction_in_Green_Iot,A Novel Emotion Control System for Embedded HumanComputer Interaction in Green Iot,anger
+batch2_A_Novel_Emotion_Control_System_for_Embedded_HumanComputer_Interaction_in_Green_Iot,A Novel Emotion Control System for Embedded HumanComputer Interaction in Green Iot,happiness
+batch2_A_design_for_smooth_transition_of_robotic_emotional_states,A design for smooth transition of robotic emotional states,happiness
+batch2_A_design_for_smooth_transition_of_robotic_emotional_states,A design for smooth transition of robotic emotional states,anger
+batch2_A_design_for_smooth_transition_of_robotic_emotional_states,A design for smooth transition of robotic emotional states,sadness
+batch2_A_design_for_smooth_transition_of_robotic_emotional_states,A design for smooth transition of robotic emotional states,relaxation
+batch2_A_design_for_smooth_transition_of_robotic_emotional_states,A design for smooth transition of robotic emotional states,boredom
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,excitement
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,amusement
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,contentment
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,sadness
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,fear
+batch2_Affect Prediction for Emotional Design_A Comparison Study Of Physiological And Subjective Self-Report Data,Affect Prediction for Emotional Design A Comparison Study Of Physiological And Subjective Self-Report Data,disgust
+batch2_Affective interaction_Using emotions as a user interface in games,Affective interaction Using emotions as a user interface in games,happiness
+batch2_Affective interaction_Using emotions as a user interface in games,Affective interaction Using emotions as a user interface in games,anger
+batch2_Affective interaction_Using emotions as a user interface in games,Affective interaction Using emotions as a user interface in games,surprise
+batch2_Affective interaction_Using emotions as a user interface in games,Affective interaction Using emotions as a user interface in games,fear
+batch2_Affective modelling of users in HCI using EEG,Affective modelling of users in HCI using EEG,love
+batch2_Affective modelling of users in HCI using EEG,Affective modelling of users in HCI using EEG,courage
+batch2_Affective modelling of users in HCI using EEG,Affective modelling of users in HCI using EEG,anger
+batch2_Affective modelling of users in HCI using EEG,Affective modelling of users in HCI using EEG,disgust
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,happiness
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,surprise
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,anger
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,contempt
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,disgust
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,fear
+batch2_Affective state detection via facial expression analysis within a human-computer interaction context,Affective state detection via facial expression analysis within a human-computer interaction context,sadness
+batch2_Affective_State_Recognition_and_Adaptation_in_Human-Robot_Interaction_A_Design_Approach,Affective State Recognition and Adaptation in Human-Robot Interaction A Design Approach,anxiety
+batch2_Affective_State_Recognition_and_Adaptation_in_Human-Robot_Interaction_A_Design_Approach,Affective State Recognition and Adaptation in Human-Robot Interaction A Design Approach,anger
+batch2_Affective_State_Recognition_and_Adaptation_in_Human-Robot_Interaction_A_Design_Approach,Affective State Recognition and Adaptation in Human-Robot Interaction A Design Approach,frustration
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,love
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,happiness
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,anger
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,surprise
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,sadness
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,fear
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,pleasure
+batch2_Affective_computing_for_intelligent_virtual_character,Affective computing for intelligent virtual character,disgust
+batch2_Affective_gaming_in_real-time_emotion_detection_and_Smart_Computing_music_emotion_recognition_Implementation_approach_with_electroencephalogram,Affective gaming in real-time emotion detection and Smart Computing music emotion recognition Implementation approach with electroencephalogram,happiness
+batch2_Affective_gaming_in_real-time_emotion_detection_and_Smart_Computing_music_emotion_recognition_Implementation_approach_with_electroencephalogram,Affective gaming in real-time emotion detection and Smart Computing music emotion recognition Implementation approach with electroencephalogram,sadness
+batch2_Affective_gaming_in_real-time_emotion_detection_and_Smart_Computing_music_emotion_recognition_Implementation_approach_with_electroencephalogram,Affective gaming in real-time emotion detection and Smart Computing music emotion recognition Implementation approach with electroencephalogram,tension
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,happiness
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,surprise
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,disgust
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,fear
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,anger
+batch2_An affective computing approach to develop the game-based adaptive learning material for the elementary students,An affective computing approach to develop the game-based adaptive learning material for the elementary students,sadness
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,fear
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,embarrassment
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,pride
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,self-consciousness
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,shame
+batch2_Assistive technology for older adults_psychological and socio-emotional design requirements,Assistive technology for older adults psychological and socio-emotional design requirements,confidence
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,happiness
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,sadness
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,fear
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,surprise
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,anger
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,disgust
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,interest
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,boredom
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,confusion
+batch2_Audio-visual_affect_recognition_through_multi-stream_fused_HMM_for_HCI,Audio-visual affect recognition through multi-stream fused HMM for HCI,frustration
+batch2_Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,anxiety
+batch2_Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,happiness
+batch2_Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,sadness
+batch2_Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,Automatic Assessment of Depression and Anxiety through Encoding Pupil-wave from HCI in VR Scenes,calmness
+batch2_BabeBay-A_Companion_Robot_for_Children_Based_on_Multimodal_Affective_Computing,BabeBay-A Companion Robot for Children Based on Multimodal Affective Computing,anger
+batch2_BabeBay-A_Companion_Robot_for_Children_Based_on_Multimodal_Affective_Computing,BabeBay-A Companion Robot for Children Based on Multimodal Affective Computing,happiness
+batch2_BabeBay-A_Companion_Robot_for_Children_Based_on_Multimodal_Affective_Computing,BabeBay-A Companion Robot for Children Based on Multimodal Affective Computing,sadness
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,happiness
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,sadness
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,fear
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,surprise
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,anger
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,disgust
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,interest
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,boredom
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,confusion
+batch2_Bimodal HCI-related affect recognition,Bimodal HCI-related affect recognition,frustration
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,passion
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,happiness
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,elation
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,excitement
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,pride
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,delight
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,gratitude
+batch2_Can emotional design really evoke emotion in multimedia learning,Can emotional design really evoke emotion in multimedia learning,pleasure
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,frustration
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,shock
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,happiness
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,anger
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,disgust
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,sadness
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,fear
+batch2_Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,Comparing the Effectiveness of Speech and Physiological Features in Explaining Emotional Responses during Voice User Interface Interactions,surprise
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,happiness
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,anger
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,contempt
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,surprise
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,disgust
+batch2_Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,Construction of self-learning classroom history teaching mode based on human-computer interaction emotion recognition,fear
+batch2_Design_an_Interactive_Agent_by_Multi-Empathic_Strategies_to_Reduce_Students_Negative_Emotion,Design an Interactive Agent by Multi-Empathic Strategies to Reduce Students Negative Emotion,sadness
+batch2_Design_an_Interactive_Agent_by_Multi-Empathic_Strategies_to_Reduce_Students_Negative_Emotion,Design an Interactive Agent by Multi-Empathic Strategies to Reduce Students Negative Emotion,happiness
+batch2_Design_an_Interactive_Agent_by_Multi-Empathic_Strategies_to_Reduce_Students_Negative_Emotion,Design an Interactive Agent by Multi-Empathic Strategies to Reduce Students Negative Emotion,concern
+batch2_Design_and_Analysis_of_a_HumanMachine_Interaction_System_for_Researching_Humans_Dynamic_Emotion,Design and Analysis of a HumanMachine Interaction System for Researching Humans Dynamic Emotion,happiness
+batch2_Design_and_Analysis_of_a_HumanMachine_Interaction_System_for_Researching_Humans_Dynamic_Emotion,Design and Analysis of a HumanMachine Interaction System for Researching Humans Dynamic Emotion,surprise
+batch2_Design_and_Analysis_of_a_HumanMachine_Interaction_System_for_Researching_Humans_Dynamic_Emotion,Design and Analysis of a HumanMachine Interaction System for Researching Humans Dynamic Emotion,sadness
+batch2_Design_and_Analysis_of_a_HumanMachine_Interaction_System_for_Researching_Humans_Dynamic_Emotion,Design and Analysis of a HumanMachine Interaction System for Researching Humans Dynamic Emotion,anger
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,happiness
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,sadness
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,anger
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,surprise
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,disgust
+batch2_Design_and_Emotional_Evaluation_of_Pepe_Jr_A_Cost-Effective_Platform_For_Human_Robot_Interaction_Studies,Design and Emotional Evaluation of Pepe Jr A Cost-Effective Platform For Human Robot Interaction Studies,fear
+batch2_Designing towards emotional usability in customer interfaces A trustworthiness of cyber-banking system interfaces,Designing towards emotional usability in customer interfaces A trustworthiness of cyber-banking system interfaces,awkwardness
+batch2_Detection_of_Affective_States_From_Text_and_Speech_for_Real-Time_Human-Computer_Interaction,Detection of Affective States From Text and Speech for Real-Time Human-Computer Interaction,happiness
+batch2_Detection_of_Affective_States_From_Text_and_Speech_for_Real-Time_Human-Computer_Interaction,Detection of Affective States From Text and Speech for Real-Time Human-Computer Interaction,sadness
+batch2_Detection_of_Affective_States_From_Text_and_Speech_for_Real-Time_Human-Computer_Interaction,Detection of Affective States From Text and Speech for Real-Time Human-Computer Interaction,anger
+batch2_Detection_of_Affective_States_From_Text_and_Speech_for_Real-Time_Human-Computer_Interaction,Detection of Affective States From Text and Speech for Real-Time Human-Computer Interaction,surprise
+batch2_Detection_of_Affective_States_From_Text_and_Speech_for_Real-Time_Human-Computer_Interaction,Detection of Affective States From Text and Speech for Real-Time Human-Computer Interaction,fear
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,happiness
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,amusement
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,sadness
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,disgust
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,anxiety
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,fear
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,surprise
+batch2_Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,Emotion Classification in Arousal Valence Model using MAHNOB-HCI Database,anger
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,anger
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,fear
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,happiness
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,disgust
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,admiration
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,fascination
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,surprise
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,curiosity
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,pleasure
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,sadness
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,compassion
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,trust
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,anticipation
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,hate
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,contempt
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,pride
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,interest
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,amusement
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,contentment
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,love
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,relief
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,shame
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,guilt
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,regret
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,disappointment
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,stress
+batch2_Emotion and Interface Design How to Measure Interface Design Emotional Effect,Emotion and Interface Design How to Measure Interface Design Emotional Effect,fun
+batch2_Emotion_Communication_System,Emotion Communication System,anger
+batch2_Emotion_Communication_System,Emotion Communication System,boredom
+batch2_Emotion_Communication_System,Emotion Communication System,sadness
+batch2_Emotion_Communication_System,Emotion Communication System,calmness
+batch2_Emotion_Communication_System,Emotion Communication System,surprise
+batch2_Emotion_Communication_System,Emotion Communication System,happiness
+batch2_Emotion_Communication_System,Emotion Communication System,fear
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,frustration
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,disgust
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,irritation
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,annoyance
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,concern
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,pain
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,stress
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,happiness
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,cheerfulness
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,satisfaction
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,excitement
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,hope
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,panic
+batch2_Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,Emotional Evocative User Interface Design for Lifestyle Intervention in Non-communicable Diseases using Kansei,liveliness
+batch2_Emotional Preferences Analysis Using Kansei in Designing the Appearance of User Interface for E-Voting Application,Emotional Preferences Analysis Using Kansei in Designing the Appearance of User Interface for E-Voting Application,pleasure
+batch2_Emotional Preferences Analysis Using Kansei in Designing the Appearance of User Interface for E-Voting Application,Emotional Preferences Analysis Using Kansei in Designing the Appearance of User Interface for E-Voting Application,calmness
+batch2_Emotional_Design_Tutoring_System_Based_on_Multimod,Emotional Design Tutoring System Based on Multimod,confusion
+batch2_Emotional_Design_Tutoring_System_Based_on_Multimod,Emotional Design Tutoring System Based on Multimod,interest
+batch2_Enhancing Player Experience in Game with Affective Computing,Enhancing Player Experience in Game with Affective Computing,anger
+batch2_Enhancing Player Experience in Game with Affective Computing,Enhancing Player Experience in Game with Affective Computing,happiness
+batch2_Enhancing Player Experience in Game with Affective Computing,Enhancing Player Experience in Game with Affective Computing,sadness
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,surprise
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,fascination
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,desire
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,disgust
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,contempt
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,satisfaction
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,dissatisfaction
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,amusement
+batch2_Evaluating Creative Mobile Applications Development Using Emotional Design,Evaluating Creative Mobile Applications Development Using Emotional Design,boredom
+batch2_Exploration of user interface mechanisms with affect labeling to enhance online discussion,Exploration of user interface mechanisms with affect labeling to enhance online discussion,anger
+batch2_Exploration of user interface mechanisms with affect labeling to enhance online discussion,Exploration of user interface mechanisms with affect labeling to enhance online discussion,annoyance
+batch2_Exploration of user interface mechanisms with affect labeling to enhance online discussion,Exploration of user interface mechanisms with affect labeling to enhance online discussion,rage
+batch2_Exploring the effects of emotional design and emotional intelligence in multimedia-based learning an engineering educational perspective,Exploring the effects of emotional design and emotional intelligence in multimedia-based learning an engineering educational perspective,happiness
+batch2_Exploring the effects of emotional design and emotional intelligence in multimedia-based learning an engineering educational perspective,Exploring the effects of emotional design and emotional intelligence in multimedia-based learning an engineering educational perspective,sadness
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,happiness
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,sadness
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,fear
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,frustration
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,anger
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,surprise
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,disgust
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,doubt
+batch2_Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,Eye Movement Analysis and Usability Assessment on Affective Computing Combined with Intelligent Tutoring System,confusion
+batch2_Eye Tracking in Emotional Design Research What are its Limitations,Eye Tracking in Emotional Design Research What are its Limitations,anxiety
+batch2_Eye Tracking in Emotional Design Research What are its Limitations,Eye Tracking in Emotional Design Research What are its Limitations,nervousness
+batch2_Eye Tracking in Emotional Design Research What are its Limitations,Eye Tracking in Emotional Design Research What are its Limitations,stress
+batch2_Facial temperature sensing on smart eyewear for affective computing,Facial temperature sensing on smart eyewear for affective computing,pleasure
+batch2_Facial temperature sensing on smart eyewear for affective computing,Facial temperature sensing on smart eyewear for affective computing,liking
+batch2_Facial temperature sensing on smart eyewear for affective computing,Facial temperature sensing on smart eyewear for affective computing,enjoyment
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,happiness
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,surprise
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,excitement
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,enthusiasm
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,inspiration
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,anticipation
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,fear
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,distress
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,pride
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,nervousness
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,anger
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,acceptance
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,irritation
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,disgust
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,interest
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,guilt
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,sadness
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,hostility
+batch2_Fuzzy model of dominance emotions in affective computing,Fuzzy model of dominance emotions in affective computing,shame
+batch2_Gaze Interaction and People with Computer Anxiety Paving the Way to User Interface Simplification,Gaze Interaction and People with Computer Anxiety Paving the Way to User Interface Simplification,anxiety
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,surprise
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,excitement
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,delight
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,happiness
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,pleasure
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,contentment
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,relaxation
+batch2_Graceful_interaction_design_Measuring_emotional_response_towards_movement_quality,Graceful interaction design Measuring emotional response towards movement quality,calmness
+batch2_HOW IS YOUR USER FEELING INFERRING EMOTION THROUGH HUMAN-COMPUTER INTERACTION DEVICES,HOW IS YOUR USER FEELING INFERRING EMOTION THROUGH HUMAN-COMPUTER INTERACTION DEVICES,frustration
+batch2_HOW IS YOUR USER FEELING INFERRING EMOTION THROUGH HUMAN-COMPUTER INTERACTION DEVICES,HOW IS YOUR USER FEELING INFERRING EMOTION THROUGH HUMAN-COMPUTER INTERACTION DEVICES,pleasure
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,trust
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,anger
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,disgust
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,fear
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,anticipation
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,happiness
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,sadness
+batch2_How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,How much do Twitter posts affect voters Analysis of the multi-emotional charge with affective computing in political campaigns,surprise
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,calmness
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,happiness
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,sadness
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,anger
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,fear
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,disgust
+batch2_Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,Human-Computer Interaction for Recognizing Speech Emotions Using Multilayer Perceptron Classifier,surprise
+"batch2_Hybrid affective computing-keyboard, mouse and touch screen_from review to experiment","Hybrid affective computing-keyboard, mouse and touch screen from review to experiment",fear
+"batch2_Hybrid affective computing-keyboard, mouse and touch screen_from review to experiment","Hybrid affective computing-keyboard, mouse and touch screen from review to experiment",sadness
+"batch2_Hybrid affective computing-keyboard, mouse and touch screen_from review to experiment","Hybrid affective computing-keyboard, mouse and touch screen from review to experiment",nervousness
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,happiness
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,satisfaction
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,pride
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,liking
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,disappointment
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,dislike
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,shame
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,pity
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,complacent
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,shyness
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,envy
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,gratitude
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,hope
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,love
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,grief
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,anger
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,fear
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,resentment
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,excitement
+batch2_Injecting_Affective_Computing_into_Online_Virtual_Training_Through_FPS_Games,Injecting Affective Computing into Online Virtual Training Through FPS Games,calmness
+batch2_Interactive_Interface_Design_for_Telemedicine_and_the_Emotional_Needs_of_Patients,Interactive Interface Design for Telemedicine and the Emotional Needs of Patients,anxiety
+batch2_Interactive_Interface_Design_for_Telemedicine_and_the_Emotional_Needs_of_Patients,Interactive Interface Design for Telemedicine and the Emotional Needs of Patients,calmness
+batch2_Interactive_Interface_Design_for_Telemedicine_and_the_Emotional_Needs_of_Patients,Interactive Interface Design for Telemedicine and the Emotional Needs of Patients,care
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,interest
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,pleasure
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,confusion
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,curiosity
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,touched
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,surprise
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,excitement
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,fun
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,optimism
+batch2_Kansei_semantic_space_for_emotion_in_online_learning,Kansei semantic space for emotion in online learning,happiness
+batch2_More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,happiness
+batch2_More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,excitement
+batch2_More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,contentment
+batch2_More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,interest
+batch2_More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,More Attractive or More Interactive The Effects of Multi-Leveled Emotional Design on Middle School Students Multimedia Learning,relaxation
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,pleasure
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,excitement
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,annoyance
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,nervousness
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,sadness
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,calmness
+batch2_Multi-modal_Approach_for_Affective_Computing,Multi-modal Approach for Affective Computing,relaxation
+batch2_Optimal_Arousal_Identification_and_Classification_for_Affective_Computing_Using_Physiological_Signals_Virtual_Reality_Stroop_Task,Optimal Arousal Identification and Classification for Affective Computing Using Physiological Signals Virtual Reality Stroop Task,stress
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,anxiety
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,happiness
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,confidence
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,sadness
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,fear
+batch2_Reading Emotion From Mouse Cursor Motions Affective Computing Approach,Reading Emotion From Mouse Cursor Motions Affective Computing Approach,hostility
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,anger
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,disgust
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,fear
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,happiness
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,sadness
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,surprise
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,relaxation
+batch2_Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,Realtime Emotional Reflective User Interface Based on Deep Convolutional Neural Networks and Generative Adversarial Networks,stress
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,anger
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,fear
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,sadness
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,happiness
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,disgust
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,surprise
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,anxiety
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,stress
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,calmness
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,contentment
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,confusion
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,pride
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,love
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,shame
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,contempt
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,boredom
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,overwhelm
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,discomfort
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,frustration
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,irritation
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,excitement
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,panic
+batch2_Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,Social-Emotional-Sensory Design Map for Affective Computing Informed by Neurodivergent Experiences,loneliness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,sadness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,sentimentality
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,lethargy
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,irritation
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,agitation
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,anxiety
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,stress
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,boisterousness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,rebelliousness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,vigor
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,amusement
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,amiability
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,cheerfulness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,relaxation
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,dreaminess
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,calmness
+batch2_The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,The Same Person Is Never the Same Introducing Mood-Stimulated Thought Action Tendencies for User-Centered Design,happiness
+batch2_The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,happiness
+batch2_The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,excitement
+batch2_The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,contentment
+batch2_The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,interest
+batch2_The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,The effects of emotional design on middle school students multimedia learning the role of learners prior knowledge,relaxation
+batch2_The production and recognition of emotions in speech features and algorithms,The production and recognition of emotions in speech features and algorithms,calmness
+batch2_The production and recognition of emotions in speech features and algorithms,The production and recognition of emotions in speech features and algorithms,anger
+batch2_The production and recognition of emotions in speech features and algorithms,The production and recognition of emotions in speech features and algorithms,sadness
+batch2_The production and recognition of emotions in speech features and algorithms,The production and recognition of emotions in speech features and algorithms,happiness
+batch2_The production and recognition of emotions in speech features and algorithms,The production and recognition of emotions in speech features and algorithms,comfort
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,anger
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,surprise
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,interest
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,contempt
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,fear
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,guilt
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,shyness
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,happiness
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,distress
+batch2_The_Effect_of_Two_Different_Types_of_Human-Computer_Interactions_on_Users_Emotion_in_Virtual_Counseling_Environment,The Effect of Two Different Types of Human-Computer Interactions on Users Emotion in Virtual Counseling Environment,disgust
+batch2_The_Influence_of_Fluency_of_Dynamic_Circular_Ring_in_Human-Computer_Interaction_Interface_on_Human_Emotion,The Influence of Fluency of Dynamic Circular Ring in Human-Computer Interaction Interface on Human Emotion,anxiety
+batch2_The_Influence_of_Fluency_of_Dynamic_Circular_Ring_in_Human-Computer_Interaction_Interface_on_Human_Emotion,The Influence of Fluency of Dynamic Circular Ring in Human-Computer Interaction Interface on Human Emotion,discomfort
+batch2_The_Influence_of_Fluency_of_Dynamic_Circular_Ring_in_Human-Computer_Interaction_Interface_on_Human_Emotion,The Influence of Fluency of Dynamic Circular Ring in Human-Computer Interaction Interface on Human Emotion,comfort
+batch2_The_Influence_of_Fluency_of_Dynamic_Circular_Ring_in_Human-Computer_Interaction_Interface_on_Human_Emotion,The Influence of Fluency of Dynamic Circular Ring in Human-Computer Interaction Interface on Human Emotion,interest
+batch2_Toward_Emotion_Aware_Computing_An_Integrated_Approach_Using_Multichannel_Neurophysiological_Recordings_and_Affective_Visual_Stimuli,Toward Emotion Aware Computing An Integrated Approach Using Multichannel Neurophysiological Recordings and Affective Visual Stimuli,pleasure
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,anger
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,hate
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,grief
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,love
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,happiness
+batch2_Toward_machine_emotional_intelligence_analysis_of_affective_physiological_state,Toward machine emotional intelligence analysis of affective physiological state,reverence
+batch2_Track_Your_Emotional_Perception_of_3-D_Virtual_Talking_Head_in_Human-computer_Interaction,Track Your Emotional Perception of 3-D Virtual Talking Head in Human-computer Interaction,happiness
+batch2_Track_Your_Emotional_Perception_of_3-D_Virtual_Talking_Head_in_Human-computer_Interaction,Track Your Emotional Perception of 3-D Virtual Talking Head in Human-computer Interaction,surprise
+batch2_Track_Your_Emotional_Perception_of_3-D_Virtual_Talking_Head_in_Human-computer_Interaction,Track Your Emotional Perception of 3-D Virtual Talking Head in Human-computer Interaction,sadness
+batch2_Track_Your_Emotional_Perception_of_3-D_Virtual_Talking_Head_in_Human-computer_Interaction,Track Your Emotional Perception of 3-D Virtual Talking Head in Human-computer Interaction,anger
+batch2_Unimodal_and_Multimodal_Human_Perceptionof_Naturalistic_Non-Basic_Affective_Statesduring_Human-Computer_Interactions,Unimodal and Multimodal Human Perceptionof Naturalistic Non-Basic Affective Statesduring Human-Computer Interactions,boredom
+batch2_Unimodal_and_Multimodal_Human_Perceptionof_Naturalistic_Non-Basic_Affective_Statesduring_Human-Computer_Interactions,Unimodal and Multimodal Human Perceptionof Naturalistic Non-Basic Affective Statesduring Human-Computer Interactions,confusion
+batch2_Unimodal_and_Multimodal_Human_Perceptionof_Naturalistic_Non-Basic_Affective_Statesduring_Human-Computer_Interactions,Unimodal and Multimodal Human Perceptionof Naturalistic Non-Basic Affective Statesduring Human-Computer Interactions,frustration
+batch2_When and why does emotional design foster learning Evidence for situational,When and why does emotional design foster learning Evidence for situational,situational interest
+batch2_When and why does emotional design foster learning Evidence for situational,When and why does emotional design foster learning Evidence for situational,triggered situational interest
+batch2_When and why does emotional design foster learning Evidence for situational,When and why does emotional design foster learning Evidence for situational,maintained situational interest

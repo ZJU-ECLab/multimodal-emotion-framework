@@ -1,0 +1,125 @@
+BabeBay-A Companion Robot for Children Based on
+        Multimodal Affective Computing
+                                 Meimei Zheng, Yingying She*, Fang Liu, Jin Chen, Yang Shu, JianBing XiaHou
+                                                     Software School, Xiamen University
+                                                           Xiamen,Fujian,China
+                                             yingyingshe@xmu.edu.cn (*Corresponding author)
+
+
+
+
+   Abstract—The BabeBay is a children companion robot which                       Microsoft surface along with an Intel Realsense SR300 and a
+has the ability of real-time multimodal affective computing.                      cloud server. As shown in the Fig.1, the front end devices
+Accurate and effective affective fusion computing makes                           capture the children's real-time multimodal interaction data and
+BabeBay own adaptability and capability during interaction                        preprocess it. After data sending to the cloud server, the
+according to different children in different emotion. Furthermore                 affective and cognitive computing modules process the data
+，the corresponding cognitive computing and robots behavior                        and pass the front end device. Finally, the output module in the
+can be enhanced to personalized companionship.                                    front end device select corresponding visual land dialogue
+                                                                                  interaction context to children.
+    Keywords—companion robot, multimodal affective computing,
+child-robot interaction                                                               The appearance of BabeBay is a furry lamb. It has
+                                                                                  exaggerated and cute facial expression animation which
+                         I. INTRODUCTION                                          mimics the facial features of children. It also has a high-pitched
+                                                                                  voice just like an ordinary child. Children can interact with
+    Social robots are widely used in different fields, there are                  BabeBay by natural interaction modals such as gestures, voice,
+also many intelligent robots designed for children[1][2].                         eye-gaze and touches on the screen. Besides we incorporate the
+Multimodal affective computing has not been applied to the                        “ruler” psychology emotional theory into the output module
+interaction between children and robots[3]. The lack of                           design in order to help children to regulate themselves
+precisely affective computing greatly influences the user                         emotions. The real-time computing from the multimodal
+experience in HRI. Therefore, we design the BabeBay, a                            affective module provides the possibility to exam children’s
+companion robot for children, which can provide real-time                         emotion status all the time, and lets the robot present
+vivid interaction with children based on multimodal affective                     personalized and adaptive interaction to the children.
+fusion computing technology. BabeBay is designed as a buddy
+(companion robot) for children. It can analysis varied                            B. Affective Computing
+multimodal interaction data ， and provide precise affective
+computing result for its behavior decision making. BabeBay                           The affective computing mainly includes multimodal data
+accompanies with children by presenting personalized visual                       pre-processing module and affective computing fusion module.
+and dialogue interactive programs. Visual interaction refers to                   BabeBay can capture the multimodal data form the child every
+the interaction of game, so it is easier for children to accept                   3-20 times per second. The data includes the facial expression,
+than dialogue interaction only. As long as interaction proceed,                   the voice, the hand gestures, the head movement, and the eye-
+the BabeBay updates its interactive models for different                          gaze movement data. As showed in the Fig1, the pre-
+children in order to have personalized interaction experience.                    processing module processes these data in verbal and non-
+                                                                                  verbal sub-modules.
+                            II. METHOD                                               We adopt the PAD[4]emotional state model to process the
+                                                                                  non-verbal information, and the OCC[5] model of emotion to
+A. Robot Design                                                                   process the verbal information. The PAD model uses three
+   The system of BabeBay consists of a front end device                           numerical dimensions, Pleasure-Arousal-Dominance to
+
+
+
+
+  Fig. 1. The multimodal affective computing and cognitive computing framework.
+
+
+
+978-1-5386-8555-6/19/$31.00 ©2019 IEEE                                      604
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:32:41 UTC from IEEE Xplore. Restrictions apply.
+represent all emotions, it improves the accuracy and continuity                   in dialogue; however, the boy is still unhappy.Then, BabeBay
+of affective computing. Emotions described by the PAD model                       presents a visual interaction program.He becomes happy. In the
+can be obtained from the emotion dimensional spaces, as                           experiment, children are willing to interact with BabeBay.
+depicted in the Fig2. The dimensional space it used to describe                   And, the affective computing can help robot to interact with
+emotions is gradual and stable, and is suitable for continuous                    children better. It verify the hypothesis 2.
+non-verbal affective computing.
+
+
+
+
+                                                                                  Fig.3. The affective computing result of Case 1 is described in PAD values.
+
+
+Fig. 2. The PAD model computing; That uses PAD value to describe user’s
+continuous affective computing results in numerical dimensions.
+
+   Each time, after BabeBay captures multimodal interaction
+information, it calculates each kind of modal independently to
+corresponding PAD values. The verbal information is
+calculated as OCC model emotion states before transfered into
+PAD values. Finally, after all modals are obtained its own
+PAD value, the fusion of multimodal PAD emotion value is
+processed and output a PAD emotion value represented the
+current emotion of the child to the cognitive computing
+module. BabeBay outputs visual interaction decisions based on
+the results of affective computing, as depicted in Fig1.BabeBay
+                                                                                  Fig.4. Case 2: The boy interacts with the BabeBay in visual interaction
+has numbers of facial expression and language phases for                          programs.
+different emotions, and it can output different interaction
+feedbacks for different emotions as the psychology programs
+designed.                                                                                       IV. CONCLUSION AND FUTURE WORK
+                                                                                      The real-time multimodal affective computing improves the
+                         III. EXPERIMENT                                          accuracy and effectiveness of HRI. Compared with other
+                                                                                  companion robots, BabeBay can achieve better interactive user
+    We design experiments to verify the following hypothesis.                     experience. The framework of BabeBay can be extend to more
+Hypothesis 1: BabeBay can do realtime multimodal affective                        specific affective cognitive models design and trained for
+computing during the interaction, and the result of affective                     different children based on their own personalities. We design
+computing is accurate. Hypothesis 2: BabeBay outputs visual                       different visual interactions for the children’s characteristics of
+interaction decisions based on the results of affective                           gender, emotion and behavior preferences. Moreover, the
+computing which can achieve better companionship.                                 affective computing and cognitive framework can also be used
+                                                                                  to companion robots for different users, such elderly or
+A. Case1                                                                          disabled people.
+    The participants is 22 children (10 girls and 12 boys) with
+an average age of 7 years old. BabeBay dose an affective                                                         REFERENCES
+computing every 10 frames. The results are represented by
+PAD, as depicted in Fig.3. We compare the affective
+                                                                                  [1]   Park H W , Rosenberg-Kima R , Rosenberg M , Gordon G, Breazeal
+computing results with the emotional calibration results                                C,“Growing Growth Mindset with a Social Robot Peer,” in ACM/IEEE
+through the video. The average accuracy probability of                                  International Conference on Human-Robot, 2017:137-145.
+affective computing is about 81%. Emotions with higher                            [2]   Jeong S, Breazeal C, Logan D, Weinstock P, “Huggable: The Impact of
+frequency can reach almost 90%.It verifies the hypothesis 1.                            Embodiment on Promoting Socio-emotional Interactions for Young
+                                                                                        Pediatric Inpatients,”in ACM Conference on Human Factors in
+                                                                                        Computing Systems,2018:1-13.
+B. Case2
+                                                                                  [3]   Wu C, Huang Y, Hwang J. Review of affective computing in
+    We analysis the interaction between children and BabeBay.                           education/learning: Trends and challenges[J]. British Journal of
+BabeBay presents dialogue and visual interaction programs                               Educational Technology, 2016, 47(6):1304-1323.
+based on different emotions. In the experiment, one case is a                     [4]   Mehrabian, Albert, Basic dimensions for a general psychological theory.
+girl (8 years old) , she is angry at first, as depicted in Fig.3.                       pp. 1980,39–53. ISBN 0-89946-004-6.
+BabeBay helps her to find a way to solve problems through                         [5]   Ortony, A., Clore, G. L., & Collins, A, The cognitive structure of
+dialogue, the girl becomes happy. The other is a boy (9 years                           emotions. New York: Cambridge University Press,1988.
+old)，as depicted in Fig.5. BabeBay tries to interact with him
+
+
+
+
+                                                                            605
+        Authorized licensed use limited to: Zhejiang University. Downloaded on September 25,2026 at 11:32:41 UTC from IEEE Xplore. Restrictions apply.
+

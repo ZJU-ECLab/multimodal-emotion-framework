@@ -1,0 +1,404 @@
+IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021                                 193
+
+
+
+            Emotional Preferences Analysis Using Kansei in Designing
+            The Appearance of User Interface for E-Voting Application
+               Abdurrohman†, Aedah Abd Rahman†, Ana Hadiana††, Anitawati Mohd Lokman†††
+                                  †
+                                   School of Science and Technology Asia e University, Malaysia
+                   ††
+                     Research Center for Informatics – BRIN Indonesia, STMIK-LIKMI Bandung, Indonesia
+                   †††
+                        Faculty of Computer & Mathematical Sciences – Universiti Teknologi MARA, Malaysia
+
+
+Summary                                                                 the important thing to be considered when designing an user
+The application of e-Voting plays an important role in order to         interface of an e-Voting application.
+support democracy activities in Indonesia, such as elections at
+different levels. E-Voting has the function of providing better         Kansei Engineering approach is used in this research
+service to people in order to participate in elections. This research   because of its ability to identify and to translate user’s
+attempts to develop the appearance of the user interface of e-          emotional factors into element design concept of user
+Voting based on users’ emotional preferences using Kansei               interface for e-Voting application[3]. Kansei Engineering is
+Engineering. Kansei Engineering is used in this research to             a method that assimilates kansei (feeling), psychology,
+analyze        emotional         feelings         regarding        e-
+Voting applications’ presented       Kansei words and       give    a
+                                                                        engineering, and statistics [4]-[6]. Kansei engineering is
+recommendation on the most suitable user interface to be                potential to develop an application that matches the the
+considered in their development. This research observed two             heart and mind of user. Kansei Engineering’s methodology
+main users’ emotional feelings (“calm” and “formal”) selected           consits of systematic processes to discover the insights of
+from ten Kansei words. The final recommendation is a conceptual         user’s responses toward the targeted application including
+element designed for designing e-Voting applications based              e-Voting application via several psychological assessment
+on the Kansei word “calm”.                                              methods[7]. The final result can be a knowledge to be
+                                                                        translated into the detail specification of user interface
+Key words:                                                              element designs.
+E-Voting, Kansei Engineering, Users’ Preferences, Element
+Design, Multivariate.                                                   This research focuses on investigation of e-Voting
+                                                                        application in order to provide better election environment
+                                                                        as democracy activity, and also attempts to apply Kansei
+1. Introduction                                                         Engineering to analyze user’s emotional preferences related
+                                                                        to e-Voting application through its user interface.
+The e-Voting application is a program application to                    Multivariate statistical analysis is introduced in order to
+support democratic activity, especially in Indonesia,                   calculate and analyze the data questionnaire [8][9][10]. The
+through the internet effectively. This application in general           main aim of this research is to explore the internal e-Voting
+is based on web technology, and it is possible to be                    by analyzing the relationships between user’s emotional
+connected by using a gadget such as a tablet as a media to              feelings and it’s user interface. The result of this research is
+access it over intranet or internet [1][2]. Many countries              a recommendation for developer to enhance user interface
+around the world are competing to implement a suitable                  of e-Voting application.
+web based e-Voting application in order to reduce election
+budgets and convert traditional paper-based elections into
+digital election.                                                       2. Research Methodology
+There is an important point to be considered in development
+                                                                        Kansei Engineering Method Type I is a basic method that
+of e-Voting application. In particular, the part of the user            has been adopted in many product developments including
+interface that needs more attention, because this is a key part         program application [11][12][13][14][15]. As shown in Fig.
+that is directly connected to users. So, we have to explore             1, in genearal it consists of the systematic processes as
+and analyze what kind of suitable user interface that users             folows:
+psychologically desire, because users are main players in
+this kind of application. The psychological aspect is one of
+
+   Manuscript received November 5, 2021
+   Manuscript revised November 20, 2021
+   https://doi.org/10.22937/IJCSNS.2021.21.11.27
+194                 IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021
+
+
+   1.       Gathers the popular samples of user interfaces for                 user interviews.
+            e-Voting application. These samples are used as             2.     Devide Kansei words into several categories
+            specimens in this research.                                        according to their similarity of meaning or
+   2.       Collects adjective words or a phrase as Kansei                     opposite meaning.
+            words in order to illustrate the user’s emotional           3.     Choose only one Kansei word from two or more
+            feelings about the appearance of user interface of e-              Kansei words that have the similarity.
+            Voting application.                                         4.     Decide the selected Kansei words to be used for
+   3.       Gathers some users to be as respondents who will                   data questionnaire.
+            participate in data collection for e-Voting
+            application.
+   4.       Evaluates the data questionnaires using                 After conducting the above processes in detail, this research
+            multivariate analysis to calculate the impact of each   find only ten adjectives (“natural”, “modern”, “pleasant”,
+            Kansei words related to e-Voting application.           “simple”, “classic”, “calm”, “attractive”, “harmony”,
+   5.       Partial Least Square is used to explore design          “elegant”, “formal”), and can be considered as Kansei
+            elements based on user’s data questionnaires and        words in data questionnaire. Based on these ten Kansei
+            specimens’ design elements, then generates a            words we collect data questionnaire using five points
+            recommendation of design elements for a new user        semantic differential scale.
+            interface.
+   6.       Generates a recommendation that contains the            2.2 Specimens Collection
+            specification of element designs for user interface
+            of e-Voting application.
+                                                                    In this case we create five designs of user interface of e-
+                                                                    Voting applications as specimens. Each design must be
+                                                                    unique, so we make sure that the design of all specimens
+  Collection of Kansei                                              have different appearances according to each characteristic.
+                                        Recommendation              We explore in detail all specimens, and create a table of
+         Words
+                                                                    element designs based on all specimens. Therefore, there
+                                                                    are four main categories of components, such as header,
+                                                                    body, picture, and footer. The summary of element designs
+                                                                    classfication is described in Table 1.
+
+           Collection of                   Multivariate                            Table 1: Element Design of All Specimens
+            Specimens                       Analysis
+                                                                       Element          Sp1       Sp2        Sp3       Sp4      Sp5
+                                                                       Design
+                                                                     Header
+
+   Data Questionnaire                       Evaluation                                           Centu-     Times              Taho-
+                                                                     *Font Type        Arial                           Arial
+                                                                                                   ry        NR                 ma
+                                                                     *Font Size          36        36        40         38      38
+                                                                                                  Dark-               Dark-
+                                                                     *Font Color       Black               Brown               Black
+                     Fig. 1 Reseach Methodology.                                                  Blue                Blue
+                                                                     Body
+                                                                                                                               White-
+3. Result and Discussion                                             *Bg Color          Gray     White      White      Gray
+                                                                                                                               Blue
+                                                                     Picture
+3.1 Kansei Words Collection
+                                                                                                 Times                Taho-    Centur
+                                                                     *Font Type        Arial                Arial
+                                                                                                  NR                   ma        y
+This research collects many adjectives as Kansei words that
+                                                                     *Border            Yes        No        No         No      Yes
+have a close relationship with e-Voting application. We
+process all candidate adjective according to the following           Footer
+process.
+                                                                                       Taho-     Times      Times     Centu-
+                                                                     *Font Type                                                Arial
+                                                                                        ma        NR         NR         ry
+      1.     Collect adjectives as much as possible that has a       *Font Color       Brown      Black     Black     Brown
+                                                                                                                               Dark-
+             relationship with e-Voting appliation. The related                                                                Blue
+             adjectives can be found in related literatures and
+IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021                                         195
+
+
+                                                                  between them is very weak. The results of this relationships
+                                                                  can be used to give alternative recommendation for element
+2.3 Data Questionnaire                                            designs.
+
+This research selects ten Kansei words, and constructs a
+checklist for data questionnaire using five-point semantic                  Table 3: The Result of Coefficient Correlation Analysis
+differential scale to show the level of users’ emotional                             Natu-       Mo-        Plea-
+                                                                                                                       Simple
+                                                                                                                                  Classic
+feelings towards each specimen of the e-Voting application.                           ral        dern        sant
+Participants who were involve in this experiment are thirty        Natural              1       0,510       0,710       -0,444       0,738
+people who represent the users’ e-Voting. we ask them to           Modern             0,510       1         0,715       -0,558       0,526
+observe each specimen one by one for a while
+(aproximately 45-60 seconds), after that we ask them to fill       Pleasant           0,710     0,715         1         -0,465       0,817
+out the checklist due to their feeling about specimens. The        Simple             -0,444    -0,558      -0,465        1          -0,814
+evaluation results from all participants are calculated to find
+                                                                   Classic
+the average scores of each specimen according to each                                 0,738     0,526       0,817       -0,814         1
+Kansei word, as shown in Table 2. The average scores all           Calm               -0,096    0,201       0,352       -0,705       0,600
+specimens (Sp) are between 2 and 4. First of all, it must be
+                                                                   Attractive         -0,471    -0,657      -0,113      0,453        -0,178
+checked about data validation by calculating cronbatch’s
+alpha using XLStat. According to the data in Table 2 the           Harmony            0,735     0,588       0,397       -0,029       0,174
+cronbatch’s alpha value is 0,7. It means that the data             Elegant            0,075     0,276       0,588       -0,626       0,711
+questionnaires are valid and the next analysis can be
+continued in more detail using following multivariate              Formal             0,854     0,585       0,917       -0,647       0,956
+analysis such as coefficient correlation analysis, factor
+analysis and pearl least square.                                            Table 4: The Reulst of Coefficient Correlation Analysis
+                                                                                     Calm      Attrac-      Harm-        Ele-     Formal
+              Table 2: The Average of Data Questionnaire                                         tive        ony         gant
+ Kansei           Sp1        Sp2        Sp3        Sp4     Sp5     Natural            -0,096    -0,471      0,735       0,075        0,854
+ Word
+                                                                   Modern             0,201     -0,657      0,588       0,276        0,585
+ Natural           4         3,2        2,8        2,8      3
+                                                                   Pleasant           0,352     -0,113      0,397       0,588        0,917
+ Modern           3,8        3,57       3,37       3,8     3,43
+                                                                   Simple             -0,705    0,453       -0,029      -0,626       -0,647
+ Pleasant          4         3,53       3,63       3,7     3,4
+                                                                   Classic            0,600     -0,178      0,174       0,711        0,956
+ Simple           3,7        3,6        3,87       3,77     4
+                                                                   Calm                 1       0,243       -0,597      0,946        0,392
+ Classic           4         3,9        3,83       3,8     3,67
+                                                                   Attractive         0,243       1         -0,728      0,336        -0,194
+ Calm             3,3        3,4        3,4        3,37    3,1
+                                                                   Harmony            -0,597    -0,728        1         -0,469       0,379
+ Attractive       3,57       3,53       4,03       3,6     3,63
+                                                                   Elegant            0,946     0,336       -0,469        1          0,577
+ Harmony          3,97       3,63       3,43       3,7     3,83
+                                                                   Formal             0,392     -0,194      0,379       0,577          1
+ Elegant          3,7        3,67       3,87       3,7      3
+ Formal           3,37       2,6        2,5        2,4      2
+                                                                  We groups all Kansei words by four categories very strong,
+                                                                  strong, weak, and very weak as shown in Table 5.
+
+                                                                                Table 5: Level of Kansei Words’s Relationship
+2.4 Kansei Words’ Relationship                                               Category                      Relationship
+                                                                                                       Classic-Formal, Pleasant-
+                                                                             Very strong
+Coefficient correlation analysis is used to find the                                                    Formal, Calm-Elegant
+relationship between Kansei words according to data                                                   Naturan-Pleasant, Natural-
+                                                                                                      Harmony, Natural-Formal,
+questionnaire. The detailed result are shown in Table 3 and                  Strong
+                                                                                                      Modern-Pleasant, Modern-
+Table 4. We find that the strong relationship between two                                             Attractive, Pleasant-Classic
+Kansei words is identified by identifying coefficient values                                          Natural-Modern, Modern-
+that are close to 1. There are three very strong relationships               Weak                     Classic, Modern-Harmony,
+that have a coefficient value of more than 0,9, such as                                                  Modern-Elegant, etc
+                                                                                                       Calm-Natural, Attractive-
+“classic”-“formal”, “pleasant”-“formal”, and “calm”-                         Very weak                    Modern, Harmony-
+“elegant”. The coefficient corelation value between “formal”                                                 Attractive, etc
+and “classic” is -0,647, which means that the relationship
+196                 IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021
+
+
+                                                                  According to Table 5, the Kansei word “calm” and the
+                                                                  Kansei word “elegant” have a very strong relationship. On
+2.5 Factor Analysis                                               the other hand, according to factor D2 in Table 7, the result
+                                                                  of factor analysis of “elegant” is 0,881 and we can also
+This analysis is used to find which user’s emotional feelings     considers this Kansei word in deciding element designs for
+(Kansei word) have a great impact on e-Voting application         the user interface.
+through it’s user interface. Table 6 shows the result of factor
+analysis. We find two factors that have cummulative value
+of more than 60%. So, we are able to continue to analyze to
+find the strength of each Kansei word.                            2.6 Element Design Translation
+                        Table 6: Emotional Factors                The final process of this research is element designs
+                                  D1         D2            D3     calculation using Partial Least Square (PLS). PLS
+                                                                  calculates the data in Table 1 and Table 2 to generate
+      Variability (%)
+                                38,932      31,514       21,461   element designs based on all Kansei words. However,
+      Cumlative %                                                 according to the result of factor analysis, the best impact of
+                                38,932      70,445       91,906   emotional feeling is “calm”, so based on this Kansei word
+                                                                  we conduct PLS’s calculation to translate it into element
+According to these two factors, then we try to find which         designs. By calculating the range value among the
+emotional feelings have a big impact on e-Voting                  coefficient values of element designs in each category, it
+application. Table 7 shows that in the first factor D1 there      can be found that the value of element designs to be set.
+are Kansei words of “pleasant” and “harmony” have a big           Table 8 shows the values of each element design.
+impact because their value is more than 0,8. While in the
+second factor D2, there are two Kansei words of “calm”                               Table 8: The Result of PLS
+and “elegant” that have more value than 0,8. Finally we                                                 Coefficient   Selected
+                                                                           Element Design
+selects the Kansei word “calm” which has a value 0,989, as                                                Value        Value
+well as the Kansei word “formal” which has a value 0,944.         Header Font Type   Arial                  -0,143
+Next, we continue to consider these two Kansei words to
+find element designs in the next analysis.                                           Century                0,083         √
+
+                Table 7: The Result of Factor Analysis                               Times NR               0,035
+
+         Kansei Word                D1                D2                             Tahoma                 0,057
+             Natural
+                                   0,851             -0,130       Header Font Size   36                     0,075         √
+             Modern
+                                   0,522             0,175                           38                     -0,153
+             Pleasant
+                                   0,893             0,251                           40                     0,050
+                                                                  Header Font
+             Simple
+                                   -0,359            -0,718       Color              Dark Blue              0,035         √
+             Classic
+                                   0,794             0,539                           Black                  -0,057
+              Calm
+                                   0,109             0,989                           Brown                  0,029
+                                                                  Body Background
+            Attractive
+                                   -0,109            0,143        Color              Gray                   0,011
+             Hamony
+                                   0,534             -0,605                          White                  0,083         √
+             Elegant
+                                   0,376             0,881                           White Blue             -0,078
+                                                                  Picture’s Font
+             Formal
+                                   0,944             0,305        Type               Arial                  0,083         √
+
+                                                                                     Century                0,075
+
+                                                                                     Times NR               -0,153
+
+                                                                                     Tahoma                 -0,022
+
+                                                                  Border             Yes                    -0,050
+IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021                                  197
+
+
+                                    Coefficient    Selected     Further research is proposed to investigate users’
+          Element Design                                        preferences based on more population in order to find more
+                                      Value         Value
+                                                                detailed element designs. For example, we ask users to
+                    No                  0,050          √        participate in a data questionnaire based on several different
+Footer Font Type    Arial               0,097          √
+                                                                regions in Indonesia, in order to develop a unique user
+                                                                interface for the e-Voting application.
+                    Century             0,057
+
+                    Times NR           -0,022                   Acknowledgments
+                    Tahoma             -0,153                   The authors would like to thank Reseach Center for
+                                                                Informatics – BRIN Indonesia, STMIK-LIKMI Bandung
+Footer Font Color   Dark Blue           0,011
+                                                                Indonesia, Asie e University Malaysia, and Universiti
+                    Black              -0,057                   Teknologi MARA Malaysia for their great support and
+                                                                cooperation during this research.
+                    Brown               0,057          √
+
+
+                                                                References
+                                                                [1] Ally, M.: Mobile Learning Transforming the Delivery of Education
+2.6 Recommendation of Element Design                                 and Training. Atabasca University: AU Press (2009)
+                                                                [2] Taharim, N.F., Lokman, A. M., Isa, W. A. R. W. M., Noor N. L. M.:
+                                                                     A Theoretical Framework of Playful Interaction in Mobile Learning.,
+In the final process according to the result in Table 8, we          Eighth International Conference on Next Generation Mobile Apps,
+find that the selected element design’s value is the greatest        Services and Technologies (NGMAST), Oxford (2014)
+value. Therefore, we conclude to make a recommendation          [3] Lokman, A.M., Noor, N. L. M., Nagamachi M.: Expert Kansei Web:
+for a user interface specification for the e-Voting                  A Tool to design Kansei website. Enterprise Information
+                                                                     Systems.Lecture Notes in Business Information Processing (LNBIP)
+application based on Kansei word “calm” as follows:                  Vol. 24, pp.894-905 (2009)
+                                                                [4] Sato, N., Anse, M., Table T.: A method for constructing a movie
+          Header Font Type      : Century                           selection support system based on Kansei Engineering. In The 12th
+                                                                     International Conference on Human Computer Interacton (HCII),
+          Header Font Size      : 36                                Beijing (2007)
+          Header Font Color     : Dark Blue                    [5] Wang, K, Wang, T.: Applying Kansei Engineering on the ecommerce
+          Body Background Color : White                             web of 3C product. In Kansei Engineering and Emotion Research
+                                                                     International Conference (KEER), Paris (2010)
+          Picture’s Font Type   : Arial                        [6] Redzuan F., Lokman, A. M., Othman, Z. A.: Kansei semantic space
+          Picture’s Border      : No                                for emotion in online learning. 3rd International Conference on User
+          Footer Font Type      : Arial                             Science and Engineering (i-USEr), Shah Alam (2014)
+          Footer Font Color     : Brown                        [7] Lokman, A. M., Nagamachi, M.: Kansei Engineering – A Beginner
+                                                                     Perspective. 1st Edition, Selangor, Malaysia: UPENA, Shah Alam
+                                                                     (2010)
+                                                                [8] Nagamachi, M., Lokman, A. M.: Innovations of Kansei Engineering
+3. Conclusion                                                        Industrial Innovation Series. Adedeji B. Badiru (Eds.), Taylor &
+                                                                     Francis Group, Florida (2011)
+                                                                [9] Nagamachi, M., Lokman, A. M.: Kansei Innovation: Practical
+Kansei engineering has been adopted in this research to              Design Applications for Product and Service Development. Taylor &
+analyze users’ emotional feelings related to the user                Francis Group (2015)
+interface of the e-Voting application. Emotional feelings       [10] Hadiana, A., Lokman A. M.: Kansei Engineering for Web Design.
+shown by Kansei words are translated into the design                 Kansei Resources, Selangor, Malaysia (2021)
+concept for the user interface of the e-Voting application.     [11] Tharangie, K. G. D., Irfan, C. M. A., Marasinghe, C. A., Yamada, K.:
+                                                                     Kansei engineering assessing system to enhance the usability in
+Statistical multivariate is used to analyze each specimen of         Elearning web interfaces: Color basis. In Workshop Proc. 16th Inter.
+the e-Voting application and to determine which emotional            Conf. on Computers in Education( ICCE), Workshop on Testing and
+feeling has the biggest impact on the e-Voting application.          Assessment, Taipei (2008)
+                                                                [12] Yuhazri, M.Y., Yahaya, S.H., Syaifoelida, F.: The Kansei Design
+                                                                     Characteristics towards Learning Style. Journal of Engineering
+According to the result of factor analysis, the user's               Vol.2013 (2013)
+emotional feeling that have the biggest impact on the e-        [13] Chaminda, H. T., Basnayake, A., Madurapperuma, A., Osano, M.:
+Voting application is "calm" and the alternative is "formal".        An interactive E-Learning system using Kansei engineering. In
+                                                                     International Conference on Biometrics and Kansei Engineering, pp.
+Therefore, this research recommends revising its user                157-162 (2009)
+interface with the specification of element design for          [14] Ginting, S., Hadiana, A.: Interface and Service Analysis on Student
+developing the appearance of the e-Voting application.               Website Using Kansei Engineering and Kano. Proceeding of 1st
+198                IJCSNS International Journal of Computer Science and Network Security, VOL.21 No.11, November 2021
+
+
+     International Conference on Informatics, Engineering, Sciences and
+     Technology (INCITEST) (2018)
+[15] Nugroho, I.M., Hadiana, A., Singasatia, D.: Design of Wastu Mobile
+     Interface Using Kansei Engineering. Proceeding of 4th International
+     Conference on Informatics and Computing (ICIC) (2019)
+
+
+
+                      Abdurrohman received the S.T
+                      degree from from STT Bandung in 2016.
+                      He received the M.Kom. degree from
+                      STMIK-LIKMI Bandung in 2018. He
+                      has been working at PT. INTI Indonesia.
+                      From 2019 he has been working as
+                      lecturer at STT Bandung Indonesia. He is
+                      a PhD student at Asia e Univiersity
+                      Malaysia. His research interest includes
+                      Kansei        Engineering,     Software
+Engineering, Enterprise Architecture, Networking, and
+Information System.
+
+                          Aedah Abd Rahman is an associate
+                          professor at the School of Graduate
+                          Studies (ICT), Asia e University
+                          Malaysia. Her research interest includes
+                          E-Learning System, Web Analysis, Data
+                          Mining, and Information System.
+
+
+
+
+                       Ana Hadiana received the B.Eng. and
+                       M.Eng. degrees, from Fukui University in
+                       1993 and 1995, respectively. He received
+                       the Dr.Eng. degree from Shinsyu
+                       University in 2004. After working as a
+                       researcher (from 2004) at Research
+                       Center for Informatics – Indonesian
+                       Institute of Sciences (LIPI), he worked as
+                       research assistant at National Institute of
+Informatics (NII) Japan (2006-2007). He is also lecturer at
+Graduate School of STMIK-LIKMI Bandung. From 2021 he has
+been working as professor at National Research and Innovation
+Agency (BRIN) Indonesia. His research interest includes Kansei
+Engineering, Enterprise Architecture, E-Learning System, Data
+Mining, and Information System.
+
+
+                          Anitawati Mohd Lokman is a
+                          professor at the Faculty of Computer &
+                          Mathematical      Science,     Universiti
+                          Teknologi MARA, Malaysia. She has
+                          more than 100 publications, which
+                          includes    books,     journal    article,
+                          conference proceedings, and other
+                          publications locally and internationally.
+Her research interest includes Emotional UX, Emotion & Design,
+Kansei Engineering, and Happiness & Wellbeing.
+

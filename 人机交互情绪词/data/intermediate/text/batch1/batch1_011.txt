@@ -1,0 +1,1070 @@
+Cultivating Gratitude with a Chatbot
+
+Citation for published version (APA):
+Lee, M., Contreras Alejandro, J., & IJsselsteijn, W. (2024). Cultivating Gratitude with a Chatbot. International
+Journal of Human-Computer Interaction, 40(18), 4957-4972. Article 2231277.
+https://doi.org/10.1080/10447318.2023.2231277
+
+
+
+
+Document license:
+CC BY
+
+
+DOI:
+10.1080/10447318.2023.2231277
+
+
+Document status and date:
+Published: 01/01/2024
+
+
+Document Version:
+Publisher’s PDF, also known as Version of Record (includes final page, issue and volume numbers)
+
+
+Please check the document version of this publication:
+• A submitted manuscript is the version of the article upon submission and before peer-review. There can be
+important differences between the submitted version and the official published version of record. People
+interested in the research are advised to contact the author for the final version of the publication, or visit the
+DOI to the publisher's website.
+• The final author version and the galley proof are versions of the publication after peer review.
+• The final published version features the final layout of the paper including the volume, issue and page
+numbers.
+Link to publication
+
+
+
+
+General rights
+Copyright and moral rights for the publications made accessible in the public portal are retained by the authors and/or other copyright owners
+and it is a condition of accessing publications that users recognise and abide by the legal requirements associated with these rights.
+
+       • Users may download and print one copy of any publication from the public portal for the purpose of private study or research.
+       • You may not further distribute the material or use it for any profit-making activity or commercial gain
+       • You may freely distribute the URL identifying the publication in the public portal.
+
+If the publication is distributed under the terms of Article 25fa of the Dutch Copyright Act, indicated by the “Taverne” license above, please
+follow below link for the End User Agreement:
+www.tue.nl/taverne
+
+Take down policy
+If you believe that this document breaches copyright please contact us at:
+openaccess@tue.nl
+providing details and we will investigate your claim.
+
+
+
+
+Download date: 23. Sep. 2026
+      International Journal of Human–Computer Interaction
+
+
+
+
+      ISSN: (Print) (Online) Journal homepage: www.tandfonline.com/journals/hihc20
+
+
+
+
+Cultivating Gratitude with a Chatbot
+
+Minha Lee, Jessica Contreras Alejandro & Wijnand IJsselsteijn
+
+To cite this article: Minha Lee, Jessica Contreras Alejandro & Wijnand IJsselsteijn (2024)
+Cultivating Gratitude with a Chatbot, International Journal of Human–Computer Interaction,
+40:18, 4957-4972, DOI: 10.1080/10447318.2023.2231277
+
+To link to this article: https://doi.org/10.1080/10447318.2023.2231277
+
+
+
+
+       © 2023 The Author(s). Published with
+       license by Taylor & Francis Group, LLC
+
+
+       Published online: 18 Jul 2023.
+
+
+
+       Submit your article to this journal
+
+
+
+       Article views: 1723
+
+
+
+       View related articles
+
+
+
+       View Crossmark data
+
+
+
+       Citing articles: 1 View citing articles
+
+
+
+
+                      Full Terms & Conditions of access and use can be found at
+             https://www.tandfonline.com/action/journalInformation?journalCode=hihc20
+INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION
+2024, VOL. 40, NO. 18, 4957–4972
+https://doi.org/10.1080/10447318.2023.2231277
+
+
+RESEARCH REPORT
+
+Cultivating Gratitude with a Chatbot
+Minha Leea            , Jessica Contreras Alejandrob, and Wijnand IJsselsteijnb
+a
+ Department of Industrial Design, Eindhoven University of Technology, Eindhoven, the Netherlands; bHuman-Technology Interaction Group,
+Eindhoven University of Technology, Eindhoven, the Netherlands
+
+
+    ABSTRACT                                                                                                                                   KEYWORDS
+    Gratitude is a moral emotion that demonstrates our appreciation of altruism. In psychology, feel-                                          Gratitude; conversational
+    ing grateful is linked to an increase in well-being, yet there is a lack of HCI research on if gratitude                                   user interface; chatbot;
+    can be cultivated through and with conversational agents. We quantitatively studied whether a                                              positive computing;
+                                                                                                                                               emotions; well-being
+    chatbot can increase people’s gratitude (N ¼ 133), as well as its influence on people’s positive and
+    negative emotions. Compared to the control condition, a chatbot that shared gratitude interven-
+    tions significantly enhanced people’s gratitude and positive emotions, while lowering negative
+    emotions. Interestingly, people’s experience of gratitude differed from other positive emotions:
+    Simple positive emotions, like joy, can go up while reported gratitude decreases. We share qualita-
+    tive observations on how gratitude can be a complex emotional experience, encompassing
+    positive and negative emotions, such as finding relief in admitting to a chatbot about one’s
+    sadness over friendship during the COVID-19 pandemic.
+
+
+
+
+1. Introduction                                                                             and how technology can elicit gratitude. Here, we zoom in
+                                                                                            on conversational agents, i.e. chatbots, because gratitude
+Gratitude uplifts. Feeling thankful can build and strengthen
+                                                                                            interventions that increase well-being, like reflecting on
+our existing social ties (Algoe et al., 2008; Chang et al.,
+                                                                                            whom one feels grateful for (Wood et al., 2010) can be
+2013). Gratitude extends outwards—it is likely to spread
+                                                                                            effective as conversations, e.g. texting with a chatbot about
+across a network of people, transmitting received goodwill                                  people one feels gratitude towards. Since chatbots are scal-
+via “paying it forward” to others (Chang et al., 2012;                                      able systems for messaging on communication platforms
+Komter, 2004). Additionally, gratitude increases our well-                                  (Dale, 2016), many people can easily access gratitude inter-
+being and overall positive affect as shown in psychological                                 ventions conversationally. In tying together points one and
+research (Froh et al., 2009; Seligman et al., 2005; Southwell                               two, extant chatbot-related HCI research does not primarily
+& Gould, 2017; Watkins et al., 2003). If and how gratitude                                  deal with gratitude; their focus has been on well-being
+interventions can best influence our well-being through                                     (Narain et al., 2020), journaling guidance (Y.C. Lee et al.,
+technology is a nascent area in HCI. In this context, two                                   2021), or self-compassion (M. Lee et al., 2019) (among
+points require attention: Investigating (1) gratitude as an                                 others), which all relate to gratitude, but do not centrally
+independent emotion category and its relationship to more                                   concern gratitude. Our motivation is thus to explore grati-
+general positive and negative affect, and (2) the types of                                  tude as a distinct emotion category, as well as the impact of
+technology that enable effective gratitude interventions.                                   a chatbot on promoting gratitude.
+   On the first point, independently assessing gratitude can                                   We investigated if a chatbot can increase people’s grati-
+better contribute to understanding its efficacy for well-being.                             tude and, if so, how their experience of gratitude is observ-
+Even if gratitude is positively valenced (Fredrickson, 2004),                               able through quantitative and qualitative research. Our
+it may or may not function similarly to other positive emo-                                 results indicate that a chatbot can successfully increase peo-
+tions like joy. What makes gratitude distinct? Gratitude is                                 ple’s gratitude through gratitude interventions. We note that
+often overlooked in emotion research; it is a moral emotion                                 gratitude may differ from (but can include) simple positive
+that concerns “other-praising” expressions, which serve as                                  emotions like joy. For instance, feeling grateful despite nega-
+reactions to others’ moral behavior and can also spur one to                                tive emotional experiences, such as the effects of the pan-
+act morally (Haidt, 2003; McCullough et al., 2002). We can                                  demic, means that gratitude mixes together more general
+additionally consider if people can become grateful through                                 negative and positive emotions, e.g. finding people to share
+and towards technological others, which can scale up ways                                   gratitude with during times of sadness. Our study on a
+to nurture gratitude. This relates to our second point on if                                gratitude chatbot is a starting point for how technology can
+
+CONTACT Minha Lee           m.lee@tue.nl        Department of Industrial Design, Eindhoven University of Technology, Eindhoven, the Netherlands.
+ß 2023 The Author(s). Published with license by Taylor & Francis Group, LLC
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use,
+distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow the posting of the Accepted
+Manuscript in a repository by the author(s) or with their consent.
+4958     M. LEE ET AL.
+
+
+impact not only individuals’ well-being through complex           mental health are social entities that are available 24/7 to
+emotions like gratitude, but also how conversational agents       provide a sense of attention and companionship to users
+can be used to mediate and enhance gratitude sharing              rather than being able to provide all the answers to users’
+between people. We start with reviewing prior works on            questions (Shum et al., 2018). There are many examples.
+conversational user interfaces like chatbots for mental well-     Popbot helped with stress management and users who inter-
+ness, then discuss emotions in general before diving into         acted with it often also reported a reduction of depressive
+gratitude and its relationship to well-being. This is followed    symptoms (N ¼ 47) (Mauriello et al., 2021). Woebot
+by our methods and results. We end with a discussion on           (N ¼ 70) and Tess (N ¼ 50) were chatbots that utilized cog-
+how emotion categories like gratitude deserve in-depth and        nitive behavioral therapy for helping young adults with
+specific treatment in HCI, for methods of integrating             symptoms of depression and anxiety (Fitzpatrick et al., 2017;
+technological entities in exploring our emotional richness        Fulmer et al., 2018), Sunny promoted well-being (N ¼ 24)
+are only beginning to be explored.                                (Narain et al., 2020), Vincent improved self-compassion
+                                                                  (N ¼ 67) (M. Lee et al., 2019), and users of Replika1 were
+                                                                  surveyed for how it provided companionship and support
+2. Background
+                                                                  (N ¼ 66) (Ta et al., 2020). So far, the most common focus
+2.1. Digital mental health applications and chatbots              areas for mental health chatbots in research are depression
+                                                                  and autism according to a recent review (Abd-Alrazaq et al.,
+For helping people deal with issues like depression, mental
+                                                                  2019), and less focus has been on targeting specific emo-
+health applications have been deployed, such as a web-based
+                                                                  tions, like gratitude, through chatbots.
+social (peer-to-peer support) platform for offering empathy
+                                                                      People have shown a preference for chatbots not only
+and cognitive reappraisal to one another (Morris et al.,
+                                                                  because they are available at any time but also because chat-
+2015). Specifically on digital gratitude interventions, a study
+                                                                  bots do not judge (compared to humans), which helps peo-
+that lasted for 5 weeks showed inspirational content on an
+                                                                  ple to share their thoughts without worrying about being
+app (control condition N ¼ 14; intervention condition
+                                                                  stigmatized for seeking mental health support (Brandtzæg
+N ¼ 13); people in the gratitude intervention condition
+                                                                  et al., 2021; Brandtzaeg & Følstad, 2017; Ta et al., 2020).
+expressed gratitude more often, more intensely, more
+                                                                  Some people may even feel more comfortable disclosing per-
+densely, and to a greater number of people (Ghandeharioun
+                                                                  sonally sensitive information to conversational agents since
+et al., 2016). Mental health applications and digital gratitude
+                                                                  they are mere machines (Lucas et al., 2014). Yet, ethics of
+interventions seem promising. However, what has not been
+                                                                  mental health chatbots regarding their harms and benefits
+covered is how conversational agents that act socially, e.g.
+                                                                  should be an ongoing consideration (Kretzschmar et al.,
+exchanging messages, can also benefit individuals’ mental
+                                                                  2019). At the very least, bots should ensure 1) users’ privacy,
+health (compared to peer-to-peer human support), and if
+                                                                  i.e. data confidentiality, 2) transparency, i.e. clarity on the
+agents can also perform gratitude interventions (compared
+to other mental health interventions). Potentially, chatbots      bot’s capacity and its inability to replace a real therapist,
+can be conversational conduits for us to reflect on gratitude     and 3) efficacy, i.e. evidence-based interventions based on
+towards other people, though they can also be entities peo-       empirical data (Kretzschmar et al., 2019). Researchers hence
+ple feel grateful towards as they are not mere apps but con-      emphasize that chatbots are not meant to replace human
+versation partners, i.e. gratitude through and towards            therapists (M. Lee et al., 2019; Y. C. Lee et al., 2021).
+conversational agents, c.f., trust (M. Lee et al., 2021).         Chatbots can augment mental health professionals in dyadic
+   There is increasing attention on chatbots both in research     (patient-care professional) contexts (Y. C. Lee et al., 2020),
+and industry (Rapp et al., 2021). For instance, chatbots can      motivate people to get professional help (Kretzschmar et al.,
+be effective aids in healthcare. They do not replace people,      2019), or act as members of online health communities, pro-
+but they can help reduce costs, and increase the efficiency of    viding support to users (Wang et al., 2021).
+the general medical workflow by providing healthcare infor-
+mation and services to patients through a convenient and          2.2. Emotions
+proficient approach that can then increase patients’ well-
+being (Solanki et al., 2023; Xu et al., 2021). For example, a     Chatbots can influence how we feel (M. Lee et al., 2019)
+radiotherapy chatbot provided accurate information about          and may become aware of our emotions, e.g. through senti-
+radiotherapy to the radiation staff, the general public, and      ment analysis (Benke et al., 2022). Thus, we cover what
+the patients and their families, reducing healthcare person-      emotions are before touching on gratitude as a specific
+nel’s time normally spent on explaining that information          moral emotion that relates to well-being. While there is an
+(Chow et al., 2023). Here, Machine Learning (ML) can aid a        ongoing discussion on how to exactly define emotions
+chatbot’s effectiveness in healthcare. The introduction of ML     (Keltner, 2019), one view characterizes emotions as passing
+techniques in chatbots allows for more conversational             feelings that are subsumed under moods, which are classi-
+flexibility, maintaining a more fluent conversation whilst        fied under affective traits. Affective traits are seen as emo-
+providing relevant information to human users (Siddique &         tionally stable conditions, i.e. a person’s tendency to
+Chow, 2021).                                                      emotionally respond in a consistent manner; moods last
+   Specifically, mental health chatbots have gained attention     across a period of time, like one’s mood over a few days;
+in recent years. Unlike strictly task-based bots, chatbots for    emotions are more changeable as one’s response to
+                                                                    INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION        4959
+
+
+environmental or situational factors, such as short physio-        being grateful requires (1) a beneficiary, (2) a benefactor
+logical shifts when one is surprised (Rosenberg, 1998).            (who can be another person, but also nature, god, or other
+    If emotions are considered to be expressive bursts, six        non-persons) (Fredrickson, 2004), and (3) a display of giving
+basic emotions (surprise, disgust, fear, happiness, sadness,       thanks, i.e. words, gifts, and/or other demonstrations
+and anger) are described to have prototypical facial expres-       (Komter, 2004), as well as empathy between them for grati-
+sions (Ekman, 1992, 1993; Ekman & Friesen, 1971). For              tude to take place, i.e. how people giving and receiving
+instance, a look of surprise may consist of a gaping mouth         thanks can empathize with each other (Lazarus & Lazarus,
+and enlarged eyes. While basic emotions rely on facial             1994). If “gratitude functions in the chain of reciprocity”
+expressions, people’s self-reported emotions are the core of       (Komter, 2004, p. 204) as a moral emotion, gratitude is the
+the circumplex model of emotions. In this model, people’s          appreciation of altruism (Lazarus & Lazarus, 1994).
+subjective feelings can be placed on two dimensions                    Perhaps by recognizing altruism, gratitude tends to pro-
+(Russell, 1980), from activation, e.g. alert, to deactivation,     mote prosocial behavior by fostering relationships, such as
+e.g. calm, and pleasantness, e.g. contented, to unpleasant-        returning favors or “paying it forward” to others (Jia et al.,
+ness, e.g. sad. Basic emotions and the circumplex model            2015; Mathews & Shook, 2013). A person who feels thankful
+touch on different components: Emotions involve how                towards a benefactor tends to help and cooperate with the
+others see our expressed feelings, as well as how we judge         benefactor and others (Jia et al., 2015). But, gratitude is dis-
+our own feelings. However, emotions are not just static            tinct from feeling indebted (Komter, 2004); it is an internal
+facial expressions or valence levels, as they are complicated      appreciation rather than feeling that one materially “owes”
+by how people experience emotions over time in different           something to another person (Watkins et al., 2006). In fact,
+ways (Barrett et al., 2019).                                       gratitude is linked to a lowered desire for material goods
+    The nested hierarchical difference between affective traits,   (Lambert et al., 2009; McCullough et al., 2002; Polak &
+moods, and emotions (Rosenberg, 1998) becomes fuzzier              McCullough, 2006), allowing people to focus on what they
+with moral emotions. Moral emotions “are linked to the             already have. The distinction may be between gratitude of
+interests or welfare either of society as a whole or at least of   exchange and gratitude of caring, in which reciprocating
+persons other than the judge or agent” (Haidt, 2003, p. 853),      things, e.g. gifts, and reciprocating care are important to dis-
+meaning they are centrally relational. Hence, we communi-          tinguish, though they may go hand-in-hand in interpersonal
+cate through and with emotions, which shape how we relate          contexts (Buck, 2004). Hence, compared to a simple tit-for-
+to others and ourselves, guiding our moral compass. Seeing         tat exchange, gratitude as care can extend to others beyond
+gratitude not just as a positive emotion, but a moral emo-         the benefactor and the beneficiary of gratitude.
+tion, highlights its socio-relational function. Gratitude can          Like other moral emotions, we can experience gratitude
+be cultivated with and through others, be they human or            as a fleeting feeling, periodic mood, or lasting affective trait
+non-human others, e.g. pets.                                       (Emmons & Mishra, 2011; Watkins, 2013). As an example,
+    While developing one’s affective traits, e.g. becoming a       if we feel happy about an event and attribute that happiness
+“grateful person,” many emotions can come into play.               to someone who has influenced us positively, happiness
+Sequenced together, diverse emotions can evolve over a lon-        can be co-experienced with, or transition to, gratitude
+ger timescale towards specific moral emotions. For example,        (McCullough et al., 2002; Weiner, 1986). So gratitude is
+grief after losing someone close may come in different             positively valenced (Campos et al., 2013; Fredrickson, 2004)
+stages, with simple emotions like surprise, fear, or sadness       and it is often similar to, or encompasses, other positive
+waxing and waning over the years. A complex moral emo-             emotions like happiness or empathy (Lazarus & Lazarus,
+tion like grief or compassion can become an affective trait,       1994).
+i.e. an emotional attitude set as a norm, if it is regularly           As an affective trait, gratitude can be assessed according
+experienced as a mood. When someone is denoted as a                to four facets: Intensity, i.e. how intensely we feel grateful,
+“grieving partner” or a “compassionate teacher,” we under-         frequency, i.e. how often we feel grateful, span, i.e. how
+stand that emotions can be defining traits. To summarize,          many aspects of our lives we feel grateful for, and density,
+moral emotions, like gratitude, are cultivated through our         i.e. how many beings we feel gratitude towards during
+relationships with others and ourselves and can form affect-       important life events (McCullough et al., 2002). People who
+ive traits.                                                        thus possess gratitude as a trait feel grateful more intensely
+                                                                   and often than others, as well as having many benefactors
+                                                                   they are mindful of in multiple life circumstances. Gratitude
+2.3. Gratitude
+                                                                   tends to be past-focused, based on memories or reflections
+Compared to compassion which is attuned to extending care          on positive events that happened before that bring up asso-
+toward others’ suffering (Gilbert, 2014; Goetz et al., 2010;       ciated emotions like joy (Buck, 2004). Hence, compared to
+Shantideva, 1979), gratitude focuses on reciprocity, often         other positive emotions, it lasts longer if it is related to a
+based around a beneficiary of one’s thankfulness. Gratitude        significant event or person in our lives (Watkins, 2013).
+is defined as an “acknowledgment that we have received                 While gratitude is a largely beneficial emotion, there are
+something of value from others. It arises from a posture of        potential blind spots to keep in mind. For one, power
+openness to others, where we are able to gladly recognize          dynamics present a challenge; gratitude can be part of the
+their benevolence” (Emmons & Mishra, 2011, p. 248). Thus,          dominance and hierarchical rituals between people of
+4960     M. LEE ET AL.
+
+
+unequal status compared to altruistic gratitude between peo-       people’s subjective well-being, as well as diminishing their
+ple of equal status (Buck, 2004). Showing gratitude to some-       scores in depression, anxiety, and stress (Southwell & Gould,
+one more powerful can be more about submission than                2017). The second is grateful contemplation, i.e. thinking
+genuine gratitude, for instance. Further, people are more          about a grateful situation. People are asked to contemplate
+likely to acknowledge their gratitude towards others in pub-       on grateful moments in the last year, e.g. recalling and writ-
+licly accessible accounts, e.g. the acknowledgments section of     ing down moments from last summer; gratitude contempla-
+a book, compared to gratitude acknowledged in private              tion of only a few minutes can raise positive affect (Watkins
+(Baumeister & Ilko, 1995). Gratitude can hence feel shallow        et al., 2003). The third intervention is the behavioral expres-
+(Baumeister & Ilko, 1995). However, gratitude is a form of         sion of gratitude, like thanking a benefactor through a letter
+communication. Without listening ears, giving thanks can           for the gift they provided (Seligman et al., 2005). A benefac-
+feel pointless for many; the (implicit or explicit) awareness      tor is a person that provided help or support in the past
+of gratitude between a benefactor and a beneficiary may be         with a contribution (either physical or symbolic), like finan-
+necessary (Buck, 2004). Lastly, people who can be overly           cial or moral support, e.g. through scholarship funds, guid-
+grateful may show lowered self-ownership of positive out-          ance, information, affection, or advice. Compared to simply
+comes, i.e. attributing one’s success to others’ contribution      writing about positive events, writing a gratitude letter and
+and undercutting one’s own effort (Buck, 2004). With these         delivering it to a benefactor resulted in higher affect and
+aspects in mind, we consider the benefits of gratitude on          gratitude for participants who started out with a low fre-
+our well-being that have been empirically documented.              quency of experienced positive affect (Froh et al., 2009).
+                                                                      Gratitude can be based on individual reflection, such as
+                                                                   thinking about thankful situations alone, but interpersonal
+2.4. Positive psychology, well-being, and gratitude                interactions are an important trigger to experience gratitude
+Positive psychology aims to strengthen people’s potential,         (Gordon et al., 2011). In particular, we can form and main-
+capacities, and well-being (Compton & Hoffman, 2019;               tain relationships based on sharing gratitude (Algoe et al.,
+Sheldon & King, 2001). There is a strong link between posi-        2008). This means that between two people, one person
+tive psychology interventions and well-being according to a        expresses and feels grateful towards another person so that
+meta-analysis of 39 studies (Bolier et al., 2013). Subjective      they can feel appreciated and also return felt gratitude in a
+well-being consists of low negative affect, high positive          reciprocal way; gratitude sharing is common between
+affect, and high life satisfaction (Diener et al., 2002; Wood      romantic couples or close friends (Algoe et al., 2008; Chang
+et al., 2010). As a main part of positive psychology, positive     et al., 2013; Gordon et al., 2011). Further, Chang et al.
+emotions and experiences that create a sense of a fulfilling       observed a reduction in symptoms of depression of a part-
+life are incorporated into subjective well-being (Diener et al.,   ner when the significant other showed appreciation and
+2002). Through various interventions, like practicing acts of      gratitude towards them (2013). The partner can thus feel
+kindness (Buchanan & Bardi, 2010), positive psychology             supported, empowered, and understood, which leads to an
+emphasizes cultivating positive emotions, such as love, joy,       increase in their well-being while reducing depressive symp-
+intimacy, contentment, or gratitude (Compton & Hoffman,            toms (Chang et al., 2013; Gordon et al., 2011). The benefits
+2019). Gratitude interventions, like counting one’s blessings      extend outside of dyadic relationships when the appreciated
+(Emmons & Mishra, 2011), have been a key factor in posi-           individual not only extends gratitude to their partner or
+tive psychology because they allow reflections on situations       benefactor but to a third party, which can additionally
+and others we feel thankful for (O’Leary & Dockray, 2015;          enhance the individual’s well-being and satisfaction (Algoe
+Wood et al., 2010). We avoid taking things for granted             et al., 2008; 2010; Chang et al., 2012). During the COVID-
+when we feel thankful, which makes us appreciate and enjoy         19 pandemic, gratitude was found as a “silver lining” for
+what we have (Emmons & Mishra, 2011). Being thankful               people according to a study using natural language process-
+helps us appreciate positive aspects in life, influencing          ing; people, for instance, could focus on their family and
+people’s increase in subjective well-being (Alkozei et al.,        loved ones at home (Lossio-Ventura et al., 2021).
+2018). Gratitude can also indirectly increase well-being by
+diminishing negative states and emotions (Emmons &
+                                                                   2.5. Research question
+Mishra, 2011; Killen & Macaskill, 2015). Gratitude is thus
+linked to an increase in subjective well-being, directly and       Despite the burgeoning research on mental health chatbots,
+indirectly (Alkozei et al., 2018; Emmons & Mishra, 2011;           gratitude has not yet been centrally investigated. In conver-
+Killen & Macaskill, 2015). Hence, gratitude interventions          sational agents literature, gratitude interventions like jour-
+have been implemented for people with pre-existing mental          naling or gratitude contemplation were previously integrated
+health problems, as well as people without them. In both           into investigating well-being (Narain et al., 2020), depression
+groups, well-being increased through gratitude interventions       reduction (Fitzpatrick et al., 2017) and comparing human
+(Alkozei et al., 2018; Emmons & Mishra, 2011).                     assisted vs. non-human assisted guidance (Y. C. Lee et al.,
+    There are three types of gratitude interventions (Wood         2021). However, none of the studies directly observed (1) if
+et al., 2010). The first involves making a list of things one      gratitude interventions through chatbots do indeed increase
+feels grateful about on a regular basis, e.g. with a gratitude     people’s gratitude or (2) if gratitude is related to other emo-
+diary. Keeping a gratitude diary was shown to increase             tions, e.g. joy, in how people process their emotional states.
+                                                                    INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION       4961
+
+
+The research question is thus as follows. What is the effect       describing participants’ experiences (Sandelowski, 2000).
+of a chatbot that promotes and shares gratitude on people’s        Hence, we were not pursuing induction, but using our
+reported gratitude, alongside their positive and negative emo-     quantitative findings to guide our qualitative analysis by fol-
+tions? We chose to deploy the bot for three consecutive days       lowing       Sandelowski’s    descriptive  content     analysis
+to cover three types of gratitude intervention techniques as       (Sandelowski, 2000) and Braun and Clarke’s thematic ana-
+per literature (Wood et al., 2010). As this is the first study     lysis (Braun & Clarke, 2012), which is known for its
+in HCI that focuses on a conversational agent for gratitude        flexibility.
+interventions, our exploratory hypothesis was that a chatbot          The first and second authors read and analyzed the con-
+that promotes and shares gratitude with people will increase       versations separately. Afterward, we shared and discussed
+people’s reported gratitude, as well as their positive emo-        our insights. As per Sandelowski, we arranged themes from
+tions, and decrease their negative emotions.                       the most to least prevalent themes (2000), particularly on
+                                                                   expressions of gratitude, other emotions, as well as the pan-
+                                                                   demic’s effects. We grouped potential themes (Braun &
+3. Method                                                          Clarke, 2012)2 by first segmenting topics on regarding what
+Our quantitative study design was a two (condition: grati-         or whom participants were grateful towards and how they
+tude vs. control) by two (time: pre vs. post) experiment that      brought up the COVID-19 pandemic as this was prominent
+lasted three days. We chose three days in order to incorpor-       during the time that the study was done. We then looked at
+ate three types of gratitude-enhancing activities according to     how people phrased their responses and focused on the
+Wood et al. (2010). The activities are (1) writing down            ways they shared their reflection on gratitude with our
+grateful moments that a person has experienced during the          chatbot, looking at their use of emotional language, and
+day, (2) reflecting on a grateful situation that occurred in a     contextualizing the data to individuals’ experiences. Two
+specific moment in the past, and (3) writing a letter to a         researchers separately looked into the data for analysis and
+person one is grateful towards. Based on this, the chatbot in      jointly reconciled their findings.
+the gratitude condition asked questions such as the follow-
+ing. “What is the one thing that makes you feel grateful           3.1. Chatbot implementation
+today?” “What would be one thing that made you feel grate-
+ful last summer?” “Do you have someone special who                 Based on the above gratitude intervention topics, we first
+inspires you? What would you say to that person to show            designed conversations with the chatbot. We used the same
+that you are grateful for them?” Each day participants would       average amount of words per day, with the same number of
+be invited to exchange messages with a chatbot. Sharing            questions and exclamation marks between two chatbot con-
+gratitude involves providing grateful thoughts to another          ditions, as in our prior work (M. Lee et al., 2019). The chat-
+person to foster mutual appreciation. To simulate this situ-       bot was named Ro Bot (Figure 1) to minimize biases that
+ation in our experiment, the chatbot shared experiences            human names can introduce. After the conversation design,
+with the participant that made the chatbot feel grateful. It       the chatbot was developed using DialogFlow which was inte-
+would, for example, state “I am so fortunate to be able to         grated into a website.
+chat with you and learn a little bit more about human expe-
+riences” or “today I was thinking about last summer when           3.2. Measurements
+us chatbots had less work to do. I am always blissful when I
+have some spare time.” We followed three gratitude inter-          We aimed to observe participants’ change in gratitude in
+ventions from Wood et al. (2010) to design what the chatbot        conjunction with their broader emotional profile, based on
+would discuss to foster gratitude. In contrast, our control        their interaction with the chatbot. Therefore, we deployed
+condition chatbot talked about movies, which is a general          our measurements twice, before and after people engaged
+topic that allows for interactive questions. Thus, the chatbot     with the chatbot on days one and three. The measurements
+asked questions about films during the interaction, as the         were the Gratitude Questionnaire - Six Item Form (GQ-6)
+following examples show. “What is the first movie that you         (McCullough et al., 2002), as well as the Scale of Positive
+can remember watching?” “What is the most interesting              and Negative Experience (SPANE) (Diener et al., 2010).
+movie that you have watched? What was it about?” “What             GQ-6 (Appendix 7.1) assesses the tendency to experience
+would you say is your favorite movie genre? Why is it that?”       gratitude in daily life, e.g. “I am grateful to a wide variety
+While our primary objective was a quantitative study, we           of people”, on a seven-point Likert scale (McCullough
+qualitatively looked into conversations between participants       et al., 2002) and SPANE assesses subjective well-being
+and the chatbot in order to gain a more holistic understand-       based on how people feel positive and negative emotions
+ing of our quantitative findings.                                  (Appendix 7.2).
+    We thus followed an explanatory mixed methods
+approach, i.e. first conducting quantitative research as fol-
+                                                                   3.3. Procedures and participants
+lowed by qualitative research to explain the quantitative
+findings (Creswell & Creswell, 2017). We emphasize that the        The study was approved by the ethical review board of the
+first step of data familiarization was our quantitative analysis   Eindhoven University of Technology. Additionally, this
+since it was a mixed methods study. We focused more on             study was GDPR compliant based on the university’s data
+4962        M. LEE ET AL.
+
+
+
+
+Figure 1. The start of the conversation with Ro Bot in the gratitude condition on day 1.
+
+
+
+stewardship and it adhered to the code of Ethics of the NIP                         applied to select participants who are at least 18 years old, res-
+(Nederlands Instituut voor Psychologen—Dutch Institute for                          ide in the United Kingdom, fluent in English, and with a 95%
+Psychologists). After consulting related research (Chang                            approval rate on Prolific (this is based on prior completed
+et al., 2013; Fitzpatrick et al., 2017; Killen & Macaskill,                         studies on Prolific) which was necessary for our experiment
+2015) we conducted an a-priori power analysis for a                                 that lasted three days. We did not target participants with
+repeated measures ANOVA (within- and between-subjects                               prior mental health issues because improving gratitude via
+interaction). With the alpha level at 0.05, power of 90%, and                       chatbots has implications for the general population’s well-
+the effect size of g2p ¼ 0.068, we aimed to have 148 partici-                       being, which was also the case for our prior chatbot study on
+pants, 74 for each condition: gratitude and control chatbots.                       increasing self-compassion (M. Lee et al., 2019).
+   We recruited participants through Prolific3 and they were                           Participants were told in the informed consent form that,
+paid 2.25 EUR upon completion. A custom pre-screening was                           per day, interaction with Ro-Bot is for about five minutes.
+                                                                    INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION       4963
+
+
+In general, the average reading time would take around two         interaction with 3 gratitude interventions) would impact
+minutes, then including the minimum time to provide a              participants’ gratitude, as well as their positive and negative
+response to Ro-Bot, the interaction would be approximately         emotions.
+five minutes, which is similar to prior research on Vincent            We checked for outliers and violations of statistical
+(M. Lee et al., 2019). Participants were not restricted from       assumptions. Shapiro Wilk tests were conducted for the con-
+interacting with Ro-Bot for longer. The potential partici-         trol condition before (W ¼ 0.96, p ¼ 0.022) and after
+pants read a short explanation about the experiment stating        (W ¼ 0.096, p ¼ 0.053) the interaction, as well as for the
+that they will have a text-message interaction with a chatbot      gratitude condition before (W ¼ 0.096, p ¼ 0.03) and after
+for three consecutive days.                                        (W ¼ 0.096, p ¼ 0.055) the interaction; there were violations
+    Gratitude was not mentioned in the recruitment and it          of normality. Levene’s tests were conducted between the
+was only stated that the study was on social skills and chat-      control and gratitude conditions for before (p ¼ 0.45) and
+bots. Once the participants accepted the study on Prolific,        after (p ¼ 0.98) the interactions, showing no violation of
+they were directed to a survey that contained more explan-         homogeneity of variance. No outliers were found based on
+ation on the procedure and compensation. After their               the distance from the mean in standard deviations. Below,
+informed consent, we gathered demographic details before           we share non-parametric results in the footnotes for com-
+the GQ-6 and SPANE questionnaires. The participants did            pleteness due to non-normal distributions, but because of
+not have any initial training for answering the GQ-6 and           the central limits theorem with our large sample size
+SPANE to avoid potential bias; then they were redirected to        (N ¼ 133), our mixed between-within subjects ANOVA test
+a website where our chatbot was hosted, with directions on         results are reported as per our power analysis.
+how to interact with our chatbot (Appendix 7.3). After fill-           The main analysis on gratitude (GQ-6 - the gratitude
+ing in their participant ID, participants were directed to         scale) resulted in a significant difference between gratitude
+greet the chatbot to initiate the conversation for the first       vs. control chatbot conditions (F(1, 131) ¼ 17.27,
+day. The second day followed a similar process, minus the          p ¼ 0.0001, g2p ¼ 0.11).5 The main effect of time, i.e. com-
+questionnaires; after the interaction on the third day, partici-   paring gratitude before vs. after three days, was not signifi-
+pants were presented with the same questionnaires as on            cant (p ¼ 0.286). The interaction between time and
+day one and were debriefed before being redirected to              condition was significant ((F(1, 131) ¼ 5.98, p ¼ 0.0159), g2p
+Prolific and paid.                                                 ¼ 0.00006). Those with the gratitude chatbot showed a
+    We hosted the website on a private server of the               slight increase in GQ-6 (from M ¼ 33.64 to M ¼ 34.03). But,
+Eindhoven University of Technology to safely store the con-        the participants who chatted with our movie-bot (control
+versations. The server was set up to comply with GDPR regu-        condition) demonstrated a lowered GQ-6 scores after three
+lations4, but we needed to preserve conversation history over      days, from M ¼ 30.40 to M ¼ 29.36; we used Z-scores for
+three days for qualitative analysis. So, we opted to gather data   comparability across measures (see Figure 2).
+per condition on separate days; this allowed us to better moni-        We next checked for people’s change in positive
+tor drop-out rates without concurrency issues with other           (SPANE-P) and negative (SPANE-N) emotions. For SPANE-
+experiments running on the same server. We conducted a             P, the main effect of the condition was significant (F(1,131)
+pilot study (N ¼ 3 for the gratitude chatbot; N ¼ 2 for the        ¼ 10.23, p ¼ .0017, g2p ¼ 0.072), as well as the main effect
+control condition) to check our study design and server status.    of time (F(1,131) ¼ 24.27, p <.0001, g2p ¼ 0.15). Their inter-
+Then, we collected data for our gratitude condition between        action was not significant (p ¼ 0.391).6 Participants in both
+March 8th and 10th, 2021; the control condition was deployed       conditions reported higher levels of positive feelings at the
+from March 17th to the 19th of the same year. We thus fol-         end of the study. We see an increase from M ¼ 22.19 to
+lowed the recommended guidelines (Kretzschmar et al., 2019)        M ¼ 23.60 in the gratitude condition and from M ¼ 19.40 to
+on data confidentiality, transparency on the bot’s identity, and   M ¼ 20.39 in the control condition.
+evidence-based interventions on the effects of gratitude inter-        SPANE-N showed the same trend. The main effect of
+ventions in psychology. In the end, 133 participants completed     condition and (F(1,131) ¼ 4.20, p ¼ .043, g2p ¼ 0.031) and
+                                                                   time (F(1,131) ¼ 24.87, p <.0001, g2p ¼ 0.15) were signifi-
+the whole experiment; 15 participants left the experiment vol-
+                                                                   cant, but not their interaction (p ¼ 0.74).7 On average, par-
+untarily on the second or third day of the study. The gratitude
+                                                                   ticipants in both conditions had lower SPANE-N after the
+condition had 62 participants with 18 men, 42 women and 2
+                                                                   interaction with the chatbot (M ¼ 14.03) than before
+non-binary people (Age: M ¼ 33.71, SD ¼ 13.91). The control
+                                                                   (M ¼ 15.26). Participants in the gratitude condition showed
+condition group had 71 participants with 27 men, 42 women,         a decrease from M ¼ 12.64 to M ¼ 11.50 and the control
+1 non-binary person and 1 of undisclosed gender (Age:              condition’s SPANE-N lowered from M ¼ 14.89 to M ¼ 13.58.
+M ¼ 31.79, SD ¼ 11.73).                                            Compared to SPANE-P and -N, only the change in gratitude
+                                                                   showed an interaction between the effect of time and condi-
+3.4. Results                                                       tion. While positive emotions went up and negative emo-
+                                                                   tions decreased across both conditions after interacting with
+3.4.1. Quantitative analysis                                       the chatbot, people’s gratitude decreased for the control con-
+We compared if the condition (gratitude chatbot vs.                dition while increasing for those who interacted with the
+control chatbot) and time (before and after 3 days of              gratitude chatbot.
+4964       M. LEE ET AL.
+
+
+
+
+Figure 2. The change in Z-scores (before vs. after the experiment) of reported gratitude (GQ-6), positive emotions (SPANE-P), and negative emotions (SPANE-N).
+The blue line is the control condition and the red line is the gratitude condition.
+
+
+3.4.2. Qualitative analysis                                                     good at expressing that kind of thing with words, so I would
+The descriptive qualitative data analysis (Sandelowski, 2000)                   probably just send him a nice gift, randomly.”
+was conducted to better understand the quantitative data.                           As the summary over three days suggests, expressing and
+We explored the phenomenon behind Figure 2, i.e. why                            thinking about gratitude is positively valenced for most peo-
+positive and negative emotions for both conditions followed                     ple. Yet, what makes gratitude different from other positive
+the same trend across two time points, but reported grati-                      emotions? We analyzed people’s conversations with the bot
+tude did not. Or specifically, why positive emotions can go                     following content analysis (Sandelowski, 2000) combined
+up while feeling thankful may lessen. We hence looked into                      with thematic analysis (Braun & Clarke, 2012) to arrive at a
+people’s messages to the gratitude chatbot to observe how                       salient trend: Gratitude arises from one’s “lived experience”
+people’s emotional experiences of gratitude can vary from                       of contrasting events.
+experiencing positive or negative emotions. Since our data                          Gratitude shined through negative experiences, whether
+set was sparse,8 we pursued a descriptive approach that does                    one is inspired by a loving parent who is no longer there,
+not over-interpret participants’ positions (even if any                         found support and freedom after a break up, or felt held
+descriptive reading entails an interpretation) (Sandelowski,                    and loved in times of despair. When asked about inspir-
+2000). Below, we summarize participants’ responses per day                      ational people, a participant shared that “my mum is inspir-
+before addressing in what ways gratitude may function dif-                      ing as she’s gone through a lot and is brave,” with a
+ferently than other positive emotions.                                          message to her being: “I love you and I miss you terribly.”
+    On the first day, participants expressed gratitude towards                  It is unclear whether or not the mother passed away; the
+their family, work, friends, health, partner, education, for hav-               present tense usage, e.g. that she is brave, contrasts with “I
+ing good weather and for having their basic needs (like food                    miss you terribly.” The participant’s perception of bravery
+or job) covered. When asked how thinking about grateful                         resonates as a presently experienced presence of a person who
+moments made them feel, participants expressed that they felt                   is inspiring, perhaps as a lasting and vivid memory.
+mostly positive: “good,” “calm,” “full and warm,” “generally                        Likewise, a mix of positive and negative emotions are
+positive that I feel more grateful than not, especially given the               present for another person: “I recently ended a relationship
+current circumstances in the world,” “slightly happier than I                   that I hadn’t been happy in for some time that had been
+did 5 minutes ago!” A few reported feeling indifferent.                         causing me a lot of upset. I was grateful that my family wel-
+    On the second day, the chatbot asked about two situa-                       comed me home and returning to a sense of freedom has
+tions that occurred last year. People brought up the pan-                       made me unbelievably happy.” Feeling upset and unhappy
+demic and the coronavirus vaccine most frequently. Many                         in a relationship can be a long-lasting feeling that lingers,
+people reflected that though the lockdown period was diffi-                     even after a breakup. Yet through this, freedom, unbeliev-
+cult, they were able to appreciate small joys and people                        able happiness, and the support of one’s family were
+around them: “well last summer I was in lockdown due to                         revived.
+the pandemic, but I was so grateful to have my family at                            Another participant shared that “when I was so sad I
+that time- I really relied upon them.”                                          could barely function, my best friend looked after me and
+    On the last day, the chatbot inquired about inspirational                   made sure I was fed and helped me as an assistant at my
+people. Participants brought up their family, partners, and                     drag show. I felt very held and loved.” We see gratitude aris-
+friends. Upon being asked what to say to inspirational figures,                 ing from feeling “saved” when this person reached the low-
+participants frequently wanted to thank them through remarks                    est point; feeling fed, held, and loved by another person can
+like “I am glad our paths crossed” and “I will tell her that I                  foster gratitude when we have difficulties standing on our
+love her very much and that I am grateful that she keeps me                     own. In sum, when negative events and moods are amelio-
+company during the pandemic.” Yet a few people admitted                         rated by positive influence, this emotionally contrasting
+that verbal thanks may not be their strength: “I am not very                    experience can evoke gratitude.
+                                                                      INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION        4965
+
+
+    Mixed emotions appear in different ways for people. A par-       4. Discussion
+ticipant stated that they are grateful for their friends and typed
+                                                                     Gratitude contributes to well-being (McCullough et al.,
+that “I would tell them that I miss them, but it’s quite sad
+                                                                     2004; Watkins et al., 2003), more so than general positive
+because I feel like they don’t feel the same way ☹.” As a result
+                                                                     affect (Bartlett & DeSteno, 2006). However, literature catego-
+of sharing this, the participant wrote to the chatbot that they
+                                                                     rizes gratitude as a positive emotion like happiness (Campos
+felt “relieved.” Reciprocal emotions may not occur with the
+                                                                     et al., 2013; Fredrickson, 2004; Lazarus & Lazarus, 1994).
+same intensity or frequency, e.g. maybe their friends are not        This tendency is observed in many experimental designs,
+missing them so often or to the same extent. While noting            such as measuring the effect of gratitude interventions
+this disparity may be “sad,” it might be a relief to share this      through self-reported positive affect (Watkins et al., 2003)
+realization with someone or something, i.e. a chatbot.               with gratitude predicting happiness (Nguyen & Gordon,
+    The emotional contrast is also found through counterfac-         2020) and hope (Witvliet et al., 2019). Feeling pleasant or
+tual considerations: “When we got good news from the doc-            happy can be a part of, or relate to, gratitude. But, we see
+tors that our nan (grandma) was clear of cancer” a                   that conflating gratitude with other positive emotions can be
+participant felt “happy and grateful as things could be a lot        misleading. Our research suggests how gratitude can arise
+worse.” For this person, the fact that their grandmother’s           from positive and negative emotional experiences, telling us
+health improved, given that it could have been worse, is the         a far richer story of what it means to feel thankful.
+reason for gratitude and happiness. Counterfactual thinking             We first discuss limitations. The data was collected dur-
+was also implied when it came to gratitude experienced due           ing the COVID-19 lockdown period, as often mentioned in
+to the pandemic. Given that the pandemic introduced                  our qualitative data; participants in general may have been
+employment insecurity for many people, one person was                more prone to experience emotional fluctuations over
+grateful “that I have kept my job and kept going to work             shorter periods of time. Yet this allowed for a glimpse of
+throughout the pandemic.” This was repeatedly noted by               how people were able to be grateful during the pandemic.
+many other participants, e.g. being grateful “that I have a          Our control and gratitude chatbots were deployed on differ-
+job when others have lost theirs,” which implies that jobless-       ent days in March of 2021 to preserve data integrity through
+ness was a feasible counterfactual for many in this period.          our GDPR compliant server. Participants were randomly
+Then, negative situations either experienced in real life by         selected but started on different dates, which should be rem-
+oneself, others, or considered counterfactually can serve as         edied in subsequent research. In our study, participants in
+the basis for feeling grateful. Gratitude covers a mix of posi-      two conditions showed differences in GQ-6, SPANE-P,
+tive and negative situations and emotions.                           and SPANE-N scores before the start of the experiment
+    We end this section by elaborating on what the chatbot           (Figure 2) though our participant selection criteria and study
+added. Gratitude is a shared emotion, whether it is shared           design remained the same. At the start, control condition
+with a person or a machine. People’s awareness that they             participants had lower GQ-6 and SPANE-P scores, but
+are talking to a mere chatbot may not undercut their cap-            scored higher for SPANE-N compared to the gratitude con-
+acity to practice gratitude: “I’m laughing mainly at the             dition showing reduced internal validity. However, if partici-
+absurdity of me typing this to you but also because I’m              pants were to start with similar average scores across two
+smiling as I think of wife” (whom this participant felt grate-       conditions, we would expect a more significant divergence
+ful towards). A chatbot does not know or feel thankful like          between the control and gratitude conditions, particularly
+                                                                     since gratitude scores on average decreased for the control
+we do, let alone know what it is like to have a significant
+                                                                     condition even though their positive affect in general
+other. So even if discussing gratitude with a chatbot may be
+                                                                     (SPANE-P) went up. The focus is on how gratitude can
+“absurd,” reflecting on inspirational people and gratitude-
+                                                                     potentially decrease even though general positive affect can
+evoking situations can remind us of many ways to feel
+                                                                     increase, i.e. gratitude is not just another positive feeling as
+thankful. A few specifically thanked the chatbot: “I thank
+                                                                     our qualitative data indicated.
+you for getting my mind to these places which makes me                  Gratitude is a complex moral emotion that is under-
+appreciate the little things in life- thinking of these events       studied; due to its subtlety and ambiguity, it does not extend
+has made me feel carefree and light.” When gratitude is not          in a straightforward manner from existing theories in emo-
+an affective trait, most people may need reminders: “I think         tion psychology to application in HCI. Our paper contrib-
+sometimes you just need someone to ask you these things to           utes to HCI literature by showing that a chatbot may act
+realize just how many good things in the world there are.”           both as a target and conduit for expressing gratitude and
+Even if a bot is a something, not a someone, the resulting           that this effect—although yielding positive effects on well-
+effect is that it allowed people to reflect: “It feels nice to       being—does not simply correlate in a one-to-one fashion to
+remind myself of everything I am grateful for. It makes me           positively valenced emotions. We have unpacked some of
+want to spread kindness and positivity and tell people how           this complexity in our paper and illustrated the potential for
+much I love and appreciate them.” A benefit is that even if          chatbots to impact gratitude. We also aimed to promote a
+gratitude arises through a bot, it can spread beyond the             positive construct, i.e. gratitude, that improves well-being
+human interactant, towards others they care about and love.          (Alkozei et al., 2018; Emmons & Mishra, 2011; Killen &
+A chatbot, then, can enhance or mediate human-human                  Macaskill, 2015), rather than using a chatbot to negate signs
+gratitude.                                                           of mental difficulties, e.g. anxiety or depression (Fitzpatrick
+4966     M. LEE ET AL.
+
+
+et al., 2017; Fulmer et al., 2018). As of now, chatbots for          Overlooking the interaction would be a mistake: The
+mental health tend to focus on a “problem,” most com-             length of interaction alone cannot influence gratitude (unlike
+monly autism and depression (Abd-Alrazaq et al., 2019).           positive and negative emotions). The difference between the
+But an alternative is to design conversational agents that        two chatbots may be more accentuated than the effect of
+account for mental health in a more nuanced light, i.e. not       time. Or, gratitude may work with a different timescale than
+as a negation of symptoms or disability, but as an opportun-      other emotions. Our gratitude chatbot was better at increas-
+ity to flourish. Our choice for chatbots rather than other        ing people’s gratitude than a control-bot. Still, gratitude may
+technological interventions is based on a number of consid-       require more time than simple positive or negative emotions
+erations: (1) Chatbots are widely available and low-cost          for the effect of time to be significant. Three days may not
+compared to, e.g. social robots; this enhances access to a        be enough, e.g. other studies looked at two weeks of
+wide community of users. (2) Chatbots are flexible in terms       human-chatbot interaction (Fitzpatrick et al., 2017; Lee
+of perceived roles and social attribution, as they lack a par-    et al., 2019). It is therefore advised that in subsequent
+ticular embodiment that is suggestive of a particular gender,     research the length of the study should be longer. Our
+age, or ethnicity (as with our chatbot), which reduces poten-     rationale for three days is that we implemented three types
+tial biases that embodiment can introduce. (3) Compared to        of gratitude intervention (one per day).
+human conversational partners, like therapists, chatbots can         More importantly, gratitude may not increase over time
+reduce people’s fear of judgment when revealing personal or       independent of social interactions; “when we show gratitude,
+sensitive information (Brandtzæg et al., 2021; Brandtzaeg &       then, it is this display of the other’s attitude toward us to
+Følstad, 2017; Ta et al., 2020). Again, the aim is not to         which we are responding” (Berger, 1975, p. 302). Gratitude,
+replace human therapists or care, but to augment or support       more so than, for instance, joy, critically relies on the social
+people’s path towards mental wellness with technology in          dimensions of our lives. How artificial agents become
+diverse ways (Kretzschmar et al., 2019; Y. C. Lee et al., 2020;   embedded in our social worlds then can influence the types of
+Wang et al., 2021). Our study aimed to answer: What is the        and depth emotions we can explore with them. Even if emo-
+effect of a chatbot that promotes and shares gratitude on peo-    tions in general are socially constructed in our relations with
+ple’s reported gratitude, alongside their positive and negative   others (Averill, 1980; Gendron & Feldman Barrett, 2009;
+emotions?                                                         McCarthy, 1994), they are not all socially constructed in the
+    Given that our interest was in how people’s self-reported     same way. An infant does not need to know the word “joy” to
+emotions changed, we were concerned with both the effect          smile back at us; a dog does not need to know the word “fear”
+of time (before and after 3 days of interaction) and condi-       to run away when someone screams at them. Ekman’s basic
+tion (gratitude vs. control). As a reminder, we advertised on     emotions (Ekman, 1992, 1993; Ekman & Friesen, 1971) may
+Prolific that our study was on social skills with a chatbot,      be basic in that non-linguistic understanding and expression
+not gratitude, to lower participants’ initial bias. The grati-    of basic emotions can be easily shared. As communicative ges-
+tude chatbot and the GQ-6 scale did ask about gratitude,          tures go, basic emotions are socially constructed more intui-
+e.g. people one feels grateful towards, which was the case in     tively than most moral emotions like gratitude, If moral
+prior works on gratitude (Alkozei et al., 2018; Emmons &          emotions “are linked to the interests or welfare either of soci-
+Mishra, 2011). The qualitative data included in-the-moment        ety as a whole or at least of persons other than the judge or
+reflections that are less prone to the demands of self-assess-    agent” (Haidt, 2003, p. 853), examples like guilt or gratitude
+ment that psychological instruments can bring. To empha-          require a more complex understanding of how we relate to
+size, the aim of our quantitative and qualitative research was    one another through lived experience. Hence gratitude is
+to understand how gratitude functions differently from other      often other-directed (Buck, 2004; Chang et al., 2013; Froh
+emotions, and if chatbots can be viable for gratitude             et al., 2009; Gordon et al., 2011; Seligman et al., 2005). And
+interventions.                                                    when we feel thankful towards someone, that acknowledg-
+    The quantitative results showed that the gratitude chatbot    ment also allows us to spread gratitude towards third parties
+increased people’s reported gratitude and positive affect         (Algoe et al., 2010, 2008).
+compared to the control chatbot, and lowered negative                Gratitude is a moral emotion since it stands for our
+affect. In both conditions, our participants’ positive emo-       appreciation of altruism (Lazarus & Lazarus, 1994); giving
+tions (SPANE-P) went up after three days whereas negative         and receiving gratitude has many facets, as our qualitative
+emotions (SPANE-N) went down. An interesting trend is             data showed. We recount a few. Upon admitting sadness at
+that gratitude can decrease while other positive emotions         the thought that friends one misses may not miss them as
+increase. For SPANE-P and -N, there were significant main         much, one person felt relieved when asked by our gratitude
+effects of the condition (gratitude vs. control chatbot) and      chatbot. Another was laughing at the absurdity of telling the
+time (before vs. after), but not their interactions. For peo-     bot how they would express gratitude while smiling about
+ple’s sense of gratitude (GQ-6), the main effect of time was      their partner, for whom they felt grateful. A participant rec-
+insignificant, but the difference between the conditions and      ollected a difficult period and how they were grateful to a
+the condition-time interaction were significant. The absence      supportive friend who made them feel held and loved when
+of significance regarding time is important here; if positive     they were at a low point, filled with sadness. Research on
+and negative emotions significantly changed over time, why        gratitude thus far has not fully appreciated such a mixture
+did gratitude over time not show a significant change?            of positive and negative emotions, which deserves further
+                                                                      INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION        4967
+
+
+attention. People experience a medley of emotions like                   Helping people cultivate positive emotions like joy, intim-
+relief-sadness, sadness-love, humor-gratitude-joy, and other         acy, and gratitude is central to positive psychology
+mixtures when they were given a chance to reflect on grati-          (Compton & Hoffman, 2019), yet this fails to capture the
+tude by interacting with a chatbot.                                  unique characteristics and benefits of diverse emotions at
+    Our research makes a substantial contribution to HCI lit-        hand. While gratitude interventions have been used in a
+erature by providing exploratory empirical evidence on how           piecemeal fashion in HCI (Fitzpatrick et al., 2017; Lee et al.,
+conversational agents can aid our flourishing (Lee &                 2021; Narain et al., 2020), ours is the first study to specific-
+Contreras, 2023) and our scales used and instructions to par-        ally dive into gratitude and how it may differ or not from
+ticipants (see Section 6) can help future works on this topic.       broader positive and negative emotions. Similarly, other
+Importantly, our chatbot served as both a conduit and object         moral emotions (Haidt, 2003), or not so “basic” emotions,
+of gratitude, c.f., (Lee et al., 2021), i.e. people thanked it and   like joy, can be assessed as dependent variables with clear
+thanked others through it; some people were grateful to the          study designs; indiscriminately labeling emotions as merely
+chatbot for letting them reflect on gratitude towards others in      “positive” or “negative” leaves out a chance to more deeply
+their lives. Thus, our chatbot can be used as an inspiration for     explore the diversity of our feelings. We can better grasp
+future gratitude intervention systems: Conversational agents         how contrasting emotional experiences are processed by
+can utilize artificial intelligence and machine learning to hold     treating particular emotion categories as separate research
+conversations with not only patient groups, but a broader            agendas in HCI, above and beyond solely importing emo-
+user base to improve their well-being by applying gratitude          tion research from related domains like psychology.
+interventions to reflect on their life, which aligns with the            Second, we recommend designing for human-human
+philosophy of positive psychology (Compton & Hoffman,                interactions through human-chatbot interactions when it
+2019). Additionally, we see the potential for conversational         comes to emotional experiences. Beyond seeing human-
+agents to be more than simple systems, tools, or digital assis-      human interactions as templates for human-technology
+tants for practical tasks (Brandtzaeg & Følstad, 2017; Clark         interactions, like how computers are social actors (Nass
+et al., 2019; Dale, 2016; Shum et al., 2018) while holding two       et al., 1994), the next challenge is considering when and
+roles as a mediator of human-human gratitude and a benefi-           how conversational agents take part in or mediate our emo-
+ciary of human gratitude towards it.                                 tional experiences. Gratitude heavily builds on human inter-
+    People do attribute agency to simple pattern-matching            personal relationships (Gordon et al., 2011), but how a
+machines (Weizenbaum, 1966), but we do not yet utilize               chatbot can aid human-human gratitude sharing or individ-
+conversational agents for more complex affective experiences         ual reflection is a new area. Human-chatbot relationships
+like spreading gratitude through artificial and human beings.        are unlike human-human friendships or romantic relation-
+This relates to how chatbots are also used as mental support         ships, in which gratitude sharing frequently occurs (Algoe
+agents (Abd-Alrazaq et al., 2019; Fitzpatrick et al., 2017;          et al., 2008; Chang et al., 2013; Gordon et al., 2011). The
+Fulmer et al., 2018; M. Lee et al., 2019; Narain et al., 2020;       way we form and maintain human relationships through
+Ta et al., 2020). Given such a growing body of work, practi-         gratitude (Algoe et al., 2008) will not work in the same way
+tioners advocate that chatbots are not replacements of               with conversational agents like chatbots.
+human professionals while being valuable as supporting                   According to our qualitative data, a chatbot can be (1) a
+actors that can motivate people to get therapy as needed, in         mediator of gratitude between people and (2) a recipient of
+an ethically mindful way (Kretzschmar et al., 2019). Yet,            gratitude, as well as performing both roles. For instance, a
+none of the cited approaches looked specifically into grati-         person feels thankful to the chatbot for reminding them
+tude and how it differs from other emotions as we have               about what we take for granted, which leads the person to
+done, which is crucial for developing digitized mental health        express gratitude to another person. Gratitude is not a zero-
+support as we move forward. We end with two broad rec-               sum game; feeling thankful towards a form of technology
+ommendations based on our findings.                                  through targeted interventions does not mean that less grati-
+    Our first recommendation is to zoom in on specific emo-          tude is shared between people. In fact, a chatbot can act as a
+tions, e.g. gratitude, and contextualize them for HCI rather         gratitude trigger or conduit, further enriching people to
+than importing larger constructs from psychology at face             spread gratitude, e.g. “It feels nice to remind myself of
+value, e.g. well-being. Subjective well-being is taken to be a       everything I am grateful for. It makes me want to spread
+combination of low negative affect, high positive affect, and        kindness and positivity and tell people how much I love and
+high life satisfaction (Diener et al., 2002) which is the core       appreciate them.” However, we need more research on if
+of the SPANE instrument that we used (Appendix 7.1)                  gratitude interventions (Wood et al., 2010) that involve a
+(Diener et al., 2009). But, gratitude differs from other posi-       chatbot carries over to gratitude shared between people, and
+tive emotions while contributing to well-being (Wood et al.,         what effect that may have, especially in a long-term manner.
+2010). How it involves both positive and negative affect             A particularly interesting path forward is exploring how
+requires more attention; well-being brought on by gratitude          gratitude can be transitioned from a short-term feeling to
+may not be adequately captured by popular scales like                becoming an affective trait (Emmons & Mishra, 2011;
+SPANE for measuring well-being. Emotionally rich experien-           Watkins, 2013), given that feeling grateful has many benefits
+ces that evade clear categories like positive or negative affect     for well-being (Alkozei et al., 2018; Emmons & Mishra,
+should not be excluded from what it means to flourish.               2011; Killen & Macaskill, 2015).
+4968     M. LEE ET AL.
+
+
+5. Conclusion                                                      know what it means to feel thankful, they can partake in
+                                                                   how we share emotions with others, perhaps functioning as
+Gratitude is a rich concept that encompasses several inter-        a bridge between momentary gratitude of the present
+pretations that have been promoted over the years. As a            towards gratefulness as a lasting trait in our future.
+moral emotion on showing appreciation of altruism
+(Lazarus & Lazarus, 1994), it supports and builds interper-
+sonal relationships. Gratitude fosters well-being, for feeling     Notes
+thankful helps us appreciate what we presently have instead
+                                                                      1. Replika - https://replika.ai/
+of what we lack (Emmons & Mishra, 2011). We can culti-                2. The classic six steps are familiarizing oneself with the data,
+vate gratitude as an affective trait if it is a virtue in an             generating initial codes, searching for themes, reviewing
+Aristotelian sense (Bartlett & Collins, 2011); becoming a                themes, defining and naming themes, and producing the
+grateful person may be a long-term or lifelong process for               report.
+                                                                      3. Prolific - https://www.prolific.co/
+many. But short-term changes can be aided by gratitude                4. GDPR regulations - https://eur-lex.europa.eu/legal-content/
+interventions (Watkins et al., 2003; Wood et al., 2010), for             EN/TXT/PDF/?uri=CELEX:32016R0679
+feeling thankful can be a momentary feeling that transitions          5. Our non-parametric test showed the same trend: the
+to a general mood, contributing to becoming a grateful per-              Kruskal-Wallis test revealed a significant difference between
+son as a trait.                                                          two conditions for gratitude (H(1) ¼ 5.67, p ¼ 0.017) with
+                                                                         gratitude calculated as a difference of scores before and after
+    As the first HCI study that specifically looked at gratitude         the interaction.
+sharing with a conversational agent, we learned that feeling          6. Again, we also conducted the Kruskal-Wallis test in which
+thankful is not merely a positive emotion. Gratitude can                 there was no significant difference between conditions (H(1)
+qualitatively involve positive and negative emotional experi-            ¼ 0.125, p ¼ 0.724) for SPANE-P.
+ences. Struggles in life that may often be negative, e.g.             7. The Kruskal-Wallis test showed no difference between
+                                                                         conditions for SPANE-N (H(1) ¼ 0.384, p ¼ 0.535).
+undergoing lockdown during the pandemic, can help us feel             8. People wrote 8,231 words in total to the gratitude chatbot,
+grateful for what we do have, e.g. family, given the chance              with a mean of 132.76 words per participant across three
+to reflect on gratitude. Such reflection is what a conversa-             days. The control condition was comparable (8,513 words in
+tional agent can assist in. Thus quantitatively, our gratitude           total, M ¼ 119.90 words per participant).
+chatbot increased positive emotions and decreased negative
+emotions better than the control bot, but the trends were
+                                                                   Disclosure statement
+the same, i.e. positive emotions tended to increase while
+negative emotions decreased for both bots. People’s self-          No potential conflict of interest was reported by the author(s).
+reported gratitude over three days increased with the grati-
+tude chatbot, but the control bot that talked about movies
+                                                                   Funding
+decreased people’s gratitude. Hence, the human-chatbot
+interaction resulted in gratitude demonstrating a different        This work was supported by Alzheimer Nederland (WE.06-2021-03).
+emotional profile compared to people’s positive and negative
+emotions. We note that gratitude is a complex moral emo-
+tion—ambiguous by nature since its presence depends not            ORCID
+merely on positive valence or a singular state of well-being,      Minha Lee      http://orcid.org/0000-0002-7990-9035
+but is rather a rich, interconnected, and sometimes con-
+flicted tapestry of thoughts, feelings, and actions that eman-
+ate from a deep sense of appreciation. Gratitude may well          References
+be preceded by some of the low points in human emotion—            Abd-Alrazaq, A. A., Alajlani, M., Alalwan, A. A., Bewick, B. M.,
+moments of need, loss, stress, sadness, or despair. Moreover,        Gardner, P., & Househ, M. (2019). An overview of the features of
+the intensity of gratitude can vary greatly depending on             chatbots in mental health: A scoping review. International Journal of
+individual experiences, values, and cultural contexts. Thus,         Medical Informatics, 132, 103978. https://doi.org/10.1016/j.ijmedinf.
+in our view, measuring gratitude is best approached through          2019.103978
+                                                                   Algoe, S. B., Gable, S. L., & Maisel, N. C. (2010). It’s the little things:
+a triangulation of methods, and is not easily operationalized        Everyday gratitude as a booster shot for romantic relationships.
+through any single metric or standardized scale. This is the         Personal Relationships, 17(2), 217–233. https://doi.org/10.1111/j.
+approach we take in our paper, applying a multi-method               1475-6811.2010.01273.x
+combination of quantitative and qualitative data to arrive at      Algoe, S. B., Haidt, J., & Gable, S. L. (2008). Beyond reciprocity:
+a suitably rich and subtle understanding of the context-             Gratitude and relationships in everyday life. Emotion (Washington,
+                                                                     D.C.), 8(3), 425–429. https://doi.org/10.1037/1528-3542.8.3.425
+dependent, idiosyncratic, and frequently seemingly opposing        Alkozei, A., Smith, R., & Killgore, W. D. (2018). Gratitude and subject-
+emotional forces that constitute gratitude.                          ive wellbeing: A proposal of two causal frameworks. Journal of
+    For future research, we recommend a specific look at             Happiness Studies, 19(5), 1519–1542. https://doi.org/10.1007/s10902-
+various types of complex moral emotions like gratitude and           017-9870-1
+how conversational agents, like chatbots, can mediate peo-         Averill, J. R. (1980). A constructivist view of emotion. In R. Plutchik &
+                                                                     H. Kellerman (Eds.), Theories of emotion (pp. 305–339). Academic
+ple’s shared emotions. We see that people can express grati-         Press.
+tude to a simple chatbot for reminding them of what and            Barrett, L. F., Adolphs, R., Marsella, S., Martinez, A. M., & Pollak,
+whom they feel grateful for. Though artificial agents do not         S. D. (2019). Emotional expressions reconsidered: Challenges to
+                                                                               INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                   4969
+
+
+   inferring emotion from human facial movements. Psychological               Diener, E., Wirtz, D., Biswas-Diener, R., Tov, W., Kim-Prieto, C., Choi,
+   Science in the Public Interest : A Journal of the American                     D.-W., & Oishi, S. (2009). New measures of well-being. In E. Diener
+   Psychological Society, 20(1), 1–68. https://doi.org/10.1177/                   (Ed.), The collected works of Ed Diener, social indicators research ser-
+   1529100619832930                                                               ies 39 (pp. 247–266). Springer.
+Bartlett, M. Y., & DeSteno, D. (2006). Gratitude and prosocial behav-         Diener, E., Wirtz, D., Tov, W., Kim-Prieto, C., Choi, D-w., Oishi, S., &
+   ior: Helping when it costs you. Psychological Science, 17(4), 319–325.         Biswas-Diener, R. (2010). New well-being measures: Short scales to
+   https://doi.org/10.1111/j.1467-9280.2006.01705.x                               assess flourishing and positive and negative feelings. Social
+Bartlett, R. C., & Collins, S. D. (2011). Aristotle’s nicomachean ethics.         Indicators Research, 97(2), 143–156. https://doi.org/10.1007/s11205-
+   University of Chicago Press.                                                   009-9493-y
+Baumeister, R. F., & Ilko, S. A. (1995). Shallow gratitude: Public and        Ekman, P. (1992). Are there basic emotions? Psychological Review,
+   private acknowledgement of external help in accounts of success.               99(3), 550–553. https://doi.org/10.1037/0033-295X.99.3.550
+   Basic and Applied Social Psychology, 16(1), 191–209. https://doi.org/      Ekman, P. (1993). Facial expression and emotion. The American
+   10.1207/s15324834basp1601&2_12                                                 Psychologist, 48(4), 384–392. https://doi.org/10.1037//0003-066x.48.4.
+Benke, I., Gnewuch, U., & Maedche, A. (2022). Understanding the                   384
+   impact of control levels over emotion-aware chatbots. Computers in         Ekman, P., & Friesen, W. V. (1971). Constants across cultures in the
+   Human Behavior, 129, 107122. https://doi.org/10.1016/j.chb.2021.               face and emotion. Journal of Personality and Social Psychology,
+   107122                                                                         17(2), 124–129. https://doi.org/10.1037/h0030377
+Berger, F. R. (1975). Gratitude. Ethics, 85(4), 298–309. https://doi.org/     Emmons, R. A., & Mishra, A. (2011). Why gratitude enhances well-
+   10.1086/291969                                                                 being: What we know, what we need to know. In M. F. S. Kennon
+Bolier, L., Haverman, M., Westerhof, G. J., Riper, H., Smit, F., &                M. Sheldon Todd B. Kashdan (Ed.), Designing positive psychology:
+   Bohlmeijer, E. (2013). Positive psychology interventions: A meta-              Taking stock and moving forward (pp. 248–262). Oxford University
+   analysis of randomized controlled studies. BMC Public Health,                  Press.
+   13(1), 1–20. https://doi.org/10.1186/1471-2458-13-119                      Fitzpatrick, K. K., Darcy, A., & Vierhile, M. (2017). Delivering cogni-
+Brandtzaeg, P. B., & Følstad, A. (2017). Why people use chatbots. In              tive behavior therapy to young adults with symptoms of depression
+   International Conference on Internet Science (pp. 377–392).                    and anxiety using a fully automated conversational agent (woebot):
+Brandtzæg, P. B., Skjuve, M., Kristoffer Dysthe, K. K., Følstad, A.               A randomized controlled trial. JMIR Mental Health, 4(2), e7785.
+   (2021). When the social becomes non-human: Young people’s per-                 https://doi.org/10.2196/mental.7785
+   ception of social support in chatbots. In Proceedings of the 2021 CHI      Fredrickson, B. L. (2004). Gratitude, like other positive emotions,
+   Conference on Human Factors in Computing Systems (pp. 1–13).                   broadens and builds. In M. E. McCullough & R. A. Emmons
+Braun, V., & Clarke, V. (2012). Thematic analysis. In H. Cooper (Eds.),           (Eds.), The psychology of gratitude (pp. 145–166). Oxford
+   APA handbook of research methods in psychology: Vol. 2. Research               University Press.
+   designs (p. 57–71). APA.                                                   Froh, J. J., Kashdan, T. B., Ozimkowski, K. M., & Miller, N. (2009).
+Buchanan, K. E., & Bardi, A. (2010). Acts of kindness and acts of nov-            Who benefits the most from a gratitude intervention in children
+   elty affect life satisfaction. The Journal of Social Psychology, 150(3),       and adolescents? Examining positive affect as a moderator. The
+   235–237. https://doi.org/10.1080/00224540903365554                             Journal of Positive Psychology, 4(5), 408–422. https://doi.org/10.1080/
+Buck, R. (2004). The gratitude of exchange and the gratitude of caring.           17439760902992464
+   In M. E. McCullough & R. A. Emmons (Eds.), The psychology of               Fulmer, R., Joerin, A., Gentile, B., Lakerink, L., & Rauws, M. (2018).
+   gratitude (Vol. 145, pp. 100–122). Oxford University Press.                    Using psychological artificial intelligence (Tess) to relieve symptoms
+Campos, B., Shiota, M. N., Keltner, D., Gonzaga, G. C., & Goetz, J. L.            of depression and anxiety: Randomized controlled trial. JMIR
+   (2013). What is shared, what is different? Core relational themes              Mental Health, 5(4), e64. https://doi.org/10.2196/mental.9782
+   and expressive displays of eight positive emotions. Cognition &            Gendron, M., & Feldman Barrett, L. (2009). Reconstructing the past: A
+   Emotion, 27(1), 37–52. https://doi.org/10.1080/02699931.2012.683852            century of ideas about emotion in psychology. Emotion Review :
+Chang, Y.-P., Li, T.-S., Teng, H. Y., Berki, A., & Chen, L. H. (2013).            Journal of the International Society for Research on Emotion, 1(4),
+   Living with gratitude: Spouse’s gratitude on one’s depression.                 316–339. https://doi.org/10.1177/1754073909338877
+   Journal of Happiness Studies, 14(4), 1431–1442. https://doi.org/10.        Ghandeharioun, A., Azaria, A., Taylor, S., & Picard, R. W. (2016).
+   1007/s10902-012-9389-4                                                         “Kind and Grateful”: A context-sensitive smartphone app utilizing
+Chang, Y.-P., Lin, Y.-C., & Chen, L. H. (2012). Pay it forward:                   inspirational content to promote gratitude. Psychology of Well-Being,
+   Gratitude in social networks. Journal of Happiness Studies, 13(5),             6(1), 1–21. https://doi.org/10.1186/s13612-016-0046-2
+   761–781. https://doi.org/10.1007/s10902-011-9289-z                         Gilbert, P. (2014). The origins and nature of compassion-focused ther-
+Chow, J. C., Sanders, L., & Li, K. (2023). Design of an educational               apy. The British Journal of Clinical Psychology, 53(1), 6–41. https://
+   chatbot using artificial intelligence in radiotherapy. AI, 4(1), 319–          doi.org/10.1111/bjc.12043
+   332. https://doi.org/10.3390/ai4010015                                     Goetz, J. L., Keltner, D., & Simon-Thomas, E. (2010). Compassion: An
+Clark, L., Pantidi, N., Cooney, O., Doyle, P., Garaialde, D., Edwards, J.,        evolutionary analysis and empirical review. Psychological Bulletin,
+   Spillane, B., Gilmartin, E., Murad, C., Munteanu, C., & Wade, V.               136(3), 351–374. https://doi.org/10.1037/a0018807
+   (2019). What makes a good conversation? Challenges in designing            Gordon, C. L., Arnette, R. A., & Smith, R. E. (2011). Have you thanked
+   truly conversational agents [Paper presentation]. Proceedings of the           your spouse today?: Felt and expressed gratitude among married
+   2019 Chi Conference on Human Factors in Computing Systems,                     couples. Personality and Individual Differences, 50(3), 339–343.
+   Computing Machinery (pp. 1–12). Association for Computing                      https://doi.org/10.1016/j.paid.2010.10.012
+   Machinery. https://doi.org/10.1145/3290605.3300705                         Haidt, J. (2003). The moral emotions. In R. J. Davidson, K. R. Scherer,
+Compton, W. C., & Hoffman, E. (2019). Positive psychology: The sci-               & H. H. Goldsmith (Ed.), Series in affective science. Handbook of
+   ence of happiness and flourishing. Sage Publications.                          affective sciences (Vol. 11, pp. 852–870). Oxford University Press.
+Creswell, J. W., & Creswell, J. D. (2017). Research design: Qualitative,      Jia, L., Lee, L. N., & Tong, E. M. W. (2015). Gratitude facilitates behav-
+   quantitative, and mixed methods approaches. Sage Publications.                 ioral mimicry. Emotion (Washington, D.C.), 15(2), 134–138. https://
+Dale, R. (2016). The return of the chatbots. Natural Language Engineering,        doi.org/10.1037/emo0000022
+   22(5), 811–817. https://doi.org/10.1017/S1351324916000243                  Keltner, D. (2019). Toward a consensual taxonomy of emotions. Cognition
+Diener, E., Lucas, R. E., & Oishi, S. (2002). Subjective well-being: The          & Emotion, 33(1), 14–19. https://doi.org/10.1080/02699931.2019.1574397
+   science of happiness and life satisfaction. In C. R. Snyder & J. S.        Killen, A., & Macaskill, A. (2015). Using a gratitude intervention to
+   Lopez (Eds.), Handbook of positive psychology (Vol. 2, pp. 63–73).             enhance well-being in older adults. Journal of Happiness Studies,
+   Oxford University Press.                                                       16(4), 947–964. https://doi.org/10.1007/s10902-014-9542-3
+4970       M. LEE ET AL.
+
+
+Komter, A. E. (2004). Gratitude and gift exchange. In M. E.                    for depression: Randomized controlled trial. Journal of Medical
+  McCullough & R. A. Emmons (Eds.), The psychology of gratitude                Internet Research, 17(3), e72. https://doi.org/10.2196/jmir.4167
+  (Vol. 145, pp. 195–212). Oxford University Press.                         Narain, J., Quach, T., Davey, M., Park, H. W., Breazeal, C., & Picard, R.
+Kretzschmar, K., Tyroll, H., Pavarini, G., Manzini, A., Singh, I., &           (2020). Promoting wellbeing with Sunny, a chatbot that facilitates posi-
+  Group, N. Y. P. A. (2019). Can your phone be your therapist?                 tive messages within social groups [Paper presentation]. Extended
+  Young people’s ethical perspectives on the use of fully automated            Abstracts of the 2020 CHI Conference on Human Factors in
+  conversational agents (chatbots) in mental health support.                   Computing Systems (pp. 1–8). https://doi.org/10.1145/3334480.3383062
+  Biomedical Informatics Insights, 11, 1178222619829083. https://doi.       Nass, C., Steuer, J., & Tauber, E. R. (1994). Computers are social actors
+  org/10.1177/1178222619829083                                                 [Paper presentation]. Conference Companion on Human Factors in
+Lambert, N. M., Fincham, F. D., Stillman, T. F., & Dean, L. R. (2009).         Computing Systems (p. 204). Association for Computing Machinery.
+  More gratitude, less materialism: The mediating role of life satisfac-    Nguyen, S. P., & Gordon, C. L. (2020). The relationship between grati-
+  tion. The Journal of Positive Psychology, 4(1), 32–42. https://doi.org/      tude and happiness in young children. Journal of Happiness Studies,
+  10.1080/17439760802216311                                                    21(8), 2773–2787. https://doi.org/10.1007/s10902-019-00188-6
+Lazarus, R. S., & Lazarus, B. N. (1994). Passion and reason: Making         O’Leary, K., & Dockray, S. (2015). The effects of two novel gratitude
+  sense of our emotions. Oxford University Press.                              and mindfulness interventions on well-being. Journal of Alternative
+Lee, M., & Contreras, J. (2023). Flourishing with moral emotions               and Complementary Medicine (New York, N.Y.), 21(4), 243–245.
+  through conversational agents. In M. Las Heras, M. Grau Grau, &              https://doi.org/10.1089/acm.2014.0119
+  Y. Rofcanin (Eds.), Human flourishing: A multidisciplinary perspec-       Polak, E. L., & McCullough, M. E. (2006). Is gratitude an alternative to
+  tive on neuroscience, health, organizations and arts (pp. 163–179).          materialism? Journal of Happiness Studies, 7(3), 343–360. https://doi.
+  Springer International Publishing. https://doi.org/10.1007/978-3-031-        org/10.1007/s10902-005-3649-5
+  09786-7_11                                                                Rapp, A., Curti, L., & Boldi, A. (2021). The human side of human-
+Lee, M., Ackermans, S., van As, N., Chang, H., Lucas, E., IJsselsteijn,        chatbot interaction: A systematic literature review of ten years of
+  W. (2019). Caring for Vincent: A chatbot for self-compassion. In             research on text-based chatbots. International Journal of Human-
+  Proceedings of the 2019 CHI Conference on Human Factors in                   Computer Studies, 151, 102630. https://doi.org/10.1016/j.ijhcs.2021.
+  Computing Systems (pp. 1–13).                                                102630
+Lee, M., Frank, L., & IJsselsteijn, W. (2021). Brokerbot: A cryptocur-      Rosenberg, E. L. (1998). Levels of analysis and the organization of
+  rency chatbot in the social-technical gap of trust. Computer                 affect. Review of General Psychology, 2(3), 247–270. https://doi.org/
+  Supported Cooperative Work (CSCW), 30(1), 79–117. https://doi.org/           10.1037/1089-2680.2.3.247
+  10.1007/s10606-021-09392-6                                                Russell, J. A. (1980). A circumplex model of affect. Journal of
+Lee, Y.-C., Yamashita, N., & Huang, Y. (2020). Designing a chatbot as          Personality and Social Psychology, 39(6), 1161–1178. https://doi.org/
+  a mediator for promoting deep self-disclosure to a real mental               10.1037/h0077714
+  health professional. Proceedings of the ACM on Human-Computer             Sandelowski, M. (2000). Whatever happened to qualitative description?
+  Interaction, 4(CSCW1), 1–27. https://doi.org/10.1145/3392836                 Research in Nursing & Health, 23(4), 334–340. https://doi.org/10.
+Lee, Y.-C., Yamashita, N., & Huang, Y. (2021). Exploring the effects of        1002/1098-240X(200008)23:4<334::AID-NUR9>3.0.CO;2-G
+  incorporating human experts to deliver journaling guidance through        Seligman, M. E., Steen, T. A., Park, N., & Peterson, C. (2005). Positive
+  a chatbot. Proceedings of the ACM on Human-Computer Interaction,             psychology progress: Empirical validation of interventions. The
+  5(CSCW1), 1–27. https://doi.org/10.1145/3449196                              American Psychologist, 60(5), 410–421. https://doi.org/10.1037/0003-
+Lossio-Ventura, J. A., Lee, A. Y., Hancock, J. T., Linos, N., & Linos, E.      066X.60.5.410
+  (2021). Identifying silver linings during the pandemic through nat-       Shantideva, A. (1979). Guide to the bodhisattva’s way of life (S.
+  ural language processing. Frontiers in Psychology, 12, 712111. https://      Batchelor, Trans.). Library of Tibetan Works and Archives.
+  doi.org/10.3389/fpsyg.2021.712111                                         Sheldon, K. M., & King, L. (2001). Why positive psychology is neces-
+Lucas, G. M., Gratch, J., King, A., & Morency, L.-P. (2014). It’s only a       sary. The American Psychologist, 56(3), 216–217. https://doi.org/10.
+  computer: Virtual humans increase willingness to disclose.                   1037/0003-066X.56.3.216
+  Computers in Human Behavior, 37, 94–100. https://doi.org/10.1016/j.       Shum, H.-Y., He, X.-D., & Li, D. (2018). From Eliza to Xiaoice:
+  chb.2014.04.043                                                              Challenges and opportunities with social chatbots. Frontiers of
+Mathews, M. A., & Shook, N. J. (2013). Promoting or preventing                 Information Technology & Electronic Engineering, 19(1), 10–26.
+  thanks: Regulatory focus and its effect on gratitude and indebted-           https://doi.org/10.1631/FITEE.1700826
+  ness. Journal of Research in Personality, 47(3), 191–195. https://doi.    Siddique, S., & Chow, J. C. (2021). Machine learning in healthcare
+  org/10.1016/j.jrp.2013.01.001                                                communication. Encyclopedia, 1(1), 220–239. https://doi.org/10.
+Mauriello, M. L., Tantivasadakarn, N., Mora-Mendoza, M. A., Lincoln,           3390/encyclopedia1010021
+  E. T., Hon, G., Nowruzi, P., Simon, D., Hansen, L., Goenawan,             Solanki, R. K., Rajawat, A. S., Gadekar, A. R., & Patil, M. E. (2023).
+  N. H., Kim, J., & Gowda, N. (2021). A suite of mobile conversa-              Building a conversational chatbot using machine learning: Towards
+  tional agents for daily stress management (popbots): Mixed methods           a more intelligent healthcare application. In M. Garcia, M. Lopez
+  exploratory study. JMIR Formative Research, 5(9), e25294. https://           Cabrera, & R. de Almeida (Eds.), Handbook of research on instruc-
+  doi.org/10.2196/25294                                                        tional technologies in health education and allied disciplines
+McCarthy, E. D. (1994). The social construction of emotions: New               (pp. 285–309). IGI Global. https://doi.org/10.4018/978-1-6684-7164-
+  directions from culture theory. Social Perspectives on Emotion, 2(1),        7.ch013
+  267–279.                                                                  Southwell, S., & Gould, E. (2017). A randomised wait list-controlled
+McCullough, M. E., Emmons, R. A., & Tsang, J.-A. (2002). The grateful          pre–post–follow-up trial of a gratitude diary with a distressed sam-
+  disposition: A conceptual and empirical topography. Journal of               ple. The Journal of Positive Psychology, 12(6), 579–593. https://doi.
+  Personality and Social Psychology, 82(1), 112–127. https://doi.org/10.       org/10.1080/17439760.2016.1221127
+  1037//0022-3514.82.1.112                                                  Ta, V., Griffith, C., Boatfield, C., Wang, X., Civitello, M., Bader, H.,
+McCullough, M. E., Tsang, J.-A., & Emmons, R. A. (2004). Gratitude             DeCero, E., & Loggarakis, A. (2020). User experiences of social sup-
+  in intermediate affective terrain: Links of grateful moods to individ-       port from companion chatbots in everyday contexts: Thematic ana-
+  ual differences and daily emotional experience. Journal of                   lysis. Journal of Medical Internet Research, 22(3), e16235. https://doi.
+  Personality and Social Psychology, 86(2), 295–309. https://doi.org/10.       org/10.2196/16235
+  1037/0022-3514.86.2.295                                                   Wang, L., Wang, D., Tian, F., Peng, Z., Fan, X., Zhang, Z., Yu, M., Ma,
+Morris, R. R., Schueller, S. M., & Picard, R. W. (2015). Efficacy of a         X., & Wang, H. (2021). Cass: Towards building a social-support
+  web-based, crowdsourced peer-to-peer cognitive reappraisal platform          chatbot for online health community. Proceedings of the ACM on
+                                                                            INTERNATIONAL JOURNAL OF HUMAN–COMPUTER INTERACTION                 4971
+
+
+  Human-Computer Interaction, 5(CSCW1), 1–31. https://doi.org/10.          the following feelings, using the scale below. For each item, select a
+  1145/3449083                                                             number from 1 to 5, and indicate that number on your response sheet;
+Watkins, P. C. (2013). Gratitude and the good life: Toward a psychology    1 ¼ Very Rarely or Never, 2 ¼ Rarely, 3 ¼ Sometimes, 4 ¼ Often,
+  of appreciation. Springer Science & Business Media.                      5 ¼ Very Often or Always.
+Watkins, P. C., Scheer, J., Ovnicek, M., & Kolts, R. (2006). The debt of       Positive
+  gratitude: Dissociating gratitude and indebtedness. Cognition &              Negative
+  Emotion, 20(2), 217–241. https://doi.org/10.1080/02699930500172291           Good
+Watkins, P. C., Woodward, K., Stone, T., & Kolts, R. L. (2003).                Bad
+  Gratitude and happiness: Development of a measure of gratitude,              Pleasant
+  and relationships with subjective well-being. Social Behavior and            Unpleasant
+  Personality: An International Journal, 31(5), 431–451. https://doi.          Happy
+  org/10.2224/sbp.2003.31.5.431                                                Sad
+Weiner, B. (1986). Attribution, emotion, and action. In R. M.                  Afraid
+  Sorrentino & E. T. E. Higgins (Ed.), Handbook of motivation and              Joyful
+  cognition: Foundations of social behavior (pp. 281–312). Guilford            Angry
+  Press.                                                                       Contented
+Weizenbaum, J. (1966). Eliza—A computer program for the study of               Scoring: The measure can be used to derive an overall affect bal-
+  natural language communication between man and machine.                  ance score, but can also be divided into positive and negative feelings
+  Communications of the ACM, 9(1), 36–45. https://doi.org/10.1145/         scales.
+  365153.365168                                                                Positive Feelings (SPANE-P): Add the scores, varying from 1 to 5,
+Witvliet, C. v., Richie, F. J., Root Luna, L. M., & Van Tongeren, D. R.    for the six items: positive, good, pleasant, happy, joyful, and contented.
+  (2019). Gratitude predicts hope and happiness: A two-study assess-       The score can vary from 6 (lowest possible) to 30 (highest positive feel-
+  ment of traits and states. The Journal of Positive Psychology, 14(3),    ings score).
+  271–282. https://doi.org/10.1080/17439760.2018.1424924                       Negative Feelings (SPANE-N): Add the scores, varying from 1 to 5,
+Wood, A. M., Froh, J. J., & Geraghty, A. W. (2010). Gratitude and          for the six items: negative, bad, unpleasant, sad, afraid, and angry. The
+  well-being: A review and theoretical integration. Clinical Psychology    score can vary from 6 (lowest possible) to 30 (highest negative feelings
+  Review, 30(7), 890–905. https://doi.org/10.1016/j.cpr.2010.03.005        score).
+Xu, L., Sanders, L., Li, K., & Chow, J. C. (2021). Chatbot for health          Affect Balance (SPANE-B): The negative feelings score is subtracted
+  care and oncology applications using artificial intelligence and
+                                                                           from the positive feelings score, and the resultant difference score can
+  machine learning: Systematic review. JMIR Cancer, 7(4), e27850.
+                                                                           vary from 24 (unhappiest possible) to 24 (highest affect balance pos-
+  https://doi.org/10.2196/27850
+                                                                           sible). A respondent with a very high score of 24 reports that she or he
+                                                                           rarely or never experiences any of the negative feelings, and very often
+                                                                           or always has all of the positive feelings. Copyright by Ed Diener and
+About the Authors
+                                                                           Robert Biswas-Diener, January 2009; refer to (Diener et al., 2009).
+Minha Lee is an Assistant Professor at the Eindhoven University of
+Technology’s Industrial Design Department with a background in phil-
+osophy, digital arts, and HCI. Lee’s transdisciplinary research on moral
+emotions targets mental well-being by exploring conversational agents      A.2.    The gratitude Questionnaire -Six Item form
+like robots or chatbots as our moral mirrors that extend who we are.               (GQ-6)
+Jessica Contreras Alejandro holds a master’s degree in Human-              Using the scale below as a guide, write a number beside each statement
+Technology Interaction from the Eindhoven University of Technology         to indicate how much you agree with it; 1 ¼ Strongly Disagree
+and a B.Sc. in Computer Science and Technology from Tecnol  ogico de      2 ¼ Disagree 3 ¼ Slightly Disagree 4 ¼ Neutral 5 ¼ Slightly Agree
+Monterrey. Jessica currently works as Test Engineer which aligns with      6 ¼ Agree 7 ¼ Strongly Agree.
+her passion for developing quality technology that improves people’s           1. I have so much in life to be thankful for.
+life.                                                                          2. If I had to list everything that I felt grateful for, it would be a
+Wijnand IJsselsteijn has a background in artificial intelligence and       very long list.
+cognitive neuropsychology. His research is on the impact of media              3. When I look at the world, I don’t see much to be grateful for.
+technology on human psychology and using psychology to improve                 4. I am grateful to a wide variety of people.
+technology design. Currently, he is a full professor of Cognition and          5. As I get older I find myself more able to appreciate the people,
+Affect in Human-Technology Interaction at the Eindhoven University         events, and situations that have been part of my life history.
+of Technology.                                                                 6. Long amounts of time can go by before I feel grateful to some-
+                                                                           thing or someone.
+                                                                               Scoring Instructions:
+                                                                               1. Add up scores for items 1, 2, 4, and 5.
+                                                                               2. Reverse scores for items 3 and 6. That is, for a score of” 7,”
+Appendix                                                                   replace with” 1,” for a” 6,” replace with” 2,” and so on.
+A.1. Scale of positive and negative experience (SPANE)                         3. Add the reversed scores for items 3 and 6 to the total from Step
+                                                                           1. This is the total GQ-6 score. This number should be between 6
+Please think about what you have been doing and experiencing during        and 42.
+the past four weeks. Then report how much you experienced each of              The scale is by McCullough et al. (2002) (McCullough et al., 2002).
+4972        M. LEE ET AL.
+
+
+A.3.     Instructions
+The participants read the description of the study and were given the    not mentioned in the recruitment phase or in the directions
+following instructions before chatting with the chatbot. Gratitude was   (Figure A1).
+
+
+
+
+Figure A1. Instructions.
+

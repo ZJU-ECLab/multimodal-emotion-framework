@@ -1,0 +1,698 @@
+       Evaluating Creative Mobile Applications Development
+                     Using Emotional Design
+     Nixon Muganda Ochara                                         Carina De Villiers                    Hossana Twinomurinzi
+       University of Pretoria                                 University of Pretoria                    University of South Africa
+  School of Information Technology                       School of Information Technology                 School of Computing
+     Department of Informatics                              Department of Informatics              College of Science, Engineering and
+         +27(12) 420 3373                                       +27(12) 420 3798                               Technology
+     nixon.ochara@up.ac.za                                carina.devilliers@up.ac.za                        +27(11) 670 9361
+                                                                                                          twinoh@unisa.ac.za
+                                                                    Jaco Pretorius
+                                                              University of Pretoria
+                                                         School of Information Technology
+                                                            Department of Informatics
+                                                                 +27(12)4203798
+                                                            Jaco.Pretorius@up.ac.za
+
+ABSTRACT
+In this research paper, we adopt an integrative view of user
+                                                                              General Terms
+                                                                              Information Systems Development
+involvement in software development; where, a user’s
+psychological state, at various phases of development, is linked
+to the contribution of user involvement in the success of                     Keywords
+software development. We explore the link between creativity                  Creativity, Software Development, Emotional Design, Mobile
+and emotional design in order to evolve a conceptual framework                Applications Development; Creative Design
+for studying creativity in the fast growing area of mobile
+applications (apps) development. Action research, which is
+regarded as participatory, emancipatory and contextual, was
+                                                                              1. INTRODUCTION
+                                                                              A critical raison d’être for the success of software development
+adopted in this study. The study used a case study design and a
+                                                                              projects is premised on user involvement. However, over the
+survey of 1,502 students registered for a first year course in
+                                                                              years, the contribution and role of user involvement continue to
+Management Information Systems at a large urban University in
+                                                                              be contested [16]. Conceptually, classic user involvement is
+South Africa. Results from this study found that for app
+                                                                              viewed as a subjective psychological state reflecting the
+development to be more creative and innovative, emotional
+                                                                              importance and personal relevance of a system to a user [13]. A
+design should be part of the broader process of improving
+                                                                              much more contemporary view is; where contact with users at
+requirements engineering in Information Systems Development
+                                                                              various phases of the systems development process is reified
+(ISD). We also found that in situations where emotional
+                                                                              [16]. The research reported in this paper adopts a much more
+feedback is genuine, requirements engineering problems related
+                                                                              integrative view; where, a user’s psychological state, at various
+to the “misinformation effect” common in ISD can be
+                                                                              phases of development, is linked to the contribution of user
+minimized. The third claim we affirm stronger is how users in
+                                                                              involvement in the success of software development.
+ISD play a closer role as co-developers of mobile apps in order
+to realize true creativity and innovativeness. This study further             The hybrid view resonates with the philosophical perspective in
+demonstrated how subjective feelings in ISD can be evaluated                  software development movements such as agile development
+using visual artifacts such as the Emocard.                                   and extreme programming (XP) that there is increasing
+                                                                              humanity and effectiveness in software development [3] [12].
+Categories and Subject Descriptors                                            The concept of humanity of software systems is intricately
+D.2.1 Requirements/Specifications:            Elicitation       methods;      interwoven with the psychological state of recipients
+Languages; Methodologies; Tools                                               (individuals, organizations) of software solutions. We see
+                                                                              creativity as a critical component of humanity in software
+Permission to make digital or hard copies of all or part of this work for     development, and Pyshkin [27] recognizes it as a product of art
+personal or classroom use is granted without fee provided that copies         and human creativity. O’Bower, in [2] also elevates the notion
+are not made or distributed for profit or commercial advantage and that       of creativity as the only crucial ability required in programming;
+copies bear this notice and the full citation on the first page. Copyrights   while Sergei Arkhipenkov states that “software development is a
+for components of this work owned by others than ACM must be
+                                                                              kind of human activity which is mistakenly attributed to
+honored. Abstracting with credit is permitted. To copy otherwise, or
+republish, to post on servers or to redistribute to lists, requires prior     engineering” [2].
+specific permission and/or a fee. Request permissions from                    Creativity in software development is justified on the basis that
+Permissions@acm.org.
+                                                                              users seek value from solutions that are presented to them.
+SAICSIT2014, September 29 - October 01 2014, Centurion, South                 Value propositions in software development are not limited to
+Africa. Copyright is held by the owner/author(s). Publication rights
+licensed to ACM. ACM 978-1-4503-3246-0/14/09…$15.00
+http://dx.doi.org/10.1145/2664591.2664614
+
+                                                                                                                                       132
+basic software features alone; but should also consider              creative process, a person begins the creative process by
+propositions related to performance and excitement (for              developing a created product or solution. The individual in the
+distinctions, see [31]. The basic and performance features are       creative process relies on a repertor of personality and cognition
+typically captured through structured and formalized                 that define their background. However, the individual’s effort is
+requirements elicitation approaches and designed into the            not adequate in adjudging creativity as either appropriate or
+system. However, the third aspect, that is, building excitement      novel. This is because the individual operates within a social
+features in software development products is much more elusive       system, and however inspired or creatively-trained the
+and is linked to creativity in the development process. We see       individual, the adjudgement of appropriateness and novelty of
+creativity as instrumental in designing software solutions that      creativity is left to the “experts” within a particular domain in
+surprises users due to one or more ‘excitement features’ [22]        the social system. The field is created by a group of experts or
+[10]. However, capturing and evaluating user’s excitement            the people who are evaluating the creative product. For instance
+about a sofware concept or feature still remains problematic and     during the process of developing an information systems
+research in this area is nascent.                                    innovation, users are engaged in various ways to help in shaping
+                                                                     the innovation to be acceptable for organizational use. Therefore
+1.1 Research objective                                               creativity is argued to be a product of the dynamic interaction
+This study, in line with Desmet, Porcelijn, & Van Dijk [10]          among three dimensions: the individual, the domain, and the
+research, seeks to investigate how creativity in app development     field [6].
+can enhance the evaluation of user excitement.
+The key research question is: How can creativity in design
+enhance user involvement?
+We consider creativity to be the “generation of a product that is
+judged to be novel and also to be appropriate, useful, or
+valuable by a suitably knowledgeable social group” [29]. This is
+a sociocultural conceptualization of creativity that takes into
+account that software development efforts in organizational
+setups are typically group innovations involving structures and
+processes of organizational systems. The purpose of the study is
+addressed by, first, enumerating on the theoretical link between
+creativity and emotional design as the basis of enabling
+‘exciting’ software solutions. A research model is then proposed
+that captures these linkages. The paper then describes the
+research context, methodology, results and then discusses the
+implications and future research directions.
+A key assumption that is made in studying processes of                Figure 1. General Systems Model of Creativity (Source [6])
+creativity is that a creative ‘event’ actually occurs. This is not
+always the case, not only because there is no guarantee that the
+event occurs, but also the difficulty of identifying a solution as   However, the process of adjudging an innovation as novel is not
+creative [11]. However, part of the study undertaken here is         as clear-cut as envisaged in the creativity process. For instance,
+premised on the second assumption and the solution envisaged         how do the users determine that a particular concept, idea,
+in this paper should partially addressed this concern.               innovation or feature of an innovation is “novel”? Novelty has
+                                                                     to do with “newness” and must evoke surprise from the experts.
+2. CREATIVITY IN EMOTIONAL                                           We argue that in the process of assessing “newness” or novelty,
+                                                                     the “materials” used in the process of evaluation plays a critical
+DESIGN                                                               role in capturing ‘moments of insight’ during the process of
+In this section, the link between creativity and emotional design    software applications development. Thus in an attempt to link
+will be established in order to evolve a conceptual framework        ‘novelty’ as an outcome of the creative process, we recourse to
+for studying creativity in app development. The starting point is    research that have established that usability is correlated to
+to anchor the conception of creativity on an action theory           aesthetics (see [32] [33] [34] [14].
+person, in which Sawyer [29] makes the point that: “Creativity
+takes place over time, and most of the creativity occurs while       Aesthetics and its evaluation largely through emotions are
+doing the work. The medium is an essential part of the creative      interwoven, yet research confirms that emotions play a critical
+process, and creators often get ideas while working with the         role in people’s daily lives. For instance, emotions play a role in
+materials”. Two key highlights of this sociocultural                 assessing whether situations are good or bad, safe or dangerous
+conceptualization of creativity from an action theory perspective    and they also aid in decision making [25]. If emotions play a
+are that in creativity: the product or process must be novel, and    role in decision making, the implication is that they influence
+it must be appropriate to some domain of activity. The notion        product or software designs. Norman [25] and Tractinsky [33]
+of novelty must be adjudged by experts as appropriate in a           have found a direct correlation between the attractiveness
+particular domain.                                                   (aesthetic appeal) of things to not only increased usability but
+                                                                     also to creativity. Thus more attractive design inspires more
+Csikszentmihalyi [6] has aptly crystallized ideas of the             creativity in not only designers but users of the product and this
+soiocultural conception of creativity in his General Systems
+Model of Creativity (Fifure 1). He recognizes that in any
+
+
+
+
+                                                                                                                               133
+is likely to have a profound effect especially in situations where    models in the literature, we adopted the typology of emotions
+designers seek feedback from users.                                   types by Desmet that are typically used to assess customer
+                                                                      experience in response to consumer products. The descriptions
+In assessing or evaluating situtions, the human brain operates at     of the themes of the typology of ‘wow’ is provided by Desmet,
+three levels: the visceral, behavioral and reflective levels [25].    Porcelijn, & Van Dijk [10] below:
+The visceral level is considered to be the pre-thought,
+preconsicious level, where appearance and first impressions are       On the basis of reported appraisal themes, Desmet [8]developed
+formed. Thus, in terms of design consideration, focus is on the       a typology of emotion types that we generally experience in
+initial impact of a produc or solution by assessing the               response to consumer products. Five of these types represent
+appearance, touch and feel. The second level, behavioral level is     pleasant emotions, and threeof these five are considered to
+about product function, performance and usability. The third          combine to a wowexperience: pleasant surprise, fascination, and
+reflective level of consciousness is where feeling, emotions, and     desire.
+cognition reside. That at this level, the full impact of both
+thought and emotions is experienced. Norman [25] further              •    Pleasant surprise: We experience surprise in response to
+contends that at the lower visceral and behavioral levels, there is        products that we appraise as novel, both in terms of
+only affect, but without interpretation or consciousness, yet              suddenness and unexpectedness. To experience pleasant
+interpretation, understanding, and reasoning come from the                 surprise, the product must be appraised as unexpected and
+reflective level which is much more vulnerable to variability              as suddenly matching a concern.
+through culture, experience, education, and individual                •    Fascination: We experience fascination in response to
+differences.                                                               products that we appraise as unfamiliar. If the product
+But what do all these mean for this study? Recent research in              touches on our need of curiosity, we will experience the
+HCI appears to be advocating for designs that seek a fit between           pleasant sense of unfamiliarity that we call fascination.
+technology and human values in which emotional considerations         •    Desire: We desire for products that we appraise as fit
+are key [19]; emotional elements in design aid in initiating               objects that call for possession. The product is appraised as
+behavior and motivate decisions [26]; designing for the                    a fit object because using or owning it will fulfill a goal, its
+pleasurable life and the good life [8]; and focus on excitement as         design is delightful or it expresses some desirable quality.
+a basis of designing products which evoke a ‘wow’ emotional
+response from customers [9]. In addition, the emphasis                In summing our conceptual argument, we therefore evolve the
+emanating from such studies appear to be much more user-              following research questions as guide to this study:
+oriented and holistic, and takes into the account the ‘wow’
+                                                                      •   To what extent does the emotion of pleasant surprise (or
+impact of a product, not only at the conceptual level but also at
+                                                                          the negative emotion associated with it) correlate to
+the feature level. The result is a user engagement process that
+                                                                          novelty in creative design in applications development?
+elicits a unified product concept in which visual appearance,
+interaction and features are aligned to elicit a coherent             •   To what extent does the emotion of fascination (or the
+experience [10].                                                          negative emotion associated with it) correlate to novelty in
+Thus, we consider emotional design to refer to approaches in              creative design in applications development?
+applications development that take into account human values,         •   To what extent does the emotion of desire (or the negative
+emotional elements and excitement as foundational elements for            emotion associated with it) correlate to novelty in creative
+creating novel products. Thus the design considers three levels           design in applications development?
+at which the human brain functions: viscral, behavioral and
+reflective levels; which consequetively map product                   We explore these questions by undertaking a case study in
+characteristics of appearance, pleasure and effectiveness of use      which groups of students were tasked with conceptualizing and
+and aspects related to self-image, personal satisfaction and          designing apps using the design thinking approach. Design
+memories. That the key to determining whether or not such             thinking is an approach to problem solving that integrates
+characteristics exist in design (software or physical products)       empathy and creativity to solving existing problems within their
+are related to positive or negative emotions that customers           context [28].
+experienve as they interact with the product. The sociocultural
+notion of creativity and emotional design from psychology has         3. METHODOLOGY
+given traction to our focus on how ‘wow’ experiences can be
+useful in evaluating the novelty of design during applications
+                                                                      3.1 Research Design
+development.                                                          Action research, which is regarded as participatory,
+                                                                      emancipatory and contextual, was adopted in this study. Action
+Desmet, Porcelijn, & Van Dijk [10] define ‘wow’ as an                 Research is research in which the researcher generates new
+affective, emotional experience or a valenced experience that         knowledge about a social system, while at the same time
+includes an unpleasant or a pleasant feeling. Emotions that may       attempting to change it, with the goal of improving the social
+constitute a wow experience can be linked to: a subjective            system. The research was participatory, since the researchers in
+feeling, a facial and bodily expression, a change in arousal, and     the study were the educators involved in teaching the creative
+a motivational tendency (see [20]. Desmet, Porcelijn, & Van           app development to the business students at a large urban South
+Dijk [10] on the other hand consider that for ‘wow’ to be             African university based in the administrative capital, Pretoria.
+subjected to analytical focus, it needs to be considered as a         The study is emancipatory, since the educators involved sought
+composite of several emotions related to: pleasant surprise,          to make the course, with 1,502 students much more engaging.
+desire, and fascination. Though there are a number of ‘wow’           Therefore at the beginning of 2013, the educators involved in
+
+
+
+
+                                                                                                                                 134
+the teaching of the course resolved to address the problem of              Pleasant Emotions             Unpleasant Emotions
+lack of effective engagement in large classes by introducing app
+development from a creative design perspective. The issue of                     Desire                          Disgust
+context can be argued from the focus of the study, i.e. students
+majoring in Informatics as a Business Degree at the case study
+university. The study used a case study design and a survey
+among 1502 students registered for a first year course in
+Fundamentals of Information Systems at a large urban                          Fascination                       Contempt
+University in South Africa.
+
+3.2 Research Participants
+The total population for the case study and survey component
+comprised of 1,502 business students. The course has a                     Pleasant Surprise             Unpleasant Surprise
+coordinator, three theory educators, and two practical tutors.
+Typically, a theory lecture would be delivered by an instructor
+after which the students would work at their own time and do
+presentations to other groups of student users during creative
+                                                                              Satisfaction                    Dissatisfaction
+practical assignment to be completed in the computer labs.
+During these interactive sessions, the practical educators and
+tutors would be present to facilitate the process. The course runs
+from February to June and is offered to students in the Faculty
+of Economic and Management Sciences. The students peer-                       Amusement                         Boredom
+reviewed their own work and served as evaluators. The
+participants that were targeted for the survey were students, who
+have a business orientation to computing and who take up
+professional appointments as business/systems analysts on
+completion of their studies. The survey data was collected                          Figure 2: Emocard (Source: [10])
+during the first half of 2013 (February to June). Out of a class
+population of 1,502 students, usable responses were obtained
+from 1,100 students, giving a response rate of 87%. However,         There were a series of eight workshops (though the activities in
+given the interpretive nature adopted in this study, a simple        each were iterative) comprising of the following phases:
+random sample of 218 responses were analysed to present the          •    Phase I: Introductory workshop on Design Thinking
+results reported here.
+                                                                     •    Phase II: Define: Identify and define the challenge
+3.3 Research Materials
+Data from surveys and interviews formed the primary source of        •    Phase III: Research: Reframe challenges to opportunities;
+information for this study. Data was gathered using an Emocard            full spectrum data gathering.
+tool (Figure 2.) The interview transcripts were coded by the two     •    Phase IV: Ideation: Using radical techniques for
+practical tutors who were involved in administering the survey            brainstorming ideas with end users
+instruments. A comparison of the transcripts and how they
+mapped to the themes was done to ensure reliability in the           •    Phase V:        Prototype:   Form     creative   partnerships;
+coding process. In addition, survey data was used to capture              prototype.
+descriptive aspects of the study such as visual feedback obtained
+                                                                     •    Phase VI: Choose: Review objectives; select powerful
+from the apps that were being developed by the students divided
+                                                                          ideas
+into groups of five each.
+                                                                     •    Phase VII: Implement: Select and assign tasks, determine
+3.4 Action (Design) Research Procedure                                    resources, execute and deliver to client.
+Design research inherits its principles from action research with
+its main uniqueness being that design research requires the          •    Phase IIX: Learn: Gather feedback; determine if solution
+creation of an artefact unlike in action research whose emphasis          met goals; discuss improvements; measure success;
+is on a change [28]. Since the study involved the creation of an          document.
+app, design thinking was more appropriate as the action research
+method.                                                              3.5 Data Analysis
+                                                                     The primary mode of analysis was thematic analysis. There are
+The design research process involved a number of phases:             two versions of thematic analysis: inductive and theoretical
+planning, action and reflection. In the Planning (Focus on           thematic analysis [5]. In an inductive approach, the themes
+Learner and Strategies) phase of the action research process         identified are strongly linked to the data themselves, which in
+(after [4]), the staff members of the department of Information      the end may bear little relationship to the specific questions that
+Systems held a planning session in October 2012, during which        were asked of the participants [5]. The themes identified in the
+the problem was diagnosed as lack of engagement in large             inductive approach would not be driven by the researcher’s
+classes. The strategy of coming up with practical creative design    theoretical interest in the area or topic. Theoretical thematic
+workshops for developing was mooted and implemented in the           analysis on the other hand is driven by the researcher’s
+semester that started in February 2013.                              theoretical or analytic interest in the area and is thus more
+
+
+
+
+                                                                                                                                135
+explicitly analyst-driven [5]. The theoretical themes used in the
+analysis relate to the categorization of feedback based on four
+themes:
+•    Notable Innovations – Relate to positive feeling about the
+     mobile applications and is identified in terms of the good
+     things about the innovation.
+•    Actionable Criticism – Relate to positive criticism, in
+     which respondents spell out what needs to be done to
+     improve the mobile application
+•    Negative Criticism – Relate to unanswered questions about
+     the innovation that leaves the respondent baffled and                             Figure 3. Distribution of Emotions
+     unable to comprehend a number of things about the
+     innovation.
+•    New Possibilities – These relate to new ideas that the
+     respondents bring out that were not considered before in
+     the applications development.
+
+4. ANALYSIS OF RESULTS
+The feedback from the Emocard template that was used to
+capture the experience regarding the mobile application
+development process was obtained from 218 respondents. The
+part of the Emocard showing the emoticons was analyzed
+statistically in order to explain the significance of the statistics
+to the overall objective of the study: to assess the effectiveness
+of emotional design and its relevance to the development of                     Figure 4. Kiviat Diagram of Assessment Levels
+creative mobile applications. In the first part of the Emocard
+instrument (based on Figure 2), respondents selected the               Table 1 captured summary statistics of the themes relative to the
+appropriate feeling after hearing the “story” regarding the            selected emotions. Bases on the feedback provided by the
+application and seeing a presentation and a demonstration of the       respondents using theoretical thematic analysis, out of 218
+application from the designers of the application. The Emocard         respondents, the feedback from 93 respondents pointed to
+section with the emoticons was structured as a Likert - type           mobile applications, which were considered to be under the
+scale, with a choice of 1 – indicating that the respondent had a       theme of “Actionable Criticism”. Key emotions critical in
+positive feeling, supportive of the application; a 2- indicative of    identifying such applications, based on frequency are Desire
+a neutral feeling; while a 3 – indicated a negative feeling, not       (1.25), Fascination (1.40), & Satisfaction (1.33). However, there
+supportive of the “story”, presentation and demonstration of the       were also mild feelings of Pleasant Surprise (1.69) and mild
+app being presented by the designers.                                  Amusement (1.69). Thus critical feelings that can be associated
+                                                                       with “Actionable Criticism” are D, F, and S.
+The second part of the Emocard instrument captured written
+feedback from the respondents about their feelings about the
+app. The written feedback was theoretically analyzed by                                    Table 1. Descriptive Statistics
+categorizing under the main themes of “notable innovations”,
+“actionable criticism”, “negative criticism” and “new                  Theme           D       F       P      S       A      Cnt    Av.
+possibilities”. The analysis that follows seeks to demonstrate the     Actionable      1.25    1.40    1.69   1.33    1.69   93     1.47
+effectiveness of using emotional design, based on the Emocard,         Criticism        (1)     (3)     (4)    (2)     (4)
+in apps development.                                                   Negative        1.49    1.74    1.82   1.75    2.04   57     1.77
+                                                                       Criticism        (1)     (2)     (4)    (3)     (5)
+4.1 Descriptive Analysis                                               New             2.00    1.90    2.35   2.00    2.10   18     2.07
+Figure 3 shows the distribution of the emotions based on the           Possibilities    (2)     (1)     (3)    (2)     (4)
+selections made by the 218 respondents of the study.                   Notable         1.04    1.16    1.32   1.16    1.46   50     1.23
+                                                                       Innovation       (1)     (2)     (3)    (2)     (4)
+Satisfaction (S), Pleasant Surprise (P) and Amusement (A) were
+each represented at 25 percent; while Desire (D) was at percent
+and Fascination (F) at 13 percent. Figure 4 captures a how the         50 respondents feedback pointed to applications that fall under
+responses clustered around the theoretical themes. Selected            the category of “Notable Innovations”. Critical emotions linked
+emotions which were closer to 1 were indicative of “Notable            to notable innovations based on the feedback from respondents
+Innovations”; while those that were closer to 3 were indicative        are Desire (1.04), Fascination (1.16), Satisfaction (1.16) and
+of “New Possibilities”. Responses that pointed to “Actionable          Pleasant Surprise (1.32); with mild feelings of Amusement
+Criticism” were typically clustered around 1.5; while those            (1.46). Therefore in assessing using feedback regarding
+considered as “Negative Criticism” were closer to 2.                   “Notable Innovations”, the four critical emotions are D, F, P, S.
+                                                                       57 respondents indicated gave feedback that some of the
+                                                                       applications are under the category of “Negative Criticism” –
+
+
+
+
+                                                                                                                                   136
+i.e. applications that are highly criticized, but could still be            especially       as       an   pleasant feelings were
+redesigned to be acceptable. Of note in the feedback regarding              accounting student. It will    selected, the feedback
+“Negative Criticism” applications were that all the feelings were           also help ordinary people      typically pointed out all
+mild, but with three orienting towards positive emotions, i.e.              be able to budget better as    the notable things about
+mild feelings of Desire (1.49), Fascination (1.74), Pleasant                credit issues are escalating   the innovation
+Surprise (1.82) and Satisfaction (1.75). However, the fourth                in RSA.
+feeling gravitated towards Boredom (2.04). Thus, designers
+                                                                    R3      […] Very impressed with         Impressive     comments
+need to be aware of user feedback that borders on the borderline
+                                                                            the overall idea of the app.   about the innovation also
+either on the positive or the negative aspects of the emotions.
+                                                                            I would like to use this       linked       to     desire,
+The fourth category of feedback was provided for 18                         app in my everyday life. I     fascination            and
+applications and placed under the category of “New                          found it very innovative       satisfaction, with mild
+Possibilities”. All the associated feelings were oriented towards           and useful. It could           feelings     of   pleasant
+unpleasant emotions. Their weightings were as follows Disgust               change /help my daily life     surprise and amusement.
+(2.00), Content (1.90), Unpleasant Surprise (2.35),                         in a small way.
+Dissatisfaction (2.00) and Boredom (2.10). Applications, which      R4      The application was very       Where all the selection
+were placed under “New Possibilities”, are those that are not               creative. I was very           was positive emotions,
+meeting current needs, thus designers need to consider new                  impressed     with    the      the           respondents
+designs which maybe unrelated to the current design. Typical                innovative ideas. I would      highlighted things that
+feedback associated with such designers point out several                   use     the   app.   The       were notable about the
+unanswered questions by users as they seek to understand the                terminology used is at a       innovation, reinforcing
+rationale of the current application. This may call for a rethink           high level. They have a        the strong points of the
+of the current design and consider other alternatives which had             wide      knowledge    of      applications development
+not been considered before.                                                 informatics use in our         process.
+                                                                            daily lives.
+4.2 Evaluating Qualitative Feedback
+In this section, the categorization under the four themes
+(Notable Innovations, Actionable Criticism, Negative Criticism      The response in R1 does not only mention specific
+and New Possibilities) is further explored using a qualitative      functionalities and features that are visible in the application;
+data analysis process. A theoretical thematic analysis is           but the respondent goes on to comingle the feedback with their
+undertaken in which raw feedback is linked to the various           selection of pleasant feelings (all were positive) with words that
+themes and emotional feedback in order to understand how to         communicate feelings such as “spark” and satisfaction. R2, R3
+use both the visual feedback with the oral/written feedback by      and R4 also reinforce the notion that where only pleasant
+users involved in the requirements engineering process.             emotions were selected (except in R3 where there was a
+                                                                    selection of mild feelings of pleasant surprise) the feedback
+4.2.1 Realizing “Notable Innovations”                               captured notable things about the application which were
+Notable innovations are realized when the respondents               emphasized with words that reinforced that these were notable
+experience a pleasant feeling about the application being           innovations. For instance, R2, not only recognized that the
+developed. After going through a process of user involvement        innovation would make ‘budgeting’ better, but was also
+throughout the development process, the user(s) are engaged in      ‘impressed’ in her assessment of the application. R3 even used
+a process of “story telling” about the presentation; features of    the words ‘very impressed’ and as well, recognized that the
+the presentation are also demonstrated and a presentation on the    application was ‘very innovative’; feedback, which to a
+application is also conducted. The feedback should not only         developed would sound very supportive of the effort. R4
+comprise pleasant feelings (notably D, F, P, S) as discovered in    actually recognized that the application was not only creative
+the priori analysis; but there should also be “good things” said    but also very creative as well.
+about the application, not only related to the features but also
+                                                                    The emotions and feedback expressed by R1, R2, R3, and R4
+the application as a whole. Table 2 captures sample feedback
+                                                                    may be subjective, but research has discovered that the process
+that was construed to point to some notable innovations that
+                                                                    of emotion is universal and that people that share concerns and
+were displayed by various groups.
+                                                                    ideas in an appraisal process may experience similar emotions to
+            Table 2 Realizing "Notable Innovations"                 a given issue [8]. In the cases above, the similar use of words to
+                                                                    express emotions after selecting similar emoticons in the
+Ref     Text: Excerpts                Discursive Analysis
+                                                                    Emocard provides clarity to this process, especially due to the
+R1      […]App will help people       Where all the selection       fact that the respondents were reacting to different applications
+        to learn how to draw; the     was pleasant emotions,        being made by different groups.
+        title draws in a person’s     the           respondents
+        attention; user friendly;     highlighted things that       4.2.2 Recognizing “Actionable Criticisms”
+        the ideas show in the app     were notable about the        In responses that were related to “Actionable Criticisms (Table
+        “spark”; want is satisfied.   innovation, reinforcing       3), the pleasant feelings that were expressed predominantly
+                                      the strong points of the      related to D, F & S (Table 1); while the written and oral
+                                      applications development      feedback was focused on what the application developers ought
+                                      process.                      to do to improve the mobile application.
+R2      I   am    very   impressed    Again, where all the
+
+
+
+
+                                                                                                                             137
+        Table 3 Recognizing "Actionable Criticisms"                    towards making the design better through the suggested
+                                                                       improvements.
+Ref     Text: Excerpts                 Discursive Analysis
+                                                                       Developers must therefore seek to recognize feedback and be in
+R5      […]If executed properly,       Where       there     were
+                                                                       a position to categorize such feelings accordingly. ‘Actionable
+        the application could be       actionable      comments,
+                                                                       Criticisms” are positive, thus the focus should be on how to
+        very efficient, successful     there were feelings of
+                                                                       adopt a positive approach to capturing feedback which is
+        and     helpful   to   the     desire,        fascination,
+                                                                       positive, that is, where users regard the innovation as creative
+        economy                        satisfaction, mild feelings
+                                                                       (using expressed pleasant feelings), but make suggestions for
+        -We need to make the app       (pleasant         surprise,
+                                                                       further improvement. The importance of positive feelings, as
+        accessible to poor people      amusement)
+                                                                       feedback has long been recognized by scholars and practitioners
+        as well
+                                                                       alike (see Luthans, 2002) and if applied effectively, can be used
+        -How do we plan to
+                                                                       to improve the systems development process.
+        generate revenue from the
+        application?
+R6      […] Make sure the idea is      Positive,      "actionable"     4.2.3 Recognizing “Negative Criticisms”
+        made appealing to all          criticism is linked to          Lack of originality is associated with applications that have
+        students. Provide extra        feelings      of      desire;   profound negative criticism (Table 4).
+        lines on the app that will     pleasant surprise and                    Table 4 Recognizing "Negative Criticisms"
+        enable      students    to     satisfaction, even though
+        recommend new meals to         there may be slight             Ref     Text: Excerpts           Discursive Analysis
+        be added on the menu.          feelings of fascination         R9      Some people may          There were situations where
+                                       and amusement.                          not afford the need      respondents indicated that they
+R7      Should              change     Emotions       of     desire,           […]. People who do       barely felt the emotion (desire,
+        downloading for free to        fascination, satisfaction               not have smart           fascination, amusement) and
+        avoid piracy. Avoid too        and slight feelings of                  phones will not          felt the negative emotions of
+        many things in the app         pleasant surprise and                   access it. Children      unpleasant       surprise     and
+        since it could ‘blue’ target   amusement            elicited           will want their needy    dissatisfaction.     In     such
+        market and hike cost.          feedback that could be                  parents to buy them      situations, the feedback was
+                                       construed to be positive                items    on     smart    largely "negative criticism".
+                                       or actionable.                          phones.
+R8      The app is clever, helpful,    Clear positive comments         R10     This application is      Feelings     of    desire    and
+        informative,    accessible     linked to emotions of                   not    unique.      It   satisfaction, coupled with mild
+        but not foolproof. Need to     fascination              and            sometimes has some       feelings      of     fascination,
+        solve the problem.             satisfaction, with mild                 mistakes and may         pleasant       surprise      and
+                                       emotions       of     desire,           contain viruses. It is   amusement resulted in some
+                                       pleasant            surprise            complicated       and    negative criticism of the
+                                       amusement.        However,              cannot             be    mobile application.
+                                       there was a question mark               understood easily.
+                                       about a feature of the          R11     This is a basic          Feelings associated with such
+                                       application, which could                application which is     applications   include     mild
+                                       be       indicative        of           not needed, but cool.    feelings of desire, fascination,
+                                       actionable criticism                    The contact section      satisfaction, boredom and
+                                                                               is not nice and it is    unpleasant surprise
+On the whole, when responses R5, R6, R7 and R8 are analyzed,                   not easy to use.
+what emerges is that the users are positive about the application      R12     It is going to take a    Where feelings of amusements,
+that has been developed, ‘save’ for improvements that need to                  long time uploading      mild (desire, pleasant surprise),
+be done for the innovation to be creative. For instance, R5                    the pictures of your     contempt and dissatisfaction
+opines that the application can be ‘very efficient” but it need to             own cloths. Requires     are     experienced,    negative
+be made more accessible and the developers to explore more                     a cell phone with a      criticism abound
+how they will generate revenue from the application. While the                 strong camera
+respondent voiced these suggested improvements, R5 still
+expressed strong pleasant feelings of desire, satisfaction and
+fascination, with some mild feelings of pleasant surprise and          The difference between “Actionable Criticisms” and “Negative
+amusement. This was similarly the case in R6, who required that        Criticism” is in terms of the feelings (either mild pleasant
+the application should be made more ‘appealing’ to the users, as       feelings or unpleasant feelings in negative criticisms) expressed
+well as to provide ‘extra lines on the app’; R7, who warned on         as well as the ‘negativity’ (in negative criticisms) of the
+allowing free downloads and limiting the quantity of ‘things’ in       criticisms. Responses R9 to R12 show that the expressed
+the app; while R8 sought to focus on making the app                    feelings are predominantly either mild pleasant feelings or
+‘foolproof’. All these suggested ‘actions’ were accompanied by         unpleasant feelings (Table 4). In addition, the written and oral
+pleasant feelings (mostly, D, S, F); which suggests that on the        feedback given expresses serious flaws in the design of the
+whole, the user feedback was supportive of the current                 mobile application, typically indicative of a major overall in the
+application and the focus of the developers should be geared           applications design. Thus the pointer is that the application is
+
+
+
+
+                                                                                                                                138
+not acceptable in its current state and cannot be considered to be    point to an infeasible solution; then the developers should focus
+creative or innovative.                                               on considering new possibilities all together.
+
+4.2.4 Reconsidering “New Possibilities”                               5. DISCUSSION OF FINDINGS
+The key to recognizing situations where users are questioning         The emphasis in the background of the study and in the
+the feasibility of the current application rests on feedback that     literature review was to link the notion of creativity in
+brings out unpleasant feelings and also raises several questions      innovations to emotional design. Part of the argument was that
+about the application (Table 5).                                      for a an innovative mobile application to be developed, user
+                                                                      involvement should be inclusive and should not be restricted to
+          Table 5 Reconsidering "New Possibilities"
+                                                                      the formal, rational approaches of requirements engineering
+Ref     Text: Excerpts               Discursive Analysis              only, but that feedback related to emotional feelings of users can
+R13     -Is it easy to understand    Many       questions      are    be instrumental in realizing effective mobile applications
+        for people new to its        associated     with     mild     design. The background was relevant for motivating for the
+        content?                     feelings      of     disgust,    need for evaluation of creative mobile innovations using
+        -Does it catch attention     unpleasant          surprise,    emotional design. We structure this section by first making
+        in its appearance?           dissatisfaction,    boredom      inferences from the analysis undertaken above and linking the
+        -Can it show me where        and positive feelings of         results to current literature. Secondly, implications of the
+        I can find students          fascination.                     research findings are discussed, taking into account possible
+        related needs?                                                influences to theory, practice and methods.
+        -Is it friendly for all                                       In this section, we structure the discussion of results around the
+        types of users?                                               concept of ‘emotional design’ in information systems
+R14     "Get more ways of            Feelings      of     disgust,    development (ISD) and its possible impact on limiting the
+        making the app eye           unpleasant          surprise,    effects of mis-information during the process of applications
+        catching, so that many       dissatisfaction and mild         development. An argument is also advanced for encouraging a
+        people can join the ap.      feelings of contempt and         partnership in between developers and users in ensuring creative
+        How are people going         boredom are associated           innovations are realized in mobile applications development.
+        to get their products        with comments that point
+        delivered to them?"          out the need for seeking
+                                     new possibilities for the        5.1 Emotional Design in Creative ISD
+                                     design                           The analyses conducted above and prior literature enables to
+R15     The implementation of        There are also situations        make the following claims: that for more applications
+        time slots will remain a     where the respondents felt       development to be more creative and innovative, emotional
+        persistent issue. If they    desire and fascination and       design should be part of the broader process of improving
+        were to implement this       to some extent, pleasant         requirements engineering (RE) in ISD. The RE problem, known
+        system at other campus       surprise, satisfaction and       to be a persistent contributor to IT project failures, have
+        restaurants, creating an     amusement.                       previously been considered as a rational, formal process; and its
+        entirely new system will                                      ontology has previously been shown to be inadequate and
+        cost a lot of money.                                          deficient in mapping what successful and effective RE process
+                                                                      is (see Jureta, Mylopoulos, & Faulkner, 2008). In their
+R16     The app sounds a lot like    A number of questions are        conceptualization of RE, Jureta, Mylopoulos, & Faulkner (2008)
+        the ClickUP system           raised when the emotion          show that RE should consider concerns of users such as beliefs,
+        already     implemented      felt is desire, satisfaction,    desires, intentions, and attitudes. The ability to communicate
+        (not original). […] Who      but with negative feelings       such concerns requires the emotional involvement of the
+        is the target audience,      of contempt, unpleasant          stakeholders and the analysis above, in a preliminary sense in
+        as the app seems busy        surprise with slight feelings    the context of South Africa, provides a basis for making a claim
+        with too many ideas          of boredom and contempt.         for incorporating emotional evaluation in the process of RE in
+        that don’t get together?
+                                                                      ISD.
+                                                                      This claim finds traction in recent literature. For instance,
+A majority of the responses that questioned the feasibility of the    considering that the process of evaluation in ISD involves
+application raised queries specific to the application, without       decision making at various stages (including RE), Morse [23]
+necessarily giving suggestions for further improvements.              links the process of decision making to powerful emotions such
+Samples of some of the questions raised are depicted in Table 5       as desire; that these emotions affect the choices that we make.
+by respondents R13 to R16. We see such scenarios, where               Obviously, in the interactive processes of making applications
+respondents provide “negative criticism” by raising questions         design choices between the developer and the user (and other
+related to the feasibility and logic of the innovation as a call to   stakeholders), the caveat for such influences of emotions would
+re-look and re-think the whole design concept. This may require       be for developers and other project leaders to consider ways of
+a totally new design or a redesign, whose objectives are not          ensuring emotional user involvement to ensure effective
+necessarily similar to earlier envisaged objectives. From an          designs. Using emotional designs in the process is by no means
+emotional design perspective, such evaluation should focus on         straightforward, rational or even easy; but the import of
+how the users respond; thus if their feelings are predominantly       emotions in decision making can also not be wished away, thus
+captured as unpleasant or mild, coupled with responses that           designers need to consider propositions that encourage the use
+                                                                      of emotional designs, complementary to other formal, logical
+
+
+
+
+                                                                                                                               139
+approaches typically used in RE. Therefore, the use of Emocard        co-developers: moving beyond the formality of participatory
+in this research and other approaches suggested by “Wow”              design towards user involvement that captures their values
+researchers ( see [10] while exploratory in nature, can be a          through their feelings and emotions. The study reported in this
+foundation for more exploration to ingrain emotional design in        study demonstrates that this is a perspective that needs to be
+ISD.                                                                  considered during the process of ISD.
+
+5.2 Limiting Misinformation Effect in ISD                             6. CONCLUSIONS
+We also make a claim based on an underlying principle linked          The present study has demonstrated that feelings in ISD can be
+to emotions: that the “misinformation effect” common in ISD           evaluated using visual artifacts such as the Emocard illustrated
+can be minimized in situations where emotional feedback is            throughout this paper. We make no claim to having extended
+genuine, for example in requirements engineering (RE)                 theory related to “wow” research but link our contribution,
+problems.. Literature recognizes that during the process of RE,       though in a preliminary sense, to creating awareness and
+analysts may introduce misinformation in their discussions with       advocating for research that should ground emotional forms of
+users [1]. Misinformation can also be introduced, when users do       design in processes of mobile applications development.
+not know what they want or when analysts are ‘over-confident’         Evaluation and our understanding of requirements engineering
+about their abilities to understand user needs and go forth with      processes can therefore be enriched by using emotional designs
+the development process with minimal consulation with the             to ensure the success of ISD projects. We believe that the
+users [24]. In relating the problem of misinformation effect to       theoretical perspective that elevates the role of feelings and
+our study, our interest is in how additional emotional                emotions in improving user involvement processes in ISD can
+engagement with users (and other stakeholders) througb various        impact positively by helping in reducing persistent failure in
+approaches can aid in mitigating the effects of the                   realizing IT project objectives. It is important to realize that in
+misinformation effect. The question is: How can emotional             no way are we belittling the formal and rational approaches of
+design be used to minimize the effect of misinformation?              RE, but rather are advocating for additionally considering
+                                                                      emotional evaluation as part of the repertoire of the process of
+First, and based on other studies that have been done,
+                                                                      RE.
+misinformation is exacerbated where there is mistrust
+(intentional or unintentional); yet research confirms that proper     We make some tentative implications related to theory, practice
+application and recognition of emotions can be instrumental in        and methodology. The theoretical implication, which we may
+building trust, strengthening relationships, focusing energy,         characterize as a call for action in IS research is that the use of
+making trade-offs and learning from failure [30]. Further, that       emotional design in ISD should be of greater focus for IS
+emotions and feelings are essential to the intuitive ability of       researchers. The research reported in this study has
+human beings to make good judgment [15], either as analyst or         demonstrated the efficacy of using emotional and visual
+as users. So, while Kabaale, Kituyi, & Mbarika [18] question          approaches such as the use of the Emocard instrument in RE.
+the ‘practicality’ of the RE process itself, we see deeper            Our engagement with the research in this domain contributes to
+emotional engagement as a means to bridging the ‘chasm’               the continuing accumulation knowledge about ICT practices in
+between users and analysts, which may help in reducing                developing countries; which aid in extending and validating
+misinformation in RE. Thus, software development processes            theory based on different contexts. Of course we recognize that
+that encourage the use of and recognize the role of emotions in       this is an exploratory study, but nevertheless as a starting point
+providing feedback are likely to impact positively in creation of     for calling on IS researchers to start engaging with their
+innovative applications.                                              ‘feelings’ more in order to advance the theory of user
+                                                                      involvement in RE process.
+For instance, in this study, a likely scenario where users either
+provide negative criticism (Table 4) or question the feasibility      From a methodological and context perspective, our use of
+of the application (Table 5) would be for the analysts to react by    action research procedures, though not unique to this study, has
+misinforming stakeholders. The proposition being made is that         afforded us an opportunity as researchers to ‘test’ interventions
+with emotional engagement, either trust is built, or; analysts will   in a context that we can classify as overwhelming. We say this
+increasingly become aware of how to react to situations where         since the study was undertaken in an experimental context that
+stakeholders express negative criticism or question the logic or      required administering and evaluating the effectiveness of a
+the feasibility of the application. David & Congleton [7] regard      visual research instrument to over 1800 student of a large
+this as a process of emotional agility, in which analysts learn to    educational institution in South Africa. The success and the
+effectively manage the negative thoughts and feelings, but with       lessons arising therefore may be useful for the research in and
+the intention ‘turning around’ the negative feelings for an           teaching of design-based modules in contexts where large
+effective software development process. In this sense, we             groups of respondents form part of the experiment.
+therefore see emotional design as playing a critical role in
+minimizing misinformation in ISD.
+                                                                      7. ACKNOWLEDGMENTS
+                                                                      Our thanks go to Nelisiwe Nkosi and Thomas Dyzel for their
+5.3 Emotional User Involvement for                                    research assistance.
+Creative Innovations
+The third claim we make is that users in ISD should be                8. REFERENCES
+considered as co-developers of applications in order to realize       [1] Appan, R., & Browne, G. J. (2012). The impact of analyst-
+true creativity and innovativeness. This is not a new claim, but          induced misinformation on the requirements elicitation
+we simply seek to expand the repertoire of what it means to be            process. MIS Quarterly, 36(1), 85-106.
+
+
+
+
+                                                                                                                                140
+[2] Arkhipenkov, S. (2012). Thinking About Programming:            [18] Kabaale, E., Kituyi, M., & Mbarika, I. (2014).
+    From Aristotle to Wittgenstein. Software Engineering                Requirements Engineering Process Improvement
+    Conference in Russia. Moscow.                                       Challenges faced by Software SMEs in Uganda.
+[3] Beck, K., & Andres, C. (2004). Extreme programming                  International Journal of Computer Applications, 88(5), 20-
+    explained: embrace change. Addison-Wesley Professional.             25.
+
+[4] Boud, D., & Walker, D. (1990). Making the most of              [19] Kamil, M. J., & Abidin, S. Z. (2013). Unconscious Human
+    experience. Studies in Continuing Education, 12(2), 61-80.          Behavior at Visceral Level of Emotional Design. Procedia-
+                                                                        Social and Behavioral Sciences, 105, pp. 149-161.
+[5] Braun, V., & Clarke, V. (2006). Using thematic analysis in
+    psychology. Qualitative research in psychology, 3(2), 77-      [20] Lazarus, R. S. (1991). Emotion and adaptation. Oxford
+    101.                                                                University Press.
+
+[6] Csikszentmihalyi, M. (1999). Implications of a systems         [21] Luthans, F. (2002). Positive organizational behavior:
+    perspective for the study of creativity. In M.                      Developing and managing psychological strengths. The
+    Csikszentmihalyi, Handbook of Creativity (pp. 313-335).             Academy of Management Executive, 16(1), 57-72.
+    New York: Cambridge University Press.                          [22] Mann, D. (2002). Design for wow; an exciter hypothesis.
+[7] David, S., & Congleton, C. (2014). Emotional Agility.               Retrieved 06 08, 2014, from http://www.triz-journal.com
+    Harvard Business Review, pp. 88-93.                            [23] Morse, G. (2014). Decisions and Desire. Harvard Business
+[8] Desmet , P., & Hassenzahl, M. (2012). Towards happiness:            Review, pp. 72-79.
+    Possibility-driven design. In Human-computer interaction:      [24] Naidoo, R. (2012). ‘Simply the best!’, How should e-
+    The agency perspective (pp. 3-27). Springer Berlin                  leaders manage overconfidence among IT professionals?.
+    Heidelberg.                                                         Sustainable e-Government and e-Business Innovations (E-
+[9] Desmet, P. M., & Pohlmeyer, A. E. (2013). Positive                  LEADERSHIP) 2012 e-Leadership Conference (pp. 1-9).
+    design: An introduction to design for subjective well-being.        IEEE.
+    International Journal of Design, 7(3), 5-19.                   [25] Norman, D. A. (2007). Emotional design: Why we love (or
+[10] Desmet, P., Porcelijn, R., & Van Dijk, M. B. (2007).               hate) everyday things. Basic books.
+     Emotional Design; Application of a research-based design      [26] Olsson, T., & Salo, M. (2012). Narratives of satisfying and
+     approach. Knowledge, Technology & Policy, 20(3), 141-              unsatisfying experiences of current mobile augmented
+     155.                                                               reality applications. ACM annual conference on Human
+[11] Dorst, K., & Cross, N. (2001). Creativity in the design            Factors in Computing Systems (pp. 2779-2788). ACM.
+     process: co-evolution of problem–solution. . Design           [27] Pyshkin, E. (2014). In the right order of brush strokes: a
+     studies, 22(5), 425-437.                                           sketch of a software philosophy retrospective.
+[12] Gruner, S. (2011). Problems for a philosophy of software           SpringerPlus, 3(1), 1-6.
+     engineering. . Minds and Machines, 22(2), 275-299.            [28] Rowe, P. G. (1991). Design thinking. MIT press.
+[13] Hartwick, J., & Barki, H. (1994). Explaining the role of      [29] Sawyer, K. R. (2012). Explaining Creativity: The Science
+     user participation in information system use. Management           of Innovation. New York: Oxford University Press.
+     science, 40(4), 440-465.                                      [30] Sundheim, D. (2014). Good Leaders Get Emotional.
+[14] Hassenzah, M., & Tractinsky , N. (2006). User experience-          Harvard Business Review, pp. 9-12.
+     a research agenda. Behaviour & Information Technology,        [31] Terninko, J. (1995). Step by step QFD: Customer driven
+     25(2), 91-97.                                                      product design. Boca Raton, Florida: CRC.
+[15] Hayashi, A. M. (2014). When to Trust Your Gut. Harvard        [32] Tractinsky, N. (1997). Aesthetics and apparent usability:
+     Business Review, pp. 80-87.                                        empirically assessing cultural and methodological issues.
+[16] Henfridsson, 0., & Lindgren, R. (2010). User involvement           ACM SIGCHI Conference on Human factors in computing
+     in developing mobile and temporarily interconnected                systems. (pp. 115-122). ACM.
+     systems. Information Systems Journal, 20(2), 119-135.         [33] Tractinsky, N. (2004). A few notes on the study of beauty
+[17] Jureta, I. J., Mylopoulos, J., & Faulkner, S. (2008).              in HCI. Human–Computer Interaction, 19(4), 351-357.
+     Revisiting the core ontology and problem in requirements      [34] Tractinsky, N., Katz, A. S., & Ikar, D. (2000). What is
+     engineering. 16th IEEE International Requirements                  beautiful is usable. Interacting with computers, 13(2), 127-
+     Engineering. IEEE.                                                 145.
+
+
+
+
+                                                                                                                            141
+

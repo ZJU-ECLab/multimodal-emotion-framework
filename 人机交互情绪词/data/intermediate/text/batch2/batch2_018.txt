@@ -1,0 +1,266 @@
+Assistive Technology for Older Adults: Psychological and
+          Socio-Emotional Design Requirements
+                          Aimée K. Bright                                                           Lynne Coventry
+                           PaCT Lab                                                                  PaCT Lab
+                    Northumbria University                                                    Northumbria University
+                 Newcastle-upon-Tyne, NE1 8ST                                              Newcastle-upon-Tyne, NE1 8ST
+                      +44 191 243 3723                                                          +44 191 227 7772
+            aimee.bright@northumbria.ac.uk                                           lynne.coventry@northumbria.ac.uk
+
+ABSTRACT                                                                       precise definition of mobility can vary depending upon discipline,
+                                                                               however, we will follow Satariano and colleagues [3] in
+The EU-funded multi-disciplinary DALi (Devices for Assisted                    conceptualizing mobility as people’s ability to safely and reliably
+Living) project aims to develop a semi-autonomous, intelligent                 negotiate their environment, whenever and however they want.
+mobility aid for older adults, which supports navigation in
+                                                                               Loss of mobility as a consequence of any of the above illnesses
+crowded and unstructured environments. We demonstrate the
+                                                                               puts older adults at an increased risk of social isolation and lower
+necessity to consider hitherto underexplored user-inclusive
+                                                                               levels of physical activity [4]. Decreases in physical exercise and
+requirements which address psychological and socio-emotional
+                                                                               social engagement in turn can lead to rapid deterioration in
+needs of users. Using a qualitative methodology, including focus
+                                                                               physical and mental health, with negative consequences for
+groups and interviews, our results showed that the design of the
+                                                                               functional abilities of daily living, perceived well-being and
+intelligent walker for older adults has to address issues of
+                                                                               quality of life [5]. Thus, developing early and effective
+anticipated or experienced socio-emotional and psychological
+                                                                               interventions is of paramount importance to ensure that older
+costs, including self-consciousness, pride, embarrassment, fear of
+                                                                               adults can live an independent and fulfilled life.
+being stigmatised and not wanting to admit a need. We suggest
+potential design strategies to increase emotional benefits and                 With great advances in computing power and design
+reduce psychological and emotional costs associated with use of                sophistication, intelligent assistive devices offer huge potential for
+assistive technology, thus facilitating product adoption.                      replacing or complementing more resource- and time intensive
+                                                                               interventions [6]. The overall aim of the EU-funded multi-
+Categories and Subject Descriptors                                             disciplinary DALi (Devices for Assisted Living) project [7] is to
+                                                                               develop a semi-autonomous, intelligent mobility aid for older
+H5.2 Information interfaces and presentation: evaluation                       adults that can support navigation in unstructured and public
+methodology, theory and methods, user-centred design.                          urban places such as shopping malls, airports and hospitals. One
+                                                                               objective of the DALi project is to closely involve target users in
+General Terms                                                                  the design process, with the goal of developing a device whose
+Human Factors
+                                                                               design supports functional needs. However, one of the major
+Keywords                                                                       caveats for any project which aims to develop assistive devices for
+Older adults, user-centred design.                                             older adults is ensuring that the final product will be adopted by
+                                                                               intended users.
+1. INTRODUCTION                                                                Research has identified a multitude of factors that hinder older
+We live in an aging population. The World Health Organization                  adults’ acceptance of assistive technology. For example,
+predicts that by 2050, there will be approximately 2 billion people            Melenhorst et al [8] claim that adults will only invest time and
+aged 60 years and over and the proportion of adults over 80 will               resources in adopting new technology if they can see a clear
+quadruple. [1]. Evidence suggests that whilst people might have a              benefit for themselves. However, a more fundamental issue might
+longer life expectancy, they are spending much of this time trying             revolve around perceived negative socio-emotional consequences
+to cope with increasing levels of disability [2]. Increasing age is            of using assistive aids. Substantial evidence suggests that people
+associated with a rise in non-communicable diseases, such as                   often hold a negative view towards assistive technology, and can
+hearing and vision loss, osteoarthritis, memory problems, mobility             be reluctant to adopt technology that is clearly designed to
+impairments and general frailty. Thus, one of the major challenges             compensate for functional loss [9].
+will be how to keep older adults independently mobile. The
+                                                                               Sanders suggests that new products should be useful, useable and
+ Permission to make digital or hard copies of all or part of this work for
+                                                                               desirable [10]. Great advances have been made to ensure that new
+ personal or classroom use is granted without fee provided that copies are     assistive technology meets the first two criteria. Unfortunately,
+ not made or distributed for profit or commercial advantage and that           this often comes at the cost of desirability, with devices frequently
+ copies bear this notice and the full citation on the first page. Copyrights   activating negative associations with disability and declines in
+ for components of this work owned by others than ACM must be                  health and cognitive abilities. Although some progress has been
+ honored. Abstracting with credit is permitted. To copy otherwise, or          made in acknowledging the importance of social and emotional
+ republish, to post on servers or to redistribute to lists, requires prior     design requirements [11], there is a continued reluctance to place
+ specific permission and/or a fee. Request permissions from                    equal importance on desirability, usefulness and usability [12].
+ Permissions@acm.org.
+ PETRA '13, May 29 - 31 2013, Island of Rhodes, Greece                         In this context, socio-emotional selectivity theory [13] might offer
+ Copyright 2013 ACM 978-1-4503-1973-7/13/05…$15.00.                            some crucial insights into why desirability should be given more
+ http://dx.doi.org/10.1145/2504335.2504344
+consideration; compared to younger adults, older adults are more         Three technology tea parties (two groups of 6 participants and
+focused on achieving emotional goals, which manifests itself as an      one group of 7 participants) were carried out in the North East of
+attentional and memory bias towards seeking positive and                England with older adults aged 67 – 86. Around two thirds of
+avoiding negative information. If assistive aids activate negative      these participants experienced some kind of mobility problems. 5
+emotions through their association with ageist stereotypes, older       participants used a single walking aid (e.g. walking stick) and 5
+adults might prefer to avoid their use despite their perceived          participants used multiple assistive devices (e.g. stair lift, rollator,
+usefulness. Thus, the challenge for designers is to maximize            wheelchair).
+usability and usefulness, without negatively impinging upon older       The tea parties involve some initial informal and unstructured
+adults’ psychological and socio-emotional needs for social              discussion. Participants are then confronted with the technology
+acceptance, belonging and self-esteem [14]. For older adults,           probes (different designs of walking aids) and are given the
+desirability of new assistive technology must be seen on par with       opportunity to test them. This is followed by further discussion
+usefulness and usability, as from a subjective point of view, it        over tea and cakes. In this informal and supportive setting,
+addresses an equally important need.                                    participants are more open and willing to disclose their true
+2. APPROACH                                                             feelings towards the assistive devices, rather than responding in a
+To understand how psychological and socio-emotional factors can         socially desirable way. All tea parties were tape-recorded for later
+influence people’s attitudes towards assistive technology for           transcription.
+increasing mobility, we used a qualitative approach, including          Carer Focus Groups
+technology tea parties, semi-structured interviews, focus groups
+                                                                        Two focus groups were carried out with 7 carers (one group with
+and individual observations. The goal was to elicit more
+                                                                        3 participants and one group with 4 participants). They cared for
+emotionally neutral, technologically-orientated user requirements
+                                                                        family members (e.g. spouse or parent) with age-related illnesses
+for the DALi project, and in the process brace the topic of more
+                                                                        such as dementia and mobility impairments. Focus groups were
+sensitive socio-emotional design requirements. We included both         tape-recorded for later transcription.
+target users as well as carers, in order to get a broad insight into
+attitudes towards mobility assistive technology. The advantage of       Observation studies and semi-structured interviews
+using a mixture of qualitative techniques is that it can offer a more   During the observation studies, the researcher individually
+in-depth insight into an issue, rather than simply examining the        accompanied 6 older adults (age range: 71 – 86 years) whilst they
+frequency of different opinions [15]. It also gives the researcher      engaged in an activity outside the home. The researcher arranged
+an “insider” view, offering a more valid description of people’s        a mutually convenient time for her to meet the participant at their
+experiences than could be achieved by simply presenting them            home to embark on the activity. Activities of choice were
+with pre-defined ideas and asking for an evaluation. It is also         shopping, engaging in a social activity or going to a fitness class.
+useful when the subject matter is of a sensitive nature, or when        The participants differed in their level of mobility, ranging from
+people are likely to respond in a socially desirable manner in a        completely mobile, to using a rollator or needing personal
+more formal questionnaire. Finally, this methodology is also well-      assistance.
+suited for seeking a targeted perspective [16].
+                                                                        During this activity, the research recorded any noteworthy events,
+The research cycled through four phases: In phase 1, we used            such as difficulties crossing a road, not being able to open a heavy
+technology tea parties to elicit general user requirements. During      door etc. This was followed by a semi-structured interview over
+data coding, we identified preliminary psychological and socio-         coffee in which participants were asked about a) their feelings
+emotional factors involved in the use of assistive technology. This     towards any noteworthy events that occurred during the preceding
+was followed up in phase 2 by collecting data from a more diverse       activity, b) their general thoughts on out-of-home activities and c)
+sample, including informal carers. When further focus groups no         their attitudes towards mobility aids. Interviews were tape-
+longer added to the findings, the research progressed to the third      recorded and later transcribed.
+phase - observing target users in their own environments and
+carrying out semi-structured interviews. This was used to refine        2.2 Findings
+the initial coding of psychological and socio-emotional needs.          Voice recordings from interviews and focus groups were
+Finally, in phase 4 the identified socio-emotional needs were           transcribed and coded using NVivo9.0. Thematic analysis [19]
+translated into design requirements.                                    was used to generate insights into people’s emotions regarding the
+                                                                        actual or anticipated use of mobility aids. First, the data was read
+2.1 Method                                                              and any references to people’s feelings or emotions towards
+Our qualitative method of data collection involved the use of           assistive technologies were highlighted. This included both direct
+several complementary techniques that have been fruitful in             references to the use of walking aids (“we don’t like to admit the
+eliciting user requirements with a focus on the social context [17].    need for it”) and more indirect references from which a negative
+Data collection was an iterative process, meaning that further          emotion could be inferred (“I would only use a walker over my
+participants were recruited according to the emerging data. This        dead body”).
+continued until saturation was reached, that is, selecting further
+participants did not lead to further new insights. All participants     Two clear themes emerged with regards to the emotions involved
+gave their informed consent and the studies were approved by the        in the use of assistive technology to increase mobility. One had a
+Northumbria University ethics committee.                                positive valance, capturing some of the perceived or experienced
+                                                                        emotional benefits of using a walking aid. The other theme had a
+Technology Tea Parties                                                  clear negative valence, and addressed the psychological and
+Tea parties are an adaptation to more conventional focus groups         socio-emotional costs of walking aid use.
+which make use of technology probes. The goal is to identify user       As can be seen from table 1, positive emotions were usually the
+requirements and highlight aspects which could lead to user             result of actual experience with assistive walkers. As a previously
+rejection of the new technology [18].                                   housebound participant mentioned, adopting a walking aid had
+                                                                        given her “a new lease of life”. Many people also believed that
+appropriate assistive technology could increase confidence,               3. User Requirements Translation
+especially if it circumvented the risk of falls or accidents (“…they      Involving users in the early stages of product development has
+gave me a feeling of security. Because it was shortly after I had         many advantages, from reducing costly design errors, to
+my falls”).                                                               facilitating the adoption of new products [20]. Eliciting useful
+Participants mentioned a number of negative feelings and                  user requirements is challenging enough for physical or functional
+thoughts that reflected socio-emotional and psychological costs of        design features [17]; however, this task presents an even bigger
+using mobility assistive devices. Many were unwilling to                  challenge when looking at socio-emotional design requirements.
+contemplate the use of assistive devices, as it gave them a sense of      Thus, rather than asking participants directly, we inferred user
+defeat and inevitable decline. This often translated into a denial of     requirements based on the themes identified in our focus groups,
+need, despite the obvious benefits the adoption of assistive              technology tea parties, ethnographic studies and interviews.
+devices would have on their mobility levels and independence.             Our design guidelines focus specifically on avoiding the
+This issue was especially apparent when talking to carers of              elicitation of negative age stereotypes and the resulting reluctance
+elderly people (“we have talked about it [using a mobility aid], but      to engage with novel assistive technology. In table 2 we make
+she doesn’t think she really needs one”). Denying a need seemed           some suggestions how design features of assistive technology can
+to be linked to a sense of pride, with people not wanting to show         be aligned with older adults psychological and socio-emotional
+weakness (“…Pride, I think it’s pride. I wouldn’t even use a              needs.
+walking stick”).
+Another salient emotion that seemed to accompany the public use           Table 2: Psychological and Socio-Emotional User
+of mobility assistive technology was a feeling of embarrassment,          Requirements: Some Preliminary Design Guidelines
+closely linked to the concept of self-consciousness (“I felt as
+though everybody was looking at me…”). Thus, people felt that             Specific Design Requirement             Design Justification
+mobility assistive technology clearly drew attention to their age
+and disability.                                                           Aesthetic Design Features
+There was also a widespread fear of being stigmatized with people            Minimize external design             Avoids automatic activation
+frequently referring to the idea that it is a visible sign of aging and      overlap between current              of ageist stereotypes that are
+disability (“They think because you're in a wheelchair you're                traditional medical designs          associated with assistive
+stupid or you're deaf and dumb...”). With negative ageist                    and new assistive                    devices
+stereotypes rife in Western society, the use of assistive technology         technologies
+that pigeonholes individuals into this category is likely to be
+avoided if possible.                                                         Talking-point based design to        Provides emotional benefits
+                                                                             elicit curiosity, early adoption     through social interaction
+Table 1: Emotional Responses to Use of Mobility Assistive                    and interest as opposed to           and acceptance
+Technology                                                                   functional forms associated
+                                                                             with medical need
+Theme: Emotional Benefits                                                    Personalization options              Sense of ownership and
+   Safety                                                                                                         personal significance can
+   Mobility aids can improve sense of safety and reduce fear of                                                   increase positive
+   falling                                                                                                        identification with user group
+
+   Confidence                                                             Aligning Usefulness and Useability with Desirability
+   Mobility aid use can renew confidence and contribute to a
+   belief in mastery                                                         Covert technological               User feels less disabled and
+                                                                             capability to minimize             “needy”
+Theme: Socio-Emotional and Psychological Costs                               perception of assistive
+                                                                             nature
+   Denying a need
+   Reluctance to admit that mobility decline could necessitate use           Provide diversionary               Attention is drawn away from
+   of assistive technology and admitting disability                          features                           “stigmatizing” features that
+   Pride                                                                                                        signal disability and cognitive
+   Use of assistive mobility aids can feel undignified and impact                                               decline
+   on self-esteem                                                            Design emphasizing                 Draws attention to the benefits
+   Embarrassment                                                             transformative potential           and usefulness and reduces
+   Older adults can experience a sense of shame and                          rather than mechanical             perceived psychological costs
+   displacement when using assistive aids                                    features                           of assistive device use
+
+   Self-Consciousness                                                        Design that activates              Associations with health and
+   Mobility aid use raises levels of self-awareness, leading to a            “counter-stereotype”               vitality boost self-esteem and
+   pre-occupation with other people’s negative viewpoints                                                       facilitate acceptance of new
+                                                                                                                assistive technology
+   Fear of Stigmatization
+   Concern that use of mobility aid activates ageist attitudes and
+   elicits negative reactions
+4. DISCUSSION                                                            6. REFERENCES
+Assistive technology for older adults has the immediate purpose          [1]    World Health Organization: 10 facts on ageing and the
+of increasing independence and allowing mastery of everyday                     life course. www.who.int/features/factfiles/ageing
+activities, with more distal benefits for well-being. However,           [2]    Metz, DH. Mobility of older people and their quality of
+despite great advances in the sophistication of assistive                       life. Transport Policy, 2000; 7(2): p. 149-152.
+technologies, they have yet to fulfil their promise of promoting a       [3]    Satariano, WA, Guralnik, JM, Jackson, et al. Mobility and
+better quality of life in older adults [11]. One reason we have                 Aging: New Directions for Public Health Action.
+identified is that while many assistive devices may have great                  American Journal of Public Health, 2012; 102(8): 1508-
+functional benefits, their use often conflicts with older adults’        [4]    Shumway-Cook, A, Ciol, MA, Yorkston,K, et al. Mobility
+psychological and socio-emotional needs. This often leads to                    limitations in the Medicare population. Journal of the
+complete abandonment of the technology, or a decrease in the                    American Geriatrics Society, 2005; 53(7): p. 1217-122
+frequency with which older adults will engage in tasks for which         [5]    Groessl, EJ, et al. Health-related quality of life in older
+they are forced to make use of assistive technology. The irony is               adults at risk for disability. American Journal of
+that by avoiding the use of certain assistive technology in order to            Preventive Medicine, 2007; 33(3): p. 214 -218.
+protect immediate emotional well-being, older adults often               [6]    Agree, EM and Freedman, VA. Incorporating Assistive
+compromise on long-term well-being through a decline in their                   Devices into Community-Based Long-Term Care: An
+ability to accomplish activities of daily life. Thus, one objective of          Analysis of the Potential for Substitution and
+user-centred inclusive design for assistive technology has to be on             Supplementation. Journal of Aging and Health, 2000;
+reaching alignment between meeting psychological/socio-                         12(3): p. 426-450
+emotional needs and functional needs.                                    [7]    Devices for Assisted Living. 2012. Available from:
+The DALi project aims to develop a semi-autonomous walker that                  http://www.ict-dali.eu/dali
+increases people’s ability to remain independent in unstructured         [8]    Melenhorst AS, Rogers WA,Bouwhuis DG. Older adults'
+environments and engage in low-level physical activity.                         motivated choice for technological innovation: Evidence
+However, our initial user requirements gathering sessions                       for benefit-driven selectivity. Psychology and Aging.
+highlighted that many adults are reluctant to consider the use of an            2006; 21(1): 190-195.
+“intelligent” walker, as it frequently elicits associations with         [9]    Brooks, N.A. (1991). User's responses to assistive devices
+negative ageist stereotypes. Within this context of assistive                   for physical disability. Social Science & Medicine, 32(12),
+mobility aids, we have identified several important psychological               1417-1424.
+and socio-emotional factors that play a role when people use or          [10]   Sanders, EBN. Converging perspectives: Product
+anticipate the adoption of assistive technology. On this basis, we              development research for the 1990s. Design Management
+have delineated some design guidelines that try to accommodate                  Journal, 1992; 3(4): p. 49-54.
+these psychological and socio-emotional requirements. These can          [11]   Hirsch, T., et al. The ELDer project: social, emotional,
+easily be extrapolated to other assistive technologies for older                and environmental factors in the design of eldercare
+adults.                                                                         technologies. Proceedings on the 2000 conference on
+                                                                                Universal Usability. 2000. ACM
+It is important to note that our design requirement                      [12]   Traetinski, N. Aesthetics and Apparent Usability:
+recommendations go beyond mere aesthetics and the debate on                     Empirically Assessing Cultural and Methodological
+whether design looks are the antithesis to usability [21]. The                  Issues. In Proceedings of the ACM Conference on Human
+crucial aspect is the psychological and socio-emotional                         Factors in Computing Systems, 1997: pp. 115-122
+implications of certain design features. For example, older adults       [13]   Mather, M and Carstensen, LL. Aging and motivated
+might refuse to use assistive technology to aid mobility, but will              cognition: the positivity effect in attention and memory.
+contently use a common shopping trolley (which cannot be                        Trends in Cognitive Sciences, 2005. 9(10): p. 496-502.
+considered aesthetically appealing) as a covert walking aid. The         [14]   Maslow, A. Motivation and personality. 1956; New York:
+critical point is that shopping trolleys are not socially sanctioned            Harper
+with stigma, activating ageist stereotypes of disability, physical       [15]   Glaser, BG and Strauss, AL Grounded Theory, 1998: Hub
+and cognitive decline.                                                   [16]   Cresswell, JA. Research design: qualitative, quantitative
+                                                                                and mixed methods approaches, 2002: London: Sage
+                                                                         [17]    Kujala, S. Effective user involvement in product
+5. CONCLUSIONS                                                                  development by improving the analysis of user needs.
+The goal of this paper was to highlight the importance of                       Behaviour and Information Technology, 2008; 22: p. 457-
+considering both psychological and socio-emotional design                [18]   Coventry, L and Jones, E. The role of tea parties to elicit
+requirements when creating new assistive technology for older                   technology requirements to support the mobility of older
+adults. Using the example of the DALi project, which aims to                    adults. The 5th International Conference on Pervasive
+develop an “intelligent walker to facilitate independent mobility in            Technologies Related to Assistive Environments (PETRA);
+unstructured environments, we showed that adoption and                   [19]   Boyatzis, RE. Transforming qualitative information:
+evaluation is likely to be influenced by aspects beyond mere                    Thematic analysis and code development. Thousand Oaks,
+usability and usefulness. The extent to which it delivers emotional             California: Sage. 1998.
+benefits and reduces psychological and socio-emotional cost is of        [20]   Damodran, L. User invovement in the systems design
+equal importance. Future work will concentrate on how these                     process. Behaviour & Information Technology. 1996;
+guidelines can be implemented with assistive technology.                        15(6): 363-377
+                                                                         [21]   Norman, D. The Psychology of Everyday Things. NY:
+                                                                                Basic Book.
+
